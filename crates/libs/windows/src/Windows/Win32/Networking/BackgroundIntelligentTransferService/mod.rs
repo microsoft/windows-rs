@@ -1921,16 +1921,11 @@ impl core::fmt::Debug for GROUPPROP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BG_AUTH_CREDENTIALS {
     pub Target: BG_AUTH_TARGET,
     pub Scheme: BG_AUTH_SCHEME,
     pub Credentials: BG_AUTH_CREDENTIALS_UNION,
-}
-impl Copy for BG_AUTH_CREDENTIALS {}
-impl Clone for BG_AUTH_CREDENTIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BG_AUTH_CREDENTIALS {
     type TypeKind = windows_core::CopyType;
@@ -1941,14 +1936,9 @@ impl Default for BG_AUTH_CREDENTIALS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BG_AUTH_CREDENTIALS_UNION {
     pub Basic: BG_BASIC_CREDENTIALS,
-}
-impl Copy for BG_AUTH_CREDENTIALS_UNION {}
-impl Clone for BG_AUTH_CREDENTIALS_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BG_AUTH_CREDENTIALS_UNION {
     type TypeKind = windows_core::CopyType;
@@ -1959,214 +1949,102 @@ impl Default for BG_AUTH_CREDENTIALS_UNION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_BASIC_CREDENTIALS {
     pub UserName: windows_core::PWSTR,
     pub Password: windows_core::PWSTR,
 }
-impl Copy for BG_BASIC_CREDENTIALS {}
-impl Clone for BG_BASIC_CREDENTIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_BASIC_CREDENTIALS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_BASIC_CREDENTIALS").field("UserName", &self.UserName).field("Password", &self.Password).finish()
-    }
-}
 impl windows_core::TypeKind for BG_BASIC_CREDENTIALS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_BASIC_CREDENTIALS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserName == other.UserName && self.Password == other.Password
-    }
-}
-impl Eq for BG_BASIC_CREDENTIALS {}
 impl Default for BG_BASIC_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_FILE_INFO {
     pub RemoteName: windows_core::PWSTR,
     pub LocalName: windows_core::PWSTR,
 }
-impl Copy for BG_FILE_INFO {}
-impl Clone for BG_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_FILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_FILE_INFO").field("RemoteName", &self.RemoteName).field("LocalName", &self.LocalName).finish()
-    }
-}
 impl windows_core::TypeKind for BG_FILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_FILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.RemoteName == other.RemoteName && self.LocalName == other.LocalName
-    }
-}
-impl Eq for BG_FILE_INFO {}
 impl Default for BG_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_FILE_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
     pub Completed: super::super::Foundation::BOOL,
 }
-impl Copy for BG_FILE_PROGRESS {}
-impl Clone for BG_FILE_PROGRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_FILE_PROGRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_FILE_PROGRESS").field("BytesTotal", &self.BytesTotal).field("BytesTransferred", &self.BytesTransferred).field("Completed", &self.Completed).finish()
-    }
-}
 impl windows_core::TypeKind for BG_FILE_PROGRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_FILE_PROGRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesTotal == other.BytesTotal && self.BytesTransferred == other.BytesTransferred && self.Completed == other.Completed
-    }
-}
-impl Eq for BG_FILE_PROGRESS {}
 impl Default for BG_FILE_PROGRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_FILE_RANGE {
     pub InitialOffset: u64,
     pub Length: u64,
 }
-impl Copy for BG_FILE_RANGE {}
-impl Clone for BG_FILE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_FILE_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_FILE_RANGE").field("InitialOffset", &self.InitialOffset).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for BG_FILE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_FILE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialOffset == other.InitialOffset && self.Length == other.Length
-    }
-}
-impl Eq for BG_FILE_RANGE {}
 impl Default for BG_FILE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_JOB_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
     pub FilesTotal: u32,
     pub FilesTransferred: u32,
 }
-impl Copy for BG_JOB_PROGRESS {}
-impl Clone for BG_JOB_PROGRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_JOB_PROGRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_JOB_PROGRESS").field("BytesTotal", &self.BytesTotal).field("BytesTransferred", &self.BytesTransferred).field("FilesTotal", &self.FilesTotal).field("FilesTransferred", &self.FilesTransferred).finish()
-    }
-}
 impl windows_core::TypeKind for BG_JOB_PROGRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_JOB_PROGRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesTotal == other.BytesTotal && self.BytesTransferred == other.BytesTransferred && self.FilesTotal == other.FilesTotal && self.FilesTransferred == other.FilesTransferred
-    }
-}
-impl Eq for BG_JOB_PROGRESS {}
 impl Default for BG_JOB_PROGRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_JOB_REPLY_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
 }
-impl Copy for BG_JOB_REPLY_PROGRESS {}
-impl Clone for BG_JOB_REPLY_PROGRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_JOB_REPLY_PROGRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_JOB_REPLY_PROGRESS").field("BytesTotal", &self.BytesTotal).field("BytesTransferred", &self.BytesTransferred).finish()
-    }
-}
 impl windows_core::TypeKind for BG_JOB_REPLY_PROGRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_JOB_REPLY_PROGRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesTotal == other.BytesTotal && self.BytesTransferred == other.BytesTransferred
-    }
-}
-impl Eq for BG_JOB_REPLY_PROGRESS {}
 impl Default for BG_JOB_REPLY_PROGRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::super::Foundation::FILETIME,
     pub ModificationTime: super::super::Foundation::FILETIME,
     pub TransferCompletionTime: super::super::Foundation::FILETIME,
 }
-impl Copy for BG_JOB_TIMES {}
-impl Clone for BG_JOB_TIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BG_JOB_TIMES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BG_JOB_TIMES").field("CreationTime", &self.CreationTime).field("ModificationTime", &self.ModificationTime).field("TransferCompletionTime", &self.TransferCompletionTime).finish()
-    }
-}
 impl windows_core::TypeKind for BG_JOB_TIMES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BG_JOB_TIMES {
-    fn eq(&self, other: &Self) -> bool {
-        self.CreationTime == other.CreationTime && self.ModificationTime == other.ModificationTime && self.TransferCompletionTime == other.TransferCompletionTime
-    }
-}
-impl Eq for BG_JOB_TIMES {}
 impl Default for BG_JOB_TIMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2174,14 +2052,9 @@ impl Default for BG_JOB_TIMES {
 }
 pub const BITSExtensionSetupFactory: windows_core::GUID = windows_core::GUID::from_u128(0xefbbab68_7286_4783_94bf_9461d8b7e7e9);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BITS_FILE_PROPERTY_VALUE {
     pub String: windows_core::PWSTR,
-}
-impl Copy for BITS_FILE_PROPERTY_VALUE {}
-impl Clone for BITS_FILE_PROPERTY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BITS_FILE_PROPERTY_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -2192,18 +2065,13 @@ impl Default for BITS_FILE_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BITS_JOB_PROPERTY_VALUE {
     pub Dword: u32,
     pub ClsID: windows_core::GUID,
     pub Enable: super::super::Foundation::BOOL,
     pub Uint64: u64,
     pub Target: BG_AUTH_TARGET,
-}
-impl Copy for BITS_JOB_PROPERTY_VALUE {}
-impl Clone for BITS_JOB_PROPERTY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BITS_JOB_PROPERTY_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -2225,6 +2093,7 @@ pub const BackgroundCopyManager4_0: windows_core::GUID = windows_core::GUID::fro
 pub const BackgroundCopyManager5_0: windows_core::GUID = windows_core::GUID::from_u128(0x1ecca34c_e88a_44e3_8d6a_8921bde9e452);
 pub const BackgroundCopyQMgr: windows_core::GUID = windows_core::GUID::from_u128(0x69ad4aee_51be_439b_a92c_86ae490e8b30);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct FILESETINFO {
     pub bstrRemoteFile: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub bstrLocalFile: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -2235,20 +2104,9 @@ impl Clone for FILESETINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for FILESETINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILESETINFO").field("bstrRemoteFile", &self.bstrRemoteFile).field("bstrLocalFile", &self.bstrLocalFile).field("dwSizeHint", &self.dwSizeHint).finish()
-    }
-}
 impl windows_core::TypeKind for FILESETINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILESETINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bstrRemoteFile == other.bstrRemoteFile && self.bstrLocalFile == other.bstrLocalFile && self.dwSizeHint == other.dwSizeHint
-    }
-}
-impl Eq for FILESETINFO {}
 impl Default for FILESETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

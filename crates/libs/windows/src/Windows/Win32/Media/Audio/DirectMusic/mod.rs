@@ -902,6 +902,7 @@ impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONNECTION {
     pub usSource: u16,
     pub usControl: u16,
@@ -909,310 +910,150 @@ pub struct CONNECTION {
     pub usTransform: u16,
     pub lScale: i32,
 }
-impl Copy for CONNECTION {}
-impl Clone for CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONNECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
-    }
-}
 impl windows_core::TypeKind for CONNECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONNECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.usSource == other.usSource && self.usControl == other.usControl && self.usDestination == other.usDestination && self.usTransform == other.usTransform && self.lScale == other.lScale
-    }
-}
-impl Eq for CONNECTION {}
 impl Default for CONNECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONNECTIONLIST {
     pub cbSize: u32,
     pub cConnections: u32,
 }
-impl Copy for CONNECTIONLIST {}
-impl Clone for CONNECTIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONNECTIONLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
-    }
-}
 impl windows_core::TypeKind for CONNECTIONLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONNECTIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cConnections == other.cConnections
-    }
-}
-impl Eq for CONNECTIONLIST {}
 impl Default for CONNECTIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DLSHEADER {
     pub cInstruments: u32,
-}
-impl Copy for DLSHEADER {}
-impl Clone for DLSHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DLSHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
-    }
 }
 impl windows_core::TypeKind for DLSHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DLSHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cInstruments == other.cInstruments
-    }
-}
-impl Eq for DLSHEADER {}
 impl Default for DLSHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DLSID {
     pub ulData1: u32,
     pub usData2: u16,
     pub usData3: u16,
     pub abData4: [u8; 8],
 }
-impl Copy for DLSID {}
-impl Clone for DLSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DLSID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
-    }
-}
 impl windows_core::TypeKind for DLSID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DLSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulData1 == other.ulData1 && self.usData2 == other.usData2 && self.usData3 == other.usData3 && self.abData4 == other.abData4
-    }
-}
-impl Eq for DLSID {}
 impl Default for DLSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DLSVERSION {
     pub dwVersionMS: u32,
     pub dwVersionLS: u32,
 }
-impl Copy for DLSVERSION {}
-impl Clone for DLSVERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DLSVERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
-    }
-}
 impl windows_core::TypeKind for DLSVERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DLSVERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersionMS == other.dwVersionMS && self.dwVersionLS == other.dwVersionLS
-    }
-}
-impl Eq for DLSVERSION {}
 impl Default for DLSVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_ARTICPARAMS {
     pub LFO: DMUS_LFOPARAMS,
     pub VolEG: DMUS_VEGPARAMS,
     pub PitchEG: DMUS_PEGPARAMS,
     pub Misc: DMUS_MSCPARAMS,
 }
-impl Copy for DMUS_ARTICPARAMS {}
-impl Clone for DMUS_ARTICPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_ARTICPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_ARTICPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_ARTICPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.LFO == other.LFO && self.VolEG == other.VolEG && self.PitchEG == other.PitchEG && self.Misc == other.Misc
-    }
-}
-impl Eq for DMUS_ARTICPARAMS {}
 impl Default for DMUS_ARTICPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_ARTICULATION {
     pub ulArt1Idx: u32,
     pub ulFirstExtCkIdx: u32,
 }
-impl Copy for DMUS_ARTICULATION {}
-impl Clone for DMUS_ARTICULATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_ARTICULATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_ARTICULATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_ARTICULATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulArt1Idx == other.ulArt1Idx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx
-    }
-}
-impl Eq for DMUS_ARTICULATION {}
 impl Default for DMUS_ARTICULATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_ARTICULATION2 {
     pub ulArtIdx: u32,
     pub ulFirstExtCkIdx: u32,
     pub ulNextArtIdx: u32,
 }
-impl Copy for DMUS_ARTICULATION2 {}
-impl Clone for DMUS_ARTICULATION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_ARTICULATION2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_ARTICULATION2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_ARTICULATION2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulArtIdx == other.ulArtIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.ulNextArtIdx == other.ulNextArtIdx
-    }
-}
-impl Eq for DMUS_ARTICULATION2 {}
 impl Default for DMUS_ARTICULATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_BUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub guidBufferFormat: windows_core::GUID,
     pub cbBuffer: u32,
 }
-impl Copy for DMUS_BUFFERDESC {}
-impl Clone for DMUS_BUFFERDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_BUFFERDESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_BUFFERDESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_BUFFERDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidBufferFormat == other.guidBufferFormat && self.cbBuffer == other.cbBuffer
-    }
-}
-impl Eq for DMUS_BUFFERDESC {}
 impl Default for DMUS_BUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_CLOCKINFO7 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
     pub guidClock: windows_core::GUID,
     pub wszDescription: [u16; 128],
 }
-impl Copy for DMUS_CLOCKINFO7 {}
-impl Clone for DMUS_CLOCKINFO7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_CLOCKINFO7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_CLOCKINFO7 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_CLOCKINFO7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.ctType == other.ctType && self.guidClock == other.guidClock && self.wszDescription == other.wszDescription
-    }
-}
-impl Eq for DMUS_CLOCKINFO7 {}
 impl Default for DMUS_CLOCKINFO7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_CLOCKINFO8 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
@@ -1220,105 +1061,51 @@ pub struct DMUS_CLOCKINFO8 {
     pub wszDescription: [u16; 128],
     pub dwFlags: u32,
 }
-impl Copy for DMUS_CLOCKINFO8 {}
-impl Clone for DMUS_CLOCKINFO8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_CLOCKINFO8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_CLOCKINFO8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_CLOCKINFO8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.ctType == other.ctType && self.guidClock == other.guidClock && self.wszDescription == other.wszDescription && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DMUS_CLOCKINFO8 {}
 impl Default for DMUS_CLOCKINFO8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_COPYRIGHT {
     pub cbSize: u32,
     pub byCopyright: [u8; 4],
 }
-impl Copy for DMUS_COPYRIGHT {}
-impl Clone for DMUS_COPYRIGHT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_COPYRIGHT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_COPYRIGHT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_COPYRIGHT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.byCopyright == other.byCopyright
-    }
-}
-impl Eq for DMUS_COPYRIGHT {}
 impl Default for DMUS_COPYRIGHT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_DOWNLOADINFO {
     pub dwDLType: u32,
     pub dwDLId: u32,
     pub dwNumOffsetTableEntries: u32,
     pub cbSize: u32,
 }
-impl Copy for DMUS_DOWNLOADINFO {}
-impl Clone for DMUS_DOWNLOADINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_DOWNLOADINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_DOWNLOADINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_DOWNLOADINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDLType == other.dwDLType && self.dwDLId == other.dwDLId && self.dwNumOffsetTableEntries == other.dwNumOffsetTableEntries && self.cbSize == other.cbSize
-    }
-}
-impl Eq for DMUS_DOWNLOADINFO {}
 impl Default for DMUS_DOWNLOADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct DMUS_EVENTHEADER {
     pub cbEvent: u32,
     pub dwChannelGroup: u32,
     pub rtDelta: i64,
     pub dwFlags: u32,
-}
-impl Copy for DMUS_EVENTHEADER {}
-impl Clone for DMUS_EVENTHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DMUS_EVENTHEADER {
     type TypeKind = windows_core::CopyType;
@@ -1329,38 +1116,23 @@ impl Default for DMUS_EVENTHEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_EXTENSIONCHUNK {
     pub cbSize: u32,
     pub ulNextExtCkIdx: u32,
     pub ExtCkID: u32,
     pub byExtCk: [u8; 4],
 }
-impl Copy for DMUS_EXTENSIONCHUNK {}
-impl Clone for DMUS_EXTENSIONCHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_EXTENSIONCHUNK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_EXTENSIONCHUNK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_EXTENSIONCHUNK {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ulNextExtCkIdx == other.ulNextExtCkIdx && self.ExtCkID == other.ExtCkID && self.byExtCk == other.byExtCk
-    }
-}
-impl Eq for DMUS_EXTENSIONCHUNK {}
 impl Default for DMUS_EXTENSIONCHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_INSTRUMENT {
     pub ulPatch: u32,
     pub ulFirstRegionIdx: u32,
@@ -1369,32 +1141,16 @@ pub struct DMUS_INSTRUMENT {
     pub ulCopyrightIdx: u32,
     pub ulFlags: u32,
 }
-impl Copy for DMUS_INSTRUMENT {}
-impl Clone for DMUS_INSTRUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_INSTRUMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_INSTRUMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_INSTRUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulPatch == other.ulPatch && self.ulFirstRegionIdx == other.ulFirstRegionIdx && self.ulGlobalArtIdx == other.ulGlobalArtIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.ulCopyrightIdx == other.ulCopyrightIdx && self.ulFlags == other.ulFlags
-    }
-}
-impl Eq for DMUS_INSTRUMENT {}
 impl Default for DMUS_INSTRUMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_LFOPARAMS {
     pub pcFrequency: i32,
     pub tcDelay: i32,
@@ -1403,120 +1159,56 @@ pub struct DMUS_LFOPARAMS {
     pub gcMWToVolume: i32,
     pub pcMWToPitch: i32,
 }
-impl Copy for DMUS_LFOPARAMS {}
-impl Clone for DMUS_LFOPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_LFOPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_LFOPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_LFOPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pcFrequency == other.pcFrequency && self.tcDelay == other.tcDelay && self.gcVolumeScale == other.gcVolumeScale && self.pcPitchScale == other.pcPitchScale && self.gcMWToVolume == other.gcMWToVolume && self.pcMWToPitch == other.pcMWToPitch
-    }
-}
-impl Eq for DMUS_LFOPARAMS {}
 impl Default for DMUS_LFOPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_MSCPARAMS {
     pub ptDefaultPan: i32,
-}
-impl Copy for DMUS_MSCPARAMS {}
-impl Clone for DMUS_MSCPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_MSCPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
-    }
 }
 impl windows_core::TypeKind for DMUS_MSCPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_MSCPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ptDefaultPan == other.ptDefaultPan
-    }
-}
-impl Eq for DMUS_MSCPARAMS {}
 impl Default for DMUS_MSCPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_NOTERANGE {
     pub dwLowNote: u32,
     pub dwHighNote: u32,
 }
-impl Copy for DMUS_NOTERANGE {}
-impl Clone for DMUS_NOTERANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_NOTERANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_NOTERANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_NOTERANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLowNote == other.dwLowNote && self.dwHighNote == other.dwHighNote
-    }
-}
-impl Eq for DMUS_NOTERANGE {}
 impl Default for DMUS_NOTERANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_OFFSETTABLE {
     pub ulOffsetTable: [u32; 1],
-}
-impl Copy for DMUS_OFFSETTABLE {}
-impl Clone for DMUS_OFFSETTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_OFFSETTABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
-    }
 }
 impl windows_core::TypeKind for DMUS_OFFSETTABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_OFFSETTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulOffsetTable == other.ulOffsetTable
-    }
-}
-impl Eq for DMUS_OFFSETTABLE {}
 impl Default for DMUS_OFFSETTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_PEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -1526,32 +1218,16 @@ pub struct DMUS_PEGPARAMS {
     pub tcKey2Decay: i32,
     pub pcRange: i32,
 }
-impl Copy for DMUS_PEGPARAMS {}
-impl Clone for DMUS_PEGPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_PEGPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_PEGPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_PEGPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.tcAttack == other.tcAttack && self.tcDecay == other.tcDecay && self.ptSustain == other.ptSustain && self.tcRelease == other.tcRelease && self.tcVel2Attack == other.tcVel2Attack && self.tcKey2Decay == other.tcKey2Decay && self.pcRange == other.pcRange
-    }
-}
-impl Eq for DMUS_PEGPARAMS {}
 impl Default for DMUS_PEGPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_PORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1565,32 +1241,16 @@ pub struct DMUS_PORTCAPS {
     pub dwEffectFlags: u32,
     pub wszDescription: [u16; 128],
 }
-impl Copy for DMUS_PORTCAPS {}
-impl Clone for DMUS_PORTCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_PORTCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_PORTCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_PORTCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidPort == other.guidPort && self.dwClass == other.dwClass && self.dwType == other.dwType && self.dwMemorySize == other.dwMemorySize && self.dwMaxChannelGroups == other.dwMaxChannelGroups && self.dwMaxVoices == other.dwMaxVoices && self.dwMaxAudioChannels == other.dwMaxAudioChannels && self.dwEffectFlags == other.dwEffectFlags && self.wszDescription == other.wszDescription
-    }
-}
-impl Eq for DMUS_PORTCAPS {}
 impl Default for DMUS_PORTCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_PORTPARAMS7 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -1601,32 +1261,16 @@ pub struct DMUS_PORTPARAMS7 {
     pub dwEffectFlags: u32,
     pub fShare: super::super::super::Foundation::BOOL,
 }
-impl Copy for DMUS_PORTPARAMS7 {}
-impl Clone for DMUS_PORTPARAMS7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_PORTPARAMS7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_PORTPARAMS7").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_PORTPARAMS7 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_PORTPARAMS7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwValidParams == other.dwValidParams && self.dwVoices == other.dwVoices && self.dwChannelGroups == other.dwChannelGroups && self.dwAudioChannels == other.dwAudioChannels && self.dwSampleRate == other.dwSampleRate && self.dwEffectFlags == other.dwEffectFlags && self.fShare == other.fShare
-    }
-}
-impl Eq for DMUS_PORTPARAMS7 {}
 impl Default for DMUS_PORTPARAMS7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_PORTPARAMS8 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -1638,32 +1282,16 @@ pub struct DMUS_PORTPARAMS8 {
     pub fShare: super::super::super::Foundation::BOOL,
     pub dwFeatures: u32,
 }
-impl Copy for DMUS_PORTPARAMS8 {}
-impl Clone for DMUS_PORTPARAMS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_PORTPARAMS8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_PORTPARAMS8").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).field("dwFeatures", &self.dwFeatures).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_PORTPARAMS8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_PORTPARAMS8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwValidParams == other.dwValidParams && self.dwVoices == other.dwVoices && self.dwChannelGroups == other.dwChannelGroups && self.dwAudioChannels == other.dwAudioChannels && self.dwSampleRate == other.dwSampleRate && self.dwEffectFlags == other.dwEffectFlags && self.fShare == other.fShare && self.dwFeatures == other.dwFeatures
-    }
-}
-impl Eq for DMUS_PORTPARAMS8 {}
 impl Default for DMUS_PORTPARAMS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_REGION {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
@@ -1676,32 +1304,16 @@ pub struct DMUS_REGION {
     pub WSMP: WSMPL,
     pub WLOOP: [WLOOP; 1],
 }
-impl Copy for DMUS_REGION {}
-impl Clone for DMUS_REGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_REGION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_REGION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_REGION {
-    fn eq(&self, other: &Self) -> bool {
-        self.RangeKey == other.RangeKey && self.RangeVelocity == other.RangeVelocity && self.fusOptions == other.fusOptions && self.usKeyGroup == other.usKeyGroup && self.ulRegionArtIdx == other.ulRegionArtIdx && self.ulNextRegionIdx == other.ulNextRegionIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.WaveLink == other.WaveLink && self.WSMP == other.WSMP && self.WLOOP == other.WLOOP
-    }
-}
-impl Eq for DMUS_REGION {}
 impl Default for DMUS_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_SYNTHSTATS {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -1712,32 +1324,16 @@ pub struct DMUS_SYNTHSTATS {
     pub dwFreeMemory: u32,
     pub lPeakVolume: i32,
 }
-impl Copy for DMUS_SYNTHSTATS {}
-impl Clone for DMUS_SYNTHSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_SYNTHSTATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_SYNTHSTATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_SYNTHSTATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwValidStats == other.dwValidStats && self.dwVoices == other.dwVoices && self.dwTotalCPU == other.dwTotalCPU && self.dwCPUPerVoice == other.dwCPUPerVoice && self.dwLostNotes == other.dwLostNotes && self.dwFreeMemory == other.dwFreeMemory && self.lPeakVolume == other.lPeakVolume
-    }
-}
-impl Eq for DMUS_SYNTHSTATS {}
 impl Default for DMUS_SYNTHSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_SYNTHSTATS8 {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -1749,32 +1345,16 @@ pub struct DMUS_SYNTHSTATS8 {
     pub lPeakVolume: i32,
     pub dwSynthMemUse: u32,
 }
-impl Copy for DMUS_SYNTHSTATS8 {}
-impl Clone for DMUS_SYNTHSTATS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_SYNTHSTATS8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_SYNTHSTATS8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_SYNTHSTATS8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwValidStats == other.dwValidStats && self.dwVoices == other.dwVoices && self.dwTotalCPU == other.dwTotalCPU && self.dwCPUPerVoice == other.dwCPUPerVoice && self.dwLostNotes == other.dwLostNotes && self.dwFreeMemory == other.dwFreeMemory && self.lPeakVolume == other.lPeakVolume && self.dwSynthMemUse == other.dwSynthMemUse
-    }
-}
-impl Eq for DMUS_SYNTHSTATS8 {}
 impl Default for DMUS_SYNTHSTATS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_VEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -1783,73 +1363,35 @@ pub struct DMUS_VEGPARAMS {
     pub tcVel2Attack: i32,
     pub tcKey2Decay: i32,
 }
-impl Copy for DMUS_VEGPARAMS {}
-impl Clone for DMUS_VEGPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_VEGPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_VEGPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_VEGPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.tcAttack == other.tcAttack && self.tcDecay == other.tcDecay && self.ptSustain == other.ptSustain && self.tcRelease == other.tcRelease && self.tcVel2Attack == other.tcVel2Attack && self.tcKey2Decay == other.tcKey2Decay
-    }
-}
-impl Eq for DMUS_VEGPARAMS {}
 impl Default for DMUS_VEGPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_VOICE_STATE {
     pub bExists: super::super::super::Foundation::BOOL,
     pub spPosition: u64,
 }
-impl Copy for DMUS_VOICE_STATE {}
-impl Clone for DMUS_VOICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_VOICE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_VOICE_STATE").field("bExists", &self.bExists).field("spPosition", &self.spPosition).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_VOICE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_VOICE_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.bExists == other.bExists && self.spPosition == other.spPosition
-    }
-}
-impl Eq for DMUS_VOICE_STATE {}
 impl Default for DMUS_VOICE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMUS_WAVE {
     pub ulFirstExtCkIdx: u32,
     pub ulCopyrightIdx: u32,
     pub ulWaveDataIdx: u32,
     pub WaveformatEx: super::WAVEFORMATEX,
-}
-impl Copy for DMUS_WAVE {}
-impl Clone for DMUS_WAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DMUS_WAVE {
     type TypeKind = windows_core::CopyType;
@@ -1860,6 +1402,7 @@ impl Default for DMUS_WAVE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_WAVEARTDL {
     pub ulDownloadIdIdx: u32,
     pub ulBus: u32,
@@ -1867,123 +1410,59 @@ pub struct DMUS_WAVEARTDL {
     pub ulMasterDLId: u32,
     pub usOptions: u16,
 }
-impl Copy for DMUS_WAVEARTDL {}
-impl Clone for DMUS_WAVEARTDL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_WAVEARTDL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_WAVEARTDL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_WAVEARTDL {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulDownloadIdIdx == other.ulDownloadIdIdx && self.ulBus == other.ulBus && self.ulBuffers == other.ulBuffers && self.ulMasterDLId == other.ulMasterDLId && self.usOptions == other.usOptions
-    }
-}
-impl Eq for DMUS_WAVEARTDL {}
 impl Default for DMUS_WAVEARTDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_WAVEDATA {
     pub cbSize: u32,
     pub byData: [u8; 4],
 }
-impl Copy for DMUS_WAVEDATA {}
-impl Clone for DMUS_WAVEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_WAVEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_WAVEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_WAVEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.byData == other.byData
-    }
-}
-impl Eq for DMUS_WAVEDATA {}
 impl Default for DMUS_WAVEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMUS_WAVEDL {
     pub cbWaveData: u32,
-}
-impl Copy for DMUS_WAVEDL {}
-impl Clone for DMUS_WAVEDL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_WAVEDL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
-    }
 }
 impl windows_core::TypeKind for DMUS_WAVEDL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_WAVEDL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbWaveData == other.cbWaveData
-    }
-}
-impl Eq for DMUS_WAVEDL {}
 impl Default for DMUS_WAVEDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_WAVES_REVERB_PARAMS {
     pub fInGain: f32,
     pub fReverbMix: f32,
     pub fReverbTime: f32,
     pub fHighFreqRTRatio: f32,
 }
-impl Copy for DMUS_WAVES_REVERB_PARAMS {}
-impl Clone for DMUS_WAVES_REVERB_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
-    }
-}
 impl windows_core::TypeKind for DMUS_WAVES_REVERB_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMUS_WAVES_REVERB_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.fInGain == other.fInGain && self.fReverbMix == other.fReverbMix && self.fReverbTime == other.fReverbTime && self.fHighFreqRTRatio == other.fHighFreqRTRatio
-    }
-}
-impl Eq for DMUS_WAVES_REVERB_PARAMS {}
 impl Default for DMUS_WAVES_REVERB_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: windows_core::GUID,
     pub DescriptionA: [i8; 256],
@@ -1995,32 +1474,16 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub WaveDeviceId: u32,
     pub Devnode: u32,
 }
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA").field("DeviceId", &self.DeviceId).field("DescriptionA", &self.DescriptionA).field("DescriptionW", &self.DescriptionW).field("ModuleA", &self.ModuleA).field("ModuleW", &self.ModuleW).field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("WaveDeviceId", &self.WaveDeviceId).field("Devnode", &self.Devnode).finish()
-    }
-}
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceId == other.DeviceId && self.DescriptionA == other.DescriptionA && self.DescriptionW == other.DescriptionW && self.ModuleA == other.ModuleA && self.ModuleW == other.ModuleW && self.Type == other.Type && self.DataFlow == other.DataFlow && self.WaveDeviceId == other.WaveDeviceId && self.Devnode == other.Devnode
-    }
-}
-impl Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -2030,32 +1493,16 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Interface: windows_core::PSTR,
     pub WaveDeviceId: u32,
 }
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
-    }
-}
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId && self.Description == other.Description && self.Module == other.Module && self.Interface == other.Interface && self.WaveDeviceId == other.WaveDeviceId
-    }
-}
-impl Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -2065,46 +1512,19 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Interface: windows_core::PWSTR,
     pub WaveDeviceId: u32,
 }
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
-    }
-}
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId && self.Description == other.Description && self.Module == other.Module && self.Interface == other.Interface && self.WaveDeviceId == other.WaveDeviceId
-    }
-}
-impl Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
     pub Context: *mut core::ffi::c_void,
-}
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Context", &self.Context).finish()
-    }
 }
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     type TypeKind = windows_core::CopyType;
@@ -2115,20 +1535,10 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
     pub Context: *mut core::ffi::c_void,
-}
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Context", &self.Context).finish()
-    }
 }
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     type TypeKind = windows_core::CopyType;
@@ -2139,20 +1549,10 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
     pub Context: *mut core::ffi::c_void,
-}
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Context", &self.Context).finish()
-    }
 }
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     type TypeKind = windows_core::CopyType;
@@ -2163,68 +1563,37 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     pub DeviceName: windows_core::PSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: windows_core::GUID,
 }
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
-    }
-}
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId
-    }
-}
-impl Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     pub DeviceName: windows_core::PWSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: windows_core::GUID,
 }
-impl Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
-impl Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
-    }
-}
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId
-    }
-}
-impl Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVAudInfo {
     pub bAudStyle: [u8; 2],
     pub bAudQu: [u8; 2],
@@ -2234,71 +1603,33 @@ pub struct DVAudInfo {
     pub wDIFMode: u16,
     pub wBlkDiv: u16,
 }
-impl Copy for DVAudInfo {}
-impl Clone for DVAudInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVAudInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
-    }
-}
 impl windows_core::TypeKind for DVAudInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVAudInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.bAudStyle == other.bAudStyle && self.bAudQu == other.bAudQu && self.bNumAudPin == other.bNumAudPin && self.wAvgSamplesPerPinPerFrm == other.wAvgSamplesPerPinPerFrm && self.wBlkMode == other.wBlkMode && self.wDIFMode == other.wDIFMode && self.wBlkDiv == other.wBlkDiv
-    }
-}
-impl Eq for DVAudInfo {}
 impl Default for DVAudInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTHEADER {
     pub cRegions: u32,
     pub Locale: MIDILOCALE,
 }
-impl Copy for INSTHEADER {}
-impl Clone for INSTHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTHEADER").field("cRegions", &self.cRegions).field("Locale", &self.Locale).finish()
-    }
-}
 impl windows_core::TypeKind for INSTHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cRegions == other.cRegions && self.Locale == other.Locale
-    }
-}
-impl Eq for INSTHEADER {}
 impl Default for INSTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MDEVICECAPSEX {
     pub cbSize: u32,
     pub pCaps: *mut core::ffi::c_void,
-}
-impl Copy for MDEVICECAPSEX {}
-impl Clone for MDEVICECAPSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MDEVICECAPSEX {
     type TypeKind = windows_core::CopyType;
@@ -2309,30 +1640,14 @@ impl Default for MDEVICECAPSEX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDILOCALE {
     pub ulBank: u32,
     pub ulInstrument: u32,
 }
-impl Copy for MIDILOCALE {}
-impl Clone for MIDILOCALE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIDILOCALE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIDILOCALE").field("ulBank", &self.ulBank).field("ulInstrument", &self.ulInstrument).finish()
-    }
-}
 impl windows_core::TypeKind for MIDILOCALE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIDILOCALE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulBank == other.ulBank && self.ulInstrument == other.ulInstrument
-    }
-}
-impl Eq for MIDILOCALE {}
 impl Default for MIDILOCALE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2340,6 +1655,7 @@ impl Default for MIDILOCALE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[derive(Clone, Copy)]
 pub struct MIDIOPENDESC {
     pub hMidi: super::HMIDI,
     pub dwCallback: usize,
@@ -2347,14 +1663,6 @@ pub struct MIDIOPENDESC {
     pub dnDevNode: usize,
     pub cIds: u32,
     pub rgIds: [super::super::Multimedia::MIDIOPENSTRMID; 1],
-}
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl Copy for MIDIOPENDESC {}
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl Clone for MIDIOPENDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl windows_core::TypeKind for MIDIOPENDESC {
@@ -2367,191 +1675,96 @@ impl Default for MIDIOPENDESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOLCUE {
     pub ulOffset: u32,
-}
-impl Copy for POOLCUE {}
-impl Clone for POOLCUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POOLCUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POOLCUE").field("ulOffset", &self.ulOffset).finish()
-    }
 }
 impl windows_core::TypeKind for POOLCUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POOLCUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulOffset == other.ulOffset
-    }
-}
-impl Eq for POOLCUE {}
 impl Default for POOLCUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOLTABLE {
     pub cbSize: u32,
     pub cCues: u32,
 }
-impl Copy for POOLTABLE {}
-impl Clone for POOLTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POOLTABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POOLTABLE").field("cbSize", &self.cbSize).field("cCues", &self.cCues).finish()
-    }
-}
 impl windows_core::TypeKind for POOLTABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POOLTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cCues == other.cCues
-    }
-}
-impl Eq for POOLTABLE {}
 impl Default for POOLTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RGNHEADER {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
     pub fusOptions: u16,
     pub usKeyGroup: u16,
 }
-impl Copy for RGNHEADER {}
-impl Clone for RGNHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RGNHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RGNHEADER").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).finish()
-    }
-}
 impl windows_core::TypeKind for RGNHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RGNHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.RangeKey == other.RangeKey && self.RangeVelocity == other.RangeVelocity && self.fusOptions == other.fusOptions && self.usKeyGroup == other.usKeyGroup
-    }
-}
-impl Eq for RGNHEADER {}
 impl Default for RGNHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RGNRANGE {
     pub usLow: u16,
     pub usHigh: u16,
 }
-impl Copy for RGNRANGE {}
-impl Clone for RGNRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RGNRANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RGNRANGE").field("usLow", &self.usLow).field("usHigh", &self.usHigh).finish()
-    }
-}
 impl windows_core::TypeKind for RGNRANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RGNRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.usLow == other.usLow && self.usHigh == other.usHigh
-    }
-}
-impl Eq for RGNRANGE {}
 impl Default for RGNRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVELINK {
     pub fusOptions: u16,
     pub usPhaseGroup: u16,
     pub ulChannel: u32,
     pub ulTableIndex: u32,
 }
-impl Copy for WAVELINK {}
-impl Clone for WAVELINK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WAVELINK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WAVELINK").field("fusOptions", &self.fusOptions).field("usPhaseGroup", &self.usPhaseGroup).field("ulChannel", &self.ulChannel).field("ulTableIndex", &self.ulTableIndex).finish()
-    }
-}
 impl windows_core::TypeKind for WAVELINK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WAVELINK {
-    fn eq(&self, other: &Self) -> bool {
-        self.fusOptions == other.fusOptions && self.usPhaseGroup == other.usPhaseGroup && self.ulChannel == other.ulChannel && self.ulTableIndex == other.ulTableIndex
-    }
-}
-impl Eq for WAVELINK {}
 impl Default for WAVELINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLOOP {
     pub cbSize: u32,
     pub ulType: u32,
     pub ulStart: u32,
     pub ulLength: u32,
 }
-impl Copy for WLOOP {}
-impl Clone for WLOOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLOOP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLOOP").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
-    }
-}
 impl windows_core::TypeKind for WLOOP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLOOP {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ulType == other.ulType && self.ulStart == other.ulStart && self.ulLength == other.ulLength
-    }
-}
-impl Eq for WLOOP {}
 impl Default for WLOOP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSMPL {
     pub cbSize: u32,
     pub usUnityNote: u16,
@@ -2560,26 +1773,9 @@ pub struct WSMPL {
     pub fulOptions: u32,
     pub cSampleLoops: u32,
 }
-impl Copy for WSMPL {}
-impl Clone for WSMPL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSMPL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSMPL").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
-    }
-}
 impl windows_core::TypeKind for WSMPL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSMPL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.usUnityNote == other.usUnityNote && self.sFineTune == other.sFineTune && self.lAttenuation == other.lAttenuation && self.fulOptions == other.fulOptions && self.cSampleLoops == other.cSampleLoops
-    }
-}
-impl Eq for WSMPL {}
 impl Default for WSMPL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

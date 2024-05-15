@@ -8293,21 +8293,11 @@ impl windows_core::RuntimeType for VideoRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoRotation;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WhiteBalanceGain {
     pub R: f64,
     pub G: f64,
     pub B: f64,
-}
-impl Copy for WhiteBalanceGain {}
-impl Clone for WhiteBalanceGain {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WhiteBalanceGain {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WhiteBalanceGain").field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
-    }
 }
 impl windows_core::TypeKind for WhiteBalanceGain {
     type TypeKind = windows_core::CopyType;
@@ -8315,12 +8305,6 @@ impl windows_core::TypeKind for WhiteBalanceGain {
 impl windows_core::RuntimeType for WhiteBalanceGain {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Capture.WhiteBalanceGain;f8;f8;f8)");
 }
-impl PartialEq for WhiteBalanceGain {
-    fn eq(&self, other: &Self) -> bool {
-        self.R == other.R && self.G == other.G && self.B == other.B
-    }
-}
-impl Eq for WhiteBalanceGain {}
 impl Default for WhiteBalanceGain {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

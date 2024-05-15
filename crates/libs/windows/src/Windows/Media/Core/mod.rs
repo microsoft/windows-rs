@@ -7577,20 +7577,10 @@ impl windows_core::RuntimeType for VideoStabilizationEffectEnabledChangedReason 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.VideoStabilizationEffectEnabledChangedReason;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MseTimeRange {
     pub Start: super::super::Foundation::TimeSpan,
     pub End: super::super::Foundation::TimeSpan,
-}
-impl Copy for MseTimeRange {}
-impl Clone for MseTimeRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MseTimeRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MseTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
-    }
 }
 impl windows_core::TypeKind for MseTimeRange {
     type TypeKind = windows_core::CopyType;
@@ -7598,32 +7588,16 @@ impl windows_core::TypeKind for MseTimeRange {
 impl windows_core::RuntimeType for MseTimeRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Core.MseTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
 }
-impl PartialEq for MseTimeRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.Start == other.Start && self.End == other.End
-    }
-}
-impl Eq for MseTimeRange {}
 impl Default for MseTimeRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TimedTextDouble {
     pub Value: f64,
     pub Unit: TimedTextUnit,
-}
-impl Copy for TimedTextDouble {}
-impl Clone for TimedTextDouble {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TimedTextDouble {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TimedTextDouble").field("Value", &self.Value).field("Unit", &self.Unit).finish()
-    }
 }
 impl windows_core::TypeKind for TimedTextDouble {
     type TypeKind = windows_core::CopyType;
@@ -7631,18 +7605,13 @@ impl windows_core::TypeKind for TimedTextDouble {
 impl windows_core::RuntimeType for TimedTextDouble {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Core.TimedTextDouble;f8;enum(Windows.Media.Core.TimedTextUnit;i4))");
 }
-impl PartialEq for TimedTextDouble {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value && self.Unit == other.Unit
-    }
-}
-impl Eq for TimedTextDouble {}
 impl Default for TimedTextDouble {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TimedTextPadding {
     pub Before: f64,
     pub After: f64,
@@ -7650,50 +7619,23 @@ pub struct TimedTextPadding {
     pub End: f64,
     pub Unit: TimedTextUnit,
 }
-impl Copy for TimedTextPadding {}
-impl Clone for TimedTextPadding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TimedTextPadding {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TimedTextPadding").field("Before", &self.Before).field("After", &self.After).field("Start", &self.Start).field("End", &self.End).field("Unit", &self.Unit).finish()
-    }
-}
 impl windows_core::TypeKind for TimedTextPadding {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for TimedTextPadding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Core.TimedTextPadding;f8;f8;f8;f8;enum(Windows.Media.Core.TimedTextUnit;i4))");
 }
-impl PartialEq for TimedTextPadding {
-    fn eq(&self, other: &Self) -> bool {
-        self.Before == other.Before && self.After == other.After && self.Start == other.Start && self.End == other.End && self.Unit == other.Unit
-    }
-}
-impl Eq for TimedTextPadding {}
 impl Default for TimedTextPadding {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TimedTextPoint {
     pub X: f64,
     pub Y: f64,
     pub Unit: TimedTextUnit,
-}
-impl Copy for TimedTextPoint {}
-impl Clone for TimedTextPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TimedTextPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TimedTextPoint").field("X", &self.X).field("Y", &self.Y).field("Unit", &self.Unit).finish()
-    }
 }
 impl windows_core::TypeKind for TimedTextPoint {
     type TypeKind = windows_core::CopyType;
@@ -7701,33 +7643,17 @@ impl windows_core::TypeKind for TimedTextPoint {
 impl windows_core::RuntimeType for TimedTextPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Core.TimedTextPoint;f8;f8;enum(Windows.Media.Core.TimedTextUnit;i4))");
 }
-impl PartialEq for TimedTextPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Unit == other.Unit
-    }
-}
-impl Eq for TimedTextPoint {}
 impl Default for TimedTextPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TimedTextSize {
     pub Height: f64,
     pub Width: f64,
     pub Unit: TimedTextUnit,
-}
-impl Copy for TimedTextSize {}
-impl Clone for TimedTextSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TimedTextSize {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TimedTextSize").field("Height", &self.Height).field("Width", &self.Width).field("Unit", &self.Unit).finish()
-    }
 }
 impl windows_core::TypeKind for TimedTextSize {
     type TypeKind = windows_core::CopyType;
@@ -7735,12 +7661,6 @@ impl windows_core::TypeKind for TimedTextSize {
 impl windows_core::RuntimeType for TimedTextSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Core.TimedTextSize;f8;f8;enum(Windows.Media.Core.TimedTextUnit;i4))");
 }
-impl PartialEq for TimedTextSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.Height == other.Height && self.Width == other.Width && self.Unit == other.Unit
-    }
-}
-impl Eq for TimedTextSize {}
 impl Default for TimedTextSize {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

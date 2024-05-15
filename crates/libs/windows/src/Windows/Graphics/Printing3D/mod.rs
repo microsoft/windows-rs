@@ -2416,20 +2416,10 @@ impl windows_core::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Printing3DBufferDescription {
     pub Format: Printing3DBufferFormat,
     pub Stride: u32,
-}
-impl Copy for Printing3DBufferDescription {}
-impl Clone for Printing3DBufferDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Printing3DBufferDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
-    }
 }
 impl windows_core::TypeKind for Printing3DBufferDescription {
     type TypeKind = windows_core::CopyType;
@@ -2437,12 +2427,6 @@ impl windows_core::TypeKind for Printing3DBufferDescription {
 impl windows_core::RuntimeType for Printing3DBufferDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
 }
-impl PartialEq for Printing3DBufferDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format && self.Stride == other.Stride
-    }
-}
-impl Eq for Printing3DBufferDescription {}
 impl Default for Printing3DBufferDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

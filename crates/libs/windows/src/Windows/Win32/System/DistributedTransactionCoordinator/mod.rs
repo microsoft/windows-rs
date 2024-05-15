@@ -2299,156 +2299,77 @@ impl core::fmt::Debug for XACT_DTC_CONSTANTS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BOID {
     pub rgb: [u8; 16],
-}
-impl Copy for BOID {}
-impl Clone for BOID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BOID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BOID").field("rgb", &self.rgb).finish()
-    }
 }
 impl windows_core::TypeKind for BOID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BOID {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgb == other.rgb
-    }
-}
-impl Eq for BOID {}
 impl Default for BOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
-impl Copy for OLE_TM_CONFIG_PARAMS_V1 {}
-impl Clone for OLE_TM_CONFIG_PARAMS_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OLE_TM_CONFIG_PARAMS_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OLE_TM_CONFIG_PARAMS_V1").field("dwVersion", &self.dwVersion).field("dwcConcurrencyHint", &self.dwcConcurrencyHint).finish()
-    }
-}
 impl windows_core::TypeKind for OLE_TM_CONFIG_PARAMS_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OLE_TM_CONFIG_PARAMS_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwcConcurrencyHint == other.dwcConcurrencyHint
-    }
-}
-impl Eq for OLE_TM_CONFIG_PARAMS_V1 {}
 impl Default for OLE_TM_CONFIG_PARAMS_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
     pub applicationType: APPLICATIONTYPE,
     pub clusterResourceId: windows_core::GUID,
 }
-impl Copy for OLE_TM_CONFIG_PARAMS_V2 {}
-impl Clone for OLE_TM_CONFIG_PARAMS_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OLE_TM_CONFIG_PARAMS_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OLE_TM_CONFIG_PARAMS_V2").field("dwVersion", &self.dwVersion).field("dwcConcurrencyHint", &self.dwcConcurrencyHint).field("applicationType", &self.applicationType).field("clusterResourceId", &self.clusterResourceId).finish()
-    }
-}
 impl windows_core::TypeKind for OLE_TM_CONFIG_PARAMS_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OLE_TM_CONFIG_PARAMS_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwcConcurrencyHint == other.dwcConcurrencyHint && self.applicationType == other.applicationType && self.clusterResourceId == other.clusterResourceId
-    }
-}
-impl Eq for OLE_TM_CONFIG_PARAMS_V2 {}
 impl Default for OLE_TM_CONFIG_PARAMS_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
-}
-impl Copy for PROXY_CONFIG_PARAMS {}
-impl Clone for PROXY_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROXY_CONFIG_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROXY_CONFIG_PARAMS").field("wcThreadsMax", &self.wcThreadsMax).finish()
-    }
 }
 impl windows_core::TypeKind for PROXY_CONFIG_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROXY_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.wcThreadsMax == other.wcThreadsMax
-    }
-}
-impl Eq for PROXY_CONFIG_PARAMS {}
 impl Default for PROXY_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
 }
-impl Copy for XACTOPT {}
-impl Clone for XACTOPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XACTOPT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XACTOPT").field("ulTimeout", &self.ulTimeout).field("szDescription", &self.szDescription).finish()
-    }
-}
 impl windows_core::TypeKind for XACTOPT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XACTOPT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulTimeout == other.ulTimeout && self.szDescription == other.szDescription
-    }
-}
-impl Eq for XACTOPT {}
 impl Default for XACTOPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -2459,32 +2380,16 @@ pub struct XACTSTATS {
     pub cHeuristicDecision: u32,
     pub timeTransactionsUp: super::super::Foundation::FILETIME,
 }
-impl Copy for XACTSTATS {}
-impl Clone for XACTSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XACTSTATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XACTSTATS").field("cOpen", &self.cOpen).field("cCommitting", &self.cCommitting).field("cCommitted", &self.cCommitted).field("cAborting", &self.cAborting).field("cAborted", &self.cAborted).field("cInDoubt", &self.cInDoubt).field("cHeuristicDecision", &self.cHeuristicDecision).field("timeTransactionsUp", &self.timeTransactionsUp).finish()
-    }
-}
 impl windows_core::TypeKind for XACTSTATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XACTSTATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cOpen == other.cOpen && self.cCommitting == other.cCommitting && self.cCommitted == other.cCommitted && self.cAborting == other.cAborting && self.cAborted == other.cAborted && self.cInDoubt == other.cInDoubt && self.cHeuristicDecision == other.cHeuristicDecision && self.timeTransactionsUp == other.timeTransactionsUp
-    }
-}
-impl Eq for XACTSTATS {}
 impl Default for XACTSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -2494,64 +2399,32 @@ pub struct XACTTRANSINFO {
     pub grfTCSupportedRetaining: u32,
     pub grfRMSupportedRetaining: u32,
 }
-impl Copy for XACTTRANSINFO {}
-impl Clone for XACTTRANSINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XACTTRANSINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XACTTRANSINFO").field("uow", &self.uow).field("isoLevel", &self.isoLevel).field("isoFlags", &self.isoFlags).field("grfTCSupported", &self.grfTCSupported).field("grfRMSupported", &self.grfRMSupported).field("grfTCSupportedRetaining", &self.grfTCSupportedRetaining).field("grfRMSupportedRetaining", &self.grfRMSupportedRetaining).finish()
-    }
-}
 impl windows_core::TypeKind for XACTTRANSINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XACTTRANSINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uow == other.uow && self.isoLevel == other.isoLevel && self.isoFlags == other.isoFlags && self.grfTCSupported == other.grfTCSupported && self.grfRMSupported == other.grfRMSupported && self.grfTCSupportedRetaining == other.grfTCSupportedRetaining && self.grfRMSupportedRetaining == other.grfRMSupportedRetaining
-    }
-}
-impl Eq for XACTTRANSINFO {}
 impl Default for XACTTRANSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XID {
     pub formatID: i32,
     pub gtrid_length: i32,
     pub bqual_length: i32,
     pub data: [i8; 128],
 }
-impl Copy for XID {}
-impl Clone for XID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XID").field("formatID", &self.formatID).field("gtrid_length", &self.gtrid_length).field("bqual_length", &self.bqual_length).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for XID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XID {
-    fn eq(&self, other: &Self) -> bool {
-        self.formatID == other.formatID && self.gtrid_length == other.gtrid_length && self.bqual_length == other.bqual_length && self.data == other.data
-    }
-}
-impl Eq for XID {}
 impl Default for XID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct xa_switch_t {
     pub name: [i8; 32],
     pub flags: i32,
@@ -2567,40 +2440,9 @@ pub struct xa_switch_t {
     pub xa_forget_entry: isize,
     pub xa_complete_entry: isize,
 }
-impl Copy for xa_switch_t {}
-impl Clone for xa_switch_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for xa_switch_t {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("xa_switch_t")
-            .field("name", &self.name)
-            .field("flags", &self.flags)
-            .field("version", &self.version)
-            .field("xa_open_entry", &self.xa_open_entry)
-            .field("xa_close_entry", &self.xa_close_entry)
-            .field("xa_start_entry", &self.xa_start_entry)
-            .field("xa_end_entry", &self.xa_end_entry)
-            .field("xa_rollback_entry", &self.xa_rollback_entry)
-            .field("xa_prepare_entry", &self.xa_prepare_entry)
-            .field("xa_commit_entry", &self.xa_commit_entry)
-            .field("xa_recover_entry", &self.xa_recover_entry)
-            .field("xa_forget_entry", &self.xa_forget_entry)
-            .field("xa_complete_entry", &self.xa_complete_entry)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for xa_switch_t {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for xa_switch_t {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.flags == other.flags && self.version == other.version && self.xa_open_entry == other.xa_open_entry && self.xa_close_entry == other.xa_close_entry && self.xa_start_entry == other.xa_start_entry && self.xa_end_entry == other.xa_end_entry && self.xa_rollback_entry == other.xa_rollback_entry && self.xa_prepare_entry == other.xa_prepare_entry && self.xa_commit_entry == other.xa_commit_entry && self.xa_recover_entry == other.xa_recover_entry && self.xa_forget_entry == other.xa_forget_entry && self.xa_complete_entry == other.xa_complete_entry
-    }
-}
-impl Eq for xa_switch_t {}
 impl Default for xa_switch_t {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

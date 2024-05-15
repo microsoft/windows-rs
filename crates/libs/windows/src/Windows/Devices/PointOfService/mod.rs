@@ -9613,20 +9613,10 @@ impl windows_core::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,
-}
-impl Copy for SizeUInt32 {}
-impl Clone for SizeUInt32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SizeUInt32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SizeUInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for SizeUInt32 {
     type TypeKind = windows_core::CopyType;
@@ -9634,12 +9624,6 @@ impl windows_core::TypeKind for SizeUInt32 {
 impl windows_core::RuntimeType for SizeUInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.PointOfService.SizeUInt32;u4;u4)");
 }
-impl PartialEq for SizeUInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for SizeUInt32 {}
 impl Default for SizeUInt32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

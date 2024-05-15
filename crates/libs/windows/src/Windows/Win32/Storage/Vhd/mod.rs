@@ -1432,15 +1432,10 @@ impl core::ops::Not for VIRTUAL_DISK_ACCESS_MASK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: APPLY_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0,
-}
-impl Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS {}
-impl Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1451,14 +1446,9 @@ impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0,
-}
-impl Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-impl Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1469,45 +1459,24 @@ impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
     pub LeafSnapshotId: windows_core::GUID,
 }
-impl Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).field("LeafSnapshotId", &self.LeafSnapshotId).finish()
-    }
-}
 impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId && self.LeafSnapshotId == other.LeafSnapshotId
-    }
-}
-impl Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS {
     pub Version: ATTACH_VIRTUAL_DISK_VERSION,
     pub Anonymous: ATTACH_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1518,15 +1487,10 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: ATTACH_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: ATTACH_VIRTUAL_DISK_PARAMETERS_0_1,
-}
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1537,74 +1501,37 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
-}
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS_0_0").field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub RestrictedOffset: u64,
     pub RestrictedLength: u64,
 }
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS_0_1").field("RestrictedOffset", &self.RestrictedOffset).field("RestrictedLength", &self.RestrictedLength).finish()
-    }
-}
 impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RestrictedOffset == other.RestrictedOffset && self.RestrictedLength == other.RestrictedLength
-    }
-}
-impl Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
 impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS {
     pub Version: COMPACT_VIRTUAL_DISK_VERSION,
     pub Anonymous: COMPACT_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for COMPACT_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for COMPACT_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1615,14 +1542,9 @@ impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: COMPACT_VIRTUAL_DISK_PARAMETERS_0_0,
-}
-impl Copy for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1633,44 +1555,23 @@ impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
-}
-impl Copy for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPACT_VIRTUAL_DISK_PARAMETERS_0_0").field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl Eq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS {
     pub Version: CREATE_VIRTUAL_DISK_VERSION,
     pub Anonymous: CREATE_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1681,17 +1582,12 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: CREATE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: CREATE_VIRTUAL_DISK_PARAMETERS_0_2,
     pub Version4: CREATE_VIRTUAL_DISK_PARAMETERS_0_3,
-}
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1702,6 +1598,7 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -1710,32 +1607,16 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ParentPath: windows_core::PCWSTR,
     pub SourcePath: windows_core::PCWSTR,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_0").field("UniqueId", &self.UniqueId).field("MaximumSize", &self.MaximumSize).field("BlockSizeInBytes", &self.BlockSizeInBytes).field("SectorSizeInBytes", &self.SectorSizeInBytes).field("ParentPath", &self.ParentPath).field("SourcePath", &self.SourcePath).finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath
-    }
-}
-impl Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -1749,44 +1630,16 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub ResiliencyGuid: windows_core::GUID,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_1")
-            .field("UniqueId", &self.UniqueId)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("BlockSizeInBytes", &self.BlockSizeInBytes)
-            .field("SectorSizeInBytes", &self.SectorSizeInBytes)
-            .field("PhysicalSectorSizeInBytes", &self.PhysicalSectorSizeInBytes)
-            .field("ParentPath", &self.ParentPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("OpenFlags", &self.OpenFlags)
-            .field("ParentVirtualStorageType", &self.ParentVirtualStorageType)
-            .field("SourceVirtualStorageType", &self.SourceVirtualStorageType)
-            .field("ResiliencyGuid", &self.ResiliencyGuid)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid
-    }
-}
-impl Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
 impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -1802,46 +1655,16 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub SourceLimitPath: windows_core::PCWSTR,
     pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_2")
-            .field("UniqueId", &self.UniqueId)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("BlockSizeInBytes", &self.BlockSizeInBytes)
-            .field("SectorSizeInBytes", &self.SectorSizeInBytes)
-            .field("PhysicalSectorSizeInBytes", &self.PhysicalSectorSizeInBytes)
-            .field("ParentPath", &self.ParentPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("OpenFlags", &self.OpenFlags)
-            .field("ParentVirtualStorageType", &self.ParentVirtualStorageType)
-            .field("SourceVirtualStorageType", &self.SourceVirtualStorageType)
-            .field("ResiliencyGuid", &self.ResiliencyGuid)
-            .field("SourceLimitPath", &self.SourceLimitPath)
-            .field("BackingStorageType", &self.BackingStorageType)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid && self.SourceLimitPath == other.SourceLimitPath && self.BackingStorageType == other.BackingStorageType
-    }
-}
-impl Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
 impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -1859,57 +1682,19 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub PmemAddressAbstractionType: windows_core::GUID,
     pub DataAlignment: u64,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_3")
-            .field("UniqueId", &self.UniqueId)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("BlockSizeInBytes", &self.BlockSizeInBytes)
-            .field("SectorSizeInBytes", &self.SectorSizeInBytes)
-            .field("PhysicalSectorSizeInBytes", &self.PhysicalSectorSizeInBytes)
-            .field("ParentPath", &self.ParentPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("OpenFlags", &self.OpenFlags)
-            .field("ParentVirtualStorageType", &self.ParentVirtualStorageType)
-            .field("SourceVirtualStorageType", &self.SourceVirtualStorageType)
-            .field("ResiliencyGuid", &self.ResiliencyGuid)
-            .field("SourceLimitPath", &self.SourceLimitPath)
-            .field("BackingStorageType", &self.BackingStorageType)
-            .field("PmemAddressAbstractionType", &self.PmemAddressAbstractionType)
-            .field("DataAlignment", &self.DataAlignment)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid && self.SourceLimitPath == other.SourceLimitPath && self.BackingStorageType == other.BackingStorageType && self.PmemAddressAbstractionType == other.PmemAddressAbstractionType && self.DataAlignment == other.DataAlignment
-    }
-}
-impl Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
 impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: DELETE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0,
-}
-impl Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS {}
-impl Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1920,14 +1705,9 @@ impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
-}
-impl Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-impl Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1938,44 +1718,23 @@ impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
-}
-impl Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).finish()
-    }
 }
 impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId
-    }
-}
-impl Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS {
     pub Version: EXPAND_VIRTUAL_DISK_VERSION,
     pub Anonymous: EXPAND_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for EXPAND_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for EXPAND_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1986,14 +1745,9 @@ impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: EXPAND_VIRTUAL_DISK_PARAMETERS_0_0,
-}
-impl Copy for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2004,44 +1758,23 @@ impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
-}
-impl Copy for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EXPAND_VIRTUAL_DISK_PARAMETERS_0_0").field("NewSize", &self.NewSize).finish()
-    }
 }
 impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewSize == other.NewSize
-    }
-}
-impl Eq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS {
     pub Version: FORK_VIRTUAL_DISK_VERSION,
     pub Anonymous: FORK_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for FORK_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for FORK_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2052,14 +1785,9 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0,
-}
-impl Copy for FORK_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for FORK_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2070,44 +1798,23 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: windows_core::PCWSTR,
-}
-impl Copy for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FORK_VIRTUAL_DISK_PARAMETERS_0_0").field("ForkedVirtualDiskPath", &self.ForkedVirtualDiskPath).finish()
-    }
 }
 impl windows_core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ForkedVirtualDiskPath == other.ForkedVirtualDiskPath
-    }
-}
-impl Eq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO {
     pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: GET_VIRTUAL_DISK_INFO_0,
-}
-impl Copy for GET_VIRTUAL_DISK_INFO {}
-impl Clone for GET_VIRTUAL_DISK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO {
     type TypeKind = windows_core::CopyType;
@@ -2118,6 +1825,7 @@ impl Default for GET_VIRTUAL_DISK_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
     pub Identifier: windows_core::GUID,
@@ -2135,12 +1843,6 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub VirtualDiskId: windows_core::GUID,
     pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -2150,139 +1852,70 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
     pub MostRecentId: [u16; 1],
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_0 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_0").field("Enabled", &self.Enabled).field("NewerChanges", &self.NewerChanges).field("MostRecentId", &self.MostRecentId).finish()
-    }
-}
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enabled == other.Enabled && self.NewerChanges == other.NewerChanges && self.MostRecentId == other.MostRecentId
-    }
-}
-impl Eq for GET_VIRTUAL_DISK_INFO_0_0 {}
 impl Default for GET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: super::super::Foundation::BOOL,
     pub ParentLocationBuffer: [u16; 1],
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_1 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_1").field("ParentResolved", &self.ParentResolved).field("ParentLocationBuffer", &self.ParentLocationBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ParentResolved == other.ParentResolved && self.ParentLocationBuffer == other.ParentLocationBuffer
-    }
-}
-impl Eq for GET_VIRTUAL_DISK_INFO_0_1 {}
 impl Default for GET_VIRTUAL_DISK_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
     pub IsRemote: super::super::Foundation::BOOL,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_2 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_2").field("LogicalSectorSize", &self.LogicalSectorSize).field("PhysicalSectorSize", &self.PhysicalSectorSize).field("IsRemote", &self.IsRemote).finish()
-    }
-}
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogicalSectorSize == other.LogicalSectorSize && self.PhysicalSectorSize == other.PhysicalSectorSize && self.IsRemote == other.IsRemote
-    }
-}
-impl Eq for GET_VIRTUAL_DISK_INFO_0_2 {}
 impl Default for GET_VIRTUAL_DISK_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_3 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_3").field("VirtualSize", &self.VirtualSize).field("PhysicalSize", &self.PhysicalSize).field("BlockSize", &self.BlockSize).field("SectorSize", &self.SectorSize).finish()
-    }
-}
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualSize == other.VirtualSize && self.PhysicalSize == other.PhysicalSize && self.BlockSize == other.BlockSize && self.SectorSize == other.SectorSize
-    }
-}
-impl Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
 impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS {
     pub Version: MERGE_VIRTUAL_DISK_VERSION,
     pub Anonymous: MERGE_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2293,15 +1926,10 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MERGE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: MERGE_VIRTUAL_DISK_PARAMETERS_0_1,
-}
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2312,74 +1940,37 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MergeDepth: u32,
-}
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS_0_0").field("MergeDepth", &self.MergeDepth).finish()
-    }
 }
 impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MergeDepth == other.MergeDepth
-    }
-}
-impl Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub MergeSourceDepth: u32,
     pub MergeTargetDepth: u32,
 }
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS_0_1").field("MergeSourceDepth", &self.MergeSourceDepth).field("MergeTargetDepth", &self.MergeTargetDepth).finish()
-    }
-}
 impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MergeSourceDepth == other.MergeSourceDepth && self.MergeTargetDepth == other.MergeTargetDepth
-    }
-}
-impl Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
 impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS {
     pub Version: MIRROR_VIRTUAL_DISK_VERSION,
     pub Anonymous: MIRROR_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for MIRROR_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for MIRROR_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2390,14 +1981,9 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0,
-}
-impl Copy for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2408,44 +1994,23 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: windows_core::PCWSTR,
-}
-impl Copy for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIRROR_VIRTUAL_DISK_PARAMETERS_0_0").field("MirrorVirtualDiskPath", &self.MirrorVirtualDiskPath).finish()
-    }
 }
 impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MirrorVirtualDiskPath == other.MirrorVirtualDiskPath
-    }
-}
-impl Eq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODIFY_VHDSET_PARAMETERS {
     pub Version: MODIFY_VHDSET_VERSION,
     pub Anonymous: MODIFY_VHDSET_PARAMETERS_0,
-}
-impl Copy for MODIFY_VHDSET_PARAMETERS {}
-impl Clone for MODIFY_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MODIFY_VHDSET_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2456,16 +2021,11 @@ impl Default for MODIFY_VHDSET_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
     pub SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0,
     pub SnapshotId: windows_core::GUID,
     pub DefaultFilePath: windows_core::PCWSTR,
-}
-impl Copy for MODIFY_VHDSET_PARAMETERS_0 {}
-impl Clone for MODIFY_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MODIFY_VHDSET_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2476,45 +2036,24 @@ impl Default for MODIFY_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
     pub SnapshotFilePath: windows_core::PCWSTR,
 }
-impl Copy for MODIFY_VHDSET_PARAMETERS_0_0 {}
-impl Clone for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MODIFY_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).field("SnapshotFilePath", &self.SnapshotFilePath).finish()
-    }
-}
 impl windows_core::TypeKind for MODIFY_VHDSET_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId && self.SnapshotFilePath == other.SnapshotFilePath
-    }
-}
-impl Eq for MODIFY_VHDSET_PARAMETERS_0_0 {}
 impl Default for MODIFY_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
     pub Version: OPEN_VIRTUAL_DISK_VERSION,
     pub Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2525,16 +2064,11 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: OPEN_VIRTUAL_DISK_PARAMETERS_0_2,
-}
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2545,138 +2079,69 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
-}
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_0").field("RWDepth", &self.RWDepth).finish()
-    }
 }
 impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RWDepth == other.RWDepth
-    }
-}
-impl Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
     pub ResiliencyGuid: windows_core::GUID,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_1").field("GetInfoOnly", &self.GetInfoOnly).field("ReadOnly", &self.ReadOnly).field("ResiliencyGuid", &self.ResiliencyGuid).finish()
-    }
-}
 impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetInfoOnly == other.GetInfoOnly && self.ReadOnly == other.ReadOnly && self.ResiliencyGuid == other.ResiliencyGuid
-    }
-}
-impl Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
 impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
     pub ResiliencyGuid: windows_core::GUID,
     pub SnapshotId: windows_core::GUID,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_2").field("GetInfoOnly", &self.GetInfoOnly).field("ReadOnly", &self.ReadOnly).field("ResiliencyGuid", &self.ResiliencyGuid).field("SnapshotId", &self.SnapshotId).finish()
-    }
-}
 impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetInfoOnly == other.GetInfoOnly && self.ReadOnly == other.ReadOnly && self.ResiliencyGuid == other.ResiliencyGuid && self.SnapshotId == other.SnapshotId
-    }
-}
-impl Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
 impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     pub ByteOffset: u64,
     pub ByteLength: u64,
     pub Reserved: u64,
 }
-impl Copy for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
-impl Clone for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QUERY_CHANGES_VIRTUAL_DISK_RANGE").field("ByteOffset", &self.ByteOffset).field("ByteLength", &self.ByteLength).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteOffset == other.ByteOffset && self.ByteLength == other.ByteLength && self.Reserved == other.Reserved
-    }
-}
-impl Eq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
 impl Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2687,14 +2152,9 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
-}
-impl Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2705,6 +2165,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: super::super::Foundation::BOOL,
     pub DataIn: u8,
@@ -2716,41 +2177,19 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub SenseInfo: *mut u8,
     pub Cdb: *mut u8,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0").field("RSVDHandle", &self.RSVDHandle).field("DataIn", &self.DataIn).field("CdbLength", &self.CdbLength).field("SenseInfoLength", &self.SenseInfoLength).field("SrbFlags", &self.SrbFlags).field("DataTransferLength", &self.DataTransferLength).field("DataBuffer", &self.DataBuffer).field("SenseInfo", &self.SenseInfo).field("Cdb", &self.Cdb).finish()
-    }
-}
 impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RSVDHandle == other.RSVDHandle && self.DataIn == other.DataIn && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.SrbFlags == other.SrbFlags && self.DataTransferLength == other.DataTransferLength && self.DataBuffer == other.DataBuffer && self.SenseInfo == other.SenseInfo && self.Cdb == other.Cdb
-    }
-}
-impl Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0,
-}
-impl Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     type TypeKind = windows_core::CopyType;
@@ -2761,14 +2200,9 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0,
-}
-impl Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     type TypeKind = windows_core::CopyType;
@@ -2779,46 +2213,25 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     pub ScsiStatus: u8,
     pub SenseInfoLength: u8,
     pub DataTransferLength: u32,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0").field("ScsiStatus", &self.ScsiStatus).field("SenseInfoLength", &self.SenseInfoLength).field("DataTransferLength", &self.DataTransferLength).finish()
-    }
-}
 impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ScsiStatus == other.ScsiStatus && self.SenseInfoLength == other.SenseInfoLength && self.DataTransferLength == other.DataTransferLength
-    }
-}
-impl Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
 impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS {
     pub Version: RESIZE_VIRTUAL_DISK_VERSION,
     pub Anonymous: RESIZE_VIRTUAL_DISK_PARAMETERS_0,
-}
-impl Copy for RESIZE_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for RESIZE_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2829,14 +2242,9 @@ impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RESIZE_VIRTUAL_DISK_PARAMETERS_0_0,
-}
-impl Copy for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2847,44 +2255,23 @@ impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
-}
-impl Copy for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESIZE_VIRTUAL_DISK_PARAMETERS_0_0").field("NewSize", &self.NewSize).finish()
-    }
 }
 impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewSize == other.NewSize
-    }
-}
-impl Eq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SET_VIRTUAL_DISK_INFO {
     pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: SET_VIRTUAL_DISK_INFO_0,
-}
-impl Copy for SET_VIRTUAL_DISK_INFO {}
-impl Clone for SET_VIRTUAL_DISK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO {
     type TypeKind = windows_core::CopyType;
@@ -2895,6 +2282,7 @@ impl Default for SET_VIRTUAL_DISK_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: windows_core::PCWSTR,
     pub UniqueIdentifier: windows_core::GUID,
@@ -2903,12 +2291,6 @@ pub union SET_VIRTUAL_DISK_INFO_0 {
     pub VirtualDiskId: windows_core::GUID,
     pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
-}
-impl Copy for SET_VIRTUAL_DISK_INFO_0 {}
-impl Clone for SET_VIRTUAL_DISK_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -2919,76 +2301,39 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub LinkageId: windows_core::GUID,
     pub ParentFilePath: windows_core::PCWSTR,
 }
-impl Copy for SET_VIRTUAL_DISK_INFO_0_0 {}
-impl Clone for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SET_VIRTUAL_DISK_INFO_0_0").field("LinkageId", &self.LinkageId).field("ParentFilePath", &self.ParentFilePath).finish()
-    }
-}
 impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LinkageId == other.LinkageId && self.ParentFilePath == other.ParentFilePath
-    }
-}
-impl Eq for SET_VIRTUAL_DISK_INFO_0_0 {}
 impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub ChildDepth: u32,
     pub ParentFilePath: windows_core::PCWSTR,
 }
-impl Copy for SET_VIRTUAL_DISK_INFO_0_1 {}
-impl Clone for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SET_VIRTUAL_DISK_INFO_0_1").field("ChildDepth", &self.ChildDepth).field("ParentFilePath", &self.ParentFilePath).finish()
-    }
-}
 impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChildDepth == other.ChildDepth && self.ParentFilePath == other.ParentFilePath
-    }
-}
-impl Eq for SET_VIRTUAL_DISK_INFO_0_1 {}
 impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_DEPENDENCY_INFO {
     pub Version: STORAGE_DEPENDENCY_INFO_VERSION,
     pub NumberEntries: u32,
     pub Anonymous: STORAGE_DEPENDENCY_INFO_0,
-}
-impl Copy for STORAGE_DEPENDENCY_INFO {}
-impl Clone for STORAGE_DEPENDENCY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO {
     type TypeKind = windows_core::CopyType;
@@ -2999,15 +2344,10 @@ impl Default for STORAGE_DEPENDENCY_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union STORAGE_DEPENDENCY_INFO_0 {
     pub Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
     pub Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],
-}
-impl Copy for STORAGE_DEPENDENCY_INFO_0 {}
-impl Clone for STORAGE_DEPENDENCY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -3018,37 +2358,22 @@ impl Default for STORAGE_DEPENDENCY_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
 }
-impl Copy for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
-impl Clone for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STORAGE_DEPENDENCY_INFO_TYPE_1").field("DependencyTypeFlags", &self.DependencyTypeFlags).field("ProviderSpecificFlags", &self.ProviderSpecificFlags).field("VirtualStorageType", &self.VirtualStorageType).finish()
-    }
-}
 impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DependencyTypeFlags == other.DependencyTypeFlags && self.ProviderSpecificFlags == other.ProviderSpecificFlags && self.VirtualStorageType == other.VirtualStorageType
-    }
-}
-impl Eq for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
 impl Default for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -3059,50 +2384,19 @@ pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependentVolumeName: windows_core::PWSTR,
     pub DependentVolumeRelativePath: windows_core::PWSTR,
 }
-impl Copy for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
-impl Clone for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STORAGE_DEPENDENCY_INFO_TYPE_2")
-            .field("DependencyTypeFlags", &self.DependencyTypeFlags)
-            .field("ProviderSpecificFlags", &self.ProviderSpecificFlags)
-            .field("VirtualStorageType", &self.VirtualStorageType)
-            .field("AncestorLevel", &self.AncestorLevel)
-            .field("DependencyDeviceName", &self.DependencyDeviceName)
-            .field("HostVolumeName", &self.HostVolumeName)
-            .field("DependentVolumeName", &self.DependentVolumeName)
-            .field("DependentVolumeRelativePath", &self.DependentVolumeRelativePath)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DependencyTypeFlags == other.DependencyTypeFlags && self.ProviderSpecificFlags == other.ProviderSpecificFlags && self.VirtualStorageType == other.VirtualStorageType && self.AncestorLevel == other.AncestorLevel && self.DependencyDeviceName == other.DependencyDeviceName && self.HostVolumeName == other.HostVolumeName && self.DependentVolumeName == other.DependentVolumeName && self.DependentVolumeRelativePath == other.DependentVolumeRelativePath
-    }
-}
-impl Eq for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
 impl Default for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: TAKE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0,
-}
-impl Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS {}
-impl Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -3113,14 +2407,9 @@ impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
-}
-impl Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-impl Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -3131,90 +2420,42 @@ impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
-}
-impl Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).finish()
-    }
 }
 impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId
-    }
-}
-impl Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_DISK_PROGRESS {
     pub OperationStatus: u32,
     pub CurrentValue: u64,
     pub CompletionValue: u64,
 }
-impl Copy for VIRTUAL_DISK_PROGRESS {}
-impl Clone for VIRTUAL_DISK_PROGRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_DISK_PROGRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_DISK_PROGRESS").field("OperationStatus", &self.OperationStatus).field("CurrentValue", &self.CurrentValue).field("CompletionValue", &self.CompletionValue).finish()
-    }
-}
 impl windows_core::TypeKind for VIRTUAL_DISK_PROGRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_DISK_PROGRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationStatus == other.OperationStatus && self.CurrentValue == other.CurrentValue && self.CompletionValue == other.CompletionValue
-    }
-}
-impl Eq for VIRTUAL_DISK_PROGRESS {}
 impl Default for VIRTUAL_DISK_PROGRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_STORAGE_TYPE {
     pub DeviceId: u32,
     pub VendorId: windows_core::GUID,
 }
-impl Copy for VIRTUAL_STORAGE_TYPE {}
-impl Clone for VIRTUAL_STORAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_STORAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_STORAGE_TYPE").field("DeviceId", &self.DeviceId).field("VendorId", &self.VendorId).finish()
-    }
-}
 impl windows_core::TypeKind for VIRTUAL_STORAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_STORAGE_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceId == other.DeviceId && self.VendorId == other.VendorId
-    }
-}
-impl Eq for VIRTUAL_STORAGE_TYPE {}
 impl Default for VIRTUAL_STORAGE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

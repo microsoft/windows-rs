@@ -260,16 +260,11 @@ impl core::fmt::Debug for EC_VARIANT_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EC_VARIANT {
     pub Anonymous: EC_VARIANT_0,
     pub Count: u32,
     pub Type: u32,
-}
-impl Copy for EC_VARIANT {}
-impl Clone for EC_VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EC_VARIANT {
     type TypeKind = windows_core::CopyType;
@@ -280,6 +275,7 @@ impl Default for EC_VARIANT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub UInt32Val: u32,
@@ -290,12 +286,6 @@ pub union EC_VARIANT_0 {
     pub Int32Arr: *mut i32,
     pub StringArr: *mut windows_core::PWSTR,
     pub PropertyHandleVal: isize,
-}
-impl Copy for EC_VARIANT_0 {}
-impl Clone for EC_VARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EC_VARIANT_0 {
     type TypeKind = windows_core::CopyType;

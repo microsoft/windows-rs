@@ -3179,6 +3179,7 @@ impl core::fmt::Debug for SECURITY_MESSAGE_MSG_ID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTH_VALIDATION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub hRasConnection: super::super::Foundation::HANDLE,
@@ -3187,56 +3188,23 @@ pub struct AUTH_VALIDATION_EX {
     pub AuthInfoSize: u32,
     pub AuthInfo: [u8; 1],
 }
-impl Copy for AUTH_VALIDATION_EX {}
-impl Clone for AUTH_VALIDATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTH_VALIDATION_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTH_VALIDATION_EX").field("Header", &self.Header).field("hRasConnection", &self.hRasConnection).field("wszUserName", &self.wszUserName).field("wszLogonDomain", &self.wszLogonDomain).field("AuthInfoSize", &self.AuthInfoSize).field("AuthInfo", &self.AuthInfo).finish()
-    }
-}
 impl windows_core::TypeKind for AUTH_VALIDATION_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTH_VALIDATION_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.hRasConnection == other.hRasConnection && self.wszUserName == other.wszUserName && self.wszLogonDomain == other.wszLogonDomain && self.AuthInfoSize == other.AuthInfoSize && self.AuthInfo == other.AuthInfo
-    }
-}
-impl Eq for AUTH_VALIDATION_EX {}
 impl Default for AUTH_VALIDATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl Copy for GRE_CONFIG_PARAMS0 {}
-impl Clone for GRE_CONFIG_PARAMS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GRE_CONFIG_PARAMS0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GRE_CONFIG_PARAMS0").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
-    }
-}
 impl windows_core::TypeKind for GRE_CONFIG_PARAMS0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GRE_CONFIG_PARAMS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags
-    }
-}
-impl Eq for GRE_CONFIG_PARAMS0 {}
 impl Default for GRE_CONFIG_PARAMS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3260,6 +3228,7 @@ impl windows_core::TypeKind for HRASCONN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -3267,31 +3236,9 @@ pub struct IKEV2_CONFIG_PARAMS {
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_CONFIG_PARAMS {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for IKEV2_CONFIG_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IKEV2_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("dwTunnelConfigParamFlags", &self.dwTunnelConfigParamFlags).field("TunnelConfigParams", &self.TunnelConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for IKEV2_CONFIG_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for IKEV2_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags && self.dwTunnelConfigParamFlags == other.dwTunnelConfigParamFlags && self.TunnelConfigParams == other.TunnelConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for IKEV2_CONFIG_PARAMS {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for IKEV2_CONFIG_PARAMS {
     fn default() -> Self {
@@ -3299,6 +3246,7 @@ impl Default for IKEV2_CONFIG_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -3316,62 +3264,16 @@ pub struct IKEV2_PROJECTION_INFO {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
-impl Copy for IKEV2_PROJECTION_INFO {}
-impl Clone for IKEV2_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IKEV2_PROJECTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IKEV2_PROJECTION_INFO")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwEncryptionMethod", &self.dwEncryptionMethod)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for IKEV2_PROJECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IKEV2_PROJECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwOptions == other.dwOptions
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwEncryptionMethod == other.dwEncryptionMethod
-    }
-}
-impl Eq for IKEV2_PROJECTION_INFO {}
 impl Default for IKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -3390,58 +3292,9 @@ pub struct IKEV2_PROJECTION_INFO2 {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
-impl Copy for IKEV2_PROJECTION_INFO2 {}
-impl Clone for IKEV2_PROJECTION_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IKEV2_PROJECTION_INFO2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IKEV2_PROJECTION_INFO2")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwEmbeddedEAPTypeId", &self.dwEmbeddedEAPTypeId)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwEncryptionMethod", &self.dwEncryptionMethod)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for IKEV2_PROJECTION_INFO2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IKEV2_PROJECTION_INFO2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwOptions == other.dwOptions
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwEmbeddedEAPTypeId == other.dwEmbeddedEAPTypeId
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwEncryptionMethod == other.dwEncryptionMethod
-    }
-}
-impl Eq for IKEV2_PROJECTION_INFO2 {}
 impl Default for IKEV2_PROJECTION_INFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3449,6 +3302,7 @@ impl Default for IKEV2_PROJECTION_INFO2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -3462,42 +3316,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS2")
-            .field("dwIdleTimeout", &self.dwIdleTimeout)
-            .field("dwNetworkBlackoutTime", &self.dwNetworkBlackoutTime)
-            .field("dwSaLifeTime", &self.dwSaLifeTime)
-            .field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation)
-            .field("dwConfigOptions", &self.dwConfigOptions)
-            .field("dwTotalCertificates", &self.dwTotalCertificates)
-            .field("certificateNames", &self.certificateNames)
-            .field("machineCertificateName", &self.machineCertificateName)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("customPolicy", &self.customPolicy)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwNetworkBlackoutTime == other.dwNetworkBlackoutTime && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.dwConfigOptions == other.dwConfigOptions && self.dwTotalCertificates == other.dwTotalCertificates && self.certificateNames == other.certificateNames && self.machineCertificateName == other.machineCertificateName && self.dwEncryptionType == other.dwEncryptionType && self.customPolicy == other.customPolicy
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
@@ -3506,6 +3327,7 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -3522,45 +3344,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS3")
-            .field("dwIdleTimeout", &self.dwIdleTimeout)
-            .field("dwNetworkBlackoutTime", &self.dwNetworkBlackoutTime)
-            .field("dwSaLifeTime", &self.dwSaLifeTime)
-            .field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation)
-            .field("dwConfigOptions", &self.dwConfigOptions)
-            .field("dwTotalCertificates", &self.dwTotalCertificates)
-            .field("certificateNames", &self.certificateNames)
-            .field("machineCertificateName", &self.machineCertificateName)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("customPolicy", &self.customPolicy)
-            .field("dwTotalEkus", &self.dwTotalEkus)
-            .field("certificateEKUs", &self.certificateEKUs)
-            .field("machineCertificateHash", &self.machineCertificateHash)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwNetworkBlackoutTime == other.dwNetworkBlackoutTime && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.dwConfigOptions == other.dwConfigOptions && self.dwTotalCertificates == other.dwTotalCertificates && self.certificateNames == other.certificateNames && self.machineCertificateName == other.machineCertificateName && self.dwEncryptionType == other.dwEncryptionType && self.customPolicy == other.customPolicy && self.dwTotalEkus == other.dwTotalEkus && self.certificateEKUs == other.certificateEKUs && self.machineCertificateHash == other.machineCertificateHash
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     fn default() -> Self {
@@ -3569,6 +3355,7 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -3586,46 +3373,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwMmSaLifeTime: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS4")
-            .field("dwIdleTimeout", &self.dwIdleTimeout)
-            .field("dwNetworkBlackoutTime", &self.dwNetworkBlackoutTime)
-            .field("dwSaLifeTime", &self.dwSaLifeTime)
-            .field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation)
-            .field("dwConfigOptions", &self.dwConfigOptions)
-            .field("dwTotalCertificates", &self.dwTotalCertificates)
-            .field("certificateNames", &self.certificateNames)
-            .field("machineCertificateName", &self.machineCertificateName)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("customPolicy", &self.customPolicy)
-            .field("dwTotalEkus", &self.dwTotalEkus)
-            .field("certificateEKUs", &self.certificateEKUs)
-            .field("machineCertificateHash", &self.machineCertificateHash)
-            .field("dwMmSaLifeTime", &self.dwMmSaLifeTime)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwNetworkBlackoutTime == other.dwNetworkBlackoutTime && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.dwConfigOptions == other.dwConfigOptions && self.dwTotalCertificates == other.dwTotalCertificates && self.certificateNames == other.certificateNames && self.machineCertificateName == other.machineCertificateName && self.dwEncryptionType == other.dwEncryptionType && self.customPolicy == other.customPolicy && self.dwTotalEkus == other.dwTotalEkus && self.certificateEKUs == other.certificateEKUs && self.machineCertificateHash == other.machineCertificateHash && self.dwMmSaLifeTime == other.dwMmSaLifeTime
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     fn default() -> Self {
@@ -3633,68 +3383,37 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl Copy for L2TP_CONFIG_PARAMS0 {}
-impl Clone for L2TP_CONFIG_PARAMS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for L2TP_CONFIG_PARAMS0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("L2TP_CONFIG_PARAMS0").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
-    }
-}
 impl windows_core::TypeKind for L2TP_CONFIG_PARAMS0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for L2TP_CONFIG_PARAMS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags
-    }
-}
-impl Eq for L2TP_CONFIG_PARAMS0 {}
 impl Default for L2TP_CONFIG_PARAMS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
     pub dwTunnelConfigParamFlags: u32,
     pub TunnelConfigParams: L2TP_TUNNEL_CONFIG_PARAMS2,
 }
-impl Copy for L2TP_CONFIG_PARAMS1 {}
-impl Clone for L2TP_CONFIG_PARAMS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for L2TP_CONFIG_PARAMS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("L2TP_CONFIG_PARAMS1").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("dwTunnelConfigParamFlags", &self.dwTunnelConfigParamFlags).field("TunnelConfigParams", &self.TunnelConfigParams).finish()
-    }
-}
 impl windows_core::TypeKind for L2TP_CONFIG_PARAMS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for L2TP_CONFIG_PARAMS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags && self.dwTunnelConfigParamFlags == other.dwTunnelConfigParamFlags && self.TunnelConfigParams == other.TunnelConfigParams
-    }
-}
-impl Eq for L2TP_CONFIG_PARAMS1 {}
 impl Default for L2TP_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -3702,32 +3421,16 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-impl Copy for L2TP_TUNNEL_CONFIG_PARAMS1 {}
-impl Clone for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("L2TP_TUNNEL_CONFIG_PARAMS1").field("dwIdleTimeout", &self.dwIdleTimeout).field("dwEncryptionType", &self.dwEncryptionType).field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation).field("customPolicy", &self.customPolicy).finish()
-    }
-}
 impl windows_core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwEncryptionType == other.dwEncryptionType && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.customPolicy == other.customPolicy
-    }
-}
-impl Eq for L2TP_TUNNEL_CONFIG_PARAMS1 {}
 impl Default for L2TP_TUNNEL_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -3736,58 +3439,25 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwMmSaLifeTime: u32,
 }
-impl Copy for L2TP_TUNNEL_CONFIG_PARAMS2 {}
-impl Clone for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("L2TP_TUNNEL_CONFIG_PARAMS2").field("dwIdleTimeout", &self.dwIdleTimeout).field("dwEncryptionType", &self.dwEncryptionType).field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation).field("customPolicy", &self.customPolicy).field("dwMmSaLifeTime", &self.dwMmSaLifeTime).finish()
-    }
-}
 impl windows_core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwEncryptionType == other.dwEncryptionType && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.customPolicy == other.customPolicy && self.dwMmSaLifeTime == other.dwMmSaLifeTime
-    }
-}
-impl Eq for L2TP_TUNNEL_CONFIG_PARAMS2 {}
 impl Default for L2TP_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MGM_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwIfNextHopAddr: u32,
     pub bIGMP: super::super::Foundation::BOOL,
     pub bIsEnabled: super::super::Foundation::BOOL,
 }
-impl Copy for MGM_IF_ENTRY {}
-impl Clone for MGM_IF_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MGM_IF_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MGM_IF_ENTRY").field("dwIfIndex", &self.dwIfIndex).field("dwIfNextHopAddr", &self.dwIfNextHopAddr).field("bIGMP", &self.bIGMP).field("bIsEnabled", &self.bIsEnabled).finish()
-    }
-}
 impl windows_core::TypeKind for MGM_IF_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MGM_IF_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex && self.dwIfNextHopAddr == other.dwIfNextHopAddr && self.bIGMP == other.bIGMP && self.bIsEnabled == other.bIsEnabled
-    }
-}
-impl Eq for MGM_IF_ENTRY {}
 impl Default for MGM_IF_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3795,6 +3465,7 @@ impl Default for MGM_IF_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug)]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
     pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
@@ -3811,20 +3482,6 @@ pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPRAPI_ADMIN_DLL_CALLBACKS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPRAPI_ADMIN_DLL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for MPRAPI_ADMIN_DLL_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPRAPI_ADMIN_DLL_CALLBACKS").field("revision", &self.revision).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MPRAPI_ADMIN_DLL_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -3835,31 +3492,15 @@ impl Default for MPRAPI_ADMIN_DLL_CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
     pub size: u16,
 }
-impl Copy for MPRAPI_OBJECT_HEADER {}
-impl Clone for MPRAPI_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPRAPI_OBJECT_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPRAPI_OBJECT_HEADER").field("revision", &self.revision).field("type", &self.r#type).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MPRAPI_OBJECT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPRAPI_OBJECT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.revision == other.revision && self.r#type == other.r#type && self.size == other.size
-    }
-}
-impl Eq for MPRAPI_OBJECT_HEADER {}
 impl Default for MPRAPI_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3867,6 +3508,7 @@ impl Default for MPRAPI_OBJECT_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -3874,31 +3516,9 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPRAPI_TUNNEL_CONFIG_PARAMS0").field("IkeConfigParams", &self.IkeConfigParams).field("PptpConfigParams", &self.PptpConfigParams).field("L2tpConfigParams", &self.L2tpConfigParams).field("SstpConfigParams", &self.SstpConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IkeConfigParams == other.IkeConfigParams && self.PptpConfigParams == other.PptpConfigParams && self.L2tpConfigParams == other.L2tpConfigParams && self.SstpConfigParams == other.SstpConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     fn default() -> Self {
@@ -3907,6 +3527,7 @@ impl Default for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -3915,31 +3536,9 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPRAPI_TUNNEL_CONFIG_PARAMS1").field("IkeConfigParams", &self.IkeConfigParams).field("PptpConfigParams", &self.PptpConfigParams).field("L2tpConfigParams", &self.L2tpConfigParams).field("SstpConfigParams", &self.SstpConfigParams).field("GREConfigParams", &self.GREConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IkeConfigParams == other.IkeConfigParams && self.PptpConfigParams == other.PptpConfigParams && self.L2tpConfigParams == other.L2tpConfigParams && self.SstpConfigParams == other.SstpConfigParams && self.GREConfigParams == other.GREConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     fn default() -> Self {
@@ -3947,213 +3546,101 @@ impl Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: super::super::Foundation::BOOL,
     pub pwszEKU: windows_core::PWSTR,
 }
-impl Copy for MPR_CERT_EKU {}
-impl Clone for MPR_CERT_EKU {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_CERT_EKU {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_CERT_EKU").field("dwSize", &self.dwSize).field("IsEKUOID", &self.IsEKUOID).field("pwszEKU", &self.pwszEKU).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_CERT_EKU {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_CERT_EKU {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.IsEKUOID == other.IsEKUOID && self.pwszEKU == other.pwszEKU
-    }
-}
-impl Eq for MPR_CERT_EKU {}
 impl Default for MPR_CERT_EKU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
-impl Copy for MPR_CREDENTIALSEX_0 {}
-impl Clone for MPR_CREDENTIALSEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_CREDENTIALSEX_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_CREDENTIALSEX_0").field("dwSize", &self.dwSize).field("lpbCredentialsInfo", &self.lpbCredentialsInfo).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_CREDENTIALSEX_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_CREDENTIALSEX_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpbCredentialsInfo == other.lpbCredentialsInfo
-    }
-}
-impl Eq for MPR_CREDENTIALSEX_0 {}
 impl Default for MPR_CREDENTIALSEX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
-impl Copy for MPR_CREDENTIALSEX_1 {}
-impl Clone for MPR_CREDENTIALSEX_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_CREDENTIALSEX_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_CREDENTIALSEX_1").field("dwSize", &self.dwSize).field("lpbCredentialsInfo", &self.lpbCredentialsInfo).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_CREDENTIALSEX_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_CREDENTIALSEX_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpbCredentialsInfo == other.lpbCredentialsInfo
-    }
-}
-impl Eq for MPR_CREDENTIALSEX_1 {}
 impl Default for MPR_CREDENTIALSEX_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-impl Copy for MPR_DEVICE_0 {}
-impl Clone for MPR_DEVICE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_DEVICE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_DEVICE_0").field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_DEVICE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_DEVICE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName
-    }
-}
-impl Eq for MPR_DEVICE_0 {}
 impl Default for MPR_DEVICE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_DEVICE_1 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
     pub szLocalPhoneNumber: [u16; 129],
     pub szAlternates: windows_core::PWSTR,
 }
-impl Copy for MPR_DEVICE_1 {}
-impl Clone for MPR_DEVICE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_DEVICE_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_DEVICE_1").field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("szAlternates", &self.szAlternates).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_DEVICE_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_DEVICE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName && self.szLocalPhoneNumber == other.szLocalPhoneNumber && self.szAlternates == other.szAlternates
-    }
-}
-impl Eq for MPR_DEVICE_1 {}
 impl Default for MPR_DEVICE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_FILTER_0 {
     pub fEnable: super::super::Foundation::BOOL,
-}
-impl Copy for MPR_FILTER_0 {}
-impl Clone for MPR_FILTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_FILTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_FILTER_0").field("fEnable", &self.fEnable).finish()
-    }
 }
 impl windows_core::TypeKind for MPR_FILTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_FILTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fEnable == other.fEnable
-    }
-}
-impl Eq for MPR_FILTER_0 {}
 impl Default for MPR_FILTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IFTRANSPORT_0 {
     pub dwTransportId: u32,
     pub hIfTransport: super::super::Foundation::HANDLE,
     pub wszIfTransportName: [u16; 41],
 }
-impl Copy for MPR_IFTRANSPORT_0 {}
-impl Clone for MPR_IFTRANSPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_IFTRANSPORT_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_IFTRANSPORT_0").field("dwTransportId", &self.dwTransportId).field("hIfTransport", &self.hIfTransport).field("wszIfTransportName", &self.wszIfTransportName).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_IFTRANSPORT_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_IFTRANSPORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTransportId == other.dwTransportId && self.hIfTransport == other.hIfTransport && self.wszIfTransportName == other.wszIfTransportName
-    }
-}
-impl Eq for MPR_IFTRANSPORT_0 {}
 impl Default for MPR_IFTRANSPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4161,37 +3648,16 @@ impl Default for MPR_IFTRANSPORT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_IF_CUSTOMINFOEX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_IF_CUSTOMINFOEX0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPR_IF_CUSTOMINFOEX0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_IF_CUSTOMINFOEX0").field("Header", &self.Header).field("dwFlags", &self.dwFlags).field("customIkev2Config", &self.customIkev2Config).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPR_IF_CUSTOMINFOEX0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPR_IF_CUSTOMINFOEX0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwFlags == other.dwFlags && self.customIkev2Config == other.customIkev2Config
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPR_IF_CUSTOMINFOEX0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPR_IF_CUSTOMINFOEX0 {
     fn default() -> Self {
@@ -4200,37 +3666,16 @@ impl Default for MPR_IF_CUSTOMINFOEX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG1,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_IF_CUSTOMINFOEX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_IF_CUSTOMINFOEX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPR_IF_CUSTOMINFOEX1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_IF_CUSTOMINFOEX1").field("Header", &self.Header).field("dwFlags", &self.dwFlags).field("customIkev2Config", &self.customIkev2Config).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPR_IF_CUSTOMINFOEX1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPR_IF_CUSTOMINFOEX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwFlags == other.dwFlags && self.customIkev2Config == other.customIkev2Config
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPR_IF_CUSTOMINFOEX1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPR_IF_CUSTOMINFOEX1 {
     fn default() -> Self {
@@ -4239,37 +3684,16 @@ impl Default for MPR_IF_CUSTOMINFOEX1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG2,
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Copy for MPR_IF_CUSTOMINFOEX2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Clone for MPR_IF_CUSTOMINFOEX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl core::fmt::Debug for MPR_IF_CUSTOMINFOEX2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_IF_CUSTOMINFOEX2").field("Header", &self.Header).field("dwFlags", &self.dwFlags).field("customIkev2Config", &self.customIkev2Config).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl windows_core::TypeKind for MPR_IF_CUSTOMINFOEX2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl PartialEq for MPR_IF_CUSTOMINFOEX2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwFlags == other.dwFlags && self.customIkev2Config == other.customIkev2Config
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Eq for MPR_IF_CUSTOMINFOEX2 {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl Default for MPR_IF_CUSTOMINFOEX2 {
     fn default() -> Self {
@@ -4277,6 +3701,7 @@ impl Default for MPR_IF_CUSTOMINFOEX2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_INTERFACE_0 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -4286,32 +3711,16 @@ pub struct MPR_INTERFACE_0 {
     pub fUnReachabilityReasons: u32,
     pub dwLastError: u32,
 }
-impl Copy for MPR_INTERFACE_0 {}
-impl Clone for MPR_INTERFACE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_INTERFACE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_INTERFACE_0").field("wszInterfaceName", &self.wszInterfaceName).field("hInterface", &self.hInterface).field("fEnabled", &self.fEnabled).field("dwIfType", &self.dwIfType).field("dwConnectionState", &self.dwConnectionState).field("fUnReachabilityReasons", &self.fUnReachabilityReasons).field("dwLastError", &self.dwLastError).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_INTERFACE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_INTERFACE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszInterfaceName == other.wszInterfaceName && self.hInterface == other.hInterface && self.fEnabled == other.fEnabled && self.dwIfType == other.dwIfType && self.dwConnectionState == other.dwConnectionState && self.fUnReachabilityReasons == other.fUnReachabilityReasons && self.dwLastError == other.dwLastError
-    }
-}
-impl Eq for MPR_INTERFACE_0 {}
 impl Default for MPR_INTERFACE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_INTERFACE_1 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -4322,32 +3731,16 @@ pub struct MPR_INTERFACE_1 {
     pub dwLastError: u32,
     pub lpwsDialoutHoursRestriction: windows_core::PWSTR,
 }
-impl Copy for MPR_INTERFACE_1 {}
-impl Clone for MPR_INTERFACE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_INTERFACE_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_INTERFACE_1").field("wszInterfaceName", &self.wszInterfaceName).field("hInterface", &self.hInterface).field("fEnabled", &self.fEnabled).field("dwIfType", &self.dwIfType).field("dwConnectionState", &self.dwConnectionState).field("fUnReachabilityReasons", &self.fUnReachabilityReasons).field("dwLastError", &self.dwLastError).field("lpwsDialoutHoursRestriction", &self.lpwsDialoutHoursRestriction).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_INTERFACE_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_INTERFACE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszInterfaceName == other.wszInterfaceName && self.hInterface == other.hInterface && self.fEnabled == other.fEnabled && self.dwIfType == other.dwIfType && self.dwConnectionState == other.dwConnectionState && self.fUnReachabilityReasons == other.fUnReachabilityReasons && self.dwLastError == other.dwLastError && self.lpwsDialoutHoursRestriction == other.lpwsDialoutHoursRestriction
-    }
-}
-impl Eq for MPR_INTERFACE_1 {}
 impl Default for MPR_INTERFACE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_INTERFACE_2 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -4387,100 +3780,9 @@ pub struct MPR_INTERFACE_2 {
     pub guidId: windows_core::GUID,
     pub dwVpnStrategy: MPR_VS,
 }
-impl Copy for MPR_INTERFACE_2 {}
-impl Clone for MPR_INTERFACE_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_INTERFACE_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_INTERFACE_2")
-            .field("wszInterfaceName", &self.wszInterfaceName)
-            .field("hInterface", &self.hInterface)
-            .field("fEnabled", &self.fEnabled)
-            .field("dwIfType", &self.dwIfType)
-            .field("dwConnectionState", &self.dwConnectionState)
-            .field("fUnReachabilityReasons", &self.fUnReachabilityReasons)
-            .field("dwLastError", &self.dwLastError)
-            .field("dwfOptions", &self.dwfOptions)
-            .field("szLocalPhoneNumber", &self.szLocalPhoneNumber)
-            .field("szAlternates", &self.szAlternates)
-            .field("ipaddr", &self.ipaddr)
-            .field("ipaddrDns", &self.ipaddrDns)
-            .field("ipaddrDnsAlt", &self.ipaddrDnsAlt)
-            .field("ipaddrWins", &self.ipaddrWins)
-            .field("ipaddrWinsAlt", &self.ipaddrWinsAlt)
-            .field("dwfNetProtocols", &self.dwfNetProtocols)
-            .field("szDeviceType", &self.szDeviceType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szX25PadType", &self.szX25PadType)
-            .field("szX25Address", &self.szX25Address)
-            .field("szX25Facilities", &self.szX25Facilities)
-            .field("szX25UserData", &self.szX25UserData)
-            .field("dwChannels", &self.dwChannels)
-            .field("dwSubEntries", &self.dwSubEntries)
-            .field("dwDialMode", &self.dwDialMode)
-            .field("dwDialExtraPercent", &self.dwDialExtraPercent)
-            .field("dwDialExtraSampleSeconds", &self.dwDialExtraSampleSeconds)
-            .field("dwHangUpExtraPercent", &self.dwHangUpExtraPercent)
-            .field("dwHangUpExtraSampleSeconds", &self.dwHangUpExtraSampleSeconds)
-            .field("dwIdleDisconnectSeconds", &self.dwIdleDisconnectSeconds)
-            .field("dwType", &self.dwType)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("dwCustomAuthKey", &self.dwCustomAuthKey)
-            .field("dwCustomAuthDataSize", &self.dwCustomAuthDataSize)
-            .field("lpbCustomAuthData", &self.lpbCustomAuthData)
-            .field("guidId", &self.guidId)
-            .field("dwVpnStrategy", &self.dwVpnStrategy)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MPR_INTERFACE_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_INTERFACE_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszInterfaceName == other.wszInterfaceName
-            && self.hInterface == other.hInterface
-            && self.fEnabled == other.fEnabled
-            && self.dwIfType == other.dwIfType
-            && self.dwConnectionState == other.dwConnectionState
-            && self.fUnReachabilityReasons == other.fUnReachabilityReasons
-            && self.dwLastError == other.dwLastError
-            && self.dwfOptions == other.dwfOptions
-            && self.szLocalPhoneNumber == other.szLocalPhoneNumber
-            && self.szAlternates == other.szAlternates
-            && self.ipaddr == other.ipaddr
-            && self.ipaddrDns == other.ipaddrDns
-            && self.ipaddrDnsAlt == other.ipaddrDnsAlt
-            && self.ipaddrWins == other.ipaddrWins
-            && self.ipaddrWinsAlt == other.ipaddrWinsAlt
-            && self.dwfNetProtocols == other.dwfNetProtocols
-            && self.szDeviceType == other.szDeviceType
-            && self.szDeviceName == other.szDeviceName
-            && self.szX25PadType == other.szX25PadType
-            && self.szX25Address == other.szX25Address
-            && self.szX25Facilities == other.szX25Facilities
-            && self.szX25UserData == other.szX25UserData
-            && self.dwChannels == other.dwChannels
-            && self.dwSubEntries == other.dwSubEntries
-            && self.dwDialMode == other.dwDialMode
-            && self.dwDialExtraPercent == other.dwDialExtraPercent
-            && self.dwDialExtraSampleSeconds == other.dwDialExtraSampleSeconds
-            && self.dwHangUpExtraPercent == other.dwHangUpExtraPercent
-            && self.dwHangUpExtraSampleSeconds == other.dwHangUpExtraSampleSeconds
-            && self.dwIdleDisconnectSeconds == other.dwIdleDisconnectSeconds
-            && self.dwType == other.dwType
-            && self.dwEncryptionType == other.dwEncryptionType
-            && self.dwCustomAuthKey == other.dwCustomAuthKey
-            && self.dwCustomAuthDataSize == other.dwCustomAuthDataSize
-            && self.lpbCustomAuthData == other.lpbCustomAuthData
-            && self.guidId == other.guidId
-            && self.dwVpnStrategy == other.dwVpnStrategy
-    }
-}
-impl Eq for MPR_INTERFACE_2 {}
 impl Default for MPR_INTERFACE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4488,6 +3790,7 @@ impl Default for MPR_INTERFACE_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MPR_INTERFACE_3 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -4532,14 +3835,6 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPR_INTERFACE_3 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPR_INTERFACE_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MPR_INTERFACE_3 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4550,100 +3845,53 @@ impl Default for MPR_INTERFACE_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: windows_core::GUID,
 }
-impl Copy for MPR_IPINIP_INTERFACE_0 {}
-impl Clone for MPR_IPINIP_INTERFACE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_IPINIP_INTERFACE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_IPINIP_INTERFACE_0").field("wszFriendlyName", &self.wszFriendlyName).field("Guid", &self.Guid).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_IPINIP_INTERFACE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_IPINIP_INTERFACE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszFriendlyName == other.wszFriendlyName && self.Guid == other.Guid
-    }
-}
-impl Eq for MPR_IPINIP_INTERFACE_0 {}
 impl Default for MPR_IPINIP_INTERFACE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_0 {
     pub fLanOnlyMode: super::super::Foundation::BOOL,
     pub dwUpTime: u32,
     pub dwTotalPorts: u32,
     pub dwPortsInUse: u32,
 }
-impl Copy for MPR_SERVER_0 {}
-impl Clone for MPR_SERVER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_SERVER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_0").field("fLanOnlyMode", &self.fLanOnlyMode).field("dwUpTime", &self.dwUpTime).field("dwTotalPorts", &self.dwTotalPorts).field("dwPortsInUse", &self.dwPortsInUse).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_SERVER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_SERVER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fLanOnlyMode == other.fLanOnlyMode && self.dwUpTime == other.dwUpTime && self.dwTotalPorts == other.dwTotalPorts && self.dwPortsInUse == other.dwPortsInUse
-    }
-}
-impl Eq for MPR_SERVER_0 {}
 impl Default for MPR_SERVER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
     pub dwNumL2tpPorts: u32,
     pub dwL2tpPortFlags: u32,
 }
-impl Copy for MPR_SERVER_1 {}
-impl Clone for MPR_SERVER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_SERVER_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_1").field("dwNumPptpPorts", &self.dwNumPptpPorts).field("dwPptpPortFlags", &self.dwPptpPortFlags).field("dwNumL2tpPorts", &self.dwNumL2tpPorts).field("dwL2tpPortFlags", &self.dwL2tpPortFlags).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_SERVER_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_SERVER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPptpPorts == other.dwNumPptpPorts && self.dwPptpPortFlags == other.dwPptpPortFlags && self.dwNumL2tpPorts == other.dwNumL2tpPorts && self.dwL2tpPortFlags == other.dwL2tpPortFlags
-    }
-}
-impl Eq for MPR_SERVER_1 {}
 impl Default for MPR_SERVER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -4652,26 +3900,9 @@ pub struct MPR_SERVER_2 {
     pub dwNumSstpPorts: u32,
     pub dwSstpPortFlags: u32,
 }
-impl Copy for MPR_SERVER_2 {}
-impl Clone for MPR_SERVER_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_SERVER_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_2").field("dwNumPptpPorts", &self.dwNumPptpPorts).field("dwPptpPortFlags", &self.dwPptpPortFlags).field("dwNumL2tpPorts", &self.dwNumL2tpPorts).field("dwL2tpPortFlags", &self.dwL2tpPortFlags).field("dwNumSstpPorts", &self.dwNumSstpPorts).field("dwSstpPortFlags", &self.dwSstpPortFlags).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_SERVER_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_SERVER_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPptpPorts == other.dwNumPptpPorts && self.dwPptpPortFlags == other.dwPptpPortFlags && self.dwNumL2tpPorts == other.dwNumL2tpPorts && self.dwL2tpPortFlags == other.dwL2tpPortFlags && self.dwNumSstpPorts == other.dwNumSstpPorts && self.dwSstpPortFlags == other.dwSstpPortFlags
-    }
-}
-impl Eq for MPR_SERVER_2 {}
 impl Default for MPR_SERVER_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4679,6 +3910,7 @@ impl Default for MPR_SERVER_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -4689,31 +3921,9 @@ pub struct MPR_SERVER_EX0 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_EX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_EX0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPR_SERVER_EX0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_EX0").field("Header", &self.Header).field("fLanOnlyMode", &self.fLanOnlyMode).field("dwUpTime", &self.dwUpTime).field("dwTotalPorts", &self.dwTotalPorts).field("dwPortsInUse", &self.dwPortsInUse).field("Reserved", &self.Reserved).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPR_SERVER_EX0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPR_SERVER_EX0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.fLanOnlyMode == other.fLanOnlyMode && self.dwUpTime == other.dwUpTime && self.dwTotalPorts == other.dwTotalPorts && self.dwPortsInUse == other.dwPortsInUse && self.Reserved == other.Reserved && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPR_SERVER_EX0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPR_SERVER_EX0 {
     fn default() -> Self {
@@ -4722,6 +3932,7 @@ impl Default for MPR_SERVER_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -4732,31 +3943,9 @@ pub struct MPR_SERVER_EX1 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_EX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_EX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPR_SERVER_EX1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_EX1").field("Header", &self.Header).field("fLanOnlyMode", &self.fLanOnlyMode).field("dwUpTime", &self.dwUpTime).field("dwTotalPorts", &self.dwTotalPorts).field("dwPortsInUse", &self.dwPortsInUse).field("Reserved", &self.Reserved).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPR_SERVER_EX1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPR_SERVER_EX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.fLanOnlyMode == other.fLanOnlyMode && self.dwUpTime == other.dwUpTime && self.dwTotalPorts == other.dwTotalPorts && self.dwPortsInUse == other.dwPortsInUse && self.Reserved == other.Reserved && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPR_SERVER_EX1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPR_SERVER_EX1 {
     fn default() -> Self {
@@ -4765,37 +3954,16 @@ impl Default for MPR_SERVER_EX1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_SET_CONFIG_EX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_SET_CONFIG_EX0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPR_SERVER_SET_CONFIG_EX0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_SET_CONFIG_EX0").field("Header", &self.Header).field("setConfigForProtocols", &self.setConfigForProtocols).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPR_SERVER_SET_CONFIG_EX0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPR_SERVER_SET_CONFIG_EX0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.setConfigForProtocols == other.setConfigForProtocols && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPR_SERVER_SET_CONFIG_EX0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPR_SERVER_SET_CONFIG_EX0 {
     fn default() -> Self {
@@ -4804,37 +3972,16 @@ impl Default for MPR_SERVER_SET_CONFIG_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_SET_CONFIG_EX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_SET_CONFIG_EX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for MPR_SERVER_SET_CONFIG_EX1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_SERVER_SET_CONFIG_EX1").field("Header", &self.Header).field("setConfigForProtocols", &self.setConfigForProtocols).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for MPR_SERVER_SET_CONFIG_EX1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for MPR_SERVER_SET_CONFIG_EX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.setConfigForProtocols == other.setConfigForProtocols && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for MPR_SERVER_SET_CONFIG_EX1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for MPR_SERVER_SET_CONFIG_EX1 {
     fn default() -> Self {
@@ -4842,31 +3989,15 @@ impl Default for MPR_SERVER_SET_CONFIG_EX1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_TRANSPORT_0 {
     pub dwTransportId: u32,
     pub hTransport: super::super::Foundation::HANDLE,
     pub wszTransportName: [u16; 41],
 }
-impl Copy for MPR_TRANSPORT_0 {}
-impl Clone for MPR_TRANSPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPR_TRANSPORT_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_TRANSPORT_0").field("dwTransportId", &self.dwTransportId).field("hTransport", &self.hTransport).field("wszTransportName", &self.wszTransportName).finish()
-    }
-}
 impl windows_core::TypeKind for MPR_TRANSPORT_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPR_TRANSPORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTransportId == other.dwTransportId && self.hTransport == other.hTransport && self.wszTransportName == other.wszTransportName
-    }
-}
-impl Eq for MPR_TRANSPORT_0 {}
 impl Default for MPR_TRANSPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4874,6 +4005,7 @@ impl Default for MPR_TRANSPORT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub r#type: MPR_VPN_TS_TYPE,
     pub protocolId: u8,
@@ -4882,14 +4014,6 @@ pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub tsPayloadId: u16,
     pub addrStart: VPN_TS_IP_ADDRESS,
     pub addrEnd: VPN_TS_IP_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPR_VPN_TRAFFIC_SELECTOR {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPR_VPN_TRAFFIC_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MPR_VPN_TRAFFIC_SELECTOR {
@@ -4903,6 +4027,7 @@ impl Default for MPR_VPN_TRAFFIC_SELECTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
@@ -4910,31 +4035,9 @@ pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPR_VPN_TRAFFIC_SELECTORS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPR_VPN_TRAFFIC_SELECTORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for MPR_VPN_TRAFFIC_SELECTORS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPR_VPN_TRAFFIC_SELECTORS").field("numTsi", &self.numTsi).field("numTsr", &self.numTsr).field("tsI", &self.tsI).field("tsR", &self.tsR).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MPR_VPN_TRAFFIC_SELECTORS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for MPR_VPN_TRAFFIC_SELECTORS {
-    fn eq(&self, other: &Self) -> bool {
-        self.numTsi == other.numTsi && self.numTsr == other.numTsr && self.tsI == other.tsI && self.tsR == other.tsR
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for MPR_VPN_TRAFFIC_SELECTORS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MPR_VPN_TRAFFIC_SELECTORS {
     fn default() -> Self {
@@ -4942,36 +4045,21 @@ impl Default for MPR_VPN_TRAFFIC_SELECTORS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
 }
-impl Copy for PPP_ATCP_INFO {}
-impl Clone for PPP_ATCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_ATCP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_ATCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_ATCP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_ATCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress
-    }
-}
-impl Eq for PPP_ATCP_INFO {}
 impl Default for PPP_ATCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
     pub dwCompressionAlgorithm: u32,
@@ -4979,64 +4067,32 @@ pub struct PPP_CCP_INFO {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwRemoteOptions: u32,
 }
-impl Copy for PPP_CCP_INFO {}
-impl Clone for PPP_CCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_CCP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_CCP_INFO").field("dwError", &self.dwError).field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm).field("dwOptions", &self.dwOptions).field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm).field("dwRemoteOptions", &self.dwRemoteOptions).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_CCP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_CCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm && self.dwOptions == other.dwOptions && self.dwRemoteCompressionAlgorithm == other.dwRemoteCompressionAlgorithm && self.dwRemoteOptions == other.dwRemoteOptions
-    }
-}
-impl Eq for PPP_CCP_INFO {}
 impl Default for PPP_CCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO,
     pub ipx: PPP_IPXCP_INFO,
     pub at: PPP_ATCP_INFO,
 }
-impl Copy for PPP_INFO {}
-impl Clone for PPP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_INFO").field("nbf", &self.nbf).field("ip", &self.ip).field("ipx", &self.ipx).field("at", &self.at).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nbf == other.nbf && self.ip == other.ip && self.ipx == other.ipx && self.at == other.at
-    }
-}
-impl Eq for PPP_INFO {}
 impl Default for PPP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -5045,32 +4101,16 @@ pub struct PPP_INFO_2 {
     pub ccp: PPP_CCP_INFO,
     pub lcp: PPP_LCP_INFO,
 }
-impl Copy for PPP_INFO_2 {}
-impl Clone for PPP_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_INFO_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_INFO_2").field("nbf", &self.nbf).field("ip", &self.ip).field("ipx", &self.ipx).field("at", &self.at).field("ccp", &self.ccp).field("lcp", &self.lcp).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.nbf == other.nbf && self.ip == other.ip && self.ipx == other.ipx && self.at == other.at && self.ccp == other.ccp && self.lcp == other.lcp
-    }
-}
-impl Eq for PPP_INFO_2 {}
 impl Default for PPP_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -5078,63 +4118,31 @@ pub struct PPP_INFO_3 {
     pub ccp: PPP_CCP_INFO,
     pub lcp: PPP_LCP_INFO,
 }
-impl Copy for PPP_INFO_3 {}
-impl Clone for PPP_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_INFO_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_INFO_3").field("nbf", &self.nbf).field("ip", &self.ip).field("ipv6", &self.ipv6).field("ccp", &self.ccp).field("lcp", &self.lcp).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.nbf == other.nbf && self.ip == other.ip && self.ipv6 == other.ipv6 && self.ccp == other.ccp && self.lcp == other.lcp
-    }
-}
-impl Eq for PPP_INFO_3 {}
 impl Default for PPP_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
     pub wszRemoteAddress: [u16; 16],
 }
-impl Copy for PPP_IPCP_INFO {}
-impl Clone for PPP_IPCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_IPCP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_IPCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).field("wszRemoteAddress", &self.wszRemoteAddress).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_IPCP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_IPCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress && self.wszRemoteAddress == other.wszRemoteAddress
-    }
-}
-impl Eq for PPP_IPCP_INFO {}
 impl Default for PPP_IPCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPCP_INFO2 {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -5142,32 +4150,16 @@ pub struct PPP_IPCP_INFO2 {
     pub dwOptions: u32,
     pub dwRemoteOptions: u32,
 }
-impl Copy for PPP_IPCP_INFO2 {}
-impl Clone for PPP_IPCP_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_IPCP_INFO2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_IPCP_INFO2").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).field("wszRemoteAddress", &self.wszRemoteAddress).field("dwOptions", &self.dwOptions).field("dwRemoteOptions", &self.dwRemoteOptions).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_IPCP_INFO2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_IPCP_INFO2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress && self.wszRemoteAddress == other.wszRemoteAddress && self.dwOptions == other.dwOptions && self.dwRemoteOptions == other.dwRemoteOptions
-    }
-}
-impl Eq for PPP_IPCP_INFO2 {}
 impl Default for PPP_IPCP_INFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPV6_CP_INFO {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -5179,62 +4171,30 @@ pub struct PPP_IPV6_CP_INFO {
     pub bPrefix: [u8; 8],
     pub dwPrefixLength: u32,
 }
-impl Copy for PPP_IPV6_CP_INFO {}
-impl Clone for PPP_IPV6_CP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_IPV6_CP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_IPV6_CP_INFO").field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("bInterfaceIdentifier", &self.bInterfaceIdentifier).field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier).field("dwOptions", &self.dwOptions).field("dwRemoteOptions", &self.dwRemoteOptions).field("bPrefix", &self.bPrefix).field("dwPrefixLength", &self.dwPrefixLength).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_IPV6_CP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_IPV6_CP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwSize == other.dwSize && self.dwError == other.dwError && self.bInterfaceIdentifier == other.bInterfaceIdentifier && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier && self.dwOptions == other.dwOptions && self.dwRemoteOptions == other.dwRemoteOptions && self.bPrefix == other.bPrefix && self.dwPrefixLength == other.dwPrefixLength
-    }
-}
-impl Eq for PPP_IPV6_CP_INFO {}
 impl Default for PPP_IPV6_CP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
 }
-impl Copy for PPP_IPXCP_INFO {}
-impl Clone for PPP_IPXCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_IPXCP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_IPXCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_IPXCP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_IPXCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress
-    }
-}
-impl Eq for PPP_IPXCP_INFO {}
 impl Default for PPP_IPXCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
     pub dwAuthenticationProtocol: PPP_LCP,
@@ -5248,74 +4208,30 @@ pub struct PPP_LCP_INFO {
     pub dwEapTypeId: u32,
     pub dwRemoteEapTypeId: u32,
 }
-impl Copy for PPP_LCP_INFO {}
-impl Clone for PPP_LCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_LCP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_LCP_INFO")
-            .field("dwError", &self.dwError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwRemoteAuthenticationProtocol", &self.dwRemoteAuthenticationProtocol)
-            .field("dwRemoteAuthenticationData", &self.dwRemoteAuthenticationData)
-            .field("dwTerminateReason", &self.dwTerminateReason)
-            .field("dwRemoteTerminateReason", &self.dwRemoteTerminateReason)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwRemoteOptions", &self.dwRemoteOptions)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwRemoteEapTypeId", &self.dwRemoteEapTypeId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPP_LCP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_LCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol && self.dwAuthenticationData == other.dwAuthenticationData && self.dwRemoteAuthenticationProtocol == other.dwRemoteAuthenticationProtocol && self.dwRemoteAuthenticationData == other.dwRemoteAuthenticationData && self.dwTerminateReason == other.dwTerminateReason && self.dwRemoteTerminateReason == other.dwRemoteTerminateReason && self.dwOptions == other.dwOptions && self.dwRemoteOptions == other.dwRemoteOptions && self.dwEapTypeId == other.dwEapTypeId && self.dwRemoteEapTypeId == other.dwRemoteEapTypeId
-    }
-}
-impl Eq for PPP_LCP_INFO {}
 impl Default for PPP_LCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
 }
-impl Copy for PPP_NBFCP_INFO {}
-impl Clone for PPP_NBFCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_NBFCP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_NBFCP_INFO").field("dwError", &self.dwError).field("wszWksta", &self.wszWksta).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_NBFCP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_NBFCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszWksta == other.wszWksta
-    }
-}
-impl Eq for PPP_NBFCP_INFO {}
 impl Default for PPP_NBFCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -5346,88 +4262,16 @@ pub struct PPP_PROJECTION_INFO {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
-impl Copy for PPP_PROJECTION_INFO {}
-impl Clone for PPP_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_PROJECTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_PROJECTION_INFO")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("dwIPv4Options", &self.dwIPv4Options)
-            .field("dwIPv4RemoteOptions", &self.dwIPv4RemoteOptions)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwLcpError", &self.dwLcpError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwRemoteAuthenticationProtocol", &self.dwRemoteAuthenticationProtocol)
-            .field("dwRemoteAuthenticationData", &self.dwRemoteAuthenticationData)
-            .field("dwLcpTerminateReason", &self.dwLcpTerminateReason)
-            .field("dwLcpRemoteTerminateReason", &self.dwLcpRemoteTerminateReason)
-            .field("dwLcpOptions", &self.dwLcpOptions)
-            .field("dwLcpRemoteOptions", &self.dwLcpRemoteOptions)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwRemoteEapTypeId", &self.dwRemoteEapTypeId)
-            .field("dwCcpError", &self.dwCcpError)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwCcpOptions", &self.dwCcpOptions)
-            .field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm)
-            .field("dwCcpRemoteOptions", &self.dwCcpRemoteOptions)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPP_PROJECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_PROJECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.dwIPv4Options == other.dwIPv4Options
-            && self.dwIPv4RemoteOptions == other.dwIPv4RemoteOptions
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwLcpError == other.dwLcpError
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwAuthenticationData == other.dwAuthenticationData
-            && self.dwRemoteAuthenticationProtocol == other.dwRemoteAuthenticationProtocol
-            && self.dwRemoteAuthenticationData == other.dwRemoteAuthenticationData
-            && self.dwLcpTerminateReason == other.dwLcpTerminateReason
-            && self.dwLcpRemoteTerminateReason == other.dwLcpRemoteTerminateReason
-            && self.dwLcpOptions == other.dwLcpOptions
-            && self.dwLcpRemoteOptions == other.dwLcpRemoteOptions
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwRemoteEapTypeId == other.dwRemoteEapTypeId
-            && self.dwCcpError == other.dwCcpError
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwCcpOptions == other.dwCcpOptions
-            && self.dwRemoteCompressionAlgorithm == other.dwRemoteCompressionAlgorithm
-            && self.dwCcpRemoteOptions == other.dwCcpRemoteOptions
-    }
-}
-impl Eq for PPP_PROJECTION_INFO {}
 impl Default for PPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -5459,129 +4303,33 @@ pub struct PPP_PROJECTION_INFO2 {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
-impl Copy for PPP_PROJECTION_INFO2 {}
-impl Clone for PPP_PROJECTION_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_PROJECTION_INFO2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_PROJECTION_INFO2")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("dwIPv4Options", &self.dwIPv4Options)
-            .field("dwIPv4RemoteOptions", &self.dwIPv4RemoteOptions)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwLcpError", &self.dwLcpError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwRemoteAuthenticationProtocol", &self.dwRemoteAuthenticationProtocol)
-            .field("dwRemoteAuthenticationData", &self.dwRemoteAuthenticationData)
-            .field("dwLcpTerminateReason", &self.dwLcpTerminateReason)
-            .field("dwLcpRemoteTerminateReason", &self.dwLcpRemoteTerminateReason)
-            .field("dwLcpOptions", &self.dwLcpOptions)
-            .field("dwLcpRemoteOptions", &self.dwLcpRemoteOptions)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwEmbeddedEAPTypeId", &self.dwEmbeddedEAPTypeId)
-            .field("dwRemoteEapTypeId", &self.dwRemoteEapTypeId)
-            .field("dwCcpError", &self.dwCcpError)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwCcpOptions", &self.dwCcpOptions)
-            .field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm)
-            .field("dwCcpRemoteOptions", &self.dwCcpRemoteOptions)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPP_PROJECTION_INFO2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_PROJECTION_INFO2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.dwIPv4Options == other.dwIPv4Options
-            && self.dwIPv4RemoteOptions == other.dwIPv4RemoteOptions
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwLcpError == other.dwLcpError
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwAuthenticationData == other.dwAuthenticationData
-            && self.dwRemoteAuthenticationProtocol == other.dwRemoteAuthenticationProtocol
-            && self.dwRemoteAuthenticationData == other.dwRemoteAuthenticationData
-            && self.dwLcpTerminateReason == other.dwLcpTerminateReason
-            && self.dwLcpRemoteTerminateReason == other.dwLcpRemoteTerminateReason
-            && self.dwLcpOptions == other.dwLcpOptions
-            && self.dwLcpRemoteOptions == other.dwLcpRemoteOptions
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwEmbeddedEAPTypeId == other.dwEmbeddedEAPTypeId
-            && self.dwRemoteEapTypeId == other.dwRemoteEapTypeId
-            && self.dwCcpError == other.dwCcpError
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwCcpOptions == other.dwCcpOptions
-            && self.dwRemoteCompressionAlgorithm == other.dwRemoteCompressionAlgorithm
-            && self.dwCcpRemoteOptions == other.dwCcpRemoteOptions
-    }
-}
-impl Eq for PPP_PROJECTION_INFO2 {}
 impl Default for PPP_PROJECTION_INFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl Copy for PPTP_CONFIG_PARAMS {}
-impl Clone for PPTP_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPTP_CONFIG_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPTP_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
-    }
-}
 impl windows_core::TypeKind for PPTP_CONFIG_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPTP_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags
-    }
-}
-impl Eq for PPTP_CONFIG_PARAMS {}
 impl Default for PPTP_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
-}
-impl Copy for PROJECTION_INFO {}
-impl Clone for PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROJECTION_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5592,15 +4340,10 @@ impl Default for PROJECTION_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROJECTION_INFO_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
-}
-impl Copy for PROJECTION_INFO_0 {}
-impl Clone for PROJECTION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROJECTION_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -5611,15 +4354,10 @@ impl Default for PROJECTION_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
-}
-impl Copy for PROJECTION_INFO2 {}
-impl Clone for PROJECTION_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROJECTION_INFO2 {
     type TypeKind = windows_core::CopyType;
@@ -5630,15 +4368,10 @@ impl Default for PROJECTION_INFO2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
-}
-impl Copy for PROJECTION_INFO2_0 {}
-impl Clone for PROJECTION_INFO2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROJECTION_INFO2_0 {
     type TypeKind = windows_core::CopyType;
@@ -5649,18 +4382,13 @@ impl Default for PROJECTION_INFO2_0 {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-}
-impl Copy for RASADPARAMS {}
-impl Clone for RASADPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RASADPARAMS {
     type TypeKind = windows_core::CopyType;
@@ -5671,134 +4399,71 @@ impl Default for RASADPARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
     pub szNetBiosError: [i8; 17],
     pub bLana: u8,
 }
-impl Copy for RASAMBA {}
-impl Clone for RASAMBA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASAMBA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASAMBA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szNetBiosError", &self.szNetBiosError).field("bLana", &self.bLana).finish()
-    }
-}
 impl windows_core::TypeKind for RASAMBA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASAMBA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szNetBiosError == other.szNetBiosError && self.bLana == other.bLana
-    }
-}
-impl Eq for RASAMBA {}
 impl Default for RASAMBA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASAMBW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szNetBiosError: [u16; 17],
     pub bLana: u8,
 }
-impl Copy for RASAMBW {}
-impl Clone for RASAMBW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASAMBW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASAMBW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szNetBiosError", &self.szNetBiosError).field("bLana", &self.bLana).finish()
-    }
-}
 impl windows_core::TypeKind for RASAMBW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASAMBW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szNetBiosError == other.szNetBiosError && self.bLana == other.bLana
-    }
-}
-impl Eq for RASAMBW {}
 impl Default for RASAMBW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
     pub szEntry: [i8; 257],
 }
-impl Copy for RASAUTODIALENTRYA {}
-impl Clone for RASAUTODIALENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASAUTODIALENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASAUTODIALENTRYA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDialingLocation", &self.dwDialingLocation).field("szEntry", &self.szEntry).finish()
-    }
-}
 impl windows_core::TypeKind for RASAUTODIALENTRYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASAUTODIALENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDialingLocation == other.dwDialingLocation && self.szEntry == other.szEntry
-    }
-}
-impl Eq for RASAUTODIALENTRYA {}
 impl Default for RASAUTODIALENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASAUTODIALENTRYW {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
     pub szEntry: [u16; 257],
 }
-impl Copy for RASAUTODIALENTRYW {}
-impl Clone for RASAUTODIALENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASAUTODIALENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASAUTODIALENTRYW").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDialingLocation", &self.dwDialingLocation).field("szEntry", &self.szEntry).finish()
-    }
-}
 impl windows_core::TypeKind for RASAUTODIALENTRYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASAUTODIALENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDialingLocation == other.dwDialingLocation && self.szEntry == other.szEntry
-    }
-}
-impl Eq for RASAUTODIALENTRYW {}
 impl Default for RASAUTODIALENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASCOMMSETTINGS {
     pub dwSize: u32,
     pub bParity: u8,
@@ -5806,26 +4471,9 @@ pub struct RASCOMMSETTINGS {
     pub bByteSize: u8,
     pub bAlign: u8,
 }
-impl Copy for RASCOMMSETTINGS {}
-impl Clone for RASCOMMSETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASCOMMSETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASCOMMSETTINGS").field("dwSize", &self.dwSize).field("bParity", &self.bParity).field("bStop", &self.bStop).field("bByteSize", &self.bByteSize).field("bAlign", &self.bAlign).finish()
-    }
-}
 impl windows_core::TypeKind for RASCOMMSETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASCOMMSETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.bParity == other.bParity && self.bStop == other.bStop && self.bByteSize == other.bByteSize && self.bAlign == other.bAlign
-    }
-}
-impl Eq for RASCOMMSETTINGS {}
 impl Default for RASCOMMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5833,6 +4481,7 @@ impl Default for RASCOMMSETTINGS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -5845,14 +4494,6 @@ pub struct RASCONNA {
     pub dwFlags: u32,
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASCONNA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASCONNA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASCONNA {
@@ -5866,6 +4507,7 @@ impl Default for RASCONNA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -5878,14 +4520,6 @@ pub struct RASCONNA {
     pub dwFlags: u32,
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for RASCONNA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASCONNA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASCONNA {
@@ -5899,6 +4533,7 @@ impl Default for RASCONNA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -5909,14 +4544,6 @@ pub struct RASCONNSTATUSA {
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASCONNSTATUSA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASCONNSTATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASCONNSTATUSA {
@@ -5930,6 +4557,7 @@ impl Default for RASCONNSTATUSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASCONNSTATUSW {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -5940,14 +4568,6 @@ pub struct RASCONNSTATUSW {
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASCONNSTATUSW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASCONNSTATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASCONNSTATUSW {
@@ -5961,6 +4581,7 @@ impl Default for RASCONNSTATUSW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -5975,14 +4596,6 @@ pub struct RASCONNW {
     pub guidCorrelationId: windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASCONNW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASCONNW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASCONNW {
     type TypeKind = windows_core::CopyType;
 }
@@ -5994,6 +4607,7 @@ impl Default for RASCONNW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -6008,14 +4622,6 @@ pub struct RASCONNW {
     pub guidCorrelationId: windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for RASCONNW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASCONNW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASCONNW {
     type TypeKind = windows_core::CopyType;
 }
@@ -6026,6 +4632,7 @@ impl Default for RASCONNW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -6033,32 +4640,16 @@ pub struct RASCREDENTIALSA {
     pub szPassword: [i8; 257],
     pub szDomain: [i8; 16],
 }
-impl Copy for RASCREDENTIALSA {}
-impl Clone for RASCREDENTIALSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASCREDENTIALSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASCREDENTIALSA").field("dwSize", &self.dwSize).field("dwMask", &self.dwMask).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
 impl windows_core::TypeKind for RASCREDENTIALSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASCREDENTIALSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-impl Eq for RASCREDENTIALSA {}
 impl Default for RASCREDENTIALSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASCREDENTIALSW {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -6066,32 +4657,16 @@ pub struct RASCREDENTIALSW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-impl Copy for RASCREDENTIALSW {}
-impl Clone for RASCREDENTIALSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASCREDENTIALSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASCREDENTIALSW").field("dwSize", &self.dwSize).field("dwMask", &self.dwMask).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
 impl windows_core::TypeKind for RASCREDENTIALSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASCREDENTIALSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-impl Eq for RASCREDENTIALSW {}
 impl Default for RASCREDENTIALSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
     pub dwCountryID: u32,
@@ -6099,41 +4674,19 @@ pub struct RASCTRYINFO {
     pub dwCountryCode: u32,
     pub dwCountryNameOffset: u32,
 }
-impl Copy for RASCTRYINFO {}
-impl Clone for RASCTRYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASCTRYINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASCTRYINFO").field("dwSize", &self.dwSize).field("dwCountryID", &self.dwCountryID).field("dwNextCountryID", &self.dwNextCountryID).field("dwCountryCode", &self.dwCountryCode).field("dwCountryNameOffset", &self.dwCountryNameOffset).finish()
-    }
-}
 impl windows_core::TypeKind for RASCTRYINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASCTRYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCountryID == other.dwCountryID && self.dwNextCountryID == other.dwNextCountryID && self.dwCountryCode == other.dwCountryCode && self.dwCountryNameOffset == other.dwCountryNameOffset
-    }
-}
-impl Eq for RASCTRYINFO {}
 impl Default for RASCTRYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
-}
-impl Copy for RASCUSTOMSCRIPTEXTENSIONS {}
-impl Clone for RASCUSTOMSCRIPTEXTENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RASCUSTOMSCRIPTEXTENSIONS {
     type TypeKind = windows_core::CopyType;
@@ -6144,62 +4697,30 @@ impl Default for RASCUSTOMSCRIPTEXTENSIONS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
     pub szDeviceType: [i8; 17],
     pub szDeviceName: [i8; 129],
 }
-impl Copy for RASDEVINFOA {}
-impl Clone for RASDEVINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASDEVINFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASDEVINFOA").field("dwSize", &self.dwSize).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
-    }
-}
 impl windows_core::TypeKind for RASDEVINFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASDEVINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName
-    }
-}
-impl Eq for RASDEVINFOA {}
 impl Default for RASDEVINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-impl Copy for RASDEVINFOW {}
-impl Clone for RASDEVINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASDEVINFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASDEVINFOW").field("dwSize", &self.dwSize).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
-    }
-}
 impl windows_core::TypeKind for RASDEVINFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASDEVINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName
-    }
-}
-impl Eq for RASDEVINFOW {}
 impl Default for RASDEVINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6207,17 +4728,10 @@ impl Default for RASDEVINFOW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASDEVSPECIFICINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASDEVSPECIFICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASDEVSPECIFICINFO {
@@ -6231,17 +4745,10 @@ impl Default for RASDEVSPECIFICINFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for RASDEVSPECIFICINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASDEVSPECIFICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASDEVSPECIFICINFO {
@@ -6254,6 +4761,7 @@ impl Default for RASDEVSPECIFICINFO {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6265,12 +4773,6 @@ pub struct RASDIALDLG {
     pub reserved: usize,
     pub reserved2: usize,
 }
-impl Copy for RASDIALDLG {}
-impl Clone for RASDIALDLG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for RASDIALDLG {
     type TypeKind = windows_core::CopyType;
 }
@@ -6280,6 +4782,7 @@ impl Default for RASDIALDLG {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASDIALEXTENSIONS {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -6289,12 +4792,6 @@ pub struct RASDIALEXTENSIONS {
     pub RasEapInfo: RASEAPINFO,
     pub fSkipPppAuth: super::super::Foundation::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
-}
-impl Copy for RASDIALEXTENSIONS {}
-impl Clone for RASDIALEXTENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RASDIALEXTENSIONS {
     type TypeKind = windows_core::CopyType;
@@ -6306,6 +4803,7 @@ impl Default for RASDIALEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -6320,14 +4818,6 @@ pub struct RASDIALPARAMSA {
     pub szEncPassword: windows_core::PSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASDIALPARAMSA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASDIALPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASDIALPARAMSA {
     type TypeKind = windows_core::CopyType;
 }
@@ -6339,6 +4829,7 @@ impl Default for RASDIALPARAMSA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -6353,14 +4844,6 @@ pub struct RASDIALPARAMSA {
     pub szEncPassword: windows_core::PSTR,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for RASDIALPARAMSA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASDIALPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASDIALPARAMSA {
     type TypeKind = windows_core::CopyType;
 }
@@ -6372,6 +4855,7 @@ impl Default for RASDIALPARAMSA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -6384,14 +4868,6 @@ pub struct RASDIALPARAMSW {
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
     pub szEncPassword: windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASDIALPARAMSW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASDIALPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASDIALPARAMSW {
@@ -6405,6 +4881,7 @@ impl Default for RASDIALPARAMSW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -6419,14 +4896,6 @@ pub struct RASDIALPARAMSW {
     pub szEncPassword: windows_core::PWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for RASDIALPARAMSW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASDIALPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASDIALPARAMSW {
     type TypeKind = windows_core::CopyType;
 }
@@ -6437,15 +4906,10 @@ impl Default for RASDIALPARAMSW {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
-}
-impl Copy for RASEAPINFO {}
-impl Clone for RASEAPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RASEAPINFO {
     type TypeKind = windows_core::CopyType;
@@ -6456,62 +4920,30 @@ impl Default for RASEAPINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASEAPUSERIDENTITYA {
     pub szUserName: [i8; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-impl Copy for RASEAPUSERIDENTITYA {}
-impl Clone for RASEAPUSERIDENTITYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASEAPUSERIDENTITYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASEAPUSERIDENTITYA").field("szUserName", &self.szUserName).field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
-    }
-}
 impl windows_core::TypeKind for RASEAPUSERIDENTITYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASEAPUSERIDENTITYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szUserName == other.szUserName && self.dwSizeofEapInfo == other.dwSizeofEapInfo && self.pbEapInfo == other.pbEapInfo
-    }
-}
-impl Eq for RASEAPUSERIDENTITYA {}
 impl Default for RASEAPUSERIDENTITYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-impl Copy for RASEAPUSERIDENTITYW {}
-impl Clone for RASEAPUSERIDENTITYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASEAPUSERIDENTITYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASEAPUSERIDENTITYW").field("szUserName", &self.szUserName).field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
-    }
-}
 impl windows_core::TypeKind for RASEAPUSERIDENTITYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASEAPUSERIDENTITYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szUserName == other.szUserName && self.dwSizeofEapInfo == other.dwSizeofEapInfo && self.pbEapInfo == other.pbEapInfo
-    }
-}
-impl Eq for RASEAPUSERIDENTITYW {}
 impl Default for RASEAPUSERIDENTITYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6519,6 +4951,7 @@ impl Default for RASEAPUSERIDENTITYW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYA {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -6583,14 +5016,6 @@ pub struct RASENTRYA {
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASENTRYA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASENTRYA {
     type TypeKind = windows_core::CopyType;
 }
@@ -6602,6 +5027,7 @@ impl Default for RASENTRYA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6612,14 +5038,6 @@ pub struct RASENTRYDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASENTRYDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASENTRYDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASENTRYDLGA {
@@ -6633,6 +5051,7 @@ impl Default for RASENTRYDLGA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6643,14 +5062,6 @@ pub struct RASENTRYDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for RASENTRYDLGA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASENTRYDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASENTRYDLGA {
@@ -6664,6 +5075,7 @@ impl Default for RASENTRYDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6674,14 +5086,6 @@ pub struct RASENTRYDLGW {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASENTRYDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASENTRYDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASENTRYDLGW {
@@ -6695,6 +5099,7 @@ impl Default for RASENTRYDLGW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6707,14 +5112,6 @@ pub struct RASENTRYDLGW {
     pub reserved2: usize,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for RASENTRYDLGW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASENTRYDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASENTRYDLGW {
     type TypeKind = windows_core::CopyType;
 }
@@ -6725,64 +5122,32 @@ impl Default for RASENTRYDLGW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
     pub dwFlags: u32,
     pub szPhonebookPath: [i8; 261],
 }
-impl Copy for RASENTRYNAMEA {}
-impl Clone for RASENTRYNAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASENTRYNAMEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASENTRYNAMEA").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("dwFlags", &self.dwFlags).field("szPhonebookPath", &self.szPhonebookPath).finish()
-    }
-}
 impl windows_core::TypeKind for RASENTRYNAMEA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASENTRYNAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szEntryName == other.szEntryName && self.dwFlags == other.dwFlags && self.szPhonebookPath == other.szPhonebookPath
-    }
-}
-impl Eq for RASENTRYNAMEA {}
 impl Default for RASENTRYNAMEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASENTRYNAMEW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
     pub dwFlags: u32,
     pub szPhonebookPath: [u16; 261],
 }
-impl Copy for RASENTRYNAMEW {}
-impl Clone for RASENTRYNAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASENTRYNAMEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASENTRYNAMEW").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("dwFlags", &self.dwFlags).field("szPhonebookPath", &self.szPhonebookPath).finish()
-    }
-}
 impl windows_core::TypeKind for RASENTRYNAMEW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASENTRYNAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szEntryName == other.szEntryName && self.dwFlags == other.dwFlags && self.szPhonebookPath == other.szPhonebookPath
-    }
-}
-impl Eq for RASENTRYNAMEW {}
 impl Default for RASENTRYNAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6790,6 +5155,7 @@ impl Default for RASENTRYNAMEW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYW {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -6854,14 +5220,6 @@ pub struct RASENTRYW {
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASENTRYW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASENTRYW {
     type TypeKind = windows_core::CopyType;
 }
@@ -6874,6 +5232,7 @@ impl Default for RASENTRYW {
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -6893,16 +5252,6 @@ pub struct RASIKEV2_PROJECTION_INFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASIKEV2_PROJECTION_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASIKEV2_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -6916,6 +5265,7 @@ impl Default for RASIKEV2_PROJECTION_INFO {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -6935,16 +5285,6 @@ pub struct RASIKEV2_PROJECTION_INFO {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASIKEV2_PROJECTION_INFO {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASIKEV2_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -6956,69 +5296,38 @@ impl Default for RASIKEV2_PROJECTION_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASIPADDR {
     pub a: u8,
     pub b: u8,
     pub c: u8,
     pub d: u8,
 }
-impl Copy for RASIPADDR {}
-impl Clone for RASIPADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASIPADDR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASIPADDR").field("a", &self.a).field("b", &self.b).field("c", &self.c).field("d", &self.d).finish()
-    }
-}
 impl windows_core::TypeKind for RASIPADDR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASIPADDR {
-    fn eq(&self, other: &Self) -> bool {
-        self.a == other.a && self.b == other.b && self.c == other.c && self.d == other.d
-    }
-}
-impl Eq for RASIPADDR {}
 impl Default for RASIPADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [u16; 22],
 }
-impl Copy for RASIPXW {}
-impl Clone for RASIPXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASIPXW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASIPXW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpxAddress", &self.szIpxAddress).finish()
-    }
-}
 impl windows_core::TypeKind for RASIPXW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASIPXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpxAddress == other.szIpxAddress
-    }
-}
-impl Eq for RASIPXW {}
 impl Default for RASIPXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7027,32 +5336,16 @@ pub struct RASNOUSERA {
     pub szPassword: [i8; 257],
     pub szDomain: [i8; 16],
 }
-impl Copy for RASNOUSERA {}
-impl Clone for RASNOUSERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASNOUSERA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASNOUSERA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwTimeoutMs", &self.dwTimeoutMs).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
 impl windows_core::TypeKind for RASNOUSERA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASNOUSERA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwTimeoutMs == other.dwTimeoutMs && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-impl Eq for RASNOUSERA {}
 impl Default for RASNOUSERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASNOUSERW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7061,26 +5354,9 @@ pub struct RASNOUSERW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-impl Copy for RASNOUSERW {}
-impl Clone for RASNOUSERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASNOUSERW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASNOUSERW").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwTimeoutMs", &self.dwTimeoutMs).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
 impl windows_core::TypeKind for RASNOUSERW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASNOUSERW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwTimeoutMs == other.dwTimeoutMs && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-impl Eq for RASNOUSERW {}
 impl Default for RASNOUSERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7088,6 +5364,7 @@ impl Default for RASNOUSERW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -7099,14 +5376,6 @@ pub struct RASPBDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASPBDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASPBDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASPBDLGA {
@@ -7120,6 +5389,7 @@ impl Default for RASPBDLGA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -7131,14 +5401,6 @@ pub struct RASPBDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for RASPBDLGA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASPBDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASPBDLGA {
@@ -7152,6 +5414,7 @@ impl Default for RASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -7165,14 +5428,6 @@ pub struct RASPBDLGW {
     pub reserved2: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASPBDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASPBDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for RASPBDLGW {
     type TypeKind = windows_core::CopyType;
 }
@@ -7184,6 +5439,7 @@ impl Default for RASPBDLGW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -7197,14 +5453,6 @@ pub struct RASPBDLGW {
     pub reserved2: usize,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for RASPBDLGW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASPBDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for RASPBDLGW {
     type TypeKind = windows_core::CopyType;
 }
@@ -7215,6 +5463,7 @@ impl Default for RASPBDLGW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPCCP {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7223,32 +5472,16 @@ pub struct RASPPPCCP {
     pub dwServerCompressionAlgorithm: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPCCP {}
-impl Clone for RASPPPCCP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPCCP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPCCP").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm).field("dwOptions", &self.dwOptions).field("dwServerCompressionAlgorithm", &self.dwServerCompressionAlgorithm).field("dwServerOptions", &self.dwServerOptions).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPCCP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPCCP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm && self.dwOptions == other.dwOptions && self.dwServerCompressionAlgorithm == other.dwServerCompressionAlgorithm && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl Eq for RASPPPCCP {}
 impl Default for RASPPPCCP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7257,32 +5490,16 @@ pub struct RASPPPIPA {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPIPA {}
-impl Clone for RASPPPIPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPIPA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPIPA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpAddress", &self.szIpAddress).field("szServerIpAddress", &self.szServerIpAddress).field("dwOptions", &self.dwOptions).field("dwServerOptions", &self.dwServerOptions).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPIPA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPIPA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpAddress == other.szIpAddress && self.szServerIpAddress == other.szServerIpAddress && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl Eq for RASPPPIPA {}
 impl Default for RASPPPIPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPIPV6 {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7291,32 +5508,16 @@ pub struct RASPPPIPV6 {
     pub bLocalCompressionProtocol: [u8; 2],
     pub bPeerCompressionProtocol: [u8; 2],
 }
-impl Copy for RASPPPIPV6 {}
-impl Clone for RASPPPIPV6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPIPV6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPIPV6").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("bLocalInterfaceIdentifier", &self.bLocalInterfaceIdentifier).field("bPeerInterfaceIdentifier", &self.bPeerInterfaceIdentifier).field("bLocalCompressionProtocol", &self.bLocalCompressionProtocol).field("bPeerCompressionProtocol", &self.bPeerCompressionProtocol).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPIPV6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPIPV6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.bLocalInterfaceIdentifier == other.bLocalInterfaceIdentifier && self.bPeerInterfaceIdentifier == other.bPeerInterfaceIdentifier && self.bLocalCompressionProtocol == other.bLocalCompressionProtocol && self.bPeerCompressionProtocol == other.bPeerCompressionProtocol
-    }
-}
-impl Eq for RASPPPIPV6 {}
 impl Default for RASPPPIPV6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPIPW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7325,63 +5526,31 @@ pub struct RASPPPIPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPIPW {}
-impl Clone for RASPPPIPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPIPW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPIPW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpAddress", &self.szIpAddress).field("szServerIpAddress", &self.szServerIpAddress).field("dwOptions", &self.dwOptions).field("dwServerOptions", &self.dwServerOptions).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPIPW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPIPW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpAddress == other.szIpAddress && self.szServerIpAddress == other.szServerIpAddress && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl Eq for RASPPPIPW {}
 impl Default for RASPPPIPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [i8; 22],
 }
-impl Copy for RASPPPIPXA {}
-impl Clone for RASPPPIPXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPIPXA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPIPXA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpxAddress", &self.szIpxAddress).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPIPXA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPIPXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpxAddress == other.szIpxAddress
-    }
-}
-impl Eq for RASPPPIPXA {}
 impl Default for RASPPPIPXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPLCPA {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -7399,48 +5568,16 @@ pub struct RASPPPLCPA {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPLCPA {}
-impl Clone for RASPPPLCPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPLCPA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPLCPA")
-            .field("dwSize", &self.dwSize)
-            .field("fBundled", &self.fBundled)
-            .field("dwError", &self.dwError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwServerAuthenticationProtocol", &self.dwServerAuthenticationProtocol)
-            .field("dwServerAuthenticationData", &self.dwServerAuthenticationData)
-            .field("dwServerEapTypeId", &self.dwServerEapTypeId)
-            .field("fMultilink", &self.fMultilink)
-            .field("dwTerminateReason", &self.dwTerminateReason)
-            .field("dwServerTerminateReason", &self.dwServerTerminateReason)
-            .field("szReplyMessage", &self.szReplyMessage)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwServerOptions", &self.dwServerOptions)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPLCPA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPLCPA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fBundled == other.fBundled && self.dwError == other.dwError && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol && self.dwAuthenticationData == other.dwAuthenticationData && self.dwEapTypeId == other.dwEapTypeId && self.dwServerAuthenticationProtocol == other.dwServerAuthenticationProtocol && self.dwServerAuthenticationData == other.dwServerAuthenticationData && self.dwServerEapTypeId == other.dwServerEapTypeId && self.fMultilink == other.fMultilink && self.dwTerminateReason == other.dwTerminateReason && self.dwServerTerminateReason == other.dwServerTerminateReason && self.szReplyMessage == other.szReplyMessage && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl Eq for RASPPPLCPA {}
 impl Default for RASPPPLCPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPLCPW {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -7458,48 +5595,16 @@ pub struct RASPPPLCPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPLCPW {}
-impl Clone for RASPPPLCPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPLCPW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPLCPW")
-            .field("dwSize", &self.dwSize)
-            .field("fBundled", &self.fBundled)
-            .field("dwError", &self.dwError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwServerAuthenticationProtocol", &self.dwServerAuthenticationProtocol)
-            .field("dwServerAuthenticationData", &self.dwServerAuthenticationData)
-            .field("dwServerEapTypeId", &self.dwServerEapTypeId)
-            .field("fMultilink", &self.fMultilink)
-            .field("dwTerminateReason", &self.dwTerminateReason)
-            .field("dwServerTerminateReason", &self.dwServerTerminateReason)
-            .field("szReplyMessage", &self.szReplyMessage)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwServerOptions", &self.dwServerOptions)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPLCPW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPLCPW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fBundled == other.fBundled && self.dwError == other.dwError && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol && self.dwAuthenticationData == other.dwAuthenticationData && self.dwEapTypeId == other.dwEapTypeId && self.dwServerAuthenticationProtocol == other.dwServerAuthenticationProtocol && self.dwServerAuthenticationData == other.dwServerAuthenticationData && self.dwServerEapTypeId == other.dwServerEapTypeId && self.fMultilink == other.fMultilink && self.dwTerminateReason == other.dwTerminateReason && self.dwServerTerminateReason == other.dwServerTerminateReason && self.szReplyMessage == other.szReplyMessage && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl Eq for RASPPPLCPW {}
 impl Default for RASPPPLCPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7508,32 +5613,16 @@ pub struct RASPPPNBFA {
     pub szWorkstationName: [i8; 17],
     pub bLana: u8,
 }
-impl Copy for RASPPPNBFA {}
-impl Clone for RASPPPNBFA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPNBFA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPNBFA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwNetBiosError", &self.dwNetBiosError).field("szNetBiosError", &self.szNetBiosError).field("szWorkstationName", &self.szWorkstationName).field("bLana", &self.bLana).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPNBFA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPNBFA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.dwNetBiosError == other.dwNetBiosError && self.szNetBiosError == other.szNetBiosError && self.szWorkstationName == other.szWorkstationName && self.bLana == other.bLana
-    }
-}
-impl Eq for RASPPPNBFA {}
 impl Default for RASPPPNBFA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASPPPNBFW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7542,26 +5631,9 @@ pub struct RASPPPNBFW {
     pub szWorkstationName: [u16; 17],
     pub bLana: u8,
 }
-impl Copy for RASPPPNBFW {}
-impl Clone for RASPPPNBFW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASPPPNBFW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASPPPNBFW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwNetBiosError", &self.dwNetBiosError).field("szNetBiosError", &self.szNetBiosError).field("szWorkstationName", &self.szWorkstationName).field("bLana", &self.bLana).finish()
-    }
-}
 impl windows_core::TypeKind for RASPPPNBFW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASPPPNBFW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.dwNetBiosError == other.dwNetBiosError && self.szNetBiosError == other.szNetBiosError && self.szWorkstationName == other.szWorkstationName && self.bLana == other.bLana
-    }
-}
-impl Eq for RASPPPNBFW {}
 impl Default for RASPPPNBFW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7569,6 +5641,7 @@ impl Default for RASPPPNBFW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASPPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -7595,14 +5668,6 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpServerOptions: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASPPP_PROJECTION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASPPP_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASPPP_PROJECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -7613,6 +5678,7 @@ impl Default for RASPPP_PROJECTION_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -7621,32 +5687,16 @@ pub struct RASSUBENTRYA {
     pub szLocalPhoneNumber: [i8; 129],
     pub dwAlternateOffset: u32,
 }
-impl Copy for RASSUBENTRYA {}
-impl Clone for RASSUBENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASSUBENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASSUBENTRYA").field("dwSize", &self.dwSize).field("dwfFlags", &self.dwfFlags).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("dwAlternateOffset", &self.dwAlternateOffset).finish()
-    }
-}
 impl windows_core::TypeKind for RASSUBENTRYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASSUBENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwfFlags == other.dwfFlags && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName && self.szLocalPhoneNumber == other.szLocalPhoneNumber && self.dwAlternateOffset == other.dwAlternateOffset
-    }
-}
-impl Eq for RASSUBENTRYA {}
 impl Default for RASSUBENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASSUBENTRYW {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -7655,26 +5705,9 @@ pub struct RASSUBENTRYW {
     pub szLocalPhoneNumber: [u16; 129],
     pub dwAlternateOffset: u32,
 }
-impl Copy for RASSUBENTRYW {}
-impl Clone for RASSUBENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RASSUBENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RASSUBENTRYW").field("dwSize", &self.dwSize).field("dwfFlags", &self.dwfFlags).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("dwAlternateOffset", &self.dwAlternateOffset).finish()
-    }
-}
 impl windows_core::TypeKind for RASSUBENTRYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RASSUBENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwfFlags == other.dwfFlags && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName && self.szLocalPhoneNumber == other.szLocalPhoneNumber && self.dwAlternateOffset == other.dwAlternateOffset
-    }
-}
-impl Eq for RASSUBENTRYW {}
 impl Default for RASSUBENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7682,17 +5715,10 @@ impl Default for RASSUBENTRYW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASTUNNELENDPOINT {
     pub dwType: u32,
     pub Anonymous: RASTUNNELENDPOINT_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASTUNNELENDPOINT {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASTUNNELENDPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASTUNNELENDPOINT {
@@ -7706,17 +5732,10 @@ impl Default for RASTUNNELENDPOINT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASTUNNELENDPOINT_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASTUNNELENDPOINT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASTUNNELENDPOINT_0 {
@@ -7730,6 +5749,7 @@ impl Default for RASTUNNELENDPOINT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASUPDATECONN {
     pub version: RASAPIVERSION,
     pub dwSize: u32,
@@ -7737,14 +5757,6 @@ pub struct RASUPDATECONN {
     pub dwIfIndex: u32,
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASUPDATECONN {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASUPDATECONN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RASUPDATECONN {
@@ -7757,6 +5769,7 @@ impl Default for RASUPDATECONN {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_0 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -7768,32 +5781,16 @@ pub struct RAS_CONNECTION_0 {
     pub wszLogonDomain: [u16; 16],
     pub wszRemoteComputer: [u16; 17],
 }
-impl Copy for RAS_CONNECTION_0 {}
-impl Clone for RAS_CONNECTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_CONNECTION_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_CONNECTION_0").field("hConnection", &self.hConnection).field("hInterface", &self.hInterface).field("dwConnectDuration", &self.dwConnectDuration).field("dwInterfaceType", &self.dwInterfaceType).field("dwConnectionFlags", &self.dwConnectionFlags).field("wszInterfaceName", &self.wszInterfaceName).field("wszUserName", &self.wszUserName).field("wszLogonDomain", &self.wszLogonDomain).field("wszRemoteComputer", &self.wszRemoteComputer).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_CONNECTION_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_CONNECTION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hConnection == other.hConnection && self.hInterface == other.hInterface && self.dwConnectDuration == other.dwConnectDuration && self.dwInterfaceType == other.dwInterfaceType && self.dwConnectionFlags == other.dwConnectionFlags && self.wszInterfaceName == other.wszInterfaceName && self.wszUserName == other.wszUserName && self.wszLogonDomain == other.wszLogonDomain && self.wszRemoteComputer == other.wszRemoteComputer
-    }
-}
-impl Eq for RAS_CONNECTION_0 {}
 impl Default for RAS_CONNECTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_1 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -7811,48 +5808,16 @@ pub struct RAS_CONNECTION_1 {
     pub dwCompressionRatioIn: u32,
     pub dwCompressionRatioOut: u32,
 }
-impl Copy for RAS_CONNECTION_1 {}
-impl Clone for RAS_CONNECTION_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_CONNECTION_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_CONNECTION_1")
-            .field("hConnection", &self.hConnection)
-            .field("hInterface", &self.hInterface)
-            .field("PppInfo", &self.PppInfo)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for RAS_CONNECTION_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_CONNECTION_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hConnection == other.hConnection && self.hInterface == other.hInterface && self.PppInfo == other.PppInfo && self.dwBytesXmited == other.dwBytesXmited && self.dwBytesRcved == other.dwBytesRcved && self.dwFramesXmited == other.dwFramesXmited && self.dwFramesRcved == other.dwFramesRcved && self.dwCrcErr == other.dwCrcErr && self.dwTimeoutErr == other.dwTimeoutErr && self.dwAlignmentErr == other.dwAlignmentErr && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr && self.dwFramingErr == other.dwFramingErr && self.dwBufferOverrunErr == other.dwBufferOverrunErr && self.dwCompressionRatioIn == other.dwCompressionRatioIn && self.dwCompressionRatioOut == other.dwCompressionRatioOut
-    }
-}
-impl Eq for RAS_CONNECTION_1 {}
 impl Default for RAS_CONNECTION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_2 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub wszUserName: [u16; 257],
@@ -7860,32 +5825,16 @@ pub struct RAS_CONNECTION_2 {
     pub guid: windows_core::GUID,
     pub PppInfo2: PPP_INFO_2,
 }
-impl Copy for RAS_CONNECTION_2 {}
-impl Clone for RAS_CONNECTION_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_CONNECTION_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_CONNECTION_2").field("hConnection", &self.hConnection).field("wszUserName", &self.wszUserName).field("dwInterfaceType", &self.dwInterfaceType).field("guid", &self.guid).field("PppInfo2", &self.PppInfo2).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_CONNECTION_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_CONNECTION_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hConnection == other.hConnection && self.wszUserName == other.wszUserName && self.dwInterfaceType == other.dwInterfaceType && self.guid == other.guid && self.PppInfo2 == other.PppInfo2
-    }
-}
-impl Eq for RAS_CONNECTION_2 {}
 impl Default for RAS_CONNECTION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_3 {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -7897,32 +5846,16 @@ pub struct RAS_CONNECTION_3 {
     pub rasQuarState: RAS_QUARANTINE_STATE,
     pub timer: super::super::Foundation::FILETIME,
 }
-impl Copy for RAS_CONNECTION_3 {}
-impl Clone for RAS_CONNECTION_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_CONNECTION_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_CONNECTION_3").field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("hConnection", &self.hConnection).field("wszUserName", &self.wszUserName).field("dwInterfaceType", &self.dwInterfaceType).field("guid", &self.guid).field("PppInfo3", &self.PppInfo3).field("rasQuarState", &self.rasQuarState).field("timer", &self.timer).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_CONNECTION_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_CONNECTION_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwSize == other.dwSize && self.hConnection == other.hConnection && self.wszUserName == other.wszUserName && self.dwInterfaceType == other.dwInterfaceType && self.guid == other.guid && self.PppInfo3 == other.PppInfo3 && self.rasQuarState == other.rasQuarState && self.timer == other.timer
-    }
-}
-impl Eq for RAS_CONNECTION_3 {}
 impl Default for RAS_CONNECTION_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_4 {
     pub dwConnectDuration: u32,
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
@@ -7955,12 +5888,6 @@ pub struct RAS_CONNECTION_4 {
     pub hInterface: super::super::Foundation::HANDLE,
     pub dwDeviceType: u32,
 }
-impl Copy for RAS_CONNECTION_4 {}
-impl Clone for RAS_CONNECTION_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for RAS_CONNECTION_4 {
     type TypeKind = windows_core::CopyType;
 }
@@ -7970,6 +5897,7 @@ impl Default for RAS_CONNECTION_4 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwConnectDuration: u32,
@@ -8001,12 +5929,6 @@ pub struct RAS_CONNECTION_EX {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
 }
-impl Copy for RAS_CONNECTION_EX {}
-impl Clone for RAS_CONNECTION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for RAS_CONNECTION_EX {
     type TypeKind = windows_core::CopyType;
 }
@@ -8016,6 +5938,7 @@ impl Default for RAS_CONNECTION_EX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_PORT_0 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -8027,32 +5950,16 @@ pub struct RAS_PORT_0 {
     pub wszDeviceName: [u16; 129],
     pub wszDeviceType: [u16; 17],
 }
-impl Copy for RAS_PORT_0 {}
-impl Clone for RAS_PORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_PORT_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_PORT_0").field("hPort", &self.hPort).field("hConnection", &self.hConnection).field("dwPortCondition", &self.dwPortCondition).field("dwTotalNumberOfCalls", &self.dwTotalNumberOfCalls).field("dwConnectDuration", &self.dwConnectDuration).field("wszPortName", &self.wszPortName).field("wszMediaName", &self.wszMediaName).field("wszDeviceName", &self.wszDeviceName).field("wszDeviceType", &self.wszDeviceType).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_PORT_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_PORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hPort == other.hPort && self.hConnection == other.hConnection && self.dwPortCondition == other.dwPortCondition && self.dwTotalNumberOfCalls == other.dwTotalNumberOfCalls && self.dwConnectDuration == other.dwConnectDuration && self.wszPortName == other.wszPortName && self.wszMediaName == other.wszMediaName && self.wszDeviceName == other.wszDeviceName && self.wszDeviceType == other.wszDeviceType
-    }
-}
-impl Eq for RAS_PORT_0 {}
 impl Default for RAS_PORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_PORT_1 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -8071,49 +5978,16 @@ pub struct RAS_PORT_1 {
     pub dwCompressionRatioIn: u32,
     pub dwCompressionRatioOut: u32,
 }
-impl Copy for RAS_PORT_1 {}
-impl Clone for RAS_PORT_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_PORT_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_PORT_1")
-            .field("hPort", &self.hPort)
-            .field("hConnection", &self.hConnection)
-            .field("dwHardwareCondition", &self.dwHardwareCondition)
-            .field("dwLineSpeed", &self.dwLineSpeed)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for RAS_PORT_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_PORT_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hPort == other.hPort && self.hConnection == other.hConnection && self.dwHardwareCondition == other.dwHardwareCondition && self.dwLineSpeed == other.dwLineSpeed && self.dwBytesXmited == other.dwBytesXmited && self.dwBytesRcved == other.dwBytesRcved && self.dwFramesXmited == other.dwFramesXmited && self.dwFramesRcved == other.dwFramesRcved && self.dwCrcErr == other.dwCrcErr && self.dwTimeoutErr == other.dwTimeoutErr && self.dwAlignmentErr == other.dwAlignmentErr && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr && self.dwFramingErr == other.dwFramingErr && self.dwBufferOverrunErr == other.dwBufferOverrunErr && self.dwCompressionRatioIn == other.dwCompressionRatioIn && self.dwCompressionRatioOut == other.dwCompressionRatioOut
-    }
-}
-impl Eq for RAS_PORT_1 {}
 impl Default for RAS_PORT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_PORT_2 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -8143,80 +6017,9 @@ pub struct RAS_PORT_2 {
     pub ullBytesRcvUncompressed: u64,
     pub ullBytesRcvCompressed: u64,
 }
-impl Copy for RAS_PORT_2 {}
-impl Clone for RAS_PORT_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_PORT_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_PORT_2")
-            .field("hPort", &self.hPort)
-            .field("hConnection", &self.hConnection)
-            .field("dwConn_State", &self.dwConn_State)
-            .field("wszPortName", &self.wszPortName)
-            .field("wszMediaName", &self.wszMediaName)
-            .field("wszDeviceName", &self.wszDeviceName)
-            .field("wszDeviceType", &self.wszDeviceType)
-            .field("dwHardwareCondition", &self.dwHardwareCondition)
-            .field("dwLineSpeed", &self.dwLineSpeed)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwSerialOverRunErrs", &self.dwSerialOverRunErrs)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .field("dwTotalErrors", &self.dwTotalErrors)
-            .field("ullBytesXmited", &self.ullBytesXmited)
-            .field("ullBytesRcved", &self.ullBytesRcved)
-            .field("ullFramesXmited", &self.ullFramesXmited)
-            .field("ullFramesRcved", &self.ullFramesRcved)
-            .field("ullBytesTxUncompressed", &self.ullBytesTxUncompressed)
-            .field("ullBytesTxCompressed", &self.ullBytesTxCompressed)
-            .field("ullBytesRcvUncompressed", &self.ullBytesRcvUncompressed)
-            .field("ullBytesRcvCompressed", &self.ullBytesRcvCompressed)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for RAS_PORT_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_PORT_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hPort == other.hPort
-            && self.hConnection == other.hConnection
-            && self.dwConn_State == other.dwConn_State
-            && self.wszPortName == other.wszPortName
-            && self.wszMediaName == other.wszMediaName
-            && self.wszDeviceName == other.wszDeviceName
-            && self.wszDeviceType == other.wszDeviceType
-            && self.dwHardwareCondition == other.dwHardwareCondition
-            && self.dwLineSpeed == other.dwLineSpeed
-            && self.dwCrcErr == other.dwCrcErr
-            && self.dwSerialOverRunErrs == other.dwSerialOverRunErrs
-            && self.dwTimeoutErr == other.dwTimeoutErr
-            && self.dwAlignmentErr == other.dwAlignmentErr
-            && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr
-            && self.dwFramingErr == other.dwFramingErr
-            && self.dwBufferOverrunErr == other.dwBufferOverrunErr
-            && self.dwCompressionRatioIn == other.dwCompressionRatioIn
-            && self.dwCompressionRatioOut == other.dwCompressionRatioOut
-            && self.dwTotalErrors == other.dwTotalErrors
-            && self.ullBytesXmited == other.ullBytesXmited
-            && self.ullBytesRcved == other.ullBytesRcved
-            && self.ullFramesXmited == other.ullFramesXmited
-            && self.ullFramesRcved == other.ullFramesRcved
-            && self.ullBytesTxUncompressed == other.ullBytesTxUncompressed
-            && self.ullBytesTxCompressed == other.ullBytesTxCompressed
-            && self.ullBytesRcvUncompressed == other.ullBytesRcvUncompressed
-            && self.ullBytesRcvCompressed == other.ullBytesRcvCompressed
-    }
-}
-impl Eq for RAS_PORT_2 {}
 impl Default for RAS_PORT_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8224,18 +6027,11 @@ impl Default for RAS_PORT_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RAS_PROJECTION_INFO {
     pub version: RASAPIVERSION,
     pub r#type: RASPROJECTION_INFO_TYPE,
     pub Anonymous: RAS_PROJECTION_INFO_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RAS_PROJECTION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RAS_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RAS_PROJECTION_INFO {
@@ -8249,17 +6045,10 @@ impl Default for RAS_PROJECTION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RAS_PROJECTION_INFO_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RAS_PROJECTION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for RAS_PROJECTION_INFO_0 {
@@ -8272,37 +6061,22 @@ impl Default for RAS_PROJECTION_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
     pub DeviceName: [i8; 129],
 }
-impl Copy for RAS_SECURITY_INFO {}
-impl Clone for RAS_SECURITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_SECURITY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_SECURITY_INFO").field("LastError", &self.LastError).field("BytesReceived", &self.BytesReceived).field("DeviceName", &self.DeviceName).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_SECURITY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_SECURITY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastError == other.LastError && self.BytesReceived == other.BytesReceived && self.DeviceName == other.DeviceName
-    }
-}
-impl Eq for RAS_SECURITY_INFO {}
 impl Default for RAS_SECURITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_STATS {
     pub dwSize: u32,
     pub dwBytesXmited: u32,
@@ -8320,141 +6094,61 @@ pub struct RAS_STATS {
     pub dwBps: u32,
     pub dwConnectDuration: u32,
 }
-impl Copy for RAS_STATS {}
-impl Clone for RAS_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_STATS")
-            .field("dwSize", &self.dwSize)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .field("dwBps", &self.dwBps)
-            .field("dwConnectDuration", &self.dwConnectDuration)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for RAS_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwBytesXmited == other.dwBytesXmited && self.dwBytesRcved == other.dwBytesRcved && self.dwFramesXmited == other.dwFramesXmited && self.dwFramesRcved == other.dwFramesRcved && self.dwCrcErr == other.dwCrcErr && self.dwTimeoutErr == other.dwTimeoutErr && self.dwAlignmentErr == other.dwAlignmentErr && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr && self.dwFramingErr == other.dwFramingErr && self.dwBufferOverrunErr == other.dwBufferOverrunErr && self.dwCompressionRatioIn == other.dwCompressionRatioIn && self.dwCompressionRatioOut == other.dwCompressionRatioOut && self.dwBps == other.dwBps && self.dwConnectDuration == other.dwConnectDuration
-    }
-}
-impl Eq for RAS_STATS {}
 impl Default for RAS_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_UPDATE_CONNECTION {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwIfIndex: u32,
     pub wszLocalEndpointAddress: [u16; 65],
     pub wszRemoteEndpointAddress: [u16; 65],
 }
-impl Copy for RAS_UPDATE_CONNECTION {}
-impl Clone for RAS_UPDATE_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_UPDATE_CONNECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_UPDATE_CONNECTION").field("Header", &self.Header).field("dwIfIndex", &self.dwIfIndex).field("wszLocalEndpointAddress", &self.wszLocalEndpointAddress).field("wszRemoteEndpointAddress", &self.wszRemoteEndpointAddress).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_UPDATE_CONNECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_UPDATE_CONNECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwIfIndex == other.dwIfIndex && self.wszLocalEndpointAddress == other.wszLocalEndpointAddress && self.wszRemoteEndpointAddress == other.wszRemoteEndpointAddress
-    }
-}
-impl Eq for RAS_UPDATE_CONNECTION {}
 impl Default for RAS_UPDATE_CONNECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
 }
-impl Copy for RAS_USER_0 {}
-impl Clone for RAS_USER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_USER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_USER_0").field("bfPrivilege", &self.bfPrivilege).field("wszPhoneNumber", &self.wszPhoneNumber).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_USER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_USER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bfPrivilege == other.bfPrivilege && self.wszPhoneNumber == other.wszPhoneNumber
-    }
-}
-impl Eq for RAS_USER_0 {}
 impl Default for RAS_USER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
     pub bfPrivilege2: u8,
 }
-impl Copy for RAS_USER_1 {}
-impl Clone for RAS_USER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_USER_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_USER_1").field("bfPrivilege", &self.bfPrivilege).field("wszPhoneNumber", &self.wszPhoneNumber).field("bfPrivilege2", &self.bfPrivilege2).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_USER_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_USER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bfPrivilege == other.bfPrivilege && self.wszPhoneNumber == other.wszPhoneNumber && self.bfPrivilege2 == other.bfPrivilege2
-    }
-}
-impl Eq for RAS_USER_1 {}
 impl Default for RAS_USER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
     pub dwEncryptionMethod: u32,
@@ -8463,26 +6157,9 @@ pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwPfsGroup: u32,
     pub dwDhGroup: u32,
 }
-impl Copy for ROUTER_CUSTOM_IKEv2_POLICY0 {}
-impl Clone for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROUTER_CUSTOM_IKEv2_POLICY0").field("dwIntegrityMethod", &self.dwIntegrityMethod).field("dwEncryptionMethod", &self.dwEncryptionMethod).field("dwCipherTransformConstant", &self.dwCipherTransformConstant).field("dwAuthTransformConstant", &self.dwAuthTransformConstant).field("dwPfsGroup", &self.dwPfsGroup).field("dwDhGroup", &self.dwDhGroup).finish()
-    }
-}
 impl windows_core::TypeKind for ROUTER_CUSTOM_IKEv2_POLICY0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIntegrityMethod == other.dwIntegrityMethod && self.dwEncryptionMethod == other.dwEncryptionMethod && self.dwCipherTransformConstant == other.dwCipherTransformConstant && self.dwAuthTransformConstant == other.dwAuthTransformConstant && self.dwPfsGroup == other.dwPfsGroup && self.dwDhGroup == other.dwDhGroup
-    }
-}
-impl Eq for ROUTER_CUSTOM_IKEv2_POLICY0 {}
 impl Default for ROUTER_CUSTOM_IKEv2_POLICY0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8490,6 +6167,7 @@ impl Default for ROUTER_CUSTOM_IKEv2_POLICY0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -8497,31 +6175,9 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG0").field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSize", &self.dwSaDataSize).field("certificateName", &self.certificateName).field("customPolicy", &self.customPolicy).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSize == other.dwSaDataSize && self.certificateName == other.certificateName && self.customPolicy == other.customPolicy
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     fn default() -> Self {
@@ -8530,6 +6186,7 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -8538,31 +6195,9 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub certificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG1").field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSize", &self.dwSaDataSize).field("certificateName", &self.certificateName).field("customPolicy", &self.customPolicy).field("certificateHash", &self.certificateHash).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSize == other.dwSaDataSize && self.certificateName == other.certificateName && self.customPolicy == other.customPolicy && self.certificateHash == other.certificateHash
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     fn default() -> Self {
@@ -8571,6 +6206,7 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -8581,31 +6217,9 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG2").field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSize", &self.dwSaDataSize).field("certificateName", &self.certificateName).field("customPolicy", &self.customPolicy).field("certificateHash", &self.certificateHash).field("dwMmSaLifeTime", &self.dwMmSaLifeTime).field("vpnTrafficSelectors", &self.vpnTrafficSelectors).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSize == other.dwSaDataSize && self.certificateName == other.certificateName && self.customPolicy == other.customPolicy && self.certificateHash == other.certificateHash && self.dwMmSaLifeTime == other.dwMmSaLifeTime && self.vpnTrafficSelectors == other.vpnTrafficSelectors
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     fn default() -> Self {
@@ -8613,6 +6227,7 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
     pub pfnRpfCallback: PMGM_RPF_CALLBACK,
@@ -8625,17 +6240,6 @@ pub struct ROUTING_PROTOCOL_CONFIG {
     pub pfnDisableIgmpCallback: PMGM_DISABLE_IGMP_CALLBACK,
     pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
-impl Copy for ROUTING_PROTOCOL_CONFIG {}
-impl Clone for ROUTING_PROTOCOL_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ROUTING_PROTOCOL_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROUTING_PROTOCOL_CONFIG").field("dwCallbackFlags", &self.dwCallbackFlags).finish()
-    }
-}
 impl windows_core::TypeKind for ROUTING_PROTOCOL_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
@@ -8645,6 +6249,7 @@ impl Default for ROUTING_PROTOCOL_CONFIG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_DEST_INFO {
     pub DestHandle: isize,
     pub DestAddress: RTM_NET_ADDRESS,
@@ -8653,32 +6258,16 @@ pub struct RTM_DEST_INFO {
     pub NumberOfViews: u32,
     pub ViewInfo: [RTM_DEST_INFO_0; 1],
 }
-impl Copy for RTM_DEST_INFO {}
-impl Clone for RTM_DEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_DEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_DEST_INFO").field("DestHandle", &self.DestHandle).field("DestAddress", &self.DestAddress).field("LastChanged", &self.LastChanged).field("BelongsToViews", &self.BelongsToViews).field("NumberOfViews", &self.NumberOfViews).field("ViewInfo", &self.ViewInfo).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_DEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_DEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DestHandle == other.DestHandle && self.DestAddress == other.DestAddress && self.LastChanged == other.LastChanged && self.BelongsToViews == other.BelongsToViews && self.NumberOfViews == other.NumberOfViews && self.ViewInfo == other.ViewInfo
-    }
-}
-impl Eq for RTM_DEST_INFO {}
 impl Default for RTM_DEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -8687,46 +6276,19 @@ pub struct RTM_DEST_INFO_0 {
     pub DestFlags: u32,
     pub HoldRoute: isize,
 }
-impl Copy for RTM_DEST_INFO_0 {}
-impl Clone for RTM_DEST_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_DEST_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_DEST_INFO_0").field("ViewId", &self.ViewId).field("NumRoutes", &self.NumRoutes).field("Route", &self.Route).field("Owner", &self.Owner).field("DestFlags", &self.DestFlags).field("HoldRoute", &self.HoldRoute).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_DEST_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_DEST_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ViewId == other.ViewId && self.NumRoutes == other.NumRoutes && self.Route == other.Route && self.Owner == other.Owner && self.DestFlags == other.DestFlags && self.HoldRoute == other.HoldRoute
-    }
-}
-impl Eq for RTM_DEST_INFO_0 {}
 impl Default for RTM_DEST_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
     pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
-}
-impl Copy for RTM_ENTITY_EXPORT_METHODS {}
-impl Clone for RTM_ENTITY_EXPORT_METHODS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_ENTITY_EXPORT_METHODS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_EXPORT_METHODS").field("NumMethods", &self.NumMethods).finish()
-    }
 }
 impl windows_core::TypeKind for RTM_ENTITY_EXPORT_METHODS {
     type TypeKind = windows_core::CopyType;
@@ -8737,14 +6299,9 @@ impl Default for RTM_ENTITY_EXPORT_METHODS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
-}
-impl Copy for RTM_ENTITY_ID {}
-impl Clone for RTM_ENTITY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RTM_ENTITY_ID {
     type TypeKind = windows_core::CopyType;
@@ -8755,15 +6312,10 @@ impl Default for RTM_ENTITY_ID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RTM_ENTITY_ID_0 {
     pub Anonymous: RTM_ENTITY_ID_0_0,
     pub EntityId: u64,
-}
-impl Copy for RTM_ENTITY_ID_0 {}
-impl Clone for RTM_ENTITY_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RTM_ENTITY_ID_0 {
     type TypeKind = windows_core::CopyType;
@@ -8774,46 +6326,25 @@ impl Default for RTM_ENTITY_ID_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_ENTITY_ID_0_0 {
     pub EntityProtocolId: u32,
     pub EntityInstanceId: u32,
 }
-impl Copy for RTM_ENTITY_ID_0_0 {}
-impl Clone for RTM_ENTITY_ID_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_ENTITY_ID_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_ID_0_0").field("EntityProtocolId", &self.EntityProtocolId).field("EntityInstanceId", &self.EntityInstanceId).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_ENTITY_ID_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_ENTITY_ID_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntityProtocolId == other.EntityProtocolId && self.EntityInstanceId == other.EntityInstanceId
-    }
-}
-impl Eq for RTM_ENTITY_ID_0_0 {}
 impl Default for RTM_ENTITY_ID_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_INFO {
     pub RtmInstanceId: u16,
     pub AddressFamily: u16,
     pub EntityId: RTM_ENTITY_ID,
-}
-impl Copy for RTM_ENTITY_INFO {}
-impl Clone for RTM_ENTITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RTM_ENTITY_INFO {
     type TypeKind = windows_core::CopyType;
@@ -8824,100 +6355,53 @@ impl Default for RTM_ENTITY_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_ENTITY_METHOD_INPUT {
     pub MethodType: u32,
     pub InputSize: u32,
     pub InputData: [u8; 1],
 }
-impl Copy for RTM_ENTITY_METHOD_INPUT {}
-impl Clone for RTM_ENTITY_METHOD_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_ENTITY_METHOD_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_METHOD_INPUT").field("MethodType", &self.MethodType).field("InputSize", &self.InputSize).field("InputData", &self.InputData).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_ENTITY_METHOD_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_ENTITY_METHOD_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MethodType == other.MethodType && self.InputSize == other.InputSize && self.InputData == other.InputData
-    }
-}
-impl Eq for RTM_ENTITY_METHOD_INPUT {}
 impl Default for RTM_ENTITY_METHOD_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub MethodType: u32,
     pub MethodStatus: u32,
     pub OutputSize: u32,
     pub OutputData: [u8; 1],
 }
-impl Copy for RTM_ENTITY_METHOD_OUTPUT {}
-impl Clone for RTM_ENTITY_METHOD_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_ENTITY_METHOD_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_METHOD_OUTPUT").field("MethodType", &self.MethodType).field("MethodStatus", &self.MethodStatus).field("OutputSize", &self.OutputSize).field("OutputData", &self.OutputData).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_ENTITY_METHOD_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_ENTITY_METHOD_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MethodType == other.MethodType && self.MethodStatus == other.MethodStatus && self.OutputSize == other.OutputSize && self.OutputData == other.OutputData
-    }
-}
-impl Eq for RTM_ENTITY_METHOD_OUTPUT {}
 impl Default for RTM_ENTITY_METHOD_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_NET_ADDRESS {
     pub AddressFamily: u16,
     pub NumBits: u16,
     pub AddrBits: [u8; 16],
 }
-impl Copy for RTM_NET_ADDRESS {}
-impl Clone for RTM_NET_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_NET_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_NET_ADDRESS").field("AddressFamily", &self.AddressFamily).field("NumBits", &self.NumBits).field("AddrBits", &self.AddrBits).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_NET_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_NET_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.NumBits == other.NumBits && self.AddrBits == other.AddrBits
-    }
-}
-impl Eq for RTM_NET_ADDRESS {}
 impl Default for RTM_NET_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_NEXTHOP_INFO {
     pub NextHopAddress: RTM_NET_ADDRESS,
     pub NextHopOwner: isize,
@@ -8927,124 +6411,60 @@ pub struct RTM_NEXTHOP_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub RemoteNextHop: isize,
 }
-impl Copy for RTM_NEXTHOP_INFO {}
-impl Clone for RTM_NEXTHOP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_NEXTHOP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_NEXTHOP_INFO").field("NextHopAddress", &self.NextHopAddress).field("NextHopOwner", &self.NextHopOwner).field("InterfaceIndex", &self.InterfaceIndex).field("State", &self.State).field("Flags", &self.Flags).field("EntitySpecificInfo", &self.EntitySpecificInfo).field("RemoteNextHop", &self.RemoteNextHop).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_NEXTHOP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_NEXTHOP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextHopAddress == other.NextHopAddress && self.NextHopOwner == other.NextHopOwner && self.InterfaceIndex == other.InterfaceIndex && self.State == other.State && self.Flags == other.Flags && self.EntitySpecificInfo == other.EntitySpecificInfo && self.RemoteNextHop == other.RemoteNextHop
-    }
-}
-impl Eq for RTM_NEXTHOP_INFO {}
 impl Default for RTM_NEXTHOP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
 }
-impl Copy for RTM_NEXTHOP_LIST {}
-impl Clone for RTM_NEXTHOP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_NEXTHOP_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_NEXTHOP_LIST").field("NumNextHops", &self.NumNextHops).field("NextHops", &self.NextHops).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_NEXTHOP_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_NEXTHOP_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumNextHops == other.NumNextHops && self.NextHops == other.NextHops
-    }
-}
-impl Eq for RTM_NEXTHOP_LIST {}
 impl Default for RTM_NEXTHOP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_PREF_INFO {
     pub Metric: u32,
     pub Preference: u32,
 }
-impl Copy for RTM_PREF_INFO {}
-impl Clone for RTM_PREF_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_PREF_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_PREF_INFO").field("Metric", &self.Metric).field("Preference", &self.Preference).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_PREF_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_PREF_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Metric == other.Metric && self.Preference == other.Preference
-    }
-}
-impl Eq for RTM_PREF_INFO {}
 impl Default for RTM_PREF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_REGN_PROFILE {
     pub MaxNextHopsInRoute: u32,
     pub MaxHandlesInEnum: u32,
     pub ViewsSupported: u32,
     pub NumberOfViews: u32,
 }
-impl Copy for RTM_REGN_PROFILE {}
-impl Clone for RTM_REGN_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_REGN_PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_REGN_PROFILE").field("MaxNextHopsInRoute", &self.MaxNextHopsInRoute).field("MaxHandlesInEnum", &self.MaxHandlesInEnum).field("ViewsSupported", &self.ViewsSupported).field("NumberOfViews", &self.NumberOfViews).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_REGN_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_REGN_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxNextHopsInRoute == other.MaxNextHopsInRoute && self.MaxHandlesInEnum == other.MaxHandlesInEnum && self.ViewsSupported == other.ViewsSupported && self.NumberOfViews == other.NumberOfViews
-    }
-}
-impl Eq for RTM_REGN_PROFILE {}
 impl Default for RTM_REGN_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTM_ROUTE_INFO {
     pub DestHandle: isize,
     pub RouteOwner: isize,
@@ -9057,32 +6477,16 @@ pub struct RTM_ROUTE_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub NextHopsList: RTM_NEXTHOP_LIST,
 }
-impl Copy for RTM_ROUTE_INFO {}
-impl Clone for RTM_ROUTE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTM_ROUTE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTM_ROUTE_INFO").field("DestHandle", &self.DestHandle).field("RouteOwner", &self.RouteOwner).field("Neighbour", &self.Neighbour).field("State", &self.State).field("Flags1", &self.Flags1).field("Flags", &self.Flags).field("PrefInfo", &self.PrefInfo).field("BelongsToViews", &self.BelongsToViews).field("EntitySpecificInfo", &self.EntitySpecificInfo).field("NextHopsList", &self.NextHopsList).finish()
-    }
-}
 impl windows_core::TypeKind for RTM_ROUTE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTM_ROUTE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DestHandle == other.DestHandle && self.RouteOwner == other.RouteOwner && self.Neighbour == other.Neighbour && self.State == other.State && self.Flags1 == other.Flags1 && self.Flags == other.Flags && self.PrefInfo == other.PrefInfo && self.BelongsToViews == other.BelongsToViews && self.EntitySpecificInfo == other.EntitySpecificInfo && self.NextHopsList == other.NextHopsList
-    }
-}
-impl Eq for RTM_ROUTE_INFO {}
 impl Default for RTM_ROUTE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
@@ -9090,58 +6494,25 @@ pub struct SECURITY_MESSAGE {
     pub UserName: [i8; 257],
     pub Domain: [i8; 16],
 }
-impl Copy for SECURITY_MESSAGE {}
-impl Clone for SECURITY_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_MESSAGE").field("dwMsgId", &self.dwMsgId).field("hPort", &self.hPort).field("dwError", &self.dwError).field("UserName", &self.UserName).field("Domain", &self.Domain).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMsgId == other.dwMsgId && self.hPort == other.hPort && self.dwError == other.dwError && self.UserName == other.UserName && self.Domain == other.Domain
-    }
-}
-impl Eq for SECURITY_MESSAGE {}
 impl Default for SECURITY_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,
     pub dwSourceMask: u32,
     pub dwGroupAddr: u32,
     pub dwGroupMask: u32,
 }
-impl Copy for SOURCE_GROUP_ENTRY {}
-impl Clone for SOURCE_GROUP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SOURCE_GROUP_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SOURCE_GROUP_ENTRY").field("dwSourceAddr", &self.dwSourceAddr).field("dwSourceMask", &self.dwSourceMask).field("dwGroupAddr", &self.dwGroupAddr).field("dwGroupMask", &self.dwGroupMask).finish()
-    }
-}
 impl windows_core::TypeKind for SOURCE_GROUP_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SOURCE_GROUP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSourceAddr == other.dwSourceAddr && self.dwSourceMask == other.dwSourceMask && self.dwGroupAddr == other.dwGroupAddr && self.dwGroupMask == other.dwGroupMask
-    }
-}
-impl Eq for SOURCE_GROUP_ENTRY {}
 impl Default for SOURCE_GROUP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9149,36 +6520,15 @@ impl Default for SOURCE_GROUP_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
     pub certBlob: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SSTP_CERT_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SSTP_CERT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for SSTP_CERT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSTP_CERT_INFO").field("isDefault", &self.isDefault).field("certBlob", &self.certBlob).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for SSTP_CERT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for SSTP_CERT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.isDefault == other.isDefault && self.certBlob == other.certBlob
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for SSTP_CERT_INFO {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SSTP_CERT_INFO {
     fn default() -> Self {
@@ -9187,6 +6537,7 @@ impl Default for SSTP_CERT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -9195,31 +6546,9 @@ pub struct SSTP_CONFIG_PARAMS {
     pub sstpCertDetails: SSTP_CERT_INFO,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SSTP_CONFIG_PARAMS {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SSTP_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for SSTP_CONFIG_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSTP_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("isUseHttps", &self.isUseHttps).field("certAlgorithm", &self.certAlgorithm).field("sstpCertDetails", &self.sstpCertDetails).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for SSTP_CONFIG_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for SSTP_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags && self.isUseHttps == other.isUseHttps && self.certAlgorithm == other.certAlgorithm && self.sstpCertDetails == other.sstpCertDetails
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for SSTP_CONFIG_PARAMS {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SSTP_CONFIG_PARAMS {
     fn default() -> Self {
@@ -9228,17 +6557,10 @@ impl Default for SSTP_CONFIG_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct VPN_TS_IP_ADDRESS {
     pub Type: u16,
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for VPN_TS_IP_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for VPN_TS_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for VPN_TS_IP_ADDRESS {
@@ -9252,17 +6574,10 @@ impl Default for VPN_TS_IP_ADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for VPN_TS_IP_ADDRESS_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for VPN_TS_IP_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for VPN_TS_IP_ADDRESS_0 {

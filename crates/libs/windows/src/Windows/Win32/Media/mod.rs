@@ -299,15 +299,10 @@ impl windows_core::TypeKind for HTASK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
-}
-impl Copy for MMTIME {}
-impl Clone for MMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MMTIME {
     type TypeKind = windows_core::CopyType;
@@ -318,6 +313,7 @@ impl Default for MMTIME {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -325,12 +321,6 @@ pub union MMTIME_0 {
     pub ticks: u32,
     pub smpte: MMTIME_0_1,
     pub midi: MMTIME_0_0,
-}
-impl Copy for MMTIME_0 {}
-impl Clone for MMTIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MMTIME_0 {
     type TypeKind = windows_core::CopyType;
@@ -341,14 +331,9 @@ impl Default for MMTIME_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
-}
-impl Copy for MMTIME_0_0 {}
-impl Clone for MMTIME_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MMTIME_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -359,6 +344,7 @@ impl Default for MMTIME_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MMTIME_0_1 {
     pub hour: u8,
     pub min: u8,
@@ -368,71 +354,33 @@ pub struct MMTIME_0_1 {
     pub dummy: u8,
     pub pad: [u8; 2],
 }
-impl Copy for MMTIME_0_1 {}
-impl Clone for MMTIME_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MMTIME_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MMTIME_0_1").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
-    }
-}
 impl windows_core::TypeKind for MMTIME_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MMTIME_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
-    }
-}
-impl Eq for MMTIME_0_1 {}
 impl Default for MMTIME_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
 }
-impl Copy for TIMECAPS {}
-impl Clone for TIMECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TIMECAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TIMECAPS").field("wPeriodMin", &self.wPeriodMin).field("wPeriodMax", &self.wPeriodMax).finish()
-    }
-}
 impl windows_core::TypeKind for TIMECAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TIMECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.wPeriodMin == other.wPeriodMin && self.wPeriodMax == other.wPeriodMax
-    }
-}
-impl Eq for TIMECAPS {}
 impl Default for TIMECAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
-}
-impl Copy for TIMECODE {}
-impl Clone for TIMECODE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TIMECODE {
     type TypeKind = windows_core::CopyType;
@@ -443,48 +391,27 @@ impl Default for TIMECODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
     pub dwFrames: u32,
 }
-impl Copy for TIMECODE_0 {}
-impl Clone for TIMECODE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TIMECODE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TIMECODE_0").field("wFrameRate", &self.wFrameRate).field("wFrameFract", &self.wFrameFract).field("dwFrames", &self.dwFrames).finish()
-    }
-}
 impl windows_core::TypeKind for TIMECODE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TIMECODE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wFrameRate == other.wFrameRate && self.wFrameFract == other.wFrameFract && self.dwFrames == other.dwFrames
-    }
-}
-impl Eq for TIMECODE_0 {}
 impl Default for TIMECODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,
     pub dwUser: u32,
     pub dwFlags: TIMECODE_SAMPLE_FLAGS,
-}
-impl Copy for TIMECODE_SAMPLE {}
-impl Clone for TIMECODE_SAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TIMECODE_SAMPLE {
     type TypeKind = windows_core::CopyType;

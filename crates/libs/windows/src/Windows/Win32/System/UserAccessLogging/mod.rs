@@ -28,6 +28,7 @@ pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
     pub RoleGuid: windows_core::GUID,
@@ -36,31 +37,9 @@ pub struct UAL_DATA_BLOB {
     pub UserName: [u16; 260],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for UAL_DATA_BLOB {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for UAL_DATA_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for UAL_DATA_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UAL_DATA_BLOB").field("Size", &self.Size).field("RoleGuid", &self.RoleGuid).field("TenantId", &self.TenantId).field("Address", &self.Address).field("UserName", &self.UserName).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for UAL_DATA_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for UAL_DATA_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.RoleGuid == other.RoleGuid && self.TenantId == other.TenantId && self.Address == other.Address && self.UserName == other.UserName
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for UAL_DATA_BLOB {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for UAL_DATA_BLOB {
     fn default() -> Self {

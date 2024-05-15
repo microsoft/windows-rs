@@ -4330,6 +4330,7 @@ impl core::fmt::Debug for D3D10_USAGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BLEND_DESC {
     pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
     pub BlendEnable: [super::super::Foundation::BOOL; 8],
@@ -4341,63 +4342,31 @@ pub struct D3D10_BLEND_DESC {
     pub BlendOpAlpha: D3D10_BLEND_OP,
     pub RenderTargetWriteMask: [u8; 8],
 }
-impl Copy for D3D10_BLEND_DESC {}
-impl Clone for D3D10_BLEND_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_BLEND_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_BLEND_DESC").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_BLEND_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_BLEND_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.AlphaToCoverageEnable == other.AlphaToCoverageEnable && self.BlendEnable == other.BlendEnable && self.SrcBlend == other.SrcBlend && self.DestBlend == other.DestBlend && self.BlendOp == other.BlendOp && self.SrcBlendAlpha == other.SrcBlendAlpha && self.DestBlendAlpha == other.DestBlendAlpha && self.BlendOpAlpha == other.BlendOpAlpha && self.RenderTargetWriteMask == other.RenderTargetWriteMask
-    }
-}
-impl Eq for D3D10_BLEND_DESC {}
 impl Default for D3D10_BLEND_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BLEND_DESC1 {
     pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
     pub IndependentBlendEnable: super::super::Foundation::BOOL,
     pub RenderTarget: [D3D10_RENDER_TARGET_BLEND_DESC1; 8],
 }
-impl Copy for D3D10_BLEND_DESC1 {}
-impl Clone for D3D10_BLEND_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_BLEND_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_BLEND_DESC1").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("IndependentBlendEnable", &self.IndependentBlendEnable).field("RenderTarget", &self.RenderTarget).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_BLEND_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_BLEND_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AlphaToCoverageEnable == other.AlphaToCoverageEnable && self.IndependentBlendEnable == other.IndependentBlendEnable && self.RenderTarget == other.RenderTarget
-    }
-}
-impl Eq for D3D10_BLEND_DESC1 {}
 impl Default for D3D10_BLEND_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BOX {
     pub left: u32,
     pub top: u32,
@@ -4406,32 +4375,16 @@ pub struct D3D10_BOX {
     pub bottom: u32,
     pub back: u32,
 }
-impl Copy for D3D10_BOX {}
-impl Clone for D3D10_BOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_BOX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_BOX").field("left", &self.left).field("top", &self.top).field("front", &self.front).field("right", &self.right).field("bottom", &self.bottom).field("back", &self.back).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_BOX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_BOX {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.front == other.front && self.right == other.right && self.bottom == other.bottom && self.back == other.back
-    }
-}
-impl Eq for D3D10_BOX {}
 impl Default for D3D10_BOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D10_USAGE,
@@ -4439,41 +4392,19 @@ pub struct D3D10_BUFFER_DESC {
     pub CPUAccessFlags: u32,
     pub MiscFlags: u32,
 }
-impl Copy for D3D10_BUFFER_DESC {}
-impl Clone for D3D10_BUFFER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_BUFFER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_BUFFER_DESC").field("ByteWidth", &self.ByteWidth).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_BUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_BUFFER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteWidth == other.ByteWidth && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-impl Eq for D3D10_BUFFER_DESC {}
 impl Default for D3D10_BUFFER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D10_BUFFER_RTV {
     pub Anonymous1: D3D10_BUFFER_RTV_0,
     pub Anonymous2: D3D10_BUFFER_RTV_1,
-}
-impl Copy for D3D10_BUFFER_RTV {}
-impl Clone for D3D10_BUFFER_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D10_BUFFER_RTV {
     type TypeKind = windows_core::CopyType;
@@ -4484,15 +4415,10 @@ impl Default for D3D10_BUFFER_RTV {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D10_BUFFER_RTV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
-}
-impl Copy for D3D10_BUFFER_RTV_0 {}
-impl Clone for D3D10_BUFFER_RTV_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D10_BUFFER_RTV_0 {
     type TypeKind = windows_core::CopyType;
@@ -4503,15 +4429,10 @@ impl Default for D3D10_BUFFER_RTV_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D10_BUFFER_RTV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
-}
-impl Copy for D3D10_BUFFER_RTV_1 {}
-impl Clone for D3D10_BUFFER_RTV_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D10_BUFFER_RTV_1 {
     type TypeKind = windows_core::CopyType;
@@ -4522,15 +4443,10 @@ impl Default for D3D10_BUFFER_RTV_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D10_BUFFER_SRV {
     pub Anonymous1: D3D10_BUFFER_SRV_0,
     pub Anonymous2: D3D10_BUFFER_SRV_1,
-}
-impl Copy for D3D10_BUFFER_SRV {}
-impl Clone for D3D10_BUFFER_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D10_BUFFER_SRV {
     type TypeKind = windows_core::CopyType;
@@ -4541,15 +4457,10 @@ impl Default for D3D10_BUFFER_SRV {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D10_BUFFER_SRV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
-}
-impl Copy for D3D10_BUFFER_SRV_0 {}
-impl Clone for D3D10_BUFFER_SRV_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D10_BUFFER_SRV_0 {
     type TypeKind = windows_core::CopyType;
@@ -4560,15 +4471,10 @@ impl Default for D3D10_BUFFER_SRV_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D10_BUFFER_SRV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
-}
-impl Copy for D3D10_BUFFER_SRV_1 {}
-impl Clone for D3D10_BUFFER_SRV_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D10_BUFFER_SRV_1 {
     type TypeKind = windows_core::CopyType;
@@ -4579,99 +4485,52 @@ impl Default for D3D10_BUFFER_SRV_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_COUNTER_DESC {
     pub Counter: D3D10_COUNTER,
     pub MiscFlags: u32,
 }
-impl Copy for D3D10_COUNTER_DESC {}
-impl Clone for D3D10_COUNTER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_COUNTER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_COUNTER_DESC").field("Counter", &self.Counter).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_COUNTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_COUNTER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Counter == other.Counter && self.MiscFlags == other.MiscFlags
-    }
-}
-impl Eq for D3D10_COUNTER_DESC {}
 impl Default for D3D10_COUNTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D10_COUNTER,
     pub NumSimultaneousCounters: u32,
     pub NumDetectableParallelUnits: u8,
 }
-impl Copy for D3D10_COUNTER_INFO {}
-impl Clone for D3D10_COUNTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_COUNTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_COUNTER_INFO").field("LastDeviceDependentCounter", &self.LastDeviceDependentCounter).field("NumSimultaneousCounters", &self.NumSimultaneousCounters).field("NumDetectableParallelUnits", &self.NumDetectableParallelUnits).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_COUNTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_COUNTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastDeviceDependentCounter == other.LastDeviceDependentCounter && self.NumSimultaneousCounters == other.NumSimultaneousCounters && self.NumDetectableParallelUnits == other.NumDetectableParallelUnits
-    }
-}
-impl Eq for D3D10_COUNTER_INFO {}
 impl Default for D3D10_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D10_STENCIL_OP,
     pub StencilDepthFailOp: D3D10_STENCIL_OP,
     pub StencilPassOp: D3D10_STENCIL_OP,
     pub StencilFunc: D3D10_COMPARISON_FUNC,
 }
-impl Copy for D3D10_DEPTH_STENCILOP_DESC {}
-impl Clone for D3D10_DEPTH_STENCILOP_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_DEPTH_STENCILOP_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_DEPTH_STENCILOP_DESC").field("StencilFailOp", &self.StencilFailOp).field("StencilDepthFailOp", &self.StencilDepthFailOp).field("StencilPassOp", &self.StencilPassOp).field("StencilFunc", &self.StencilFunc).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_DEPTH_STENCILOP_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_DEPTH_STENCILOP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.StencilFailOp == other.StencilFailOp && self.StencilDepthFailOp == other.StencilDepthFailOp && self.StencilPassOp == other.StencilPassOp && self.StencilFunc == other.StencilFunc
-    }
-}
-impl Eq for D3D10_DEPTH_STENCILOP_DESC {}
 impl Default for D3D10_DEPTH_STENCILOP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_DEPTH_STENCIL_DESC {
     pub DepthEnable: super::super::Foundation::BOOL,
     pub DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
@@ -4682,26 +4541,9 @@ pub struct D3D10_DEPTH_STENCIL_DESC {
     pub FrontFace: D3D10_DEPTH_STENCILOP_DESC,
     pub BackFace: D3D10_DEPTH_STENCILOP_DESC,
 }
-impl Copy for D3D10_DEPTH_STENCIL_DESC {}
-impl Clone for D3D10_DEPTH_STENCIL_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_DEPTH_STENCIL_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_DEPTH_STENCIL_DESC").field("DepthEnable", &self.DepthEnable).field("DepthWriteMask", &self.DepthWriteMask).field("DepthFunc", &self.DepthFunc).field("StencilEnable", &self.StencilEnable).field("StencilReadMask", &self.StencilReadMask).field("StencilWriteMask", &self.StencilWriteMask).field("FrontFace", &self.FrontFace).field("BackFace", &self.BackFace).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_DEPTH_STENCIL_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_DEPTH_STENCIL_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.DepthEnable == other.DepthEnable && self.DepthWriteMask == other.DepthWriteMask && self.DepthFunc == other.DepthFunc && self.StencilEnable == other.StencilEnable && self.StencilReadMask == other.StencilReadMask && self.StencilWriteMask == other.StencilWriteMask && self.FrontFace == other.FrontFace && self.BackFace == other.BackFace
-    }
-}
-impl Eq for D3D10_DEPTH_STENCIL_DESC {}
 impl Default for D3D10_DEPTH_STENCIL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4709,18 +4551,11 @@ impl Default for D3D10_DEPTH_STENCIL_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D10_DEPTH_STENCIL_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D10_DSV_DIMENSION,
     pub Anonymous: D3D10_DEPTH_STENCIL_VIEW_DESC_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_DEPTH_STENCIL_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_DEPTH_STENCIL_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_DEPTH_STENCIL_VIEW_DESC {
@@ -4734,6 +4569,7 @@ impl Default for D3D10_DEPTH_STENCIL_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D10_TEX1D_DSV,
     pub Texture1DArray: D3D10_TEX1D_ARRAY_DSV,
@@ -4741,14 +4577,6 @@ pub union D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DArray: D3D10_TEX2D_ARRAY_DSV,
     pub Texture2DMS: D3D10_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_DSV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
@@ -4761,6 +4589,7 @@ impl Default for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_EFFECT_DESC {
     pub IsChildEffect: super::super::Foundation::BOOL,
     pub ConstantBuffers: u32,
@@ -4769,32 +4598,16 @@ pub struct D3D10_EFFECT_DESC {
     pub SharedGlobalVariables: u32,
     pub Techniques: u32,
 }
-impl Copy for D3D10_EFFECT_DESC {}
-impl Clone for D3D10_EFFECT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_EFFECT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_EFFECT_DESC").field("IsChildEffect", &self.IsChildEffect).field("ConstantBuffers", &self.ConstantBuffers).field("SharedConstantBuffers", &self.SharedConstantBuffers).field("GlobalVariables", &self.GlobalVariables).field("SharedGlobalVariables", &self.SharedGlobalVariables).field("Techniques", &self.Techniques).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_EFFECT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_EFFECT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsChildEffect == other.IsChildEffect && self.ConstantBuffers == other.ConstantBuffers && self.SharedConstantBuffers == other.SharedConstantBuffers && self.GlobalVariables == other.GlobalVariables && self.SharedGlobalVariables == other.SharedGlobalVariables && self.Techniques == other.Techniques
-    }
-}
-impl Eq for D3D10_EFFECT_DESC {}
 impl Default for D3D10_EFFECT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *const u8,
     pub IsInline: super::super::Foundation::BOOL,
@@ -4804,26 +4617,9 @@ pub struct D3D10_EFFECT_SHADER_DESC {
     pub NumInputSignatureEntries: u32,
     pub NumOutputSignatureEntries: u32,
 }
-impl Copy for D3D10_EFFECT_SHADER_DESC {}
-impl Clone for D3D10_EFFECT_SHADER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_EFFECT_SHADER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_EFFECT_SHADER_DESC").field("pInputSignature", &self.pInputSignature).field("IsInline", &self.IsInline).field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).field("SODecl", &self.SODecl).field("NumInputSignatureEntries", &self.NumInputSignatureEntries).field("NumOutputSignatureEntries", &self.NumOutputSignatureEntries).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_EFFECT_SHADER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_EFFECT_SHADER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.pInputSignature == other.pInputSignature && self.IsInline == other.IsInline && self.pBytecode == other.pBytecode && self.BytecodeLength == other.BytecodeLength && self.SODecl == other.SODecl && self.NumInputSignatureEntries == other.NumInputSignatureEntries && self.NumOutputSignatureEntries == other.NumOutputSignatureEntries
-    }
-}
-impl Eq for D3D10_EFFECT_SHADER_DESC {}
 impl Default for D3D10_EFFECT_SHADER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4831,6 +4627,7 @@ impl Default for D3D10_EFFECT_SHADER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_EFFECT_TYPE_DESC {
     pub TypeName: windows_core::PCSTR,
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
@@ -4844,31 +4641,9 @@ pub struct D3D10_EFFECT_TYPE_DESC {
     pub Stride: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_EFFECT_TYPE_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_EFFECT_TYPE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_EFFECT_TYPE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_EFFECT_TYPE_DESC").field("TypeName", &self.TypeName).field("Class", &self.Class).field("Type", &self.Type).field("Elements", &self.Elements).field("Members", &self.Members).field("Rows", &self.Rows).field("Columns", &self.Columns).field("PackedSize", &self.PackedSize).field("UnpackedSize", &self.UnpackedSize).field("Stride", &self.Stride).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_EFFECT_TYPE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_EFFECT_TYPE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.TypeName == other.TypeName && self.Class == other.Class && self.Type == other.Type && self.Elements == other.Elements && self.Members == other.Members && self.Rows == other.Rows && self.Columns == other.Columns && self.PackedSize == other.PackedSize && self.UnpackedSize == other.UnpackedSize && self.Stride == other.Stride
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_EFFECT_TYPE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_EFFECT_TYPE_DESC {
     fn default() -> Self {
@@ -4876,6 +4651,7 @@ impl Default for D3D10_EFFECT_TYPE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub Semantic: windows_core::PCSTR,
@@ -4884,62 +4660,30 @@ pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub BufferOffset: u32,
     pub ExplicitBindPoint: u32,
 }
-impl Copy for D3D10_EFFECT_VARIABLE_DESC {}
-impl Clone for D3D10_EFFECT_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_EFFECT_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_EFFECT_VARIABLE_DESC").field("Name", &self.Name).field("Semantic", &self.Semantic).field("Flags", &self.Flags).field("Annotations", &self.Annotations).field("BufferOffset", &self.BufferOffset).field("ExplicitBindPoint", &self.ExplicitBindPoint).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_EFFECT_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_EFFECT_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Semantic == other.Semantic && self.Flags == other.Flags && self.Annotations == other.Annotations && self.BufferOffset == other.BufferOffset && self.ExplicitBindPoint == other.ExplicitBindPoint
-    }
-}
-impl Eq for D3D10_EFFECT_VARIABLE_DESC {}
 impl Default for D3D10_EFFECT_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER {
     pub AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
 }
-impl Copy for D3D10_INFO_QUEUE_FILTER {}
-impl Clone for D3D10_INFO_QUEUE_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_INFO_QUEUE_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_INFO_QUEUE_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_INFO_QUEUE_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllowList == other.AllowList && self.DenyList == other.DenyList
-    }
-}
-impl Eq for D3D10_INFO_QUEUE_FILTER {}
 impl Default for D3D10_INFO_QUEUE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
@@ -4948,26 +4692,9 @@ pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumIDs: u32,
     pub pIDList: *mut D3D10_MESSAGE_ID,
 }
-impl Copy for D3D10_INFO_QUEUE_FILTER_DESC {}
-impl Clone for D3D10_INFO_QUEUE_FILTER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_INFO_QUEUE_FILTER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_INFO_QUEUE_FILTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_INFO_QUEUE_FILTER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumCategories == other.NumCategories && self.pCategoryList == other.pCategoryList && self.NumSeverities == other.NumSeverities && self.pSeverityList == other.pSeverityList && self.NumIDs == other.NumIDs && self.pIDList == other.pIDList
-    }
-}
-impl Eq for D3D10_INFO_QUEUE_FILTER_DESC {}
 impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4975,6 +4702,7 @@ impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -4985,31 +4713,9 @@ pub struct D3D10_INPUT_ELEMENT_DESC {
     pub InstanceDataStepRate: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_INPUT_ELEMENT_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_INPUT_ELEMENT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D10_INPUT_ELEMENT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_INPUT_ELEMENT_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Format", &self.Format).field("InputSlot", &self.InputSlot).field("AlignedByteOffset", &self.AlignedByteOffset).field("InputSlotClass", &self.InputSlotClass).field("InstanceDataStepRate", &self.InstanceDataStepRate).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_INPUT_ELEMENT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D10_INPUT_ELEMENT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Format == other.Format && self.InputSlot == other.InputSlot && self.AlignedByteOffset == other.AlignedByteOffset && self.InputSlotClass == other.InputSlotClass && self.InstanceDataStepRate == other.InstanceDataStepRate
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D10_INPUT_ELEMENT_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D10_INPUT_ELEMENT_DESC {
     fn default() -> Self {
@@ -5017,67 +4723,36 @@ impl Default for D3D10_INPUT_ELEMENT_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE2D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
 }
-impl Copy for D3D10_MAPPED_TEXTURE2D {}
-impl Clone for D3D10_MAPPED_TEXTURE2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_MAPPED_TEXTURE2D {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_MAPPED_TEXTURE2D").field("pData", &self.pData).field("RowPitch", &self.RowPitch).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_MAPPED_TEXTURE2D {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_MAPPED_TEXTURE2D {
-    fn eq(&self, other: &Self) -> bool {
-        self.pData == other.pData && self.RowPitch == other.RowPitch
-    }
-}
-impl Eq for D3D10_MAPPED_TEXTURE2D {}
 impl Default for D3D10_MAPPED_TEXTURE2D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE3D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
     pub DepthPitch: u32,
 }
-impl Copy for D3D10_MAPPED_TEXTURE3D {}
-impl Clone for D3D10_MAPPED_TEXTURE3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_MAPPED_TEXTURE3D {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_MAPPED_TEXTURE3D").field("pData", &self.pData).field("RowPitch", &self.RowPitch).field("DepthPitch", &self.DepthPitch).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_MAPPED_TEXTURE3D {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_MAPPED_TEXTURE3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.pData == other.pData && self.RowPitch == other.RowPitch && self.DepthPitch == other.DepthPitch
-    }
-}
-impl Eq for D3D10_MAPPED_TEXTURE3D {}
 impl Default for D3D10_MAPPED_TEXTURE3D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
@@ -5085,32 +4760,16 @@ pub struct D3D10_MESSAGE {
     pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
-impl Copy for D3D10_MESSAGE {}
-impl Clone for D3D10_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_MESSAGE").field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Category == other.Category && self.Severity == other.Severity && self.ID == other.ID && self.pDescription == other.pDescription && self.DescriptionByteLength == other.DescriptionByteLength
-    }
-}
-impl Eq for D3D10_MESSAGE {}
 impl Default for D3D10_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_PASS_DESC {
     pub Name: windows_core::PCSTR,
     pub Annotations: u32,
@@ -5120,32 +4779,16 @@ pub struct D3D10_PASS_DESC {
     pub SampleMask: u32,
     pub BlendFactor: [f32; 4],
 }
-impl Copy for D3D10_PASS_DESC {}
-impl Clone for D3D10_PASS_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_PASS_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_PASS_DESC").field("Name", &self.Name).field("Annotations", &self.Annotations).field("pIAInputSignature", &self.pIAInputSignature).field("IAInputSignatureSize", &self.IAInputSignatureSize).field("StencilRef", &self.StencilRef).field("SampleMask", &self.SampleMask).field("BlendFactor", &self.BlendFactor).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_PASS_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_PASS_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Annotations == other.Annotations && self.pIAInputSignature == other.pIAInputSignature && self.IAInputSignatureSize == other.IAInputSignatureSize && self.StencilRef == other.StencilRef && self.SampleMask == other.SampleMask && self.BlendFactor == other.BlendFactor
-    }
-}
-impl Eq for D3D10_PASS_DESC {}
 impl Default for D3D10_PASS_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D10_PASS_SHADER_DESC {
     pub pShaderVariable: std::mem::ManuallyDrop<Option<ID3D10EffectShaderVariable>>,
     pub ShaderIndex: u32,
@@ -5155,26 +4798,16 @@ impl Clone for D3D10_PASS_SHADER_DESC {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for D3D10_PASS_SHADER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_PASS_SHADER_DESC").field("pShaderVariable", &self.pShaderVariable).field("ShaderIndex", &self.ShaderIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_PASS_SHADER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_PASS_SHADER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.pShaderVariable == other.pShaderVariable && self.ShaderIndex == other.ShaderIndex
-    }
-}
-impl Eq for D3D10_PASS_SHADER_DESC {}
 impl Default for D3D10_PASS_SHADER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -5185,122 +4818,58 @@ pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub CPrimitives: u64,
     pub PSInvocations: u64,
 }
-impl Copy for D3D10_QUERY_DATA_PIPELINE_STATISTICS {}
-impl Clone for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_QUERY_DATA_PIPELINE_STATISTICS").field("IAVertices", &self.IAVertices).field("IAPrimitives", &self.IAPrimitives).field("VSInvocations", &self.VSInvocations).field("GSInvocations", &self.GSInvocations).field("GSPrimitives", &self.GSPrimitives).field("CInvocations", &self.CInvocations).field("CPrimitives", &self.CPrimitives).field("PSInvocations", &self.PSInvocations).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.IAVertices == other.IAVertices && self.IAPrimitives == other.IAPrimitives && self.VSInvocations == other.VSInvocations && self.GSInvocations == other.GSInvocations && self.GSPrimitives == other.GSPrimitives && self.CInvocations == other.CInvocations && self.CPrimitives == other.CPrimitives && self.PSInvocations == other.PSInvocations
-    }
-}
-impl Eq for D3D10_QUERY_DATA_PIPELINE_STATISTICS {}
 impl Default for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
-impl Copy for D3D10_QUERY_DATA_SO_STATISTICS {}
-impl Clone for D3D10_QUERY_DATA_SO_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_QUERY_DATA_SO_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_QUERY_DATA_SO_STATISTICS").field("NumPrimitivesWritten", &self.NumPrimitivesWritten).field("PrimitivesStorageNeeded", &self.PrimitivesStorageNeeded).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_QUERY_DATA_SO_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_QUERY_DATA_SO_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumPrimitivesWritten == other.NumPrimitivesWritten && self.PrimitivesStorageNeeded == other.PrimitivesStorageNeeded
-    }
-}
-impl Eq for D3D10_QUERY_DATA_SO_STATISTICS {}
 impl Default for D3D10_QUERY_DATA_SO_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
     pub Disjoint: super::super::Foundation::BOOL,
 }
-impl Copy for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {}
-impl Clone for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_QUERY_DATA_TIMESTAMP_DISJOINT").field("Frequency", &self.Frequency).field("Disjoint", &self.Disjoint).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Frequency == other.Frequency && self.Disjoint == other.Disjoint
-    }
-}
-impl Eq for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {}
 impl Default for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_QUERY_DESC {
     pub Query: D3D10_QUERY,
     pub MiscFlags: u32,
 }
-impl Copy for D3D10_QUERY_DESC {}
-impl Clone for D3D10_QUERY_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_QUERY_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_QUERY_DESC").field("Query", &self.Query).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_QUERY_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_QUERY_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Query == other.Query && self.MiscFlags == other.MiscFlags
-    }
-}
-impl Eq for D3D10_QUERY_DESC {}
 impl Default for D3D10_QUERY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_RASTERIZER_DESC {
     pub FillMode: D3D10_FILL_MODE,
     pub CullMode: D3D10_CULL_MODE,
@@ -5313,43 +4882,16 @@ pub struct D3D10_RASTERIZER_DESC {
     pub MultisampleEnable: super::super::Foundation::BOOL,
     pub AntialiasedLineEnable: super::super::Foundation::BOOL,
 }
-impl Copy for D3D10_RASTERIZER_DESC {}
-impl Clone for D3D10_RASTERIZER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_RASTERIZER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_RASTERIZER_DESC")
-            .field("FillMode", &self.FillMode)
-            .field("CullMode", &self.CullMode)
-            .field("FrontCounterClockwise", &self.FrontCounterClockwise)
-            .field("DepthBias", &self.DepthBias)
-            .field("DepthBiasClamp", &self.DepthBiasClamp)
-            .field("SlopeScaledDepthBias", &self.SlopeScaledDepthBias)
-            .field("DepthClipEnable", &self.DepthClipEnable)
-            .field("ScissorEnable", &self.ScissorEnable)
-            .field("MultisampleEnable", &self.MultisampleEnable)
-            .field("AntialiasedLineEnable", &self.AntialiasedLineEnable)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_RASTERIZER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_RASTERIZER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.FillMode == other.FillMode && self.CullMode == other.CullMode && self.FrontCounterClockwise == other.FrontCounterClockwise && self.DepthBias == other.DepthBias && self.DepthBiasClamp == other.DepthBiasClamp && self.SlopeScaledDepthBias == other.SlopeScaledDepthBias && self.DepthClipEnable == other.DepthClipEnable && self.ScissorEnable == other.ScissorEnable && self.MultisampleEnable == other.MultisampleEnable && self.AntialiasedLineEnable == other.AntialiasedLineEnable
-    }
-}
-impl Eq for D3D10_RASTERIZER_DESC {}
 impl Default for D3D10_RASTERIZER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: super::super::Foundation::BOOL,
     pub SrcBlend: D3D10_BLEND,
@@ -5360,26 +4902,9 @@ pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
     pub BlendOpAlpha: D3D10_BLEND_OP,
     pub RenderTargetWriteMask: u8,
 }
-impl Copy for D3D10_RENDER_TARGET_BLEND_DESC1 {}
-impl Clone for D3D10_RENDER_TARGET_BLEND_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_RENDER_TARGET_BLEND_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_RENDER_TARGET_BLEND_DESC1").field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_RENDER_TARGET_BLEND_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_RENDER_TARGET_BLEND_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BlendEnable == other.BlendEnable && self.SrcBlend == other.SrcBlend && self.DestBlend == other.DestBlend && self.BlendOp == other.BlendOp && self.SrcBlendAlpha == other.SrcBlendAlpha && self.DestBlendAlpha == other.DestBlendAlpha && self.BlendOpAlpha == other.BlendOpAlpha && self.RenderTargetWriteMask == other.RenderTargetWriteMask
-    }
-}
-impl Eq for D3D10_RENDER_TARGET_BLEND_DESC1 {}
 impl Default for D3D10_RENDER_TARGET_BLEND_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5387,18 +4912,11 @@ impl Default for D3D10_RENDER_TARGET_BLEND_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D10_RENDER_TARGET_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D10_RTV_DIMENSION,
     pub Anonymous: D3D10_RENDER_TARGET_VIEW_DESC_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_RENDER_TARGET_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_RENDER_TARGET_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_RENDER_TARGET_VIEW_DESC {
@@ -5412,6 +4930,7 @@ impl Default for D3D10_RENDER_TARGET_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D10_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D10_BUFFER_RTV,
     pub Texture1D: D3D10_TEX1D_RTV,
@@ -5421,14 +4940,6 @@ pub union D3D10_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMS: D3D10_TEX2DMS_RTV,
     pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D10_TEX3D_RTV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_RENDER_TARGET_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_RENDER_TARGET_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_RENDER_TARGET_VIEW_DESC_0 {
@@ -5441,6 +4952,7 @@ impl Default for D3D10_RENDER_TARGET_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SAMPLER_DESC {
     pub Filter: D3D10_FILTER,
     pub AddressU: D3D10_TEXTURE_ADDRESS_MODE,
@@ -5453,26 +4965,9 @@ pub struct D3D10_SAMPLER_DESC {
     pub MinLOD: f32,
     pub MaxLOD: f32,
 }
-impl Copy for D3D10_SAMPLER_DESC {}
-impl Clone for D3D10_SAMPLER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SAMPLER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SAMPLER_DESC").field("Filter", &self.Filter).field("AddressU", &self.AddressU).field("AddressV", &self.AddressV).field("AddressW", &self.AddressW).field("MipLODBias", &self.MipLODBias).field("MaxAnisotropy", &self.MaxAnisotropy).field("ComparisonFunc", &self.ComparisonFunc).field("BorderColor", &self.BorderColor).field("MinLOD", &self.MinLOD).field("MaxLOD", &self.MaxLOD).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SAMPLER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SAMPLER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Filter == other.Filter && self.AddressU == other.AddressU && self.AddressV == other.AddressV && self.AddressW == other.AddressW && self.MipLODBias == other.MipLODBias && self.MaxAnisotropy == other.MaxAnisotropy && self.ComparisonFunc == other.ComparisonFunc && self.BorderColor == other.BorderColor && self.MinLOD == other.MinLOD && self.MaxLOD == other.MaxLOD
-    }
-}
-impl Eq for D3D10_SAMPLER_DESC {}
 impl Default for D3D10_SAMPLER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5480,6 +4975,7 @@ impl Default for D3D10_SAMPLER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
@@ -5488,31 +4984,9 @@ pub struct D3D10_SHADER_BUFFER_DESC {
     pub uFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SHADER_BUFFER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SHADER_BUFFER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SHADER_BUFFER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_BUFFER_DESC").field("Name", &self.Name).field("Type", &self.Type).field("Variables", &self.Variables).field("Size", &self.Size).field("uFlags", &self.uFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SHADER_BUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SHADER_BUFFER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Type == other.Type && self.Variables == other.Variables && self.Size == other.Size && self.uFlags == other.uFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SHADER_BUFFER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SHADER_BUFFER_DESC {
     fn default() -> Self {
@@ -5520,38 +4994,23 @@ impl Default for D3D10_SHADER_BUFFER_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_FILE_INFO {
     pub FileName: u32,
     pub FileNameLen: u32,
     pub FileData: u32,
     pub FileLen: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_FILE_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_FILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_FILE_INFO").field("FileName", &self.FileName).field("FileNameLen", &self.FileNameLen).field("FileData", &self.FileData).field("FileLen", &self.FileLen).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_FILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_FILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileName == other.FileName && self.FileNameLen == other.FileNameLen && self.FileData == other.FileData && self.FileLen == other.FileLen
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_FILE_INFO {}
 impl Default for D3D10_SHADER_DEBUG_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INFO {
     pub Size: u32,
     pub Creator: u32,
@@ -5575,74 +5034,16 @@ pub struct D3D10_SHADER_DEBUG_INFO {
     pub UintOffset: u32,
     pub StringOffset: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_INFO")
-            .field("Size", &self.Size)
-            .field("Creator", &self.Creator)
-            .field("EntrypointName", &self.EntrypointName)
-            .field("ShaderTarget", &self.ShaderTarget)
-            .field("CompileFlags", &self.CompileFlags)
-            .field("Files", &self.Files)
-            .field("FileInfo", &self.FileInfo)
-            .field("Instructions", &self.Instructions)
-            .field("InstructionInfo", &self.InstructionInfo)
-            .field("Variables", &self.Variables)
-            .field("VariableInfo", &self.VariableInfo)
-            .field("InputVariables", &self.InputVariables)
-            .field("InputVariableInfo", &self.InputVariableInfo)
-            .field("Tokens", &self.Tokens)
-            .field("TokenInfo", &self.TokenInfo)
-            .field("Scopes", &self.Scopes)
-            .field("ScopeInfo", &self.ScopeInfo)
-            .field("ScopeVariables", &self.ScopeVariables)
-            .field("ScopeVariableInfo", &self.ScopeVariableInfo)
-            .field("UintOffset", &self.UintOffset)
-            .field("StringOffset", &self.StringOffset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Creator == other.Creator
-            && self.EntrypointName == other.EntrypointName
-            && self.ShaderTarget == other.ShaderTarget
-            && self.CompileFlags == other.CompileFlags
-            && self.Files == other.Files
-            && self.FileInfo == other.FileInfo
-            && self.Instructions == other.Instructions
-            && self.InstructionInfo == other.InstructionInfo
-            && self.Variables == other.Variables
-            && self.VariableInfo == other.VariableInfo
-            && self.InputVariables == other.InputVariables
-            && self.InputVariableInfo == other.InputVariableInfo
-            && self.Tokens == other.Tokens
-            && self.TokenInfo == other.TokenInfo
-            && self.Scopes == other.Scopes
-            && self.ScopeInfo == other.ScopeInfo
-            && self.ScopeVariables == other.ScopeVariables
-            && self.ScopeVariableInfo == other.ScopeVariableInfo
-            && self.UintOffset == other.UintOffset
-            && self.StringOffset == other.StringOffset
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_INFO {}
 impl Default for D3D10_SHADER_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
     pub Var: u32,
     pub InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
@@ -5651,32 +5052,16 @@ pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
     pub InitialComponent: u32,
     pub InitialValue: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_INPUT_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_INPUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_INPUT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_INPUT_INFO").field("Var", &self.Var).field("InitialRegisterSet", &self.InitialRegisterSet).field("InitialBank", &self.InitialBank).field("InitialRegister", &self.InitialRegister).field("InitialComponent", &self.InitialComponent).field("InitialValue", &self.InitialValue).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_INPUT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_INPUT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Var == other.Var && self.InitialRegisterSet == other.InitialRegisterSet && self.InitialBank == other.InitialBank && self.InitialRegister == other.InitialRegister && self.InitialComponent == other.InitialComponent && self.InitialValue == other.InitialValue
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_INPUT_INFO {}
 impl Default for D3D10_SHADER_DEBUG_INPUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INST_INFO {
     pub Id: u32,
     pub Opcode: u32,
@@ -5689,32 +5074,16 @@ pub struct D3D10_SHADER_DEBUG_INST_INFO {
     pub AccessedVars: u32,
     pub AccessedVarsInfo: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_INST_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_INST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_INST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_INST_INFO").field("Id", &self.Id).field("Opcode", &self.Opcode).field("uOutputs", &self.uOutputs).field("pOutputs", &self.pOutputs).field("TokenId", &self.TokenId).field("NestingLevel", &self.NestingLevel).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).field("AccessedVars", &self.AccessedVars).field("AccessedVarsInfo", &self.AccessedVarsInfo).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_INST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_INST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id && self.Opcode == other.Opcode && self.uOutputs == other.uOutputs && self.pOutputs == other.pOutputs && self.TokenId == other.TokenId && self.NestingLevel == other.NestingLevel && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo && self.AccessedVars == other.AccessedVars && self.AccessedVarsInfo == other.AccessedVarsInfo
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_INST_INFO {}
 impl Default for D3D10_SHADER_DEBUG_INST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     pub OutputRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
     pub OutputReg: u32,
@@ -5724,32 +5093,16 @@ pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     pub IndexReg: u32,
     pub IndexComp: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_OUTPUTREG_INFO").field("OutputRegisterSet", &self.OutputRegisterSet).field("OutputReg", &self.OutputReg).field("TempArrayReg", &self.TempArrayReg).field("OutputComponents", &self.OutputComponents).field("OutputVars", &self.OutputVars).field("IndexReg", &self.IndexReg).field("IndexComp", &self.IndexComp).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputRegisterSet == other.OutputRegisterSet && self.OutputReg == other.OutputReg && self.TempArrayReg == other.TempArrayReg && self.OutputComponents == other.OutputComponents && self.OutputVars == other.OutputVars && self.IndexReg == other.IndexReg && self.IndexComp == other.IndexComp
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {}
 impl Default for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
     pub Var: u32,
     pub uValueMin: u32,
@@ -5761,26 +5114,9 @@ pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
     pub bNaNPossible: super::super::Foundation::BOOL,
     pub bInfPossible: super::super::Foundation::BOOL,
 }
-impl Copy for D3D10_SHADER_DEBUG_OUTPUTVAR {}
-impl Clone for D3D10_SHADER_DEBUG_OUTPUTVAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_OUTPUTVAR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_OUTPUTVAR").field("Var", &self.Var).field("uValueMin", &self.uValueMin).field("uValueMax", &self.uValueMax).field("iValueMin", &self.iValueMin).field("iValueMax", &self.iValueMax).field("fValueMin", &self.fValueMin).field("fValueMax", &self.fValueMax).field("bNaNPossible", &self.bNaNPossible).field("bInfPossible", &self.bInfPossible).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_OUTPUTVAR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_OUTPUTVAR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Var == other.Var && self.uValueMin == other.uValueMin && self.uValueMax == other.uValueMax && self.iValueMin == other.iValueMin && self.iValueMax == other.iValueMax && self.fValueMin == other.fValueMin && self.fValueMax == other.fValueMax && self.bNaNPossible == other.bNaNPossible && self.bInfPossible == other.bInfPossible
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_OUTPUTVAR {}
 impl Default for D3D10_SHADER_DEBUG_OUTPUTVAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5788,6 +5124,7 @@ impl Default for D3D10_SHADER_DEBUG_OUTPUTVAR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     pub TokenId: u32,
     pub VarType: D3D10_SHADER_DEBUG_VARTYPE,
@@ -5802,31 +5139,9 @@ pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     pub uFirstVariable: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_SCOPEVAR_INFO").field("TokenId", &self.TokenId).field("VarType", &self.VarType).field("Class", &self.Class).field("Rows", &self.Rows).field("Columns", &self.Columns).field("StructMemberScope", &self.StructMemberScope).field("uArrayIndices", &self.uArrayIndices).field("ArrayElements", &self.ArrayElements).field("ArrayStrides", &self.ArrayStrides).field("uVariables", &self.uVariables).field("uFirstVariable", &self.uFirstVariable).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TokenId == other.TokenId && self.VarType == other.VarType && self.Class == other.Class && self.Rows == other.Rows && self.Columns == other.Columns && self.StructMemberScope == other.StructMemberScope && self.uArrayIndices == other.uArrayIndices && self.ArrayElements == other.ArrayElements && self.ArrayStrides == other.ArrayStrides && self.uVariables == other.uVariables && self.uFirstVariable == other.uFirstVariable
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     fn default() -> Self {
@@ -5834,6 +5149,7 @@ impl Default for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPE_INFO {
     pub ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
     pub Name: u32,
@@ -5841,32 +5157,16 @@ pub struct D3D10_SHADER_DEBUG_SCOPE_INFO {
     pub uVariables: u32,
     pub VariableData: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_SCOPE_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_SCOPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_SCOPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_SCOPE_INFO").field("ScopeType", &self.ScopeType).field("Name", &self.Name).field("uNameLen", &self.uNameLen).field("uVariables", &self.uVariables).field("VariableData", &self.VariableData).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_SCOPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_SCOPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ScopeType == other.ScopeType && self.Name == other.Name && self.uNameLen == other.uNameLen && self.uVariables == other.uVariables && self.VariableData == other.VariableData
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_SCOPE_INFO {}
 impl Default for D3D10_SHADER_DEBUG_SCOPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_TOKEN_INFO {
     pub File: u32,
     pub Line: u32,
@@ -5874,26 +5174,9 @@ pub struct D3D10_SHADER_DEBUG_TOKEN_INFO {
     pub TokenLength: u32,
     pub TokenId: u32,
 }
-impl Copy for D3D10_SHADER_DEBUG_TOKEN_INFO {}
-impl Clone for D3D10_SHADER_DEBUG_TOKEN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_TOKEN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_TOKEN_INFO").field("File", &self.File).field("Line", &self.Line).field("Column", &self.Column).field("TokenLength", &self.TokenLength).field("TokenId", &self.TokenId).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_TOKEN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_DEBUG_TOKEN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.File == other.File && self.Line == other.Line && self.Column == other.Column && self.TokenLength == other.TokenLength && self.TokenId == other.TokenId
-    }
-}
-impl Eq for D3D10_SHADER_DEBUG_TOKEN_INFO {}
 impl Default for D3D10_SHADER_DEBUG_TOKEN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5901,6 +5184,7 @@ impl Default for D3D10_SHADER_DEBUG_TOKEN_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_VAR_INFO {
     pub TokenId: u32,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
@@ -5910,31 +5194,9 @@ pub struct D3D10_SHADER_DEBUG_VAR_INFO {
     pub ScopeVarOffset: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SHADER_DEBUG_VAR_INFO {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SHADER_DEBUG_VAR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SHADER_DEBUG_VAR_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DEBUG_VAR_INFO").field("TokenId", &self.TokenId).field("Type", &self.Type).field("Register", &self.Register).field("Component", &self.Component).field("ScopeVar", &self.ScopeVar).field("ScopeVarOffset", &self.ScopeVarOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SHADER_DEBUG_VAR_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SHADER_DEBUG_VAR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TokenId == other.TokenId && self.Type == other.Type && self.Register == other.Register && self.Component == other.Component && self.ScopeVar == other.ScopeVar && self.ScopeVarOffset == other.ScopeVarOffset
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SHADER_DEBUG_VAR_INFO {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SHADER_DEBUG_VAR_INFO {
     fn default() -> Self {
@@ -5943,6 +5205,7 @@ impl Default for D3D10_SHADER_DEBUG_VAR_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -5974,87 +5237,9 @@ pub struct D3D10_SHADER_DESC {
     pub GSMaxOutputVertexCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SHADER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SHADER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SHADER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_DESC")
-            .field("Version", &self.Version)
-            .field("Creator", &self.Creator)
-            .field("Flags", &self.Flags)
-            .field("ConstantBuffers", &self.ConstantBuffers)
-            .field("BoundResources", &self.BoundResources)
-            .field("InputParameters", &self.InputParameters)
-            .field("OutputParameters", &self.OutputParameters)
-            .field("InstructionCount", &self.InstructionCount)
-            .field("TempRegisterCount", &self.TempRegisterCount)
-            .field("TempArrayCount", &self.TempArrayCount)
-            .field("DefCount", &self.DefCount)
-            .field("DclCount", &self.DclCount)
-            .field("TextureNormalInstructions", &self.TextureNormalInstructions)
-            .field("TextureLoadInstructions", &self.TextureLoadInstructions)
-            .field("TextureCompInstructions", &self.TextureCompInstructions)
-            .field("TextureBiasInstructions", &self.TextureBiasInstructions)
-            .field("TextureGradientInstructions", &self.TextureGradientInstructions)
-            .field("FloatInstructionCount", &self.FloatInstructionCount)
-            .field("IntInstructionCount", &self.IntInstructionCount)
-            .field("UintInstructionCount", &self.UintInstructionCount)
-            .field("StaticFlowControlCount", &self.StaticFlowControlCount)
-            .field("DynamicFlowControlCount", &self.DynamicFlowControlCount)
-            .field("MacroInstructionCount", &self.MacroInstructionCount)
-            .field("ArrayInstructionCount", &self.ArrayInstructionCount)
-            .field("CutInstructionCount", &self.CutInstructionCount)
-            .field("EmitInstructionCount", &self.EmitInstructionCount)
-            .field("GSOutputTopology", &self.GSOutputTopology)
-            .field("GSMaxOutputVertexCount", &self.GSMaxOutputVertexCount)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SHADER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SHADER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Creator == other.Creator
-            && self.Flags == other.Flags
-            && self.ConstantBuffers == other.ConstantBuffers
-            && self.BoundResources == other.BoundResources
-            && self.InputParameters == other.InputParameters
-            && self.OutputParameters == other.OutputParameters
-            && self.InstructionCount == other.InstructionCount
-            && self.TempRegisterCount == other.TempRegisterCount
-            && self.TempArrayCount == other.TempArrayCount
-            && self.DefCount == other.DefCount
-            && self.DclCount == other.DclCount
-            && self.TextureNormalInstructions == other.TextureNormalInstructions
-            && self.TextureLoadInstructions == other.TextureLoadInstructions
-            && self.TextureCompInstructions == other.TextureCompInstructions
-            && self.TextureBiasInstructions == other.TextureBiasInstructions
-            && self.TextureGradientInstructions == other.TextureGradientInstructions
-            && self.FloatInstructionCount == other.FloatInstructionCount
-            && self.IntInstructionCount == other.IntInstructionCount
-            && self.UintInstructionCount == other.UintInstructionCount
-            && self.StaticFlowControlCount == other.StaticFlowControlCount
-            && self.DynamicFlowControlCount == other.DynamicFlowControlCount
-            && self.MacroInstructionCount == other.MacroInstructionCount
-            && self.ArrayInstructionCount == other.ArrayInstructionCount
-            && self.CutInstructionCount == other.CutInstructionCount
-            && self.EmitInstructionCount == other.EmitInstructionCount
-            && self.GSOutputTopology == other.GSOutputTopology
-            && self.GSMaxOutputVertexCount == other.GSMaxOutputVertexCount
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SHADER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SHADER_DESC {
     fn default() -> Self {
@@ -6063,6 +5248,7 @@ impl Default for D3D10_SHADER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
@@ -6074,31 +5260,9 @@ pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub NumSamples: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SHADER_INPUT_BIND_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SHADER_INPUT_BIND_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SHADER_INPUT_BIND_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_INPUT_BIND_DESC").field("Name", &self.Name).field("Type", &self.Type).field("BindPoint", &self.BindPoint).field("BindCount", &self.BindCount).field("uFlags", &self.uFlags).field("ReturnType", &self.ReturnType).field("Dimension", &self.Dimension).field("NumSamples", &self.NumSamples).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SHADER_INPUT_BIND_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SHADER_INPUT_BIND_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Type == other.Type && self.BindPoint == other.BindPoint && self.BindCount == other.BindCount && self.uFlags == other.uFlags && self.ReturnType == other.ReturnType && self.Dimension == other.Dimension && self.NumSamples == other.NumSamples
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SHADER_INPUT_BIND_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SHADER_INPUT_BIND_DESC {
     fn default() -> Self {
@@ -6107,18 +5271,11 @@ impl Default for D3D10_SHADER_INPUT_BIND_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub Anonymous: D3D10_SHADER_RESOURCE_VIEW_DESC_0,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D10_SHADER_RESOURCE_VIEW_DESC {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D10_SHADER_RESOURCE_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC {
@@ -6132,6 +5289,7 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub union D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D10_BUFFER_SRV,
     pub Texture1D: D3D10_TEX1D_SRV,
@@ -6142,14 +5300,6 @@ pub union D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_SRV,
     pub Texture3D: D3D10_TEX3D_SRV,
     pub TextureCube: D3D10_TEXCUBE_SRV,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
@@ -6163,18 +5313,11 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub Anonymous: D3D10_SHADER_RESOURCE_VIEW_DESC1_0,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
@@ -6188,6 +5331,7 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub union D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub Buffer: D3D10_BUFFER_SRV,
     pub Texture1D: D3D10_TEX1D_SRV,
@@ -6201,14 +5345,6 @@ pub union D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub TextureCubeArray: D3D10_TEXCUBE_ARRAY_SRV1,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -6220,6 +5356,7 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_TYPE_DESC {
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
@@ -6230,31 +5367,9 @@ pub struct D3D10_SHADER_TYPE_DESC {
     pub Offset: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SHADER_TYPE_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SHADER_TYPE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SHADER_TYPE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_TYPE_DESC").field("Class", &self.Class).field("Type", &self.Type).field("Rows", &self.Rows).field("Columns", &self.Columns).field("Elements", &self.Elements).field("Members", &self.Members).field("Offset", &self.Offset).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SHADER_TYPE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SHADER_TYPE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Class == other.Class && self.Type == other.Type && self.Rows == other.Rows && self.Columns == other.Columns && self.Elements == other.Elements && self.Members == other.Members && self.Offset == other.Offset
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SHADER_TYPE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SHADER_TYPE_DESC {
     fn default() -> Self {
@@ -6262,6 +5377,7 @@ impl Default for D3D10_SHADER_TYPE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -6269,26 +5385,9 @@ pub struct D3D10_SHADER_VARIABLE_DESC {
     pub uFlags: u32,
     pub DefaultValue: *mut core::ffi::c_void,
 }
-impl Copy for D3D10_SHADER_VARIABLE_DESC {}
-impl Clone for D3D10_SHADER_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SHADER_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_VARIABLE_DESC").field("Name", &self.Name).field("StartOffset", &self.StartOffset).field("Size", &self.Size).field("uFlags", &self.uFlags).field("DefaultValue", &self.DefaultValue).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SHADER_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SHADER_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.StartOffset == other.StartOffset && self.Size == other.Size && self.uFlags == other.uFlags && self.DefaultValue == other.DefaultValue
-    }
-}
-impl Eq for D3D10_SHADER_VARIABLE_DESC {}
 impl Default for D3D10_SHADER_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6296,6 +5395,7 @@ impl Default for D3D10_SHADER_VARIABLE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -6306,31 +5406,9 @@ pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub ReadWriteMask: u8,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D10_SIGNATURE_PARAMETER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D10_SIGNATURE_PARAMETER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D10_SIGNATURE_PARAMETER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SIGNATURE_PARAMETER_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Register", &self.Register).field("SystemValueType", &self.SystemValueType).field("ComponentType", &self.ComponentType).field("Mask", &self.Mask).field("ReadWriteMask", &self.ReadWriteMask).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D10_SIGNATURE_PARAMETER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D10_SIGNATURE_PARAMETER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Register == other.Register && self.SystemValueType == other.SystemValueType && self.ComponentType == other.ComponentType && self.Mask == other.Mask && self.ReadWriteMask == other.ReadWriteMask
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D10_SIGNATURE_PARAMETER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D10_SIGNATURE_PARAMETER_DESC {
     fn default() -> Self {
@@ -6338,6 +5416,7 @@ impl Default for D3D10_SIGNATURE_PARAMETER_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SO_DECLARATION_ENTRY {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -6345,32 +5424,16 @@ pub struct D3D10_SO_DECLARATION_ENTRY {
     pub ComponentCount: u8,
     pub OutputSlot: u8,
 }
-impl Copy for D3D10_SO_DECLARATION_ENTRY {}
-impl Clone for D3D10_SO_DECLARATION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SO_DECLARATION_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SO_DECLARATION_ENTRY").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("StartComponent", &self.StartComponent).field("ComponentCount", &self.ComponentCount).field("OutputSlot", &self.OutputSlot).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SO_DECLARATION_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SO_DECLARATION_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.StartComponent == other.StartComponent && self.ComponentCount == other.ComponentCount && self.OutputSlot == other.OutputSlot
-    }
-}
-impl Eq for D3D10_SO_DECLARATION_ENTRY {}
 impl Default for D3D10_SO_DECLARATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_STATE_BLOCK_MASK {
     pub VS: u8,
     pub VSSamplers: [u8; 2],
@@ -6397,800 +5460,351 @@ pub struct D3D10_STATE_BLOCK_MASK {
     pub SOBuffers: u8,
     pub Predication: u8,
 }
-impl Copy for D3D10_STATE_BLOCK_MASK {}
-impl Clone for D3D10_STATE_BLOCK_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_STATE_BLOCK_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_STATE_BLOCK_MASK")
-            .field("VS", &self.VS)
-            .field("VSSamplers", &self.VSSamplers)
-            .field("VSShaderResources", &self.VSShaderResources)
-            .field("VSConstantBuffers", &self.VSConstantBuffers)
-            .field("GS", &self.GS)
-            .field("GSSamplers", &self.GSSamplers)
-            .field("GSShaderResources", &self.GSShaderResources)
-            .field("GSConstantBuffers", &self.GSConstantBuffers)
-            .field("PS", &self.PS)
-            .field("PSSamplers", &self.PSSamplers)
-            .field("PSShaderResources", &self.PSShaderResources)
-            .field("PSConstantBuffers", &self.PSConstantBuffers)
-            .field("IAVertexBuffers", &self.IAVertexBuffers)
-            .field("IAIndexBuffer", &self.IAIndexBuffer)
-            .field("IAInputLayout", &self.IAInputLayout)
-            .field("IAPrimitiveTopology", &self.IAPrimitiveTopology)
-            .field("OMRenderTargets", &self.OMRenderTargets)
-            .field("OMDepthStencilState", &self.OMDepthStencilState)
-            .field("OMBlendState", &self.OMBlendState)
-            .field("RSViewports", &self.RSViewports)
-            .field("RSScissorRects", &self.RSScissorRects)
-            .field("RSRasterizerState", &self.RSRasterizerState)
-            .field("SOBuffers", &self.SOBuffers)
-            .field("Predication", &self.Predication)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_STATE_BLOCK_MASK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_STATE_BLOCK_MASK {
-    fn eq(&self, other: &Self) -> bool {
-        self.VS == other.VS
-            && self.VSSamplers == other.VSSamplers
-            && self.VSShaderResources == other.VSShaderResources
-            && self.VSConstantBuffers == other.VSConstantBuffers
-            && self.GS == other.GS
-            && self.GSSamplers == other.GSSamplers
-            && self.GSShaderResources == other.GSShaderResources
-            && self.GSConstantBuffers == other.GSConstantBuffers
-            && self.PS == other.PS
-            && self.PSSamplers == other.PSSamplers
-            && self.PSShaderResources == other.PSShaderResources
-            && self.PSConstantBuffers == other.PSConstantBuffers
-            && self.IAVertexBuffers == other.IAVertexBuffers
-            && self.IAIndexBuffer == other.IAIndexBuffer
-            && self.IAInputLayout == other.IAInputLayout
-            && self.IAPrimitiveTopology == other.IAPrimitiveTopology
-            && self.OMRenderTargets == other.OMRenderTargets
-            && self.OMDepthStencilState == other.OMDepthStencilState
-            && self.OMBlendState == other.OMBlendState
-            && self.RSViewports == other.RSViewports
-            && self.RSScissorRects == other.RSScissorRects
-            && self.RSRasterizerState == other.RSRasterizerState
-            && self.SOBuffers == other.SOBuffers
-            && self.Predication == other.Predication
-    }
-}
-impl Eq for D3D10_STATE_BLOCK_MASK {}
 impl Default for D3D10_STATE_BLOCK_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
 }
-impl Copy for D3D10_SUBRESOURCE_DATA {}
-impl Clone for D3D10_SUBRESOURCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_SUBRESOURCE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_SUBRESOURCE_DATA").field("pSysMem", &self.pSysMem).field("SysMemPitch", &self.SysMemPitch).field("SysMemSlicePitch", &self.SysMemSlicePitch).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_SUBRESOURCE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_SUBRESOURCE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSysMem == other.pSysMem && self.SysMemPitch == other.SysMemPitch && self.SysMemSlicePitch == other.SysMemSlicePitch
-    }
-}
-impl Eq for D3D10_SUBRESOURCE_DATA {}
 impl Default for D3D10_SUBRESOURCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TECHNIQUE_DESC {
     pub Name: windows_core::PCSTR,
     pub Passes: u32,
     pub Annotations: u32,
 }
-impl Copy for D3D10_TECHNIQUE_DESC {}
-impl Clone for D3D10_TECHNIQUE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TECHNIQUE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TECHNIQUE_DESC").field("Name", &self.Name).field("Passes", &self.Passes).field("Annotations", &self.Annotations).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TECHNIQUE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TECHNIQUE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Passes == other.Passes && self.Annotations == other.Annotations
-    }
-}
-impl Eq for D3D10_TECHNIQUE_DESC {}
 impl Default for D3D10_TECHNIQUE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX1D_ARRAY_DSV {}
-impl Clone for D3D10_TEX1D_ARRAY_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX1D_ARRAY_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX1D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX1D_ARRAY_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX1D_ARRAY_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX1D_ARRAY_DSV {}
 impl Default for D3D10_TEX1D_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX1D_ARRAY_RTV {}
-impl Clone for D3D10_TEX1D_ARRAY_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX1D_ARRAY_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX1D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX1D_ARRAY_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX1D_ARRAY_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX1D_ARRAY_RTV {}
 impl Default for D3D10_TEX1D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX1D_ARRAY_SRV {}
-impl Clone for D3D10_TEX1D_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX1D_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX1D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX1D_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX1D_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX1D_ARRAY_SRV {}
 impl Default for D3D10_TEX1D_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX1D_DSV {
     pub MipSlice: u32,
-}
-impl Copy for D3D10_TEX1D_DSV {}
-impl Clone for D3D10_TEX1D_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX1D_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX1D_DSV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX1D_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX1D_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D10_TEX1D_DSV {}
 impl Default for D3D10_TEX1D_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX1D_RTV {
     pub MipSlice: u32,
-}
-impl Copy for D3D10_TEX1D_RTV {}
-impl Clone for D3D10_TEX1D_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX1D_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX1D_RTV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX1D_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX1D_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D10_TEX1D_RTV {}
 impl Default for D3D10_TEX1D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D10_TEX1D_SRV {}
-impl Clone for D3D10_TEX1D_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX1D_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX1D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX1D_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX1D_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D10_TEX1D_SRV {}
 impl Default for D3D10_TEX1D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX2DMS_ARRAY_DSV {}
-impl Clone for D3D10_TEX2DMS_ARRAY_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2DMS_ARRAY_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2DMS_ARRAY_DSV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2DMS_ARRAY_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2DMS_ARRAY_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX2DMS_ARRAY_DSV {}
 impl Default for D3D10_TEX2DMS_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX2DMS_ARRAY_RTV {}
-impl Clone for D3D10_TEX2DMS_ARRAY_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2DMS_ARRAY_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2DMS_ARRAY_RTV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2DMS_ARRAY_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2DMS_ARRAY_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX2DMS_ARRAY_RTV {}
 impl Default for D3D10_TEX2DMS_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX2DMS_ARRAY_SRV {}
-impl Clone for D3D10_TEX2DMS_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2DMS_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2DMS_ARRAY_SRV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2DMS_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2DMS_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX2DMS_ARRAY_SRV {}
 impl Default for D3D10_TEX2DMS_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
-}
-impl Copy for D3D10_TEX2DMS_DSV {}
-impl Clone for D3D10_TEX2DMS_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2DMS_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2DMS_DSV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX2DMS_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2DMS_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
-    }
-}
-impl Eq for D3D10_TEX2DMS_DSV {}
 impl Default for D3D10_TEX2DMS_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
-}
-impl Copy for D3D10_TEX2DMS_RTV {}
-impl Clone for D3D10_TEX2DMS_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2DMS_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2DMS_RTV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX2DMS_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2DMS_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
-    }
-}
-impl Eq for D3D10_TEX2DMS_RTV {}
 impl Default for D3D10_TEX2DMS_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
-}
-impl Copy for D3D10_TEX2DMS_SRV {}
-impl Clone for D3D10_TEX2DMS_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2DMS_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2DMS_SRV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX2DMS_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2DMS_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
-    }
-}
-impl Eq for D3D10_TEX2DMS_SRV {}
 impl Default for D3D10_TEX2DMS_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX2D_ARRAY_DSV {}
-impl Clone for D3D10_TEX2D_ARRAY_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2D_ARRAY_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2D_ARRAY_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2D_ARRAY_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX2D_ARRAY_DSV {}
 impl Default for D3D10_TEX2D_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX2D_ARRAY_RTV {}
-impl Clone for D3D10_TEX2D_ARRAY_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2D_ARRAY_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2D_ARRAY_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2D_ARRAY_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX2D_ARRAY_RTV {}
 impl Default for D3D10_TEX2D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D10_TEX2D_ARRAY_SRV {}
-impl Clone for D3D10_TEX2D_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2D_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2D_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2D_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D10_TEX2D_ARRAY_SRV {}
 impl Default for D3D10_TEX2D_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2D_DSV {
     pub MipSlice: u32,
-}
-impl Copy for D3D10_TEX2D_DSV {}
-impl Clone for D3D10_TEX2D_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2D_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2D_DSV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX2D_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2D_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D10_TEX2D_DSV {}
 impl Default for D3D10_TEX2D_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2D_RTV {
     pub MipSlice: u32,
-}
-impl Copy for D3D10_TEX2D_RTV {}
-impl Clone for D3D10_TEX2D_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2D_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2D_RTV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D10_TEX2D_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2D_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D10_TEX2D_RTV {}
 impl Default for D3D10_TEX2D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D10_TEX2D_SRV {}
-impl Clone for D3D10_TEX2D_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX2D_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX2D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX2D_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX2D_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D10_TEX2D_SRV {}
 impl Default for D3D10_TEX2D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
-impl Copy for D3D10_TEX3D_RTV {}
-impl Clone for D3D10_TEX3D_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX3D_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX3D_RTV").field("MipSlice", &self.MipSlice).field("FirstWSlice", &self.FirstWSlice).field("WSize", &self.WSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX3D_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX3D_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstWSlice == other.FirstWSlice && self.WSize == other.WSize
-    }
-}
-impl Eq for D3D10_TEX3D_RTV {}
 impl Default for D3D10_TEX3D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D10_TEX3D_SRV {}
-impl Clone for D3D10_TEX3D_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEX3D_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEX3D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEX3D_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEX3D_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D10_TEX3D_SRV {}
 impl Default for D3D10_TEX3D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub First2DArrayFace: u32,
     pub NumCubes: u32,
 }
-impl Copy for D3D10_TEXCUBE_ARRAY_SRV1 {}
-impl Clone for D3D10_TEXCUBE_ARRAY_SRV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEXCUBE_ARRAY_SRV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEXCUBE_ARRAY_SRV1").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("First2DArrayFace", &self.First2DArrayFace).field("NumCubes", &self.NumCubes).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEXCUBE_ARRAY_SRV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEXCUBE_ARRAY_SRV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.First2DArrayFace == other.First2DArrayFace && self.NumCubes == other.NumCubes
-    }
-}
-impl Eq for D3D10_TEXCUBE_ARRAY_SRV1 {}
 impl Default for D3D10_TEXCUBE_ARRAY_SRV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D10_TEXCUBE_SRV {}
-impl Clone for D3D10_TEXCUBE_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_TEXCUBE_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEXCUBE_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_TEXCUBE_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_TEXCUBE_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D10_TEXCUBE_SRV {}
 impl Default for D3D10_TEXCUBE_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7198,6 +5812,7 @@ impl Default for D3D10_TEXCUBE_SRV {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEXTURE1D_DESC {
     pub Width: u32,
     pub MipLevels: u32,
@@ -7209,31 +5824,9 @@ pub struct D3D10_TEXTURE1D_DESC {
     pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_TEXTURE1D_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_TEXTURE1D_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D10_TEXTURE1D_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEXTURE1D_DESC").field("Width", &self.Width).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_TEXTURE1D_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D10_TEXTURE1D_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D10_TEXTURE1D_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D10_TEXTURE1D_DESC {
     fn default() -> Self {
@@ -7242,6 +5835,7 @@ impl Default for D3D10_TEXTURE1D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEXTURE2D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -7255,31 +5849,9 @@ pub struct D3D10_TEXTURE2D_DESC {
     pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_TEXTURE2D_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_TEXTURE2D_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D10_TEXTURE2D_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEXTURE2D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_TEXTURE2D_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D10_TEXTURE2D_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.SampleDesc == other.SampleDesc && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D10_TEXTURE2D_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D10_TEXTURE2D_DESC {
     fn default() -> Self {
@@ -7288,6 +5860,7 @@ impl Default for D3D10_TEXTURE2D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_TEXTURE3D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -7300,31 +5873,9 @@ pub struct D3D10_TEXTURE3D_DESC {
     pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D10_TEXTURE3D_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D10_TEXTURE3D_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D10_TEXTURE3D_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_TEXTURE3D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D10_TEXTURE3D_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D10_TEXTURE3D_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.MipLevels == other.MipLevels && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D10_TEXTURE3D_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D10_TEXTURE3D_DESC {
     fn default() -> Self {
@@ -7332,6 +5883,7 @@ impl Default for D3D10_TEXTURE3D_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_VIEWPORT {
     pub TopLeftX: i32,
     pub TopLeftY: i32,
@@ -7340,26 +5892,9 @@ pub struct D3D10_VIEWPORT {
     pub MinDepth: f32,
     pub MaxDepth: f32,
 }
-impl Copy for D3D10_VIEWPORT {}
-impl Clone for D3D10_VIEWPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D10_VIEWPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D10_VIEWPORT").field("TopLeftX", &self.TopLeftX).field("TopLeftY", &self.TopLeftY).field("Width", &self.Width).field("Height", &self.Height).field("MinDepth", &self.MinDepth).field("MaxDepth", &self.MaxDepth).finish()
-    }
-}
 impl windows_core::TypeKind for D3D10_VIEWPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D10_VIEWPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.TopLeftX == other.TopLeftX && self.TopLeftY == other.TopLeftY && self.Width == other.Width && self.Height == other.Height && self.MinDepth == other.MinDepth && self.MaxDepth == other.MaxDepth
-    }
-}
-impl Eq for D3D10_VIEWPORT {}
 impl Default for D3D10_VIEWPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

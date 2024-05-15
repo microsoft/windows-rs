@@ -17200,38 +17200,23 @@ impl core::fmt::Debug for _REM_FILTER_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ALLOCATOR_PROPERTIES {
     pub cBuffers: i32,
     pub cbBuffer: i32,
     pub cbAlign: i32,
     pub cbPrefix: i32,
 }
-impl Copy for ALLOCATOR_PROPERTIES {}
-impl Clone for ALLOCATOR_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ALLOCATOR_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ALLOCATOR_PROPERTIES").field("cBuffers", &self.cBuffers).field("cbBuffer", &self.cbBuffer).field("cbAlign", &self.cbAlign).field("cbPrefix", &self.cbPrefix).finish()
-    }
-}
 impl windows_core::TypeKind for ALLOCATOR_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ALLOCATOR_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBuffers == other.cBuffers && self.cbBuffer == other.cbBuffer && self.cbAlign == other.cbAlign && self.cbPrefix == other.cbPrefix
-    }
-}
-impl Eq for ALLOCATOR_PROPERTIES {}
 impl Default for ALLOCATOR_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPCommand {
     pub macKDI: windows_core::GUID,
     pub guidCommandID: windows_core::GUID,
@@ -17239,61 +17224,29 @@ pub struct AMCOPPCommand {
     pub cbSizeData: u32,
     pub CommandData: [u8; 4056],
 }
-impl Copy for AMCOPPCommand {}
-impl Clone for AMCOPPCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMCOPPCommand {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMCOPPCommand").field("macKDI", &self.macKDI).field("guidCommandID", &self.guidCommandID).field("dwSequence", &self.dwSequence).field("cbSizeData", &self.cbSizeData).field("CommandData", &self.CommandData).finish()
-    }
-}
 impl windows_core::TypeKind for AMCOPPCommand {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMCOPPCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.macKDI == other.macKDI && self.guidCommandID == other.guidCommandID && self.dwSequence == other.dwSequence && self.cbSizeData == other.cbSizeData && self.CommandData == other.CommandData
-    }
-}
-impl Eq for AMCOPPCommand {}
 impl Default for AMCOPPCommand {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPSignature {
     pub Signature: [u8; 256],
-}
-impl Copy for AMCOPPSignature {}
-impl Clone for AMCOPPSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMCOPPSignature {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMCOPPSignature").field("Signature", &self.Signature).finish()
-    }
 }
 impl windows_core::TypeKind for AMCOPPSignature {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMCOPPSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-    }
-}
-impl Eq for AMCOPPSignature {}
 impl Default for AMCOPPSignature {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPStatusInput {
     pub rApp: windows_core::GUID,
     pub guidStatusRequestID: windows_core::GUID,
@@ -17301,95 +17254,47 @@ pub struct AMCOPPStatusInput {
     pub cbSizeData: u32,
     pub StatusData: [u8; 4056],
 }
-impl Copy for AMCOPPStatusInput {}
-impl Clone for AMCOPPStatusInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMCOPPStatusInput {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMCOPPStatusInput").field("rApp", &self.rApp).field("guidStatusRequestID", &self.guidStatusRequestID).field("dwSequence", &self.dwSequence).field("cbSizeData", &self.cbSizeData).field("StatusData", &self.StatusData).finish()
-    }
-}
 impl windows_core::TypeKind for AMCOPPStatusInput {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMCOPPStatusInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.rApp == other.rApp && self.guidStatusRequestID == other.guidStatusRequestID && self.dwSequence == other.dwSequence && self.cbSizeData == other.cbSizeData && self.StatusData == other.StatusData
-    }
-}
-impl Eq for AMCOPPStatusInput {}
 impl Default for AMCOPPStatusInput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPStatusOutput {
     pub macKDI: windows_core::GUID,
     pub cbSizeData: u32,
     pub COPPStatus: [u8; 4076],
 }
-impl Copy for AMCOPPStatusOutput {}
-impl Clone for AMCOPPStatusOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMCOPPStatusOutput {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMCOPPStatusOutput").field("macKDI", &self.macKDI).field("cbSizeData", &self.cbSizeData).field("COPPStatus", &self.COPPStatus).finish()
-    }
-}
 impl windows_core::TypeKind for AMCOPPStatusOutput {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMCOPPStatusOutput {
-    fn eq(&self, other: &Self) -> bool {
-        self.macKDI == other.macKDI && self.cbSizeData == other.cbSizeData && self.COPPStatus == other.COPPStatus
-    }
-}
-impl Eq for AMCOPPStatusOutput {}
 impl Default for AMCOPPStatusOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVABUFFERINFO {
     pub dwTypeIndex: u32,
     pub dwBufferIndex: u32,
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
 }
-impl Copy for AMVABUFFERINFO {}
-impl Clone for AMVABUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVABUFFERINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVABUFFERINFO").field("dwTypeIndex", &self.dwTypeIndex).field("dwBufferIndex", &self.dwBufferIndex).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for AMVABUFFERINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVABUFFERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTypeIndex == other.dwTypeIndex && self.dwBufferIndex == other.dwBufferIndex && self.dwDataOffset == other.dwDataOffset && self.dwDataSize == other.dwDataSize
-    }
-}
-impl Eq for AMVABUFFERINFO {}
 impl Default for AMVABUFFERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVABeginFrameInfo {
     pub dwDestSurfaceIndex: u32,
     pub pInputData: *mut core::ffi::c_void,
@@ -17397,26 +17302,9 @@ pub struct AMVABeginFrameInfo {
     pub pOutputData: *mut core::ffi::c_void,
     pub dwSizeOutputData: u32,
 }
-impl Copy for AMVABeginFrameInfo {}
-impl Clone for AMVABeginFrameInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVABeginFrameInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVABeginFrameInfo").field("dwDestSurfaceIndex", &self.dwDestSurfaceIndex).field("pInputData", &self.pInputData).field("dwSizeInputData", &self.dwSizeInputData).field("pOutputData", &self.pOutputData).field("dwSizeOutputData", &self.dwSizeOutputData).finish()
-    }
-}
 impl windows_core::TypeKind for AMVABeginFrameInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVABeginFrameInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDestSurfaceIndex == other.dwDestSurfaceIndex && self.pInputData == other.pInputData && self.dwSizeInputData == other.dwSizeInputData && self.pOutputData == other.pOutputData && self.dwSizeOutputData == other.dwSizeOutputData
-    }
-}
-impl Eq for AMVABeginFrameInfo {}
 impl Default for AMVABeginFrameInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17424,6 +17312,7 @@ impl Default for AMVABeginFrameInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[derive(Clone, Copy)]
 pub struct AMVACompBufferInfo {
     pub dwNumCompBuffers: u32,
     pub dwWidthToCreate: u32,
@@ -17431,14 +17320,6 @@ pub struct AMVACompBufferInfo {
     pub dwBytesToAllocate: u32,
     pub ddCompCaps: super::super::Graphics::DirectDraw::DDSCAPS2,
     pub ddPixelFormat: super::super::Graphics::DirectDraw::DDPIXELFORMAT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for AMVACompBufferInfo {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for AMVACompBufferInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::TypeKind for AMVACompBufferInfo {
@@ -17451,59 +17332,27 @@ impl Default for AMVACompBufferInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVAEndFrameInfo {
     pub dwSizeMiscData: u32,
     pub pMiscData: *mut core::ffi::c_void,
 }
-impl Copy for AMVAEndFrameInfo {}
-impl Clone for AMVAEndFrameInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVAEndFrameInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVAEndFrameInfo").field("dwSizeMiscData", &self.dwSizeMiscData).field("pMiscData", &self.pMiscData).finish()
-    }
-}
 impl windows_core::TypeKind for AMVAEndFrameInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVAEndFrameInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSizeMiscData == other.dwSizeMiscData && self.pMiscData == other.pMiscData
-    }
-}
-impl Eq for AMVAEndFrameInfo {}
 impl Default for AMVAEndFrameInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVAInternalMemInfo {
     pub dwScratchMemAlloc: u32,
-}
-impl Copy for AMVAInternalMemInfo {}
-impl Clone for AMVAInternalMemInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVAInternalMemInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVAInternalMemInfo").field("dwScratchMemAlloc", &self.dwScratchMemAlloc).finish()
-    }
 }
 impl windows_core::TypeKind for AMVAInternalMemInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVAInternalMemInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScratchMemAlloc == other.dwScratchMemAlloc
-    }
-}
-impl Eq for AMVAInternalMemInfo {}
 impl Default for AMVAInternalMemInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17511,18 +17360,11 @@ impl Default for AMVAInternalMemInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[derive(Clone, Copy)]
 pub struct AMVAUncompBufferInfo {
     pub dwMinNumSurfaces: u32,
     pub dwMaxNumSurfaces: u32,
     pub ddUncompPixelFormat: super::super::Graphics::DirectDraw::DDPIXELFORMAT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for AMVAUncompBufferInfo {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for AMVAUncompBufferInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::TypeKind for AMVAUncompBufferInfo {
@@ -17536,18 +17378,11 @@ impl Default for AMVAUncompBufferInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[derive(Clone, Copy)]
 pub struct AMVAUncompDataInfo {
     pub dwUncompWidth: u32,
     pub dwUncompHeight: u32,
     pub ddUncompPixelFormat: super::super::Graphics::DirectDraw::DDPIXELFORMAT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for AMVAUncompDataInfo {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for AMVAUncompDataInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::TypeKind for AMVAUncompDataInfo {
@@ -17560,6 +17395,7 @@ impl Default for AMVAUncompDataInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVPDATAINFO {
     pub dwSize: u32,
     pub dwMicrosecondsPerField: u32,
@@ -17575,46 +17411,16 @@ pub struct AMVPDATAINFO {
     pub lHalfLinesEven: i32,
     pub dwReserved1: u32,
 }
-impl Copy for AMVPDATAINFO {}
-impl Clone for AMVPDATAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVPDATAINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVPDATAINFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwMicrosecondsPerField", &self.dwMicrosecondsPerField)
-            .field("amvpDimInfo", &self.amvpDimInfo)
-            .field("dwPictAspectRatioX", &self.dwPictAspectRatioX)
-            .field("dwPictAspectRatioY", &self.dwPictAspectRatioY)
-            .field("bEnableDoubleClock", &self.bEnableDoubleClock)
-            .field("bEnableVACT", &self.bEnableVACT)
-            .field("bDataIsInterlaced", &self.bDataIsInterlaced)
-            .field("lHalfLinesOdd", &self.lHalfLinesOdd)
-            .field("bFieldPolarityInverted", &self.bFieldPolarityInverted)
-            .field("dwNumLinesInVREF", &self.dwNumLinesInVREF)
-            .field("lHalfLinesEven", &self.lHalfLinesEven)
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for AMVPDATAINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVPDATAINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMicrosecondsPerField == other.dwMicrosecondsPerField && self.amvpDimInfo == other.amvpDimInfo && self.dwPictAspectRatioX == other.dwPictAspectRatioX && self.dwPictAspectRatioY == other.dwPictAspectRatioY && self.bEnableDoubleClock == other.bEnableDoubleClock && self.bEnableVACT == other.bEnableVACT && self.bDataIsInterlaced == other.bDataIsInterlaced && self.lHalfLinesOdd == other.lHalfLinesOdd && self.bFieldPolarityInverted == other.bFieldPolarityInverted && self.dwNumLinesInVREF == other.dwNumLinesInVREF && self.lHalfLinesEven == other.lHalfLinesEven && self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for AMVPDATAINFO {}
 impl Default for AMVPDATAINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVPDIMINFO {
     pub dwFieldWidth: u32,
     pub dwFieldHeight: u32,
@@ -17622,481 +17428,225 @@ pub struct AMVPDIMINFO {
     pub dwVBIHeight: u32,
     pub rcValidRegion: super::super::Foundation::RECT,
 }
-impl Copy for AMVPDIMINFO {}
-impl Clone for AMVPDIMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVPDIMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVPDIMINFO").field("dwFieldWidth", &self.dwFieldWidth).field("dwFieldHeight", &self.dwFieldHeight).field("dwVBIWidth", &self.dwVBIWidth).field("dwVBIHeight", &self.dwVBIHeight).field("rcValidRegion", &self.rcValidRegion).finish()
-    }
-}
 impl windows_core::TypeKind for AMVPDIMINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVPDIMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFieldWidth == other.dwFieldWidth && self.dwFieldHeight == other.dwFieldHeight && self.dwVBIWidth == other.dwVBIWidth && self.dwVBIHeight == other.dwVBIHeight && self.rcValidRegion == other.rcValidRegion
-    }
-}
-impl Eq for AMVPDIMINFO {}
 impl Default for AMVPDIMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMVPSIZE {
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
-impl Copy for AMVPSIZE {}
-impl Clone for AMVPSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AMVPSIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AMVPSIZE").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).finish()
-    }
-}
 impl windows_core::TypeKind for AMVPSIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AMVPSIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight
-    }
-}
-impl Eq for AMVPSIZE {}
 impl Default for AMVPSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_AC3_ALTERNATE_AUDIO {
     pub fStereo: super::super::Foundation::BOOL,
     pub DualMode: u32,
 }
-impl Copy for AM_AC3_ALTERNATE_AUDIO {}
-impl Clone for AM_AC3_ALTERNATE_AUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_AC3_ALTERNATE_AUDIO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_AC3_ALTERNATE_AUDIO").field("fStereo", &self.fStereo).field("DualMode", &self.DualMode).finish()
-    }
-}
 impl windows_core::TypeKind for AM_AC3_ALTERNATE_AUDIO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_AC3_ALTERNATE_AUDIO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fStereo == other.fStereo && self.DualMode == other.DualMode
-    }
-}
-impl Eq for AM_AC3_ALTERNATE_AUDIO {}
 impl Default for AM_AC3_ALTERNATE_AUDIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_AC3_BIT_STREAM_MODE {
     pub BitStreamMode: i32,
-}
-impl Copy for AM_AC3_BIT_STREAM_MODE {}
-impl Clone for AM_AC3_BIT_STREAM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_AC3_BIT_STREAM_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_AC3_BIT_STREAM_MODE").field("BitStreamMode", &self.BitStreamMode).finish()
-    }
 }
 impl windows_core::TypeKind for AM_AC3_BIT_STREAM_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_AC3_BIT_STREAM_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BitStreamMode == other.BitStreamMode
-    }
-}
-impl Eq for AM_AC3_BIT_STREAM_MODE {}
 impl Default for AM_AC3_BIT_STREAM_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_AC3_DIALOGUE_LEVEL {
     pub DialogueLevel: u32,
-}
-impl Copy for AM_AC3_DIALOGUE_LEVEL {}
-impl Clone for AM_AC3_DIALOGUE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_AC3_DIALOGUE_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_AC3_DIALOGUE_LEVEL").field("DialogueLevel", &self.DialogueLevel).finish()
-    }
 }
 impl windows_core::TypeKind for AM_AC3_DIALOGUE_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_AC3_DIALOGUE_LEVEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.DialogueLevel == other.DialogueLevel
-    }
-}
-impl Eq for AM_AC3_DIALOGUE_LEVEL {}
 impl Default for AM_AC3_DIALOGUE_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_AC3_DOWNMIX {
     pub fDownMix: super::super::Foundation::BOOL,
     pub fDolbySurround: super::super::Foundation::BOOL,
 }
-impl Copy for AM_AC3_DOWNMIX {}
-impl Clone for AM_AC3_DOWNMIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_AC3_DOWNMIX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_AC3_DOWNMIX").field("fDownMix", &self.fDownMix).field("fDolbySurround", &self.fDolbySurround).finish()
-    }
-}
 impl windows_core::TypeKind for AM_AC3_DOWNMIX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_AC3_DOWNMIX {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDownMix == other.fDownMix && self.fDolbySurround == other.fDolbySurround
-    }
-}
-impl Eq for AM_AC3_DOWNMIX {}
 impl Default for AM_AC3_DOWNMIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_AC3_ERROR_CONCEALMENT {
     pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
     pub fErrorInCurrentBlock: super::super::Foundation::BOOL,
 }
-impl Copy for AM_AC3_ERROR_CONCEALMENT {}
-impl Clone for AM_AC3_ERROR_CONCEALMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_AC3_ERROR_CONCEALMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_AC3_ERROR_CONCEALMENT").field("fRepeatPreviousBlock", &self.fRepeatPreviousBlock).field("fErrorInCurrentBlock", &self.fErrorInCurrentBlock).finish()
-    }
-}
 impl windows_core::TypeKind for AM_AC3_ERROR_CONCEALMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_AC3_ERROR_CONCEALMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.fRepeatPreviousBlock == other.fRepeatPreviousBlock && self.fErrorInCurrentBlock == other.fErrorInCurrentBlock
-    }
-}
-impl Eq for AM_AC3_ERROR_CONCEALMENT {}
 impl Default for AM_AC3_ERROR_CONCEALMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_AC3_ROOM_TYPE {
     pub fLargeRoom: super::super::Foundation::BOOL,
-}
-impl Copy for AM_AC3_ROOM_TYPE {}
-impl Clone for AM_AC3_ROOM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_AC3_ROOM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_AC3_ROOM_TYPE").field("fLargeRoom", &self.fLargeRoom).finish()
-    }
 }
 impl windows_core::TypeKind for AM_AC3_ROOM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_AC3_ROOM_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.fLargeRoom == other.fLargeRoom
-    }
-}
-impl Eq for AM_AC3_ROOM_TYPE {}
 impl Default for AM_AC3_ROOM_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_COLCON {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u8,
     pub _bitfield4: u8,
 }
-impl Copy for AM_COLCON {}
-impl Clone for AM_COLCON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_COLCON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_COLCON").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).field("_bitfield3", &self._bitfield3).field("_bitfield4", &self._bitfield4).finish()
-    }
-}
 impl windows_core::TypeKind for AM_COLCON {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_COLCON {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2 && self._bitfield3 == other._bitfield3 && self._bitfield4 == other._bitfield4
-    }
-}
-impl Eq for AM_COLCON {}
 impl Default for AM_COLCON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_COPY_MACROVISION {
     pub MACROVISIONLevel: u32,
-}
-impl Copy for AM_COPY_MACROVISION {}
-impl Clone for AM_COPY_MACROVISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_COPY_MACROVISION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_COPY_MACROVISION").field("MACROVISIONLevel", &self.MACROVISIONLevel).finish()
-    }
 }
 impl windows_core::TypeKind for AM_COPY_MACROVISION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_COPY_MACROVISION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MACROVISIONLevel == other.MACROVISIONLevel
-    }
-}
-impl Eq for AM_COPY_MACROVISION {}
 impl Default for AM_COPY_MACROVISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
     pub Reserved: [u8; 1],
 }
-impl Copy for AM_DVDCOPY_BUSKEY {}
-impl Clone for AM_DVDCOPY_BUSKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVDCOPY_BUSKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVDCOPY_BUSKEY").field("BusKey", &self.BusKey).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DVDCOPY_BUSKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVDCOPY_BUSKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.BusKey == other.BusKey && self.Reserved == other.Reserved
-    }
-}
-impl Eq for AM_DVDCOPY_BUSKEY {}
 impl Default for AM_DVDCOPY_BUSKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVDCOPY_CHLGKEY {
     pub ChlgKey: [u8; 10],
     pub Reserved: [u8; 2],
 }
-impl Copy for AM_DVDCOPY_CHLGKEY {}
-impl Clone for AM_DVDCOPY_CHLGKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVDCOPY_CHLGKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVDCOPY_CHLGKEY").field("ChlgKey", &self.ChlgKey).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DVDCOPY_CHLGKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVDCOPY_CHLGKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChlgKey == other.ChlgKey && self.Reserved == other.Reserved
-    }
-}
-impl Eq for AM_DVDCOPY_CHLGKEY {}
 impl Default for AM_DVDCOPY_CHLGKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVDCOPY_DISCKEY {
     pub DiscKey: [u8; 2048],
-}
-impl Copy for AM_DVDCOPY_DISCKEY {}
-impl Clone for AM_DVDCOPY_DISCKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVDCOPY_DISCKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVDCOPY_DISCKEY").field("DiscKey", &self.DiscKey).finish()
-    }
 }
 impl windows_core::TypeKind for AM_DVDCOPY_DISCKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVDCOPY_DISCKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiscKey == other.DiscKey
-    }
-}
-impl Eq for AM_DVDCOPY_DISCKEY {}
 impl Default for AM_DVDCOPY_DISCKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVDCOPY_SET_COPY_STATE {
     pub DVDCopyState: u32,
-}
-impl Copy for AM_DVDCOPY_SET_COPY_STATE {}
-impl Clone for AM_DVDCOPY_SET_COPY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVDCOPY_SET_COPY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVDCOPY_SET_COPY_STATE").field("DVDCopyState", &self.DVDCopyState).finish()
-    }
 }
 impl windows_core::TypeKind for AM_DVDCOPY_SET_COPY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVDCOPY_SET_COPY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DVDCopyState == other.DVDCopyState
-    }
-}
-impl Eq for AM_DVDCOPY_SET_COPY_STATE {}
 impl Default for AM_DVDCOPY_SET_COPY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVDCOPY_TITLEKEY {
     pub KeyFlags: u32,
     pub Reserved1: [u32; 2],
     pub TitleKey: [u8; 6],
     pub Reserved2: [u8; 2],
 }
-impl Copy for AM_DVDCOPY_TITLEKEY {}
-impl Clone for AM_DVDCOPY_TITLEKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVDCOPY_TITLEKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVDCOPY_TITLEKEY").field("KeyFlags", &self.KeyFlags).field("Reserved1", &self.Reserved1).field("TitleKey", &self.TitleKey).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DVDCOPY_TITLEKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVDCOPY_TITLEKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyFlags == other.KeyFlags && self.Reserved1 == other.Reserved1 && self.TitleKey == other.TitleKey && self.Reserved2 == other.Reserved2
-    }
-}
-impl Eq for AM_DVDCOPY_TITLEKEY {}
 impl Default for AM_DVDCOPY_TITLEKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVD_ChangeRate {
     pub StartInTime: i64,
     pub StartOutTime: i64,
     pub Rate: i32,
 }
-impl Copy for AM_DVD_ChangeRate {}
-impl Clone for AM_DVD_ChangeRate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVD_ChangeRate {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVD_ChangeRate").field("StartInTime", &self.StartInTime).field("StartOutTime", &self.StartOutTime).field("Rate", &self.Rate).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DVD_ChangeRate {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVD_ChangeRate {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartInTime == other.StartInTime && self.StartOutTime == other.StartOutTime && self.Rate == other.Rate
-    }
-}
-impl Eq for AM_DVD_ChangeRate {}
 impl Default for AM_DVD_ChangeRate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVD_RENDERSTATUS {
     pub hrVPEStatus: windows_core::HRESULT,
     pub bDvdVolInvalid: super::super::Foundation::BOOL,
@@ -18107,147 +17657,66 @@ pub struct AM_DVD_RENDERSTATUS {
     pub iNumStreamsFailed: i32,
     pub dwFailedStreamsFlag: u32,
 }
-impl Copy for AM_DVD_RENDERSTATUS {}
-impl Clone for AM_DVD_RENDERSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVD_RENDERSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVD_RENDERSTATUS").field("hrVPEStatus", &self.hrVPEStatus).field("bDvdVolInvalid", &self.bDvdVolInvalid).field("bDvdVolUnknown", &self.bDvdVolUnknown).field("bNoLine21In", &self.bNoLine21In).field("bNoLine21Out", &self.bNoLine21Out).field("iNumStreams", &self.iNumStreams).field("iNumStreamsFailed", &self.iNumStreamsFailed).field("dwFailedStreamsFlag", &self.dwFailedStreamsFlag).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DVD_RENDERSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVD_RENDERSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.hrVPEStatus == other.hrVPEStatus && self.bDvdVolInvalid == other.bDvdVolInvalid && self.bDvdVolUnknown == other.bDvdVolUnknown && self.bNoLine21In == other.bNoLine21In && self.bNoLine21Out == other.bNoLine21Out && self.iNumStreams == other.iNumStreams && self.iNumStreamsFailed == other.iNumStreamsFailed && self.dwFailedStreamsFlag == other.dwFailedStreamsFlag
-    }
-}
-impl Eq for AM_DVD_RENDERSTATUS {}
 impl Default for AM_DVD_RENDERSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DVD_YUV {
     pub Reserved: u8,
     pub Y: u8,
     pub U: u8,
     pub V: u8,
 }
-impl Copy for AM_DVD_YUV {}
-impl Clone for AM_DVD_YUV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DVD_YUV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DVD_YUV").field("Reserved", &self.Reserved).field("Y", &self.Y).field("U", &self.U).field("V", &self.V).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DVD_YUV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DVD_YUV {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved && self.Y == other.Y && self.U == other.U && self.V == other.V
-    }
-}
-impl Eq for AM_DVD_YUV {}
 impl Default for AM_DVD_YUV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_DvdKaraokeData {
     pub dwDownmix: u32,
     pub dwSpeakerAssignment: u32,
 }
-impl Copy for AM_DvdKaraokeData {}
-impl Clone for AM_DvdKaraokeData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_DvdKaraokeData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_DvdKaraokeData").field("dwDownmix", &self.dwDownmix).field("dwSpeakerAssignment", &self.dwSpeakerAssignment).finish()
-    }
-}
 impl windows_core::TypeKind for AM_DvdKaraokeData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_DvdKaraokeData {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDownmix == other.dwDownmix && self.dwSpeakerAssignment == other.dwSpeakerAssignment
-    }
-}
-impl Eq for AM_DvdKaraokeData {}
 impl Default for AM_DvdKaraokeData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_ExactRateChange {
     pub OutputZeroTime: i64,
     pub Rate: i32,
 }
-impl Copy for AM_ExactRateChange {}
-impl Clone for AM_ExactRateChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_ExactRateChange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_ExactRateChange").field("OutputZeroTime", &self.OutputZeroTime).field("Rate", &self.Rate).finish()
-    }
-}
 impl windows_core::TypeKind for AM_ExactRateChange {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_ExactRateChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputZeroTime == other.OutputZeroTime && self.Rate == other.Rate
-    }
-}
-impl Eq for AM_ExactRateChange {}
 impl Default for AM_ExactRateChange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_FRAMESTEP_STEP {
     pub dwFramesToStep: u32,
-}
-impl Copy for AM_FRAMESTEP_STEP {}
-impl Clone for AM_FRAMESTEP_STEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_FRAMESTEP_STEP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_FRAMESTEP_STEP").field("dwFramesToStep", &self.dwFramesToStep).finish()
-    }
 }
 impl windows_core::TypeKind for AM_FRAMESTEP_STEP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_FRAMESTEP_STEP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFramesToStep == other.dwFramesToStep
-    }
-}
-impl Eq for AM_FRAMESTEP_STEP {}
 impl Default for AM_FRAMESTEP_STEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -18255,6 +17724,7 @@ impl Default for AM_FRAMESTEP_STEP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AM_MPEGSTREAMTYPE {
     pub dwStreamId: u32,
     pub dwReserved: u32,
@@ -18268,23 +17738,9 @@ impl Clone for AM_MPEGSTREAMTYPE {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-impl core::fmt::Debug for AM_MPEGSTREAMTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_MPEGSTREAMTYPE").field("dwStreamId", &self.dwStreamId).field("dwReserved", &self.dwReserved).field("mt", &self.mt).field("bFormat", &self.bFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::TypeKind for AM_MPEGSTREAMTYPE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl PartialEq for AM_MPEGSTREAMTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamId == other.dwStreamId && self.dwReserved == other.dwReserved && self.mt == other.mt && self.bFormat == other.bFormat
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Eq for AM_MPEGSTREAMTYPE {}
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl Default for AM_MPEGSTREAMTYPE {
     fn default() -> Self {
@@ -18293,6 +17749,7 @@ impl Default for AM_MPEGSTREAMTYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AM_MPEGSYSTEMTYPE {
     pub dwBitRate: u32,
     pub cStreams: u32,
@@ -18305,23 +17762,9 @@ impl Clone for AM_MPEGSYSTEMTYPE {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-impl core::fmt::Debug for AM_MPEGSYSTEMTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_MPEGSYSTEMTYPE").field("dwBitRate", &self.dwBitRate).field("cStreams", &self.cStreams).field("Streams", &self.Streams).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::TypeKind for AM_MPEGSYSTEMTYPE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl PartialEq for AM_MPEGSYSTEMTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBitRate == other.dwBitRate && self.cStreams == other.cStreams && self.Streams == other.Streams
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Eq for AM_MPEGSYSTEMTYPE {}
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl Default for AM_MPEGSYSTEMTYPE {
     fn default() -> Self {
@@ -18329,6 +17772,7 @@ impl Default for AM_MPEGSYSTEMTYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_PROPERTY_SPHLI {
     pub HLISS: u16,
     pub Reserved: u16,
@@ -18340,85 +17784,36 @@ pub struct AM_PROPERTY_SPHLI {
     pub StopY: u16,
     pub ColCon: AM_COLCON,
 }
-impl Copy for AM_PROPERTY_SPHLI {}
-impl Clone for AM_PROPERTY_SPHLI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_PROPERTY_SPHLI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_PROPERTY_SPHLI").field("HLISS", &self.HLISS).field("Reserved", &self.Reserved).field("StartPTM", &self.StartPTM).field("EndPTM", &self.EndPTM).field("StartX", &self.StartX).field("StartY", &self.StartY).field("StopX", &self.StopX).field("StopY", &self.StopY).field("ColCon", &self.ColCon).finish()
-    }
-}
 impl windows_core::TypeKind for AM_PROPERTY_SPHLI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_PROPERTY_SPHLI {
-    fn eq(&self, other: &Self) -> bool {
-        self.HLISS == other.HLISS && self.Reserved == other.Reserved && self.StartPTM == other.StartPTM && self.EndPTM == other.EndPTM && self.StartX == other.StartX && self.StartY == other.StartY && self.StopX == other.StopX && self.StopY == other.StopY && self.ColCon == other.ColCon
-    }
-}
-impl Eq for AM_PROPERTY_SPHLI {}
 impl Default for AM_PROPERTY_SPHLI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_PROPERTY_SPPAL {
     pub sppal: [AM_DVD_YUV; 16],
-}
-impl Copy for AM_PROPERTY_SPPAL {}
-impl Clone for AM_PROPERTY_SPPAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_PROPERTY_SPPAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_PROPERTY_SPPAL").field("sppal", &self.sppal).finish()
-    }
 }
 impl windows_core::TypeKind for AM_PROPERTY_SPPAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_PROPERTY_SPPAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.sppal == other.sppal
-    }
-}
-impl Eq for AM_PROPERTY_SPPAL {}
 impl Default for AM_PROPERTY_SPPAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_QueryRate {
     pub lMaxForwardFullFrame: i32,
     pub lMaxReverseFullFrame: i32,
 }
-impl Copy for AM_QueryRate {}
-impl Clone for AM_QueryRate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_QueryRate {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_QueryRate").field("lMaxForwardFullFrame", &self.lMaxForwardFullFrame).field("lMaxReverseFullFrame", &self.lMaxReverseFullFrame).finish()
-    }
-}
 impl windows_core::TypeKind for AM_QueryRate {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_QueryRate {
-    fn eq(&self, other: &Self) -> bool {
-        self.lMaxForwardFullFrame == other.lMaxForwardFullFrame && self.lMaxReverseFullFrame == other.lMaxReverseFullFrame
-    }
-}
-impl Eq for AM_QueryRate {}
 impl Default for AM_QueryRate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -18426,6 +17821,7 @@ impl Default for AM_QueryRate {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
     pub dwTypeSpecificFlags: u32,
@@ -18439,31 +17835,9 @@ pub struct AM_SAMPLE2_PROPERTIES {
     pub cbBuffer: i32,
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Copy for AM_SAMPLE2_PROPERTIES {}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Clone for AM_SAMPLE2_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl core::fmt::Debug for AM_SAMPLE2_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_SAMPLE2_PROPERTIES").field("cbData", &self.cbData).field("dwTypeSpecificFlags", &self.dwTypeSpecificFlags).field("dwSampleFlags", &self.dwSampleFlags).field("lActual", &self.lActual).field("tStart", &self.tStart).field("tStop", &self.tStop).field("dwStreamId", &self.dwStreamId).field("pMediaType", &self.pMediaType).field("pbBuffer", &self.pbBuffer).field("cbBuffer", &self.cbBuffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::TypeKind for AM_SAMPLE2_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl PartialEq for AM_SAMPLE2_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.dwTypeSpecificFlags == other.dwTypeSpecificFlags && self.dwSampleFlags == other.dwSampleFlags && self.lActual == other.lActual && self.tStart == other.tStart && self.tStop == other.tStop && self.dwStreamId == other.dwStreamId && self.pMediaType == other.pMediaType && self.pbBuffer == other.pbBuffer && self.cbBuffer == other.cbBuffer
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Eq for AM_SAMPLE2_PROPERTIES {}
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl Default for AM_SAMPLE2_PROPERTIES {
     fn default() -> Self {
@@ -18471,6 +17845,7 @@ impl Default for AM_SAMPLE2_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_STREAM_INFO {
     pub tStart: i64,
     pub tStop: i64,
@@ -18478,93 +17853,45 @@ pub struct AM_STREAM_INFO {
     pub dwStopCookie: u32,
     pub dwFlags: u32,
 }
-impl Copy for AM_STREAM_INFO {}
-impl Clone for AM_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_STREAM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_STREAM_INFO").field("tStart", &self.tStart).field("tStop", &self.tStop).field("dwStartCookie", &self.dwStartCookie).field("dwStopCookie", &self.dwStopCookie).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for AM_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_STREAM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.tStart == other.tStart && self.tStop == other.tStop && self.dwStartCookie == other.dwStartCookie && self.dwStopCookie == other.dwStopCookie && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for AM_STREAM_INFO {}
 impl Default for AM_STREAM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_SimpleRateChange {
     pub StartTime: i64,
     pub Rate: i32,
 }
-impl Copy for AM_SimpleRateChange {}
-impl Clone for AM_SimpleRateChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_SimpleRateChange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_SimpleRateChange").field("StartTime", &self.StartTime).field("Rate", &self.Rate).finish()
-    }
-}
 impl windows_core::TypeKind for AM_SimpleRateChange {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_SimpleRateChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartTime == other.StartTime && self.Rate == other.Rate
-    }
-}
-impl Eq for AM_SimpleRateChange {}
 impl Default for AM_SimpleRateChange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_WST_PAGE {
     pub dwPageNr: u32,
     pub dwSubPageNr: u32,
     pub pucPageData: *mut u8,
 }
-impl Copy for AM_WST_PAGE {}
-impl Clone for AM_WST_PAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AM_WST_PAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_WST_PAGE").field("dwPageNr", &self.dwPageNr).field("dwSubPageNr", &self.dwSubPageNr).field("pucPageData", &self.pucPageData).finish()
-    }
-}
 impl windows_core::TypeKind for AM_WST_PAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_WST_PAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPageNr == other.dwPageNr && self.dwSubPageNr == other.dwSubPageNr && self.pucPageData == other.pucPageData
-    }
-}
-impl Eq for AM_WST_PAGE {}
 impl Default for AM_WST_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -18572,32 +17899,16 @@ pub struct ANALOGVIDEOINFO {
     pub dwActiveHeight: u32,
     pub AvgTimePerFrame: i64,
 }
-impl Copy for ANALOGVIDEOINFO {}
-impl Clone for ANALOGVIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ANALOGVIDEOINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ANALOGVIDEOINFO").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwActiveWidth", &self.dwActiveWidth).field("dwActiveHeight", &self.dwActiveHeight).field("AvgTimePerFrame", &self.AvgTimePerFrame).finish()
-    }
-}
 impl windows_core::TypeKind for ANALOGVIDEOINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ANALOGVIDEOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwActiveWidth == other.dwActiveWidth && self.dwActiveHeight == other.dwActiveHeight && self.AvgTimePerFrame == other.AvgTimePerFrame
-    }
-}
-impl Eq for ANALOGVIDEOINFO {}
 impl Default for ANALOGVIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIO_STREAM_CONFIG_CAPS {
     pub guid: windows_core::GUID,
     pub MinimumChannels: u32,
@@ -18610,54 +17921,21 @@ pub struct AUDIO_STREAM_CONFIG_CAPS {
     pub MaximumSampleFrequency: u32,
     pub SampleFrequencyGranularity: u32,
 }
-impl Copy for AUDIO_STREAM_CONFIG_CAPS {}
-impl Clone for AUDIO_STREAM_CONFIG_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIO_STREAM_CONFIG_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_STREAM_CONFIG_CAPS")
-            .field("guid", &self.guid)
-            .field("MinimumChannels", &self.MinimumChannels)
-            .field("MaximumChannels", &self.MaximumChannels)
-            .field("ChannelsGranularity", &self.ChannelsGranularity)
-            .field("MinimumBitsPerSample", &self.MinimumBitsPerSample)
-            .field("MaximumBitsPerSample", &self.MaximumBitsPerSample)
-            .field("BitsPerSampleGranularity", &self.BitsPerSampleGranularity)
-            .field("MinimumSampleFrequency", &self.MinimumSampleFrequency)
-            .field("MaximumSampleFrequency", &self.MaximumSampleFrequency)
-            .field("SampleFrequencyGranularity", &self.SampleFrequencyGranularity)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_STREAM_CONFIG_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_STREAM_CONFIG_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.MinimumChannels == other.MinimumChannels && self.MaximumChannels == other.MaximumChannels && self.ChannelsGranularity == other.ChannelsGranularity && self.MinimumBitsPerSample == other.MinimumBitsPerSample && self.MaximumBitsPerSample == other.MaximumBitsPerSample && self.BitsPerSampleGranularity == other.BitsPerSampleGranularity && self.MinimumSampleFrequency == other.MinimumSampleFrequency && self.MaximumSampleFrequency == other.MaximumSampleFrequency && self.SampleFrequencyGranularity == other.SampleFrequencyGranularity
-    }
-}
-impl Eq for AUDIO_STREAM_CONFIG_CAPS {}
 impl Default for AUDIO_STREAM_CONFIG_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIEXTHEADER {
     pub fcc: u32,
     pub cb: u32,
     pub dwGrandFrames: u32,
     pub dwFuture: [u32; 61],
-}
-impl Copy for AVIEXTHEADER {}
-impl Clone for AVIEXTHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVIEXTHEADER {
     type TypeKind = windows_core::CopyType;
@@ -18668,6 +17946,7 @@ impl Default for AVIEXTHEADER {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIFIELDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -18680,12 +17959,6 @@ pub struct AVIFIELDINDEX {
     pub dwReserved3: u32,
     pub aIndex: [AVIFIELDINDEX_0; 1],
 }
-impl Copy for AVIFIELDINDEX {}
-impl Clone for AVIFIELDINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVIFIELDINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -18695,16 +17968,11 @@ impl Default for AVIFIELDINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIFIELDINDEX_0 {
     pub dwOffset: u32,
     pub dwSize: u32,
     pub dwOffsetField2: u32,
-}
-impl Copy for AVIFIELDINDEX_0 {}
-impl Clone for AVIFIELDINDEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVIFIELDINDEX_0 {
     type TypeKind = windows_core::CopyType;
@@ -18715,38 +17983,23 @@ impl Default for AVIFIELDINDEX_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIINDEXENTRY {
     pub ckid: u32,
     pub dwFlags: u32,
     pub dwChunkOffset: u32,
     pub dwChunkLength: u32,
 }
-impl Copy for AVIINDEXENTRY {}
-impl Clone for AVIINDEXENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AVIINDEXENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVIINDEXENTRY").field("ckid", &self.ckid).field("dwFlags", &self.dwFlags).field("dwChunkOffset", &self.dwChunkOffset).field("dwChunkLength", &self.dwChunkLength).finish()
-    }
-}
 impl windows_core::TypeKind for AVIINDEXENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AVIINDEXENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ckid == other.ckid && self.dwFlags == other.dwFlags && self.dwChunkOffset == other.dwChunkOffset && self.dwChunkLength == other.dwChunkLength
-    }
-}
-impl Eq for AVIINDEXENTRY {}
 impl Default for AVIINDEXENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIMAINHEADER {
     pub fcc: u32,
     pub cb: u32,
@@ -18762,12 +18015,6 @@ pub struct AVIMAINHEADER {
     pub dwHeight: u32,
     pub dwReserved: [u32; 4],
 }
-impl Copy for AVIMAINHEADER {}
-impl Clone for AVIMAINHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVIMAINHEADER {
     type TypeKind = windows_core::CopyType;
 }
@@ -18777,6 +18024,7 @@ impl Default for AVIMAINHEADER {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIMETAINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -18788,12 +18036,6 @@ pub struct AVIMETAINDEX {
     pub dwReserved: [u32; 3],
     pub adwIndex: [u32; 1],
 }
-impl Copy for AVIMETAINDEX {}
-impl Clone for AVIMETAINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVIMETAINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -18803,16 +18045,11 @@ impl Default for AVIMETAINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIOLDINDEX {
     pub fcc: u32,
     pub cb: u32,
     pub aIndex: [AVIOLDINDEX_0; 1],
-}
-impl Copy for AVIOLDINDEX {}
-impl Clone for AVIOLDINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVIOLDINDEX {
     type TypeKind = windows_core::CopyType;
@@ -18823,17 +18060,12 @@ impl Default for AVIOLDINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVIOLDINDEX_0 {
     pub dwChunkId: u32,
     pub dwFlags: u32,
     pub dwOffset: u32,
     pub dwSize: u32,
-}
-impl Copy for AVIOLDINDEX_0 {}
-impl Clone for AVIOLDINDEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVIOLDINDEX_0 {
     type TypeKind = windows_core::CopyType;
@@ -18845,6 +18077,7 @@ impl Default for AVIOLDINDEX_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIPALCHANGE {
     pub bFirstEntry: u8,
     pub bNumEntries: u8,
@@ -18852,31 +18085,9 @@ pub struct AVIPALCHANGE {
     pub peNew: [super::super::Graphics::Gdi::PALETTEENTRY; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for AVIPALCHANGE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for AVIPALCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for AVIPALCHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVIPALCHANGE").field("bFirstEntry", &self.bFirstEntry).field("bNumEntries", &self.bNumEntries).field("wFlags", &self.wFlags).field("peNew", &self.peNew).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for AVIPALCHANGE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for AVIPALCHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.bFirstEntry == other.bFirstEntry && self.bNumEntries == other.bNumEntries && self.wFlags == other.wFlags && self.peNew == other.peNew
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for AVIPALCHANGE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for AVIPALCHANGE {
     fn default() -> Self {
@@ -18884,6 +18095,7 @@ impl Default for AVIPALCHANGE {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVISTDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -18896,12 +18108,6 @@ pub struct AVISTDINDEX {
     pub dwReserved_3: u32,
     pub aIndex: [AVISTDINDEX_ENTRY; 2044],
 }
-impl Copy for AVISTDINDEX {}
-impl Clone for AVISTDINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVISTDINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -18911,15 +18117,10 @@ impl Default for AVISTDINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVISTDINDEX_ENTRY {
     pub dwOffset: u32,
     pub dwSize: u32,
-}
-impl Copy for AVISTDINDEX_ENTRY {}
-impl Clone for AVISTDINDEX_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVISTDINDEX_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -18930,6 +18131,7 @@ impl Default for AVISTDINDEX_ENTRY {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVISTREAMHEADER {
     pub fcc: u32,
     pub cb: u32,
@@ -18948,12 +18150,6 @@ pub struct AVISTREAMHEADER {
     pub dwSampleSize: u32,
     pub rcFrame: AVISTREAMHEADER_0,
 }
-impl Copy for AVISTREAMHEADER {}
-impl Clone for AVISTREAMHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVISTREAMHEADER {
     type TypeKind = windows_core::CopyType;
 }
@@ -18963,38 +18159,23 @@ impl Default for AVISTREAMHEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMHEADER_0 {
     pub left: i16,
     pub top: i16,
     pub right: i16,
     pub bottom: i16,
 }
-impl Copy for AVISTREAMHEADER_0 {}
-impl Clone for AVISTREAMHEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AVISTREAMHEADER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVISTREAMHEADER_0").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for AVISTREAMHEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AVISTREAMHEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for AVISTREAMHEADER_0 {}
 impl Default for AVISTREAMHEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVISUPERINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -19006,12 +18187,6 @@ pub struct AVISUPERINDEX {
     pub dwReserved: [u32; 3],
     pub aIndex: [AVISUPERINDEX_0; 1022],
 }
-impl Copy for AVISUPERINDEX {}
-impl Clone for AVISUPERINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVISUPERINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -19021,16 +18196,11 @@ impl Default for AVISUPERINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVISUPERINDEX_0 {
     pub qwOffset: u64,
     pub dwSize: u32,
     pub dwDuration: u32,
-}
-impl Copy for AVISUPERINDEX_0 {}
-impl Clone for AVISUPERINDEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVISUPERINDEX_0 {
     type TypeKind = windows_core::CopyType;
@@ -19041,6 +18211,7 @@ impl Default for AVISUPERINDEX_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIStreamHeader {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -19057,47 +18228,16 @@ pub struct AVIStreamHeader {
     pub dwSampleSize: u32,
     pub rcFrame: super::super::Foundation::RECT,
 }
-impl Copy for AVIStreamHeader {}
-impl Clone for AVIStreamHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AVIStreamHeader {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVIStreamHeader")
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwFlags", &self.dwFlags)
-            .field("wPriority", &self.wPriority)
-            .field("wLanguage", &self.wLanguage)
-            .field("dwInitialFrames", &self.dwInitialFrames)
-            .field("dwScale", &self.dwScale)
-            .field("dwRate", &self.dwRate)
-            .field("dwStart", &self.dwStart)
-            .field("dwLength", &self.dwLength)
-            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
-            .field("dwQuality", &self.dwQuality)
-            .field("dwSampleSize", &self.dwSampleSize)
-            .field("rcFrame", &self.rcFrame)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for AVIStreamHeader {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AVIStreamHeader {
-    fn eq(&self, other: &Self) -> bool {
-        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwInitialFrames == other.dwInitialFrames && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame
-    }
-}
-impl Eq for AVIStreamHeader {}
 impl Default for AVIStreamHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVITCDLINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -19110,12 +18250,6 @@ pub struct AVITCDLINDEX {
     pub aIndex: [AVITCDLINDEX_ENTRY; 584],
     pub adwTrailingFill: [u32; 3512],
 }
-impl Copy for AVITCDLINDEX {}
-impl Clone for AVITCDLINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVITCDLINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -19125,18 +18259,13 @@ impl Default for AVITCDLINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVITCDLINDEX_ENTRY {
     pub dwTick: u32,
     pub time: super::TIMECODE,
     pub dwSMPTEflags: u32,
     pub dwUser: u32,
     pub szReelId: [i8; 12],
-}
-impl Copy for AVITCDLINDEX_ENTRY {}
-impl Clone for AVITCDLINDEX_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVITCDLINDEX_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -19147,6 +18276,7 @@ impl Default for AVITCDLINDEX_ENTRY {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVITIMECODEINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -19158,12 +18288,6 @@ pub struct AVITIMECODEINDEX {
     pub dwReserved: [u32; 3],
     pub aIndex: [TIMECODEDATA; 1022],
 }
-impl Copy for AVITIMECODEINDEX {}
-impl Clone for AVITIMECODEINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVITIMECODEINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -19173,6 +18297,7 @@ impl Default for AVITIMECODEINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVITIMEDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -19186,12 +18311,6 @@ pub struct AVITIMEDINDEX {
     pub aIndex: [AVITIMEDINDEX_ENTRY; 1362],
     pub adwTrailingFill: [u32; 2734],
 }
-impl Copy for AVITIMEDINDEX {}
-impl Clone for AVITIMEDINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AVITIMEDINDEX {
     type TypeKind = windows_core::CopyType;
 }
@@ -19201,16 +18320,11 @@ impl Default for AVITIMEDINDEX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct AVITIMEDINDEX_ENTRY {
     pub dwOffset: u32,
     pub dwSize: u32,
     pub dwDuration: u32,
-}
-impl Copy for AVITIMEDINDEX_ENTRY {}
-impl Clone for AVITIMEDINDEX_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AVITIMEDINDEX_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -19221,157 +18335,78 @@ impl Default for AVITIMEDINDEX_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDANODE_DESCRIPTOR {
     pub ulBdaNodeType: u32,
     pub guidFunction: windows_core::GUID,
     pub guidName: windows_core::GUID,
 }
-impl Copy for BDANODE_DESCRIPTOR {}
-impl Clone for BDANODE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDANODE_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDANODE_DESCRIPTOR").field("ulBdaNodeType", &self.ulBdaNodeType).field("guidFunction", &self.guidFunction).field("guidName", &self.guidName).finish()
-    }
-}
 impl windows_core::TypeKind for BDANODE_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDANODE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulBdaNodeType == other.ulBdaNodeType && self.guidFunction == other.guidFunction && self.guidName == other.guidName
-    }
-}
-impl Eq for BDANODE_DESCRIPTOR {}
 impl Default for BDANODE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_BUFFER {
     pub lResult: i32,
     pub ulBufferSize: u32,
     pub argbBuffer: [u8; 1],
 }
-impl Copy for BDA_BUFFER {}
-impl Clone for BDA_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_BUFFER").field("lResult", &self.lResult).field("ulBufferSize", &self.ulBufferSize).field("argbBuffer", &self.argbBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulBufferSize == other.ulBufferSize && self.argbBuffer == other.argbBuffer
-    }
-}
-impl Eq for BDA_BUFFER {}
 impl Default for BDA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     pub lResult: i32,
     pub ulDescrambleStatus: u32,
 }
-impl Copy for BDA_CAS_CHECK_ENTITLEMENTTOKEN {}
-impl Clone for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_CAS_CHECK_ENTITLEMENTTOKEN").field("lResult", &self.lResult).field("ulDescrambleStatus", &self.ulDescrambleStatus).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulDescrambleStatus == other.ulDescrambleStatus
-    }
-}
-impl Eq for BDA_CAS_CHECK_ENTITLEMENTTOKEN {}
 impl Default for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CAS_CLOSEMMIDATA {
     pub ulDialogNumber: u32,
-}
-impl Copy for BDA_CAS_CLOSEMMIDATA {}
-impl Clone for BDA_CAS_CLOSEMMIDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_CAS_CLOSEMMIDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_CAS_CLOSEMMIDATA").field("ulDialogNumber", &self.ulDialogNumber).finish()
-    }
 }
 impl windows_core::TypeKind for BDA_CAS_CLOSEMMIDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_CAS_CLOSEMMIDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulDialogNumber == other.ulDialogNumber
-    }
-}
-impl Eq for BDA_CAS_CLOSEMMIDATA {}
 impl Default for BDA_CAS_CLOSEMMIDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CAS_CLOSE_MMIDIALOG {
     pub lResult: i32,
     pub SessionResult: u32,
 }
-impl Copy for BDA_CAS_CLOSE_MMIDIALOG {}
-impl Clone for BDA_CAS_CLOSE_MMIDIALOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_CAS_CLOSE_MMIDIALOG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_CAS_CLOSE_MMIDIALOG").field("lResult", &self.lResult).field("SessionResult", &self.SessionResult).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_CAS_CLOSE_MMIDIALOG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_CAS_CLOSE_MMIDIALOG {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.SessionResult == other.SessionResult
-    }
-}
-impl Eq for BDA_CAS_CLOSE_MMIDIALOG {}
 impl Default for BDA_CAS_CLOSE_MMIDIALOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CAS_OPENMMIDATA {
     pub ulDialogNumber: u32,
     pub ulDialogRequest: u32,
@@ -19379,189 +18414,93 @@ pub struct BDA_CAS_OPENMMIDATA {
     pub usDialogDataLength: u16,
     pub argbDialogData: [u8; 1],
 }
-impl Copy for BDA_CAS_OPENMMIDATA {}
-impl Clone for BDA_CAS_OPENMMIDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_CAS_OPENMMIDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_CAS_OPENMMIDATA").field("ulDialogNumber", &self.ulDialogNumber).field("ulDialogRequest", &self.ulDialogRequest).field("uuidDialogType", &self.uuidDialogType).field("usDialogDataLength", &self.usDialogDataLength).field("argbDialogData", &self.argbDialogData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_CAS_OPENMMIDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_CAS_OPENMMIDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulDialogNumber == other.ulDialogNumber && self.ulDialogRequest == other.ulDialogRequest && self.uuidDialogType == other.uuidDialogType && self.usDialogDataLength == other.usDialogDataLength && self.argbDialogData == other.argbDialogData
-    }
-}
-impl Eq for BDA_CAS_OPENMMIDATA {}
 impl Default for BDA_CAS_OPENMMIDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CAS_REQUESTTUNERDATA {
     pub ucRequestPriority: u8,
     pub ucRequestReason: u8,
     pub ucRequestConsequences: u8,
     pub ulEstimatedTime: u32,
 }
-impl Copy for BDA_CAS_REQUESTTUNERDATA {}
-impl Clone for BDA_CAS_REQUESTTUNERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_CAS_REQUESTTUNERDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_CAS_REQUESTTUNERDATA").field("ucRequestPriority", &self.ucRequestPriority).field("ucRequestReason", &self.ucRequestReason).field("ucRequestConsequences", &self.ucRequestConsequences).field("ulEstimatedTime", &self.ulEstimatedTime).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_CAS_REQUESTTUNERDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_CAS_REQUESTTUNERDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucRequestPriority == other.ucRequestPriority && self.ucRequestReason == other.ucRequestReason && self.ucRequestConsequences == other.ucRequestConsequences && self.ulEstimatedTime == other.ulEstimatedTime
-    }
-}
-impl Eq for BDA_CAS_REQUESTTUNERDATA {}
 impl Default for BDA_CAS_REQUESTTUNERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CA_MODULE_UI {
     pub ulFormat: u32,
     pub ulbcDesc: u32,
     pub ulDesc: [u32; 1],
 }
-impl Copy for BDA_CA_MODULE_UI {}
-impl Clone for BDA_CA_MODULE_UI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_CA_MODULE_UI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_CA_MODULE_UI").field("ulFormat", &self.ulFormat).field("ulbcDesc", &self.ulbcDesc).field("ulDesc", &self.ulDesc).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_CA_MODULE_UI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_CA_MODULE_UI {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulFormat == other.ulFormat && self.ulbcDesc == other.ulbcDesc && self.ulDesc == other.ulDesc
-    }
-}
-impl Eq for BDA_CA_MODULE_UI {}
 impl Default for BDA_CA_MODULE_UI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DISEQC_RESPONSE {
     pub ulRequestId: u32,
     pub ulPacketLength: u32,
     pub argbPacketData: [u8; 8],
 }
-impl Copy for BDA_DISEQC_RESPONSE {}
-impl Clone for BDA_DISEQC_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_DISEQC_RESPONSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_DISEQC_RESPONSE").field("ulRequestId", &self.ulRequestId).field("ulPacketLength", &self.ulPacketLength).field("argbPacketData", &self.argbPacketData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_DISEQC_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_DISEQC_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulRequestId == other.ulRequestId && self.ulPacketLength == other.ulPacketLength && self.argbPacketData == other.argbPacketData
-    }
-}
-impl Eq for BDA_DISEQC_RESPONSE {}
 impl Default for BDA_DISEQC_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DISEQC_SEND {
     pub ulRequestId: u32,
     pub ulPacketLength: u32,
     pub argbPacketData: [u8; 8],
 }
-impl Copy for BDA_DISEQC_SEND {}
-impl Clone for BDA_DISEQC_SEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_DISEQC_SEND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_DISEQC_SEND").field("ulRequestId", &self.ulRequestId).field("ulPacketLength", &self.ulPacketLength).field("argbPacketData", &self.argbPacketData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_DISEQC_SEND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_DISEQC_SEND {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulRequestId == other.ulRequestId && self.ulPacketLength == other.ulPacketLength && self.argbPacketData == other.argbPacketData
-    }
-}
-impl Eq for BDA_DISEQC_SEND {}
 impl Default for BDA_DISEQC_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DRM_DRMSTATUS {
     pub lResult: i32,
     pub DRMuuid: windows_core::GUID,
     pub ulDrmUuidListStringSize: u32,
     pub argbDrmUuidListString: [windows_core::GUID; 1],
 }
-impl Copy for BDA_DRM_DRMSTATUS {}
-impl Clone for BDA_DRM_DRMSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_DRM_DRMSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_DRM_DRMSTATUS").field("lResult", &self.lResult).field("DRMuuid", &self.DRMuuid).field("ulDrmUuidListStringSize", &self.ulDrmUuidListStringSize).field("argbDrmUuidListString", &self.argbDrmUuidListString).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_DRM_DRMSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_DRM_DRMSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.DRMuuid == other.DRMuuid && self.ulDrmUuidListStringSize == other.ulDrmUuidListStringSize && self.argbDrmUuidListString == other.argbDrmUuidListString
-    }
-}
-impl Eq for BDA_DRM_DRMSTATUS {}
 impl Default for BDA_DRM_DRMSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DVBT2_L1_SIGNALLING_DATA {
     pub L1Pre_TYPE: u8,
     pub L1Pre_BWT_S1_S2: u8,
@@ -19578,286 +18517,127 @@ pub struct BDA_DVBT2_L1_SIGNALLING_DATA {
     pub L1Pre_CRC32: [u8; 4],
     pub L1PostData: [u8; 1],
 }
-impl Copy for BDA_DVBT2_L1_SIGNALLING_DATA {}
-impl Clone for BDA_DVBT2_L1_SIGNALLING_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_DVBT2_L1_SIGNALLING_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_DVBT2_L1_SIGNALLING_DATA")
-            .field("L1Pre_TYPE", &self.L1Pre_TYPE)
-            .field("L1Pre_BWT_S1_S2", &self.L1Pre_BWT_S1_S2)
-            .field("L1Pre_REPETITION_GUARD_PAPR", &self.L1Pre_REPETITION_GUARD_PAPR)
-            .field("L1Pre_MOD_COD_FEC", &self.L1Pre_MOD_COD_FEC)
-            .field("L1Pre_POSTSIZE_INFO_PILOT", &self.L1Pre_POSTSIZE_INFO_PILOT)
-            .field("L1Pre_TX_ID_AVAIL", &self.L1Pre_TX_ID_AVAIL)
-            .field("L1Pre_CELL_ID", &self.L1Pre_CELL_ID)
-            .field("L1Pre_NETWORK_ID", &self.L1Pre_NETWORK_ID)
-            .field("L1Pre_T2SYSTEM_ID", &self.L1Pre_T2SYSTEM_ID)
-            .field("L1Pre_NUM_T2_FRAMES", &self.L1Pre_NUM_T2_FRAMES)
-            .field("L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT", &self.L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT)
-            .field("L1Pre_NUMRF_CURRENTRF_RESERVED", &self.L1Pre_NUMRF_CURRENTRF_RESERVED)
-            .field("L1Pre_CRC32", &self.L1Pre_CRC32)
-            .field("L1PostData", &self.L1PostData)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for BDA_DVBT2_L1_SIGNALLING_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_DVBT2_L1_SIGNALLING_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.L1Pre_TYPE == other.L1Pre_TYPE && self.L1Pre_BWT_S1_S2 == other.L1Pre_BWT_S1_S2 && self.L1Pre_REPETITION_GUARD_PAPR == other.L1Pre_REPETITION_GUARD_PAPR && self.L1Pre_MOD_COD_FEC == other.L1Pre_MOD_COD_FEC && self.L1Pre_POSTSIZE_INFO_PILOT == other.L1Pre_POSTSIZE_INFO_PILOT && self.L1Pre_TX_ID_AVAIL == other.L1Pre_TX_ID_AVAIL && self.L1Pre_CELL_ID == other.L1Pre_CELL_ID && self.L1Pre_NETWORK_ID == other.L1Pre_NETWORK_ID && self.L1Pre_T2SYSTEM_ID == other.L1Pre_T2SYSTEM_ID && self.L1Pre_NUM_T2_FRAMES == other.L1Pre_NUM_T2_FRAMES && self.L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT == other.L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT && self.L1Pre_NUMRF_CURRENTRF_RESERVED == other.L1Pre_NUMRF_CURRENTRF_RESERVED && self.L1Pre_CRC32 == other.L1Pre_CRC32 && self.L1PostData == other.L1PostData
-    }
-}
-impl Eq for BDA_DVBT2_L1_SIGNALLING_DATA {}
 impl Default for BDA_DVBT2_L1_SIGNALLING_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ETHERNET_ADDRESS {
     pub rgbAddress: [u8; 6],
-}
-impl Copy for BDA_ETHERNET_ADDRESS {}
-impl Clone for BDA_ETHERNET_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_ETHERNET_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_ETHERNET_ADDRESS").field("rgbAddress", &self.rgbAddress).finish()
-    }
 }
 impl windows_core::TypeKind for BDA_ETHERNET_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_ETHERNET_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgbAddress == other.rgbAddress
-    }
-}
-impl Eq for BDA_ETHERNET_ADDRESS {}
 impl Default for BDA_ETHERNET_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ETHERNET_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_ETHERNET_ADDRESS; 1],
 }
-impl Copy for BDA_ETHERNET_ADDRESS_LIST {}
-impl Clone for BDA_ETHERNET_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_ETHERNET_ADDRESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_ETHERNET_ADDRESS_LIST").field("ulcAddresses", &self.ulcAddresses).field("rgAddressl", &self.rgAddressl).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_ETHERNET_ADDRESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_ETHERNET_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulcAddresses == other.ulcAddresses && self.rgAddressl == other.rgAddressl
-    }
-}
-impl Eq for BDA_ETHERNET_ADDRESS_LIST {}
 impl Default for BDA_ETHERNET_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_GDDS_DATA {
     pub lResult: i32,
     pub ulDataLength: u32,
     pub ulPercentageProgress: u32,
     pub argbData: [u8; 1],
 }
-impl Copy for BDA_GDDS_DATA {}
-impl Clone for BDA_GDDS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_GDDS_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_GDDS_DATA").field("lResult", &self.lResult).field("ulDataLength", &self.ulDataLength).field("ulPercentageProgress", &self.ulPercentageProgress).field("argbData", &self.argbData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_GDDS_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_GDDS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulDataLength == other.ulDataLength && self.ulPercentageProgress == other.ulPercentageProgress && self.argbData == other.argbData
-    }
-}
-impl Eq for BDA_GDDS_DATA {}
 impl Default for BDA_GDDS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_GDDS_DATATYPE {
     pub lResult: i32,
     pub uuidDataType: windows_core::GUID,
 }
-impl Copy for BDA_GDDS_DATATYPE {}
-impl Clone for BDA_GDDS_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_GDDS_DATATYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_GDDS_DATATYPE").field("lResult", &self.lResult).field("uuidDataType", &self.uuidDataType).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_GDDS_DATATYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_GDDS_DATATYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.uuidDataType == other.uuidDataType
-    }
-}
-impl Eq for BDA_GDDS_DATATYPE {}
 impl Default for BDA_GDDS_DATATYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv4_ADDRESS {
     pub rgbAddress: [u8; 4],
-}
-impl Copy for BDA_IPv4_ADDRESS {}
-impl Clone for BDA_IPv4_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_IPv4_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_IPv4_ADDRESS").field("rgbAddress", &self.rgbAddress).finish()
-    }
 }
 impl windows_core::TypeKind for BDA_IPv4_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_IPv4_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgbAddress == other.rgbAddress
-    }
-}
-impl Eq for BDA_IPv4_ADDRESS {}
 impl Default for BDA_IPv4_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv4_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_IPv4_ADDRESS; 1],
 }
-impl Copy for BDA_IPv4_ADDRESS_LIST {}
-impl Clone for BDA_IPv4_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_IPv4_ADDRESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_IPv4_ADDRESS_LIST").field("ulcAddresses", &self.ulcAddresses).field("rgAddressl", &self.rgAddressl).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_IPv4_ADDRESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_IPv4_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulcAddresses == other.ulcAddresses && self.rgAddressl == other.rgAddressl
-    }
-}
-impl Eq for BDA_IPv4_ADDRESS_LIST {}
 impl Default for BDA_IPv4_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv6_ADDRESS {
     pub rgbAddress: [u8; 6],
-}
-impl Copy for BDA_IPv6_ADDRESS {}
-impl Clone for BDA_IPv6_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_IPv6_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_IPv6_ADDRESS").field("rgbAddress", &self.rgbAddress).finish()
-    }
 }
 impl windows_core::TypeKind for BDA_IPv6_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_IPv6_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgbAddress == other.rgbAddress
-    }
-}
-impl Eq for BDA_IPv6_ADDRESS {}
 impl Default for BDA_IPv6_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv6_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_IPv6_ADDRESS; 1],
 }
-impl Copy for BDA_IPv6_ADDRESS_LIST {}
-impl Clone for BDA_IPv6_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_IPv6_ADDRESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_IPv6_ADDRESS_LIST").field("ulcAddresses", &self.ulcAddresses).field("rgAddressl", &self.rgAddressl).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_IPv6_ADDRESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_IPv6_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulcAddresses == other.ulcAddresses && self.rgAddressl == other.rgAddressl
-    }
-}
-impl Eq for BDA_IPv6_ADDRESS_LIST {}
 impl Default for BDA_IPv6_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ISDBCAS_EMG_REQ {
     pub bCLA: u8,
     pub bINS: u8,
@@ -19870,43 +18650,21 @@ pub struct BDA_ISDBCAS_EMG_REQ {
     pub bMessageControl: u8,
     pub bMessageCode: [u8; 1],
 }
-impl Copy for BDA_ISDBCAS_EMG_REQ {}
-impl Clone for BDA_ISDBCAS_EMG_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_ISDBCAS_EMG_REQ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_ISDBCAS_EMG_REQ").field("bCLA", &self.bCLA).field("bINS", &self.bINS).field("bP1", &self.bP1).field("bP2", &self.bP2).field("bLC", &self.bLC).field("bCardId", &self.bCardId).field("bProtocol", &self.bProtocol).field("bCABroadcasterGroupId", &self.bCABroadcasterGroupId).field("bMessageControl", &self.bMessageControl).field("bMessageCode", &self.bMessageCode).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_ISDBCAS_EMG_REQ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_ISDBCAS_EMG_REQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCLA == other.bCLA && self.bINS == other.bINS && self.bP1 == other.bP1 && self.bP2 == other.bP2 && self.bLC == other.bLC && self.bCardId == other.bCardId && self.bProtocol == other.bProtocol && self.bCABroadcasterGroupId == other.bCABroadcasterGroupId && self.bMessageControl == other.bMessageControl && self.bMessageCode == other.bMessageCode
-    }
-}
-impl Eq for BDA_ISDBCAS_EMG_REQ {}
 impl Default for BDA_ISDBCAS_EMG_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BDA_ISDBCAS_REQUESTHEADER {
     pub bInstruction: u8,
     pub bReserved: [u8; 3],
     pub ulDataLength: u32,
     pub argbIsdbCommand: [u8; 1],
-}
-impl Copy for BDA_ISDBCAS_REQUESTHEADER {}
-impl Clone for BDA_ISDBCAS_REQUESTHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BDA_ISDBCAS_REQUESTHEADER {
     type TypeKind = windows_core::CopyType;
@@ -19917,18 +18675,13 @@ impl Default for BDA_ISDBCAS_REQUESTHEADER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BDA_ISDBCAS_RESPONSEDATA {
     pub lResult: i32,
     pub ulRequestID: u32,
     pub ulIsdbStatus: u32,
     pub ulIsdbDataSize: u32,
     pub argbIsdbCommandData: [u8; 1],
-}
-impl Copy for BDA_ISDBCAS_RESPONSEDATA {}
-impl Clone for BDA_ISDBCAS_RESPONSEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BDA_ISDBCAS_RESPONSEDATA {
     type TypeKind = windows_core::CopyType;
@@ -19939,16 +18692,11 @@ impl Default for BDA_ISDBCAS_RESPONSEDATA {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct BDA_MUX_PIDLISTITEM {
     pub usPIDNumber: u16,
     pub usProgramNumber: u16,
     pub ePIDType: MUX_PID_TYPE,
-}
-impl Copy for BDA_MUX_PIDLISTITEM {}
-impl Clone for BDA_MUX_PIDLISTITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BDA_MUX_PIDLISTITEM {
     type TypeKind = windows_core::CopyType;
@@ -19959,389 +18707,192 @@ impl Default for BDA_MUX_PIDLISTITEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_PID_MAP {
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
     pub ulcPIDs: u32,
     pub aulPIDs: [u32; 1],
 }
-impl Copy for BDA_PID_MAP {}
-impl Clone for BDA_PID_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_PID_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_PID_MAP").field("MediaSampleContent", &self.MediaSampleContent).field("ulcPIDs", &self.ulcPIDs).field("aulPIDs", &self.aulPIDs).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_PID_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_PID_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.MediaSampleContent == other.MediaSampleContent && self.ulcPIDs == other.ulcPIDs && self.aulPIDs == other.aulPIDs
-    }
-}
-impl Eq for BDA_PID_MAP {}
 impl Default for BDA_PID_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_PID_UNMAP {
     pub ulcPIDs: u32,
     pub aulPIDs: [u32; 1],
 }
-impl Copy for BDA_PID_UNMAP {}
-impl Clone for BDA_PID_UNMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_PID_UNMAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_PID_UNMAP").field("ulcPIDs", &self.ulcPIDs).field("aulPIDs", &self.aulPIDs).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_PID_UNMAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_PID_UNMAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulcPIDs == other.ulcPIDs && self.aulPIDs == other.aulPIDs
-    }
-}
-impl Eq for BDA_PID_UNMAP {}
 impl Default for BDA_PID_UNMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_PROGRAM_PID_LIST {
     pub ulProgramNumber: u32,
     pub ulcPIDs: u32,
     pub ulPID: [u32; 1],
 }
-impl Copy for BDA_PROGRAM_PID_LIST {}
-impl Clone for BDA_PROGRAM_PID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_PROGRAM_PID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_PROGRAM_PID_LIST").field("ulProgramNumber", &self.ulProgramNumber).field("ulcPIDs", &self.ulcPIDs).field("ulPID", &self.ulPID).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_PROGRAM_PID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_PROGRAM_PID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulProgramNumber == other.ulProgramNumber && self.ulcPIDs == other.ulcPIDs && self.ulPID == other.ulPID
-    }
-}
-impl Eq for BDA_PROGRAM_PID_LIST {}
 impl Default for BDA_PROGRAM_PID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_RATING_PINRESET {
     pub bPinLength: u8,
     pub argbNewPin: [u8; 1],
 }
-impl Copy for BDA_RATING_PINRESET {}
-impl Clone for BDA_RATING_PINRESET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_RATING_PINRESET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_RATING_PINRESET").field("bPinLength", &self.bPinLength).field("argbNewPin", &self.argbNewPin).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_RATING_PINRESET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_RATING_PINRESET {
-    fn eq(&self, other: &Self) -> bool {
-        self.bPinLength == other.bPinLength && self.argbNewPin == other.argbNewPin
-    }
-}
-impl Eq for BDA_RATING_PINRESET {}
 impl Default for BDA_RATING_PINRESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_SCAN_CAPABILTIES {
     pub lResult: i32,
     pub ul64AnalogStandardsSupported: u64,
 }
-impl Copy for BDA_SCAN_CAPABILTIES {}
-impl Clone for BDA_SCAN_CAPABILTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_SCAN_CAPABILTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_SCAN_CAPABILTIES").field("lResult", &self.lResult).field("ul64AnalogStandardsSupported", &self.ul64AnalogStandardsSupported).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_SCAN_CAPABILTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_SCAN_CAPABILTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ul64AnalogStandardsSupported == other.ul64AnalogStandardsSupported
-    }
-}
-impl Eq for BDA_SCAN_CAPABILTIES {}
 impl Default for BDA_SCAN_CAPABILTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_SCAN_START {
     pub lResult: i32,
     pub LowerFrequency: u32,
     pub HigerFrequency: u32,
 }
-impl Copy for BDA_SCAN_START {}
-impl Clone for BDA_SCAN_START {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_SCAN_START {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_SCAN_START").field("lResult", &self.lResult).field("LowerFrequency", &self.LowerFrequency).field("HigerFrequency", &self.HigerFrequency).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_SCAN_START {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_SCAN_START {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.LowerFrequency == other.LowerFrequency && self.HigerFrequency == other.HigerFrequency
-    }
-}
-impl Eq for BDA_SCAN_START {}
 impl Default for BDA_SCAN_START {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_SCAN_STATE {
     pub lResult: i32,
     pub ulSignalLock: u32,
     pub ulSecondsLeft: u32,
     pub ulCurrentFrequency: u32,
 }
-impl Copy for BDA_SCAN_STATE {}
-impl Clone for BDA_SCAN_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_SCAN_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_SCAN_STATE").field("lResult", &self.lResult).field("ulSignalLock", &self.ulSignalLock).field("ulSecondsLeft", &self.ulSecondsLeft).field("ulCurrentFrequency", &self.ulCurrentFrequency).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_SCAN_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_SCAN_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulSignalLock == other.ulSignalLock && self.ulSecondsLeft == other.ulSecondsLeft && self.ulCurrentFrequency == other.ulCurrentFrequency
-    }
-}
-impl Eq for BDA_SCAN_STATE {}
 impl Default for BDA_SCAN_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_SIGNAL_TIMEOUTS {
     pub ulCarrierTimeoutMs: u32,
     pub ulScanningTimeoutMs: u32,
     pub ulTuningTimeoutMs: u32,
 }
-impl Copy for BDA_SIGNAL_TIMEOUTS {}
-impl Clone for BDA_SIGNAL_TIMEOUTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_SIGNAL_TIMEOUTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_SIGNAL_TIMEOUTS").field("ulCarrierTimeoutMs", &self.ulCarrierTimeoutMs).field("ulScanningTimeoutMs", &self.ulScanningTimeoutMs).field("ulTuningTimeoutMs", &self.ulTuningTimeoutMs).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_SIGNAL_TIMEOUTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_SIGNAL_TIMEOUTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCarrierTimeoutMs == other.ulCarrierTimeoutMs && self.ulScanningTimeoutMs == other.ulScanningTimeoutMs && self.ulTuningTimeoutMs == other.ulTuningTimeoutMs
-    }
-}
-impl Eq for BDA_SIGNAL_TIMEOUTS {}
 impl Default for BDA_SIGNAL_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_STRING {
     pub lResult: i32,
     pub ulStringSize: u32,
     pub argbString: [u8; 1],
 }
-impl Copy for BDA_STRING {}
-impl Clone for BDA_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_STRING").field("lResult", &self.lResult).field("ulStringSize", &self.ulStringSize).field("argbString", &self.argbString).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulStringSize == other.ulStringSize && self.argbString == other.argbString
-    }
-}
-impl Eq for BDA_STRING {}
 impl Default for BDA_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TABLE_SECTION {
     pub ulPrimarySectionId: u32,
     pub ulSecondarySectionId: u32,
     pub ulcbSectionLength: u32,
     pub argbSectionData: [u32; 1],
 }
-impl Copy for BDA_TABLE_SECTION {}
-impl Clone for BDA_TABLE_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TABLE_SECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TABLE_SECTION").field("ulPrimarySectionId", &self.ulPrimarySectionId).field("ulSecondarySectionId", &self.ulSecondarySectionId).field("ulcbSectionLength", &self.ulcbSectionLength).field("argbSectionData", &self.argbSectionData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_TABLE_SECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TABLE_SECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulPrimarySectionId == other.ulPrimarySectionId && self.ulSecondarySectionId == other.ulSecondarySectionId && self.ulcbSectionLength == other.ulcbSectionLength && self.argbSectionData == other.argbSectionData
-    }
-}
-impl Eq for BDA_TABLE_SECTION {}
 impl Default for BDA_TABLE_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TEMPLATE_CONNECTION {
     pub FromNodeType: u32,
     pub FromNodePinType: u32,
     pub ToNodeType: u32,
     pub ToNodePinType: u32,
 }
-impl Copy for BDA_TEMPLATE_CONNECTION {}
-impl Clone for BDA_TEMPLATE_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TEMPLATE_CONNECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TEMPLATE_CONNECTION").field("FromNodeType", &self.FromNodeType).field("FromNodePinType", &self.FromNodePinType).field("ToNodeType", &self.ToNodeType).field("ToNodePinType", &self.ToNodePinType).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_TEMPLATE_CONNECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TEMPLATE_CONNECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FromNodeType == other.FromNodeType && self.FromNodePinType == other.FromNodePinType && self.ToNodeType == other.ToNodeType && self.ToNodePinType == other.ToNodePinType
-    }
-}
-impl Eq for BDA_TEMPLATE_CONNECTION {}
 impl Default for BDA_TEMPLATE_CONNECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TEMPLATE_PIN_JOINT {
     pub uliTemplateConnection: u32,
     pub ulcInstancesMax: u32,
 }
-impl Copy for BDA_TEMPLATE_PIN_JOINT {}
-impl Clone for BDA_TEMPLATE_PIN_JOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TEMPLATE_PIN_JOINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TEMPLATE_PIN_JOINT").field("uliTemplateConnection", &self.uliTemplateConnection).field("ulcInstancesMax", &self.ulcInstancesMax).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_TEMPLATE_PIN_JOINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TEMPLATE_PIN_JOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.uliTemplateConnection == other.uliTemplateConnection && self.ulcInstancesMax == other.ulcInstancesMax
-    }
-}
-impl Eq for BDA_TEMPLATE_PIN_JOINT {}
 impl Default for BDA_TEMPLATE_PIN_JOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BDA_TS_SELECTORINFO {
     pub bTSInfolength: u8,
     pub bReserved: [u8; 2],
     pub guidNetworkType: windows_core::GUID,
     pub bTSIDCount: u8,
     pub usTSID: [u16; 1],
-}
-impl Copy for BDA_TS_SELECTORINFO {}
-impl Clone for BDA_TS_SELECTORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BDA_TS_SELECTORINFO {
     type TypeKind = windows_core::CopyType;
@@ -20352,253 +18903,126 @@ impl Default for BDA_TS_SELECTORINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TS_SELECTORINFO_ISDBS_EXT {
     pub bTMCC: [u8; 48],
-}
-impl Copy for BDA_TS_SELECTORINFO_ISDBS_EXT {}
-impl Clone for BDA_TS_SELECTORINFO_ISDBS_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TS_SELECTORINFO_ISDBS_EXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TS_SELECTORINFO_ISDBS_EXT").field("bTMCC", &self.bTMCC).finish()
-    }
 }
 impl windows_core::TypeKind for BDA_TS_SELECTORINFO_ISDBS_EXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TS_SELECTORINFO_ISDBS_EXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.bTMCC == other.bTMCC
-    }
-}
-impl Eq for BDA_TS_SELECTORINFO_ISDBS_EXT {}
 impl Default for BDA_TS_SELECTORINFO_ISDBS_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TUNER_DIAGNOSTICS {
     pub lResult: i32,
     pub ulSignalLevel: u32,
     pub ulSignalLevelQuality: u32,
     pub ulSignalNoiseRatio: u32,
 }
-impl Copy for BDA_TUNER_DIAGNOSTICS {}
-impl Clone for BDA_TUNER_DIAGNOSTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TUNER_DIAGNOSTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TUNER_DIAGNOSTICS").field("lResult", &self.lResult).field("ulSignalLevel", &self.ulSignalLevel).field("ulSignalLevelQuality", &self.ulSignalLevelQuality).field("ulSignalNoiseRatio", &self.ulSignalNoiseRatio).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_TUNER_DIAGNOSTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TUNER_DIAGNOSTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulSignalLevel == other.ulSignalLevel && self.ulSignalLevelQuality == other.ulSignalLevelQuality && self.ulSignalNoiseRatio == other.ulSignalNoiseRatio
-    }
-}
-impl Eq for BDA_TUNER_DIAGNOSTICS {}
 impl Default for BDA_TUNER_DIAGNOSTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TUNER_TUNERSTATE {
     pub lResult: i32,
     pub ulTuneLength: u32,
     pub argbTuneData: [u8; 1],
 }
-impl Copy for BDA_TUNER_TUNERSTATE {}
-impl Clone for BDA_TUNER_TUNERSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TUNER_TUNERSTATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TUNER_TUNERSTATE").field("lResult", &self.lResult).field("ulTuneLength", &self.ulTuneLength).field("argbTuneData", &self.argbTuneData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_TUNER_TUNERSTATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TUNER_TUNERSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulTuneLength == other.ulTuneLength && self.argbTuneData == other.argbTuneData
-    }
-}
-impl Eq for BDA_TUNER_TUNERSTATE {}
 impl Default for BDA_TUNER_TUNERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_USERACTIVITY_INTERVAL {
     pub lResult: i32,
     pub ulActivityInterval: u32,
 }
-impl Copy for BDA_USERACTIVITY_INTERVAL {}
-impl Clone for BDA_USERACTIVITY_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_USERACTIVITY_INTERVAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_USERACTIVITY_INTERVAL").field("lResult", &self.lResult).field("ulActivityInterval", &self.ulActivityInterval).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_USERACTIVITY_INTERVAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_USERACTIVITY_INTERVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulActivityInterval == other.ulActivityInterval
-    }
-}
-impl Eq for BDA_USERACTIVITY_INTERVAL {}
 impl Default for BDA_USERACTIVITY_INTERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRMTUNER_PIDPROTECTION {
     pub lResult: i32,
     pub uuidKeyID: windows_core::GUID,
 }
-impl Copy for BDA_WMDRMTUNER_PIDPROTECTION {}
-impl Clone for BDA_WMDRMTUNER_PIDPROTECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_WMDRMTUNER_PIDPROTECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_WMDRMTUNER_PIDPROTECTION").field("lResult", &self.lResult).field("uuidKeyID", &self.uuidKeyID).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_WMDRMTUNER_PIDPROTECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_WMDRMTUNER_PIDPROTECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.uuidKeyID == other.uuidKeyID
-    }
-}
-impl Eq for BDA_WMDRMTUNER_PIDPROTECTION {}
 impl Default for BDA_WMDRMTUNER_PIDPROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub lResult: i32,
     pub ulDescrambleStatus: u32,
     pub ulCaptureTokenLength: u32,
     pub argbCaptureTokenBuffer: [u8; 1],
 }
-impl Copy for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {}
-impl Clone for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_WMDRMTUNER_PURCHASEENTITLEMENT").field("lResult", &self.lResult).field("ulDescrambleStatus", &self.ulDescrambleStatus).field("ulCaptureTokenLength", &self.ulCaptureTokenLength).field("argbCaptureTokenBuffer", &self.argbCaptureTokenBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulDescrambleStatus == other.ulDescrambleStatus && self.ulCaptureTokenLength == other.ulCaptureTokenLength && self.argbCaptureTokenBuffer == other.argbCaptureTokenBuffer
-    }
-}
-impl Eq for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {}
 impl Default for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRM_KEYINFOLIST {
     pub lResult: i32,
     pub ulKeyuuidBufferLen: u32,
     pub argKeyuuidBuffer: [windows_core::GUID; 1],
 }
-impl Copy for BDA_WMDRM_KEYINFOLIST {}
-impl Clone for BDA_WMDRM_KEYINFOLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_WMDRM_KEYINFOLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_WMDRM_KEYINFOLIST").field("lResult", &self.lResult).field("ulKeyuuidBufferLen", &self.ulKeyuuidBufferLen).field("argKeyuuidBuffer", &self.argKeyuuidBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_WMDRM_KEYINFOLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_WMDRM_KEYINFOLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulKeyuuidBufferLen == other.ulKeyuuidBufferLen && self.argKeyuuidBuffer == other.argKeyuuidBuffer
-    }
-}
-impl Eq for BDA_WMDRM_KEYINFOLIST {}
 impl Default for BDA_WMDRM_KEYINFOLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRM_RENEWLICENSE {
     pub lResult: i32,
     pub ulDescrambleStatus: u32,
     pub ulXmrLicenseOutputLength: u32,
     pub argbXmrLicenceOutputBuffer: [u8; 1],
 }
-impl Copy for BDA_WMDRM_RENEWLICENSE {}
-impl Clone for BDA_WMDRM_RENEWLICENSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_WMDRM_RENEWLICENSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_WMDRM_RENEWLICENSE").field("lResult", &self.lResult).field("ulDescrambleStatus", &self.ulDescrambleStatus).field("ulXmrLicenseOutputLength", &self.ulXmrLicenseOutputLength).field("argbXmrLicenceOutputBuffer", &self.argbXmrLicenceOutputBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_WMDRM_RENEWLICENSE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_WMDRM_RENEWLICENSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulDescrambleStatus == other.ulDescrambleStatus && self.ulXmrLicenseOutputLength == other.ulXmrLicenseOutputLength && self.argbXmrLicenceOutputBuffer == other.argbXmrLicenceOutputBuffer
-    }
-}
-impl Eq for BDA_WMDRM_RENEWLICENSE {}
 impl Default for BDA_WMDRM_RENEWLICENSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRM_STATUS {
     pub lResult: i32,
     pub ulMaxCaptureTokenSize: u32,
@@ -20611,105 +19035,46 @@ pub struct BDA_WMDRM_STATUS {
     pub ulRevInfoTTL: u32,
     pub ulState: u32,
 }
-impl Copy for BDA_WMDRM_STATUS {}
-impl Clone for BDA_WMDRM_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_WMDRM_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_WMDRM_STATUS")
-            .field("lResult", &self.lResult)
-            .field("ulMaxCaptureTokenSize", &self.ulMaxCaptureTokenSize)
-            .field("uMaxStreamingPid", &self.uMaxStreamingPid)
-            .field("ulMaxLicense", &self.ulMaxLicense)
-            .field("ulMinSecurityLevel", &self.ulMinSecurityLevel)
-            .field("ulRevInfoSequenceNumber", &self.ulRevInfoSequenceNumber)
-            .field("ulRevInfoIssuedTime", &self.ulRevInfoIssuedTime)
-            .field("ulRevListVersion", &self.ulRevListVersion)
-            .field("ulRevInfoTTL", &self.ulRevInfoTTL)
-            .field("ulState", &self.ulState)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for BDA_WMDRM_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_WMDRM_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulMaxCaptureTokenSize == other.ulMaxCaptureTokenSize && self.uMaxStreamingPid == other.uMaxStreamingPid && self.ulMaxLicense == other.ulMaxLicense && self.ulMinSecurityLevel == other.ulMinSecurityLevel && self.ulRevInfoSequenceNumber == other.ulRevInfoSequenceNumber && self.ulRevInfoIssuedTime == other.ulRevInfoIssuedTime && self.ulRevListVersion == other.ulRevListVersion && self.ulRevInfoTTL == other.ulRevInfoTTL && self.ulState == other.ulState
-    }
-}
-impl Eq for BDA_WMDRM_STATUS {}
 impl Default for BDA_WMDRM_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COLORKEY {
     pub KeyType: u32,
     pub PaletteIndex: u32,
     pub LowColorValue: super::super::Foundation::COLORREF,
     pub HighColorValue: super::super::Foundation::COLORREF,
 }
-impl Copy for COLORKEY {}
-impl Clone for COLORKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COLORKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COLORKEY").field("KeyType", &self.KeyType).field("PaletteIndex", &self.PaletteIndex).field("LowColorValue", &self.LowColorValue).field("HighColorValue", &self.HighColorValue).finish()
-    }
-}
 impl windows_core::TypeKind for COLORKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COLORKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyType == other.KeyType && self.PaletteIndex == other.PaletteIndex && self.LowColorValue == other.LowColorValue && self.HighColorValue == other.HighColorValue
-    }
-}
-impl Eq for COLORKEY {}
 impl Default for COLORKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_ATR {
     pub ulCAT: u32,
     pub pbATRI: [u8; 768],
 }
-impl Copy for DVD_ATR {}
-impl Clone for DVD_ATR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_ATR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_ATR").field("ulCAT", &self.ulCAT).field("pbATRI", &self.pbATRI).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_ATR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_ATR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCAT == other.ulCAT && self.pbATRI == other.pbATRI
-    }
-}
-impl Eq for DVD_ATR {}
 impl Default for DVD_ATR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_AudioAttributes {
     pub AppMode: DVD_AUDIO_APPMODE,
     pub AppModeData: u8,
@@ -20722,32 +19087,16 @@ pub struct DVD_AudioAttributes {
     pub bNumberOfChannels: u8,
     pub dwReserved: [u32; 2],
 }
-impl Copy for DVD_AudioAttributes {}
-impl Clone for DVD_AudioAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_AudioAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_AudioAttributes").field("AppMode", &self.AppMode).field("AppModeData", &self.AppModeData).field("AudioFormat", &self.AudioFormat).field("Language", &self.Language).field("LanguageExtension", &self.LanguageExtension).field("fHasMultichannelInfo", &self.fHasMultichannelInfo).field("dwFrequency", &self.dwFrequency).field("bQuantization", &self.bQuantization).field("bNumberOfChannels", &self.bNumberOfChannels).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_AudioAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_AudioAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.AppMode == other.AppMode && self.AppModeData == other.AppModeData && self.AudioFormat == other.AudioFormat && self.Language == other.Language && self.LanguageExtension == other.LanguageExtension && self.fHasMultichannelInfo == other.fHasMultichannelInfo && self.dwFrequency == other.dwFrequency && self.bQuantization == other.bQuantization && self.bNumberOfChannels == other.bNumberOfChannels && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for DVD_AudioAttributes {}
 impl Default for DVD_AudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DECODER_CAPS {
     pub dwSize: u32,
     pub dwAudioCaps: u32,
@@ -20762,77 +19111,32 @@ pub struct DVD_DECODER_CAPS {
     pub dwRes3: u32,
     pub dwRes4: u32,
 }
-impl Copy for DVD_DECODER_CAPS {}
-impl Clone for DVD_DECODER_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_DECODER_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_DECODER_CAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwAudioCaps", &self.dwAudioCaps)
-            .field("dFwdMaxRateVideo", &self.dFwdMaxRateVideo)
-            .field("dFwdMaxRateAudio", &self.dFwdMaxRateAudio)
-            .field("dFwdMaxRateSP", &self.dFwdMaxRateSP)
-            .field("dBwdMaxRateVideo", &self.dBwdMaxRateVideo)
-            .field("dBwdMaxRateAudio", &self.dBwdMaxRateAudio)
-            .field("dBwdMaxRateSP", &self.dBwdMaxRateSP)
-            .field("dwRes1", &self.dwRes1)
-            .field("dwRes2", &self.dwRes2)
-            .field("dwRes3", &self.dwRes3)
-            .field("dwRes4", &self.dwRes4)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DVD_DECODER_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_DECODER_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwAudioCaps == other.dwAudioCaps && self.dFwdMaxRateVideo == other.dFwdMaxRateVideo && self.dFwdMaxRateAudio == other.dFwdMaxRateAudio && self.dFwdMaxRateSP == other.dFwdMaxRateSP && self.dBwdMaxRateVideo == other.dBwdMaxRateVideo && self.dBwdMaxRateAudio == other.dBwdMaxRateAudio && self.dBwdMaxRateSP == other.dBwdMaxRateSP && self.dwRes1 == other.dwRes1 && self.dwRes2 == other.dwRes2 && self.dwRes3 == other.dwRes3 && self.dwRes4 == other.dwRes4
-    }
-}
-impl Eq for DVD_DECODER_CAPS {}
 impl Default for DVD_DECODER_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_HMSF_TIMECODE {
     pub bHours: u8,
     pub bMinutes: u8,
     pub bSeconds: u8,
     pub bFrames: u8,
 }
-impl Copy for DVD_HMSF_TIMECODE {}
-impl Clone for DVD_HMSF_TIMECODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_HMSF_TIMECODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_HMSF_TIMECODE").field("bHours", &self.bHours).field("bMinutes", &self.bMinutes).field("bSeconds", &self.bSeconds).field("bFrames", &self.bFrames).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_HMSF_TIMECODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_HMSF_TIMECODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.bHours == other.bHours && self.bMinutes == other.bMinutes && self.bSeconds == other.bSeconds && self.bFrames == other.bFrames
-    }
-}
-impl Eq for DVD_HMSF_TIMECODE {}
 impl Default for DVD_HMSF_TIMECODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_KaraokeAttributes {
     pub bVersion: u8,
     pub fMasterOfCeremoniesInGuideVocal1: super::super::Foundation::BOOL,
@@ -20840,62 +19144,30 @@ pub struct DVD_KaraokeAttributes {
     pub ChannelAssignment: DVD_KARAOKE_ASSIGNMENT,
     pub wChannelContents: [u16; 8],
 }
-impl Copy for DVD_KaraokeAttributes {}
-impl Clone for DVD_KaraokeAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_KaraokeAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_KaraokeAttributes").field("bVersion", &self.bVersion).field("fMasterOfCeremoniesInGuideVocal1", &self.fMasterOfCeremoniesInGuideVocal1).field("fDuet", &self.fDuet).field("ChannelAssignment", &self.ChannelAssignment).field("wChannelContents", &self.wChannelContents).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_KaraokeAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_KaraokeAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.bVersion == other.bVersion && self.fMasterOfCeremoniesInGuideVocal1 == other.fMasterOfCeremoniesInGuideVocal1 && self.fDuet == other.fDuet && self.ChannelAssignment == other.ChannelAssignment && self.wChannelContents == other.wChannelContents
-    }
-}
-impl Eq for DVD_KaraokeAttributes {}
 impl Default for DVD_KaraokeAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MUA_Coeff {
     pub log2_alpha: f64,
     pub log2_beta: f64,
 }
-impl Copy for DVD_MUA_Coeff {}
-impl Clone for DVD_MUA_Coeff {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_MUA_Coeff {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_MUA_Coeff").field("log2_alpha", &self.log2_alpha).field("log2_beta", &self.log2_beta).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_MUA_Coeff {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_MUA_Coeff {
-    fn eq(&self, other: &Self) -> bool {
-        self.log2_alpha == other.log2_alpha && self.log2_beta == other.log2_beta
-    }
-}
-impl Eq for DVD_MUA_Coeff {}
 impl Default for DVD_MUA_Coeff {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_MUA_MixingInfo {
     pub fMixTo0: super::super::Foundation::BOOL,
     pub fMixTo1: super::super::Foundation::BOOL,
@@ -20903,32 +19175,16 @@ pub struct DVD_MUA_MixingInfo {
     pub fMix1InPhase: super::super::Foundation::BOOL,
     pub dwSpeakerPosition: u32,
 }
-impl Copy for DVD_MUA_MixingInfo {}
-impl Clone for DVD_MUA_MixingInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_MUA_MixingInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_MUA_MixingInfo").field("fMixTo0", &self.fMixTo0).field("fMixTo1", &self.fMixTo1).field("fMix0InPhase", &self.fMix0InPhase).field("fMix1InPhase", &self.fMix1InPhase).field("dwSpeakerPosition", &self.dwSpeakerPosition).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_MUA_MixingInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_MUA_MixingInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.fMixTo0 == other.fMixTo0 && self.fMixTo1 == other.fMixTo1 && self.fMix0InPhase == other.fMix0InPhase && self.fMix1InPhase == other.fMix1InPhase && self.dwSpeakerPosition == other.dwSpeakerPosition
-    }
-}
-impl Eq for DVD_MUA_MixingInfo {}
 impl Default for DVD_MUA_MixingInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_MenuAttributes {
     pub fCompatibleRegion: [super::super::Foundation::BOOL; 8],
     pub VideoAttributes: DVD_VideoAttributes,
@@ -20937,218 +19193,106 @@ pub struct DVD_MenuAttributes {
     pub fSubpicturePresent: super::super::Foundation::BOOL,
     pub SubpictureAttributes: DVD_SubpictureAttributes,
 }
-impl Copy for DVD_MenuAttributes {}
-impl Clone for DVD_MenuAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_MenuAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_MenuAttributes").field("fCompatibleRegion", &self.fCompatibleRegion).field("VideoAttributes", &self.VideoAttributes).field("fAudioPresent", &self.fAudioPresent).field("AudioAttributes", &self.AudioAttributes).field("fSubpicturePresent", &self.fSubpicturePresent).field("SubpictureAttributes", &self.SubpictureAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_MenuAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_MenuAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.fCompatibleRegion == other.fCompatibleRegion && self.VideoAttributes == other.VideoAttributes && self.fAudioPresent == other.fAudioPresent && self.AudioAttributes == other.AudioAttributes && self.fSubpicturePresent == other.fSubpicturePresent && self.SubpictureAttributes == other.SubpictureAttributes
-    }
-}
-impl Eq for DVD_MenuAttributes {}
 impl Default for DVD_MenuAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MultichannelAudioAttributes {
     pub Info: [DVD_MUA_MixingInfo; 8],
     pub Coeff: [DVD_MUA_Coeff; 8],
 }
-impl Copy for DVD_MultichannelAudioAttributes {}
-impl Clone for DVD_MultichannelAudioAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_MultichannelAudioAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_MultichannelAudioAttributes").field("Info", &self.Info).field("Coeff", &self.Coeff).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_MultichannelAudioAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_MultichannelAudioAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.Info == other.Info && self.Coeff == other.Coeff
-    }
-}
-impl Eq for DVD_MultichannelAudioAttributes {}
 impl Default for DVD_MultichannelAudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_PLAYBACK_LOCATION {
     pub TitleNum: u32,
     pub ChapterNum: u32,
     pub TimeCode: u32,
 }
-impl Copy for DVD_PLAYBACK_LOCATION {}
-impl Clone for DVD_PLAYBACK_LOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_PLAYBACK_LOCATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_PLAYBACK_LOCATION").field("TitleNum", &self.TitleNum).field("ChapterNum", &self.ChapterNum).field("TimeCode", &self.TimeCode).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_PLAYBACK_LOCATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_PLAYBACK_LOCATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TitleNum == other.TitleNum && self.ChapterNum == other.ChapterNum && self.TimeCode == other.TimeCode
-    }
-}
-impl Eq for DVD_PLAYBACK_LOCATION {}
 impl Default for DVD_PLAYBACK_LOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_PLAYBACK_LOCATION2 {
     pub TitleNum: u32,
     pub ChapterNum: u32,
     pub TimeCode: DVD_HMSF_TIMECODE,
     pub TimeCodeFlags: u32,
 }
-impl Copy for DVD_PLAYBACK_LOCATION2 {}
-impl Clone for DVD_PLAYBACK_LOCATION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_PLAYBACK_LOCATION2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_PLAYBACK_LOCATION2").field("TitleNum", &self.TitleNum).field("ChapterNum", &self.ChapterNum).field("TimeCode", &self.TimeCode).field("TimeCodeFlags", &self.TimeCodeFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_PLAYBACK_LOCATION2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_PLAYBACK_LOCATION2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.TitleNum == other.TitleNum && self.ChapterNum == other.ChapterNum && self.TimeCode == other.TimeCode && self.TimeCodeFlags == other.TimeCodeFlags
-    }
-}
-impl Eq for DVD_PLAYBACK_LOCATION2 {}
 impl Default for DVD_PLAYBACK_LOCATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_REGION {
     pub CopySystem: u8,
     pub RegionData: u8,
     pub SystemRegion: u8,
     pub ResetCount: u8,
 }
-impl Copy for DVD_REGION {}
-impl Clone for DVD_REGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_REGION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_REGION").field("CopySystem", &self.CopySystem).field("RegionData", &self.RegionData).field("SystemRegion", &self.SystemRegion).field("ResetCount", &self.ResetCount).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_REGION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_REGION {
-    fn eq(&self, other: &Self) -> bool {
-        self.CopySystem == other.CopySystem && self.RegionData == other.RegionData && self.SystemRegion == other.SystemRegion && self.ResetCount == other.ResetCount
-    }
-}
-impl Eq for DVD_REGION {}
 impl Default for DVD_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
     pub CodingMode: DVD_SUBPICTURE_CODING,
     pub Language: u32,
     pub LanguageExtension: DVD_SUBPICTURE_LANG_EXT,
 }
-impl Copy for DVD_SubpictureAttributes {}
-impl Clone for DVD_SubpictureAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_SubpictureAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_SubpictureAttributes").field("Type", &self.Type).field("CodingMode", &self.CodingMode).field("Language", &self.Language).field("LanguageExtension", &self.LanguageExtension).finish()
-    }
-}
 impl windows_core::TypeKind for DVD_SubpictureAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_SubpictureAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.CodingMode == other.CodingMode && self.Language == other.Language && self.LanguageExtension == other.LanguageExtension
-    }
-}
-impl Eq for DVD_SubpictureAttributes {}
 impl Default for DVD_SubpictureAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_TIMECODE {
     pub _bitfield: u32,
-}
-impl Copy for DVD_TIMECODE {}
-impl Clone for DVD_TIMECODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_TIMECODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_TIMECODE").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DVD_TIMECODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_TIMECODE {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DVD_TIMECODE {}
 impl Default for DVD_TIMECODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DVD_TitleAttributes {
     pub Anonymous: DVD_TitleAttributes_0,
     pub VideoAttributes: DVD_VideoAttributes,
@@ -21157,12 +19301,6 @@ pub struct DVD_TitleAttributes {
     pub MultichannelAudioAttributes: [DVD_MultichannelAudioAttributes; 8],
     pub ulNumberOfSubpictureStreams: u32,
     pub SubpictureAttributes: [DVD_SubpictureAttributes; 32],
-}
-impl Copy for DVD_TitleAttributes {}
-impl Clone for DVD_TitleAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DVD_TitleAttributes {
     type TypeKind = windows_core::CopyType;
@@ -21173,15 +19311,10 @@ impl Default for DVD_TitleAttributes {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DVD_TitleAttributes_0 {
     pub AppMode: DVD_TITLE_APPMODE,
     pub TitleLength: DVD_HMSF_TIMECODE,
-}
-impl Copy for DVD_TitleAttributes_0 {}
-impl Clone for DVD_TitleAttributes_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DVD_TitleAttributes_0 {
     type TypeKind = windows_core::CopyType;
@@ -21192,6 +19325,7 @@ impl Default for DVD_TitleAttributes_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_VideoAttributes {
     pub fPanscanPermitted: super::super::Foundation::BOOL,
     pub fLetterboxPermitted: super::super::Foundation::BOOL,
@@ -21207,46 +19341,16 @@ pub struct DVD_VideoAttributes {
     pub fIsSourceLetterboxed: super::super::Foundation::BOOL,
     pub fIsFilmMode: super::super::Foundation::BOOL,
 }
-impl Copy for DVD_VideoAttributes {}
-impl Clone for DVD_VideoAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVD_VideoAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVD_VideoAttributes")
-            .field("fPanscanPermitted", &self.fPanscanPermitted)
-            .field("fLetterboxPermitted", &self.fLetterboxPermitted)
-            .field("ulAspectX", &self.ulAspectX)
-            .field("ulAspectY", &self.ulAspectY)
-            .field("ulFrameRate", &self.ulFrameRate)
-            .field("ulFrameHeight", &self.ulFrameHeight)
-            .field("Compression", &self.Compression)
-            .field("fLine21Field1InGOP", &self.fLine21Field1InGOP)
-            .field("fLine21Field2InGOP", &self.fLine21Field2InGOP)
-            .field("ulSourceResolutionX", &self.ulSourceResolutionX)
-            .field("ulSourceResolutionY", &self.ulSourceResolutionY)
-            .field("fIsSourceLetterboxed", &self.fIsSourceLetterboxed)
-            .field("fIsFilmMode", &self.fIsFilmMode)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DVD_VideoAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVD_VideoAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.fPanscanPermitted == other.fPanscanPermitted && self.fLetterboxPermitted == other.fLetterboxPermitted && self.ulAspectX == other.ulAspectX && self.ulAspectY == other.ulAspectY && self.ulFrameRate == other.ulFrameRate && self.ulFrameHeight == other.ulFrameHeight && self.Compression == other.Compression && self.fLine21Field1InGOP == other.fLine21Field1InGOP && self.fLine21Field2InGOP == other.fLine21Field2InGOP && self.ulSourceResolutionX == other.ulSourceResolutionX && self.ulSourceResolutionY == other.ulSourceResolutionY && self.fIsSourceLetterboxed == other.fIsSourceLetterboxed && self.fIsFilmMode == other.fIsFilmMode
-    }
-}
-impl Eq for DVD_VideoAttributes {}
 impl Default for DVD_VideoAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVINFO {
     pub dwDVAAuxSrc: u32,
     pub dwDVAAuxCtl: u32,
@@ -21256,26 +19360,9 @@ pub struct DVINFO {
     pub dwDVVAuxCtl: u32,
     pub dwDVReserved: [u32; 2],
 }
-impl Copy for DVINFO {}
-impl Clone for DVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVINFO").field("dwDVAAuxSrc", &self.dwDVAAuxSrc).field("dwDVAAuxCtl", &self.dwDVAAuxCtl).field("dwDVAAuxSrc1", &self.dwDVAAuxSrc1).field("dwDVAAuxCtl1", &self.dwDVAAuxCtl1).field("dwDVVAuxSrc", &self.dwDVVAuxSrc).field("dwDVVAuxCtl", &self.dwDVVAuxCtl).field("dwDVReserved", &self.dwDVReserved).finish()
-    }
-}
 impl windows_core::TypeKind for DVINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDVAAuxSrc == other.dwDVAAuxSrc && self.dwDVAAuxCtl == other.dwDVAAuxCtl && self.dwDVAAuxSrc1 == other.dwDVAAuxSrc1 && self.dwDVAAuxCtl1 == other.dwDVAAuxCtl1 && self.dwDVVAuxSrc == other.dwDVVAuxSrc && self.dwDVVAuxCtl == other.dwDVVAuxCtl && self.dwDVReserved == other.dwDVReserved
-    }
-}
-impl Eq for DVINFO {}
 impl Default for DVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -21283,6 +19370,7 @@ impl Default for DVINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
+#[derive(Clone, Copy, Debug)]
 pub struct DXVA2SW_CALLBACKS {
     pub Size: u32,
     pub GetVideoProcessorRenderTargetCount: PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT,
@@ -21300,20 +19388,6 @@ pub struct DXVA2SW_CALLBACKS {
     pub VideoProcessBlt: PDXVA2SW_VIDEOPROCESSBLT,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-impl Copy for DXVA2SW_CALLBACKS {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-impl Clone for DXVA2SW_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-impl core::fmt::Debug for DXVA2SW_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2SW_CALLBACKS").field("Size", &self.Size).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 impl windows_core::TypeKind for DXVA2SW_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -21325,6 +19399,7 @@ impl Default for DXVA2SW_CALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2TraceVideoProcessBltData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
@@ -21332,14 +19407,6 @@ pub struct DXVA2TraceVideoProcessBltData {
     pub TargetFrameTime: u64,
     pub TargetRect: super::super::Foundation::RECT,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2TraceVideoProcessBltData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2TraceVideoProcessBltData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2TraceVideoProcessBltData {
@@ -21353,19 +19420,12 @@ impl Default for DXVA2TraceVideoProcessBltData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2Trace_DecodeDevBeginFrameData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
     pub pRenderTarget: u64,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2Trace_DecodeDevBeginFrameData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2Trace_DecodeDevBeginFrameData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2Trace_DecodeDevBeginFrameData {
@@ -21379,6 +19439,7 @@ impl Default for DXVA2Trace_DecodeDevBeginFrameData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2Trace_DecodeDevCreatedData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
@@ -21387,14 +19448,6 @@ pub struct DXVA2Trace_DecodeDevCreatedData {
     pub Width: u32,
     pub Height: u32,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2Trace_DecodeDevCreatedData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2Trace_DecodeDevCreatedData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2Trace_DecodeDevCreatedData {
@@ -21408,19 +19461,12 @@ impl Default for DXVA2Trace_DecodeDevCreatedData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2Trace_DecodeDevGetBufferData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
     pub BufferType: u32,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2Trace_DecodeDevGetBufferData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2Trace_DecodeDevGetBufferData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2Trace_DecodeDevGetBufferData {
@@ -21434,18 +19480,11 @@ impl Default for DXVA2Trace_DecodeDevGetBufferData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2Trace_DecodeDeviceData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2Trace_DecodeDeviceData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2Trace_DecodeDeviceData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2Trace_DecodeDeviceData {
@@ -21459,6 +19498,7 @@ impl Default for DXVA2Trace_DecodeDeviceData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2Trace_VideoProcessDevCreatedData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
@@ -21468,14 +19508,6 @@ pub struct DXVA2Trace_VideoProcessDevCreatedData {
     pub Width: u32,
     pub Height: u32,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2Trace_VideoProcessDevCreatedData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2Trace_VideoProcessDevCreatedData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2Trace_VideoProcessDevCreatedData {
@@ -21489,18 +19521,11 @@ impl Default for DXVA2Trace_VideoProcessDevCreatedData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[derive(Clone, Copy)]
 pub struct DXVA2Trace_VideoProcessDeviceData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
     pub pObject: u64,
     pub Enter: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Copy for DXVA2Trace_VideoProcessDeviceData {}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl Clone for DXVA2Trace_VideoProcessDeviceData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 impl windows_core::TypeKind for DXVA2Trace_VideoProcessDeviceData {
@@ -21514,6 +19539,7 @@ impl Default for DXVA2Trace_VideoProcessDeviceData {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Clone, Copy)]
 pub struct DXVA2_VIDEOPROCESSBLT {
     pub TargetFrame: i64,
     pub TargetRect: super::super::Foundation::RECT,
@@ -21532,14 +19558,6 @@ pub struct DXVA2_VIDEOPROCESSBLT {
     pub NumSrcSurfaces: u32,
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Copy for DXVA2_VIDEOPROCESSBLT {}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Clone for DXVA2_VIDEOPROCESSBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::TypeKind for DXVA2_VIDEOPROCESSBLT {
     type TypeKind = windows_core::CopyType;
 }
@@ -21551,6 +19569,7 @@ impl Default for DXVA2_VIDEOPROCESSBLT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Clone, Copy)]
 pub struct DXVA2_VIDEOSAMPLE {
     pub Start: i64,
     pub End: i64,
@@ -21563,14 +19582,6 @@ pub struct DXVA2_VIDEOSAMPLE {
     pub PlanarAlpha: super::MediaFoundation::DXVA2_Fixed32,
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Copy for DXVA2_VIDEOSAMPLE {}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Clone for DXVA2_VIDEOSAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::TypeKind for DXVA2_VIDEOSAMPLE {
     type TypeKind = windows_core::CopyType;
 }
@@ -21581,38 +19592,23 @@ impl Default for DXVA2_VIDEOSAMPLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPSetProtectionLevelCmdData {
     pub ProtType: u32,
     pub ProtLevel: u32,
     pub ExtendedInfoChangeMask: u32,
     pub ExtendedInfoData: u32,
 }
-impl Copy for DXVA_COPPSetProtectionLevelCmdData {}
-impl Clone for DXVA_COPPSetProtectionLevelCmdData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPSetProtectionLevelCmdData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPSetProtectionLevelCmdData").field("ProtType", &self.ProtType).field("ProtLevel", &self.ProtLevel).field("ExtendedInfoChangeMask", &self.ExtendedInfoChangeMask).field("ExtendedInfoData", &self.ExtendedInfoData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPSetProtectionLevelCmdData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPSetProtectionLevelCmdData {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProtType == other.ProtType && self.ProtLevel == other.ProtLevel && self.ExtendedInfoChangeMask == other.ExtendedInfoChangeMask && self.ExtendedInfoData == other.ExtendedInfoData
-    }
-}
-impl Eq for DXVA_COPPSetProtectionLevelCmdData {}
 impl Default for DXVA_COPPSetProtectionLevelCmdData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPSetSignalingCmdData {
     pub ActiveTVProtectionStandard: u32,
     pub AspectRatioChangeMask1: u32,
@@ -21625,43 +19621,16 @@ pub struct DXVA_COPPSetSignalingCmdData {
     pub ExtendedInfoData: [u32; 4],
     pub Reserved: u32,
 }
-impl Copy for DXVA_COPPSetSignalingCmdData {}
-impl Clone for DXVA_COPPSetSignalingCmdData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPSetSignalingCmdData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPSetSignalingCmdData")
-            .field("ActiveTVProtectionStandard", &self.ActiveTVProtectionStandard)
-            .field("AspectRatioChangeMask1", &self.AspectRatioChangeMask1)
-            .field("AspectRatioData1", &self.AspectRatioData1)
-            .field("AspectRatioChangeMask2", &self.AspectRatioChangeMask2)
-            .field("AspectRatioData2", &self.AspectRatioData2)
-            .field("AspectRatioChangeMask3", &self.AspectRatioChangeMask3)
-            .field("AspectRatioData3", &self.AspectRatioData3)
-            .field("ExtendedInfoChangeMask", &self.ExtendedInfoChangeMask)
-            .field("ExtendedInfoData", &self.ExtendedInfoData)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPSetSignalingCmdData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPSetSignalingCmdData {
-    fn eq(&self, other: &Self) -> bool {
-        self.ActiveTVProtectionStandard == other.ActiveTVProtectionStandard && self.AspectRatioChangeMask1 == other.AspectRatioChangeMask1 && self.AspectRatioData1 == other.AspectRatioData1 && self.AspectRatioChangeMask2 == other.AspectRatioChangeMask2 && self.AspectRatioData2 == other.AspectRatioData2 && self.AspectRatioChangeMask3 == other.AspectRatioChangeMask3 && self.AspectRatioData3 == other.AspectRatioData3 && self.ExtendedInfoChangeMask == other.ExtendedInfoChangeMask && self.ExtendedInfoData == other.ExtendedInfoData && self.Reserved == other.Reserved
-    }
-}
-impl Eq for DXVA_COPPSetSignalingCmdData {}
 impl Default for DXVA_COPPSetSignalingCmdData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPStatusData {
     pub rApp: windows_core::GUID,
     pub dwFlags: u32,
@@ -21669,32 +19638,16 @@ pub struct DXVA_COPPStatusData {
     pub ExtendedInfoValidMask: u32,
     pub ExtendedInfoData: u32,
 }
-impl Copy for DXVA_COPPStatusData {}
-impl Clone for DXVA_COPPStatusData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPStatusData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPStatusData").field("rApp", &self.rApp).field("dwFlags", &self.dwFlags).field("dwData", &self.dwData).field("ExtendedInfoValidMask", &self.ExtendedInfoValidMask).field("ExtendedInfoData", &self.ExtendedInfoData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPStatusData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPStatusData {
-    fn eq(&self, other: &Self) -> bool {
-        self.rApp == other.rApp && self.dwFlags == other.dwFlags && self.dwData == other.dwData && self.ExtendedInfoValidMask == other.ExtendedInfoValidMask && self.ExtendedInfoData == other.ExtendedInfoData
-    }
-}
-impl Eq for DXVA_COPPStatusData {}
 impl Default for DXVA_COPPStatusData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPStatusDisplayData {
     pub rApp: windows_core::GUID,
     pub dwFlags: u32,
@@ -21705,32 +19658,16 @@ pub struct DXVA_COPPStatusDisplayData {
     pub FreqNumerator: u32,
     pub FreqDenominator: u32,
 }
-impl Copy for DXVA_COPPStatusDisplayData {}
-impl Clone for DXVA_COPPStatusDisplayData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPStatusDisplayData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPStatusDisplayData").field("rApp", &self.rApp).field("dwFlags", &self.dwFlags).field("DisplayWidth", &self.DisplayWidth).field("DisplayHeight", &self.DisplayHeight).field("Format", &self.Format).field("d3dFormat", &self.d3dFormat).field("FreqNumerator", &self.FreqNumerator).field("FreqDenominator", &self.FreqDenominator).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPStatusDisplayData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPStatusDisplayData {
-    fn eq(&self, other: &Self) -> bool {
-        self.rApp == other.rApp && self.dwFlags == other.dwFlags && self.DisplayWidth == other.DisplayWidth && self.DisplayHeight == other.DisplayHeight && self.Format == other.Format && self.d3dFormat == other.d3dFormat && self.FreqNumerator == other.FreqNumerator && self.FreqDenominator == other.FreqDenominator
-    }
-}
-impl Eq for DXVA_COPPStatusDisplayData {}
 impl Default for DXVA_COPPStatusDisplayData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPStatusHDCPKeyData {
     pub rApp: windows_core::GUID,
     pub dwFlags: u32,
@@ -21739,32 +19676,16 @@ pub struct DXVA_COPPStatusHDCPKeyData {
     pub Reserved1: windows_core::GUID,
     pub Reserved2: windows_core::GUID,
 }
-impl Copy for DXVA_COPPStatusHDCPKeyData {}
-impl Clone for DXVA_COPPStatusHDCPKeyData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPStatusHDCPKeyData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPStatusHDCPKeyData").field("rApp", &self.rApp).field("dwFlags", &self.dwFlags).field("dwHDCPFlags", &self.dwHDCPFlags).field("BKey", &self.BKey).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPStatusHDCPKeyData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPStatusHDCPKeyData {
-    fn eq(&self, other: &Self) -> bool {
-        self.rApp == other.rApp && self.dwFlags == other.dwFlags && self.dwHDCPFlags == other.dwHDCPFlags && self.BKey == other.BKey && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
-    }
-}
-impl Eq for DXVA_COPPStatusHDCPKeyData {}
 impl Default for DXVA_COPPStatusHDCPKeyData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPStatusSignalingCmdData {
     pub rApp: windows_core::GUID,
     pub dwFlags: u32,
@@ -21780,78 +19701,32 @@ pub struct DXVA_COPPStatusSignalingCmdData {
     pub ExtendedInfoValidMask: [u32; 4],
     pub ExtendedInfoData: [u32; 4],
 }
-impl Copy for DXVA_COPPStatusSignalingCmdData {}
-impl Clone for DXVA_COPPStatusSignalingCmdData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPStatusSignalingCmdData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPStatusSignalingCmdData")
-            .field("rApp", &self.rApp)
-            .field("dwFlags", &self.dwFlags)
-            .field("AvailableTVProtectionStandards", &self.AvailableTVProtectionStandards)
-            .field("ActiveTVProtectionStandard", &self.ActiveTVProtectionStandard)
-            .field("TVType", &self.TVType)
-            .field("AspectRatioValidMask1", &self.AspectRatioValidMask1)
-            .field("AspectRatioData1", &self.AspectRatioData1)
-            .field("AspectRatioValidMask2", &self.AspectRatioValidMask2)
-            .field("AspectRatioData2", &self.AspectRatioData2)
-            .field("AspectRatioValidMask3", &self.AspectRatioValidMask3)
-            .field("AspectRatioData3", &self.AspectRatioData3)
-            .field("ExtendedInfoValidMask", &self.ExtendedInfoValidMask)
-            .field("ExtendedInfoData", &self.ExtendedInfoData)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPStatusSignalingCmdData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPStatusSignalingCmdData {
-    fn eq(&self, other: &Self) -> bool {
-        self.rApp == other.rApp && self.dwFlags == other.dwFlags && self.AvailableTVProtectionStandards == other.AvailableTVProtectionStandards && self.ActiveTVProtectionStandard == other.ActiveTVProtectionStandard && self.TVType == other.TVType && self.AspectRatioValidMask1 == other.AspectRatioValidMask1 && self.AspectRatioData1 == other.AspectRatioData1 && self.AspectRatioValidMask2 == other.AspectRatioValidMask2 && self.AspectRatioData2 == other.AspectRatioData2 && self.AspectRatioValidMask3 == other.AspectRatioValidMask3 && self.AspectRatioData3 == other.AspectRatioData3 && self.ExtendedInfoValidMask == other.ExtendedInfoValidMask && self.ExtendedInfoData == other.ExtendedInfoData
-    }
-}
-impl Eq for DXVA_COPPStatusSignalingCmdData {}
 impl Default for DXVA_COPPStatusSignalingCmdData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EALocationCodeType {
     pub LocationCodeScheme: LocationCodeSchemeType,
     pub state_code: u8,
     pub county_subdivision: u8,
     pub county_code: u16,
 }
-impl Copy for EALocationCodeType {}
-impl Clone for EALocationCodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EALocationCodeType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EALocationCodeType").field("LocationCodeScheme", &self.LocationCodeScheme).field("state_code", &self.state_code).field("county_subdivision", &self.county_subdivision).field("county_code", &self.county_code).finish()
-    }
-}
 impl windows_core::TypeKind for EALocationCodeType {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EALocationCodeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.LocationCodeScheme == other.LocationCodeScheme && self.state_code == other.state_code && self.county_subdivision == other.county_subdivision && self.county_code == other.county_code
-    }
-}
-impl Eq for EALocationCodeType {}
 impl Default for EALocationCodeType {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
     pub pGraph: std::mem::ManuallyDrop<Option<IFilterGraph>>,
@@ -21861,20 +19736,9 @@ impl Clone for FILTER_INFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for FILTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_INFO").field("achName", &self.achName).field("pGraph", &self.pGraph).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.achName == other.achName && self.pGraph == other.pGraph
-    }
-}
-impl Eq for FILTER_INFO {}
 impl Default for FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -21883,17 +19747,10 @@ impl Default for FILTER_INFO {
 pub const FilgraphManager: windows_core::GUID = windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct HEAACWAVEFORMAT {
     pub wfInfo: HEAACWAVEINFO,
     pub pbAudioSpecificConfig: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for HEAACWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for HEAACWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::TypeKind for HEAACWAVEFORMAT {
@@ -21907,6 +19764,7 @@ impl Default for HEAACWAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct HEAACWAVEINFO {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wPayloadType: u16,
@@ -21914,14 +19772,6 @@ pub struct HEAACWAVEINFO {
     pub wStructType: u16,
     pub wReserved1: u16,
     pub dwReserved2: u32,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for HEAACWAVEINFO {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for HEAACWAVEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::TypeKind for HEAACWAVEINFO {
@@ -21934,6 +19784,7 @@ impl Default for HEAACWAVEINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_BDA_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
     pub dwFrameFlags: u32,
@@ -21942,26 +19793,9 @@ pub struct KS_BDA_FRAME_INFO {
     pub ulSubchannelNumber: u32,
     pub ulReason: u32,
 }
-impl Copy for KS_BDA_FRAME_INFO {}
-impl Clone for KS_BDA_FRAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KS_BDA_FRAME_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KS_BDA_FRAME_INFO").field("ExtendedHeaderSize", &self.ExtendedHeaderSize).field("dwFrameFlags", &self.dwFrameFlags).field("ulEvent", &self.ulEvent).field("ulChannelNumber", &self.ulChannelNumber).field("ulSubchannelNumber", &self.ulSubchannelNumber).field("ulReason", &self.ulReason).finish()
-    }
-}
 impl windows_core::TypeKind for KS_BDA_FRAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KS_BDA_FRAME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtendedHeaderSize == other.ExtendedHeaderSize && self.dwFrameFlags == other.dwFrameFlags && self.ulEvent == other.ulEvent && self.ulChannelNumber == other.ulChannelNumber && self.ulSubchannelNumber == other.ulSubchannelNumber && self.ulReason == other.ulReason
-    }
-}
-impl Eq for KS_BDA_FRAME_INFO {}
 impl Default for KS_BDA_FRAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -21969,6 +19803,7 @@ impl Default for KS_BDA_FRAME_INFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct MPEG1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub fwHeadLayer: u16,
@@ -21981,14 +19816,6 @@ pub struct MPEG1WAVEFORMAT {
     pub dwPTSHigh: u32,
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl Copy for MPEG1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for MPEG1WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::TypeKind for MPEG1WAVEFORMAT {
     type TypeKind = windows_core::CopyType;
 }
@@ -21999,31 +19826,15 @@ impl Default for MPEG1WAVEFORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG2_TRANSPORT_STRIDE {
     pub dwOffset: u32,
     pub dwPacketLength: u32,
     pub dwStride: u32,
 }
-impl Copy for MPEG2_TRANSPORT_STRIDE {}
-impl Clone for MPEG2_TRANSPORT_STRIDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPEG2_TRANSPORT_STRIDE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPEG2_TRANSPORT_STRIDE").field("dwOffset", &self.dwOffset).field("dwPacketLength", &self.dwPacketLength).field("dwStride", &self.dwStride).finish()
-    }
-}
 impl windows_core::TypeKind for MPEG2_TRANSPORT_STRIDE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPEG2_TRANSPORT_STRIDE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOffset == other.dwOffset && self.dwPacketLength == other.dwPacketLength && self.dwStride == other.dwStride
-    }
-}
-impl Eq for MPEG2_TRANSPORT_STRIDE {}
 impl Default for MPEG2_TRANSPORT_STRIDE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -22031,6 +19842,7 @@ impl Default for MPEG2_TRANSPORT_STRIDE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct MPEGLAYER3WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wID: u16,
@@ -22038,14 +19850,6 @@ pub struct MPEGLAYER3WAVEFORMAT {
     pub nBlockSize: u16,
     pub nFramesPerBlock: u16,
     pub nCodecDelay: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for MPEGLAYER3WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for MPEGLAYER3WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::TypeKind for MPEGLAYER3WAVEFORMAT {
@@ -22058,6 +19862,7 @@ impl Default for MPEGLAYER3WAVEFORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MP_ENVELOPE_SEGMENT {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -22066,32 +19871,16 @@ pub struct MP_ENVELOPE_SEGMENT {
     pub iCurve: MP_CURVE_TYPE,
     pub flags: u32,
 }
-impl Copy for MP_ENVELOPE_SEGMENT {}
-impl Clone for MP_ENVELOPE_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MP_ENVELOPE_SEGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MP_ENVELOPE_SEGMENT").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("valStart", &self.valStart).field("valEnd", &self.valEnd).field("iCurve", &self.iCurve).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MP_ENVELOPE_SEGMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MP_ENVELOPE_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.valStart == other.valStart && self.valEnd == other.valEnd && self.iCurve == other.iCurve && self.flags == other.flags
-    }
-}
-impl Eq for MP_ENVELOPE_SEGMENT {}
 impl Default for MP_ENVELOPE_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MP_PARAMINFO {
     pub mpType: MP_TYPE,
     pub mopCaps: u32,
@@ -22101,32 +19890,16 @@ pub struct MP_PARAMINFO {
     pub szUnitText: [u16; 32],
     pub szLabel: [u16; 32],
 }
-impl Copy for MP_PARAMINFO {}
-impl Clone for MP_PARAMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MP_PARAMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MP_PARAMINFO").field("mpType", &self.mpType).field("mopCaps", &self.mopCaps).field("mpdMinValue", &self.mpdMinValue).field("mpdMaxValue", &self.mpdMaxValue).field("mpdNeutralValue", &self.mpdNeutralValue).field("szUnitText", &self.szUnitText).field("szLabel", &self.szLabel).finish()
-    }
-}
 impl windows_core::TypeKind for MP_PARAMINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MP_PARAMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.mpType == other.mpType && self.mopCaps == other.mopCaps && self.mpdMinValue == other.mpdMinValue && self.mpdMaxValue == other.mpdMaxValue && self.mpdNeutralValue == other.mpdNeutralValue && self.szUnitText == other.szUnitText && self.szLabel == other.szLabel
-    }
-}
-impl Eq for MP_PARAMINFO {}
 impl Default for MP_PARAMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MainAVIHeader {
     pub dwMicroSecPerFrame: u32,
     pub dwMaxBytesPerSec: u32,
@@ -22140,100 +19913,39 @@ pub struct MainAVIHeader {
     pub dwHeight: u32,
     pub dwReserved: [u32; 4],
 }
-impl Copy for MainAVIHeader {}
-impl Clone for MainAVIHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MainAVIHeader {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MainAVIHeader")
-            .field("dwMicroSecPerFrame", &self.dwMicroSecPerFrame)
-            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
-            .field("dwPaddingGranularity", &self.dwPaddingGranularity)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwTotalFrames", &self.dwTotalFrames)
-            .field("dwInitialFrames", &self.dwInitialFrames)
-            .field("dwStreams", &self.dwStreams)
-            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MainAVIHeader {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MainAVIHeader {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMicroSecPerFrame == other.dwMicroSecPerFrame && self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwPaddingGranularity == other.dwPaddingGranularity && self.dwFlags == other.dwFlags && self.dwTotalFrames == other.dwTotalFrames && self.dwInitialFrames == other.dwInitialFrames && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for MainAVIHeader {}
 impl Default for MainAVIHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NORMALIZEDRECT {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
 }
-impl Copy for NORMALIZEDRECT {}
-impl Clone for NORMALIZEDRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NORMALIZEDRECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NORMALIZEDRECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for NORMALIZEDRECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NORMALIZEDRECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for NORMALIZEDRECT {}
 impl Default for NORMALIZEDRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PID_MAP {
     pub ulPID: u32,
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
 }
-impl Copy for PID_MAP {}
-impl Clone for PID_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PID_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PID_MAP").field("ulPID", &self.ulPID).field("MediaSampleContent", &self.MediaSampleContent).finish()
-    }
-}
 impl windows_core::TypeKind for PID_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PID_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulPID == other.ulPID && self.MediaSampleContent == other.MediaSampleContent
-    }
-}
-impl Eq for PID_MAP {}
 impl Default for PID_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -22241,6 +19953,7 @@ impl Default for PID_MAP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct PIN_INFO {
     pub pFilter: std::mem::ManuallyDrop<Option<IBaseFilter>>,
     pub dir: PIN_DIRECTION,
@@ -22253,23 +19966,9 @@ impl Clone for PIN_INFO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for PIN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PIN_INFO").field("pFilter", &self.pFilter).field("dir", &self.dir).field("achName", &self.achName).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for PIN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for PIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pFilter == other.pFilter && self.dir == other.dir && self.achName == other.achName
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for PIN_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for PIN_INFO {
     fn default() -> Self {
@@ -22277,78 +19976,41 @@ impl Default for PIN_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Quality {
     pub Type: QualityMessageType,
     pub Proportion: i32,
     pub Late: i64,
     pub TimeStamp: i64,
 }
-impl Copy for Quality {}
-impl Clone for Quality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Quality {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Quality").field("Type", &self.Type).field("Proportion", &self.Proportion).field("Late", &self.Late).field("TimeStamp", &self.TimeStamp).finish()
-    }
-}
 impl windows_core::TypeKind for Quality {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for Quality {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Proportion == other.Proportion && self.Late == other.Late && self.TimeStamp == other.TimeStamp
-    }
-}
-impl Eq for Quality {}
 impl Default for Quality {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER {
     pub Clsid: windows_core::GUID,
     pub Name: windows_core::PWSTR,
 }
-impl Copy for REGFILTER {}
-impl Clone for REGFILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGFILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGFILTER").field("Clsid", &self.Clsid).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for REGFILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGFILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Clsid == other.Clsid && self.Name == other.Name
-    }
-}
-impl Eq for REGFILTER {}
 impl Default for REGFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REGFILTER2 {
     pub dwVersion: u32,
     pub dwMerit: u32,
     pub Anonymous: REGFILTER2_0,
-}
-impl Copy for REGFILTER2 {}
-impl Clone for REGFILTER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for REGFILTER2 {
     type TypeKind = windows_core::CopyType;
@@ -22359,15 +20021,10 @@ impl Default for REGFILTER2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union REGFILTER2_0 {
     pub Anonymous1: REGFILTER2_0_0,
     pub Anonymous2: REGFILTER2_0_1,
-}
-impl Copy for REGFILTER2_0 {}
-impl Clone for REGFILTER2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for REGFILTER2_0 {
     type TypeKind = windows_core::CopyType;
@@ -22378,66 +20035,35 @@ impl Default for REGFILTER2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER2_0_0 {
     pub cPins: u32,
     pub rgPins: *const REGFILTERPINS,
 }
-impl Copy for REGFILTER2_0_0 {}
-impl Clone for REGFILTER2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGFILTER2_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGFILTER2_0_0").field("cPins", &self.cPins).field("rgPins", &self.rgPins).finish()
-    }
-}
 impl windows_core::TypeKind for REGFILTER2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGFILTER2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPins == other.cPins && self.rgPins == other.rgPins
-    }
-}
-impl Eq for REGFILTER2_0_0 {}
 impl Default for REGFILTER2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER2_0_1 {
     pub cPins2: u32,
     pub rgPins2: *const REGFILTERPINS2,
 }
-impl Copy for REGFILTER2_0_1 {}
-impl Clone for REGFILTER2_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGFILTER2_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGFILTER2_0_1").field("cPins2", &self.cPins2).field("rgPins2", &self.rgPins2).finish()
-    }
-}
 impl windows_core::TypeKind for REGFILTER2_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGFILTER2_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPins2 == other.cPins2 && self.rgPins2 == other.rgPins2
-    }
-}
-impl Eq for REGFILTER2_0_1 {}
 impl Default for REGFILTER2_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTERPINS {
     pub strName: windows_core::PWSTR,
     pub bRendered: super::super::Foundation::BOOL,
@@ -22449,32 +20075,16 @@ pub struct REGFILTERPINS {
     pub nMediaTypes: u32,
     pub lpMediaType: *const REGPINTYPES,
 }
-impl Copy for REGFILTERPINS {}
-impl Clone for REGFILTERPINS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGFILTERPINS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGFILTERPINS").field("strName", &self.strName).field("bRendered", &self.bRendered).field("bOutput", &self.bOutput).field("bZero", &self.bZero).field("bMany", &self.bMany).field("clsConnectsToFilter", &self.clsConnectsToFilter).field("strConnectsToPin", &self.strConnectsToPin).field("nMediaTypes", &self.nMediaTypes).field("lpMediaType", &self.lpMediaType).finish()
-    }
-}
 impl windows_core::TypeKind for REGFILTERPINS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGFILTERPINS {
-    fn eq(&self, other: &Self) -> bool {
-        self.strName == other.strName && self.bRendered == other.bRendered && self.bOutput == other.bOutput && self.bZero == other.bZero && self.bMany == other.bMany && self.clsConnectsToFilter == other.clsConnectsToFilter && self.strConnectsToPin == other.strConnectsToPin && self.nMediaTypes == other.nMediaTypes && self.lpMediaType == other.lpMediaType
-    }
-}
-impl Eq for REGFILTERPINS {}
 impl Default for REGFILTERPINS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTERPINS2 {
     pub dwFlags: u32,
     pub cInstances: u32,
@@ -22484,102 +20094,48 @@ pub struct REGFILTERPINS2 {
     pub lpMedium: *const REGPINMEDIUM,
     pub clsPinCategory: *const windows_core::GUID,
 }
-impl Copy for REGFILTERPINS2 {}
-impl Clone for REGFILTERPINS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGFILTERPINS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGFILTERPINS2").field("dwFlags", &self.dwFlags).field("cInstances", &self.cInstances).field("nMediaTypes", &self.nMediaTypes).field("lpMediaType", &self.lpMediaType).field("nMediums", &self.nMediums).field("lpMedium", &self.lpMedium).field("clsPinCategory", &self.clsPinCategory).finish()
-    }
-}
 impl windows_core::TypeKind for REGFILTERPINS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGFILTERPINS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.cInstances == other.cInstances && self.nMediaTypes == other.nMediaTypes && self.lpMediaType == other.lpMediaType && self.nMediums == other.nMediums && self.lpMedium == other.lpMedium && self.clsPinCategory == other.clsPinCategory
-    }
-}
-impl Eq for REGFILTERPINS2 {}
 impl Default for REGFILTERPINS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGPINMEDIUM {
     pub clsMedium: windows_core::GUID,
     pub dw1: u32,
     pub dw2: u32,
 }
-impl Copy for REGPINMEDIUM {}
-impl Clone for REGPINMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGPINMEDIUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGPINMEDIUM").field("clsMedium", &self.clsMedium).field("dw1", &self.dw1).field("dw2", &self.dw2).finish()
-    }
-}
 impl windows_core::TypeKind for REGPINMEDIUM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGPINMEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsMedium == other.clsMedium && self.dw1 == other.dw1 && self.dw2 == other.dw2
-    }
-}
-impl Eq for REGPINMEDIUM {}
 impl Default for REGPINMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGPINTYPES {
     pub clsMajorType: *const windows_core::GUID,
     pub clsMinorType: *const windows_core::GUID,
 }
-impl Copy for REGPINTYPES {}
-impl Clone for REGPINTYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGPINTYPES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGPINTYPES").field("clsMajorType", &self.clsMajorType).field("clsMinorType", &self.clsMinorType).finish()
-    }
-}
 impl windows_core::TypeKind for REGPINTYPES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGPINTYPES {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsMajorType == other.clsMajorType && self.clsMinorType == other.clsMinorType
-    }
-}
-impl Eq for REGPINTYPES {}
 impl Default for REGPINTYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct RIFFCHUNK {
     pub fcc: u32,
     pub cb: u32,
-}
-impl Copy for RIFFCHUNK {}
-impl Clone for RIFFCHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RIFFCHUNK {
     type TypeKind = windows_core::CopyType;
@@ -22590,16 +20146,11 @@ impl Default for RIFFCHUNK {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct RIFFLIST {
     pub fcc: u32,
     pub cb: u32,
     pub fccListType: u32,
-}
-impl Copy for RIFFLIST {}
-impl Clone for RIFFLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RIFFLIST {
     type TypeKind = windows_core::CopyType;
@@ -22610,38 +20161,23 @@ impl Default for RIFFLIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STREAM_ID_MAP {
     pub stream_id: u32,
     pub dwMediaSampleContent: u32,
     pub ulSubstreamFilterValue: u32,
     pub iDataOffset: i32,
 }
-impl Copy for STREAM_ID_MAP {}
-impl Clone for STREAM_ID_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STREAM_ID_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STREAM_ID_MAP").field("stream_id", &self.stream_id).field("dwMediaSampleContent", &self.dwMediaSampleContent).field("ulSubstreamFilterValue", &self.ulSubstreamFilterValue).field("iDataOffset", &self.iDataOffset).finish()
-    }
-}
 impl windows_core::TypeKind for STREAM_ID_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STREAM_ID_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.stream_id == other.stream_id && self.dwMediaSampleContent == other.dwMediaSampleContent && self.ulSubstreamFilterValue == other.ulSubstreamFilterValue && self.iDataOffset == other.iDataOffset
-    }
-}
-impl Eq for STREAM_ID_MAP {}
 impl Default for STREAM_ID_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SmartCardApplication {
     pub ApplicationType: ApplicationTypeType,
     pub ApplicationVersion: u16,
@@ -22653,36 +20189,20 @@ impl Clone for SmartCardApplication {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SmartCardApplication {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SmartCardApplication").field("ApplicationType", &self.ApplicationType).field("ApplicationVersion", &self.ApplicationVersion).field("pbstrApplicationName", &self.pbstrApplicationName).field("pbstrApplicationURL", &self.pbstrApplicationURL).finish()
-    }
-}
 impl windows_core::TypeKind for SmartCardApplication {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SmartCardApplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.ApplicationType == other.ApplicationType && self.ApplicationVersion == other.ApplicationVersion && self.pbstrApplicationName == other.pbstrApplicationName && self.pbstrApplicationURL == other.pbstrApplicationURL
-    }
-}
-impl Eq for SmartCardApplication {}
 impl Default for SmartCardApplication {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct TIMECODEDATA {
     pub time: super::TIMECODE,
     pub dwSMPTEflags: u32,
     pub dwUser: u32,
-}
-impl Copy for TIMECODEDATA {}
-impl Clone for TIMECODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TIMECODEDATA {
     type TypeKind = windows_core::CopyType;
@@ -22694,36 +20214,15 @@ impl Default for TIMECODEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [super::super::Graphics::Gdi::RGBQUAD; 256],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for TRUECOLORINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for TRUECOLORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for TRUECOLORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRUECOLORINFO").field("dwBitMasks", &self.dwBitMasks).field("bmiColors", &self.bmiColors).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for TRUECOLORINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for TRUECOLORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBitMasks == other.dwBitMasks && self.bmiColors == other.bmiColors
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for TRUECOLORINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for TRUECOLORINFO {
     fn default() -> Self {
@@ -22731,30 +20230,14 @@ impl Default for TRUECOLORINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VFW_FILTERLIST {
     pub cFilters: u32,
     pub aClsId: [windows_core::GUID; 1],
 }
-impl Copy for VFW_FILTERLIST {}
-impl Clone for VFW_FILTERLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VFW_FILTERLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VFW_FILTERLIST").field("cFilters", &self.cFilters).field("aClsId", &self.aClsId).finish()
-    }
-}
 impl windows_core::TypeKind for VFW_FILTERLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VFW_FILTERLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.cFilters == other.cFilters && self.aClsId == other.aClsId
-    }
-}
-impl Eq for VFW_FILTERLIST {}
 impl Default for VFW_FILTERLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -22762,6 +20245,7 @@ impl Default for VFW_FILTERLIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct VIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -22770,14 +20254,6 @@ pub struct VIDEOINFO {
     pub AvgTimePerFrame: i64,
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub Anonymous: VIDEOINFO_0,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VIDEOINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VIDEOINFO {
@@ -22791,18 +20267,11 @@ impl Default for VIDEOINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::super::Graphics::Gdi::RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: TRUECOLORINFO,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VIDEOINFO_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VIDEOINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VIDEOINFO_0 {
@@ -22815,6 +20284,7 @@ impl Default for VIDEOINFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_core::GUID,
     pub VideoStandard: u32,
@@ -22838,68 +20308,9 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub MinBitsPerSecond: i32,
     pub MaxBitsPerSecond: i32,
 }
-impl Copy for VIDEO_STREAM_CONFIG_CAPS {}
-impl Clone for VIDEO_STREAM_CONFIG_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIDEO_STREAM_CONFIG_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIDEO_STREAM_CONFIG_CAPS")
-            .field("guid", &self.guid)
-            .field("VideoStandard", &self.VideoStandard)
-            .field("InputSize", &self.InputSize)
-            .field("MinCroppingSize", &self.MinCroppingSize)
-            .field("MaxCroppingSize", &self.MaxCroppingSize)
-            .field("CropGranularityX", &self.CropGranularityX)
-            .field("CropGranularityY", &self.CropGranularityY)
-            .field("CropAlignX", &self.CropAlignX)
-            .field("CropAlignY", &self.CropAlignY)
-            .field("MinOutputSize", &self.MinOutputSize)
-            .field("MaxOutputSize", &self.MaxOutputSize)
-            .field("OutputGranularityX", &self.OutputGranularityX)
-            .field("OutputGranularityY", &self.OutputGranularityY)
-            .field("StretchTapsX", &self.StretchTapsX)
-            .field("StretchTapsY", &self.StretchTapsY)
-            .field("ShrinkTapsX", &self.ShrinkTapsX)
-            .field("ShrinkTapsY", &self.ShrinkTapsY)
-            .field("MinFrameInterval", &self.MinFrameInterval)
-            .field("MaxFrameInterval", &self.MaxFrameInterval)
-            .field("MinBitsPerSecond", &self.MinBitsPerSecond)
-            .field("MaxBitsPerSecond", &self.MaxBitsPerSecond)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VIDEO_STREAM_CONFIG_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIDEO_STREAM_CONFIG_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid
-            && self.VideoStandard == other.VideoStandard
-            && self.InputSize == other.InputSize
-            && self.MinCroppingSize == other.MinCroppingSize
-            && self.MaxCroppingSize == other.MaxCroppingSize
-            && self.CropGranularityX == other.CropGranularityX
-            && self.CropGranularityY == other.CropGranularityY
-            && self.CropAlignX == other.CropAlignX
-            && self.CropAlignY == other.CropAlignY
-            && self.MinOutputSize == other.MinOutputSize
-            && self.MaxOutputSize == other.MaxOutputSize
-            && self.OutputGranularityX == other.OutputGranularityX
-            && self.OutputGranularityY == other.OutputGranularityY
-            && self.StretchTapsX == other.StretchTapsX
-            && self.StretchTapsY == other.StretchTapsY
-            && self.ShrinkTapsX == other.ShrinkTapsX
-            && self.ShrinkTapsY == other.ShrinkTapsY
-            && self.MinFrameInterval == other.MinFrameInterval
-            && self.MaxFrameInterval == other.MaxFrameInterval
-            && self.MinBitsPerSecond == other.MinBitsPerSecond
-            && self.MaxBitsPerSecond == other.MaxBitsPerSecond
-    }
-}
-impl Eq for VIDEO_STREAM_CONFIG_CAPS {}
 impl Default for VIDEO_STREAM_CONFIG_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -22907,6 +20318,7 @@ impl Default for VIDEO_STREAM_CONFIG_CAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMR9AllocationInfo {
     pub dwFlags: u32,
     pub dwWidth: u32,
@@ -22918,31 +20330,9 @@ pub struct VMR9AllocationInfo {
     pub szNativeSize: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for VMR9AllocationInfo {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for VMR9AllocationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for VMR9AllocationInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9AllocationInfo").field("dwFlags", &self.dwFlags).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("Format", &self.Format).field("Pool", &self.Pool).field("MinBuffers", &self.MinBuffers).field("szAspectRatio", &self.szAspectRatio).field("szNativeSize", &self.szNativeSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for VMR9AllocationInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for VMR9AllocationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.Format == other.Format && self.Pool == other.Pool && self.MinBuffers == other.MinBuffers && self.szAspectRatio == other.szAspectRatio && self.szNativeSize == other.szNativeSize
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for VMR9AllocationInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for VMR9AllocationInfo {
     fn default() -> Self {
@@ -22951,6 +20341,7 @@ impl Default for VMR9AllocationInfo {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[derive(Debug, PartialEq)]
 pub struct VMR9AlphaBitmap {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -22968,23 +20359,9 @@ impl Clone for VMR9AlphaBitmap {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl core::fmt::Debug for VMR9AlphaBitmap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9AlphaBitmap").field("dwFlags", &self.dwFlags).field("hdc", &self.hdc).field("pDDS", &self.pDDS).field("rSrc", &self.rSrc).field("rDest", &self.rDest).field("fAlpha", &self.fAlpha).field("clrSrcKey", &self.clrSrcKey).field("dwFilterMode", &self.dwFilterMode).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for VMR9AlphaBitmap {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl PartialEq for VMR9AlphaBitmap {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.hdc == other.hdc && self.pDDS == other.pDDS && self.rSrc == other.rSrc && self.rDest == other.rDest && self.fAlpha == other.fAlpha && self.clrSrcKey == other.clrSrcKey && self.dwFilterMode == other.dwFilterMode
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl Eq for VMR9AlphaBitmap {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl Default for VMR9AlphaBitmap {
     fn default() -> Self {
@@ -22992,6 +20369,7 @@ impl Default for VMR9AlphaBitmap {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMR9DeinterlaceCaps {
     pub dwSize: u32,
     pub dwNumPreviousOutputFrames: u32,
@@ -22999,56 +20377,23 @@ pub struct VMR9DeinterlaceCaps {
     pub dwNumBackwardRefSamples: u32,
     pub DeinterlaceTechnology: VMR9DeinterlaceTech,
 }
-impl Copy for VMR9DeinterlaceCaps {}
-impl Clone for VMR9DeinterlaceCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMR9DeinterlaceCaps {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9DeinterlaceCaps").field("dwSize", &self.dwSize).field("dwNumPreviousOutputFrames", &self.dwNumPreviousOutputFrames).field("dwNumForwardRefSamples", &self.dwNumForwardRefSamples).field("dwNumBackwardRefSamples", &self.dwNumBackwardRefSamples).field("DeinterlaceTechnology", &self.DeinterlaceTechnology).finish()
-    }
-}
 impl windows_core::TypeKind for VMR9DeinterlaceCaps {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMR9DeinterlaceCaps {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwNumPreviousOutputFrames == other.dwNumPreviousOutputFrames && self.dwNumForwardRefSamples == other.dwNumForwardRefSamples && self.dwNumBackwardRefSamples == other.dwNumBackwardRefSamples && self.DeinterlaceTechnology == other.DeinterlaceTechnology
-    }
-}
-impl Eq for VMR9DeinterlaceCaps {}
 impl Default for VMR9DeinterlaceCaps {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMR9Frequency {
     pub dwNumerator: u32,
     pub dwDenominator: u32,
 }
-impl Copy for VMR9Frequency {}
-impl Clone for VMR9Frequency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMR9Frequency {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9Frequency").field("dwNumerator", &self.dwNumerator).field("dwDenominator", &self.dwDenominator).finish()
-    }
-}
 impl windows_core::TypeKind for VMR9Frequency {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMR9Frequency {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumerator == other.dwNumerator && self.dwDenominator == other.dwDenominator
-    }
-}
-impl Eq for VMR9Frequency {}
 impl Default for VMR9Frequency {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23056,6 +20401,7 @@ impl Default for VMR9Frequency {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMR9MonitorInfo {
     pub uDevID: u32,
     pub rcMonitor: super::super::Foundation::RECT,
@@ -23070,31 +20416,9 @@ pub struct VMR9MonitorInfo {
     pub dwRevision: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VMR9MonitorInfo {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VMR9MonitorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for VMR9MonitorInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9MonitorInfo").field("uDevID", &self.uDevID).field("rcMonitor", &self.rcMonitor).field("hMon", &self.hMon).field("dwFlags", &self.dwFlags).field("szDevice", &self.szDevice).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VMR9MonitorInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for VMR9MonitorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.uDevID == other.uDevID && self.rcMonitor == other.rcMonitor && self.hMon == other.hMon && self.dwFlags == other.dwFlags && self.szDevice == other.szDevice && self.szDescription == other.szDescription && self.liDriverVersion == other.liDriverVersion && self.dwVendorId == other.dwVendorId && self.dwDeviceId == other.dwDeviceId && self.dwSubSysId == other.dwSubSysId && self.dwRevision == other.dwRevision
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for VMR9MonitorInfo {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for VMR9MonitorInfo {
     fn default() -> Self {
@@ -23102,32 +20426,16 @@ impl Default for VMR9MonitorInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMR9NormalizedRect {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
 }
-impl Copy for VMR9NormalizedRect {}
-impl Clone for VMR9NormalizedRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMR9NormalizedRect {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9NormalizedRect").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for VMR9NormalizedRect {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMR9NormalizedRect {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for VMR9NormalizedRect {}
 impl Default for VMR9NormalizedRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23135,6 +20443,7 @@ impl Default for VMR9NormalizedRect {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VMR9PresentationInfo {
     pub dwFlags: u32,
     pub lpSurf: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
@@ -23153,23 +20462,9 @@ impl Clone for VMR9PresentationInfo {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for VMR9PresentationInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9PresentationInfo").field("dwFlags", &self.dwFlags).field("lpSurf", &self.lpSurf).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("szAspectRatio", &self.szAspectRatio).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for VMR9PresentationInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for VMR9PresentationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.lpSurf == other.lpSurf && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.szAspectRatio == other.szAspectRatio && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for VMR9PresentationInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for VMR9PresentationInfo {
     fn default() -> Self {
@@ -23177,6 +20472,7 @@ impl Default for VMR9PresentationInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMR9ProcAmpControl {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -23185,32 +20481,16 @@ pub struct VMR9ProcAmpControl {
     pub Hue: f32,
     pub Saturation: f32,
 }
-impl Copy for VMR9ProcAmpControl {}
-impl Clone for VMR9ProcAmpControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMR9ProcAmpControl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9ProcAmpControl").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("Brightness", &self.Brightness).field("Contrast", &self.Contrast).field("Hue", &self.Hue).field("Saturation", &self.Saturation).finish()
-    }
-}
 impl windows_core::TypeKind for VMR9ProcAmpControl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMR9ProcAmpControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.Brightness == other.Brightness && self.Contrast == other.Contrast && self.Hue == other.Hue && self.Saturation == other.Saturation
-    }
-}
-impl Eq for VMR9ProcAmpControl {}
 impl Default for VMR9ProcAmpControl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMR9ProcAmpControlRange {
     pub dwSize: u32,
     pub dwProperty: VMR9ProcAmpControlFlags,
@@ -23219,32 +20499,16 @@ pub struct VMR9ProcAmpControlRange {
     pub DefaultValue: f32,
     pub StepSize: f32,
 }
-impl Copy for VMR9ProcAmpControlRange {}
-impl Clone for VMR9ProcAmpControlRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMR9ProcAmpControlRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9ProcAmpControlRange").field("dwSize", &self.dwSize).field("dwProperty", &self.dwProperty).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).field("DefaultValue", &self.DefaultValue).field("StepSize", &self.StepSize).finish()
-    }
-}
 impl windows_core::TypeKind for VMR9ProcAmpControlRange {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMR9ProcAmpControlRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwProperty == other.dwProperty && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue && self.DefaultValue == other.DefaultValue && self.StepSize == other.StepSize
-    }
-}
-impl Eq for VMR9ProcAmpControlRange {}
 impl Default for VMR9ProcAmpControlRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMR9VideoDesc {
     pub dwSize: u32,
     pub dwSampleWidth: u32,
@@ -23254,26 +20518,9 @@ pub struct VMR9VideoDesc {
     pub InputSampleFreq: VMR9Frequency,
     pub OutputFrameFreq: VMR9Frequency,
 }
-impl Copy for VMR9VideoDesc {}
-impl Clone for VMR9VideoDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMR9VideoDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9VideoDesc").field("dwSize", &self.dwSize).field("dwSampleWidth", &self.dwSampleWidth).field("dwSampleHeight", &self.dwSampleHeight).field("SampleFormat", &self.SampleFormat).field("dwFourCC", &self.dwFourCC).field("InputSampleFreq", &self.InputSampleFreq).field("OutputFrameFreq", &self.OutputFrameFreq).finish()
-    }
-}
 impl windows_core::TypeKind for VMR9VideoDesc {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMR9VideoDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwSampleWidth == other.dwSampleWidth && self.dwSampleHeight == other.dwSampleHeight && self.SampleFormat == other.SampleFormat && self.dwFourCC == other.dwFourCC && self.InputSampleFreq == other.InputSampleFreq && self.OutputFrameFreq == other.OutputFrameFreq
-    }
-}
-impl Eq for VMR9VideoDesc {}
 impl Default for VMR9VideoDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23281,6 +20528,7 @@ impl Default for VMR9VideoDesc {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Debug, PartialEq)]
 pub struct VMR9VideoStreamInfo {
     pub pddsVideoSurface: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     pub dwWidth: u32,
@@ -23299,23 +20547,9 @@ impl Clone for VMR9VideoStreamInfo {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for VMR9VideoStreamInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMR9VideoStreamInfo").field("pddsVideoSurface", &self.pddsVideoSurface).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwStrmID", &self.dwStrmID).field("fAlpha", &self.fAlpha).field("rNormal", &self.rNormal).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for VMR9VideoStreamInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for VMR9VideoStreamInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.pddsVideoSurface == other.pddsVideoSurface && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwStrmID == other.dwStrmID && self.fAlpha == other.fAlpha && self.rNormal == other.rNormal && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for VMR9VideoStreamInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for VMR9VideoStreamInfo {
     fn default() -> Self {
@@ -23324,6 +20558,7 @@ impl Default for VMR9VideoStreamInfo {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRALLOCATIONINFO {
     pub dwFlags: u32,
     pub lpHdr: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -23335,31 +20570,9 @@ pub struct VMRALLOCATIONINFO {
     pub szNativeSize: super::super::Foundation::SIZE,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for VMRALLOCATIONINFO {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for VMRALLOCATIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl core::fmt::Debug for VMRALLOCATIONINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRALLOCATIONINFO").field("dwFlags", &self.dwFlags).field("lpHdr", &self.lpHdr).field("lpPixFmt", &self.lpPixFmt).field("szAspectRatio", &self.szAspectRatio).field("dwMinBuffers", &self.dwMinBuffers).field("dwMaxBuffers", &self.dwMaxBuffers).field("dwInterlaceFlags", &self.dwInterlaceFlags).field("szNativeSize", &self.szNativeSize).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for VMRALLOCATIONINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl PartialEq for VMRALLOCATIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.lpHdr == other.lpHdr && self.lpPixFmt == other.lpPixFmt && self.szAspectRatio == other.szAspectRatio && self.dwMinBuffers == other.dwMinBuffers && self.dwMaxBuffers == other.dwMaxBuffers && self.dwInterlaceFlags == other.dwInterlaceFlags && self.szNativeSize == other.szNativeSize
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Eq for VMRALLOCATIONINFO {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for VMRALLOCATIONINFO {
     fn default() -> Self {
@@ -23368,6 +20581,7 @@ impl Default for VMRALLOCATIONINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[derive(Debug, PartialEq)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -23384,23 +20598,9 @@ impl Clone for VMRALPHABITMAP {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl core::fmt::Debug for VMRALPHABITMAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRALPHABITMAP").field("dwFlags", &self.dwFlags).field("hdc", &self.hdc).field("pDDS", &self.pDDS).field("rSrc", &self.rSrc).field("rDest", &self.rDest).field("fAlpha", &self.fAlpha).field("clrSrcKey", &self.clrSrcKey).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for VMRALPHABITMAP {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl PartialEq for VMRALPHABITMAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.hdc == other.hdc && self.pDDS == other.pDDS && self.rSrc == other.rSrc && self.rDest == other.rDest && self.fAlpha == other.fAlpha && self.clrSrcKey == other.clrSrcKey
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Eq for VMRALPHABITMAP {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for VMRALPHABITMAP {
     fn default() -> Self {
@@ -23408,6 +20608,7 @@ impl Default for VMRALPHABITMAP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRDeinterlaceCaps {
     pub dwSize: u32,
     pub dwNumPreviousOutputFrames: u32,
@@ -23415,86 +20616,37 @@ pub struct VMRDeinterlaceCaps {
     pub dwNumBackwardRefSamples: u32,
     pub DeinterlaceTechnology: VMRDeinterlaceTech,
 }
-impl Copy for VMRDeinterlaceCaps {}
-impl Clone for VMRDeinterlaceCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMRDeinterlaceCaps {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRDeinterlaceCaps").field("dwSize", &self.dwSize).field("dwNumPreviousOutputFrames", &self.dwNumPreviousOutputFrames).field("dwNumForwardRefSamples", &self.dwNumForwardRefSamples).field("dwNumBackwardRefSamples", &self.dwNumBackwardRefSamples).field("DeinterlaceTechnology", &self.DeinterlaceTechnology).finish()
-    }
-}
 impl windows_core::TypeKind for VMRDeinterlaceCaps {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMRDeinterlaceCaps {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwNumPreviousOutputFrames == other.dwNumPreviousOutputFrames && self.dwNumForwardRefSamples == other.dwNumForwardRefSamples && self.dwNumBackwardRefSamples == other.dwNumBackwardRefSamples && self.DeinterlaceTechnology == other.DeinterlaceTechnology
-    }
-}
-impl Eq for VMRDeinterlaceCaps {}
 impl Default for VMRDeinterlaceCaps {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRFrequency {
     pub dwNumerator: u32,
     pub dwDenominator: u32,
 }
-impl Copy for VMRFrequency {}
-impl Clone for VMRFrequency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMRFrequency {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRFrequency").field("dwNumerator", &self.dwNumerator).field("dwDenominator", &self.dwDenominator).finish()
-    }
-}
 impl windows_core::TypeKind for VMRFrequency {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMRFrequency {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumerator == other.dwNumerator && self.dwDenominator == other.dwDenominator
-    }
-}
-impl Eq for VMRFrequency {}
 impl Default for VMRFrequency {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRGUID {
     pub pGUID: *mut windows_core::GUID,
     pub GUID: windows_core::GUID,
 }
-impl Copy for VMRGUID {}
-impl Clone for VMRGUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMRGUID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRGUID").field("pGUID", &self.pGUID).field("GUID", &self.GUID).finish()
-    }
-}
 impl windows_core::TypeKind for VMRGUID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMRGUID {
-    fn eq(&self, other: &Self) -> bool {
-        self.pGUID == other.pGUID && self.GUID == other.GUID
-    }
-}
-impl Eq for VMRGUID {}
 impl Default for VMRGUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23502,6 +20654,7 @@ impl Default for VMRGUID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
     pub rcMonitor: super::super::Foundation::RECT,
@@ -23516,31 +20669,9 @@ pub struct VMRMONITORINFO {
     pub dwRevision: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VMRMONITORINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VMRMONITORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for VMRMONITORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRMONITORINFO").field("guid", &self.guid).field("rcMonitor", &self.rcMonitor).field("hMon", &self.hMon).field("dwFlags", &self.dwFlags).field("szDevice", &self.szDevice).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VMRMONITORINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for VMRMONITORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.rcMonitor == other.rcMonitor && self.hMon == other.hMon && self.dwFlags == other.dwFlags && self.szDevice == other.szDevice && self.szDescription == other.szDescription && self.liDriverVersion == other.liDriverVersion && self.dwVendorId == other.dwVendorId && self.dwDeviceId == other.dwDeviceId && self.dwSubSysId == other.dwSubSysId && self.dwRevision == other.dwRevision
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for VMRMONITORINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for VMRMONITORINFO {
     fn default() -> Self {
@@ -23549,6 +20680,7 @@ impl Default for VMRMONITORINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
     pub lpSurf: std::mem::ManuallyDrop<Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
@@ -23567,23 +20699,9 @@ impl Clone for VMRPRESENTATIONINFO {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl core::fmt::Debug for VMRPRESENTATIONINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRPRESENTATIONINFO").field("dwFlags", &self.dwFlags).field("lpSurf", &self.lpSurf).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("szAspectRatio", &self.szAspectRatio).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("dwTypeSpecificFlags", &self.dwTypeSpecificFlags).field("dwInterlaceFlags", &self.dwInterlaceFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::TypeKind for VMRPRESENTATIONINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl PartialEq for VMRPRESENTATIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.lpSurf == other.lpSurf && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.szAspectRatio == other.szAspectRatio && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.dwTypeSpecificFlags == other.dwTypeSpecificFlags && self.dwInterlaceFlags == other.dwInterlaceFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Eq for VMRPRESENTATIONINFO {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for VMRPRESENTATIONINFO {
     fn default() -> Self {
@@ -23592,6 +20710,7 @@ impl Default for VMRPRESENTATIONINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[derive(Debug, PartialEq)]
 pub struct VMRVIDEOSTREAMINFO {
     pub pddsVideoSurface: std::mem::ManuallyDrop<Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
     pub dwWidth: u32,
@@ -23608,23 +20727,9 @@ impl Clone for VMRVIDEOSTREAMINFO {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl core::fmt::Debug for VMRVIDEOSTREAMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRVIDEOSTREAMINFO").field("pddsVideoSurface", &self.pddsVideoSurface).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwStrmID", &self.dwStrmID).field("fAlpha", &self.fAlpha).field("ddClrKey", &self.ddClrKey).field("rNormal", &self.rNormal).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::TypeKind for VMRVIDEOSTREAMINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl PartialEq for VMRVIDEOSTREAMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pddsVideoSurface == other.pddsVideoSurface && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwStrmID == other.dwStrmID && self.fAlpha == other.fAlpha && self.ddClrKey == other.ddClrKey && self.rNormal == other.rNormal
-    }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Eq for VMRVIDEOSTREAMINFO {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for VMRVIDEOSTREAMINFO {
     fn default() -> Self {
@@ -23632,6 +20737,7 @@ impl Default for VMRVIDEOSTREAMINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRVideoDesc {
     pub dwSize: u32,
     pub dwSampleWidth: u32,
@@ -23641,26 +20747,9 @@ pub struct VMRVideoDesc {
     pub InputSampleFreq: VMRFrequency,
     pub OutputFrameFreq: VMRFrequency,
 }
-impl Copy for VMRVideoDesc {}
-impl Clone for VMRVideoDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMRVideoDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMRVideoDesc").field("dwSize", &self.dwSize).field("dwSampleWidth", &self.dwSampleWidth).field("dwSampleHeight", &self.dwSampleHeight).field("SingleFieldPerSample", &self.SingleFieldPerSample).field("dwFourCC", &self.dwFourCC).field("InputSampleFreq", &self.InputSampleFreq).field("OutputFrameFreq", &self.OutputFrameFreq).finish()
-    }
-}
 impl windows_core::TypeKind for VMRVideoDesc {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMRVideoDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwSampleWidth == other.dwSampleWidth && self.dwSampleHeight == other.dwSampleHeight && self.SingleFieldPerSample == other.SingleFieldPerSample && self.dwFourCC == other.dwFourCC && self.InputSampleFreq == other.InputSampleFreq && self.OutputFrameFreq == other.OutputFrameFreq
-    }
-}
-impl Eq for VMRVideoDesc {}
 impl Default for VMRVideoDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

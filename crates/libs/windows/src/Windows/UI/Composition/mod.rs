@@ -26613,20 +26613,10 @@ impl windows_core::RuntimeType for CompositionStrokeLineJoin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct InkTrailPoint {
     pub Point: super::super::Foundation::Point,
     pub Radius: f32,
-}
-impl Copy for InkTrailPoint {}
-impl Clone for InkTrailPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for InkTrailPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("InkTrailPoint").field("Point", &self.Point).field("Radius", &self.Radius).finish()
-    }
 }
 impl windows_core::TypeKind for InkTrailPoint {
     type TypeKind = windows_core::CopyType;
@@ -26634,12 +26624,6 @@ impl windows_core::TypeKind for InkTrailPoint {
 impl windows_core::RuntimeType for InkTrailPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Composition.InkTrailPoint;struct(Windows.Foundation.Point;f4;f4);f4)");
 }
-impl PartialEq for InkTrailPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.Point == other.Point && self.Radius == other.Radius
-    }
-}
-impl Eq for InkTrailPoint {}
 impl Default for InkTrailPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

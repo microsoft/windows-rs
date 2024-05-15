@@ -291,6 +291,7 @@ impl core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
     pub UniqueId: [u8; 32],
@@ -304,12 +305,6 @@ pub struct ENCLAVE_IDENTITY {
     pub SigningLevel: u32,
     pub EnclaveType: u32,
 }
-impl Copy for ENCLAVE_IDENTITY {}
-impl Clone for ENCLAVE_IDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for ENCLAVE_IDENTITY {
     type TypeKind = windows_core::CopyType;
 }
@@ -319,18 +314,13 @@ impl Default for ENCLAVE_IDENTITY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: u32,
     pub Reserved: u32,
     pub BaseAddress: *mut core::ffi::c_void,
     pub Size: usize,
     pub Identity: ENCLAVE_IDENTITY,
-}
-impl Copy for ENCLAVE_INFORMATION {}
-impl Clone for ENCLAVE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ENCLAVE_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -341,6 +331,7 @@ impl Default for ENCLAVE_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -348,32 +339,16 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub SystemKeyID: u32,
     pub CurrentSystemKeyID: u32,
 }
-impl Copy for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
-impl Clone for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENCLAVE_VBS_BASIC_KEY_REQUEST").field("RequestSize", &self.RequestSize).field("Flags", &self.Flags).field("EnclaveSVN", &self.EnclaveSVN).field("SystemKeyID", &self.SystemKeyID).field("CurrentSystemKeyID", &self.CurrentSystemKeyID).finish()
-    }
-}
 impl windows_core::TypeKind for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.RequestSize == other.RequestSize && self.Flags == other.Flags && self.EnclaveSVN == other.EnclaveSVN && self.SystemKeyID == other.SystemKeyID && self.CurrentSystemKeyID == other.CurrentSystemKeyID
-    }
-}
-impl Eq for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
 impl Default for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionCode: u32,
     pub NumberParameters: u32,
@@ -384,32 +359,16 @@ pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionRFLAGS: usize,
     pub ExceptionRSP: usize,
 }
-impl Copy for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {}
-impl Clone for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VBS_BASIC_ENCLAVE_EXCEPTION_AMD64").field("ExceptionCode", &self.ExceptionCode).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).field("ExceptionRAX", &self.ExceptionRAX).field("ExceptionRCX", &self.ExceptionRCX).field("ExceptionRIP", &self.ExceptionRIP).field("ExceptionRFLAGS", &self.ExceptionRFLAGS).field("ExceptionRSP", &self.ExceptionRSP).finish()
-    }
-}
 impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExceptionCode == other.ExceptionCode && self.NumberParameters == other.NumberParameters && self.ExceptionInformation == other.ExceptionInformation && self.ExceptionRAX == other.ExceptionRAX && self.ExceptionRCX == other.ExceptionRCX && self.ExceptionRIP == other.ExceptionRIP && self.ExceptionRFLAGS == other.ExceptionRFLAGS && self.ExceptionRSP == other.ExceptionRSP
-    }
-}
-impl Eq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {}
 impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -425,17 +384,6 @@ pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
     pub GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
 }
-impl Copy for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {}
-impl Clone for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VBS_BASIC_ENCLAVE_SYSCALL_PAGE").finish()
-    }
-}
 impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     type TypeKind = windows_core::CopyType;
 }
@@ -445,6 +393,7 @@ impl Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ThreadContext: [u32; 4],
     pub EntryPoint: u32,
@@ -453,32 +402,16 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ExceptionStack: u32,
     pub ExceptionActive: u32,
 }
-impl Copy for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {}
-impl Clone for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
-    }
-}
 impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThreadContext == other.ThreadContext && self.EntryPoint == other.EntryPoint && self.StackPointer == other.StackPointer && self.ExceptionEntryPoint == other.ExceptionEntryPoint && self.ExceptionStack == other.ExceptionStack && self.ExceptionActive == other.ExceptionActive
-    }
-}
-impl Eq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {}
 impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ThreadContext: [u64; 4],
     pub EntryPoint: u64,
@@ -487,43 +420,21 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ExceptionStack: u64,
     pub ExceptionActive: u32,
 }
-impl Copy for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {}
-impl Clone for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
-    }
-}
 impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThreadContext == other.ThreadContext && self.EntryPoint == other.EntryPoint && self.StackPointer == other.StackPointer && self.ExceptionEntryPoint == other.ExceptionEntryPoint && self.ExceptionStack == other.ExceptionStack && self.ExceptionActive == other.ExceptionActive
-    }
-}
-impl Eq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {}
 impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
     pub ReportVersion: u32,
     pub EnclaveData: [u8; 64],
     pub EnclaveIdentity: ENCLAVE_IDENTITY,
-}
-impl Copy for VBS_ENCLAVE_REPORT {}
-impl Clone for VBS_ENCLAVE_REPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VBS_ENCLAVE_REPORT {
     type TypeKind = windows_core::CopyType;
@@ -534,6 +445,7 @@ impl Default for VBS_ENCLAVE_REPORT {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub UniqueId: [u8; 32],
@@ -542,12 +454,6 @@ pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub ImageId: [u8; 16],
     pub Svn: u32,
     pub ModuleName: [u16; 1],
-}
-impl Copy for VBS_ENCLAVE_REPORT_MODULE {}
-impl Clone for VBS_ENCLAVE_REPORT_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_MODULE {
     type TypeKind = windows_core::CopyType;
@@ -558,6 +464,7 @@ impl Default for VBS_ENCLAVE_REPORT_MODULE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
     pub Version: u32,
@@ -565,12 +472,6 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub SignedStatementSize: u32,
     pub SignatureSize: u32,
     pub Reserved: u32,
-}
-impl Copy for VBS_ENCLAVE_REPORT_PKG_HEADER {}
-impl Clone for VBS_ENCLAVE_REPORT_PKG_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_PKG_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -581,15 +482,10 @@ impl Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,
-}
-impl Copy for VBS_ENCLAVE_REPORT_VARDATA_HEADER {}
-impl Clone for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     type TypeKind = windows_core::CopyType;

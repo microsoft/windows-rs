@@ -5276,31 +5276,15 @@ impl core::fmt::Debug for tomConstants {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BIDIOPTIONS {
     pub cbSize: u32,
     pub wMask: u16,
     pub wEffects: u16,
 }
-impl Copy for BIDIOPTIONS {}
-impl Clone for BIDIOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BIDIOPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BIDIOPTIONS").field("cbSize", &self.cbSize).field("wMask", &self.wMask).field("wEffects", &self.wEffects).finish()
-    }
-}
 impl windows_core::TypeKind for BIDIOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BIDIOPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wMask == other.wMask && self.wEffects == other.wEffects
-    }
-}
-impl Eq for BIDIOPTIONS {}
 impl Default for BIDIOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5308,17 +5292,10 @@ impl Default for BIDIOPTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union CARET_INFO {
     pub hbitmap: super::super::super::Graphics::Gdi::HBITMAP,
     pub caretFlags: CARET_FLAGS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CARET_INFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CARET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CARET_INFO {
@@ -5331,30 +5308,14 @@ impl Default for CARET_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGENOTIFY {
     pub dwChangeType: u32,
     pub pvCookieData: *mut core::ffi::c_void,
 }
-impl Copy for CHANGENOTIFY {}
-impl Clone for CHANGENOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANGENOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANGENOTIFY").field("dwChangeType", &self.dwChangeType).field("pvCookieData", &self.pvCookieData).finish()
-    }
-}
 impl windows_core::TypeKind for CHANGENOTIFY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHANGENOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwChangeType == other.dwChangeType && self.pvCookieData == other.pvCookieData
-    }
-}
-impl Eq for CHANGENOTIFY {}
 impl Default for CHANGENOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5362,6 +5323,7 @@ impl Default for CHANGENOTIFY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CHARFORMAT2A {
     pub Base: CHARFORMATA,
     pub wWeight: u16,
@@ -5377,14 +5339,6 @@ pub struct CHARFORMAT2A {
     pub bUnderlineColor: u8,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHARFORMAT2A {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHARFORMAT2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHARFORMAT2A {
     type TypeKind = windows_core::CopyType;
 }
@@ -5396,17 +5350,10 @@ impl Default for CHARFORMAT2A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHARFORMAT2A_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHARFORMAT2A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHARFORMAT2A_0 {
@@ -5420,6 +5367,7 @@ impl Default for CHARFORMAT2A_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CHARFORMAT2W {
     pub Base: CHARFORMATW,
     pub wWeight: u16,
@@ -5435,14 +5383,6 @@ pub struct CHARFORMAT2W {
     pub bUnderlineColor: u8,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHARFORMAT2W {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHARFORMAT2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHARFORMAT2W {
     type TypeKind = windows_core::CopyType;
 }
@@ -5454,17 +5394,10 @@ impl Default for CHARFORMAT2W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHARFORMAT2W_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHARFORMAT2W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHARFORMAT2W_0 {
@@ -5478,6 +5411,7 @@ impl Default for CHARFORMAT2W_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHARFORMATA {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -5490,31 +5424,9 @@ pub struct CHARFORMATA {
     pub szFaceName: [i8; 32],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHARFORMATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHARFORMATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for CHARFORMATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHARFORMATA").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("dwEffects", &self.dwEffects).field("yHeight", &self.yHeight).field("yOffset", &self.yOffset).field("crTextColor", &self.crTextColor).field("bCharSet", &self.bCharSet).field("bPitchAndFamily", &self.bPitchAndFamily).field("szFaceName", &self.szFaceName).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHARFORMATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for CHARFORMATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMask == other.dwMask && self.dwEffects == other.dwEffects && self.yHeight == other.yHeight && self.yOffset == other.yOffset && self.crTextColor == other.crTextColor && self.bCharSet == other.bCharSet && self.bPitchAndFamily == other.bPitchAndFamily && self.szFaceName == other.szFaceName
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for CHARFORMATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CHARFORMATA {
     fn default() -> Self {
@@ -5523,6 +5435,7 @@ impl Default for CHARFORMATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -5535,31 +5448,9 @@ pub struct CHARFORMATW {
     pub szFaceName: [u16; 32],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHARFORMATW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHARFORMATW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for CHARFORMATW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHARFORMATW").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("dwEffects", &self.dwEffects).field("yHeight", &self.yHeight).field("yOffset", &self.yOffset).field("crTextColor", &self.crTextColor).field("bCharSet", &self.bCharSet).field("bPitchAndFamily", &self.bPitchAndFamily).field("szFaceName", &self.szFaceName).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHARFORMATW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for CHARFORMATW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMask == other.dwMask && self.dwEffects == other.dwEffects && self.yHeight == other.yHeight && self.yOffset == other.yOffset && self.crTextColor == other.crTextColor && self.bCharSet == other.bCharSet && self.bPitchAndFamily == other.bPitchAndFamily && self.szFaceName == other.szFaceName
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for CHARFORMATW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CHARFORMATW {
     fn default() -> Self {
@@ -5567,30 +5458,14 @@ impl Default for CHARFORMATW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHARRANGE {
     pub cpMin: i32,
     pub cpMax: i32,
 }
-impl Copy for CHARRANGE {}
-impl Clone for CHARRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHARRANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHARRANGE").field("cpMin", &self.cpMin).field("cpMax", &self.cpMax).finish()
-    }
-}
 impl windows_core::TypeKind for CHARRANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHARRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cpMin == other.cpMin && self.cpMax == other.cpMax
-    }
-}
-impl Eq for CHARRANGE {}
 impl Default for CHARRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5598,17 +5473,10 @@ impl Default for CHARRANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
     pub cf: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CLIPBOARDFORMAT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CLIPBOARDFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for CLIPBOARDFORMAT {
@@ -5622,17 +5490,10 @@ impl Default for CLIPBOARDFORMAT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
     pub cf: u16,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for CLIPBOARDFORMAT {}
-#[cfg(target_arch = "x86")]
-impl Clone for CLIPBOARDFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for CLIPBOARDFORMAT {
@@ -5645,31 +5506,15 @@ impl Default for CLIPBOARDFORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPCOLOR {
     pub crText: super::super::super::Foundation::COLORREF,
     pub crBackground: super::super::super::Foundation::COLORREF,
     pub dwEffects: u32,
 }
-impl Copy for COMPCOLOR {}
-impl Clone for COMPCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPCOLOR").field("crText", &self.crText).field("crBackground", &self.crBackground).field("dwEffects", &self.dwEffects).finish()
-    }
-}
 impl windows_core::TypeKind for COMPCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.crText == other.crText && self.crBackground == other.crBackground && self.dwEffects == other.dwEffects
-    }
-}
-impl Eq for COMPCOLOR {}
 impl Default for COMPCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5677,18 +5522,11 @@ impl Default for COMPCOLOR {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
     pub pfnCallback: EDITSTREAMCALLBACK,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for EDITSTREAM {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for EDITSTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for EDITSTREAM {
@@ -5702,18 +5540,11 @@ impl Default for EDITSTREAM {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
     pub pfnCallback: EDITSTREAMCALLBACK,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for EDITSTREAM {}
-#[cfg(target_arch = "x86")]
-impl Clone for EDITSTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for EDITSTREAM {
@@ -5727,18 +5558,11 @@ impl Default for EDITSTREAM {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENCORRECTTEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENCORRECTTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENCORRECTTEXT {
@@ -5752,18 +5576,11 @@ impl Default for ENCORRECTTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENCORRECTTEXT {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENCORRECTTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENCORRECTTEXT {
@@ -5777,17 +5594,10 @@ impl Default for ENCORRECTTEXT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
     pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENDCOMPOSITIONNOTIFY {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENDCOMPOSITIONNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
@@ -5801,17 +5611,10 @@ impl Default for ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
     pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENDCOMPOSITIONNOTIFY {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENDCOMPOSITIONNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
@@ -5825,19 +5628,12 @@ impl Default for ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::super::super::Foundation::HANDLE,
     pub cp: i32,
     pub fProtected: super::super::super::Foundation::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENDROPFILES {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENDROPFILES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENDROPFILES {
@@ -5851,19 +5647,12 @@ impl Default for ENDROPFILES {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::super::super::Foundation::HANDLE,
     pub cp: i32,
     pub fProtected: super::super::super::Foundation::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENDROPFILES {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENDROPFILES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENDROPFILES {
@@ -5877,20 +5666,13 @@ impl Default for ENDROPFILES {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENLINK {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENLINK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENLINK {
@@ -5904,20 +5686,13 @@ impl Default for ENLINK {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENLINK {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENLINK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENLINK {
@@ -5931,17 +5706,10 @@ impl Default for ENLINK {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENLOWFIRTF {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENLOWFIRTF {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENLOWFIRTF {
@@ -5955,17 +5723,10 @@ impl Default for ENLOWFIRTF {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENLOWFIRTF {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENLOWFIRTF {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENLOWFIRTF {
@@ -5979,19 +5740,12 @@ impl Default for ENLOWFIRTF {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
     pub iob: i32,
     pub lOper: i32,
     pub hr: windows_core::HRESULT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENOLEOPFAILED {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENOLEOPFAILED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENOLEOPFAILED {
@@ -6005,19 +5759,12 @@ impl Default for ENOLEOPFAILED {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
     pub iob: i32,
     pub lOper: i32,
     pub hr: windows_core::HRESULT,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENOLEOPFAILED {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENOLEOPFAILED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENOLEOPFAILED {
@@ -6031,20 +5778,13 @@ impl Default for ENOLEOPFAILED {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENPROTECTED {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENPROTECTED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENPROTECTED {
@@ -6058,20 +5798,13 @@ impl Default for ENPROTECTED {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENPROTECTED {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENPROTECTED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENPROTECTED {
@@ -6085,18 +5818,11 @@ impl Default for ENPROTECTED {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub cch: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ENSAVECLIPBOARD {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ENSAVECLIPBOARD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ENSAVECLIPBOARD {
@@ -6110,18 +5836,11 @@ impl Default for ENSAVECLIPBOARD {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub cch: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ENSAVECLIPBOARD {}
-#[cfg(target_arch = "x86")]
-impl Clone for ENSAVECLIPBOARD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ENSAVECLIPBOARD {
@@ -6135,17 +5854,10 @@ impl Default for ENSAVECLIPBOARD {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FINDTEXTA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FINDTEXTA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FINDTEXTA {
@@ -6159,17 +5871,10 @@ impl Default for FINDTEXTA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FINDTEXTA {}
-#[cfg(target_arch = "x86")]
-impl Clone for FINDTEXTA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FINDTEXTA {
@@ -6183,18 +5888,11 @@ impl Default for FINDTEXTA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
     pub chrgText: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FINDTEXTEXA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FINDTEXTEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FINDTEXTEXA {
@@ -6208,18 +5906,11 @@ impl Default for FINDTEXTEXA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
     pub chrgText: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FINDTEXTEXA {}
-#[cfg(target_arch = "x86")]
-impl Clone for FINDTEXTEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FINDTEXTEXA {
@@ -6233,18 +5924,11 @@ impl Default for FINDTEXTEXA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
     pub chrgText: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FINDTEXTEXW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FINDTEXTEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FINDTEXTEXW {
@@ -6258,18 +5942,11 @@ impl Default for FINDTEXTEXW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
     pub chrgText: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FINDTEXTEXW {}
-#[cfg(target_arch = "x86")]
-impl Clone for FINDTEXTEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FINDTEXTEXW {
@@ -6283,17 +5960,10 @@ impl Default for FINDTEXTEXW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FINDTEXTW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FINDTEXTW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FINDTEXTW {
@@ -6307,17 +5977,10 @@ impl Default for FINDTEXTW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FINDTEXTW {}
-#[cfg(target_arch = "x86")]
-impl Clone for FINDTEXTW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FINDTEXTW {
@@ -6332,22 +5995,13 @@ impl Default for FINDTEXTW {
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct FORMATRANGE {
     pub hdc: super::super::super::Graphics::Gdi::HDC,
     pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
     pub rc: super::super::super::Foundation::RECT,
     pub rcPage: super::super::super::Foundation::RECT,
     pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FORMATRANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FORMATRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6364,22 +6018,13 @@ impl Default for FORMATRANGE {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct FORMATRANGE {
     pub hdc: super::super::super::Graphics::Gdi::HDC,
     pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
     pub rc: super::super::super::Foundation::RECT,
     pub rcPage: super::super::super::Foundation::RECT,
     pub chrg: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FORMATRANGE {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FORMATRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6395,19 +6040,12 @@ impl Default for FORMATRANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
     pub pt: super::super::super::Foundation::POINT,
     pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for GETCONTEXTMENUEX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for GETCONTEXTMENUEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for GETCONTEXTMENUEX {
@@ -6421,19 +6059,12 @@ impl Default for GETCONTEXTMENUEX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
     pub pt: super::super::super::Foundation::POINT,
     pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for GETCONTEXTMENUEX {}
-#[cfg(target_arch = "x86")]
-impl Clone for GETCONTEXTMENUEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for GETCONTEXTMENUEX {
@@ -6447,20 +6078,13 @@ impl Default for GETCONTEXTMENUEX {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
     pub lpDefaultChar: windows_core::PCSTR,
     pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for GETTEXTEX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for GETTEXTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for GETTEXTEX {
@@ -6474,20 +6098,13 @@ impl Default for GETTEXTEX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
     pub lpDefaultChar: windows_core::PCSTR,
     pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for GETTEXTEX {}
-#[cfg(target_arch = "x86")]
-impl Clone for GETTEXTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for GETTEXTEX {
@@ -6500,45 +6117,24 @@ impl Default for GETTEXTEX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GETTEXTLENGTHEX {
     pub flags: GETTEXTLENGTHEX_FLAGS,
     pub codepage: u32,
 }
-impl Copy for GETTEXTLENGTHEX {}
-impl Clone for GETTEXTLENGTHEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GETTEXTLENGTHEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GETTEXTLENGTHEX").field("flags", &self.flags).field("codepage", &self.codepage).finish()
-    }
-}
 impl windows_core::TypeKind for GETTEXTLENGTHEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GETTEXTLENGTHEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.codepage == other.codepage
-    }
-}
-impl Eq for GETTEXTLENGTHEX {}
 impl Default for GETTEXTLENGTHEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct GROUPTYPINGCHANGE {
     pub nmhdr: super::NMHDR,
     pub fGroupTyping: super::super::super::Foundation::BOOL,
-}
-impl Copy for GROUPTYPINGCHANGE {}
-impl Clone for GROUPTYPINGCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GROUPTYPINGCHANGE {
     type TypeKind = windows_core::CopyType;
@@ -6550,18 +6146,11 @@ impl Default for GROUPTYPINGCHANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: isize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for HYPHENATEINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for HYPHENATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for HYPHENATEINFO {
@@ -6575,18 +6164,11 @@ impl Default for HYPHENATEINFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: isize,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for HYPHENATEINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for HYPHENATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for HYPHENATEINFO {
@@ -6599,61 +6181,29 @@ impl Default for HYPHENATEINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYPHRESULT {
     pub khyph: KHYPH,
     pub ichHyph: i32,
     pub chHyph: u16,
 }
-impl Copy for HYPHRESULT {}
-impl Clone for HYPHRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HYPHRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HYPHRESULT").field("khyph", &self.khyph).field("ichHyph", &self.ichHyph).field("chHyph", &self.chHyph).finish()
-    }
-}
 impl windows_core::TypeKind for HYPHRESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HYPHRESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.khyph == other.khyph && self.ichHyph == other.ichHyph && self.chHyph == other.chHyph
-    }
-}
-impl Eq for HYPHRESULT {}
 impl Default for HYPHRESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECOMPTEXT {
     pub cb: i32,
     pub flags: IMECOMPTEXT_FLAGS,
 }
-impl Copy for IMECOMPTEXT {}
-impl Clone for IMECOMPTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMECOMPTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMECOMPTEXT").field("cb", &self.cb).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for IMECOMPTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMECOMPTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.flags == other.flags
-    }
-}
-impl Eq for IMECOMPTEXT {}
 impl Default for IMECOMPTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6661,19 +6211,12 @@ impl Default for IMECOMPTEXT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MSGFILTER {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MSGFILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for MSGFILTER {
@@ -6687,19 +6230,12 @@ impl Default for MSGFILTER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for MSGFILTER {}
-#[cfg(target_arch = "x86")]
-impl Clone for MSGFILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for MSGFILTER {
@@ -6713,18 +6249,11 @@ impl Default for MSGFILTER {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OBJECTPOSITIONS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OBJECTPOSITIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OBJECTPOSITIONS {
@@ -6738,18 +6267,11 @@ impl Default for OBJECTPOSITIONS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for OBJECTPOSITIONS {}
-#[cfg(target_arch = "x86")]
-impl Clone for OBJECTPOSITIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OBJECTPOSITIONS {
@@ -6762,6 +6284,7 @@ impl Default for OBJECTPOSITIONS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PARAFORMAT {
     pub cbSize: u32,
     pub dwMask: PARAFORMAT_MASK,
@@ -6774,12 +6297,6 @@ pub struct PARAFORMAT {
     pub cTabCount: i16,
     pub rgxTabs: [u32; 32],
 }
-impl Copy for PARAFORMAT {}
-impl Clone for PARAFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PARAFORMAT {
     type TypeKind = windows_core::CopyType;
 }
@@ -6789,15 +6306,10 @@ impl Default for PARAFORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PARAFORMAT_0 {
     pub wReserved: u16,
     pub wEffects: u16,
-}
-impl Copy for PARAFORMAT_0 {}
-impl Clone for PARAFORMAT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PARAFORMAT_0 {
     type TypeKind = windows_core::CopyType;
@@ -6808,6 +6320,7 @@ impl Default for PARAFORMAT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PARAFORMAT2 {
     pub Base: PARAFORMAT,
     pub dySpaceBefore: i32,
@@ -6825,12 +6338,6 @@ pub struct PARAFORMAT2 {
     pub wBorderWidth: u16,
     pub wBorders: PARAFORMAT_BORDERS,
 }
-impl Copy for PARAFORMAT2 {}
-impl Clone for PARAFORMAT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PARAFORMAT2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -6841,17 +6348,10 @@ impl Default for PARAFORMAT2 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PUNCTUATION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PUNCTUATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PUNCTUATION {
@@ -6865,17 +6365,10 @@ impl Default for PUNCTUATION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for PUNCTUATION {}
-#[cfg(target_arch = "x86")]
-impl Clone for PUNCTUATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PUNCTUATION {
@@ -6889,6 +6382,7 @@ impl Default for PUNCTUATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
@@ -6908,23 +6402,9 @@ impl Clone for REOBJECT {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl core::fmt::Debug for REOBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REOBJECT").field("cbStruct", &self.cbStruct).field("cp", &self.cp).field("clsid", &self.clsid).field("poleobj", &self.poleobj).field("pstg", &self.pstg).field("polesite", &self.polesite).field("sizel", &self.sizel).field("dvaspect", &self.dvaspect).field("dwFlags", &self.dwFlags).field("dwUser", &self.dwUser).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl windows_core::TypeKind for REOBJECT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl PartialEq for REOBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.cp == other.cp && self.clsid == other.clsid && self.poleobj == other.poleobj && self.pstg == other.pstg && self.polesite == other.polesite && self.sizel == other.sizel && self.dvaspect == other.dvaspect && self.dwFlags == other.dwFlags && self.dwUser == other.dwUser
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl Eq for REOBJECT {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl Default for REOBJECT {
     fn default() -> Self {
@@ -6934,19 +6414,10 @@ impl Default for REOBJECT {
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct REPASTESPECIAL {
     pub dwAspect: super::super::super::System::Com::DVASPECT,
     pub dwParam: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for REPASTESPECIAL {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for REPASTESPECIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -6963,19 +6434,10 @@ impl Default for REPASTESPECIAL {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct REPASTESPECIAL {
     pub dwAspect: super::super::super::System::Com::DVASPECT,
     pub dwParam: usize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for REPASTESPECIAL {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for REPASTESPECIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
@@ -6991,17 +6453,10 @@ impl Default for REPASTESPECIAL {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
     pub rc: super::super::super::Foundation::RECT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for REQRESIZE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for REQRESIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for REQRESIZE {
@@ -7015,17 +6470,10 @@ impl Default for REQRESIZE {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
     pub rc: super::super::super::Foundation::RECT,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for REQRESIZE {}
-#[cfg(target_arch = "x86")]
-impl Clone for REQRESIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for REQRESIZE {
@@ -7092,18 +6540,11 @@ impl Default for RICHEDIT_IMAGE_PARAMETERS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SELCHANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SELCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for SELCHANGE {
@@ -7117,18 +6558,11 @@ impl Default for SELCHANGE {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for SELCHANGE {}
-#[cfg(target_arch = "x86")]
-impl Clone for SELCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for SELCHANGE {
@@ -7141,36 +6575,21 @@ impl Default for SELCHANGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SETTEXTEX {
     pub flags: u32,
     pub codepage: u32,
 }
-impl Copy for SETTEXTEX {}
-impl Clone for SETTEXTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SETTEXTEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SETTEXTEX").field("flags", &self.flags).field("codepage", &self.codepage).finish()
-    }
-}
 impl windows_core::TypeKind for SETTEXTEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SETTEXTEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.codepage == other.codepage
-    }
-}
-impl Eq for SETTEXTEX {}
 impl Default for SETTEXTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,
     pub _bitfield: u16,
@@ -7186,46 +6605,16 @@ pub struct TABLECELLPARMS {
     pub crBackPat: super::super::super::Foundation::COLORREF,
     pub crForePat: super::super::super::Foundation::COLORREF,
 }
-impl Copy for TABLECELLPARMS {}
-impl Clone for TABLECELLPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TABLECELLPARMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TABLECELLPARMS")
-            .field("dxWidth", &self.dxWidth)
-            .field("_bitfield", &self._bitfield)
-            .field("wShading", &self.wShading)
-            .field("dxBrdrLeft", &self.dxBrdrLeft)
-            .field("dyBrdrTop", &self.dyBrdrTop)
-            .field("dxBrdrRight", &self.dxBrdrRight)
-            .field("dyBrdrBottom", &self.dyBrdrBottom)
-            .field("crBrdrLeft", &self.crBrdrLeft)
-            .field("crBrdrTop", &self.crBrdrTop)
-            .field("crBrdrRight", &self.crBrdrRight)
-            .field("crBrdrBottom", &self.crBrdrBottom)
-            .field("crBackPat", &self.crBackPat)
-            .field("crForePat", &self.crForePat)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TABLECELLPARMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TABLECELLPARMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dxWidth == other.dxWidth && self._bitfield == other._bitfield && self.wShading == other.wShading && self.dxBrdrLeft == other.dxBrdrLeft && self.dyBrdrTop == other.dyBrdrTop && self.dxBrdrRight == other.dxBrdrRight && self.dyBrdrBottom == other.dyBrdrBottom && self.crBrdrLeft == other.crBrdrLeft && self.crBrdrTop == other.crBrdrTop && self.crBrdrRight == other.crBrdrRight && self.crBrdrBottom == other.crBrdrBottom && self.crBackPat == other.crBackPat && self.crForePat == other.crForePat
-    }
-}
-impl Eq for TABLECELLPARMS {}
 impl Default for TABLECELLPARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TABLEROWPARMS {
     pub cbRow: u8,
     pub cbCell: u8,
@@ -7239,26 +6628,9 @@ pub struct TABLEROWPARMS {
     pub bTableLevel: u8,
     pub iCell: u8,
 }
-impl Copy for TABLEROWPARMS {}
-impl Clone for TABLEROWPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TABLEROWPARMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TABLEROWPARMS").field("cbRow", &self.cbRow).field("cbCell", &self.cbCell).field("cCell", &self.cCell).field("cRow", &self.cRow).field("dxCellMargin", &self.dxCellMargin).field("dxIndent", &self.dxIndent).field("dyHeight", &self.dyHeight).field("_bitfield", &self._bitfield).field("cpStartRow", &self.cpStartRow).field("bTableLevel", &self.bTableLevel).field("iCell", &self.iCell).finish()
-    }
-}
 impl windows_core::TypeKind for TABLEROWPARMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TABLEROWPARMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbRow == other.cbRow && self.cbCell == other.cbCell && self.cCell == other.cCell && self.cRow == other.cRow && self.dxCellMargin == other.dxCellMargin && self.dxIndent == other.dxIndent && self.dyHeight == other.dyHeight && self._bitfield == other._bitfield && self.cpStartRow == other.cpStartRow && self.bTableLevel == other.bTableLevel && self.iCell == other.iCell
-    }
-}
-impl Eq for TABLEROWPARMS {}
 impl Default for TABLEROWPARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7266,17 +6638,10 @@ impl Default for TABLEROWPARMS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for TEXTRANGEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for TEXTRANGEA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for TEXTRANGEA {
@@ -7290,17 +6655,10 @@ impl Default for TEXTRANGEA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for TEXTRANGEA {}
-#[cfg(target_arch = "x86")]
-impl Clone for TEXTRANGEA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for TEXTRANGEA {
@@ -7314,17 +6672,10 @@ impl Default for TEXTRANGEA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for TEXTRANGEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for TEXTRANGEW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for TEXTRANGEW {
@@ -7338,17 +6689,10 @@ impl Default for TEXTRANGEW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for TEXTRANGEW {}
-#[cfg(target_arch = "x86")]
-impl Clone for TEXTRANGEW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for TEXTRANGEW {

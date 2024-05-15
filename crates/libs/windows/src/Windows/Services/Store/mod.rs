@@ -2964,6 +2964,7 @@ impl windows_core::RuntimeType for StoreUninstallStorePackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct StorePackageUpdateStatus {
     pub PackageFamilyName: windows_core::HSTRING,
     pub PackageDownloadSizeInBytes: u64,
@@ -2972,35 +2973,12 @@ pub struct StorePackageUpdateStatus {
     pub TotalDownloadProgress: f64,
     pub PackageUpdateState: StorePackageUpdateState,
 }
-impl Clone for StorePackageUpdateStatus {
-    fn clone(&self) -> Self {
-        Self {
-            PackageFamilyName: self.PackageFamilyName.clone(),
-            PackageDownloadSizeInBytes: self.PackageDownloadSizeInBytes,
-            PackageBytesDownloaded: self.PackageBytesDownloaded,
-            PackageDownloadProgress: self.PackageDownloadProgress,
-            TotalDownloadProgress: self.TotalDownloadProgress,
-            PackageUpdateState: self.PackageUpdateState,
-        }
-    }
-}
-impl core::fmt::Debug for StorePackageUpdateStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("StorePackageUpdateStatus").field("PackageFamilyName", &self.PackageFamilyName).field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes).field("PackageBytesDownloaded", &self.PackageBytesDownloaded).field("PackageDownloadProgress", &self.PackageDownloadProgress).field("TotalDownloadProgress", &self.TotalDownloadProgress).field("PackageUpdateState", &self.PackageUpdateState).finish()
-    }
-}
 impl windows_core::TypeKind for StorePackageUpdateStatus {
     type TypeKind = windows_core::CloneType;
 }
 impl windows_core::RuntimeType for StorePackageUpdateStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
 }
-impl PartialEq for StorePackageUpdateStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.PackageFamilyName == other.PackageFamilyName && self.PackageDownloadSizeInBytes == other.PackageDownloadSizeInBytes && self.PackageBytesDownloaded == other.PackageBytesDownloaded && self.PackageDownloadProgress == other.PackageDownloadProgress && self.TotalDownloadProgress == other.TotalDownloadProgress && self.PackageUpdateState == other.PackageUpdateState
-    }
-}
-impl Eq for StorePackageUpdateStatus {}
 impl Default for StorePackageUpdateStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1037,124 +1037,60 @@ impl core::fmt::Debug for SERVICE_TRIGGER_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Copy for ENUM_SERVICE_STATUSA {}
-impl Clone for ENUM_SERVICE_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUM_SERVICE_STATUSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 impl windows_core::TypeKind for ENUM_SERVICE_STATUSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUM_SERVICE_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl Eq for ENUM_SERVICE_STATUSA {}
 impl Default for ENUM_SERVICE_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Copy for ENUM_SERVICE_STATUSW {}
-impl Clone for ENUM_SERVICE_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUM_SERVICE_STATUSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 impl windows_core::TypeKind for ENUM_SERVICE_STATUSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUM_SERVICE_STATUSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl Eq for ENUM_SERVICE_STATUSW {}
 impl Default for ENUM_SERVICE_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
-impl Copy for ENUM_SERVICE_STATUS_PROCESSA {}
-impl Clone for ENUM_SERVICE_STATUS_PROCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUS_PROCESSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
-    }
-}
 impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUM_SERVICE_STATUS_PROCESSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
-    }
-}
-impl Eq for ENUM_SERVICE_STATUS_PROCESSA {}
 impl Default for ENUM_SERVICE_STATUS_PROCESSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
-impl Copy for ENUM_SERVICE_STATUS_PROCESSW {}
-impl Clone for ENUM_SERVICE_STATUS_PROCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUS_PROCESSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
-    }
-}
 impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUM_SERVICE_STATUS_PROCESSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
-    }
-}
-impl Eq for ENUM_SERVICE_STATUS_PROCESSW {}
 impl Default for ENUM_SERVICE_STATUS_PROCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1172,6 +1108,7 @@ impl windows_core::TypeKind for PSC_NOTIFICATION_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGA {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -1183,32 +1120,16 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpServiceStartName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
 }
-impl Copy for QUERY_SERVICE_CONFIGA {}
-impl Clone for QUERY_SERVICE_CONFIGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QUERY_SERVICE_CONFIGA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_CONFIGA").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
-    }
-}
 impl windows_core::TypeKind for QUERY_SERVICE_CONFIGA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QUERY_SERVICE_CONFIGA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
-    }
-}
-impl Eq for QUERY_SERVICE_CONFIGA {}
 impl Default for QUERY_SERVICE_CONFIGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGW {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -1220,194 +1141,92 @@ pub struct QUERY_SERVICE_CONFIGW {
     pub lpServiceStartName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
 }
-impl Copy for QUERY_SERVICE_CONFIGW {}
-impl Clone for QUERY_SERVICE_CONFIGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QUERY_SERVICE_CONFIGW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_CONFIGW").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
-    }
-}
 impl windows_core::TypeKind for QUERY_SERVICE_CONFIGW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QUERY_SERVICE_CONFIGW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
-    }
-}
-impl Eq for QUERY_SERVICE_CONFIGW {}
 impl Default for QUERY_SERVICE_CONFIGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PSTR,
     pub dwLockDuration: u32,
 }
-impl Copy for QUERY_SERVICE_LOCK_STATUSA {}
-impl Clone for QUERY_SERVICE_LOCK_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_LOCK_STATUSA").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
-    }
-}
 impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QUERY_SERVICE_LOCK_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
-    }
-}
-impl Eq for QUERY_SERVICE_LOCK_STATUSA {}
 impl Default for QUERY_SERVICE_LOCK_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PWSTR,
     pub dwLockDuration: u32,
 }
-impl Copy for QUERY_SERVICE_LOCK_STATUSW {}
-impl Clone for QUERY_SERVICE_LOCK_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_LOCK_STATUSW").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
-    }
-}
 impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QUERY_SERVICE_LOCK_STATUSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
-    }
-}
-impl Eq for QUERY_SERVICE_LOCK_STATUSW {}
 impl Default for QUERY_SERVICE_LOCK_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SC_ACTION {
     pub Type: SC_ACTION_TYPE,
     pub Delay: u32,
 }
-impl Copy for SC_ACTION {}
-impl Clone for SC_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SC_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SC_ACTION").field("Type", &self.Type).field("Delay", &self.Delay).finish()
-    }
-}
 impl windows_core::TypeKind for SC_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SC_ACTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Delay == other.Delay
-    }
-}
-impl Eq for SC_ACTION {}
 impl Default for SC_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub dwReason: u32,
     pub pszComment: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
-impl Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSA").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
 impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub dwReason: u32,
     pub pszComment: windows_core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
-impl Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSW").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
 impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     pub u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0,
-}
-impl Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
-impl Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     type TypeKind = windows_core::CopyType;
@@ -1418,15 +1237,10 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     pub CustomStateId: SERVICE_TRIGGER_CUSTOM_STATE_ID,
     pub s: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0,
-}
-impl Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
-impl Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     type TypeKind = windows_core::CopyType;
@@ -1437,123 +1251,60 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     pub DataOffset: u32,
     pub Data: [u8; 1],
 }
-impl Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
-impl Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0").field("DataOffset", &self.DataOffset).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataOffset == other.DataOffset && self.Data == other.Data
-    }
-}
-impl Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
 impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: super::super::Foundation::BOOL,
-}
-impl Copy for SERVICE_DELAYED_AUTO_START_INFO {}
-impl Clone for SERVICE_DELAYED_AUTO_START_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_DELAYED_AUTO_START_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_DELAYED_AUTO_START_INFO").field("fDelayedAutostart", &self.fDelayedAutostart).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_DELAYED_AUTO_START_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_DELAYED_AUTO_START_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDelayedAutostart == other.fDelayedAutostart
-    }
-}
-impl Eq for SERVICE_DELAYED_AUTO_START_INFO {}
 impl Default for SERVICE_DELAYED_AUTO_START_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: windows_core::PSTR,
-}
-impl Copy for SERVICE_DESCRIPTIONA {}
-impl Clone for SERVICE_DESCRIPTIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_DESCRIPTIONA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_DESCRIPTIONA").field("lpDescription", &self.lpDescription).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_DESCRIPTIONA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_DESCRIPTIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDescription == other.lpDescription
-    }
-}
-impl Eq for SERVICE_DESCRIPTIONA {}
 impl Default for SERVICE_DESCRIPTIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: windows_core::PWSTR,
-}
-impl Copy for SERVICE_DESCRIPTIONW {}
-impl Clone for SERVICE_DESCRIPTIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_DESCRIPTIONW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_DESCRIPTIONW").field("lpDescription", &self.lpDescription).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_DESCRIPTIONW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_DESCRIPTIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDescription == other.lpDescription
-    }
-}
-impl Eq for SERVICE_DESCRIPTIONW {}
 impl Default for SERVICE_DESCRIPTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSA {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_core::PSTR,
@@ -1561,32 +1312,16 @@ pub struct SERVICE_FAILURE_ACTIONSA {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
-impl Copy for SERVICE_FAILURE_ACTIONSA {}
-impl Clone for SERVICE_FAILURE_ACTIONSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_FAILURE_ACTIONSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_FAILURE_ACTIONSA").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_FAILURE_ACTIONSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
-    }
-}
-impl Eq for SERVICE_FAILURE_ACTIONSA {}
 impl Default for SERVICE_FAILURE_ACTIONSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSW {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_core::PWSTR,
@@ -1594,107 +1329,48 @@ pub struct SERVICE_FAILURE_ACTIONSW {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
-impl Copy for SERVICE_FAILURE_ACTIONSW {}
-impl Clone for SERVICE_FAILURE_ACTIONSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_FAILURE_ACTIONSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_FAILURE_ACTIONSW").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_FAILURE_ACTIONSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
-    }
-}
-impl Eq for SERVICE_FAILURE_ACTIONSW {}
 impl Default for SERVICE_FAILURE_ACTIONSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: super::super::Foundation::BOOL,
-}
-impl Copy for SERVICE_FAILURE_ACTIONS_FLAG {}
-impl Clone for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_FAILURE_ACTIONS_FLAG").field("fFailureActionsOnNonCrashFailures", &self.fFailureActionsOnNonCrashFailures).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONS_FLAG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.fFailureActionsOnNonCrashFailures == other.fFailureActionsOnNonCrashFailures
-    }
-}
-impl Eq for SERVICE_FAILURE_ACTIONS_FLAG {}
 impl Default for SERVICE_FAILURE_ACTIONS_FLAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO {
     pub dwLaunchProtected: u32,
-}
-impl Copy for SERVICE_LAUNCH_PROTECTED_INFO {}
-impl Clone for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_LAUNCH_PROTECTED_INFO").field("dwLaunchProtected", &self.dwLaunchProtected).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_LAUNCH_PROTECTED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLaunchProtected == other.dwLaunchProtected
-    }
-}
-impl Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
 impl Default for SERVICE_LAUNCH_PROTECTED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
-}
-impl Copy for SERVICE_NOTIFY_1 {}
-impl Clone for SERVICE_NOTIFY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_NOTIFY_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_NOTIFY_1 {
     type TypeKind = windows_core::CopyType;
@@ -1705,6 +1381,7 @@ impl Default for SERVICE_NOTIFY_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1713,17 +1390,6 @@ pub struct SERVICE_NOTIFY_2A {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_core::PSTR,
-}
-impl Copy for SERVICE_NOTIFY_2A {}
-impl Clone for SERVICE_NOTIFY_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_NOTIFY_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_NOTIFY_2A {
     type TypeKind = windows_core::CopyType;
@@ -1734,6 +1400,7 @@ impl Default for SERVICE_NOTIFY_2A {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1742,17 +1409,6 @@ pub struct SERVICE_NOTIFY_2W {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_core::PWSTR,
-}
-impl Copy for SERVICE_NOTIFY_2W {}
-impl Clone for SERVICE_NOTIFY_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_NOTIFY_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_NOTIFY_2W {
     type TypeKind = windows_core::CopyType;
@@ -1763,181 +1419,86 @@ impl Default for SERVICE_NOTIFY_2W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
     pub fDelete: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SERVICE_PREFERRED_NODE_INFO {}
-impl Clone for SERVICE_PREFERRED_NODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_PREFERRED_NODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_PREFERRED_NODE_INFO").field("usPreferredNode", &self.usPreferredNode).field("fDelete", &self.fDelete).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_PREFERRED_NODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_PREFERRED_NODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.usPreferredNode == other.usPreferredNode && self.fDelete == other.fDelete
-    }
-}
-impl Eq for SERVICE_PREFERRED_NODE_INFO {}
 impl Default for SERVICE_PREFERRED_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
     pub dwPreshutdownTimeout: u32,
-}
-impl Copy for SERVICE_PRESHUTDOWN_INFO {}
-impl Clone for SERVICE_PRESHUTDOWN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_PRESHUTDOWN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_PRESHUTDOWN_INFO").field("dwPreshutdownTimeout", &self.dwPreshutdownTimeout).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_PRESHUTDOWN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_PRESHUTDOWN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPreshutdownTimeout == other.dwPreshutdownTimeout
-    }
-}
-impl Eq for SERVICE_PRESHUTDOWN_INFO {}
 impl Default for SERVICE_PRESHUTDOWN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: windows_core::PSTR,
-}
-impl Copy for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
-impl Clone for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOA").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
-    }
-}
-impl Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
 impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: windows_core::PWSTR,
-}
-impl Copy for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
-impl Clone for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOW").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
-    }
-}
-impl Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
 impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_SID_INFO {
     pub dwServiceSidType: u32,
-}
-impl Copy for SERVICE_SID_INFO {}
-impl Clone for SERVICE_SID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_SID_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_SID_INFO").field("dwServiceSidType", &self.dwServiceSidType).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_SID_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_SID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceSidType == other.dwServiceSidType
-    }
-}
-impl Eq for SERVICE_SID_INFO {}
 impl Default for SERVICE_SID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_START_REASON {
     pub dwReason: u32,
-}
-impl Copy for SERVICE_START_REASON {}
-impl Clone for SERVICE_START_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_START_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_START_REASON").field("dwReason", &self.dwReason).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_START_REASON {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_START_REASON {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason
-    }
-}
-impl Eq for SERVICE_START_REASON {}
 impl Default for SERVICE_START_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -1947,26 +1508,9 @@ pub struct SERVICE_STATUS {
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
 }
-impl Copy for SERVICE_STATUS {}
-impl Clone for SERVICE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_STATUS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint
-    }
-}
-impl Eq for SERVICE_STATUS {}
 impl Default for SERVICE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1989,6 +1533,7 @@ impl windows_core::TypeKind for SERVICE_STATUS_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -2000,46 +1545,19 @@ pub struct SERVICE_STATUS_PROCESS {
     pub dwProcessId: u32,
     pub dwServiceFlags: SERVICE_RUNS_IN_PROCESS,
 }
-impl Copy for SERVICE_STATUS_PROCESS {}
-impl Clone for SERVICE_STATUS_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_STATUS_PROCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_STATUS_PROCESS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).field("dwProcessId", &self.dwProcessId).field("dwServiceFlags", &self.dwServiceFlags).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_STATUS_PROCESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_STATUS_PROCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint && self.dwProcessId == other.dwProcessId && self.dwServiceFlags == other.dwServiceFlags
-    }
-}
-impl Eq for SERVICE_STATUS_PROCESS {}
 impl Default for SERVICE_STATUS_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
-}
-impl Copy for SERVICE_TABLE_ENTRYA {}
-impl Clone for SERVICE_TABLE_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TABLE_ENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_TABLE_ENTRYA {
     type TypeKind = windows_core::CopyType;
@@ -2050,20 +1568,10 @@ impl Default for SERVICE_TABLE_ENTRYA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
-}
-impl Copy for SERVICE_TABLE_ENTRYW {}
-impl Clone for SERVICE_TABLE_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TABLE_ENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_TABLE_ENTRYW {
     type TypeKind = windows_core::CopyType;
@@ -2074,36 +1582,21 @@ impl Default for SERVICE_TABLE_ENTRYW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TIMECHANGE_INFO {
     pub liNewTime: i64,
     pub liOldTime: i64,
 }
-impl Copy for SERVICE_TIMECHANGE_INFO {}
-impl Clone for SERVICE_TIMECHANGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TIMECHANGE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TIMECHANGE_INFO").field("liNewTime", &self.liNewTime).field("liOldTime", &self.liOldTime).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_TIMECHANGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_TIMECHANGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.liNewTime == other.liNewTime && self.liOldTime == other.liOldTime
-    }
-}
-impl Eq for SERVICE_TIMECHANGE_INFO {}
 impl Default for SERVICE_TIMECHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: SERVICE_TRIGGER_TYPE,
     pub dwAction: SERVICE_TRIGGER_ACTION,
@@ -2111,117 +1604,52 @@ pub struct SERVICE_TRIGGER {
     pub cDataItems: u32,
     pub pDataItems: *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
 }
-impl Copy for SERVICE_TRIGGER {}
-impl Clone for SERVICE_TRIGGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TRIGGER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER").field("dwTriggerType", &self.dwTriggerType).field("dwAction", &self.dwAction).field("pTriggerSubtype", &self.pTriggerSubtype).field("cDataItems", &self.cDataItems).field("pDataItems", &self.pDataItems).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_TRIGGER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_TRIGGER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTriggerType == other.dwTriggerType && self.dwAction == other.dwAction && self.pTriggerSubtype == other.pTriggerSubtype && self.cDataItems == other.cDataItems && self.pDataItems == other.pDataItems
-    }
-}
-impl Eq for SERVICE_TRIGGER {}
 impl Default for SERVICE_TRIGGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
     pub Data: [u32; 2],
-}
-impl Copy for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
-impl Clone for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER_CUSTOM_STATE_ID").field("Data", &self.Data).finish()
-    }
 }
 impl windows_core::TypeKind for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-    }
-}
-impl Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
 impl Default for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: *mut SERVICE_TRIGGER,
     pub pReserved: *mut u8,
 }
-impl Copy for SERVICE_TRIGGER_INFO {}
-impl Clone for SERVICE_TRIGGER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TRIGGER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER_INFO").field("cTriggers", &self.cTriggers).field("pTriggers", &self.pTriggers).field("pReserved", &self.pReserved).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_TRIGGER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_TRIGGER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cTriggers == other.cTriggers && self.pTriggers == other.pTriggers && self.pReserved == other.pReserved
-    }
-}
-impl Eq for SERVICE_TRIGGER_INFO {}
 impl Default for SERVICE_TRIGGER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE,
     pub cbData: u32,
     pub pData: *mut u8,
 }
-impl Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
-impl Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM").field("dwDataType", &self.dwDataType).field("cbData", &self.cbData).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDataType == other.dwDataType && self.cbData == other.cbData && self.pData == other.pData
-    }
-}
-impl Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
 impl Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

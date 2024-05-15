@@ -897,15 +897,10 @@ impl core::fmt::Debug for STD_HANDLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHAR_INFO {
     pub Char: CHAR_INFO_0,
     pub Attributes: u16,
-}
-impl Copy for CHAR_INFO {}
-impl Clone for CHAR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHAR_INFO {
     type TypeKind = windows_core::CopyType;
@@ -916,15 +911,10 @@ impl Default for CHAR_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
-}
-impl Copy for CHAR_INFO_0 {}
-impl Clone for CHAR_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHAR_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -935,189 +925,94 @@ impl Default for CHAR_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLEENDTASK {
     pub ProcessId: super::super::Foundation::HANDLE,
     pub hwnd: super::super::Foundation::HWND,
     pub ConsoleEventCode: u32,
     pub ConsoleFlags: u32,
 }
-impl Copy for CONSOLEENDTASK {}
-impl Clone for CONSOLEENDTASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLEENDTASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLEENDTASK").field("ProcessId", &self.ProcessId).field("hwnd", &self.hwnd).field("ConsoleEventCode", &self.ConsoleEventCode).field("ConsoleFlags", &self.ConsoleFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLEENDTASK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLEENDTASK {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessId == other.ProcessId && self.hwnd == other.hwnd && self.ConsoleEventCode == other.ConsoleEventCode && self.ConsoleFlags == other.ConsoleFlags
-    }
-}
-impl Eq for CONSOLEENDTASK {}
 impl Default for CONSOLEENDTASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLESETFOREGROUND {
     pub hProcess: super::super::Foundation::HANDLE,
     pub bForeground: super::super::Foundation::BOOL,
 }
-impl Copy for CONSOLESETFOREGROUND {}
-impl Clone for CONSOLESETFOREGROUND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLESETFOREGROUND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLESETFOREGROUND").field("hProcess", &self.hProcess).field("bForeground", &self.bForeground).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLESETFOREGROUND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLESETFOREGROUND {
-    fn eq(&self, other: &Self) -> bool {
-        self.hProcess == other.hProcess && self.bForeground == other.bForeground
-    }
-}
-impl Eq for CONSOLESETFOREGROUND {}
 impl Default for CONSOLESETFOREGROUND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLEWINDOWOWNER {
     pub hwnd: super::super::Foundation::HWND,
     pub ProcessId: u32,
     pub ThreadId: u32,
 }
-impl Copy for CONSOLEWINDOWOWNER {}
-impl Clone for CONSOLEWINDOWOWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLEWINDOWOWNER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLEWINDOWOWNER").field("hwnd", &self.hwnd).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLEWINDOWOWNER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLEWINDOWOWNER {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId
-    }
-}
-impl Eq for CONSOLEWINDOWOWNER {}
 impl Default for CONSOLEWINDOWOWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for CONSOLE_CARET_INFO {}
-impl Clone for CONSOLE_CARET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_CARET_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_CARET_INFO").field("hwnd", &self.hwnd).field("rc", &self.rc).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_CARET_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_CARET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.rc == other.rc
-    }
-}
-impl Eq for CONSOLE_CARET_INFO {}
 impl Default for CONSOLE_CARET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: super::super::Foundation::BOOL,
 }
-impl Copy for CONSOLE_CURSOR_INFO {}
-impl Clone for CONSOLE_CURSOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_CURSOR_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_CURSOR_INFO").field("dwSize", &self.dwSize).field("bVisible", &self.bVisible).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_CURSOR_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_CURSOR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.bVisible == other.bVisible
-    }
-}
-impl Eq for CONSOLE_CURSOR_INFO {}
 impl Default for CONSOLE_CURSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
 }
-impl Copy for CONSOLE_FONT_INFO {}
-impl Clone for CONSOLE_FONT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_FONT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_FONT_INFO").field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_FONT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_FONT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nFont == other.nFont && self.dwFontSize == other.dwFontSize
-    }
-}
-impl Eq for CONSOLE_FONT_INFO {}
 impl Default for CONSOLE_FONT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_FONT_INFOEX {
     pub cbSize: u32,
     pub nFont: u32,
@@ -1126,126 +1021,62 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
-impl Copy for CONSOLE_FONT_INFOEX {}
-impl Clone for CONSOLE_FONT_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_FONT_INFOEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_FONT_INFOEX").field("cbSize", &self.cbSize).field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).field("FontFamily", &self.FontFamily).field("FontWeight", &self.FontWeight).field("FaceName", &self.FaceName).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_FONT_INFOEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_FONT_INFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.nFont == other.nFont && self.dwFontSize == other.dwFontSize && self.FontFamily == other.FontFamily && self.FontWeight == other.FontWeight && self.FaceName == other.FaceName
-    }
-}
-impl Eq for CONSOLE_FONT_INFOEX {}
 impl Default for CONSOLE_FONT_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_HISTORY_INFO {
     pub cbSize: u32,
     pub HistoryBufferSize: u32,
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
-impl Copy for CONSOLE_HISTORY_INFO {}
-impl Clone for CONSOLE_HISTORY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_HISTORY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_HISTORY_INFO").field("cbSize", &self.cbSize).field("HistoryBufferSize", &self.HistoryBufferSize).field("NumberOfHistoryBuffers", &self.NumberOfHistoryBuffers).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_HISTORY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_HISTORY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.HistoryBufferSize == other.HistoryBufferSize && self.NumberOfHistoryBuffers == other.NumberOfHistoryBuffers && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CONSOLE_HISTORY_INFO {}
 impl Default for CONSOLE_HISTORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
-impl Copy for CONSOLE_PROCESS_INFO {}
-impl Clone for CONSOLE_PROCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_PROCESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_PROCESS_INFO").field("dwProcessID", &self.dwProcessID).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_PROCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_PROCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProcessID == other.dwProcessID && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CONSOLE_PROCESS_INFO {}
 impl Default for CONSOLE_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
-impl Copy for CONSOLE_READCONSOLE_CONTROL {}
-impl Clone for CONSOLE_READCONSOLE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_READCONSOLE_CONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_READCONSOLE_CONTROL").field("nLength", &self.nLength).field("nInitialChars", &self.nInitialChars).field("dwCtrlWakeupMask", &self.dwCtrlWakeupMask).field("dwControlKeyState", &self.dwControlKeyState).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_READCONSOLE_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_READCONSOLE_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.nLength == other.nLength && self.nInitialChars == other.nInitialChars && self.dwCtrlWakeupMask == other.dwCtrlWakeupMask && self.dwControlKeyState == other.dwControlKeyState
-    }
-}
-impl Eq for CONSOLE_READCONSOLE_CONTROL {}
 impl Default for CONSOLE_READCONSOLE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
@@ -1253,32 +1084,16 @@ pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
 }
-impl Copy for CONSOLE_SCREEN_BUFFER_INFO {}
-impl Clone for CONSOLE_SCREEN_BUFFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_SCREEN_BUFFER_INFO").field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_SCREEN_BUFFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCursorPosition == other.dwCursorPosition && self.wAttributes == other.wAttributes && self.srWindow == other.srWindow && self.dwMaximumWindowSize == other.dwMaximumWindowSize
-    }
-}
-impl Eq for CONSOLE_SCREEN_BUFFER_INFO {}
 impl Default for CONSOLE_SCREEN_BUFFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub cbSize: u32,
     pub dwSize: COORD,
@@ -1290,116 +1105,51 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub bFullscreenSupported: super::super::Foundation::BOOL,
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
-impl Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
-impl Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX").field("cbSize", &self.cbSize).field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).field("wPopupAttributes", &self.wPopupAttributes).field("bFullscreenSupported", &self.bFullscreenSupported).field("ColorTable", &self.ColorTable).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFOEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwSize == other.dwSize && self.dwCursorPosition == other.dwCursorPosition && self.wAttributes == other.wAttributes && self.srWindow == other.srWindow && self.dwMaximumWindowSize == other.dwMaximumWindowSize && self.wPopupAttributes == other.wPopupAttributes && self.bFullscreenSupported == other.bFullscreenSupported && self.ColorTable == other.ColorTable
-    }
-}
-impl Eq for CONSOLE_SCREEN_BUFFER_INFOEX {}
 impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
 }
-impl Copy for CONSOLE_SELECTION_INFO {}
-impl Clone for CONSOLE_SELECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONSOLE_SELECTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONSOLE_SELECTION_INFO").field("dwFlags", &self.dwFlags).field("dwSelectionAnchor", &self.dwSelectionAnchor).field("srSelection", &self.srSelection).finish()
-    }
-}
 impl windows_core::TypeKind for CONSOLE_SELECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONSOLE_SELECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwSelectionAnchor == other.dwSelectionAnchor && self.srSelection == other.srSelection
-    }
-}
-impl Eq for CONSOLE_SELECTION_INFO {}
 impl Default for CONSOLE_SELECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
 }
-impl Copy for COORD {}
-impl Clone for COORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COORD").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
 impl windows_core::TypeKind for COORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl Eq for COORD {}
 impl Default for COORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: super::super::Foundation::BOOL,
-}
-impl Copy for FOCUS_EVENT_RECORD {}
-impl Clone for FOCUS_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FOCUS_EVENT_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FOCUS_EVENT_RECORD").field("bSetFocus", &self.bSetFocus).finish()
-    }
 }
 impl windows_core::TypeKind for FOCUS_EVENT_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FOCUS_EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.bSetFocus == other.bSetFocus
-    }
-}
-impl Eq for FOCUS_EVENT_RECORD {}
 impl Default for FOCUS_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1429,15 +1179,10 @@ impl windows_core::TypeKind for HPCON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_RECORD {
     pub EventType: u16,
     pub Event: INPUT_RECORD_0,
-}
-impl Copy for INPUT_RECORD {}
-impl Clone for INPUT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INPUT_RECORD {
     type TypeKind = windows_core::CopyType;
@@ -1448,18 +1193,13 @@ impl Default for INPUT_RECORD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INPUT_RECORD_0 {
     pub KeyEvent: KEY_EVENT_RECORD,
     pub MouseEvent: MOUSE_EVENT_RECORD,
     pub WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD,
     pub MenuEvent: MENU_EVENT_RECORD,
     pub FocusEvent: FOCUS_EVENT_RECORD,
-}
-impl Copy for INPUT_RECORD_0 {}
-impl Clone for INPUT_RECORD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INPUT_RECORD_0 {
     type TypeKind = windows_core::CopyType;
@@ -1470,6 +1210,7 @@ impl Default for INPUT_RECORD_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_EVENT_RECORD {
     pub bKeyDown: super::super::Foundation::BOOL,
     pub wRepeatCount: u16,
@@ -1477,12 +1218,6 @@ pub struct KEY_EVENT_RECORD {
     pub wVirtualScanCode: u16,
     pub uChar: KEY_EVENT_RECORD_0,
     pub dwControlKeyState: u32,
-}
-impl Copy for KEY_EVENT_RECORD {}
-impl Clone for KEY_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for KEY_EVENT_RECORD {
     type TypeKind = windows_core::CopyType;
@@ -1493,15 +1228,10 @@ impl Default for KEY_EVENT_RECORD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
-}
-impl Copy for KEY_EVENT_RECORD_0 {}
-impl Clone for KEY_EVENT_RECORD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for KEY_EVENT_RECORD_0 {
     type TypeKind = windows_core::CopyType;
@@ -1512,122 +1242,58 @@ impl Default for KEY_EVENT_RECORD_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
-}
-impl Copy for MENU_EVENT_RECORD {}
-impl Clone for MENU_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MENU_EVENT_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MENU_EVENT_RECORD").field("dwCommandId", &self.dwCommandId).finish()
-    }
 }
 impl windows_core::TypeKind for MENU_EVENT_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MENU_EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCommandId == other.dwCommandId
-    }
-}
-impl Eq for MENU_EVENT_RECORD {}
 impl Default for MENU_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOUSE_EVENT_RECORD {
     pub dwMousePosition: COORD,
     pub dwButtonState: u32,
     pub dwControlKeyState: u32,
     pub dwEventFlags: u32,
 }
-impl Copy for MOUSE_EVENT_RECORD {}
-impl Clone for MOUSE_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MOUSE_EVENT_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MOUSE_EVENT_RECORD").field("dwMousePosition", &self.dwMousePosition).field("dwButtonState", &self.dwButtonState).field("dwControlKeyState", &self.dwControlKeyState).field("dwEventFlags", &self.dwEventFlags).finish()
-    }
-}
 impl windows_core::TypeKind for MOUSE_EVENT_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MOUSE_EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMousePosition == other.dwMousePosition && self.dwButtonState == other.dwButtonState && self.dwControlKeyState == other.dwControlKeyState && self.dwEventFlags == other.dwEventFlags
-    }
-}
-impl Eq for MOUSE_EVENT_RECORD {}
 impl Default for MOUSE_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
 }
-impl Copy for SMALL_RECT {}
-impl Clone for SMALL_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SMALL_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SMALL_RECT").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
-    }
-}
 impl windows_core::TypeKind for SMALL_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SMALL_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Left == other.Left && self.Top == other.Top && self.Right == other.Right && self.Bottom == other.Bottom
-    }
-}
-impl Eq for SMALL_RECT {}
 impl Default for SMALL_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
-}
-impl Copy for WINDOW_BUFFER_SIZE_RECORD {}
-impl Clone for WINDOW_BUFFER_SIZE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINDOW_BUFFER_SIZE_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINDOW_BUFFER_SIZE_RECORD").field("dwSize", &self.dwSize).finish()
-    }
 }
 impl windows_core::TypeKind for WINDOW_BUFFER_SIZE_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINDOW_BUFFER_SIZE_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-    }
-}
-impl Eq for WINDOW_BUFFER_SIZE_RECORD {}
 impl Default for WINDOW_BUFFER_SIZE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

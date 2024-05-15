@@ -2736,35 +2736,20 @@ impl core::fmt::Debug for ACT_AUTHORIZATION_STATE_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE {
     pub ulState: u32,
-}
-impl Copy for ACT_AUTHORIZATION_STATE {}
-impl Clone for ACT_AUTHORIZATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACT_AUTHORIZATION_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACT_AUTHORIZATION_STATE").field("ulState", &self.ulState).finish()
-    }
 }
 impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACT_AUTHORIZATION_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulState == other.ulState
-    }
-}
-impl Eq for ACT_AUTHORIZATION_STATE {}
 impl Default for ACT_AUTHORIZATION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub CurrentAdminFailures: u8,
     pub CurrentUserFailures: u8,
@@ -2793,78 +2778,9 @@ pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub MaxSiloNameSize: u8,
     pub MaxChallengeSize: u16,
 }
-impl Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
-impl Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION")
-            .field("CurrentAdminFailures", &self.CurrentAdminFailures)
-            .field("CurrentUserFailures", &self.CurrentUserFailures)
-            .field("TotalUserAuthenticationCount", &self.TotalUserAuthenticationCount)
-            .field("TotalAdminAuthenticationCount", &self.TotalAdminAuthenticationCount)
-            .field("FipsCompliant", &self.FipsCompliant)
-            .field("SecurityIDAvailable", &self.SecurityIDAvailable)
-            .field("InitializeInProgress", &self.InitializeInProgress)
-            .field("ITMSArmed", &self.ITMSArmed)
-            .field("ITMSArmable", &self.ITMSArmable)
-            .field("UserCreated", &self.UserCreated)
-            .field("ResetOnPORDefault", &self.ResetOnPORDefault)
-            .field("ResetOnPORCurrent", &self.ResetOnPORCurrent)
-            .field("MaxAdminFailures", &self.MaxAdminFailures)
-            .field("MaxUserFailures", &self.MaxUserFailures)
-            .field("TimeToCompleteInitialization", &self.TimeToCompleteInitialization)
-            .field("TimeRemainingToCompleteInitialization", &self.TimeRemainingToCompleteInitialization)
-            .field("MinTimeToAuthenticate", &self.MinTimeToAuthenticate)
-            .field("MaxAdminPasswordSize", &self.MaxAdminPasswordSize)
-            .field("MinAdminPasswordSize", &self.MinAdminPasswordSize)
-            .field("MaxAdminHintSize", &self.MaxAdminHintSize)
-            .field("MaxUserPasswordSize", &self.MaxUserPasswordSize)
-            .field("MinUserPasswordSize", &self.MinUserPasswordSize)
-            .field("MaxUserHintSize", &self.MaxUserHintSize)
-            .field("MaxUserNameSize", &self.MaxUserNameSize)
-            .field("MaxSiloNameSize", &self.MaxSiloNameSize)
-            .field("MaxChallengeSize", &self.MaxChallengeSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentAdminFailures == other.CurrentAdminFailures
-            && self.CurrentUserFailures == other.CurrentUserFailures
-            && self.TotalUserAuthenticationCount == other.TotalUserAuthenticationCount
-            && self.TotalAdminAuthenticationCount == other.TotalAdminAuthenticationCount
-            && self.FipsCompliant == other.FipsCompliant
-            && self.SecurityIDAvailable == other.SecurityIDAvailable
-            && self.InitializeInProgress == other.InitializeInProgress
-            && self.ITMSArmed == other.ITMSArmed
-            && self.ITMSArmable == other.ITMSArmable
-            && self.UserCreated == other.UserCreated
-            && self.ResetOnPORDefault == other.ResetOnPORDefault
-            && self.ResetOnPORCurrent == other.ResetOnPORCurrent
-            && self.MaxAdminFailures == other.MaxAdminFailures
-            && self.MaxUserFailures == other.MaxUserFailures
-            && self.TimeToCompleteInitialization == other.TimeToCompleteInitialization
-            && self.TimeRemainingToCompleteInitialization == other.TimeRemainingToCompleteInitialization
-            && self.MinTimeToAuthenticate == other.MinTimeToAuthenticate
-            && self.MaxAdminPasswordSize == other.MaxAdminPasswordSize
-            && self.MinAdminPasswordSize == other.MinAdminPasswordSize
-            && self.MaxAdminHintSize == other.MaxAdminHintSize
-            && self.MaxUserPasswordSize == other.MaxUserPasswordSize
-            && self.MinUserPasswordSize == other.MinUserPasswordSize
-            && self.MaxUserHintSize == other.MaxUserHintSize
-            && self.MaxUserNameSize == other.MaxUserNameSize
-            && self.MaxSiloNameSize == other.MaxSiloNameSize
-            && self.MaxChallengeSize == other.MaxChallengeSize
-    }
-}
-impl Eq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
 impl Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2875,6 +2791,7 @@ pub const EnhancedStorageSilo: windows_core::GUID = windows_core::GUID::from_u12
 pub const EnhancedStorageSiloAction: windows_core::GUID = windows_core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
 pub const EnumEnhancedStorageACT: windows_core::GUID = windows_core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SILO_INFO {
     pub ulSTID: u32,
     pub SpecificationMajor: u8,
@@ -2884,26 +2801,9 @@ pub struct SILO_INFO {
     pub r#type: u8,
     pub capabilities: u8,
 }
-impl Copy for SILO_INFO {}
-impl Clone for SILO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SILO_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SILO_INFO").field("ulSTID", &self.ulSTID).field("SpecificationMajor", &self.SpecificationMajor).field("SpecificationMinor", &self.SpecificationMinor).field("ImplementationMajor", &self.ImplementationMajor).field("ImplementationMinor", &self.ImplementationMinor).field("type", &self.r#type).field("capabilities", &self.capabilities).finish()
-    }
-}
 impl windows_core::TypeKind for SILO_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SILO_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSTID == other.ulSTID && self.SpecificationMajor == other.SpecificationMajor && self.SpecificationMinor == other.SpecificationMinor && self.ImplementationMajor == other.ImplementationMajor && self.ImplementationMinor == other.ImplementationMinor && self.r#type == other.r#type && self.capabilities == other.capabilities
-    }
-}
-impl Eq for SILO_INFO {}
 impl Default for SILO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -3533,61 +3533,29 @@ impl core::ops::Not for WORKER_THREAD_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APP_MEMORY_INFORMATION {
     pub AvailableCommit: u64,
     pub PrivateCommitUsage: u64,
     pub PeakPrivateCommitUsage: u64,
     pub TotalCommitUsage: u64,
 }
-impl Copy for APP_MEMORY_INFORMATION {}
-impl Clone for APP_MEMORY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APP_MEMORY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APP_MEMORY_INFORMATION").field("AvailableCommit", &self.AvailableCommit).field("PrivateCommitUsage", &self.PrivateCommitUsage).field("PeakPrivateCommitUsage", &self.PeakPrivateCommitUsage).field("TotalCommitUsage", &self.TotalCommitUsage).finish()
-    }
-}
 impl windows_core::TypeKind for APP_MEMORY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APP_MEMORY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AvailableCommit == other.AvailableCommit && self.PrivateCommitUsage == other.PrivateCommitUsage && self.PeakPrivateCommitUsage == other.PeakPrivateCommitUsage && self.TotalCommitUsage == other.TotalCommitUsage
-    }
-}
-impl Eq for APP_MEMORY_INFORMATION {}
 impl Default for APP_MEMORY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONDITION_VARIABLE {
     pub Ptr: *mut core::ffi::c_void,
-}
-impl Copy for CONDITION_VARIABLE {}
-impl Clone for CONDITION_VARIABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONDITION_VARIABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONDITION_VARIABLE").field("Ptr", &self.Ptr).finish()
-    }
 }
 impl windows_core::TypeKind for CONDITION_VARIABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONDITION_VARIABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr
-    }
-}
-impl Eq for CONDITION_VARIABLE {}
 impl Default for CONDITION_VARIABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3595,6 +3563,7 @@ impl Default for CONDITION_VARIABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRITICAL_SECTION {
     pub DebugInfo: *mut CRITICAL_SECTION_DEBUG,
     pub LockCount: i32,
@@ -3604,31 +3573,9 @@ pub struct CRITICAL_SECTION {
     pub SpinCount: usize,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for CRITICAL_SECTION {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for CRITICAL_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for CRITICAL_SECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRITICAL_SECTION").field("DebugInfo", &self.DebugInfo).field("LockCount", &self.LockCount).field("RecursionCount", &self.RecursionCount).field("OwningThread", &self.OwningThread).field("LockSemaphore", &self.LockSemaphore).field("SpinCount", &self.SpinCount).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for CRITICAL_SECTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for CRITICAL_SECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.DebugInfo == other.DebugInfo && self.LockCount == other.LockCount && self.RecursionCount == other.RecursionCount && self.OwningThread == other.OwningThread && self.LockSemaphore == other.LockSemaphore && self.SpinCount == other.SpinCount
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for CRITICAL_SECTION {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for CRITICAL_SECTION {
     fn default() -> Self {
@@ -3637,6 +3584,7 @@ impl Default for CRITICAL_SECTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRITICAL_SECTION_DEBUG {
     pub Type: u16,
     pub CreatorBackTraceIndex: u16,
@@ -3649,31 +3597,9 @@ pub struct CRITICAL_SECTION_DEBUG {
     pub Identifier: u16,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for CRITICAL_SECTION_DEBUG {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for CRITICAL_SECTION_DEBUG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for CRITICAL_SECTION_DEBUG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("Identifier", &self.Identifier).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for CRITICAL_SECTION_DEBUG {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for CRITICAL_SECTION_DEBUG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.Identifier == other.Identifier
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for CRITICAL_SECTION_DEBUG {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for CRITICAL_SECTION_DEBUG {
     fn default() -> Self {
@@ -3681,14 +3607,9 @@ impl Default for CRITICAL_SECTION_DEBUG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INIT_ONCE {
     pub Ptr: *mut core::ffi::c_void,
-}
-impl Copy for INIT_ONCE {}
-impl Clone for INIT_ONCE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INIT_ONCE {
     type TypeKind = windows_core::CopyType;
@@ -3699,6 +3620,7 @@ impl Default for INIT_ONCE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_COUNTERS {
     pub ReadOperationCount: u64,
     pub WriteOperationCount: u64,
@@ -3707,26 +3629,9 @@ pub struct IO_COUNTERS {
     pub WriteTransferCount: u64,
     pub OtherTransferCount: u64,
 }
-impl Copy for IO_COUNTERS {}
-impl Clone for IO_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IO_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IO_COUNTERS").field("ReadOperationCount", &self.ReadOperationCount).field("WriteOperationCount", &self.WriteOperationCount).field("OtherOperationCount", &self.OtherOperationCount).field("ReadTransferCount", &self.ReadTransferCount).field("WriteTransferCount", &self.WriteTransferCount).field("OtherTransferCount", &self.OtherTransferCount).finish()
-    }
-}
 impl windows_core::TypeKind for IO_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IO_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReadOperationCount == other.ReadOperationCount && self.WriteOperationCount == other.WriteOperationCount && self.OtherOperationCount == other.OtherOperationCount && self.ReadTransferCount == other.ReadTransferCount && self.WriteTransferCount == other.WriteTransferCount && self.OtherTransferCount == other.OtherTransferCount
-    }
-}
-impl Eq for IO_COUNTERS {}
 impl Default for IO_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3749,58 +3654,26 @@ impl windows_core::TypeKind for LPPROC_THREAD_ATTRIBUTE_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_PRIORITY_INFORMATION {
     pub MemoryPriority: MEMORY_PRIORITY,
-}
-impl Copy for MEMORY_PRIORITY_INFORMATION {}
-impl Clone for MEMORY_PRIORITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEMORY_PRIORITY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_PRIORITY_INFORMATION").field("MemoryPriority", &self.MemoryPriority).finish()
-    }
 }
 impl windows_core::TypeKind for MEMORY_PRIORITY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEMORY_PRIORITY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MemoryPriority == other.MemoryPriority
-    }
-}
-impl Eq for MEMORY_PRIORITY_INFORMATION {}
 impl Default for MEMORY_PRIORITY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OVERRIDE_PREFETCH_PARAMETER {
     pub Value: u32,
-}
-impl Copy for OVERRIDE_PREFETCH_PARAMETER {}
-impl Clone for OVERRIDE_PREFETCH_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OVERRIDE_PREFETCH_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OVERRIDE_PREFETCH_PARAMETER").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for OVERRIDE_PREFETCH_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OVERRIDE_PREFETCH_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for OVERRIDE_PREFETCH_PARAMETER {}
 impl Default for OVERRIDE_PREFETCH_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3808,6 +3681,7 @@ impl Default for OVERRIDE_PREFETCH_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug)]
 pub struct PEB {
     pub Reserved1: [u8; 2],
     pub BeingDebugged: u8,
@@ -3830,39 +3704,6 @@ pub struct PEB {
     pub SessionId: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for PEB {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for PEB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for PEB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PEB")
-            .field("Reserved1", &self.Reserved1)
-            .field("BeingDebugged", &self.BeingDebugged)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Ldr", &self.Ldr)
-            .field("ProcessParameters", &self.ProcessParameters)
-            .field("Reserved4", &self.Reserved4)
-            .field("AtlThunkSListPtr", &self.AtlThunkSListPtr)
-            .field("Reserved5", &self.Reserved5)
-            .field("Reserved6", &self.Reserved6)
-            .field("Reserved7", &self.Reserved7)
-            .field("Reserved8", &self.Reserved8)
-            .field("AtlThunkSListPtr32", &self.AtlThunkSListPtr32)
-            .field("Reserved9", &self.Reserved9)
-            .field("Reserved10", &self.Reserved10)
-            .field("Reserved11", &self.Reserved11)
-            .field("Reserved12", &self.Reserved12)
-            .field("SessionId", &self.SessionId)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for PEB {
     type TypeKind = windows_core::CopyType;
 }
@@ -3874,37 +3715,16 @@ impl Default for PEB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PEB_LDR_DATA {
     pub Reserved1: [u8; 8],
     pub Reserved2: [*mut core::ffi::c_void; 3],
     pub InMemoryOrderModuleList: super::Kernel::LIST_ENTRY,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for PEB_LDR_DATA {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for PEB_LDR_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for PEB_LDR_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PEB_LDR_DATA").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("InMemoryOrderModuleList", &self.InMemoryOrderModuleList).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for PEB_LDR_DATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for PEB_LDR_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.InMemoryOrderModuleList == other.InMemoryOrderModuleList
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for PEB_LDR_DATA {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for PEB_LDR_DATA {
     fn default() -> Self {
@@ -3913,6 +3733,7 @@ impl Default for PEB_LDR_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_BASIC_INFORMATION {
     pub ExitStatus: super::super::Foundation::NTSTATUS,
     pub PebBaseAddress: *mut PEB,
@@ -3922,31 +3743,9 @@ pub struct PROCESS_BASIC_INFORMATION {
     pub InheritedFromUniqueProcessId: usize,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for PROCESS_BASIC_INFORMATION {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for PROCESS_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for PROCESS_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_BASIC_INFORMATION").field("ExitStatus", &self.ExitStatus).field("PebBaseAddress", &self.PebBaseAddress).field("AffinityMask", &self.AffinityMask).field("BasePriority", &self.BasePriority).field("UniqueProcessId", &self.UniqueProcessId).field("InheritedFromUniqueProcessId", &self.InheritedFromUniqueProcessId).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for PROCESS_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for PROCESS_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus && self.PebBaseAddress == other.PebBaseAddress && self.AffinityMask == other.AffinityMask && self.BasePriority == other.BasePriority && self.UniqueProcessId == other.UniqueProcessId && self.InheritedFromUniqueProcessId == other.InheritedFromUniqueProcessId
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for PROCESS_BASIC_INFORMATION {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for PROCESS_BASIC_INFORMATION {
     fn default() -> Self {
@@ -3954,187 +3753,91 @@ impl Default for PROCESS_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
     pub Flags: usize,
 }
-impl Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
-impl Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGET").field("TargetAddress", &self.TargetAddress).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetAddress == other.TargetAddress && self.Flags == other.Flags
-    }
-}
-impl Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
 impl Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub NumberOfTargets: u16,
     pub Reserved: u16,
     pub Reserved2: u32,
     pub Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
 }
-impl Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
-impl Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION").field("NumberOfTargets", &self.NumberOfTargets).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Targets", &self.Targets).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTargets == other.NumberOfTargets && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Targets == other.Targets
-    }
-}
-impl Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
 impl Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     pub BaseAddress: usize,
     pub Size: usize,
     pub Flags: u32,
 }
-impl Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
-impl Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE").field("BaseAddress", &self.BaseAddress).field("Size", &self.Size).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.Size == other.Size && self.Flags == other.Flags
-    }
-}
-impl Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
 impl Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub NumberOfRanges: u16,
     pub Reserved: u16,
     pub Reserved2: u32,
     pub Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
 }
-impl Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
-impl Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION").field("NumberOfRanges", &self.NumberOfRanges).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Ranges", &self.Ranges).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfRanges == other.NumberOfRanges && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Ranges == other.Ranges
-    }
-}
-impl Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
 impl Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_INFORMATION {
     pub hProcess: super::super::Foundation::HANDLE,
     pub hThread: super::super::Foundation::HANDLE,
     pub dwProcessId: u32,
     pub dwThreadId: u32,
 }
-impl Copy for PROCESS_INFORMATION {}
-impl Clone for PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_INFORMATION").field("hProcess", &self.hProcess).field("hThread", &self.hThread).field("dwProcessId", &self.dwProcessId).field("dwThreadId", &self.dwThreadId).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.hProcess == other.hProcess && self.hThread == other.hThread && self.dwProcessId == other.dwProcessId && self.dwThreadId == other.dwThreadId
-    }
-}
-impl Eq for PROCESS_INFORMATION {}
 impl Default for PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_LEAP_SECOND_INFO {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for PROCESS_LEAP_SECOND_INFO {}
-impl Clone for PROCESS_LEAP_SECOND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_LEAP_SECOND_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_LEAP_SECOND_INFO").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_LEAP_SECOND_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_LEAP_SECOND_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PROCESS_LEAP_SECOND_INFO {}
 impl Default for PROCESS_LEAP_SECOND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4142,37 +3845,16 @@ impl Default for PROCESS_LEAP_SECOND_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MACHINE_INFORMATION {
     pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
     pub Res0: u16,
     pub MachineAttributes: MACHINE_ATTRIBUTES,
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
-impl Copy for PROCESS_MACHINE_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl Clone for PROCESS_MACHINE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl core::fmt::Debug for PROCESS_MACHINE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MACHINE_INFORMATION").field("ProcessMachine", &self.ProcessMachine).field("Res0", &self.Res0).field("MachineAttributes", &self.MachineAttributes).finish()
-    }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
 impl windows_core::TypeKind for PROCESS_MACHINE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl PartialEq for PROCESS_MACHINE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessMachine == other.ProcessMachine && self.Res0 == other.Res0 && self.MachineAttributes == other.MachineAttributes
-    }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl Eq for PROCESS_MACHINE_INFORMATION {}
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for PROCESS_MACHINE_INFORMATION {
     fn default() -> Self {
@@ -4180,92 +3862,44 @@ impl Default for PROCESS_MACHINE_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
     pub Version: u16,
     pub Reserved: u16,
     pub Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
     pub Value: usize,
 }
-impl Copy for PROCESS_MEMORY_EXHAUSTION_INFO {}
-impl Clone for PROCESS_MEMORY_EXHAUSTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MEMORY_EXHAUSTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MEMORY_EXHAUSTION_INFO").field("Version", &self.Version).field("Reserved", &self.Reserved).field("Type", &self.Type).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_MEMORY_EXHAUSTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MEMORY_EXHAUSTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Reserved == other.Reserved && self.Type == other.Type && self.Value == other.Value
-    }
-}
-impl Eq for PROCESS_MEMORY_EXHAUSTION_INFO {}
 impl Default for PROCESS_MEMORY_EXHAUSTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl Copy for PROCESS_POWER_THROTTLING_STATE {}
-impl Clone for PROCESS_POWER_THROTTLING_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_POWER_THROTTLING_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_POWER_THROTTLING_STATE").field("Version", &self.Version).field("ControlMask", &self.ControlMask).field("StateMask", &self.StateMask).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_POWER_THROTTLING_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_POWER_THROTTLING_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ControlMask == other.ControlMask && self.StateMask == other.StateMask
-    }
-}
-impl Eq for PROCESS_POWER_THROTTLING_STATE {}
 impl Default for PROCESS_POWER_THROTTLING_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
     pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
-}
-impl Copy for PROCESS_PROTECTION_LEVEL_INFORMATION {}
-impl Clone for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_PROTECTION_LEVEL_INFORMATION").field("ProtectionLevel", &self.ProtectionLevel).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_PROTECTION_LEVEL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProtectionLevel == other.ProtectionLevel
-    }
-}
-impl Eq for PROCESS_PROTECTION_LEVEL_INFORMATION {}
 impl Default for PROCESS_PROTECTION_LEVEL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4374,16 +4008,11 @@ impl windows_core::TypeKind for PTP_WORK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REASON_CONTEXT {
     pub Version: u32,
     pub Flags: POWER_REQUEST_CONTEXT_FLAGS,
     pub Reason: REASON_CONTEXT_0,
-}
-impl Copy for REASON_CONTEXT {}
-impl Clone for REASON_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for REASON_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -4394,15 +4023,10 @@ impl Default for REASON_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: windows_core::PWSTR,
-}
-impl Copy for REASON_CONTEXT_0 {}
-impl Clone for REASON_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for REASON_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
@@ -4413,99 +4037,52 @@ impl Default for REASON_CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::super::Foundation::HMODULE,
     pub LocalizedReasonId: u32,
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut windows_core::PWSTR,
 }
-impl Copy for REASON_CONTEXT_0_0 {}
-impl Clone for REASON_CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REASON_CONTEXT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REASON_CONTEXT_0_0").field("LocalizedReasonModule", &self.LocalizedReasonModule).field("LocalizedReasonId", &self.LocalizedReasonId).field("ReasonStringCount", &self.ReasonStringCount).field("ReasonStrings", &self.ReasonStrings).finish()
-    }
-}
 impl windows_core::TypeKind for REASON_CONTEXT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REASON_CONTEXT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LocalizedReasonModule == other.LocalizedReasonModule && self.LocalizedReasonId == other.LocalizedReasonId && self.ReasonStringCount == other.ReasonStringCount && self.ReasonStrings == other.ReasonStrings
-    }
-}
-impl Eq for REASON_CONTEXT_0_0 {}
 impl Default for REASON_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_USER_PROCESS_PARAMETERS {
     pub Reserved1: [u8; 16],
     pub Reserved2: [*mut core::ffi::c_void; 10],
     pub ImagePathName: super::super::Foundation::UNICODE_STRING,
     pub CommandLine: super::super::Foundation::UNICODE_STRING,
 }
-impl Copy for RTL_USER_PROCESS_PARAMETERS {}
-impl Clone for RTL_USER_PROCESS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RTL_USER_PROCESS_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RTL_USER_PROCESS_PARAMETERS").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("ImagePathName", &self.ImagePathName).field("CommandLine", &self.CommandLine).finish()
-    }
-}
 impl windows_core::TypeKind for RTL_USER_PROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RTL_USER_PROCESS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.ImagePathName == other.ImagePathName && self.CommandLine == other.CommandLine
-    }
-}
-impl Eq for RTL_USER_PROCESS_PARAMETERS {}
 impl Default for RTL_USER_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRWLOCK {
     pub Ptr: *mut core::ffi::c_void,
-}
-impl Copy for SRWLOCK {}
-impl Clone for SRWLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SRWLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SRWLOCK").field("Ptr", &self.Ptr).finish()
-    }
 }
 impl windows_core::TypeKind for SRWLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SRWLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr
-    }
-}
-impl Eq for SRWLOCK {}
 impl Default for SRWLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STARTUPINFOA {
     pub cb: u32,
     pub lpReserved: windows_core::PSTR,
@@ -4526,111 +4103,44 @@ pub struct STARTUPINFOA {
     pub hStdOutput: super::super::Foundation::HANDLE,
     pub hStdError: super::super::Foundation::HANDLE,
 }
-impl Copy for STARTUPINFOA {}
-impl Clone for STARTUPINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STARTUPINFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STARTUPINFOA")
-            .field("cb", &self.cb)
-            .field("lpReserved", &self.lpReserved)
-            .field("lpDesktop", &self.lpDesktop)
-            .field("lpTitle", &self.lpTitle)
-            .field("dwX", &self.dwX)
-            .field("dwY", &self.dwY)
-            .field("dwXSize", &self.dwXSize)
-            .field("dwYSize", &self.dwYSize)
-            .field("dwXCountChars", &self.dwXCountChars)
-            .field("dwYCountChars", &self.dwYCountChars)
-            .field("dwFillAttribute", &self.dwFillAttribute)
-            .field("dwFlags", &self.dwFlags)
-            .field("wShowWindow", &self.wShowWindow)
-            .field("cbReserved2", &self.cbReserved2)
-            .field("lpReserved2", &self.lpReserved2)
-            .field("hStdInput", &self.hStdInput)
-            .field("hStdOutput", &self.hStdOutput)
-            .field("hStdError", &self.hStdError)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for STARTUPINFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STARTUPINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
-    }
-}
-impl Eq for STARTUPINFOA {}
 impl Default for STARTUPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STARTUPINFOEXA {
     pub StartupInfo: STARTUPINFOA,
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
 }
-impl Copy for STARTUPINFOEXA {}
-impl Clone for STARTUPINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STARTUPINFOEXA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STARTUPINFOEXA").field("StartupInfo", &self.StartupInfo).field("lpAttributeList", &self.lpAttributeList).finish()
-    }
-}
 impl windows_core::TypeKind for STARTUPINFOEXA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STARTUPINFOEXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartupInfo == other.StartupInfo && self.lpAttributeList == other.lpAttributeList
-    }
-}
-impl Eq for STARTUPINFOEXA {}
 impl Default for STARTUPINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STARTUPINFOEXW {
     pub StartupInfo: STARTUPINFOW,
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
 }
-impl Copy for STARTUPINFOEXW {}
-impl Clone for STARTUPINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STARTUPINFOEXW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STARTUPINFOEXW").field("StartupInfo", &self.StartupInfo).field("lpAttributeList", &self.lpAttributeList).finish()
-    }
-}
 impl windows_core::TypeKind for STARTUPINFOEXW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STARTUPINFOEXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartupInfo == other.StartupInfo && self.lpAttributeList == other.lpAttributeList
-    }
-}
-impl Eq for STARTUPINFOEXW {}
 impl Default for STARTUPINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STARTUPINFOW {
     pub cb: u32,
     pub lpReserved: windows_core::PWSTR,
@@ -4651,51 +4161,16 @@ pub struct STARTUPINFOW {
     pub hStdOutput: super::super::Foundation::HANDLE,
     pub hStdError: super::super::Foundation::HANDLE,
 }
-impl Copy for STARTUPINFOW {}
-impl Clone for STARTUPINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STARTUPINFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STARTUPINFOW")
-            .field("cb", &self.cb)
-            .field("lpReserved", &self.lpReserved)
-            .field("lpDesktop", &self.lpDesktop)
-            .field("lpTitle", &self.lpTitle)
-            .field("dwX", &self.dwX)
-            .field("dwY", &self.dwY)
-            .field("dwXSize", &self.dwXSize)
-            .field("dwYSize", &self.dwYSize)
-            .field("dwXCountChars", &self.dwXCountChars)
-            .field("dwYCountChars", &self.dwYCountChars)
-            .field("dwFillAttribute", &self.dwFillAttribute)
-            .field("dwFlags", &self.dwFlags)
-            .field("wShowWindow", &self.wShowWindow)
-            .field("cbReserved2", &self.cbReserved2)
-            .field("lpReserved2", &self.lpReserved2)
-            .field("hStdInput", &self.hStdInput)
-            .field("hStdOutput", &self.hStdOutput)
-            .field("hStdError", &self.hStdError)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for STARTUPINFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STARTUPINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
-    }
-}
-impl Eq for STARTUPINFOW {}
 impl Default for STARTUPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYNCHRONIZATION_BARRIER {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -4703,26 +4178,9 @@ pub struct SYNCHRONIZATION_BARRIER {
     pub Reserved4: u32,
     pub Reserved5: u32,
 }
-impl Copy for SYNCHRONIZATION_BARRIER {}
-impl Clone for SYNCHRONIZATION_BARRIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYNCHRONIZATION_BARRIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYNCHRONIZATION_BARRIER").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).finish()
-    }
-}
 impl windows_core::TypeKind for SYNCHRONIZATION_BARRIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYNCHRONIZATION_BARRIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5
-    }
-}
-impl Eq for SYNCHRONIZATION_BARRIER {}
 impl Default for SYNCHRONIZATION_BARRIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4730,6 +4188,7 @@ impl Default for SYNCHRONIZATION_BARRIER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEB {
     pub Reserved1: [*mut core::ffi::c_void; 12],
     pub ProcessEnvironmentBlock: *mut PEB,
@@ -4743,31 +4202,9 @@ pub struct TEB {
     pub TlsExpansionSlots: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for TEB {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for TEB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for TEB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TEB").field("Reserved1", &self.Reserved1).field("ProcessEnvironmentBlock", &self.ProcessEnvironmentBlock).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("TlsSlots", &self.TlsSlots).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).field("ReservedForOle", &self.ReservedForOle).field("Reserved6", &self.Reserved6).field("TlsExpansionSlots", &self.TlsExpansionSlots).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for TEB {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for TEB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.ProcessEnvironmentBlock == other.ProcessEnvironmentBlock && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.TlsSlots == other.TlsSlots && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5 && self.ReservedForOle == other.ReservedForOle && self.Reserved6 == other.Reserved6 && self.TlsExpansionSlots == other.TlsExpansionSlots
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for TEB {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for TEB {
     fn default() -> Self {
@@ -4775,37 +4212,22 @@ impl Default for TEB {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THREAD_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl Copy for THREAD_POWER_THROTTLING_STATE {}
-impl Clone for THREAD_POWER_THROTTLING_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for THREAD_POWER_THROTTLING_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("THREAD_POWER_THROTTLING_STATE").field("Version", &self.Version).field("ControlMask", &self.ControlMask).field("StateMask", &self.StateMask).finish()
-    }
-}
 impl windows_core::TypeKind for THREAD_POWER_THROTTLING_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for THREAD_POWER_THROTTLING_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ControlMask == other.ControlMask && self.StateMask == other.StateMask
-    }
-}
-impl Eq for THREAD_POWER_THROTTLING_STATE {}
 impl Default for THREAD_POWER_THROTTLING_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
     pub Pool: PTP_POOL,
@@ -4818,12 +4240,6 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
-impl Copy for TP_CALLBACK_ENVIRON_V3 {}
-impl Clone for TP_CALLBACK_ENVIRON_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4833,15 +4249,10 @@ impl Default for TP_CALLBACK_ENVIRON_V3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TP_CALLBACK_ENVIRON_V3_0 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_0_0,
-}
-impl Copy for TP_CALLBACK_ENVIRON_V3_0 {}
-impl Clone for TP_CALLBACK_ENVIRON_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0 {
     type TypeKind = windows_core::CopyType;
@@ -4852,59 +4263,27 @@ impl Default for TP_CALLBACK_ENVIRON_V3_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for TP_CALLBACK_ENVIRON_V3_0_0 {}
-impl Clone for TP_CALLBACK_ENVIRON_V3_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TP_CALLBACK_ENVIRON_V3_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TP_CALLBACK_ENVIRON_V3_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TP_CALLBACK_ENVIRON_V3_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for TP_CALLBACK_ENVIRON_V3_0_0 {}
 impl Default for TP_CALLBACK_ENVIRON_V3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
 }
-impl Copy for TP_POOL_STACK_INFORMATION {}
-impl Clone for TP_POOL_STACK_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TP_POOL_STACK_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TP_POOL_STACK_INFORMATION").field("StackReserve", &self.StackReserve).field("StackCommit", &self.StackCommit).finish()
-    }
-}
 impl windows_core::TypeKind for TP_POOL_STACK_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TP_POOL_STACK_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StackReserve == other.StackReserve && self.StackCommit == other.StackCommit
-    }
-}
-impl Eq for TP_POOL_STACK_INFORMATION {}
 impl Default for TP_POOL_STACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4912,25 +4291,12 @@ impl Default for TP_POOL_STACK_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[derive(Clone, Copy, Debug)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: *mut core::ffi::c_void,
     pub SchedulerProc: PRTL_UMS_SCHEDULER_ENTRY_POINT,
     pub SchedulerParam: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl Copy for UMS_SCHEDULER_STARTUP_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl Clone for UMS_SCHEDULER_STARTUP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl core::fmt::Debug for UMS_SCHEDULER_STARTUP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerParam", &self.SchedulerParam).finish()
-    }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 impl windows_core::TypeKind for UMS_SCHEDULER_STARTUP_INFO {
@@ -4943,15 +4309,10 @@ impl Default for UMS_SCHEDULER_STARTUP_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION {
     pub UmsVersion: u32,
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
-}
-impl Copy for UMS_SYSTEM_THREAD_INFORMATION {}
-impl Clone for UMS_SYSTEM_THREAD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -4962,15 +4323,10 @@ impl Default for UMS_SYSTEM_THREAD_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0_0,
     pub ThreadUmsFlags: u32,
-}
-impl Copy for UMS_SYSTEM_THREAD_INFORMATION_0 {}
-impl Clone for UMS_SYSTEM_THREAD_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -4981,29 +4337,13 @@ impl Default for UMS_SYSTEM_THREAD_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
-impl Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UMS_SYSTEM_THREAD_INFORMATION_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
 impl Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

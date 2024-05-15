@@ -1990,20 +1990,10 @@ impl windows_core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
     pub Buttons: ArcadeStickButtons,
-}
-impl Copy for ArcadeStickReading {}
-impl Clone for ArcadeStickReading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ArcadeStickReading {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ArcadeStickReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).finish()
-    }
 }
 impl windows_core::TypeKind for ArcadeStickReading {
     type TypeKind = windows_core::CopyType;
@@ -2011,18 +2001,13 @@ impl windows_core::TypeKind for ArcadeStickReading {
 impl windows_core::RuntimeType for ArcadeStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
 }
-impl PartialEq for ArcadeStickReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons
-    }
-}
-impl Eq for ArcadeStickReading {}
 impl Default for ArcadeStickReading {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FlightStickReading {
     pub Timestamp: u64,
     pub Buttons: FlightStickButtons,
@@ -2032,35 +2017,19 @@ pub struct FlightStickReading {
     pub Yaw: f64,
     pub Throttle: f64,
 }
-impl Copy for FlightStickReading {}
-impl Clone for FlightStickReading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FlightStickReading {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FlightStickReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("HatSwitch", &self.HatSwitch).field("Roll", &self.Roll).field("Pitch", &self.Pitch).field("Yaw", &self.Yaw).field("Throttle", &self.Throttle).finish()
-    }
-}
 impl windows_core::TypeKind for FlightStickReading {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for FlightStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
 }
-impl PartialEq for FlightStickReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons && self.HatSwitch == other.HatSwitch && self.Roll == other.Roll && self.Pitch == other.Pitch && self.Yaw == other.Yaw && self.Throttle == other.Throttle
-    }
-}
-impl Eq for FlightStickReading {}
 impl Default for FlightStickReading {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamepadReading {
     pub Timestamp: u64,
     pub Buttons: GamepadButtons,
@@ -2071,51 +2040,24 @@ pub struct GamepadReading {
     pub RightThumbstickX: f64,
     pub RightThumbstickY: f64,
 }
-impl Copy for GamepadReading {}
-impl Clone for GamepadReading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GamepadReading {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GamepadReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).field("LeftThumbstickX", &self.LeftThumbstickX).field("LeftThumbstickY", &self.LeftThumbstickY).field("RightThumbstickX", &self.RightThumbstickX).field("RightThumbstickY", &self.RightThumbstickY).finish()
-    }
-}
 impl windows_core::TypeKind for GamepadReading {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for GamepadReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
 }
-impl PartialEq for GamepadReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons && self.LeftTrigger == other.LeftTrigger && self.RightTrigger == other.RightTrigger && self.LeftThumbstickX == other.LeftThumbstickX && self.LeftThumbstickY == other.LeftThumbstickY && self.RightThumbstickX == other.RightThumbstickX && self.RightThumbstickY == other.RightThumbstickY
-    }
-}
-impl Eq for GamepadReading {}
 impl Default for GamepadReading {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamepadVibration {
     pub LeftMotor: f64,
     pub RightMotor: f64,
     pub LeftTrigger: f64,
     pub RightTrigger: f64,
-}
-impl Copy for GamepadVibration {}
-impl Clone for GamepadVibration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GamepadVibration {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GamepadVibration").field("LeftMotor", &self.LeftMotor).field("RightMotor", &self.RightMotor).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).finish()
-    }
 }
 impl windows_core::TypeKind for GamepadVibration {
     type TypeKind = windows_core::CopyType;
@@ -2123,18 +2065,13 @@ impl windows_core::TypeKind for GamepadVibration {
 impl windows_core::RuntimeType for GamepadVibration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
 }
-impl PartialEq for GamepadVibration {
-    fn eq(&self, other: &Self) -> bool {
-        self.LeftMotor == other.LeftMotor && self.RightMotor == other.RightMotor && self.LeftTrigger == other.LeftTrigger && self.RightTrigger == other.RightTrigger
-    }
-}
-impl Eq for GamepadVibration {}
 impl Default for GamepadVibration {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RacingWheelReading {
     pub Timestamp: u64,
     pub Buttons: RacingWheelButtons,
@@ -2145,50 +2082,23 @@ pub struct RacingWheelReading {
     pub Clutch: f64,
     pub Handbrake: f64,
 }
-impl Copy for RacingWheelReading {}
-impl Clone for RacingWheelReading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RacingWheelReading {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RacingWheelReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("PatternShifterGear", &self.PatternShifterGear).field("Wheel", &self.Wheel).field("Throttle", &self.Throttle).field("Brake", &self.Brake).field("Clutch", &self.Clutch).field("Handbrake", &self.Handbrake).finish()
-    }
-}
 impl windows_core::TypeKind for RacingWheelReading {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for RacingWheelReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
 }
-impl PartialEq for RacingWheelReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons && self.PatternShifterGear == other.PatternShifterGear && self.Wheel == other.Wheel && self.Throttle == other.Throttle && self.Brake == other.Brake && self.Clutch == other.Clutch && self.Handbrake == other.Handbrake
-    }
-}
-impl Eq for RacingWheelReading {}
 impl Default for RacingWheelReading {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UINavigationReading {
     pub Timestamp: u64,
     pub RequiredButtons: RequiredUINavigationButtons,
     pub OptionalButtons: OptionalUINavigationButtons,
-}
-impl Copy for UINavigationReading {}
-impl Clone for UINavigationReading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UINavigationReading {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UINavigationReading").field("Timestamp", &self.Timestamp).field("RequiredButtons", &self.RequiredButtons).field("OptionalButtons", &self.OptionalButtons).finish()
-    }
 }
 impl windows_core::TypeKind for UINavigationReading {
     type TypeKind = windows_core::CopyType;
@@ -2196,12 +2106,6 @@ impl windows_core::TypeKind for UINavigationReading {
 impl windows_core::RuntimeType for UINavigationReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
 }
-impl PartialEq for UINavigationReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.RequiredButtons == other.RequiredButtons && self.OptionalButtons == other.OptionalButtons
-    }
-}
-impl Eq for UINavigationReading {}
 impl Default for UINavigationReading {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

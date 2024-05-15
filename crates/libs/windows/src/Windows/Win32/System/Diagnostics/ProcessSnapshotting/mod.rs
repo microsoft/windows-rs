@@ -422,60 +422,28 @@ impl windows_core::TypeKind for HPSSWALK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_ALLOCATOR {
     pub Context: *mut core::ffi::c_void,
     pub AllocRoutine: isize,
     pub FreeRoutine: isize,
 }
-impl Copy for PSS_ALLOCATOR {}
-impl Clone for PSS_ALLOCATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_ALLOCATOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_ALLOCATOR").field("Context", &self.Context).field("AllocRoutine", &self.AllocRoutine).field("FreeRoutine", &self.FreeRoutine).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_ALLOCATOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_ALLOCATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Context == other.Context && self.AllocRoutine == other.AllocRoutine && self.FreeRoutine == other.FreeRoutine
-    }
-}
-impl Eq for PSS_ALLOCATOR {}
 impl Default for PSS_ALLOCATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_AUXILIARY_PAGES_INFORMATION {
     pub AuxPagesCaptured: u32,
-}
-impl Copy for PSS_AUXILIARY_PAGES_INFORMATION {}
-impl Clone for PSS_AUXILIARY_PAGES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_AUXILIARY_PAGES_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_AUXILIARY_PAGES_INFORMATION").field("AuxPagesCaptured", &self.AuxPagesCaptured).finish()
-    }
 }
 impl windows_core::TypeKind for PSS_AUXILIARY_PAGES_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AuxPagesCaptured == other.AuxPagesCaptured
-    }
-}
-impl Eq for PSS_AUXILIARY_PAGES_INFORMATION {}
 impl Default for PSS_AUXILIARY_PAGES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -483,6 +451,7 @@ impl Default for PSS_AUXILIARY_PAGES_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub Address: *mut core::ffi::c_void,
     pub BasicInformation: super::super::Memory::MEMORY_BASIC_INFORMATION,
@@ -491,31 +460,9 @@ pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub PageSize: u32,
 }
 #[cfg(feature = "Win32_System_Memory")]
-impl Copy for PSS_AUXILIARY_PAGE_ENTRY {}
-#[cfg(feature = "Win32_System_Memory")]
-impl Clone for PSS_AUXILIARY_PAGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl core::fmt::Debug for PSS_AUXILIARY_PAGE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_AUXILIARY_PAGE_ENTRY").field("Address", &self.Address).field("BasicInformation", &self.BasicInformation).field("CaptureTime", &self.CaptureTime).field("PageContents", &self.PageContents).field("PageSize", &self.PageSize).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Memory")]
 impl windows_core::TypeKind for PSS_AUXILIARY_PAGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl PartialEq for PSS_AUXILIARY_PAGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address && self.BasicInformation == other.BasicInformation && self.CaptureTime == other.CaptureTime && self.PageContents == other.PageContents && self.PageSize == other.PageSize
-    }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl Eq for PSS_AUXILIARY_PAGE_ENTRY {}
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for PSS_AUXILIARY_PAGE_ENTRY {
     fn default() -> Self {
@@ -523,6 +470,7 @@ impl Default for PSS_AUXILIARY_PAGE_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Flags: PSS_HANDLE_FLAGS,
@@ -541,12 +489,6 @@ pub struct PSS_HANDLE_ENTRY {
     pub ObjectName: windows_core::PCWSTR,
     pub TypeSpecificInformation: PSS_HANDLE_ENTRY_0,
 }
-impl Copy for PSS_HANDLE_ENTRY {}
-impl Clone for PSS_HANDLE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -556,6 +498,7 @@ impl Default for PSS_HANDLE_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSS_HANDLE_ENTRY_0 {
     pub Process: PSS_HANDLE_ENTRY_0_2,
     pub Thread: PSS_HANDLE_ENTRY_0_5,
@@ -563,12 +506,6 @@ pub union PSS_HANDLE_ENTRY_0 {
     pub Event: PSS_HANDLE_ENTRY_0_0,
     pub Section: PSS_HANDLE_ENTRY_0_3,
     pub Semaphore: PSS_HANDLE_ENTRY_0_4,
-}
-impl Copy for PSS_HANDLE_ENTRY_0 {}
-impl Clone for PSS_HANDLE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -579,68 +516,37 @@ impl Default for PSS_HANDLE_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_0 {}
-impl Clone for PSS_HANDLE_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_ENTRY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY_0_0").field("ManualReset", &self.ManualReset).field("Signaled", &self.Signaled).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ManualReset == other.ManualReset && self.Signaled == other.Signaled
-    }
-}
-impl Eq for PSS_HANDLE_ENTRY_0_0 {}
 impl Default for PSS_HANDLE_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_1 {
     pub CurrentCount: i32,
     pub Abandoned: super::super::super::Foundation::BOOL,
     pub OwnerProcessId: u32,
     pub OwnerThreadId: u32,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_1 {}
-impl Clone for PSS_HANDLE_ENTRY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_ENTRY_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY_0_1").field("CurrentCount", &self.CurrentCount).field("Abandoned", &self.Abandoned).field("OwnerProcessId", &self.OwnerProcessId).field("OwnerThreadId", &self.OwnerThreadId).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_ENTRY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentCount == other.CurrentCount && self.Abandoned == other.Abandoned && self.OwnerProcessId == other.OwnerProcessId && self.OwnerThreadId == other.OwnerThreadId
-    }
-}
-impl Eq for PSS_HANDLE_ENTRY_0_1 {}
 impl Default for PSS_HANDLE_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
@@ -650,93 +556,45 @@ pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ParentProcessId: u32,
     pub Flags: u32,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_2 {}
-impl Clone for PSS_HANDLE_ENTRY_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY_0_2").field("ExitStatus", &self.ExitStatus).field("PebBaseAddress", &self.PebBaseAddress).field("AffinityMask", &self.AffinityMask).field("BasePriority", &self.BasePriority).field("ProcessId", &self.ProcessId).field("ParentProcessId", &self.ParentProcessId).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_ENTRY_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus && self.PebBaseAddress == other.PebBaseAddress && self.AffinityMask == other.AffinityMask && self.BasePriority == other.BasePriority && self.ProcessId == other.ProcessId && self.ParentProcessId == other.ParentProcessId && self.Flags == other.Flags
-    }
-}
-impl Eq for PSS_HANDLE_ENTRY_0_2 {}
 impl Default for PSS_HANDLE_ENTRY_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationAttributes: u32,
     pub MaximumSize: i64,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_3 {}
-impl Clone for PSS_HANDLE_ENTRY_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_ENTRY_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY_0_3").field("BaseAddress", &self.BaseAddress).field("AllocationAttributes", &self.AllocationAttributes).field("MaximumSize", &self.MaximumSize).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_ENTRY_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationAttributes == other.AllocationAttributes && self.MaximumSize == other.MaximumSize
-    }
-}
-impl Eq for PSS_HANDLE_ENTRY_0_3 {}
 impl Default for PSS_HANDLE_ENTRY_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_4 {}
-impl Clone for PSS_HANDLE_ENTRY_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_ENTRY_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY_0_4").field("CurrentCount", &self.CurrentCount).field("MaximumCount", &self.MaximumCount).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_ENTRY_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentCount == other.CurrentCount && self.MaximumCount == other.MaximumCount
-    }
-}
-impl Eq for PSS_HANDLE_ENTRY_0_4 {}
 impl Default for PSS_HANDLE_ENTRY_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
@@ -747,91 +605,43 @@ pub struct PSS_HANDLE_ENTRY_0_5 {
     pub BasePriority: i32,
     pub Win32StartAddress: *mut core::ffi::c_void,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_5 {}
-impl Clone for PSS_HANDLE_ENTRY_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY_0_5").field("ExitStatus", &self.ExitStatus).field("TebBaseAddress", &self.TebBaseAddress).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("AffinityMask", &self.AffinityMask).field("Priority", &self.Priority).field("BasePriority", &self.BasePriority).field("Win32StartAddress", &self.Win32StartAddress).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_ENTRY_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus && self.TebBaseAddress == other.TebBaseAddress && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.AffinityMask == other.AffinityMask && self.Priority == other.Priority && self.BasePriority == other.BasePriority && self.Win32StartAddress == other.Win32StartAddress
-    }
-}
-impl Eq for PSS_HANDLE_ENTRY_0_5 {}
 impl Default for PSS_HANDLE_ENTRY_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_INFORMATION {
     pub HandlesCaptured: u32,
-}
-impl Copy for PSS_HANDLE_INFORMATION {}
-impl Clone for PSS_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_INFORMATION").field("HandlesCaptured", &self.HandlesCaptured).finish()
-    }
 }
 impl windows_core::TypeKind for PSS_HANDLE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.HandlesCaptured == other.HandlesCaptured
-    }
-}
-impl Eq for PSS_HANDLE_INFORMATION {}
 impl Default for PSS_HANDLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_TRACE_INFORMATION {
     pub SectionHandle: super::super::super::Foundation::HANDLE,
     pub Size: u32,
 }
-impl Copy for PSS_HANDLE_TRACE_INFORMATION {}
-impl Clone for PSS_HANDLE_TRACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_HANDLE_TRACE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_TRACE_INFORMATION").field("SectionHandle", &self.SectionHandle).field("Size", &self.Size).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_HANDLE_TRACE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_HANDLE_TRACE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.SectionHandle == other.SectionHandle && self.Size == other.Size
-    }
-}
-impl Eq for PSS_HANDLE_TRACE_INFORMATION {}
 impl Default for PSS_HANDLE_TRACE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_PERFORMANCE_COUNTERS {
     pub TotalCycleCount: u64,
     pub TotalWallClockPeriod: u64,
@@ -846,45 +656,16 @@ pub struct PSS_PERFORMANCE_COUNTERS {
     pub ThreadsCycleCount: u64,
     pub ThreadsWallClockPeriod: u64,
 }
-impl Copy for PSS_PERFORMANCE_COUNTERS {}
-impl Clone for PSS_PERFORMANCE_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_PERFORMANCE_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_PERFORMANCE_COUNTERS")
-            .field("TotalCycleCount", &self.TotalCycleCount)
-            .field("TotalWallClockPeriod", &self.TotalWallClockPeriod)
-            .field("VaCloneCycleCount", &self.VaCloneCycleCount)
-            .field("VaCloneWallClockPeriod", &self.VaCloneWallClockPeriod)
-            .field("VaSpaceCycleCount", &self.VaSpaceCycleCount)
-            .field("VaSpaceWallClockPeriod", &self.VaSpaceWallClockPeriod)
-            .field("AuxPagesCycleCount", &self.AuxPagesCycleCount)
-            .field("AuxPagesWallClockPeriod", &self.AuxPagesWallClockPeriod)
-            .field("HandlesCycleCount", &self.HandlesCycleCount)
-            .field("HandlesWallClockPeriod", &self.HandlesWallClockPeriod)
-            .field("ThreadsCycleCount", &self.ThreadsCycleCount)
-            .field("ThreadsWallClockPeriod", &self.ThreadsWallClockPeriod)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PSS_PERFORMANCE_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_PERFORMANCE_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalCycleCount == other.TotalCycleCount && self.TotalWallClockPeriod == other.TotalWallClockPeriod && self.VaCloneCycleCount == other.VaCloneCycleCount && self.VaCloneWallClockPeriod == other.VaCloneWallClockPeriod && self.VaSpaceCycleCount == other.VaSpaceCycleCount && self.VaSpaceWallClockPeriod == other.VaSpaceWallClockPeriod && self.AuxPagesCycleCount == other.AuxPagesCycleCount && self.AuxPagesWallClockPeriod == other.AuxPagesWallClockPeriod && self.HandlesCycleCount == other.HandlesCycleCount && self.HandlesWallClockPeriod == other.HandlesWallClockPeriod && self.ThreadsCycleCount == other.ThreadsCycleCount && self.ThreadsWallClockPeriod == other.ThreadsWallClockPeriod
-    }
-}
-impl Eq for PSS_PERFORMANCE_COUNTERS {}
 impl Default for PSS_PERFORMANCE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_PROCESS_INFORMATION {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
@@ -913,78 +694,9 @@ pub struct PSS_PROCESS_INFORMATION {
     pub ExecuteFlags: u32,
     pub ImageFileName: [u16; 260],
 }
-impl Copy for PSS_PROCESS_INFORMATION {}
-impl Clone for PSS_PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_PROCESS_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_PROCESS_INFORMATION")
-            .field("ExitStatus", &self.ExitStatus)
-            .field("PebBaseAddress", &self.PebBaseAddress)
-            .field("AffinityMask", &self.AffinityMask)
-            .field("BasePriority", &self.BasePriority)
-            .field("ProcessId", &self.ProcessId)
-            .field("ParentProcessId", &self.ParentProcessId)
-            .field("Flags", &self.Flags)
-            .field("CreateTime", &self.CreateTime)
-            .field("ExitTime", &self.ExitTime)
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .field("PriorityClass", &self.PriorityClass)
-            .field("PeakVirtualSize", &self.PeakVirtualSize)
-            .field("VirtualSize", &self.VirtualSize)
-            .field("PageFaultCount", &self.PageFaultCount)
-            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
-            .field("WorkingSetSize", &self.WorkingSetSize)
-            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
-            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
-            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
-            .field("PagefileUsage", &self.PagefileUsage)
-            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
-            .field("PrivateUsage", &self.PrivateUsage)
-            .field("ExecuteFlags", &self.ExecuteFlags)
-            .field("ImageFileName", &self.ImageFileName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PSS_PROCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_PROCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus
-            && self.PebBaseAddress == other.PebBaseAddress
-            && self.AffinityMask == other.AffinityMask
-            && self.BasePriority == other.BasePriority
-            && self.ProcessId == other.ProcessId
-            && self.ParentProcessId == other.ParentProcessId
-            && self.Flags == other.Flags
-            && self.CreateTime == other.CreateTime
-            && self.ExitTime == other.ExitTime
-            && self.KernelTime == other.KernelTime
-            && self.UserTime == other.UserTime
-            && self.PriorityClass == other.PriorityClass
-            && self.PeakVirtualSize == other.PeakVirtualSize
-            && self.VirtualSize == other.VirtualSize
-            && self.PageFaultCount == other.PageFaultCount
-            && self.PeakWorkingSetSize == other.PeakWorkingSetSize
-            && self.WorkingSetSize == other.WorkingSetSize
-            && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage
-            && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage
-            && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage
-            && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage
-            && self.PagefileUsage == other.PagefileUsage
-            && self.PeakPagefileUsage == other.PeakPagefileUsage
-            && self.PrivateUsage == other.PrivateUsage
-            && self.ExecuteFlags == other.ExecuteFlags
-            && self.ImageFileName == other.ImageFileName
-    }
-}
-impl Eq for PSS_PROCESS_INFORMATION {}
 impl Default for PSS_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -992,6 +704,7 @@ impl Default for PSS_PROCESS_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
@@ -1014,69 +727,9 @@ pub struct PSS_THREAD_ENTRY {
     pub ContextRecord: *mut super::Debug::CONTEXT,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for PSS_THREAD_ENTRY {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for PSS_THREAD_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl core::fmt::Debug for PSS_THREAD_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_THREAD_ENTRY")
-            .field("ExitStatus", &self.ExitStatus)
-            .field("TebBaseAddress", &self.TebBaseAddress)
-            .field("ProcessId", &self.ProcessId)
-            .field("ThreadId", &self.ThreadId)
-            .field("AffinityMask", &self.AffinityMask)
-            .field("Priority", &self.Priority)
-            .field("BasePriority", &self.BasePriority)
-            .field("LastSyscallFirstArgument", &self.LastSyscallFirstArgument)
-            .field("LastSyscallNumber", &self.LastSyscallNumber)
-            .field("CreateTime", &self.CreateTime)
-            .field("ExitTime", &self.ExitTime)
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .field("Win32StartAddress", &self.Win32StartAddress)
-            .field("CaptureTime", &self.CaptureTime)
-            .field("Flags", &self.Flags)
-            .field("SuspendCount", &self.SuspendCount)
-            .field("SizeOfContextRecord", &self.SizeOfContextRecord)
-            .field("ContextRecord", &self.ContextRecord)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for PSS_THREAD_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl PartialEq for PSS_THREAD_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus
-            && self.TebBaseAddress == other.TebBaseAddress
-            && self.ProcessId == other.ProcessId
-            && self.ThreadId == other.ThreadId
-            && self.AffinityMask == other.AffinityMask
-            && self.Priority == other.Priority
-            && self.BasePriority == other.BasePriority
-            && self.LastSyscallFirstArgument == other.LastSyscallFirstArgument
-            && self.LastSyscallNumber == other.LastSyscallNumber
-            && self.CreateTime == other.CreateTime
-            && self.ExitTime == other.ExitTime
-            && self.KernelTime == other.KernelTime
-            && self.UserTime == other.UserTime
-            && self.Win32StartAddress == other.Win32StartAddress
-            && self.CaptureTime == other.CaptureTime
-            && self.Flags == other.Flags
-            && self.SuspendCount == other.SuspendCount
-            && self.SizeOfContextRecord == other.SizeOfContextRecord
-            && self.ContextRecord == other.ContextRecord
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Eq for PSS_THREAD_ENTRY {}
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for PSS_THREAD_ENTRY {
     fn default() -> Self {
@@ -1084,65 +737,34 @@ impl Default for PSS_THREAD_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_THREAD_INFORMATION {
     pub ThreadsCaptured: u32,
     pub ContextLength: u32,
 }
-impl Copy for PSS_THREAD_INFORMATION {}
-impl Clone for PSS_THREAD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_THREAD_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_THREAD_INFORMATION").field("ThreadsCaptured", &self.ThreadsCaptured).field("ContextLength", &self.ContextLength).finish()
-    }
-}
 impl windows_core::TypeKind for PSS_THREAD_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_THREAD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThreadsCaptured == other.ThreadsCaptured && self.ContextLength == other.ContextLength
-    }
-}
-impl Eq for PSS_THREAD_INFORMATION {}
 impl Default for PSS_THREAD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_VA_CLONE_INFORMATION {
     pub VaCloneHandle: super::super::super::Foundation::HANDLE,
-}
-impl Copy for PSS_VA_CLONE_INFORMATION {}
-impl Clone for PSS_VA_CLONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_VA_CLONE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_VA_CLONE_INFORMATION").field("VaCloneHandle", &self.VaCloneHandle).finish()
-    }
 }
 impl windows_core::TypeKind for PSS_VA_CLONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_VA_CLONE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.VaCloneHandle == other.VaCloneHandle
-    }
-}
-impl Eq for PSS_VA_CLONE_INFORMATION {}
 impl Default for PSS_VA_CLONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -1158,69 +780,22 @@ pub struct PSS_VA_SPACE_ENTRY {
     pub MappedFileNameLength: u16,
     pub MappedFileName: windows_core::PCWSTR,
 }
-impl Copy for PSS_VA_SPACE_ENTRY {}
-impl Clone for PSS_VA_SPACE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_VA_SPACE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_VA_SPACE_ENTRY")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("AllocationBase", &self.AllocationBase)
-            .field("AllocationProtect", &self.AllocationProtect)
-            .field("RegionSize", &self.RegionSize)
-            .field("State", &self.State)
-            .field("Protect", &self.Protect)
-            .field("Type", &self.Type)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("SizeOfImage", &self.SizeOfImage)
-            .field("ImageBase", &self.ImageBase)
-            .field("CheckSum", &self.CheckSum)
-            .field("MappedFileNameLength", &self.MappedFileNameLength)
-            .field("MappedFileName", &self.MappedFileName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PSS_VA_SPACE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_VA_SPACE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type && self.TimeDateStamp == other.TimeDateStamp && self.SizeOfImage == other.SizeOfImage && self.ImageBase == other.ImageBase && self.CheckSum == other.CheckSum && self.MappedFileNameLength == other.MappedFileNameLength && self.MappedFileName == other.MappedFileName
-    }
-}
-impl Eq for PSS_VA_SPACE_ENTRY {}
 impl Default for PSS_VA_SPACE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_VA_SPACE_INFORMATION {
     pub RegionCount: u32,
-}
-impl Copy for PSS_VA_SPACE_INFORMATION {}
-impl Clone for PSS_VA_SPACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSS_VA_SPACE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSS_VA_SPACE_INFORMATION").field("RegionCount", &self.RegionCount).finish()
-    }
 }
 impl windows_core::TypeKind for PSS_VA_SPACE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSS_VA_SPACE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.RegionCount == other.RegionCount
-    }
-}
-impl Eq for PSS_VA_SPACE_INFORMATION {}
 impl Default for PSS_VA_SPACE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

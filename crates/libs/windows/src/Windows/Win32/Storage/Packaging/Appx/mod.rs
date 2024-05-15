@@ -3930,30 +3930,14 @@ impl core::fmt::Debug for PackagePathType {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *const windows_core::PCWSTR,
 }
-impl Copy for APPX_ENCRYPTED_EXEMPTIONS {}
-impl Clone for APPX_ENCRYPTED_EXEMPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPX_ENCRYPTED_EXEMPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPX_ENCRYPTED_EXEMPTIONS").field("count", &self.count).field("plainTextFiles", &self.plainTextFiles).finish()
-    }
-}
 impl windows_core::TypeKind for APPX_ENCRYPTED_EXEMPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPX_ENCRYPTED_EXEMPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.plainTextFiles == other.plainTextFiles
-    }
-}
-impl Eq for APPX_ENCRYPTED_EXEMPTIONS {}
 impl Default for APPX_ENCRYPTED_EXEMPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3961,6 +3945,7 @@ impl Default for APPX_ENCRYPTED_EXEMPTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
@@ -3974,23 +3959,9 @@ impl Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPX_ENCRYPTED_PACKAGE_SETTINGS").field("keyLength", &self.keyLength).field("encryptionAlgorithm", &self.encryptionAlgorithm).field("useDiffusion", &self.useDiffusion).field("blockMapHashAlgorithm", &self.blockMapHashAlgorithm).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.keyLength == other.keyLength && self.encryptionAlgorithm == other.encryptionAlgorithm && self.useDiffusion == other.useDiffusion && self.blockMapHashAlgorithm == other.blockMapHashAlgorithm
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     fn default() -> Self {
@@ -3999,6 +3970,7 @@ impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
@@ -4012,23 +3984,9 @@ impl Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPX_ENCRYPTED_PACKAGE_SETTINGS2").field("keyLength", &self.keyLength).field("encryptionAlgorithm", &self.encryptionAlgorithm).field("blockMapHashAlgorithm", &self.blockMapHashAlgorithm).field("options", &self.options).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.keyLength == other.keyLength && self.encryptionAlgorithm == other.encryptionAlgorithm && self.blockMapHashAlgorithm == other.blockMapHashAlgorithm && self.options == other.options
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     fn default() -> Self {
@@ -4036,32 +3994,16 @@ impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
     pub key: *mut u8,
     pub keyId: *mut u8,
 }
-impl Copy for APPX_KEY_INFO {}
-impl Clone for APPX_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPX_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPX_KEY_INFO").field("keyLength", &self.keyLength).field("keyIdLength", &self.keyIdLength).field("key", &self.key).field("keyId", &self.keyId).finish()
-    }
-}
 impl windows_core::TypeKind for APPX_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPX_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.keyLength == other.keyLength && self.keyIdLength == other.keyIdLength && self.key == other.key && self.keyId == other.keyId
-    }
-}
-impl Eq for APPX_KEY_INFO {}
 impl Default for APPX_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4069,6 +4011,7 @@ impl Default for APPX_KEY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
     pub hashMethod: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
@@ -4080,23 +4023,9 @@ impl Clone for APPX_PACKAGE_SETTINGS {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for APPX_PACKAGE_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPX_PACKAGE_SETTINGS").field("forceZip32", &self.forceZip32).field("hashMethod", &self.hashMethod).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for APPX_PACKAGE_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for APPX_PACKAGE_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.forceZip32 == other.forceZip32 && self.hashMethod == other.hashMethod
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for APPX_PACKAGE_SETTINGS {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for APPX_PACKAGE_SETTINGS {
     fn default() -> Self {
@@ -4105,6 +4034,7 @@ impl Default for APPX_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
     pub fileName: windows_core::PCWSTR,
@@ -4118,23 +4048,9 @@ impl Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPX_PACKAGE_WRITER_PAYLOAD_STREAM").field("inputStream", &self.inputStream).field("fileName", &self.fileName).field("contentType", &self.contentType).field("compressionOption", &self.compressionOption).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.inputStream == other.inputStream && self.fileName == other.fileName && self.contentType == other.contentType && self.compressionOption == other.compressionOption
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn default() -> Self {
@@ -4159,6 +4075,7 @@ impl windows_core::TypeKind for PACKAGEDEPENDENCY_CONTEXT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -4167,14 +4084,6 @@ pub struct PACKAGE_ID {
     pub publisher: windows_core::PWSTR,
     pub resourceId: windows_core::PWSTR,
     pub publisherId: windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PACKAGE_ID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PACKAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PACKAGE_ID {
@@ -4188,6 +4097,7 @@ impl Default for PACKAGE_ID {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -4196,14 +4106,6 @@ pub struct PACKAGE_ID {
     pub publisher: windows_core::PWSTR,
     pub resourceId: windows_core::PWSTR,
     pub publisherId: windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for PACKAGE_ID {}
-#[cfg(target_arch = "x86")]
-impl Clone for PACKAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PACKAGE_ID {
@@ -4217,6 +4119,7 @@ impl Default for PACKAGE_ID {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -4224,14 +4127,6 @@ pub struct PACKAGE_INFO {
     pub packageFullName: windows_core::PWSTR,
     pub packageFamilyName: windows_core::PWSTR,
     pub packageId: PACKAGE_ID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PACKAGE_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PACKAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PACKAGE_INFO {
@@ -4245,6 +4140,7 @@ impl Default for PACKAGE_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -4252,14 +4148,6 @@ pub struct PACKAGE_INFO {
     pub packageFullName: windows_core::PWSTR,
     pub packageFamilyName: windows_core::PWSTR,
     pub packageId: PACKAGE_ID,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for PACKAGE_INFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for PACKAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PACKAGE_INFO {
@@ -4272,14 +4160,9 @@ impl Default for PACKAGE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
-}
-impl Copy for PACKAGE_VERSION {}
-impl Clone for PACKAGE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PACKAGE_VERSION {
     type TypeKind = windows_core::CopyType;
@@ -4290,15 +4173,10 @@ impl Default for PACKAGE_VERSION {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,
     pub Anonymous: PACKAGE_VERSION_0_0,
-}
-impl Copy for PACKAGE_VERSION_0 {}
-impl Clone for PACKAGE_VERSION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PACKAGE_VERSION_0 {
     type TypeKind = windows_core::CopyType;
@@ -4309,32 +4187,16 @@ impl Default for PACKAGE_VERSION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
     pub Minor: u16,
     pub Major: u16,
 }
-impl Copy for PACKAGE_VERSION_0_0 {}
-impl Clone for PACKAGE_VERSION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PACKAGE_VERSION_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PACKAGE_VERSION_0_0").field("Revision", &self.Revision).field("Build", &self.Build).field("Minor", &self.Minor).field("Major", &self.Major).finish()
-    }
-}
 impl windows_core::TypeKind for PACKAGE_VERSION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PACKAGE_VERSION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.Build == other.Build && self.Minor == other.Minor && self.Major == other.Major
-    }
-}
-impl Eq for PACKAGE_VERSION_0_0 {}
 impl Default for PACKAGE_VERSION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4352,29 +4214,13 @@ impl windows_core::TypeKind for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
-}
-impl Copy for _PACKAGE_INFO_REFERENCE {}
-impl Clone for _PACKAGE_INFO_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for _PACKAGE_INFO_REFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("_PACKAGE_INFO_REFERENCE").field("reserved", &self.reserved).finish()
-    }
 }
 impl windows_core::TypeKind for _PACKAGE_INFO_REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for _PACKAGE_INFO_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved == other.reserved
-    }
-}
-impl Eq for _PACKAGE_INFO_REFERENCE {}
 impl Default for _PACKAGE_INFO_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

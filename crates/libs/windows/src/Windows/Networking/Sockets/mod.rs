@@ -3883,6 +3883,7 @@ impl windows_core::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BandwidthStatistics {
     pub OutboundBitsPerSecond: u64,
     pub InboundBitsPerSecond: u64,
@@ -3891,51 +3892,24 @@ pub struct BandwidthStatistics {
     pub OutboundBandwidthPeaked: bool,
     pub InboundBandwidthPeaked: bool,
 }
-impl Copy for BandwidthStatistics {}
-impl Clone for BandwidthStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BandwidthStatistics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
-    }
-}
 impl windows_core::TypeKind for BandwidthStatistics {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for BandwidthStatistics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
 }
-impl PartialEq for BandwidthStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutboundBitsPerSecond == other.OutboundBitsPerSecond && self.InboundBitsPerSecond == other.InboundBitsPerSecond && self.OutboundBitsPerSecondInstability == other.OutboundBitsPerSecondInstability && self.InboundBitsPerSecondInstability == other.InboundBitsPerSecondInstability && self.OutboundBandwidthPeaked == other.OutboundBandwidthPeaked && self.InboundBandwidthPeaked == other.InboundBandwidthPeaked
-    }
-}
-impl Eq for BandwidthStatistics {}
 impl Default for BandwidthStatistics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RoundTripTimeStatistics {
     pub Variance: u32,
     pub Max: u32,
     pub Min: u32,
     pub Sum: u32,
-}
-impl Copy for RoundTripTimeStatistics {}
-impl Clone for RoundTripTimeStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RoundTripTimeStatistics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
-    }
 }
 impl windows_core::TypeKind for RoundTripTimeStatistics {
     type TypeKind = windows_core::CopyType;
@@ -3943,12 +3917,6 @@ impl windows_core::TypeKind for RoundTripTimeStatistics {
 impl windows_core::RuntimeType for RoundTripTimeStatistics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
 }
-impl PartialEq for RoundTripTimeStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.Variance == other.Variance && self.Max == other.Max && self.Min == other.Min && self.Sum == other.Sum
-    }
-}
-impl Eq for RoundTripTimeStatistics {}
 impl Default for RoundTripTimeStatistics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

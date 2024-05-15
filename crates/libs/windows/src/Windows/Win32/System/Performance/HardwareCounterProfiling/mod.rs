@@ -44,37 +44,22 @@ impl core::fmt::Debug for HARDWARE_COUNTER_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
-impl Copy for HARDWARE_COUNTER_DATA {}
-impl Clone for HARDWARE_COUNTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HARDWARE_COUNTER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HARDWARE_COUNTER_DATA").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for HARDWARE_COUNTER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HARDWARE_COUNTER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved == other.Reserved && self.Value == other.Value
-    }
-}
-impl Eq for HARDWARE_COUNTER_DATA {}
 impl Default for HARDWARE_COUNTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,
@@ -86,26 +71,9 @@ pub struct PERFORMANCE_DATA {
     pub Reserved: u32,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
 }
-impl Copy for PERFORMANCE_DATA {}
-impl Clone for PERFORMANCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERFORMANCE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERFORMANCE_DATA").field("Size", &self.Size).field("Version", &self.Version).field("HwCountersCount", &self.HwCountersCount).field("ContextSwitchCount", &self.ContextSwitchCount).field("WaitReasonBitMap", &self.WaitReasonBitMap).field("CycleTime", &self.CycleTime).field("RetryCount", &self.RetryCount).field("Reserved", &self.Reserved).field("HwCounters", &self.HwCounters).finish()
-    }
-}
 impl windows_core::TypeKind for PERFORMANCE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERFORMANCE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.HwCountersCount == other.HwCountersCount && self.ContextSwitchCount == other.ContextSwitchCount && self.WaitReasonBitMap == other.WaitReasonBitMap && self.CycleTime == other.CycleTime && self.RetryCount == other.RetryCount && self.Reserved == other.Reserved && self.HwCounters == other.HwCounters
-    }
-}
-impl Eq for PERFORMANCE_DATA {}
 impl Default for PERFORMANCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

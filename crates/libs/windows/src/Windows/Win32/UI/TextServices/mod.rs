@@ -6811,15 +6811,10 @@ impl windows_core::TypeKind for HKL {
 }
 pub const MSAAControl: windows_core::GUID = windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
-}
-impl Copy for TF_DA_COLOR {}
-impl Clone for TF_DA_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TF_DA_COLOR {
     type TypeKind = windows_core::CopyType;
@@ -6830,15 +6825,10 @@ impl Default for TF_DA_COLOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: super::super::Foundation::COLORREF,
-}
-impl Copy for TF_DA_COLOR_0 {}
-impl Clone for TF_DA_COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TF_DA_COLOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -6849,6 +6839,7 @@ impl Default for TF_DA_COLOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
     pub crBk: TF_DA_COLOR,
@@ -6856,12 +6847,6 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub fBoldLine: super::super::Foundation::BOOL,
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
-}
-impl Copy for TF_DISPLAYATTRIBUTE {}
-impl Clone for TF_DISPLAYATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TF_DISPLAYATTRIBUTE {
     type TypeKind = windows_core::CopyType;
@@ -6872,6 +6857,7 @@ impl Default for TF_DISPLAYATTRIBUTE {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct TF_HALTCOND {
     pub pHaltRange: std::mem::ManuallyDrop<Option<ITfRange>>,
     pub aHaltPos: TfAnchor,
@@ -6882,26 +6868,16 @@ impl Clone for TF_HALTCOND {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for TF_HALTCOND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_HALTCOND").field("pHaltRange", &self.pHaltRange).field("aHaltPos", &self.aHaltPos).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for TF_HALTCOND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_HALTCOND {
-    fn eq(&self, other: &Self) -> bool {
-        self.pHaltRange == other.pHaltRange && self.aHaltPos == other.aHaltPos && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for TF_HALTCOND {}
 impl Default for TF_HALTCOND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -6913,32 +6889,16 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub hkl: HKL,
     pub dwFlags: u32,
 }
-impl Copy for TF_INPUTPROCESSORPROFILE {}
-impl Clone for TF_INPUTPROCESSORPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TF_INPUTPROCESSORPROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_INPUTPROCESSORPROFILE").field("dwProfileType", &self.dwProfileType).field("langid", &self.langid).field("clsid", &self.clsid).field("guidProfile", &self.guidProfile).field("catid", &self.catid).field("hklSubstitute", &self.hklSubstitute).field("dwCaps", &self.dwCaps).field("hkl", &self.hkl).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for TF_INPUTPROCESSORPROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_INPUTPROCESSORPROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProfileType == other.dwProfileType && self.langid == other.langid && self.clsid == other.clsid && self.guidProfile == other.guidProfile && self.catid == other.catid && self.hklSubstitute == other.hklSubstitute && self.dwCaps == other.dwCaps && self.hkl == other.hkl && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for TF_INPUTPROCESSORPROFILE {}
 impl Default for TF_INPUTPROCESSORPROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: windows_core::GUID,
     pub guidItem: windows_core::GUID,
@@ -6946,32 +6906,16 @@ pub struct TF_LANGBARITEMINFO {
     pub ulSort: u32,
     pub szDescription: [u16; 32],
 }
-impl Copy for TF_LANGBARITEMINFO {}
-impl Clone for TF_LANGBARITEMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TF_LANGBARITEMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_LANGBARITEMINFO").field("clsidService", &self.clsidService).field("guidItem", &self.guidItem).field("dwStyle", &self.dwStyle).field("ulSort", &self.ulSort).field("szDescription", &self.szDescription).finish()
-    }
-}
 impl windows_core::TypeKind for TF_LANGBARITEMINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_LANGBARITEMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsidService == other.clsidService && self.guidItem == other.guidItem && self.dwStyle == other.dwStyle && self.ulSort == other.ulSort && self.szDescription == other.szDescription
-    }
-}
-impl Eq for TF_LANGBARITEMINFO {}
 impl Default for TF_LANGBARITEMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_core::GUID,
     pub langid: u16,
@@ -6979,32 +6923,16 @@ pub struct TF_LANGUAGEPROFILE {
     pub fActive: super::super::Foundation::BOOL,
     pub guidProfile: windows_core::GUID,
 }
-impl Copy for TF_LANGUAGEPROFILE {}
-impl Clone for TF_LANGUAGEPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TF_LANGUAGEPROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_LANGUAGEPROFILE").field("clsid", &self.clsid).field("langid", &self.langid).field("catid", &self.catid).field("fActive", &self.fActive).field("guidProfile", &self.guidProfile).finish()
-    }
-}
 impl windows_core::TypeKind for TF_LANGUAGEPROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_LANGUAGEPROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsid == other.clsid && self.langid == other.langid && self.catid == other.catid && self.fActive == other.fActive && self.guidProfile == other.guidProfile
-    }
-}
-impl Eq for TF_LANGUAGEPROFILE {}
 impl Default for TF_LANGUAGEPROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -7014,20 +6942,9 @@ impl Clone for TF_LBBALLOONINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for TF_LBBALLOONINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_LBBALLOONINFO").field("style", &self.style).field("bstrText", &self.bstrText).finish()
-    }
-}
 impl windows_core::TypeKind for TF_LBBALLOONINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_LBBALLOONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.style == other.style && self.bstrText == other.bstrText
-    }
-}
-impl Eq for TF_LBBALLOONINFO {}
 impl Default for TF_LBBALLOONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7055,14 +6972,9 @@ impl Default for TF_LMLATTELEMENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
-}
-impl Copy for TF_LMLATTELEMENT_0 {}
-impl Clone for TF_LMLATTELEMENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TF_LMLATTELEMENT_0 {
     type TypeKind = windows_core::CopyType;
@@ -7073,6 +6985,7 @@ impl Default for TF_LMLATTELEMENT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_core::GUID,
     pub ichStart: i32,
@@ -7081,62 +6994,30 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub dwPrivate: u32,
     pub clsidTIP: windows_core::GUID,
 }
-impl Copy for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
-impl Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_PERSISTENT_PROPERTY_HEADER_ACP").field("guidType", &self.guidType).field("ichStart", &self.ichStart).field("cch", &self.cch).field("cb", &self.cb).field("dwPrivate", &self.dwPrivate).field("clsidTIP", &self.clsidTIP).finish()
-    }
-}
 impl windows_core::TypeKind for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidType == other.guidType && self.ichStart == other.ichStart && self.cch == other.cch && self.cb == other.cb && self.dwPrivate == other.dwPrivate && self.clsidTIP == other.clsidTIP
-    }
-}
-impl Eq for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
 impl Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
 }
-impl Copy for TF_PRESERVEDKEY {}
-impl Clone for TF_PRESERVEDKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TF_PRESERVEDKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_PRESERVEDKEY").field("uVKey", &self.uVKey).field("uModifiers", &self.uModifiers).finish()
-    }
-}
 impl windows_core::TypeKind for TF_PRESERVEDKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_PRESERVEDKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVKey == other.uVKey && self.uModifiers == other.uModifiers
-    }
-}
-impl Eq for TF_PRESERVEDKEY {}
 impl Default for TF_PRESERVEDKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_core::GUID,
     pub varValue: std::mem::ManuallyDrop<windows_core::VARIANT>,
@@ -7146,26 +7027,16 @@ impl Clone for TF_PROPERTYVAL {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for TF_PROPERTYVAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_PROPERTYVAL").field("guidId", &self.guidId).field("varValue", &self.varValue).finish()
-    }
-}
 impl windows_core::TypeKind for TF_PROPERTYVAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_PROPERTYVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidId == other.guidId && self.varValue == other.varValue
-    }
-}
-impl Eq for TF_PROPERTYVAL {}
 impl Default for TF_PROPERTYVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct TF_SELECTION {
     pub range: std::mem::ManuallyDrop<Option<ITfRange>>,
     pub style: TF_SELECTIONSTYLE,
@@ -7175,56 +7046,30 @@ impl Clone for TF_SELECTION {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for TF_SELECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_SELECTION").field("range", &self.range).field("style", &self.style).finish()
-    }
-}
 impl windows_core::TypeKind for TF_SELECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_SELECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.range == other.range && self.style == other.style
-    }
-}
-impl Eq for TF_SELECTION {}
 impl Default for TF_SELECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
 }
-impl Copy for TF_SELECTIONSTYLE {}
-impl Clone for TF_SELECTIONSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TF_SELECTIONSTYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TF_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
-    }
-}
 impl windows_core::TypeKind for TF_SELECTIONSTYLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TF_SELECTIONSTYLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ase == other.ase && self.fInterimChar == other.fInterimChar
-    }
-}
-impl Eq for TF_SELECTIONSTYLE {}
 impl Default for TF_SELECTIONSTYLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct TS_ATTRVAL {
     pub idAttr: windows_core::GUID,
     pub dwOverlapId: u32,
@@ -7235,117 +7080,59 @@ impl Clone for TS_ATTRVAL {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for TS_ATTRVAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_ATTRVAL").field("idAttr", &self.idAttr).field("dwOverlapId", &self.dwOverlapId).field("varValue", &self.varValue).finish()
-    }
-}
 impl windows_core::TypeKind for TS_ATTRVAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_ATTRVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.idAttr == other.idAttr && self.dwOverlapId == other.dwOverlapId && self.varValue == other.varValue
-    }
-}
-impl Eq for TS_ATTRVAL {}
 impl Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
 }
-impl Copy for TS_RUNINFO {}
-impl Clone for TS_RUNINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TS_RUNINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_RUNINFO").field("uCount", &self.uCount).field("type", &self.r#type).finish()
-    }
-}
 impl windows_core::TypeKind for TS_RUNINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_RUNINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uCount == other.uCount && self.r#type == other.r#type
-    }
-}
-impl Eq for TS_RUNINFO {}
 impl Default for TS_RUNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
 }
-impl Copy for TS_SELECTIONSTYLE {}
-impl Clone for TS_SELECTIONSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TS_SELECTIONSTYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
-    }
-}
 impl windows_core::TypeKind for TS_SELECTIONSTYLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_SELECTIONSTYLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ase == other.ase && self.fInterimChar == other.fInterimChar
-    }
-}
-impl Eq for TS_SELECTIONSTYLE {}
 impl Default for TS_SELECTIONSTYLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
     pub style: TS_SELECTIONSTYLE,
 }
-impl Copy for TS_SELECTION_ACP {}
-impl Clone for TS_SELECTION_ACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TS_SELECTION_ACP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_SELECTION_ACP").field("acpStart", &self.acpStart).field("acpEnd", &self.acpEnd).field("style", &self.style).finish()
-    }
-}
 impl windows_core::TypeKind for TS_SELECTION_ACP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_SELECTION_ACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.acpStart == other.acpStart && self.acpEnd == other.acpEnd && self.style == other.style
-    }
-}
-impl Eq for TS_SELECTION_ACP {}
 impl Default for TS_SELECTION_ACP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: std::mem::ManuallyDrop<Option<IAnchor>>,
     pub paEnd: std::mem::ManuallyDrop<Option<IAnchor>>,
@@ -7356,81 +7143,38 @@ impl Clone for TS_SELECTION_ANCHOR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for TS_SELECTION_ANCHOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_SELECTION_ANCHOR").field("paStart", &self.paStart).field("paEnd", &self.paEnd).field("style", &self.style).finish()
-    }
-}
 impl windows_core::TypeKind for TS_SELECTION_ANCHOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_SELECTION_ANCHOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.paStart == other.paStart && self.paEnd == other.paEnd && self.style == other.style
-    }
-}
-impl Eq for TS_SELECTION_ANCHOR {}
 impl Default for TS_SELECTION_ANCHOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
 }
-impl Copy for TS_STATUS {}
-impl Clone for TS_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TS_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_STATUS").field("dwDynamicFlags", &self.dwDynamicFlags).field("dwStaticFlags", &self.dwStaticFlags).finish()
-    }
-}
 impl windows_core::TypeKind for TS_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDynamicFlags == other.dwDynamicFlags && self.dwStaticFlags == other.dwStaticFlags
-    }
-}
-impl Eq for TS_STATUS {}
 impl Default for TS_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,
     pub acpNewEnd: i32,
 }
-impl Copy for TS_TEXTCHANGE {}
-impl Clone for TS_TEXTCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TS_TEXTCHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TS_TEXTCHANGE").field("acpStart", &self.acpStart).field("acpOldEnd", &self.acpOldEnd).field("acpNewEnd", &self.acpNewEnd).finish()
-    }
-}
 impl windows_core::TypeKind for TS_TEXTCHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TS_TEXTCHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.acpStart == other.acpStart && self.acpOldEnd == other.acpOldEnd && self.acpNewEnd == other.acpNewEnd
-    }
-}
-impl Eq for TS_TEXTCHANGE {}
 impl Default for TS_TEXTCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

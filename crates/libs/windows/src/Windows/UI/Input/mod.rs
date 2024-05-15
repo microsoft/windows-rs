@@ -3838,22 +3838,12 @@ impl windows_core::RuntimeType for RadialControllerSystemMenuItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CrossSlideThresholds {
     pub SelectionStart: f32,
     pub SpeedBumpStart: f32,
     pub SpeedBumpEnd: f32,
     pub RearrangeStart: f32,
-}
-impl Copy for CrossSlideThresholds {}
-impl Clone for CrossSlideThresholds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CrossSlideThresholds {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CrossSlideThresholds").field("SelectionStart", &self.SelectionStart).field("SpeedBumpStart", &self.SpeedBumpStart).field("SpeedBumpEnd", &self.SpeedBumpEnd).field("RearrangeStart", &self.RearrangeStart).finish()
-    }
 }
 impl windows_core::TypeKind for CrossSlideThresholds {
     type TypeKind = windows_core::CopyType;
@@ -3861,34 +3851,18 @@ impl windows_core::TypeKind for CrossSlideThresholds {
 impl windows_core::RuntimeType for CrossSlideThresholds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
 }
-impl PartialEq for CrossSlideThresholds {
-    fn eq(&self, other: &Self) -> bool {
-        self.SelectionStart == other.SelectionStart && self.SpeedBumpStart == other.SpeedBumpStart && self.SpeedBumpEnd == other.SpeedBumpEnd && self.RearrangeStart == other.RearrangeStart
-    }
-}
-impl Eq for CrossSlideThresholds {}
 impl Default for CrossSlideThresholds {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ManipulationDelta {
     pub Translation: super::super::Foundation::Point,
     pub Scale: f32,
     pub Rotation: f32,
     pub Expansion: f32,
-}
-impl Copy for ManipulationDelta {}
-impl Clone for ManipulationDelta {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ManipulationDelta {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ManipulationDelta").field("Translation", &self.Translation).field("Scale", &self.Scale).field("Rotation", &self.Rotation).field("Expansion", &self.Expansion).finish()
-    }
 }
 impl windows_core::TypeKind for ManipulationDelta {
     type TypeKind = windows_core::CopyType;
@@ -3896,33 +3870,17 @@ impl windows_core::TypeKind for ManipulationDelta {
 impl windows_core::RuntimeType for ManipulationDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
 }
-impl PartialEq for ManipulationDelta {
-    fn eq(&self, other: &Self) -> bool {
-        self.Translation == other.Translation && self.Scale == other.Scale && self.Rotation == other.Rotation && self.Expansion == other.Expansion
-    }
-}
-impl Eq for ManipulationDelta {}
 impl Default for ManipulationDelta {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ManipulationVelocities {
     pub Linear: super::super::Foundation::Point,
     pub Angular: f32,
     pub Expansion: f32,
-}
-impl Copy for ManipulationVelocities {}
-impl Clone for ManipulationVelocities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ManipulationVelocities {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ManipulationVelocities").field("Linear", &self.Linear).field("Angular", &self.Angular).field("Expansion", &self.Expansion).finish()
-    }
 }
 impl windows_core::TypeKind for ManipulationVelocities {
     type TypeKind = windows_core::CopyType;
@@ -3930,12 +3888,6 @@ impl windows_core::TypeKind for ManipulationVelocities {
 impl windows_core::RuntimeType for ManipulationVelocities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
 }
-impl PartialEq for ManipulationVelocities {
-    fn eq(&self, other: &Self) -> bool {
-        self.Linear == other.Linear && self.Angular == other.Angular && self.Expansion == other.Expansion
-    }
-}
-impl Eq for ManipulationVelocities {}
 impl Default for ManipulationVelocities {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

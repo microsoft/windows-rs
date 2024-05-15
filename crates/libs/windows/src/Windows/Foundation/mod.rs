@@ -2427,19 +2427,9 @@ impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DateTime {
     pub UniversalTime: i64,
-}
-impl Copy for DateTime {}
-impl Clone for DateTime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DateTime {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
-    }
 }
 impl windows_core::TypeKind for DateTime {
     type TypeKind = windows_core::CopyType;
@@ -2447,31 +2437,15 @@ impl windows_core::TypeKind for DateTime {
 impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
 }
-impl PartialEq for DateTime {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniversalTime == other.UniversalTime
-    }
-}
-impl Eq for DateTime {}
 impl Default for DateTime {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EventRegistrationToken {
     pub Value: i64,
-}
-impl Copy for EventRegistrationToken {}
-impl Clone for EventRegistrationToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EventRegistrationToken {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EventRegistrationToken").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for EventRegistrationToken {
     type TypeKind = windows_core::CopyType;
@@ -2479,32 +2453,16 @@ impl windows_core::TypeKind for EventRegistrationToken {
 impl windows_core::RuntimeType for EventRegistrationToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
 }
-impl PartialEq for EventRegistrationToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for EventRegistrationToken {}
 impl Default for EventRegistrationToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
-}
-impl Copy for Point {}
-impl Clone for Point {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Point {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
-    }
 }
 impl windows_core::TypeKind for Point {
     type TypeKind = windows_core::CopyType;
@@ -2512,34 +2470,18 @@ impl windows_core::TypeKind for Point {
 impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
 }
-impl PartialEq for Point {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl Eq for Point {}
 impl Default for Point {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
     pub Width: f32,
     pub Height: f32,
-}
-impl Copy for Rect {}
-impl Clone for Rect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Rect {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for Rect {
     type TypeKind = windows_core::CopyType;
@@ -2547,32 +2489,16 @@ impl windows_core::TypeKind for Rect {
 impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
 }
-impl PartialEq for Rect {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for Rect {}
 impl Default for Rect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
-}
-impl Copy for Size {}
-impl Clone for Size {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Size {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for Size {
     type TypeKind = windows_core::CopyType;
@@ -2580,31 +2506,15 @@ impl windows_core::TypeKind for Size {
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
 }
-impl PartialEq for Size {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for Size {}
 impl Default for Size {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TimeSpan {
     pub Duration: i64,
-}
-impl Copy for TimeSpan {}
-impl Clone for TimeSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TimeSpan {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
-    }
 }
 impl windows_core::TypeKind for TimeSpan {
     type TypeKind = windows_core::CopyType;
@@ -2612,12 +2522,6 @@ impl windows_core::TypeKind for TimeSpan {
 impl windows_core::RuntimeType for TimeSpan {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
 }
-impl PartialEq for TimeSpan {
-    fn eq(&self, other: &Self) -> bool {
-        self.Duration == other.Duration
-    }
-}
-impl Eq for TimeSpan {}
 impl Default for TimeSpan {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

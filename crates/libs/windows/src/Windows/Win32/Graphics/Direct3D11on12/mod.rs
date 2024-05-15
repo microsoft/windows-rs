@@ -129,32 +129,16 @@ pub struct ID3D11On12Device2_Vtbl {
     ReturnUnderlyingResource: usize,
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_RESOURCE_FLAGS {
     pub BindFlags: u32,
     pub MiscFlags: u32,
     pub CPUAccessFlags: u32,
     pub StructureByteStride: u32,
 }
-impl Copy for D3D11_RESOURCE_FLAGS {}
-impl Clone for D3D11_RESOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_RESOURCE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_RESOURCE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_RESOURCE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BindFlags == other.BindFlags && self.MiscFlags == other.MiscFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.StructureByteStride == other.StructureByteStride
-    }
-}
-impl Eq for D3D11_RESOURCE_FLAGS {}
 impl Default for D3D11_RESOURCE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

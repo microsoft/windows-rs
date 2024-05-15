@@ -3516,19 +3516,9 @@ impl windows_core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FontWeight {
     pub Weight: u16,
-}
-impl Copy for FontWeight {}
-impl Clone for FontWeight {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FontWeight {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FontWeight").field("Weight", &self.Weight).finish()
-    }
 }
 impl windows_core::TypeKind for FontWeight {
     type TypeKind = windows_core::CopyType;
@@ -3536,12 +3526,6 @@ impl windows_core::TypeKind for FontWeight {
 impl windows_core::RuntimeType for FontWeight {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.FontWeight;u2)");
 }
-impl PartialEq for FontWeight {
-    fn eq(&self, other: &Self) -> bool {
-        self.Weight == other.Weight
-    }
-}
-impl Eq for FontWeight {}
 impl Default for FontWeight {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

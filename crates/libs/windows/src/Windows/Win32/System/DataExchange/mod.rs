@@ -833,6 +833,7 @@ impl core::fmt::Debug for DDE_NAME_SERVICE_CMD {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -843,31 +844,9 @@ pub struct CONVCONTEXT {
     pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for CONVCONTEXT {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CONVCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for CONVCONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONVCONTEXT").field("cb", &self.cb).field("wFlags", &self.wFlags).field("wCountryID", &self.wCountryID).field("iCodePage", &self.iCodePage).field("dwLangID", &self.dwLangID).field("dwSecurity", &self.dwSecurity).field("qos", &self.qos).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for CONVCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for CONVCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.wFlags == other.wFlags && self.wCountryID == other.wCountryID && self.iCodePage == other.iCodePage && self.dwLangID == other.dwLangID && self.dwSecurity == other.dwSecurity && self.qos == other.qos
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for CONVCONTEXT {}
 #[cfg(feature = "Win32_Security")]
 impl Default for CONVCONTEXT {
     fn default() -> Self {
@@ -876,6 +855,7 @@ impl Default for CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -895,48 +875,9 @@ pub struct CONVINFO {
     pub hwndPartner: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for CONVINFO {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CONVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for CONVINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONVINFO")
-            .field("cb", &self.cb)
-            .field("hUser", &self.hUser)
-            .field("hConvPartner", &self.hConvPartner)
-            .field("hszSvcPartner", &self.hszSvcPartner)
-            .field("hszServiceReq", &self.hszServiceReq)
-            .field("hszTopic", &self.hszTopic)
-            .field("hszItem", &self.hszItem)
-            .field("wFmt", &self.wFmt)
-            .field("wType", &self.wType)
-            .field("wStatus", &self.wStatus)
-            .field("wConvst", &self.wConvst)
-            .field("wLastError", &self.wLastError)
-            .field("hConvList", &self.hConvList)
-            .field("ConvCtxt", &self.ConvCtxt)
-            .field("hwnd", &self.hwnd)
-            .field("hwndPartner", &self.hwndPartner)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for CONVINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for CONVINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.hUser == other.hUser && self.hConvPartner == other.hConvPartner && self.hszSvcPartner == other.hszSvcPartner && self.hszServiceReq == other.hszServiceReq && self.hszTopic == other.hszTopic && self.hszItem == other.hszItem && self.wFmt == other.wFmt && self.wType == other.wType && self.wStatus == other.wStatus && self.wConvst == other.wConvst && self.wLastError == other.wLastError && self.hConvList == other.hConvList && self.ConvCtxt == other.ConvCtxt && self.hwnd == other.hwnd && self.hwndPartner == other.hwndPartner
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for CONVINFO {}
 #[cfg(feature = "Win32_Security")]
 impl Default for CONVINFO {
     fn default() -> Self {
@@ -944,245 +885,117 @@ impl Default for CONVINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
     pub lpData: *mut core::ffi::c_void,
 }
-impl Copy for COPYDATASTRUCT {}
-impl Clone for COPYDATASTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COPYDATASTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COPYDATASTRUCT").field("dwData", &self.dwData).field("cbData", &self.cbData).field("lpData", &self.lpData).finish()
-    }
-}
 impl windows_core::TypeKind for COPYDATASTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COPYDATASTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwData == other.dwData && self.cbData == other.cbData && self.lpData == other.lpData
-    }
-}
-impl Eq for COPYDATASTRUCT {}
 impl Default for COPYDATASTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEACK {
     pub _bitfield: u16,
-}
-impl Copy for DDEACK {}
-impl Clone for DDEACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDEACK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDEACK").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DDEACK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDEACK {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DDEACK {}
 impl Default for DDEACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
-impl Copy for DDEADVISE {}
-impl Clone for DDEADVISE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDEADVISE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDEADVISE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
-    }
-}
 impl windows_core::TypeKind for DDEADVISE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDEADVISE {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat
-    }
-}
-impl Eq for DDEADVISE {}
 impl Default for DDEADVISE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
-impl Copy for DDEDATA {}
-impl Clone for DDEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDEDATA").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for DDEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.Value == other.Value
-    }
-}
-impl Eq for DDEDATA {}
 impl Default for DDEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
-impl Copy for DDELN {}
-impl Clone for DDELN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDELN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDELN").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
-    }
-}
 impl windows_core::TypeKind for DDELN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDELN {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat
-    }
-}
-impl Eq for DDELN {}
 impl Default for DDELN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
     pub cbData: u32,
     pub Data: [u32; 8],
 }
-impl Copy for DDEML_MSG_HOOK_DATA {}
-impl Clone for DDEML_MSG_HOOK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDEML_MSG_HOOK_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDEML_MSG_HOOK_DATA").field("uiLo", &self.uiLo).field("uiHi", &self.uiHi).field("cbData", &self.cbData).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for DDEML_MSG_HOOK_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDEML_MSG_HOOK_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.uiLo == other.uiLo && self.uiHi == other.uiHi && self.cbData == other.cbData && self.Data == other.Data
-    }
-}
-impl Eq for DDEML_MSG_HOOK_DATA {}
 impl Default for DDEML_MSG_HOOK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
-impl Copy for DDEPOKE {}
-impl Clone for DDEPOKE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDEPOKE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDEPOKE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for DDEPOKE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDEPOKE {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.Value == other.Value
-    }
-}
-impl Eq for DDEPOKE {}
 impl Default for DDEPOKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub rgb: [u8; 1],
 }
-impl Copy for DDEUP {}
-impl Clone for DDEUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDEUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDEUP").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("rgb", &self.rgb).finish()
-    }
-}
 impl windows_core::TypeKind for DDEUP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDEUP {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.rgb == other.rgb
-    }
-}
-impl Eq for DDEUP {}
 impl Default for DDEUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1253,30 +1066,14 @@ impl windows_core::TypeKind for HSZ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
 }
-impl Copy for HSZPAIR {}
-impl Clone for HSZPAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSZPAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSZPAIR").field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).finish()
-    }
-}
 impl windows_core::TypeKind for HSZPAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSZPAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic
-    }
-}
-impl Eq for HSZPAIR {}
 impl Default for HSZPAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1284,6 +1081,7 @@ impl Default for HSZPAIR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -1291,31 +1089,9 @@ pub struct METAFILEPICT {
     pub hMF: super::super::Graphics::Gdi::HMETAFILE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for METAFILEPICT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for METAFILEPICT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for METAFILEPICT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("METAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("hMF", &self.hMF).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for METAFILEPICT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for METAFILEPICT {
-    fn eq(&self, other: &Self) -> bool {
-        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.hMF == other.hMF
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for METAFILEPICT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for METAFILEPICT {
     fn default() -> Self {
@@ -1324,6 +1100,7 @@ impl Default for METAFILEPICT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -1342,31 +1119,9 @@ pub struct MONCBSTRUCT {
     pub Data: [u32; 8],
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for MONCBSTRUCT {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for MONCBSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for MONCBSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONCBSTRUCT").field("cb", &self.cb).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("dwRet", &self.dwRet).field("wType", &self.wType).field("wFmt", &self.wFmt).field("hConv", &self.hConv).field("hsz1", &self.hsz1).field("hsz2", &self.hsz2).field("hData", &self.hData).field("dwData1", &self.dwData1).field("dwData2", &self.dwData2).field("cc", &self.cc).field("cbData", &self.cbData).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for MONCBSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for MONCBSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.dwTime == other.dwTime && self.hTask == other.hTask && self.dwRet == other.dwRet && self.wType == other.wType && self.wFmt == other.wFmt && self.hConv == other.hConv && self.hsz1 == other.hsz1 && self.hsz2 == other.hsz2 && self.hData == other.hData && self.dwData1 == other.dwData1 && self.dwData2 == other.dwData2 && self.cc == other.cc && self.cbData == other.cbData && self.Data == other.Data
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for MONCBSTRUCT {}
 #[cfg(feature = "Win32_Security")]
 impl Default for MONCBSTRUCT {
     fn default() -> Self {
@@ -1374,6 +1129,7 @@ impl Default for MONCBSTRUCT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: super::super::Foundation::BOOL,
@@ -1384,64 +1140,32 @@ pub struct MONCONVSTRUCT {
     pub hConvClient: HCONV,
     pub hConvServer: HCONV,
 }
-impl Copy for MONCONVSTRUCT {}
-impl Clone for MONCONVSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONCONVSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONCONVSTRUCT").field("cb", &self.cb).field("fConnect", &self.fConnect).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).field("hConvClient", &self.hConvClient).field("hConvServer", &self.hConvServer).finish()
-    }
-}
 impl windows_core::TypeKind for MONCONVSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONCONVSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.fConnect == other.fConnect && self.dwTime == other.dwTime && self.hTask == other.hTask && self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic && self.hConvClient == other.hConvClient && self.hConvServer == other.hConvServer
-    }
-}
-impl Eq for MONCONVSTRUCT {}
 impl Default for MONCONVSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
     pub dwTime: u32,
     pub hTask: super::super::Foundation::HANDLE,
 }
-impl Copy for MONERRSTRUCT {}
-impl Clone for MONERRSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONERRSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONERRSTRUCT").field("cb", &self.cb).field("wLastError", &self.wLastError).field("dwTime", &self.dwTime).field("hTask", &self.hTask).finish()
-    }
-}
 impl windows_core::TypeKind for MONERRSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONERRSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.wLastError == other.wLastError && self.dwTime == other.dwTime && self.hTask == other.hTask
-    }
-}
-impl Eq for MONERRSTRUCT {}
 impl Default for MONERRSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -1450,32 +1174,16 @@ pub struct MONHSZSTRUCTA {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [i8; 1],
 }
-impl Copy for MONHSZSTRUCTA {}
-impl Clone for MONHSZSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONHSZSTRUCTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONHSZSTRUCTA").field("cb", &self.cb).field("fsAction", &self.fsAction).field("dwTime", &self.dwTime).field("hsz", &self.hsz).field("hTask", &self.hTask).field("str", &self.str).finish()
-    }
-}
 impl windows_core::TypeKind for MONHSZSTRUCTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONHSZSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.fsAction == other.fsAction && self.dwTime == other.dwTime && self.hsz == other.hsz && self.hTask == other.hTask && self.str == other.str
-    }
-}
-impl Eq for MONHSZSTRUCTA {}
 impl Default for MONHSZSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -1484,32 +1192,16 @@ pub struct MONHSZSTRUCTW {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [u16; 1],
 }
-impl Copy for MONHSZSTRUCTW {}
-impl Clone for MONHSZSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONHSZSTRUCTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONHSZSTRUCTW").field("cb", &self.cb).field("fsAction", &self.fsAction).field("dwTime", &self.dwTime).field("hsz", &self.hsz).field("hTask", &self.hTask).field("str", &self.str).finish()
-    }
-}
 impl windows_core::TypeKind for MONHSZSTRUCTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONHSZSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.fsAction == other.fsAction && self.dwTime == other.dwTime && self.hsz == other.hsz && self.hTask == other.hTask && self.str == other.str
-    }
-}
-impl Eq for MONHSZSTRUCTW {}
 impl Default for MONHSZSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -1524,32 +1216,16 @@ pub struct MONLINKSTRUCT {
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
-impl Copy for MONLINKSTRUCT {}
-impl Clone for MONLINKSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONLINKSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONLINKSTRUCT").field("cb", &self.cb).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("fEstablished", &self.fEstablished).field("fNoData", &self.fNoData).field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).field("hszItem", &self.hszItem).field("wFmt", &self.wFmt).field("fServer", &self.fServer).field("hConvServer", &self.hConvServer).field("hConvClient", &self.hConvClient).finish()
-    }
-}
 impl windows_core::TypeKind for MONLINKSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONLINKSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.dwTime == other.dwTime && self.hTask == other.hTask && self.fEstablished == other.fEstablished && self.fNoData == other.fNoData && self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic && self.hszItem == other.hszItem && self.wFmt == other.wFmt && self.fServer == other.fServer && self.hConvServer == other.hConvServer && self.hConvClient == other.hConvClient
-    }
-}
-impl Eq for MONLINKSTRUCT {}
 impl Default for MONLINKSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::super::Foundation::HWND,
@@ -1560,26 +1236,9 @@ pub struct MONMSGSTRUCT {
     pub lParam: super::super::Foundation::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
 }
-impl Copy for MONMSGSTRUCT {}
-impl Clone for MONMSGSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONMSGSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONMSGSTRUCT").field("cb", &self.cb).field("hwndTo", &self.hwndTo).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("wMsg", &self.wMsg).field("wParam", &self.wParam).field("lParam", &self.lParam).field("dmhd", &self.dmhd).finish()
-    }
-}
 impl windows_core::TypeKind for MONMSGSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONMSGSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.hwndTo == other.hwndTo && self.dwTime == other.dwTime && self.hTask == other.hTask && self.wMsg == other.wMsg && self.wParam == other.wParam && self.lParam == other.lParam && self.dmhd == other.dmhd
-    }
-}
-impl Eq for MONMSGSTRUCT {}
 impl Default for MONMSGSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

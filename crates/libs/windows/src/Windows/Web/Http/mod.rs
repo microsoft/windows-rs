@@ -2572,6 +2572,7 @@ impl windows_core::RuntimeType for HttpVersion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
     pub BytesSent: u64,
@@ -2580,35 +2581,12 @@ pub struct HttpProgress {
     pub TotalBytesToReceive: Option<super::super::Foundation::IReference<u64>>,
     pub Retries: u32,
 }
-impl Clone for HttpProgress {
-    fn clone(&self) -> Self {
-        Self {
-            Stage: self.Stage,
-            BytesSent: self.BytesSent,
-            TotalBytesToSend: self.TotalBytesToSend.clone(),
-            BytesReceived: self.BytesReceived,
-            TotalBytesToReceive: self.TotalBytesToReceive.clone(),
-            Retries: self.Retries,
-        }
-    }
-}
-impl core::fmt::Debug for HttpProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HttpProgress").field("Stage", &self.Stage).field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Retries", &self.Retries).finish()
-    }
-}
 impl windows_core::TypeKind for HttpProgress {
     type TypeKind = windows_core::CloneType;
 }
 impl windows_core::RuntimeType for HttpProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
 }
-impl PartialEq for HttpProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.Stage == other.Stage && self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Retries == other.Retries
-    }
-}
-impl Eq for HttpProgress {}
 impl Default for HttpProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

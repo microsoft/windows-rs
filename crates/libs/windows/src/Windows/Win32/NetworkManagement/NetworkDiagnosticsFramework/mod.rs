@@ -454,76 +454,39 @@ impl core::fmt::Debug for UI_INFO_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
 }
-impl Copy for DIAG_SOCKADDR {}
-impl Clone for DIAG_SOCKADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DIAG_SOCKADDR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DIAG_SOCKADDR").field("family", &self.family).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for DIAG_SOCKADDR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DIAG_SOCKADDR {
-    fn eq(&self, other: &Self) -> bool {
-        self.family == other.family && self.data == other.data
-    }
-}
-impl Eq for DIAG_SOCKADDR {}
 impl Default for DIAG_SOCKADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
 }
-impl Copy for DiagnosticsInfo {}
-impl Clone for DiagnosticsInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DiagnosticsInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DiagnosticsInfo").field("cost", &self.cost).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for DiagnosticsInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DiagnosticsInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.cost == other.cost && self.flags == other.flags
-    }
-}
-impl Eq for DiagnosticsInfo {}
 impl Default for DiagnosticsInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: windows_core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
-}
-impl Copy for HELPER_ATTRIBUTE {}
-impl Clone for HELPER_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for HELPER_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
@@ -534,6 +497,7 @@ impl Default for HELPER_ATTRIBUTE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -550,12 +514,6 @@ pub union HELPER_ATTRIBUTE_0 {
     pub Address: DIAG_SOCKADDR,
     pub OctetString: OCTET_STRING,
 }
-impl Copy for HELPER_ATTRIBUTE_0 {}
-impl Clone for HELPER_ATTRIBUTE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for HELPER_ATTRIBUTE_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -565,158 +523,79 @@ impl Default for HELPER_ATTRIBUTE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYPOTHESIS {
     pub pwszClassName: windows_core::PWSTR,
     pub pwszDescription: windows_core::PWSTR,
     pub celt: u32,
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
-impl Copy for HYPOTHESIS {}
-impl Clone for HYPOTHESIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HYPOTHESIS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HYPOTHESIS").field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("celt", &self.celt).field("rgAttributes", &self.rgAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for HYPOTHESIS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HYPOTHESIS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszClassName == other.pwszClassName && self.pwszDescription == other.pwszDescription && self.celt == other.celt && self.rgAttributes == other.rgAttributes
-    }
-}
-impl Eq for HYPOTHESIS {}
 impl Default for HYPOTHESIS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
 }
-impl Copy for HelperAttributeInfo {}
-impl Clone for HelperAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HelperAttributeInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HelperAttributeInfo").field("pwszName", &self.pwszName).field("type", &self.r#type).finish()
-    }
-}
 impl windows_core::TypeKind for HelperAttributeInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HelperAttributeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszName == other.pwszName && self.r#type == other.r#type
-    }
-}
-impl Eq for HelperAttributeInfo {}
 impl Default for HelperAttributeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
-impl Copy for HypothesisResult {}
-impl Clone for HypothesisResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HypothesisResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HypothesisResult").field("hypothesis", &self.hypothesis).field("pathStatus", &self.pathStatus).finish()
-    }
-}
 impl windows_core::TypeKind for HypothesisResult {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HypothesisResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.hypothesis == other.hypothesis && self.pathStatus == other.pathStatus
-    }
-}
-impl Eq for HypothesisResult {}
 impl Default for HypothesisResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
 }
-impl Copy for LIFE_TIME {}
-impl Clone for LIFE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LIFE_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LIFE_TIME").field("startTime", &self.startTime).field("endTime", &self.endTime).finish()
-    }
-}
 impl windows_core::TypeKind for LIFE_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LIFE_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.startTime == other.startTime && self.endTime == other.endTime
-    }
-}
-impl Eq for LIFE_TIME {}
 impl Default for LIFE_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
-impl Copy for OCTET_STRING {}
-impl Clone for OCTET_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCTET_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCTET_STRING").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
-    }
-}
 impl windows_core::TypeKind for OCTET_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCTET_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLength == other.dwLength && self.lpValue == other.lpValue
-    }
-}
-impl Eq for OCTET_STRING {}
 impl Default for OCTET_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RepairInfo {
     pub guid: windows_core::GUID,
     pub pwszClassName: windows_core::PWSTR,
@@ -729,12 +608,6 @@ pub struct RepairInfo {
     pub UiInfo: UiInfo,
     pub rootCauseIndex: i32,
 }
-impl Copy for RepairInfo {}
-impl Clone for RepairInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for RepairInfo {
     type TypeKind = windows_core::CopyType;
 }
@@ -744,15 +617,10 @@ impl Default for RepairInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
-}
-impl Copy for RepairInfoEx {}
-impl Clone for RepairInfoEx {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RepairInfoEx {
     type TypeKind = windows_core::CopyType;
@@ -763,6 +631,7 @@ impl Default for RepairInfoEx {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RootCauseInfo {
     pub pwszDescription: windows_core::PWSTR,
     pub rootCauseID: windows_core::GUID,
@@ -771,32 +640,16 @@ pub struct RootCauseInfo {
     pub pRepairs: *mut RepairInfoEx,
     pub repairCount: u16,
 }
-impl Copy for RootCauseInfo {}
-impl Clone for RootCauseInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RootCauseInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RootCauseInfo").field("pwszDescription", &self.pwszDescription).field("rootCauseID", &self.rootCauseID).field("rootCauseFlags", &self.rootCauseFlags).field("networkInterfaceID", &self.networkInterfaceID).field("pRepairs", &self.pRepairs).field("repairCount", &self.repairCount).finish()
-    }
-}
 impl windows_core::TypeKind for RootCauseInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RootCauseInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszDescription == other.pwszDescription && self.rootCauseID == other.rootCauseID && self.rootCauseFlags == other.rootCauseFlags && self.networkInterfaceID == other.networkInterfaceID && self.pRepairs == other.pRepairs && self.repairCount == other.repairCount
-    }
-}
-impl Eq for RootCauseInfo {}
 impl Default for RootCauseInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ShellCommandInfo {
     pub pwszOperation: windows_core::PWSTR,
     pub pwszFile: windows_core::PWSTR,
@@ -804,41 +657,19 @@ pub struct ShellCommandInfo {
     pub pwszDirectory: windows_core::PWSTR,
     pub nShowCmd: u32,
 }
-impl Copy for ShellCommandInfo {}
-impl Clone for ShellCommandInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ShellCommandInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ShellCommandInfo").field("pwszOperation", &self.pwszOperation).field("pwszFile", &self.pwszFile).field("pwszParameters", &self.pwszParameters).field("pwszDirectory", &self.pwszDirectory).field("nShowCmd", &self.nShowCmd).finish()
-    }
-}
 impl windows_core::TypeKind for ShellCommandInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ShellCommandInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszOperation == other.pwszOperation && self.pwszFile == other.pwszFile && self.pwszParameters == other.pwszParameters && self.pwszDirectory == other.pwszDirectory && self.nShowCmd == other.nShowCmd
-    }
-}
-impl Eq for ShellCommandInfo {}
 impl Default for ShellCommandInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
-}
-impl Copy for UiInfo {}
-impl Clone for UiInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UiInfo {
     type TypeKind = windows_core::CopyType;
@@ -849,17 +680,12 @@ impl Default for UiInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union UiInfo_0 {
     pub pwzNull: windows_core::PWSTR,
     pub ShellInfo: ShellCommandInfo,
     pub pwzHelpUrl: windows_core::PWSTR,
     pub pwzDui: windows_core::PWSTR,
-}
-impl Copy for UiInfo_0 {}
-impl Clone for UiInfo_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UiInfo_0 {
     type TypeKind = windows_core::CopyType;

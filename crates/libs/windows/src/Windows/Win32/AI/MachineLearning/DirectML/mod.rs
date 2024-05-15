@@ -930,655 +930,320 @@ impl core::fmt::Debug for DML_TENSOR_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
-impl Copy for DML_ACTIVATION_CELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_CELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_CELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_CELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_CELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_CELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DML_ACTIVATION_CELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_CELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
-impl Copy for DML_ACTIVATION_ELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_ELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_ELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_ELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_ELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DML_ACTIVATION_ELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_HARDMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
-impl Copy for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
-    }
-}
-impl Eq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
-impl Copy for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
-impl Copy for DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
-    }
-}
-impl Eq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub SlopeTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SlopeTensor", &self.SlopeTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.SlopeTensor == other.SlopeTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
-impl Copy for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
-    }
-}
-impl Eq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor
-    }
-}
-impl Eq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_RELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_RELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_RELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_RELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_RELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_RELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_RELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Gamma: f32,
 }
-impl Copy for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Gamma", &self.Gamma).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Gamma == other.Gamma
-    }
-}
-impl Eq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
-impl Copy for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
-    }
-}
-impl Eq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Bias: f32,
     pub Threshold: f32,
 }
-impl Copy for DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SHRINK_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Bias", &self.Bias).field("Threshold", &self.Threshold).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Bias == other.Bias && self.Threshold == other.Threshold
-    }
-}
-impl Eq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Steepness: f32,
 }
-impl Copy for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Steepness", &self.Steepness).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Steepness == other.Steepness
-    }
-}
-impl Eq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ACTIVATION_TANH_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_TANH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_TANH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_TANH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_TANH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ACTIVATION_TANH_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_TANH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
-impl Copy for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
-impl Clone for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
 impl Default for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub InputParametersTensor: *const DML_TENSOR_DESC,
     pub InputFirstMomentTensor: *const DML_TENSOR_DESC,
@@ -1593,45 +1258,16 @@ pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub Beta2: f32,
     pub Epsilon: f32,
 }
-impl Copy for DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
-impl Clone for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ADAM_OPTIMIZER_OPERATOR_DESC")
-            .field("InputParametersTensor", &self.InputParametersTensor)
-            .field("InputFirstMomentTensor", &self.InputFirstMomentTensor)
-            .field("InputSecondMomentTensor", &self.InputSecondMomentTensor)
-            .field("GradientTensor", &self.GradientTensor)
-            .field("TrainingStepTensor", &self.TrainingStepTensor)
-            .field("OutputParametersTensor", &self.OutputParametersTensor)
-            .field("OutputFirstMomentTensor", &self.OutputFirstMomentTensor)
-            .field("OutputSecondMomentTensor", &self.OutputSecondMomentTensor)
-            .field("LearningRate", &self.LearningRate)
-            .field("Beta1", &self.Beta1)
-            .field("Beta2", &self.Beta2)
-            .field("Epsilon", &self.Epsilon)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputParametersTensor == other.InputParametersTensor && self.InputFirstMomentTensor == other.InputFirstMomentTensor && self.InputSecondMomentTensor == other.InputSecondMomentTensor && self.GradientTensor == other.GradientTensor && self.TrainingStepTensor == other.TrainingStepTensor && self.OutputParametersTensor == other.OutputParametersTensor && self.OutputFirstMomentTensor == other.OutputFirstMomentTensor && self.OutputSecondMomentTensor == other.OutputSecondMomentTensor && self.LearningRate == other.LearningRate && self.Beta1 == other.Beta1 && self.Beta2 == other.Beta2 && self.Epsilon == other.Epsilon
-    }
-}
-impl Eq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
 impl Default for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ARGMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1639,32 +1275,16 @@ pub struct DML_ARGMAX_OPERATOR_DESC {
     pub Axes: *const u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
-impl Copy for DML_ARGMAX_OPERATOR_DESC {}
-impl Clone for DML_ARGMAX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ARGMAX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ARGMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ARGMAX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ARGMAX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.AxisDirection == other.AxisDirection
-    }
-}
-impl Eq for DML_ARGMAX_OPERATOR_DESC {}
 impl Default for DML_ARGMAX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ARGMIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1672,32 +1292,16 @@ pub struct DML_ARGMIN_OPERATOR_DESC {
     pub Axes: *const u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
-impl Copy for DML_ARGMIN_OPERATOR_DESC {}
-impl Clone for DML_ARGMIN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ARGMIN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ARGMIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ARGMIN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ARGMIN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.AxisDirection == other.AxisDirection
-    }
-}
-impl Eq for DML_ARGMIN_OPERATOR_DESC {}
 impl Default for DML_ARGMIN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
@@ -1708,32 +1312,16 @@ pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub IncludePadding: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
-impl Clone for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("IncludePadding", &self.IncludePadding).finish()
-    }
-}
 impl windows_core::TypeKind for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.IncludePadding == other.IncludePadding
-    }
-}
-impl Eq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
 impl Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1744,32 +1332,16 @@ pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub IncludePadding: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_AVERAGE_POOLING_OPERATOR_DESC {}
-impl Clone for DML_AVERAGE_POOLING_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_AVERAGE_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("IncludePadding", &self.IncludePadding).finish()
-    }
-}
 impl windows_core::TypeKind for DML_AVERAGE_POOLING_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_AVERAGE_POOLING_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.IncludePadding == other.IncludePadding
-    }
-}
-impl Eq for DML_AVERAGE_POOLING_OPERATOR_DESC {}
 impl Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -1781,42 +1353,16 @@ pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
     pub Epsilon: f32,
 }
-impl Copy for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
-impl Clone for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("MeanTensor", &self.MeanTensor)
-            .field("VarianceTensor", &self.VarianceTensor)
-            .field("ScaleTensor", &self.ScaleTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("OutputScaleGradientTensor", &self.OutputScaleGradientTensor)
-            .field("OutputBiasGradientTensor", &self.OutputBiasGradientTensor)
-            .field("Epsilon", &self.Epsilon)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.MeanTensor == other.MeanTensor && self.VarianceTensor == other.VarianceTensor && self.ScaleTensor == other.ScaleTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.OutputScaleGradientTensor == other.OutputScaleGradientTensor && self.OutputBiasGradientTensor == other.OutputBiasGradientTensor && self.Epsilon == other.Epsilon
-    }
-}
-impl Eq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
 impl Default for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub MeanTensor: *const DML_TENSOR_DESC,
@@ -1828,87 +1374,38 @@ pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub Epsilon: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-impl Copy for DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
-impl Clone for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BATCH_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("MeanTensor", &self.MeanTensor).field("VarianceTensor", &self.VarianceTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("Spatial", &self.Spatial).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
-    }
-}
 impl windows_core::TypeKind for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.MeanTensor == other.MeanTensor && self.VarianceTensor == other.VarianceTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.Spatial == other.Spatial && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
-    }
-}
-impl Eq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
 impl Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BINDING_DESC {
     pub Type: DML_BINDING_TYPE,
     pub Desc: *const core::ffi::c_void,
 }
-impl Copy for DML_BINDING_DESC {}
-impl Clone for DML_BINDING_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_BINDING_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BINDING_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
-    }
-}
 impl windows_core::TypeKind for DML_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Desc == other.Desc
-    }
-}
-impl Eq for DML_BINDING_DESC {}
 impl Default for DML_BINDING_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BINDING_PROPERTIES {
     pub RequiredDescriptorCount: u32,
     pub TemporaryResourceSize: u64,
     pub PersistentResourceSize: u64,
 }
-impl Copy for DML_BINDING_PROPERTIES {}
-impl Clone for DML_BINDING_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_BINDING_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BINDING_PROPERTIES").field("RequiredDescriptorCount", &self.RequiredDescriptorCount).field("TemporaryResourceSize", &self.TemporaryResourceSize).field("PersistentResourceSize", &self.PersistentResourceSize).finish()
-    }
-}
 impl windows_core::TypeKind for DML_BINDING_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_BINDING_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.RequiredDescriptorCount == other.RequiredDescriptorCount && self.TemporaryResourceSize == other.TemporaryResourceSize && self.PersistentResourceSize == other.PersistentResourceSize
-    }
-}
-impl Eq for DML_BINDING_PROPERTIES {}
 impl Default for DML_BINDING_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1916,6 +1413,7 @@ impl Default for DML_BINDING_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: std::mem::ManuallyDrop<Option<IDMLDispatchable>>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
@@ -1929,23 +1427,9 @@ impl Clone for DML_BINDING_TABLE_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for DML_BINDING_TABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BINDING_TABLE_DESC").field("Dispatchable", &self.Dispatchable).field("CPUDescriptorHandle", &self.CPUDescriptorHandle).field("GPUDescriptorHandle", &self.GPUDescriptorHandle).field("SizeInDescriptors", &self.SizeInDescriptors).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for DML_BINDING_TABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for DML_BINDING_TABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dispatchable == other.Dispatchable && self.CPUDescriptorHandle == other.CPUDescriptorHandle && self.GPUDescriptorHandle == other.GPUDescriptorHandle && self.SizeInDescriptors == other.SizeInDescriptors
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for DML_BINDING_TABLE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for DML_BINDING_TABLE_DESC {
     fn default() -> Self {
@@ -1954,36 +1438,15 @@ impl Default for DML_BINDING_TABLE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BUFFER_ARRAY_BINDING {
     pub BindingCount: u32,
     pub Bindings: *const DML_BUFFER_BINDING,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for DML_BUFFER_ARRAY_BINDING {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for DML_BUFFER_ARRAY_BINDING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for DML_BUFFER_ARRAY_BINDING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BUFFER_ARRAY_BINDING").field("BindingCount", &self.BindingCount).field("Bindings", &self.Bindings).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for DML_BUFFER_ARRAY_BINDING {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for DML_BUFFER_ARRAY_BINDING {
-    fn eq(&self, other: &Self) -> bool {
-        self.BindingCount == other.BindingCount && self.Bindings == other.Bindings
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for DML_BUFFER_ARRAY_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for DML_BUFFER_ARRAY_BINDING {
     fn default() -> Self {
@@ -1992,6 +1455,7 @@ impl Default for DML_BUFFER_ARRAY_BINDING {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: std::mem::ManuallyDrop<Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
@@ -2004,23 +1468,9 @@ impl Clone for DML_BUFFER_BINDING {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for DML_BUFFER_BINDING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BUFFER_BINDING").field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("SizeInBytes", &self.SizeInBytes).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for DML_BUFFER_BINDING {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for DML_BUFFER_BINDING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer && self.Offset == other.Offset && self.SizeInBytes == other.SizeInBytes
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for DML_BUFFER_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for DML_BUFFER_BINDING {
     fn default() -> Self {
@@ -2028,6 +1478,7 @@ impl Default for DML_BUFFER_BINDING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BUFFER_TENSOR_DESC {
     pub DataType: DML_TENSOR_DATA_TYPE,
     pub Flags: DML_TENSOR_FLAGS,
@@ -2037,62 +1488,30 @@ pub struct DML_BUFFER_TENSOR_DESC {
     pub TotalTensorSizeInBytes: u64,
     pub GuaranteedBaseOffsetAlignment: u32,
 }
-impl Copy for DML_BUFFER_TENSOR_DESC {}
-impl Clone for DML_BUFFER_TENSOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_BUFFER_TENSOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_BUFFER_TENSOR_DESC").field("DataType", &self.DataType).field("Flags", &self.Flags).field("DimensionCount", &self.DimensionCount).field("Sizes", &self.Sizes).field("Strides", &self.Strides).field("TotalTensorSizeInBytes", &self.TotalTensorSizeInBytes).field("GuaranteedBaseOffsetAlignment", &self.GuaranteedBaseOffsetAlignment).finish()
-    }
-}
 impl windows_core::TypeKind for DML_BUFFER_TENSOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_BUFFER_TENSOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType && self.Flags == other.Flags && self.DimensionCount == other.DimensionCount && self.Sizes == other.Sizes && self.Strides == other.Strides && self.TotalTensorSizeInBytes == other.TotalTensorSizeInBytes && self.GuaranteedBaseOffsetAlignment == other.GuaranteedBaseOffsetAlignment
-    }
-}
-impl Eq for DML_BUFFER_TENSOR_DESC {}
 impl Default for DML_BUFFER_TENSOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CAST_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_CAST_OPERATOR_DESC {}
-impl Clone for DML_CAST_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_CAST_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_CAST_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_CAST_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_CAST_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_CAST_OPERATOR_DESC {}
 impl Default for DML_CAST_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputZeroPointTensor: *const DML_TENSOR_DESC,
@@ -2106,44 +1525,16 @@ pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub GroupCount: u32,
 }
-impl Copy for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
-impl Clone for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_CONVOLUTION_INTEGER_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputZeroPointTensor", &self.InputZeroPointTensor)
-            .field("FilterTensor", &self.FilterTensor)
-            .field("FilterZeroPointTensor", &self.FilterZeroPointTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("Dilations", &self.Dilations)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("GroupCount", &self.GroupCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputZeroPointTensor == other.InputZeroPointTensor && self.FilterTensor == other.FilterTensor && self.FilterZeroPointTensor == other.FilterZeroPointTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.GroupCount == other.GroupCount
-    }
-}
-impl Eq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
 impl Default for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub FilterTensor: *const DML_TENSOR_DESC,
@@ -2160,47 +1551,16 @@ pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub GroupCount: u32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-impl Copy for DML_CONVOLUTION_OPERATOR_DESC {}
-impl Clone for DML_CONVOLUTION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_CONVOLUTION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("FilterTensor", &self.FilterTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Mode", &self.Mode)
-            .field("Direction", &self.Direction)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("Dilations", &self.Dilations)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("OutputPadding", &self.OutputPadding)
-            .field("GroupCount", &self.GroupCount)
-            .field("FusedActivation", &self.FusedActivation)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_CONVOLUTION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.FilterTensor == other.FilterTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.Mode == other.Mode && self.Direction == other.Direction && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.OutputPadding == other.OutputPadding && self.GroupCount == other.GroupCount && self.FusedActivation == other.FusedActivation
-    }
-}
-impl Eq for DML_CONVOLUTION_OPERATOR_DESC {}
 impl Default for DML_CONVOLUTION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2208,32 +1568,16 @@ pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub AxisDirection: DML_AXIS_DIRECTION,
     pub HasExclusiveProduct: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {}
-impl Clone for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_CUMULATIVE_PRODUCT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveProduct", &self.HasExclusiveProduct).finish()
-    }
-}
 impl windows_core::TypeKind for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.AxisDirection == other.AxisDirection && self.HasExclusiveProduct == other.HasExclusiveProduct
-    }
-}
-impl Eq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {}
 impl Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2241,715 +1585,347 @@ pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub AxisDirection: DML_AXIS_DIRECTION,
     pub HasExclusiveSum: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
-impl Clone for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_CUMULATIVE_SUMMATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveSum", &self.HasExclusiveSum).finish()
-    }
-}
 impl windows_core::TypeKind for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.AxisDirection == other.AxisDirection && self.HasExclusiveSum == other.HasExclusiveSum
-    }
-}
-impl Eq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
 impl Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
-impl Copy for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
-impl Clone for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_DEPTH_TO_SPACE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
-    }
-}
 impl windows_core::TypeKind for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize && self.Order == other.Order
-    }
-}
-impl Eq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
 impl Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
 }
-impl Copy for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
-impl Clone for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_DEPTH_TO_SPACE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
-    }
-}
 impl windows_core::TypeKind for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize
-    }
-}
-impl Eq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
 impl Default for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Offset: i32,
     pub Value: f32,
 }
-impl Copy for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
-impl Clone for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_DIAGONAL_MATRIX_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("Offset", &self.Offset).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputTensor == other.OutputTensor && self.Offset == other.Offset && self.Value == other.Value
-    }
-}
-impl Eq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
 impl Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub OutputScaleTensor: *const DML_TENSOR_DESC,
     pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
-impl Clone for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor
-    }
-}
-impl Eq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
 impl Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ABS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ACOS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ADD1_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).field("FusedActivation", &self.FusedActivation).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor && self.FusedActivation == other.FusedActivation
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ASINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ASIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ATANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ATAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_CEIL_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -2957,32 +1933,16 @@ pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub Min: f32,
     pub Max: f32,
 }
-impl Copy for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("Min", &self.Min).field("Max", &self.Max).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.Min == other.Min && self.Max == other.Max
-    }
-}
-impl Eq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2990,964 +1950,468 @@ pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     pub Min: f32,
     pub Max: f32,
 }
-impl Copy for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_CLIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).field("Max", &self.Max).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Min == other.Min && self.Max == other.Max
-    }
-}
-impl Eq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
     pub Exponent: f32,
 }
-impl Copy for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Exponent", &self.Exponent).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Exponent == other.Exponent
-    }
-}
-impl Eq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_COSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_COS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
     pub ZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.ZeroPointTensor == other.ZeroPointTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ERF_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_EXP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     pub ConditionTensor: *const DML_TENSOR_DESC,
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_IF_OPERATOR_DESC").field("ConditionTensor", &self.ConditionTensor).field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConditionTensor == other.ConditionTensor && self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub InfinityMode: DML_IS_INFINITY_MODE,
 }
-impl Copy for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InfinityMode", &self.InfinityMode).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InfinityMode == other.InfinityMode
-    }
-}
-impl Eq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_LOG_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_MAX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_MEAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_MIN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ExponentTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ExponentTensor", &self.ExponentTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ExponentTensor == other.ExponentTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub AScaleTensor: *const DML_TENSOR_DESC,
@@ -3959,501 +2423,239 @@ pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AScaleTensor", &self.AScaleTensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BScaleTensor", &self.BScaleTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.AScaleTensor == other.AScaleTensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BScaleTensor == other.BScaleTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
     pub ZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.ZeroPointTensor == other.ZeroPointTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_RECIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub RoundingMode: DML_ROUNDING_MODE,
 }
-impl Copy for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_ROUND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RoundingMode", &self.RoundingMode).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.RoundingMode == other.RoundingMode
-    }
-}
-impl Eq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_SIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_SINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_SIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_SQRT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
-impl Copy for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_TAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
-    }
-}
-impl Eq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
     pub Min: f32,
 }
-impl Copy for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
-impl Clone for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Min == other.Min
-    }
-}
-impl Eq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
 impl Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
     pub MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
-}
-impl Copy for DML_FEATURE_DATA_FEATURE_LEVELS {}
-impl Clone for DML_FEATURE_DATA_FEATURE_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_FEATURE_DATA_FEATURE_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_FEATURE_DATA_FEATURE_LEVELS").field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel).finish()
-    }
 }
 impl windows_core::TypeKind for DML_FEATURE_DATA_FEATURE_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_FEATURE_DATA_FEATURE_LEVELS {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxSupportedFeatureLevel == other.MaxSupportedFeatureLevel
-    }
-}
-impl Eq for DML_FEATURE_DATA_FEATURE_LEVELS {}
 impl Default for DML_FEATURE_DATA_FEATURE_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     pub IsSupported: super::super::super::Foundation::BOOL,
-}
-impl Copy for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
-impl Clone for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT").field("IsSupported", &self.IsSupported).finish()
-    }
 }
 impl windows_core::TypeKind for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsSupported == other.IsSupported
-    }
-}
-impl Eq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
 impl Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
     pub RequestedFeatureLevelCount: u32,
     pub RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
 }
-impl Copy for DML_FEATURE_QUERY_FEATURE_LEVELS {}
-impl Clone for DML_FEATURE_QUERY_FEATURE_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_FEATURE_QUERY_FEATURE_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_FEATURE_QUERY_FEATURE_LEVELS").field("RequestedFeatureLevelCount", &self.RequestedFeatureLevelCount).field("RequestedFeatureLevels", &self.RequestedFeatureLevels).finish()
-    }
-}
 impl windows_core::TypeKind for DML_FEATURE_QUERY_FEATURE_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_FEATURE_QUERY_FEATURE_LEVELS {
-    fn eq(&self, other: &Self) -> bool {
-        self.RequestedFeatureLevelCount == other.RequestedFeatureLevelCount && self.RequestedFeatureLevels == other.RequestedFeatureLevels
-    }
-}
-impl Eq for DML_FEATURE_QUERY_FEATURE_LEVELS {}
 impl Default for DML_FEATURE_QUERY_FEATURE_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     pub DataType: DML_TENSOR_DATA_TYPE,
-}
-impl Copy for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
-impl Clone for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT").field("DataType", &self.DataType).finish()
-    }
 }
 impl windows_core::TypeKind for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType
-    }
-}
-impl Eq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
 impl Default for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub Value: DML_SCALAR_UNION,
-}
-impl Copy for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
-impl Clone for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
@@ -4464,17 +2666,12 @@ impl Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub ValueStart: DML_SCALAR_UNION,
     pub ValueDelta: DML_SCALAR_UNION,
-}
-impl Copy for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
-impl Clone for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
@@ -4485,38 +2682,23 @@ impl Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
-impl Copy for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
-impl Clone for DML_GATHER_ELEMENTS_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GATHER_ELEMENTS_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GATHER_ELEMENTS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GATHER_ELEMENTS_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
-    }
-}
-impl Eq for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
 impl Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_ND1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -4525,32 +2707,16 @@ pub struct DML_GATHER_ND1_OPERATOR_DESC {
     pub IndicesDimensionCount: u32,
     pub BatchDimensionCount: u32,
 }
-impl Copy for DML_GATHER_ND1_OPERATOR_DESC {}
-impl Clone for DML_GATHER_ND1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GATHER_ND1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).field("BatchDimensionCount", &self.BatchDimensionCount).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GATHER_ND1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount && self.BatchDimensionCount == other.BatchDimensionCount
-    }
-}
-impl Eq for DML_GATHER_ND1_OPERATOR_DESC {}
 impl Default for DML_GATHER_ND1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_ND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -4558,32 +2724,16 @@ pub struct DML_GATHER_ND_OPERATOR_DESC {
     pub InputDimensionCount: u32,
     pub IndicesDimensionCount: u32,
 }
-impl Copy for DML_GATHER_ND_OPERATOR_DESC {}
-impl Clone for DML_GATHER_ND_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GATHER_ND_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GATHER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GATHER_ND_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GATHER_ND_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount
-    }
-}
-impl Eq for DML_GATHER_ND_OPERATOR_DESC {}
 impl Default for DML_GATHER_ND_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -4591,32 +2741,16 @@ pub struct DML_GATHER_OPERATOR_DESC {
     pub Axis: u32,
     pub IndexDimensions: u32,
 }
-impl Copy for DML_GATHER_OPERATOR_DESC {}
-impl Clone for DML_GATHER_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GATHER_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GATHER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("IndexDimensions", &self.IndexDimensions).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GATHER_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GATHER_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.IndexDimensions == other.IndexDimensions
-    }
-}
-impl Eq for DML_GATHER_OPERATOR_DESC {}
 impl Default for DML_GATHER_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_GEMM_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -4628,32 +2762,16 @@ pub struct DML_GEMM_OPERATOR_DESC {
     pub Beta: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-impl Copy for DML_GEMM_OPERATOR_DESC {}
-impl Clone for DML_GEMM_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GEMM_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GEMM_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("CTensor", &self.CTensor).field("OutputTensor", &self.OutputTensor).field("TransA", &self.TransA).field("TransB", &self.TransB).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("FusedActivation", &self.FusedActivation).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GEMM_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GEMM_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.CTensor == other.CTensor && self.OutputTensor == other.OutputTensor && self.TransA == other.TransA && self.TransB == other.TransB && self.Alpha == other.Alpha && self.Beta == other.Beta && self.FusedActivation == other.FusedActivation
-    }
-}
-impl Eq for DML_GEMM_OPERATOR_DESC {}
 impl Default for DML_GEMM_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRAPH_DESC {
     pub InputCount: u32,
     pub OutputCount: u32,
@@ -4666,92 +2784,44 @@ pub struct DML_GRAPH_DESC {
     pub IntermediateEdgeCount: u32,
     pub IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
 }
-impl Copy for DML_GRAPH_DESC {}
-impl Clone for DML_GRAPH_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GRAPH_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GRAPH_DESC").field("InputCount", &self.InputCount).field("OutputCount", &self.OutputCount).field("NodeCount", &self.NodeCount).field("Nodes", &self.Nodes).field("InputEdgeCount", &self.InputEdgeCount).field("InputEdges", &self.InputEdges).field("OutputEdgeCount", &self.OutputEdgeCount).field("OutputEdges", &self.OutputEdges).field("IntermediateEdgeCount", &self.IntermediateEdgeCount).field("IntermediateEdges", &self.IntermediateEdges).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GRAPH_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GRAPH_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputCount == other.InputCount && self.OutputCount == other.OutputCount && self.NodeCount == other.NodeCount && self.Nodes == other.Nodes && self.InputEdgeCount == other.InputEdgeCount && self.InputEdges == other.InputEdges && self.OutputEdgeCount == other.OutputEdgeCount && self.OutputEdges == other.OutputEdges && self.IntermediateEdgeCount == other.IntermediateEdgeCount && self.IntermediateEdges == other.IntermediateEdges
-    }
-}
-impl Eq for DML_GRAPH_DESC {}
 impl Default for DML_GRAPH_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRAPH_EDGE_DESC {
     pub Type: DML_GRAPH_EDGE_TYPE,
     pub Desc: *const core::ffi::c_void,
 }
-impl Copy for DML_GRAPH_EDGE_DESC {}
-impl Clone for DML_GRAPH_EDGE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GRAPH_EDGE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GRAPH_EDGE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GRAPH_EDGE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GRAPH_EDGE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Desc == other.Desc
-    }
-}
-impl Eq for DML_GRAPH_EDGE_DESC {}
 impl Default for DML_GRAPH_EDGE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRAPH_NODE_DESC {
     pub Type: DML_GRAPH_NODE_TYPE,
     pub Desc: *const core::ffi::c_void,
 }
-impl Copy for DML_GRAPH_NODE_DESC {}
-impl Clone for DML_GRAPH_NODE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GRAPH_NODE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GRAPH_NODE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
-    }
-}
 impl windows_core::TypeKind for DML_GRAPH_NODE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GRAPH_NODE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Desc == other.Desc
-    }
-}
-impl Eq for DML_GRAPH_NODE_DESC {}
 impl Default for DML_GRAPH_NODE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub WeightTensor: *const DML_TENSOR_DESC,
@@ -4766,77 +2836,32 @@ pub struct DML_GRU_OPERATOR_DESC {
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
     pub LinearBeforeReset: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_GRU_OPERATOR_DESC {}
-impl Clone for DML_GRU_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_GRU_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_GRU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("WeightTensor", &self.WeightTensor)
-            .field("RecurrenceTensor", &self.RecurrenceTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("HiddenInitTensor", &self.HiddenInitTensor)
-            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
-            .field("OutputSequenceTensor", &self.OutputSequenceTensor)
-            .field("OutputSingleTensor", &self.OutputSingleTensor)
-            .field("ActivationDescCount", &self.ActivationDescCount)
-            .field("ActivationDescs", &self.ActivationDescs)
-            .field("Direction", &self.Direction)
-            .field("LinearBeforeReset", &self.LinearBeforeReset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_GRU_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_GRU_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.WeightTensor == other.WeightTensor && self.RecurrenceTensor == other.RecurrenceTensor && self.BiasTensor == other.BiasTensor && self.HiddenInitTensor == other.HiddenInitTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputSequenceTensor == other.OutputSequenceTensor && self.OutputSingleTensor == other.OutputSingleTensor && self.ActivationDescCount == other.ActivationDescCount && self.ActivationDescs == other.ActivationDescs && self.Direction == other.Direction && self.LinearBeforeReset == other.LinearBeforeReset
-    }
-}
-impl Eq for DML_GRU_OPERATOR_DESC {}
 impl Default for DML_GRU_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_INPUT_GRAPH_EDGE_DESC {
     pub GraphInputIndex: u32,
     pub ToNodeIndex: u32,
     pub ToNodeInputIndex: u32,
     pub Name: windows_core::PCSTR,
 }
-impl Copy for DML_INPUT_GRAPH_EDGE_DESC {}
-impl Clone for DML_INPUT_GRAPH_EDGE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_INPUT_GRAPH_EDGE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_INPUT_GRAPH_EDGE_DESC").field("GraphInputIndex", &self.GraphInputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for DML_INPUT_GRAPH_EDGE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_INPUT_GRAPH_EDGE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.GraphInputIndex == other.GraphInputIndex && self.ToNodeIndex == other.ToNodeIndex && self.ToNodeInputIndex == other.ToNodeInputIndex && self.Name == other.Name
-    }
-}
-impl Eq for DML_INPUT_GRAPH_EDGE_DESC {}
 impl Default for DML_INPUT_GRAPH_EDGE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
@@ -4844,64 +2869,32 @@ pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     pub ToNodeInputIndex: u32,
     pub Name: windows_core::PCSTR,
 }
-impl Copy for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
-impl Clone for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_INTERMEDIATE_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.FromNodeIndex == other.FromNodeIndex && self.FromNodeOutputIndex == other.FromNodeOutputIndex && self.ToNodeIndex == other.ToNodeIndex && self.ToNodeInputIndex == other.ToNodeInputIndex && self.Name == other.Name
-    }
-}
-impl Eq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
 impl Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_JOIN_OPERATOR_DESC {
     pub InputCount: u32,
     pub InputTensors: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
-impl Copy for DML_JOIN_OPERATOR_DESC {}
-impl Clone for DML_JOIN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_JOIN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_JOIN_OPERATOR_DESC").field("InputCount", &self.InputCount).field("InputTensors", &self.InputTensors).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
-    }
-}
 impl windows_core::TypeKind for DML_JOIN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_JOIN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputCount == other.InputCount && self.InputTensors == other.InputTensors && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
-    }
-}
-impl Eq for DML_JOIN_OPERATOR_DESC {}
 impl Default for DML_JOIN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -4912,32 +2905,16 @@ pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub Beta: f32,
     pub Bias: f32,
 }
-impl Copy for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {}
-impl Clone for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("CrossChannel", &self.CrossChannel).field("LocalSize", &self.LocalSize).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("Bias", &self.Bias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.CrossChannel == other.CrossChannel && self.LocalSize == other.LocalSize && self.Alpha == other.Alpha && self.Beta == other.Beta && self.Bias == other.Bias
-    }
-}
-impl Eq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {}
 impl Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -4947,32 +2924,16 @@ pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub Beta: f32,
     pub Bias: f32,
 }
-impl Copy for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {}
-impl Clone for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("CrossChannel", &self.CrossChannel).field("LocalSize", &self.LocalSize).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("Bias", &self.Bias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.CrossChannel == other.CrossChannel && self.LocalSize == other.LocalSize && self.Alpha == other.Alpha && self.Beta == other.Beta && self.Bias == other.Bias
-    }
-}
-impl Eq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {}
 impl Default for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -4980,32 +2941,16 @@ pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
     pub Epsilon: f32,
     pub P: u32,
 }
-impl Copy for DML_LP_NORMALIZATION_OPERATOR_DESC {}
-impl Clone for DML_LP_NORMALIZATION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_LP_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_LP_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("Epsilon", &self.Epsilon).field("P", &self.P).finish()
-    }
-}
 impl windows_core::TypeKind for DML_LP_NORMALIZATION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_LP_NORMALIZATION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.Epsilon == other.Epsilon && self.P == other.P
-    }
-}
-impl Eq for DML_LP_NORMALIZATION_OPERATOR_DESC {}
 impl Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_LP_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5016,32 +2961,16 @@ pub struct DML_LP_POOLING_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub P: u32,
 }
-impl Copy for DML_LP_POOLING_OPERATOR_DESC {}
-impl Clone for DML_LP_POOLING_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_LP_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("P", &self.P).finish()
-    }
-}
 impl windows_core::TypeKind for DML_LP_POOLING_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_LP_POOLING_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.P == other.P
-    }
-}
-impl Eq for DML_LP_POOLING_OPERATOR_DESC {}
 impl Default for DML_LP_POOLING_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_LSTM_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub WeightTensor: *const DML_TENSOR_DESC,
@@ -5061,66 +2990,16 @@ pub struct DML_LSTM_OPERATOR_DESC {
     pub UseClipThreshold: super::super::super::Foundation::BOOL,
     pub CoupleInputForget: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_LSTM_OPERATOR_DESC {}
-impl Clone for DML_LSTM_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_LSTM_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_LSTM_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("WeightTensor", &self.WeightTensor)
-            .field("RecurrenceTensor", &self.RecurrenceTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("HiddenInitTensor", &self.HiddenInitTensor)
-            .field("CellMemInitTensor", &self.CellMemInitTensor)
-            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
-            .field("PeepholeTensor", &self.PeepholeTensor)
-            .field("OutputSequenceTensor", &self.OutputSequenceTensor)
-            .field("OutputSingleTensor", &self.OutputSingleTensor)
-            .field("OutputCellSingleTensor", &self.OutputCellSingleTensor)
-            .field("ActivationDescCount", &self.ActivationDescCount)
-            .field("ActivationDescs", &self.ActivationDescs)
-            .field("Direction", &self.Direction)
-            .field("ClipThreshold", &self.ClipThreshold)
-            .field("UseClipThreshold", &self.UseClipThreshold)
-            .field("CoupleInputForget", &self.CoupleInputForget)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_LSTM_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_LSTM_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.WeightTensor == other.WeightTensor
-            && self.RecurrenceTensor == other.RecurrenceTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.HiddenInitTensor == other.HiddenInitTensor
-            && self.CellMemInitTensor == other.CellMemInitTensor
-            && self.SequenceLengthsTensor == other.SequenceLengthsTensor
-            && self.PeepholeTensor == other.PeepholeTensor
-            && self.OutputSequenceTensor == other.OutputSequenceTensor
-            && self.OutputSingleTensor == other.OutputSingleTensor
-            && self.OutputCellSingleTensor == other.OutputCellSingleTensor
-            && self.ActivationDescCount == other.ActivationDescCount
-            && self.ActivationDescs == other.ActivationDescs
-            && self.Direction == other.Direction
-            && self.ClipThreshold == other.ClipThreshold
-            && self.UseClipThreshold == other.UseClipThreshold
-            && self.CoupleInputForget == other.CoupleInputForget
-    }
-}
-impl Eq for DML_LSTM_OPERATOR_DESC {}
 impl Default for DML_LSTM_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub AZeroPointTensor: *const DML_TENSOR_DESC,
@@ -5128,32 +3007,16 @@ pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     pub BZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
-impl Clone for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
 impl Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5164,32 +3027,16 @@ pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
 }
-impl Copy for DML_MAX_POOLING1_OPERATOR_DESC {}
-impl Clone for DML_MAX_POOLING1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MAX_POOLING1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MAX_POOLING1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputIndicesTensor == other.OutputIndicesTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
-    }
-}
-impl Eq for DML_MAX_POOLING1_OPERATOR_DESC {}
 impl Default for DML_MAX_POOLING1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING2_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5201,32 +3048,16 @@ pub struct DML_MAX_POOLING2_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub Dilations: *const u32,
 }
-impl Copy for DML_MAX_POOLING2_OPERATOR_DESC {}
-impl Clone for DML_MAX_POOLING2_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MAX_POOLING2_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MAX_POOLING2_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputIndicesTensor == other.OutputIndicesTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.Dilations == other.Dilations
-    }
-}
-impl Eq for DML_MAX_POOLING2_OPERATOR_DESC {}
 impl Default for DML_MAX_POOLING2_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -5238,32 +3069,16 @@ pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub Dilations: *const u32,
 }
-impl Copy for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
-impl Clone for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MAX_POOLING_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.Dilations == other.Dilations
-    }
-}
-impl Eq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
 impl Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5273,63 +3088,31 @@ pub struct DML_MAX_POOLING_OPERATOR_DESC {
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
 }
-impl Copy for DML_MAX_POOLING_OPERATOR_DESC {}
-impl Clone for DML_MAX_POOLING_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MAX_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MAX_POOLING_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
-    }
-}
-impl Eq for DML_MAX_POOLING_OPERATOR_DESC {}
 impl Default for DML_MAX_POOLING_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_MAX_UNPOOLING_OPERATOR_DESC {}
-impl Clone for DML_MAX_UNPOOLING_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MAX_UNPOOLING_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MAX_UNPOOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MAX_UNPOOLING_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MAX_UNPOOLING_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_MAX_UNPOOLING_OPERATOR_DESC {}
 impl Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
@@ -5341,32 +3124,16 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub Epsilon: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-impl Copy for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
-impl Clone for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("NormalizeVariance", &self.NormalizeVariance).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.NormalizeVariance == other.NormalizeVariance && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
-    }
-}
-impl Eq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
 impl Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
@@ -5377,125 +3144,61 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub Epsilon: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-impl Copy for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
-impl Clone for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("CrossChannel", &self.CrossChannel).field("NormalizeVariance", &self.NormalizeVariance).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
-    }
-}
 impl windows_core::TypeKind for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.CrossChannel == other.CrossChannel && self.NormalizeVariance == other.NormalizeVariance && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
-    }
-}
-impl Eq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
 impl Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputCountTensor: *const DML_TENSOR_DESC,
     pub OutputCoordinatesTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
-impl Clone for DML_NONZERO_COORDINATES_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_NONZERO_COORDINATES_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_NONZERO_COORDINATES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCountTensor", &self.OutputCountTensor).field("OutputCoordinatesTensor", &self.OutputCoordinatesTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_NONZERO_COORDINATES_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputCountTensor == other.OutputCountTensor && self.OutputCoordinatesTensor == other.OutputCoordinatesTensor
-    }
-}
-impl Eq for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
 impl Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ONE_HOT_OPERATOR_DESC {
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub ValuesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
-impl Copy for DML_ONE_HOT_OPERATOR_DESC {}
-impl Clone for DML_ONE_HOT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ONE_HOT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ONE_HOT_OPERATOR_DESC").field("IndicesTensor", &self.IndicesTensor).field("ValuesTensor", &self.ValuesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ONE_HOT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ONE_HOT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.IndicesTensor == other.IndicesTensor && self.ValuesTensor == other.ValuesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
-    }
-}
-impl Eq for DML_ONE_HOT_OPERATOR_DESC {}
 impl Default for DML_ONE_HOT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_OPERATOR_DESC {
     pub Type: DML_OPERATOR_TYPE,
     pub Desc: *const core::ffi::c_void,
 }
-impl Copy for DML_OPERATOR_DESC {}
-impl Clone for DML_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_OPERATOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
-    }
-}
 impl windows_core::TypeKind for DML_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Desc == other.Desc
-    }
-}
-impl Eq for DML_OPERATOR_DESC {}
 impl Default for DML_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
     pub Operator: std::mem::ManuallyDrop<Option<IDMLOperator>>,
     pub Name: windows_core::PCSTR,
@@ -5505,58 +3208,32 @@ impl Clone for DML_OPERATOR_GRAPH_NODE_DESC {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_OPERATOR_GRAPH_NODE_DESC").field("Operator", &self.Operator).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for DML_OPERATOR_GRAPH_NODE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Operator == other.Operator && self.Name == other.Name
-    }
-}
-impl Eq for DML_OPERATOR_GRAPH_NODE_DESC {}
 impl Default for DML_OPERATOR_GRAPH_NODE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
     pub GraphOutputIndex: u32,
     pub Name: windows_core::PCSTR,
 }
-impl Copy for DML_OUTPUT_GRAPH_EDGE_DESC {}
-impl Clone for DML_OUTPUT_GRAPH_EDGE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_OUTPUT_GRAPH_EDGE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_OUTPUT_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("GraphOutputIndex", &self.GraphOutputIndex).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for DML_OUTPUT_GRAPH_EDGE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_OUTPUT_GRAPH_EDGE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.FromNodeIndex == other.FromNodeIndex && self.FromNodeOutputIndex == other.FromNodeOutputIndex && self.GraphOutputIndex == other.GraphOutputIndex && self.Name == other.Name
-    }
-}
-impl Eq for DML_OUTPUT_GRAPH_EDGE_DESC {}
 impl Default for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_PADDING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5566,32 +3243,16 @@ pub struct DML_PADDING_OPERATOR_DESC {
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
 }
-impl Copy for DML_PADDING_OPERATOR_DESC {}
-impl Clone for DML_PADDING_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_PADDING_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_PADDING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("PaddingMode", &self.PaddingMode).field("PaddingValue", &self.PaddingValue).field("DimensionCount", &self.DimensionCount).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
-    }
-}
 impl windows_core::TypeKind for DML_PADDING_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_PADDING_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.PaddingMode == other.PaddingMode && self.PaddingValue == other.PaddingValue && self.DimensionCount == other.DimensionCount && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
-    }
-}
-impl Eq for DML_PADDING_OPERATOR_DESC {}
 impl Default for DML_PADDING_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputScaleTensor: *const DML_TENSOR_DESC,
@@ -5610,49 +3271,16 @@ pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub EndPadding: *const u32,
     pub GroupCount: u32,
 }
-impl Copy for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
-impl Clone for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputScaleTensor", &self.InputScaleTensor)
-            .field("InputZeroPointTensor", &self.InputZeroPointTensor)
-            .field("FilterTensor", &self.FilterTensor)
-            .field("FilterScaleTensor", &self.FilterScaleTensor)
-            .field("FilterZeroPointTensor", &self.FilterZeroPointTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("OutputScaleTensor", &self.OutputScaleTensor)
-            .field("OutputZeroPointTensor", &self.OutputZeroPointTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("Dilations", &self.Dilations)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("GroupCount", &self.GroupCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.InputScaleTensor == other.InputScaleTensor && self.InputZeroPointTensor == other.InputZeroPointTensor && self.FilterTensor == other.FilterTensor && self.FilterScaleTensor == other.FilterScaleTensor && self.FilterZeroPointTensor == other.FilterZeroPointTensor && self.BiasTensor == other.BiasTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.GroupCount == other.GroupCount
-    }
-}
-impl Eq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
 impl Default for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub AScaleTensor: *const DML_TENSOR_DESC,
@@ -5664,64 +3292,32 @@ pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
-impl Copy for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
-impl Clone for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AScaleTensor", &self.AScaleTensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BScaleTensor", &self.BScaleTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
-    }
-}
 impl windows_core::TypeKind for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor && self.AScaleTensor == other.AScaleTensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BScaleTensor == other.BScaleTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor
-    }
-}
-impl Eq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
 impl Default for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
     pub InputStateTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub OutputStateTensor: *const DML_TENSOR_DESC,
     pub Type: DML_RANDOM_GENERATOR_TYPE,
 }
-impl Copy for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
-impl Clone for DML_RANDOM_GENERATOR_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_RANDOM_GENERATOR_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_RANDOM_GENERATOR_OPERATOR_DESC").field("InputStateTensor", &self.InputStateTensor).field("OutputTensor", &self.OutputTensor).field("OutputStateTensor", &self.OutputStateTensor).field("Type", &self.Type).finish()
-    }
-}
 impl windows_core::TypeKind for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_RANDOM_GENERATOR_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputStateTensor == other.InputStateTensor && self.OutputTensor == other.OutputTensor && self.OutputStateTensor == other.OutputStateTensor && self.Type == other.Type
-    }
-}
-impl Eq for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
 impl Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_REDUCE_OPERATOR_DESC {
     pub Function: DML_REDUCE_FUNCTION,
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -5729,32 +3325,16 @@ pub struct DML_REDUCE_OPERATOR_DESC {
     pub AxisCount: u32,
     pub Axes: *const u32,
 }
-impl Copy for DML_REDUCE_OPERATOR_DESC {}
-impl Clone for DML_REDUCE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_REDUCE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_REDUCE_OPERATOR_DESC").field("Function", &self.Function).field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).finish()
-    }
-}
 impl windows_core::TypeKind for DML_REDUCE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_REDUCE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function && self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes
-    }
-}
-impl Eq for DML_REDUCE_OPERATOR_DESC {}
 impl Default for DML_REDUCE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5764,32 +3344,16 @@ pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub InputPixelOffsets: *const f32,
     pub OutputPixelOffsets: *const f32,
 }
-impl Copy for DML_RESAMPLE1_OPERATOR_DESC {}
-impl Clone for DML_RESAMPLE1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_RESAMPLE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
-    }
-}
 impl windows_core::TypeKind for DML_RESAMPLE1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InterpolationMode == other.InterpolationMode && self.DimensionCount == other.DimensionCount && self.Scales == other.Scales && self.InputPixelOffsets == other.InputPixelOffsets && self.OutputPixelOffsets == other.OutputPixelOffsets
-    }
-}
-impl Eq for DML_RESAMPLE1_OPERATOR_DESC {}
 impl Default for DML_RESAMPLE1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
@@ -5799,32 +3363,16 @@ pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub InputPixelOffsets: *const f32,
     pub OutputPixelOffsets: *const f32,
 }
-impl Copy for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
-impl Clone for DML_RESAMPLE_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_RESAMPLE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
-    }
-}
 impl windows_core::TypeKind for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.InterpolationMode == other.InterpolationMode && self.DimensionCount == other.DimensionCount && self.Scales == other.Scales && self.InputPixelOffsets == other.InputPixelOffsets && self.OutputPixelOffsets == other.OutputPixelOffsets
-    }
-}
-impl Eq for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
 impl Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -5832,64 +3380,32 @@ pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub ScaleCount: u32,
     pub Scales: *const f32,
 }
-impl Copy for DML_RESAMPLE_OPERATOR_DESC {}
-impl Clone for DML_RESAMPLE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_RESAMPLE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_RESAMPLE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("ScaleCount", &self.ScaleCount).field("Scales", &self.Scales).finish()
-    }
-}
 impl windows_core::TypeKind for DML_RESAMPLE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_RESAMPLE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InterpolationMode == other.InterpolationMode && self.ScaleCount == other.ScaleCount && self.Scales == other.Scales
-    }
-}
-impl Eq for DML_RESAMPLE_OPERATOR_DESC {}
 impl Default for DML_RESAMPLE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
-impl Copy for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
-impl Clone for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SequenceLengthsTensor", &self.SequenceLengthsTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
-    }
-}
 impl windows_core::TypeKind for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
-    }
-}
-impl Eq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
 impl Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RNN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub WeightTensor: *const DML_TENSOR_DESC,
@@ -5903,44 +3419,16 @@ pub struct DML_RNN_OPERATOR_DESC {
     pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
 }
-impl Copy for DML_RNN_OPERATOR_DESC {}
-impl Clone for DML_RNN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_RNN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_RNN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("WeightTensor", &self.WeightTensor)
-            .field("RecurrenceTensor", &self.RecurrenceTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("HiddenInitTensor", &self.HiddenInitTensor)
-            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
-            .field("OutputSequenceTensor", &self.OutputSequenceTensor)
-            .field("OutputSingleTensor", &self.OutputSingleTensor)
-            .field("ActivationDescCount", &self.ActivationDescCount)
-            .field("ActivationDescs", &self.ActivationDescs)
-            .field("Direction", &self.Direction)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_RNN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_RNN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.WeightTensor == other.WeightTensor && self.RecurrenceTensor == other.RecurrenceTensor && self.BiasTensor == other.BiasTensor && self.HiddenInitTensor == other.HiddenInitTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputSequenceTensor == other.OutputSequenceTensor && self.OutputSingleTensor == other.OutputSingleTensor && self.ActivationDescCount == other.ActivationDescCount && self.ActivationDescs == other.ActivationDescs && self.Direction == other.Direction
-    }
-}
-impl Eq for DML_RNN_OPERATOR_DESC {}
 impl Default for DML_RNN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ROITensor: *const DML_TENSOR_DESC,
@@ -5957,47 +3445,16 @@ pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub MaximumSamplesPerOutput: u32,
     pub AlignRegionsToCorners: super::super::super::Foundation::BOOL,
 }
-impl Copy for DML_ROI_ALIGN1_OPERATOR_DESC {}
-impl Clone for DML_ROI_ALIGN1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ROI_ALIGN1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ROITensor", &self.ROITensor)
-            .field("BatchIndicesTensor", &self.BatchIndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ReductionFunction", &self.ReductionFunction)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .field("SpatialScaleX", &self.SpatialScaleX)
-            .field("SpatialScaleY", &self.SpatialScaleY)
-            .field("InputPixelOffset", &self.InputPixelOffset)
-            .field("OutputPixelOffset", &self.OutputPixelOffset)
-            .field("OutOfBoundsInputValue", &self.OutOfBoundsInputValue)
-            .field("MinimumSamplesPerOutput", &self.MinimumSamplesPerOutput)
-            .field("MaximumSamplesPerOutput", &self.MaximumSamplesPerOutput)
-            .field("AlignRegionsToCorners", &self.AlignRegionsToCorners)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_ROI_ALIGN1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ROI_ALIGN1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.BatchIndicesTensor == other.BatchIndicesTensor && self.OutputTensor == other.OutputTensor && self.ReductionFunction == other.ReductionFunction && self.InterpolationMode == other.InterpolationMode && self.SpatialScaleX == other.SpatialScaleX && self.SpatialScaleY == other.SpatialScaleY && self.InputPixelOffset == other.InputPixelOffset && self.OutputPixelOffset == other.OutputPixelOffset && self.OutOfBoundsInputValue == other.OutOfBoundsInputValue && self.MinimumSamplesPerOutput == other.MinimumSamplesPerOutput && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput && self.AlignRegionsToCorners == other.AlignRegionsToCorners
-    }
-}
-impl Eq for DML_ROI_ALIGN1_OPERATOR_DESC {}
 impl Default for DML_ROI_ALIGN1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ROITensor: *const DML_TENSOR_DESC,
@@ -6011,44 +3468,16 @@ pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub MinimumSamplesPerOutput: u32,
     pub MaximumSamplesPerOutput: u32,
 }
-impl Copy for DML_ROI_ALIGN_OPERATOR_DESC {}
-impl Clone for DML_ROI_ALIGN_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ROI_ALIGN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ROITensor", &self.ROITensor)
-            .field("BatchIndicesTensor", &self.BatchIndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ReductionFunction", &self.ReductionFunction)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .field("SpatialScaleX", &self.SpatialScaleX)
-            .field("SpatialScaleY", &self.SpatialScaleY)
-            .field("OutOfBoundsInputValue", &self.OutOfBoundsInputValue)
-            .field("MinimumSamplesPerOutput", &self.MinimumSamplesPerOutput)
-            .field("MaximumSamplesPerOutput", &self.MaximumSamplesPerOutput)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DML_ROI_ALIGN_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.BatchIndicesTensor == other.BatchIndicesTensor && self.OutputTensor == other.OutputTensor && self.ReductionFunction == other.ReductionFunction && self.InterpolationMode == other.InterpolationMode && self.SpatialScaleX == other.SpatialScaleX && self.SpatialScaleY == other.SpatialScaleY && self.OutOfBoundsInputValue == other.OutOfBoundsInputValue && self.MinimumSamplesPerOutput == other.MinimumSamplesPerOutput && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput
-    }
-}
-impl Eq for DML_ROI_ALIGN_OPERATOR_DESC {}
 impl Default for DML_ROI_ALIGN_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ROI_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ROITensor: *const DML_TENSOR_DESC,
@@ -6056,32 +3485,16 @@ pub struct DML_ROI_POOLING_OPERATOR_DESC {
     pub SpatialScale: f32,
     pub PooledSize: DML_SIZE_2D,
 }
-impl Copy for DML_ROI_POOLING_OPERATOR_DESC {}
-impl Clone for DML_ROI_POOLING_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_ROI_POOLING_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_ROI_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ROITensor", &self.ROITensor).field("OutputTensor", &self.OutputTensor).field("SpatialScale", &self.SpatialScale).field("PooledSize", &self.PooledSize).finish()
-    }
-}
 impl windows_core::TypeKind for DML_ROI_POOLING_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_ROI_POOLING_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.OutputTensor == other.OutputTensor && self.SpatialScale == other.SpatialScale && self.PooledSize == other.PooledSize
-    }
-}
-impl Eq for DML_ROI_POOLING_OPERATOR_DESC {}
 impl Default for DML_ROI_POOLING_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DML_SCALAR_UNION {
     pub Bytes: [u8; 8],
     pub Int8: i8,
@@ -6095,12 +3508,6 @@ pub union DML_SCALAR_UNION {
     pub Float32: f32,
     pub Float64: f64,
 }
-impl Copy for DML_SCALAR_UNION {}
-impl Clone for DML_SCALAR_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DML_SCALAR_UNION {
     type TypeKind = windows_core::CopyType;
 }
@@ -6110,36 +3517,21 @@ impl Default for DML_SCALAR_UNION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_SCALE_BIAS {
     pub Scale: f32,
     pub Bias: f32,
 }
-impl Copy for DML_SCALE_BIAS {}
-impl Clone for DML_SCALE_BIAS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SCALE_BIAS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SCALE_BIAS").field("Scale", &self.Scale).field("Bias", &self.Bias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SCALE_BIAS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SCALE_BIAS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Scale == other.Scale && self.Bias == other.Bias
-    }
-}
-impl Eq for DML_SCALE_BIAS {}
 impl Default for DML_SCALE_BIAS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SCATTER_ND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -6148,32 +3540,16 @@ pub struct DML_SCATTER_ND_OPERATOR_DESC {
     pub InputDimensionCount: u32,
     pub IndicesDimensionCount: u32,
 }
-impl Copy for DML_SCATTER_ND_OPERATOR_DESC {}
-impl Clone for DML_SCATTER_ND_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SCATTER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SCATTER_ND_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.UpdatesTensor == other.UpdatesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount
-    }
-}
-impl Eq for DML_SCATTER_ND_OPERATOR_DESC {}
 impl Default for DML_SCATTER_ND_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SCATTER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -6181,62 +3557,30 @@ pub struct DML_SCATTER_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
-impl Copy for DML_SCATTER_OPERATOR_DESC {}
-impl Clone for DML_SCATTER_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SCATTER_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SCATTER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SCATTER_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SCATTER_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.UpdatesTensor == other.UpdatesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
-    }
-}
-impl Eq for DML_SCATTER_OPERATOR_DESC {}
 impl Default for DML_SCATTER_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SIZE_2D {
     pub Width: u32,
     pub Height: u32,
 }
-impl Copy for DML_SIZE_2D {}
-impl Clone for DML_SIZE_2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SIZE_2D {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SIZE_2D").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SIZE_2D {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SIZE_2D {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for DML_SIZE_2D {}
 impl Default for DML_SIZE_2D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SLICE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -6245,32 +3589,16 @@ pub struct DML_SLICE1_OPERATOR_DESC {
     pub InputWindowSizes: *const u32,
     pub InputWindowStrides: *const i32,
 }
-impl Copy for DML_SLICE1_OPERATOR_DESC {}
-impl Clone for DML_SLICE1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SLICE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SLICE1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SLICE1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.InputWindowOffsets == other.InputWindowOffsets && self.InputWindowSizes == other.InputWindowSizes && self.InputWindowStrides == other.InputWindowStrides
-    }
-}
-impl Eq for DML_SLICE1_OPERATOR_DESC {}
 impl Default for DML_SLICE1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SLICE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
@@ -6279,32 +3607,16 @@ pub struct DML_SLICE_GRAD_OPERATOR_DESC {
     pub InputWindowSizes: *const u32,
     pub InputWindowStrides: *const i32,
 }
-impl Copy for DML_SLICE_GRAD_OPERATOR_DESC {}
-impl Clone for DML_SLICE_GRAD_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SLICE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SLICE_GRAD_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.InputWindowOffsets == other.InputWindowOffsets && self.InputWindowSizes == other.InputWindowSizes && self.InputWindowStrides == other.InputWindowStrides
-    }
-}
-impl Eq for DML_SLICE_GRAD_OPERATOR_DESC {}
 impl Default for DML_SLICE_GRAD_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SLICE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -6313,189 +3625,93 @@ pub struct DML_SLICE_OPERATOR_DESC {
     pub Sizes: *const u32,
     pub Strides: *const u32,
 }
-impl Copy for DML_SLICE_OPERATOR_DESC {}
-impl Clone for DML_SLICE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SLICE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SLICE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Offsets", &self.Offsets).field("Sizes", &self.Sizes).field("Strides", &self.Strides).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SLICE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SLICE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Offsets == other.Offsets && self.Sizes == other.Sizes && self.Strides == other.Strides
-    }
-}
-impl Eq for DML_SLICE_OPERATOR_DESC {}
 impl Default for DML_SLICE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
-impl Copy for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
-impl Clone for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SPACE_TO_DEPTH1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize && self.Order == other.Order
-    }
-}
-impl Eq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
 impl Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
 }
-impl Copy for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
-impl Clone for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SPACE_TO_DEPTH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize
-    }
-}
-impl Eq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
 impl Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SPLIT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputCount: u32,
     pub OutputTensors: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
-impl Copy for DML_SPLIT_OPERATOR_DESC {}
-impl Clone for DML_SPLIT_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_SPLIT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_SPLIT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCount", &self.OutputCount).field("OutputTensors", &self.OutputTensors).field("Axis", &self.Axis).finish()
-    }
-}
 impl windows_core::TypeKind for DML_SPLIT_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_SPLIT_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputCount == other.OutputCount && self.OutputTensors == other.OutputTensors && self.Axis == other.Axis
-    }
-}
-impl Eq for DML_SPLIT_OPERATOR_DESC {}
 impl Default for DML_SPLIT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
     pub Desc: *const core::ffi::c_void,
 }
-impl Copy for DML_TENSOR_DESC {}
-impl Clone for DML_TENSOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_TENSOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_TENSOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
-    }
-}
 impl windows_core::TypeKind for DML_TENSOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_TENSOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Desc == other.Desc
-    }
-}
-impl Eq for DML_TENSOR_DESC {}
 impl Default for DML_TENSOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TILE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub RepeatsCount: u32,
     pub Repeats: *const u32,
 }
-impl Copy for DML_TILE_OPERATOR_DESC {}
-impl Clone for DML_TILE_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_TILE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_TILE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RepeatsCount", &self.RepeatsCount).field("Repeats", &self.Repeats).finish()
-    }
-}
 impl windows_core::TypeKind for DML_TILE_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_TILE_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.RepeatsCount == other.RepeatsCount && self.Repeats == other.Repeats
-    }
-}
-impl Eq for DML_TILE_OPERATOR_DESC {}
 impl Default for DML_TILE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TOP_K1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputValueTensor: *const DML_TENSOR_DESC,
@@ -6504,32 +3720,16 @@ pub struct DML_TOP_K1_OPERATOR_DESC {
     pub K: u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
-impl Copy for DML_TOP_K1_OPERATOR_DESC {}
-impl Clone for DML_TOP_K1_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_TOP_K1_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_TOP_K1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).field("AxisDirection", &self.AxisDirection).finish()
-    }
-}
 impl windows_core::TypeKind for DML_TOP_K1_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_TOP_K1_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputValueTensor == other.OutputValueTensor && self.OutputIndexTensor == other.OutputIndexTensor && self.Axis == other.Axis && self.K == other.K && self.AxisDirection == other.AxisDirection
-    }
-}
-impl Eq for DML_TOP_K1_OPERATOR_DESC {}
 impl Default for DML_TOP_K1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TOP_K_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputValueTensor: *const DML_TENSOR_DESC,
@@ -6537,64 +3737,32 @@ pub struct DML_TOP_K_OPERATOR_DESC {
     pub Axis: u32,
     pub K: u32,
 }
-impl Copy for DML_TOP_K_OPERATOR_DESC {}
-impl Clone for DML_TOP_K_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_TOP_K_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_TOP_K_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).finish()
-    }
-}
 impl windows_core::TypeKind for DML_TOP_K_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_TOP_K_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputValueTensor == other.OutputValueTensor && self.OutputIndexTensor == other.OutputIndexTensor && self.Axis == other.Axis && self.K == other.K
-    }
-}
-impl Eq for DML_TOP_K_OPERATOR_DESC {}
 impl Default for DML_TOP_K_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleSize: DML_SIZE_2D,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
 }
-impl Copy for DML_UPSAMPLE_2D_OPERATOR_DESC {}
-impl Clone for DML_UPSAMPLE_2D_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_UPSAMPLE_2D_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_UPSAMPLE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleSize", &self.ScaleSize).field("InterpolationMode", &self.InterpolationMode).finish()
-    }
-}
 impl windows_core::TypeKind for DML_UPSAMPLE_2D_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_UPSAMPLE_2D_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleSize == other.ScaleSize && self.InterpolationMode == other.InterpolationMode
-    }
-}
-impl Eq for DML_UPSAMPLE_2D_OPERATOR_DESC {}
 impl Default for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -6602,26 +3770,9 @@ pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
     pub ChannelCount: u32,
     pub Bias: *const f32,
 }
-impl Copy for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
-impl Clone for DML_VALUE_SCALE_2D_OPERATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DML_VALUE_SCALE_2D_OPERATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DML_VALUE_SCALE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Scale", &self.Scale).field("ChannelCount", &self.ChannelCount).field("Bias", &self.Bias).finish()
-    }
-}
 impl windows_core::TypeKind for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DML_VALUE_SCALE_2D_OPERATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Scale == other.Scale && self.ChannelCount == other.ChannelCount && self.Bias == other.Bias
-    }
-}
-impl Eq for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
 impl Default for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

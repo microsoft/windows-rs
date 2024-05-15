@@ -644,20 +644,10 @@ impl windows_core::RuntimeType for GpioSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GpioChangeCount {
     pub Count: u64,
     pub RelativeTime: super::super::Foundation::TimeSpan,
-}
-impl Copy for GpioChangeCount {}
-impl Clone for GpioChangeCount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GpioChangeCount {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GpioChangeCount").field("Count", &self.Count).field("RelativeTime", &self.RelativeTime).finish()
-    }
 }
 impl windows_core::TypeKind for GpioChangeCount {
     type TypeKind = windows_core::CopyType;
@@ -665,32 +655,16 @@ impl windows_core::TypeKind for GpioChangeCount {
 impl windows_core::RuntimeType for GpioChangeCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
 }
-impl PartialEq for GpioChangeCount {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.RelativeTime == other.RelativeTime
-    }
-}
-impl Eq for GpioChangeCount {}
 impl Default for GpioChangeCount {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GpioChangeRecord {
     pub RelativeTime: super::super::Foundation::TimeSpan,
     pub Edge: GpioPinEdge,
-}
-impl Copy for GpioChangeRecord {}
-impl Clone for GpioChangeRecord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GpioChangeRecord {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GpioChangeRecord").field("RelativeTime", &self.RelativeTime).field("Edge", &self.Edge).finish()
-    }
 }
 impl windows_core::TypeKind for GpioChangeRecord {
     type TypeKind = windows_core::CopyType;
@@ -698,12 +672,6 @@ impl windows_core::TypeKind for GpioChangeRecord {
 impl windows_core::RuntimeType for GpioChangeRecord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
 }
-impl PartialEq for GpioChangeRecord {
-    fn eq(&self, other: &Self) -> bool {
-        self.RelativeTime == other.RelativeTime && self.Edge == other.Edge
-    }
-}
-impl Eq for GpioChangeRecord {}
 impl Default for GpioChangeRecord {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

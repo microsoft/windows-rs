@@ -186,6 +186,7 @@ impl core::fmt::Debug for FDINOTIFICATIONTYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -200,76 +201,31 @@ pub struct CCAB {
     pub szCab: [i8; 256],
     pub szCabPath: [i8; 256],
 }
-impl Copy for CCAB {}
-impl Clone for CCAB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CCAB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CCAB")
-            .field("cb", &self.cb)
-            .field("cbFolderThresh", &self.cbFolderThresh)
-            .field("cbReserveCFHeader", &self.cbReserveCFHeader)
-            .field("cbReserveCFFolder", &self.cbReserveCFFolder)
-            .field("cbReserveCFData", &self.cbReserveCFData)
-            .field("iCab", &self.iCab)
-            .field("iDisk", &self.iDisk)
-            .field("fFailOnIncompressible", &self.fFailOnIncompressible)
-            .field("setID", &self.setID)
-            .field("szDisk", &self.szDisk)
-            .field("szCab", &self.szCab)
-            .field("szCabPath", &self.szCabPath)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CCAB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CCAB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.cbFolderThresh == other.cbFolderThresh && self.cbReserveCFHeader == other.cbReserveCFHeader && self.cbReserveCFFolder == other.cbReserveCFFolder && self.cbReserveCFData == other.cbReserveCFData && self.iCab == other.iCab && self.iDisk == other.iDisk && self.fFailOnIncompressible == other.fFailOnIncompressible && self.setID == other.setID && self.szDisk == other.szDisk && self.szCab == other.szCab && self.szCabPath == other.szCabPath
-    }
-}
-impl Eq for CCAB {}
 impl Default for CCAB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
     pub fError: super::super::Foundation::BOOL,
 }
-impl Copy for ERF {}
-impl Clone for ERF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ERF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ERF").field("erfOper", &self.erfOper).field("erfType", &self.erfType).field("fError", &self.fError).finish()
-    }
-}
 impl windows_core::TypeKind for ERF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ERF {
-    fn eq(&self, other: &Self) -> bool {
-        self.erfOper == other.erfOper && self.erfType == other.erfType && self.fError == other.fError
-    }
-}
-impl Eq for ERF {}
 impl Default for ERF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -280,42 +236,20 @@ pub struct FDICABINETINFO {
     pub hasprev: super::super::Foundation::BOOL,
     pub hasnext: super::super::Foundation::BOOL,
 }
-impl Copy for FDICABINETINFO {}
-impl Clone for FDICABINETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FDICABINETINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FDICABINETINFO").field("cbCabinet", &self.cbCabinet).field("cFolders", &self.cFolders).field("cFiles", &self.cFiles).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("fReserve", &self.fReserve).field("hasprev", &self.hasprev).field("hasnext", &self.hasnext).finish()
-    }
-}
 impl windows_core::TypeKind for FDICABINETINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FDICABINETINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbCabinet == other.cbCabinet && self.cFolders == other.cFolders && self.cFiles == other.cFiles && self.setID == other.setID && self.iCabinet == other.iCabinet && self.fReserve == other.fReserve && self.hasprev == other.hasprev && self.hasnext == other.hasnext
-    }
-}
-impl Eq for FDICABINETINFO {}
 impl Default for FDICABINETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut core::ffi::c_void,
     pub Anonymous: FDIDECRYPT_0,
-}
-impl Copy for FDIDECRYPT {}
-impl Clone for FDIDECRYPT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FDIDECRYPT {
     type TypeKind = windows_core::CopyType;
@@ -326,16 +260,11 @@ impl Default for FDIDECRYPT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_2,
     pub decrypt: FDIDECRYPT_0_1,
-}
-impl Copy for FDIDECRYPT_0 {}
-impl Clone for FDIDECRYPT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FDIDECRYPT_0 {
     type TypeKind = windows_core::CopyType;
@@ -346,38 +275,23 @@ impl Default for FDIDECRYPT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut core::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
-impl Copy for FDIDECRYPT_0_0 {}
-impl Clone for FDIDECRYPT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FDIDECRYPT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FDIDECRYPT_0_0").field("pHeaderReserve", &self.pHeaderReserve).field("cbHeaderReserve", &self.cbHeaderReserve).field("setID", &self.setID).field("iCabinet", &self.iCabinet).finish()
-    }
-}
 impl windows_core::TypeKind for FDIDECRYPT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FDIDECRYPT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pHeaderReserve == other.pHeaderReserve && self.cbHeaderReserve == other.cbHeaderReserve && self.setID == other.setID && self.iCabinet == other.iCabinet
-    }
-}
-impl Eq for FDIDECRYPT_0_0 {}
 impl Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDIDECRYPT_0_1 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -386,63 +300,31 @@ pub struct FDIDECRYPT_0_1 {
     pub fSplit: super::super::Foundation::BOOL,
     pub cbPartial: u16,
 }
-impl Copy for FDIDECRYPT_0_1 {}
-impl Clone for FDIDECRYPT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FDIDECRYPT_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FDIDECRYPT_0_1").field("pDataReserve", &self.pDataReserve).field("cbDataReserve", &self.cbDataReserve).field("pbData", &self.pbData).field("cbData", &self.cbData).field("fSplit", &self.fSplit).field("cbPartial", &self.cbPartial).finish()
-    }
-}
 impl windows_core::TypeKind for FDIDECRYPT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FDIDECRYPT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDataReserve == other.pDataReserve && self.cbDataReserve == other.cbDataReserve && self.pbData == other.pbData && self.cbData == other.cbData && self.fSplit == other.fSplit && self.cbPartial == other.cbPartial
-    }
-}
-impl Eq for FDIDECRYPT_0_1 {}
 impl Default for FDIDECRYPT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDIDECRYPT_0_2 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
-impl Copy for FDIDECRYPT_0_2 {}
-impl Clone for FDIDECRYPT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FDIDECRYPT_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FDIDECRYPT_0_2").field("pFolderReserve", &self.pFolderReserve).field("cbFolderReserve", &self.cbFolderReserve).field("iFolder", &self.iFolder).finish()
-    }
-}
 impl windows_core::TypeKind for FDIDECRYPT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FDIDECRYPT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pFolderReserve == other.pFolderReserve && self.cbFolderReserve == other.cbFolderReserve && self.iFolder == other.iFolder
-    }
-}
-impl Eq for FDIDECRYPT_0_2 {}
 impl Default for FDIDECRYPT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: windows_core::PSTR,
@@ -458,26 +340,9 @@ pub struct FDINOTIFICATION {
     pub iFolder: u16,
     pub fdie: FDIERROR,
 }
-impl Copy for FDINOTIFICATION {}
-impl Clone for FDINOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FDINOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FDINOTIFICATION").field("cb", &self.cb).field("psz1", &self.psz1).field("psz2", &self.psz2).field("psz3", &self.psz3).field("pv", &self.pv).field("hf", &self.hf).field("date", &self.date).field("time", &self.time).field("attribs", &self.attribs).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("iFolder", &self.iFolder).field("fdie", &self.fdie).finish()
-    }
-}
 impl windows_core::TypeKind for FDINOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FDINOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.psz1 == other.psz1 && self.psz2 == other.psz2 && self.psz3 == other.psz3 && self.pv == other.pv && self.hf == other.hf && self.date == other.date && self.time == other.time && self.attribs == other.attribs && self.setID == other.setID && self.iCabinet == other.iCabinet && self.iFolder == other.iFolder && self.fdie == other.fdie
-    }
-}
-impl Eq for FDINOTIFICATION {}
 impl Default for FDINOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -485,17 +350,10 @@ impl Default for FDINOTIFICATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FDISPILLFILE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FDISPILLFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FDISPILLFILE {
@@ -509,17 +367,10 @@ impl Default for FDISPILLFILE {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FDISPILLFILE {}
-#[cfg(target_arch = "x86")]
-impl Clone for FDISPILLFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FDISPILLFILE {

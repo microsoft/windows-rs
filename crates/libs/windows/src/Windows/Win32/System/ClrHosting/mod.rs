@@ -3333,63 +3333,31 @@ impl core::fmt::Debug for WAIT_OPTION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
     pub lpReferencedIdentity: windows_core::PCWSTR,
     pub lpPostPolicyIdentity: windows_core::PCWSTR,
     pub ePolicyLevel: u32,
 }
-impl Copy for AssemblyBindInfo {}
-impl Clone for AssemblyBindInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AssemblyBindInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AssemblyBindInfo").field("dwAppDomainId", &self.dwAppDomainId).field("lpReferencedIdentity", &self.lpReferencedIdentity).field("lpPostPolicyIdentity", &self.lpPostPolicyIdentity).field("ePolicyLevel", &self.ePolicyLevel).finish()
-    }
-}
 impl windows_core::TypeKind for AssemblyBindInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AssemblyBindInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAppDomainId == other.dwAppDomainId && self.lpReferencedIdentity == other.lpReferencedIdentity && self.lpPostPolicyIdentity == other.lpPostPolicyIdentity && self.ePolicyLevel == other.ePolicyLevel
-    }
-}
-impl Eq for AssemblyBindInfo {}
 impl Default for AssemblyBindInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BucketParameters {
     pub fInited: super::super::Foundation::BOOL,
     pub pszEventTypeName: [u16; 255],
     pub pszParams: [u16; 2550],
 }
-impl Copy for BucketParameters {}
-impl Clone for BucketParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BucketParameters {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BucketParameters").field("fInited", &self.fInited).field("pszEventTypeName", &self.pszEventTypeName).field("pszParams", &self.pszParams).finish()
-    }
-}
 impl windows_core::TypeKind for BucketParameters {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BucketParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.fInited == other.fInited && self.pszEventTypeName == other.pszEventTypeName && self.pszParams == other.pszParams
-    }
-}
-impl Eq for BucketParameters {}
 impl Default for BucketParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3397,6 +3365,7 @@ impl Default for BucketParameters {
 }
 pub const CLRRuntimeHost: windows_core::GUID = windows_core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
@@ -3404,32 +3373,16 @@ pub struct CLR_DEBUGGING_VERSION {
     pub wBuild: u16,
     pub wRevision: u16,
 }
-impl Copy for CLR_DEBUGGING_VERSION {}
-impl Clone for CLR_DEBUGGING_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLR_DEBUGGING_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLR_DEBUGGING_VERSION").field("wStructVersion", &self.wStructVersion).field("wMajor", &self.wMajor).field("wMinor", &self.wMinor).field("wBuild", &self.wBuild).field("wRevision", &self.wRevision).finish()
-    }
-}
 impl windows_core::TypeKind for CLR_DEBUGGING_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLR_DEBUGGING_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.wStructVersion == other.wStructVersion && self.wMajor == other.wMajor && self.wMinor == other.wMinor && self.wBuild == other.wBuild && self.wRevision == other.wRevision
-    }
-}
-impl Eq for CLR_DEBUGGING_VERSION {}
 impl Default for CLR_DEBUGGING_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_GC_STATS {
     pub Flags: u32,
     pub ExplicitGCCount: usize,
@@ -3443,68 +3396,23 @@ pub struct COR_GC_STATS {
     pub KBytesPromotedFromGen0: usize,
     pub KBytesPromotedFromGen1: usize,
 }
-impl Copy for COR_GC_STATS {}
-impl Clone for COR_GC_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_GC_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_GC_STATS")
-            .field("Flags", &self.Flags)
-            .field("ExplicitGCCount", &self.ExplicitGCCount)
-            .field("GenCollectionsTaken", &self.GenCollectionsTaken)
-            .field("CommittedKBytes", &self.CommittedKBytes)
-            .field("ReservedKBytes", &self.ReservedKBytes)
-            .field("Gen0HeapSizeKBytes", &self.Gen0HeapSizeKBytes)
-            .field("Gen1HeapSizeKBytes", &self.Gen1HeapSizeKBytes)
-            .field("Gen2HeapSizeKBytes", &self.Gen2HeapSizeKBytes)
-            .field("LargeObjectHeapSizeKBytes", &self.LargeObjectHeapSizeKBytes)
-            .field("KBytesPromotedFromGen0", &self.KBytesPromotedFromGen0)
-            .field("KBytesPromotedFromGen1", &self.KBytesPromotedFromGen1)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for COR_GC_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_GC_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.ExplicitGCCount == other.ExplicitGCCount && self.GenCollectionsTaken == other.GenCollectionsTaken && self.CommittedKBytes == other.CommittedKBytes && self.ReservedKBytes == other.ReservedKBytes && self.Gen0HeapSizeKBytes == other.Gen0HeapSizeKBytes && self.Gen1HeapSizeKBytes == other.Gen1HeapSizeKBytes && self.Gen2HeapSizeKBytes == other.Gen2HeapSizeKBytes && self.LargeObjectHeapSizeKBytes == other.LargeObjectHeapSizeKBytes && self.KBytesPromotedFromGen0 == other.KBytesPromotedFromGen0 && self.KBytesPromotedFromGen1 == other.KBytesPromotedFromGen1
-    }
-}
-impl Eq for COR_GC_STATS {}
 impl Default for COR_GC_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
 }
-impl Copy for COR_GC_THREAD_STATS {}
-impl Clone for COR_GC_THREAD_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_GC_THREAD_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_GC_THREAD_STATS").field("PerThreadAllocation", &self.PerThreadAllocation).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for COR_GC_THREAD_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_GC_THREAD_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PerThreadAllocation == other.PerThreadAllocation && self.Flags == other.Flags
-    }
-}
-impl Eq for COR_GC_THREAD_STATS {}
 impl Default for COR_GC_THREAD_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3514,15 +3422,10 @@ pub const ComCallUnmarshal: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const ComCallUnmarshalV4: windows_core::GUID = windows_core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
 pub const CorRuntimeHost: windows_core::GUID = windows_core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
     pub Anonymous: CustomDumpItem_0,
-}
-impl Copy for CustomDumpItem {}
-impl Clone for CustomDumpItem {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CustomDumpItem {
     type TypeKind = windows_core::CopyType;
@@ -3533,14 +3436,9 @@ impl Default for CustomDumpItem {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CustomDumpItem_0 {
     pub pReserved: usize,
-}
-impl Copy for CustomDumpItem_0 {}
-impl Clone for CustomDumpItem_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CustomDumpItem_0 {
     type TypeKind = windows_core::CopyType;
@@ -3551,62 +3449,30 @@ impl Default for CustomDumpItem_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MDAInfo {
     pub lpMDACaption: windows_core::PCWSTR,
     pub lpMDAMessage: windows_core::PCWSTR,
     pub lpStackTrace: windows_core::PCWSTR,
 }
-impl Copy for MDAInfo {}
-impl Clone for MDAInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MDAInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MDAInfo").field("lpMDACaption", &self.lpMDACaption).field("lpMDAMessage", &self.lpMDAMessage).field("lpStackTrace", &self.lpStackTrace).finish()
-    }
-}
 impl windows_core::TypeKind for MDAInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MDAInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpMDACaption == other.lpMDACaption && self.lpMDAMessage == other.lpMDAMessage && self.lpStackTrace == other.lpStackTrace
-    }
-}
-impl Eq for MDAInfo {}
 impl Default for MDAInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: windows_core::PCWSTR,
     pub lpModuleName: windows_core::PCWSTR,
 }
-impl Copy for ModuleBindInfo {}
-impl Clone for ModuleBindInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ModuleBindInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ModuleBindInfo").field("dwAppDomainId", &self.dwAppDomainId).field("lpAssemblyIdentity", &self.lpAssemblyIdentity).field("lpModuleName", &self.lpModuleName).finish()
-    }
-}
 impl windows_core::TypeKind for ModuleBindInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ModuleBindInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAppDomainId == other.dwAppDomainId && self.lpAssemblyIdentity == other.lpAssemblyIdentity && self.lpModuleName == other.lpModuleName
-    }
-}
-impl Eq for ModuleBindInfo {}
 impl Default for ModuleBindInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3614,36 +3480,15 @@ impl Default for ModuleBindInfo {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for StackOverflowInfo {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for StackOverflowInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl core::fmt::Debug for StackOverflowInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("StackOverflowInfo").field("soType", &self.soType).field("pExceptionInfo", &self.pExceptionInfo).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for StackOverflowInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl PartialEq for StackOverflowInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.soType == other.soType && self.pExceptionInfo == other.pExceptionInfo
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Eq for StackOverflowInfo {}
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for StackOverflowInfo {
     fn default() -> Self {

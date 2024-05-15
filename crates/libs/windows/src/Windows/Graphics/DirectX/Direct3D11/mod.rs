@@ -135,20 +135,10 @@ impl windows_core::RuntimeType for Direct3DUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
-}
-impl Copy for Direct3DMultisampleDescription {}
-impl Clone for Direct3DMultisampleDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Direct3DMultisampleDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Direct3DMultisampleDescription").field("Count", &self.Count).field("Quality", &self.Quality).finish()
-    }
 }
 impl windows_core::TypeKind for Direct3DMultisampleDescription {
     type TypeKind = windows_core::CopyType;
@@ -156,34 +146,18 @@ impl windows_core::TypeKind for Direct3DMultisampleDescription {
 impl windows_core::RuntimeType for Direct3DMultisampleDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
 }
-impl PartialEq for Direct3DMultisampleDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Quality == other.Quality
-    }
-}
-impl Eq for Direct3DMultisampleDescription {}
 impl Default for Direct3DMultisampleDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,
     pub Format: super::DirectXPixelFormat,
     pub MultisampleDescription: Direct3DMultisampleDescription,
-}
-impl Copy for Direct3DSurfaceDescription {}
-impl Clone for Direct3DSurfaceDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Direct3DSurfaceDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Direct3DSurfaceDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("MultisampleDescription", &self.MultisampleDescription).finish()
-    }
 }
 impl windows_core::TypeKind for Direct3DSurfaceDescription {
     type TypeKind = windows_core::CopyType;
@@ -191,12 +165,6 @@ impl windows_core::TypeKind for Direct3DSurfaceDescription {
 impl windows_core::RuntimeType for Direct3DSurfaceDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
 }
-impl PartialEq for Direct3DSurfaceDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.MultisampleDescription == other.MultisampleDescription
-    }
-}
-impl Eq for Direct3DSurfaceDescription {}
 impl Default for Direct3DSurfaceDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

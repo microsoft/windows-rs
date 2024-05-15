@@ -396,17 +396,12 @@ impl core::fmt::Debug for EndpointConnectorType {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     pub u32Size: u32,
     pub u32TSSessionId: u32,
     pub targetEndpointConnectorType: EndpointConnectorType,
     pub wfxDeviceFormat: super::WAVEFORMATEX,
-}
-impl Copy for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
-impl Clone for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     type TypeKind = windows_core::CopyType;

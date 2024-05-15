@@ -258,93 +258,45 @@ impl core::fmt::Debug for DEVPROPTYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_core::PCWSTR,
 }
-impl Copy for DEVPROPCOMPKEY {}
-impl Clone for DEVPROPCOMPKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEVPROPCOMPKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVPROPCOMPKEY").field("Key", &self.Key).field("Store", &self.Store).field("LocaleName", &self.LocaleName).finish()
-    }
-}
 impl windows_core::TypeKind for DEVPROPCOMPKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVPROPCOMPKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Store == other.Store && self.LocaleName == other.LocaleName
-    }
-}
-impl Eq for DEVPROPCOMPKEY {}
 impl Default for DEVPROPCOMPKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
-impl Copy for DEVPROPERTY {}
-impl Clone for DEVPROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEVPROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVPROPERTY").field("CompKey", &self.CompKey).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
-    }
-}
 impl windows_core::TypeKind for DEVPROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVPROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompKey == other.CompKey && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
-    }
-}
-impl Eq for DEVPROPERTY {}
 impl Default for DEVPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
 }
-impl Copy for DEVPROPKEY {}
-impl Clone for DEVPROPKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEVPROPKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVPROPKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
-    }
-}
 impl windows_core::TypeKind for DEVPROPKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVPROPKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.fmtid == other.fmtid && self.pid == other.pid
-    }
-}
-impl Eq for DEVPROPKEY {}
 impl Default for DEVPROPKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

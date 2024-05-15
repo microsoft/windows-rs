@@ -151,35 +151,20 @@ impl core::fmt::Debug for MW_FILTERMODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
-}
-impl Copy for MAGCOLOREFFECT {}
-impl Clone for MAGCOLOREFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MAGCOLOREFFECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MAGCOLOREFFECT").field("transform", &self.transform).finish()
-    }
 }
 impl windows_core::TypeKind for MAGCOLOREFFECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MAGCOLOREFFECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.transform == other.transform
-    }
-}
-impl Eq for MAGCOLOREFFECT {}
 impl Default for MAGCOLOREFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -188,55 +173,22 @@ pub struct MAGIMAGEHEADER {
     pub offset: u32,
     pub cbSize: usize,
 }
-impl Copy for MAGIMAGEHEADER {}
-impl Clone for MAGIMAGEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MAGIMAGEHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MAGIMAGEHEADER").field("width", &self.width).field("height", &self.height).field("format", &self.format).field("stride", &self.stride).field("offset", &self.offset).field("cbSize", &self.cbSize).finish()
-    }
-}
 impl windows_core::TypeKind for MAGIMAGEHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MAGIMAGEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height && self.format == other.format && self.stride == other.stride && self.offset == other.offset && self.cbSize == other.cbSize
-    }
-}
-impl Eq for MAGIMAGEHEADER {}
 impl Default for MAGIMAGEHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
-}
-impl Copy for MAGTRANSFORM {}
-impl Clone for MAGTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MAGTRANSFORM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MAGTRANSFORM").field("v", &self.v).finish()
-    }
 }
 impl windows_core::TypeKind for MAGTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MAGTRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        self.v == other.v
-    }
-}
-impl Eq for MAGTRANSFORM {}
 impl Default for MAGTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

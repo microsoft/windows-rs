@@ -6690,20 +6690,10 @@ impl windows_core::RuntimeType for UssdResultCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ESimProfileInstallProgress {
     pub TotalSizeInBytes: i32,
     pub InstalledSizeInBytes: i32,
-}
-impl Copy for ESimProfileInstallProgress {}
-impl Clone for ESimProfileInstallProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ESimProfileInstallProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ESimProfileInstallProgress").field("TotalSizeInBytes", &self.TotalSizeInBytes).field("InstalledSizeInBytes", &self.InstalledSizeInBytes).finish()
-    }
 }
 impl windows_core::TypeKind for ESimProfileInstallProgress {
     type TypeKind = windows_core::CopyType;
@@ -6711,32 +6701,16 @@ impl windows_core::TypeKind for ESimProfileInstallProgress {
 impl windows_core::RuntimeType for ESimProfileInstallProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
 }
-impl PartialEq for ESimProfileInstallProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalSizeInBytes == other.TotalSizeInBytes && self.InstalledSizeInBytes == other.InstalledSizeInBytes
-    }
-}
-impl Eq for ESimProfileInstallProgress {}
 impl Default for ESimProfileInstallProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::DateTime,
-}
-impl Copy for ProfileUsage {}
-impl Clone for ProfileUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ProfileUsage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ProfileUsage").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
-    }
 }
 impl windows_core::TypeKind for ProfileUsage {
     type TypeKind = windows_core::CopyType;
@@ -6744,12 +6718,6 @@ impl windows_core::TypeKind for ProfileUsage {
 impl windows_core::RuntimeType for ProfileUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
 }
-impl PartialEq for ProfileUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsageInMegabytes == other.UsageInMegabytes && self.LastSyncTime == other.LastSyncTime
-    }
-}
-impl Eq for ProfileUsage {}
 impl Default for ProfileUsage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

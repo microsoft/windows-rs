@@ -9972,6 +9972,7 @@ impl core::fmt::Debug for TERMINAL_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRALIAS {
     pub rgchName: [i8; 41],
     pub rgchEName: [i8; 11],
@@ -9979,32 +9980,16 @@ pub struct ADDRALIAS {
     pub dibDetail: u32,
     pub r#type: u16,
 }
-impl Copy for ADDRALIAS {}
-impl Clone for ADDRALIAS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ADDRALIAS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ADDRALIAS").field("rgchName", &self.rgchName).field("rgchEName", &self.rgchEName).field("rgchSrvr", &self.rgchSrvr).field("dibDetail", &self.dibDetail).field("type", &self.r#type).finish()
-    }
-}
 impl windows_core::TypeKind for ADDRALIAS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ADDRALIAS {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgchName == other.rgchName && self.rgchEName == other.rgchEName && self.rgchSrvr == other.rgchSrvr && self.dibDetail == other.dibDetail && self.r#type == other.r#type
-    }
-}
-impl Eq for ADDRALIAS {}
 impl Default for ADDRALIAS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DTR {
     pub wYear: u16,
     pub wMonth: u16,
@@ -10013,12 +9998,6 @@ pub struct DTR {
     pub wMinute: u16,
     pub wSecond: u16,
     pub wDayOfWeek: u16,
-}
-impl Copy for DTR {}
-impl Clone for DTR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DTR {
     type TypeKind = windows_core::CopyType;
@@ -10129,6 +10108,7 @@ impl windows_core::TypeKind for HTAPIPHONE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10188,12 +10168,6 @@ pub struct LINEADDRESSCAPS {
     pub dwOfferingModes: u32,
     pub dwAvailableMediaModes: u32,
 }
-impl Copy for LINEADDRESSCAPS {}
-impl Clone for LINEADDRESSCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEADDRESSCAPS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10203,6 +10177,7 @@ impl Default for LINEADDRESSCAPS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10221,12 +10196,6 @@ pub struct LINEADDRESSSTATUS {
     pub dwDevSpecificSize: u32,
     pub dwDevSpecificOffset: u32,
 }
-impl Copy for LINEADDRESSSTATUS {}
-impl Clone for LINEADDRESSSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEADDRESSSTATUS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10236,16 +10205,11 @@ impl Default for LINEADDRESSSTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
-}
-impl Copy for LINEAGENTACTIVITYENTRY {}
-impl Clone for LINEAGENTACTIVITYENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTACTIVITYENTRY {
     type TypeKind = windows_core::CopyType;
@@ -10256,6 +10220,7 @@ impl Default for LINEAGENTACTIVITYENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10263,12 +10228,6 @@ pub struct LINEAGENTACTIVITYLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Copy for LINEAGENTACTIVITYLIST {}
-impl Clone for LINEAGENTACTIVITYLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTACTIVITYLIST {
     type TypeKind = windows_core::CopyType;
@@ -10279,6 +10238,7 @@ impl Default for LINEAGENTACTIVITYLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10296,12 +10256,6 @@ pub struct LINEAGENTCAPS {
     pub dwAgentExtensionIDListOffset: u32,
     pub ProxyGUID: windows_core::GUID,
 }
-impl Copy for LINEAGENTCAPS {}
-impl Clone for LINEAGENTCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEAGENTCAPS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10311,6 +10265,7 @@ impl Default for LINEAGENTCAPS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
     pub dwNameSize: u32,
@@ -10319,12 +10274,6 @@ pub struct LINEAGENTENTRY {
     pub dwIDOffset: u32,
     pub dwPINSize: u32,
     pub dwPINOffset: u32,
-}
-impl Copy for LINEAGENTENTRY {}
-impl Clone for LINEAGENTENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTENTRY {
     type TypeKind = windows_core::CopyType;
@@ -10335,16 +10284,11 @@ impl Default for LINEAGENTENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
-}
-impl Copy for LINEAGENTGROUPENTRY {}
-impl Clone for LINEAGENTGROUPENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTGROUPENTRY {
     type TypeKind = windows_core::CopyType;
@@ -10355,17 +10299,12 @@ impl Default for LINEAGENTGROUPENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
     pub dwGroupID2: u32,
     pub dwGroupID3: u32,
     pub dwGroupID4: u32,
-}
-impl Copy for LINEAGENTGROUPENTRY_0 {}
-impl Clone for LINEAGENTGROUPENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTGROUPENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -10376,6 +10315,7 @@ impl Default for LINEAGENTGROUPENTRY_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10383,12 +10323,6 @@ pub struct LINEAGENTGROUPLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Copy for LINEAGENTGROUPLIST {}
-impl Clone for LINEAGENTGROUPLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTGROUPLIST {
     type TypeKind = windows_core::CopyType;
@@ -10400,6 +10334,7 @@ impl Default for LINEAGENTGROUPLIST {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10416,14 +10351,6 @@ pub struct LINEAGENTINFO {
     pub dwTotalACDWrapUpTime: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEAGENTINFO {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEAGENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEAGENTINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -10434,6 +10361,7 @@ impl Default for LINEAGENTINFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10441,12 +10369,6 @@ pub struct LINEAGENTLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Copy for LINEAGENTLIST {}
-impl Clone for LINEAGENTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTLIST {
     type TypeKind = windows_core::CopyType;
@@ -10457,17 +10379,12 @@ impl Default for LINEAGENTLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
     pub hAgent: u32,
     pub GroupID: windows_core::GUID,
     pub dwWorkingAddressID: u32,
-}
-impl Copy for LINEAGENTSESSIONENTRY {}
-impl Clone for LINEAGENTSESSIONENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTSESSIONENTRY {
     type TypeKind = windows_core::CopyType;
@@ -10479,6 +10396,7 @@ impl Default for LINEAGENTSESSIONENTRY {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10499,14 +10417,6 @@ pub struct LINEAGENTSESSIONINFO {
     pub dwAverageTimeToAnswer: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEAGENTSESSIONINFO {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEAGENTSESSIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEAGENTSESSIONINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -10517,6 +10427,7 @@ impl Default for LINEAGENTSESSIONINFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10524,12 +10435,6 @@ pub struct LINEAGENTSESSIONLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Copy for LINEAGENTSESSIONLIST {}
-impl Clone for LINEAGENTSESSIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEAGENTSESSIONLIST {
     type TypeKind = windows_core::CopyType;
@@ -10540,6 +10445,7 @@ impl Default for LINEAGENTSESSIONLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10556,12 +10462,6 @@ pub struct LINEAGENTSTATUS {
     pub dwValidStates: u32,
     pub dwValidNextStates: u32,
 }
-impl Copy for LINEAGENTSTATUS {}
-impl Clone for LINEAGENTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEAGENTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10571,6 +10471,7 @@ impl Default for LINEAGENTSTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
     pub dwMachineNameOffset: u32,
@@ -10583,12 +10484,6 @@ pub struct LINEAPPINFO {
     pub dwMediaModes: u32,
     pub dwAddressID: u32,
 }
-impl Copy for LINEAPPINFO {}
-impl Clone for LINEAPPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEAPPINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -10598,6 +10493,7 @@ impl Default for LINEAPPINFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10678,12 +10574,6 @@ pub struct LINECALLINFO {
     pub dwReceivingFlowspecSize: u32,
     pub dwReceivingFlowspecOffset: u32,
 }
-impl Copy for LINECALLINFO {}
-impl Clone for LINECALLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINECALLINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -10693,6 +10583,7 @@ impl Default for LINECALLINFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10700,12 +10591,6 @@ pub struct LINECALLLIST {
     pub dwCallsNumEntries: u32,
     pub dwCallsSize: u32,
     pub dwCallsOffset: u32,
-}
-impl Copy for LINECALLLIST {}
-impl Clone for LINECALLLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINECALLLIST {
     type TypeKind = windows_core::CopyType;
@@ -10716,6 +10601,7 @@ impl Default for LINECALLLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
     pub dwBearerMode: u32,
@@ -10759,12 +10645,6 @@ pub struct LINECALLPARAMS {
     pub dwCallingPartyIDSize: u32,
     pub dwCallingPartyIDOffset: u32,
 }
-impl Copy for LINECALLPARAMS {}
-impl Clone for LINECALLPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINECALLPARAMS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10774,6 +10654,7 @@ impl Default for LINECALLPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10787,12 +10668,6 @@ pub struct LINECALLSTATUS {
     pub dwCallFeatures2: u32,
     pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for LINECALLSTATUS {}
-impl Clone for LINECALLSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINECALLSTATUS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10802,16 +10677,11 @@ impl Default for LINECALLSTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
     pub dwCallTreatmentNameSize: u32,
     pub dwCallTreatmentNameOffset: u32,
-}
-impl Copy for LINECALLTREATMENTENTRY {}
-impl Clone for LINECALLTREATMENTENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINECALLTREATMENTENTRY {
     type TypeKind = windows_core::CopyType;
@@ -10822,6 +10692,7 @@ impl Default for LINECALLTREATMENTENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
     pub dwCardNameSize: u32,
@@ -10835,12 +10706,6 @@ pub struct LINECARDENTRY {
     pub dwInternationalRuleOffset: u32,
     pub dwOptions: u32,
 }
-impl Copy for LINECARDENTRY {}
-impl Clone for LINECARDENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINECARDENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -10850,6 +10715,7 @@ impl Default for LINECARDENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
@@ -10863,12 +10729,6 @@ pub struct LINECOUNTRYENTRY {
     pub dwInternationalRuleSize: u32,
     pub dwInternationalRuleOffset: u32,
 }
-impl Copy for LINECOUNTRYENTRY {}
-impl Clone for LINECOUNTRYENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINECOUNTRYENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -10878,6 +10738,7 @@ impl Default for LINECOUNTRYENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10885,12 +10746,6 @@ pub struct LINECOUNTRYLIST {
     pub dwNumCountries: u32,
     pub dwCountryListSize: u32,
     pub dwCountryListOffset: u32,
-}
-impl Copy for LINECOUNTRYLIST {}
-impl Clone for LINECOUNTRYLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINECOUNTRYLIST {
     type TypeKind = windows_core::CopyType;
@@ -10901,6 +10756,7 @@ impl Default for LINECOUNTRYLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10958,12 +10814,6 @@ pub struct LINEDEVCAPS {
     pub dwDeviceClassesOffset: u32,
     pub PermanentLineGuid: windows_core::GUID,
 }
-impl Copy for LINEDEVCAPS {}
-impl Clone for LINEDEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEDEVCAPS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10973,6 +10823,7 @@ impl Default for LINEDEVCAPS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -10997,12 +10848,6 @@ pub struct LINEDEVSTATUS {
     pub dwAppInfoSize: u32,
     pub dwAppInfoOffset: u32,
 }
-impl Copy for LINEDEVSTATUS {}
-impl Clone for LINEDEVSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEDEVSTATUS {
     type TypeKind = windows_core::CopyType;
 }
@@ -11012,17 +10857,12 @@ impl Default for LINEDEVSTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
     pub dwDialSpeed: u32,
     pub dwDigitDuration: u32,
     pub dwWaitForDialtone: u32,
-}
-impl Copy for LINEDIALPARAMS {}
-impl Clone for LINEDIALPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEDIALPARAMS {
     type TypeKind = windows_core::CopyType;
@@ -11033,17 +10873,12 @@ impl Default for LINEDIALPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
     pub dwExtensionID2: u32,
     pub dwExtensionID3: u32,
-}
-impl Copy for LINEEXTENSIONID {}
-impl Clone for LINEEXTENSIONID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEEXTENSIONID {
     type TypeKind = windows_core::CopyType;
@@ -11054,6 +10889,7 @@ impl Default for LINEEXTENSIONID {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
     pub dwCallerAddressSize: u32,
@@ -11061,12 +10897,6 @@ pub struct LINEFORWARD {
     pub dwDestCountryCode: u32,
     pub dwDestAddressSize: u32,
     pub dwDestAddressOffset: u32,
-}
-impl Copy for LINEFORWARD {}
-impl Clone for LINEFORWARD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEFORWARD {
     type TypeKind = windows_core::CopyType;
@@ -11077,16 +10907,11 @@ impl Default for LINEFORWARD {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEFORWARDLIST {
     pub dwTotalSize: u32,
     pub dwNumEntries: u32,
     pub ForwardList: [LINEFORWARD; 1],
-}
-impl Copy for LINEFORWARDLIST {}
-impl Clone for LINEFORWARDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEFORWARDLIST {
     type TypeKind = windows_core::CopyType;
@@ -11097,17 +10922,12 @@ impl Default for LINEFORWARDLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
     pub dwCadenceOff: u32,
     pub dwVolume: u32,
-}
-impl Copy for LINEGENERATETONE {}
-impl Clone for LINEGENERATETONE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEGENERATETONE {
     type TypeKind = windows_core::CopyType;
@@ -11118,6 +10938,7 @@ impl Default for LINEGENERATETONE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -11125,12 +10946,6 @@ pub struct LINEINITIALIZEEXPARAMS {
     pub dwOptions: u32,
     pub Handles: LINEINITIALIZEEXPARAMS_0,
     pub dwCompletionKey: u32,
-}
-impl Copy for LINEINITIALIZEEXPARAMS {}
-impl Clone for LINEINITIALIZEEXPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEINITIALIZEEXPARAMS {
     type TypeKind = windows_core::CopyType;
@@ -11141,15 +10956,10 @@ impl Default for LINEINITIALIZEEXPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
     pub hCompletionPort: super::super::Foundation::HANDLE,
-}
-impl Copy for LINEINITIALIZEEXPARAMS_0 {}
-impl Clone for LINEINITIALIZEEXPARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEINITIALIZEEXPARAMS_0 {
     type TypeKind = windows_core::CopyType;
@@ -11160,6 +10970,7 @@ impl Default for LINEINITIALIZEEXPARAMS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
     pub dwLocationNameSize: u32,
@@ -11179,12 +10990,6 @@ pub struct LINELOCATIONENTRY {
     pub dwCancelCallWaitingSize: u32,
     pub dwCancelCallWaitingOffset: u32,
 }
-impl Copy for LINELOCATIONENTRY {}
-impl Clone for LINELOCATIONENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINELOCATIONENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -11194,15 +10999,10 @@ impl Default for LINELOCATIONENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
-}
-impl Copy for LINEMEDIACONTROLCALLSTATE {}
-impl Clone for LINEMEDIACONTROLCALLSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEMEDIACONTROLCALLSTATE {
     type TypeKind = windows_core::CopyType;
@@ -11213,16 +11013,11 @@ impl Default for LINEMEDIACONTROLCALLSTATE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
     pub dwMediaControl: u32,
-}
-impl Copy for LINEMEDIACONTROLDIGIT {}
-impl Clone for LINEMEDIACONTROLDIGIT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEMEDIACONTROLDIGIT {
     type TypeKind = windows_core::CopyType;
@@ -11233,16 +11028,11 @@ impl Default for LINEMEDIACONTROLDIGIT {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
     pub dwMediaControl: u32,
-}
-impl Copy for LINEMEDIACONTROLMEDIA {}
-impl Clone for LINEMEDIACONTROLMEDIA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEMEDIACONTROLMEDIA {
     type TypeKind = windows_core::CopyType;
@@ -11253,6 +11043,7 @@ impl Default for LINEMEDIACONTROLMEDIA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -11260,12 +11051,6 @@ pub struct LINEMEDIACONTROLTONE {
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
     pub dwMediaControl: u32,
-}
-impl Copy for LINEMEDIACONTROLTONE {}
-impl Clone for LINEMEDIACONTROLTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEMEDIACONTROLTONE {
     type TypeKind = windows_core::CopyType;
@@ -11276,6 +11061,7 @@ impl Default for LINEMEDIACONTROLTONE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -11283,12 +11069,6 @@ pub struct LINEMESSAGE {
     pub dwParam1: usize,
     pub dwParam2: usize,
     pub dwParam3: usize,
-}
-impl Copy for LINEMESSAGE {}
-impl Clone for LINEMESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEMESSAGE {
     type TypeKind = windows_core::CopyType;
@@ -11299,18 +11079,13 @@ impl Default for LINEMESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
     pub dwFrequency1: u32,
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
-}
-impl Copy for LINEMONITORTONE {}
-impl Clone for LINEMONITORTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEMONITORTONE {
     type TypeKind = windows_core::CopyType;
@@ -11321,16 +11096,11 @@ impl Default for LINEMONITORTONE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
     pub dwProviderFilenameOffset: u32,
-}
-impl Copy for LINEPROVIDERENTRY {}
-impl Clone for LINEPROVIDERENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEPROVIDERENTRY {
     type TypeKind = windows_core::CopyType;
@@ -11341,6 +11111,7 @@ impl Default for LINEPROVIDERENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -11348,12 +11119,6 @@ pub struct LINEPROVIDERLIST {
     pub dwNumProviders: u32,
     pub dwProviderListSize: u32,
     pub dwProviderListOffset: u32,
-}
-impl Copy for LINEPROVIDERLIST {}
-impl Clone for LINEPROVIDERLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEPROVIDERLIST {
     type TypeKind = windows_core::CopyType;
@@ -11365,6 +11130,7 @@ impl Default for LINEPROVIDERLIST {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST {
     pub dwSize: u32,
     pub dwClientMachineNameSize: u32,
@@ -11374,14 +11140,6 @@ pub struct LINEPROXYREQUEST {
     pub dwClientAppAPIVersion: u32,
     pub dwRequestType: u32,
     pub Anonymous: LINEPROXYREQUEST_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST {
@@ -11395,6 +11153,7 @@ impl Default for LINEPROXYREQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union LINEPROXYREQUEST_0 {
     pub SetAgentGroup: LINEPROXYREQUEST_0_14,
     pub SetAgentState: LINEPROXYREQUEST_0_18,
@@ -11418,14 +11177,6 @@ pub union LINEPROXYREQUEST_0 {
     pub GetGroupList: LINEPROXYREQUEST_0_10,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -11437,19 +11188,12 @@ impl Default for LINEPROXYREQUEST_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
     pub Params: [u8; 1],
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_0 {
@@ -11463,6 +11207,7 @@ impl Default for LINEPROXYREQUEST_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
@@ -11470,14 +11215,6 @@ pub struct LINEPROXYREQUEST_0_1 {
     pub hAgent: u32,
     pub GroupID: windows_core::GUID,
     pub dwWorkingAddressID: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_1 {
@@ -11491,20 +11228,13 @@ impl Default for LINEPROXYREQUEST_0_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
     pub dwAgentIDOffset: u32,
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_2 {
@@ -11518,17 +11248,10 @@ impl Default for LINEPROXYREQUEST_0_2 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_3 {
@@ -11542,17 +11265,10 @@ impl Default for LINEPROXYREQUEST_0_3 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_4 {
@@ -11566,17 +11282,10 @@ impl Default for LINEPROXYREQUEST_0_4 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_5 {
@@ -11590,17 +11299,10 @@ impl Default for LINEPROXYREQUEST_0_5 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_6 {
     pub hAgent: u32,
     pub AgentInfo: LINEAGENTINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_6 {
@@ -11614,17 +11316,10 @@ impl Default for LINEPROXYREQUEST_0_6 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_7 {
     pub hAgentSession: u32,
     pub SessionInfo: LINEAGENTSESSIONINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_7 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_7 {
@@ -11638,17 +11333,10 @@ impl Default for LINEPROXYREQUEST_0_7 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_8 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_8 {
@@ -11662,17 +11350,10 @@ impl Default for LINEPROXYREQUEST_0_8 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_9 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_9 {
@@ -11686,16 +11367,9 @@ impl Default for LINEPROXYREQUEST_0_9 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_10 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_10 {
@@ -11709,17 +11383,10 @@ impl Default for LINEPROXYREQUEST_0_10 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_11 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_11 {
@@ -11733,17 +11400,10 @@ impl Default for LINEPROXYREQUEST_0_11 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: windows_core::GUID,
     pub QueueList: LINEQUEUELIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_12 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_12 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_12 {
@@ -11757,17 +11417,10 @@ impl Default for LINEPROXYREQUEST_0_12 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_13 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_13 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_13 {
@@ -11781,17 +11434,10 @@ impl Default for LINEPROXYREQUEST_0_13 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_14 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_14 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_14 {
@@ -11805,17 +11451,10 @@ impl Default for LINEPROXYREQUEST_0_14 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_15 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_15 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_15 {
@@ -11829,18 +11468,11 @@ impl Default for LINEPROXYREQUEST_0_15 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_16 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_16 {
@@ -11854,18 +11486,11 @@ impl Default for LINEPROXYREQUEST_0_16 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_17 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_17 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_17 {
@@ -11879,18 +11504,11 @@ impl Default for LINEPROXYREQUEST_0_17 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_18 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_18 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_18 {
@@ -11904,17 +11522,10 @@ impl Default for LINEPROXYREQUEST_0_18 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_19 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_19 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_19 {
@@ -11927,6 +11538,7 @@ impl Default for LINEPROXYREQUEST_0_19 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUESTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -11934,12 +11546,6 @@ pub struct LINEPROXYREQUESTLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Copy for LINEPROXYREQUESTLIST {}
-impl Clone for LINEPROXYREQUESTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEPROXYREQUESTLIST {
     type TypeKind = windows_core::CopyType;
@@ -11950,16 +11556,11 @@ impl Default for LINEPROXYREQUESTLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
-}
-impl Copy for LINEQUEUEENTRY {}
-impl Clone for LINEQUEUEENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEQUEUEENTRY {
     type TypeKind = windows_core::CopyType;
@@ -11970,6 +11571,7 @@ impl Default for LINEQUEUEENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -11985,12 +11587,6 @@ pub struct LINEQUEUEINFO {
     pub dwAverageWaitTime: u32,
     pub dwFinalDisposition: u32,
 }
-impl Copy for LINEQUEUEINFO {}
-impl Clone for LINEQUEUEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEQUEUEINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -12000,6 +11596,7 @@ impl Default for LINEQUEUEINFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12007,12 +11604,6 @@ pub struct LINEQUEUELIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Copy for LINEQUEUELIST {}
-impl Clone for LINEQUEUELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEQUEUELIST {
     type TypeKind = windows_core::CopyType;
@@ -12023,49 +11614,28 @@ impl Default for LINEQUEUELIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LINEREQMAKECALL {
     pub szDestAddress: [i8; 80],
     pub szAppName: [i8; 40],
     pub szCalledParty: [i8; 40],
     pub szComment: [i8; 80],
 }
-impl Copy for LINEREQMAKECALL {}
-impl Clone for LINEREQMAKECALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LINEREQMAKECALL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LINEREQMAKECALL").field("szDestAddress", &self.szDestAddress).field("szAppName", &self.szAppName).field("szCalledParty", &self.szCalledParty).field("szComment", &self.szComment).finish()
-    }
-}
 impl windows_core::TypeKind for LINEREQMAKECALL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LINEREQMAKECALL {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDestAddress == other.szDestAddress && self.szAppName == other.szAppName && self.szCalledParty == other.szCalledParty && self.szComment == other.szComment
-    }
-}
-impl Eq for LINEREQMAKECALL {}
 impl Default for LINEREQMAKECALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMAKECALLW {
     pub szDestAddress: [u16; 80],
     pub szAppName: [u16; 40],
     pub szCalledParty: [u16; 40],
     pub szComment: [u16; 80],
-}
-impl Copy for LINEREQMAKECALLW {}
-impl Clone for LINEREQMAKECALLW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINEREQMAKECALLW {
     type TypeKind = windows_core::CopyType;
@@ -12076,6 +11646,7 @@ impl Default for LINEREQMAKECALLW {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
@@ -12088,12 +11659,6 @@ pub struct LINEREQMEDIACALL {
     pub szCalledParty: [i8; 40],
     pub szComment: [i8; 80],
 }
-impl Copy for LINEREQMEDIACALL {}
-impl Clone for LINEREQMEDIACALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEREQMEDIACALL {
     type TypeKind = windows_core::CopyType;
 }
@@ -12103,6 +11668,7 @@ impl Default for LINEREQMEDIACALL {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALLW {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
@@ -12115,12 +11681,6 @@ pub struct LINEREQMEDIACALLW {
     pub szCalledParty: [u16; 40],
     pub szComment: [u16; 80],
 }
-impl Copy for LINEREQMEDIACALLW {}
-impl Clone for LINEREQMEDIACALLW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINEREQMEDIACALLW {
     type TypeKind = windows_core::CopyType;
 }
@@ -12130,16 +11690,11 @@ impl Default for LINEREQMEDIACALLW {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
     pub dwTermModes: u32,
     pub dwTermSharing: u32,
-}
-impl Copy for LINETERMCAPS {}
-impl Clone for LINETERMCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINETERMCAPS {
     type TypeKind = windows_core::CopyType;
@@ -12150,6 +11705,7 @@ impl Default for LINETERMCAPS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12163,12 +11719,6 @@ pub struct LINETRANSLATECAPS {
     pub dwCardListOffset: u32,
     pub dwCurrentPreferredCardID: u32,
 }
-impl Copy for LINETRANSLATECAPS {}
-impl Clone for LINETRANSLATECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for LINETRANSLATECAPS {
     type TypeKind = windows_core::CopyType;
 }
@@ -12178,6 +11728,7 @@ impl Default for LINETRANSLATECAPS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12189,12 +11740,6 @@ pub struct LINETRANSLATEOUTPUT {
     pub dwCurrentCountry: u32,
     pub dwDestCountry: u32,
     pub dwTranslateResults: u32,
-}
-impl Copy for LINETRANSLATEOUTPUT {}
-impl Clone for LINETRANSLATEOUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LINETRANSLATEOUTPUT {
     type TypeKind = windows_core::CopyType;
@@ -12258,6 +11803,7 @@ impl Default for MSP_EVENT_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: std::mem::ManuallyDrop<Option<ITTerminal>>,
@@ -12269,23 +11815,9 @@ impl Clone for MSP_EVENT_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_0").field("Type", &self.Type).field("pTerminal", &self.pTerminal).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.pTerminal == other.pTerminal
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_0 {
     fn default() -> Self {
@@ -12294,6 +11826,7 @@ impl Default for MSP_EVENT_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: std::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
@@ -12305,23 +11838,9 @@ impl Clone for MSP_EVENT_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_1").field("pASRTerminal", &self.pASRTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pASRTerminal == other.pASRTerminal && self.hrErrorCode == other.hrErrorCode
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_1 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_1 {
     fn default() -> Self {
@@ -12330,6 +11849,7 @@ impl Default for MSP_EVENT_INFO_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -12344,23 +11864,9 @@ impl Clone for MSP_EVENT_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_2").field("Type", &self.Type).field("Cause", &self.Cause).field("pStream", &self.pStream).field("pTerminal", &self.pTerminal).field("hrError", &self.hrError).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Cause == other.Cause && self.pStream == other.pStream && self.pTerminal == other.pTerminal && self.hrError == other.hrError
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_2 {
     fn default() -> Self {
@@ -12369,6 +11875,7 @@ impl Default for MSP_EVENT_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: std::mem::ManuallyDrop<Option<ITTerminal>>,
     pub pFileTrack: std::mem::ManuallyDrop<Option<ITFileTrack>>,
@@ -12383,23 +11890,9 @@ impl Clone for MSP_EVENT_INFO_0_3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_3").field("pParentFileTerminal", &self.pParentFileTerminal).field("pFileTrack", &self.pFileTrack).field("TerminalMediaState", &self.TerminalMediaState).field("ftecEventCause", &self.ftecEventCause).field("hrErrorCode", &self.hrErrorCode).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pParentFileTerminal == other.pParentFileTerminal && self.pFileTrack == other.pFileTrack && self.TerminalMediaState == other.TerminalMediaState && self.ftecEventCause == other.ftecEventCause && self.hrErrorCode == other.hrErrorCode
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
@@ -12408,6 +11901,7 @@ impl Default for MSP_EVENT_INFO_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pEvent: std::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
     pub lEventCode: i32,
@@ -12419,23 +11913,9 @@ impl Clone for MSP_EVENT_INFO_0_4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_4").field("pEvent", &self.pEvent).field("lEventCode", &self.lEventCode).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pEvent == other.pEvent && self.lEventCode == other.lEventCode
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_4 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_4 {
     fn default() -> Self {
@@ -12444,6 +11924,7 @@ impl Default for MSP_EVENT_INFO_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: std::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
@@ -12455,23 +11936,9 @@ impl Clone for MSP_EVENT_INFO_0_5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_5").field("pToneTerminal", &self.pToneTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pToneTerminal == other.pToneTerminal && self.hrErrorCode == other.hrErrorCode
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_5 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_5 {
     fn default() -> Self {
@@ -12480,36 +11947,15 @@ impl Default for MSP_EVENT_INFO_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for MSP_EVENT_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for MSP_EVENT_INFO_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_6").field("dwBufferSize", &self.dwBufferSize).field("pBuffer", &self.pBuffer).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBufferSize == other.dwBufferSize && self.pBuffer == other.pBuffer
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_6 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_6 {
     fn default() -> Self {
@@ -12518,6 +11964,7 @@ impl Default for MSP_EVENT_INFO_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: std::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
@@ -12529,23 +11976,9 @@ impl Clone for MSP_EVENT_INFO_0_7 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for MSP_EVENT_INFO_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSP_EVENT_INFO_0_7").field("pTTSTerminal", &self.pTTSTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for MSP_EVENT_INFO_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for MSP_EVENT_INFO_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pTTSTerminal == other.pTTSTerminal && self.hrErrorCode == other.hrErrorCode
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for MSP_EVENT_INFO_0_7 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_7 {
     fn default() -> Self {
@@ -12554,18 +11987,13 @@ impl Default for MSP_EVENT_INFO_0_7 {
 }
 pub const McastAddressAllocation: windows_core::GUID = windows_core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NSID {
     pub dwSize: u32,
     pub uchType: [u8; 16],
     pub xtype: u32,
     pub lTime: i32,
     pub address: NSID_0,
-}
-impl Copy for NSID {}
-impl Clone for NSID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NSID {
     type TypeKind = windows_core::CopyType;
@@ -12576,15 +12004,10 @@ impl Default for NSID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NSID_0 {
     pub alias: ADDRALIAS,
     pub rgchInterNet: [i8; 1],
-}
-impl Copy for NSID_0 {}
-impl Clone for NSID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NSID_0 {
     type TypeKind = windows_core::CopyType;
@@ -12595,6 +12018,7 @@ impl Default for NSID_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12607,12 +12031,6 @@ pub struct PHONEBUTTONINFO {
     pub dwDevSpecificOffset: u32,
     pub dwButtonState: u32,
 }
-impl Copy for PHONEBUTTONINFO {}
-impl Clone for PHONEBUTTONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PHONEBUTTONINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -12622,6 +12040,7 @@ impl Default for PHONEBUTTONINFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12670,12 +12089,6 @@ pub struct PHONECAPS {
     pub dwMonitoredHeadsetHookSwitchModes: u32,
     pub PermanentPhoneGuid: windows_core::GUID,
 }
-impl Copy for PHONECAPS {}
-impl Clone for PHONECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PHONECAPS {
     type TypeKind = windows_core::CopyType;
 }
@@ -12685,17 +12098,12 @@ impl Default for PHONECAPS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
     pub dwExtensionID2: u32,
     pub dwExtensionID3: u32,
-}
-impl Copy for PHONEEXTENSIONID {}
-impl Clone for PHONEEXTENSIONID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PHONEEXTENSIONID {
     type TypeKind = windows_core::CopyType;
@@ -12706,6 +12114,7 @@ impl Default for PHONEEXTENSIONID {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12713,12 +12122,6 @@ pub struct PHONEINITIALIZEEXPARAMS {
     pub dwOptions: u32,
     pub Handles: PHONEINITIALIZEEXPARAMS_0,
     pub dwCompletionKey: u32,
-}
-impl Copy for PHONEINITIALIZEEXPARAMS {}
-impl Clone for PHONEINITIALIZEEXPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS {
     type TypeKind = windows_core::CopyType;
@@ -12729,15 +12132,10 @@ impl Default for PHONEINITIALIZEEXPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
     pub hCompletionPort: super::super::Foundation::HANDLE,
-}
-impl Copy for PHONEINITIALIZEEXPARAMS_0 {}
-impl Clone for PHONEINITIALIZEEXPARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS_0 {
     type TypeKind = windows_core::CopyType;
@@ -12748,6 +12146,7 @@ impl Default for PHONEINITIALIZEEXPARAMS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -12755,12 +12154,6 @@ pub struct PHONEMESSAGE {
     pub dwParam1: usize,
     pub dwParam2: usize,
     pub dwParam3: usize,
-}
-impl Copy for PHONEMESSAGE {}
-impl Clone for PHONEMESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PHONEMESSAGE {
     type TypeKind = windows_core::CopyType;
@@ -12771,6 +12164,7 @@ impl Default for PHONEMESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -12799,12 +12193,6 @@ pub struct PHONESTATUS {
     pub dwDevSpecificOffset: u32,
     pub dwPhoneFeatures: u32,
 }
-impl Copy for PHONESTATUS {}
-impl Clone for PHONESTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PHONESTATUS {
     type TypeKind = windows_core::CopyType;
 }
@@ -12814,18 +12202,13 @@ impl Default for PHONESTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RENDDATA {
     pub atyp: u16,
     pub ulPosition: u32,
     pub dxWidth: u16,
     pub dyHeight: u16,
     pub dwFlags: u32,
-}
-impl Copy for RENDDATA {}
-impl Clone for RENDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RENDDATA {
     type TypeKind = windows_core::CopyType;
@@ -12838,62 +12221,30 @@ impl Default for RENDDATA {
 pub const Rendezvous: windows_core::GUID = windows_core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
 pub const RequestMakeCall: windows_core::GUID = windows_core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STnefProblem {
     pub ulComponent: u32,
     pub ulAttribute: u32,
     pub ulPropTag: u32,
     pub scode: i32,
 }
-impl Copy for STnefProblem {}
-impl Clone for STnefProblem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STnefProblem {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STnefProblem").field("ulComponent", &self.ulComponent).field("ulAttribute", &self.ulAttribute).field("ulPropTag", &self.ulPropTag).field("scode", &self.scode).finish()
-    }
-}
 impl windows_core::TypeKind for STnefProblem {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STnefProblem {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulComponent == other.ulComponent && self.ulAttribute == other.ulAttribute && self.ulPropTag == other.ulPropTag && self.scode == other.scode
-    }
-}
-impl Eq for STnefProblem {}
 impl Default for STnefProblem {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STnefProblemArray {
     pub cProblem: u32,
     pub aProblem: [STnefProblem; 1],
 }
-impl Copy for STnefProblemArray {}
-impl Clone for STnefProblemArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STnefProblemArray {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STnefProblemArray").field("cProblem", &self.cProblem).field("aProblem", &self.aProblem).finish()
-    }
-}
 impl windows_core::TypeKind for STnefProblemArray {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STnefProblemArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProblem == other.cProblem && self.aProblem == other.aProblem
-    }
-}
-impl Eq for STnefProblemArray {}
 impl Default for STnefProblemArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12901,38 +12252,23 @@ impl Default for STnefProblemArray {
 }
 pub const TAPI: windows_core::GUID = windows_core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
     pub dwCadenceOff: u32,
     pub dwVolume: u32,
 }
-impl Copy for TAPI_CUSTOMTONE {}
-impl Clone for TAPI_CUSTOMTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPI_CUSTOMTONE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPI_CUSTOMTONE").field("dwFrequency", &self.dwFrequency).field("dwCadenceOn", &self.dwCadenceOn).field("dwCadenceOff", &self.dwCadenceOff).field("dwVolume", &self.dwVolume).finish()
-    }
-}
 impl windows_core::TypeKind for TAPI_CUSTOMTONE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPI_CUSTOMTONE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFrequency == other.dwFrequency && self.dwCadenceOn == other.dwCadenceOn && self.dwCadenceOff == other.dwCadenceOff && self.dwVolume == other.dwVolume
-    }
-}
-impl Eq for TAPI_CUSTOMTONE {}
 impl Default for TAPI_CUSTOMTONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPI_DETECTTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -12940,64 +12276,32 @@ pub struct TAPI_DETECTTONE {
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
 }
-impl Copy for TAPI_DETECTTONE {}
-impl Clone for TAPI_DETECTTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPI_DETECTTONE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPI_DETECTTONE").field("dwAppSpecific", &self.dwAppSpecific).field("dwDuration", &self.dwDuration).field("dwFrequency1", &self.dwFrequency1).field("dwFrequency2", &self.dwFrequency2).field("dwFrequency3", &self.dwFrequency3).finish()
-    }
-}
 impl windows_core::TypeKind for TAPI_DETECTTONE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPI_DETECTTONE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAppSpecific == other.dwAppSpecific && self.dwDuration == other.dwDuration && self.dwFrequency1 == other.dwFrequency1 && self.dwFrequency2 == other.dwFrequency2 && self.dwFrequency3 == other.dwFrequency3
-    }
-}
-impl Eq for TAPI_DETECTTONE {}
 impl Default for TAPI_DETECTTONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRP {
     pub trpid: u16,
     pub cbgrtrp: u16,
     pub cch: u16,
     pub cbRgb: u16,
 }
-impl Copy for TRP {}
-impl Clone for TRP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRP").field("trpid", &self.trpid).field("cbgrtrp", &self.cbgrtrp).field("cch", &self.cch).field("cbRgb", &self.cbRgb).finish()
-    }
-}
 impl windows_core::TypeKind for TRP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRP {
-    fn eq(&self, other: &Self) -> bool {
-        self.trpid == other.trpid && self.cbgrtrp == other.cbgrtrp && self.cch == other.cch && self.cbRgb == other.cbRgb
-    }
-}
-impl Eq for TRP {}
 impl Default for TRP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
     pub hdDlgInst: HDRVDIALOGINSTANCE,
@@ -13006,32 +12310,16 @@ pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub lpParams: *mut core::ffi::c_void,
     pub dwSize: u32,
 }
-impl Copy for TUISPICREATEDIALOGINSTANCEPARAMS {}
-impl Clone for TUISPICREATEDIALOGINSTANCEPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TUISPICREATEDIALOGINSTANCEPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TUISPICREATEDIALOGINSTANCEPARAMS").field("dwRequestID", &self.dwRequestID).field("hdDlgInst", &self.hdDlgInst).field("htDlgInst", &self.htDlgInst).field("lpszUIDLLName", &self.lpszUIDLLName).field("lpParams", &self.lpParams).field("dwSize", &self.dwSize).finish()
-    }
-}
 impl windows_core::TypeKind for TUISPICREATEDIALOGINSTANCEPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TUISPICREATEDIALOGINSTANCEPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRequestID == other.dwRequestID && self.hdDlgInst == other.hdDlgInst && self.htDlgInst == other.htDlgInst && self.lpszUIDLLName == other.lpszUIDLLName && self.lpParams == other.lpParams && self.dwSize == other.dwSize
-    }
-}
-impl Eq for TUISPICREATEDIALOGINSTANCEPARAMS {}
 impl Default for TUISPICREATEDIALOGINSTANCEPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct VARSTRING {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -13039,12 +12327,6 @@ pub struct VARSTRING {
     pub dwStringFormat: u32,
     pub dwStringSize: u32,
     pub dwStringOffset: u32,
-}
-impl Copy for VARSTRING {}
-impl Clone for VARSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VARSTRING {
     type TypeKind = windows_core::CopyType;

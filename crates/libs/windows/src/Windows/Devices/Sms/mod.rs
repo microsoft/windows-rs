@@ -3666,6 +3666,7 @@ impl windows_core::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
     pub CharacterCountLastSegment: u32,
@@ -3673,29 +3674,12 @@ pub struct SmsEncodedLength {
     pub ByteCountLastSegment: u32,
     pub BytesPerSegment: u32,
 }
-impl Copy for SmsEncodedLength {}
-impl Clone for SmsEncodedLength {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SmsEncodedLength {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SmsEncodedLength").field("SegmentCount", &self.SegmentCount).field("CharacterCountLastSegment", &self.CharacterCountLastSegment).field("CharactersPerSegment", &self.CharactersPerSegment).field("ByteCountLastSegment", &self.ByteCountLastSegment).field("BytesPerSegment", &self.BytesPerSegment).finish()
-    }
-}
 impl windows_core::TypeKind for SmsEncodedLength {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for SmsEncodedLength {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Sms.SmsEncodedLength;u4;u4;u4;u4;u4)");
 }
-impl PartialEq for SmsEncodedLength {
-    fn eq(&self, other: &Self) -> bool {
-        self.SegmentCount == other.SegmentCount && self.CharacterCountLastSegment == other.CharacterCountLastSegment && self.CharactersPerSegment == other.CharactersPerSegment && self.ByteCountLastSegment == other.ByteCountLastSegment && self.BytesPerSegment == other.BytesPerSegment
-    }
-}
-impl Eq for SmsEncodedLength {}
 impl Default for SmsEncodedLength {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

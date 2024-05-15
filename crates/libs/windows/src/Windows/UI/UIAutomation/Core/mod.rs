@@ -565,19 +565,9 @@ impl windows_core::RuntimeType for AutomationRemoteOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AutomationAnnotationTypeRegistration {
     pub LocalId: i32,
-}
-impl Copy for AutomationAnnotationTypeRegistration {}
-impl Clone for AutomationAnnotationTypeRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AutomationAnnotationTypeRegistration {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
-    }
 }
 impl windows_core::TypeKind for AutomationAnnotationTypeRegistration {
     type TypeKind = windows_core::CopyType;
@@ -585,31 +575,15 @@ impl windows_core::TypeKind for AutomationAnnotationTypeRegistration {
 impl windows_core::RuntimeType for AutomationAnnotationTypeRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration;i4)");
 }
-impl PartialEq for AutomationAnnotationTypeRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.LocalId == other.LocalId
-    }
-}
-impl Eq for AutomationAnnotationTypeRegistration {}
 impl Default for AutomationAnnotationTypeRegistration {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AutomationRemoteOperationOperandId {
     pub Value: i32,
-}
-impl Copy for AutomationRemoteOperationOperandId {}
-impl Clone for AutomationRemoteOperationOperandId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AutomationRemoteOperationOperandId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for AutomationRemoteOperationOperandId {
     type TypeKind = windows_core::CopyType;
@@ -617,12 +591,6 @@ impl windows_core::TypeKind for AutomationRemoteOperationOperandId {
 impl windows_core::RuntimeType for AutomationRemoteOperationOperandId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId;i4)");
 }
-impl PartialEq for AutomationRemoteOperationOperandId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for AutomationRemoteOperationOperandId {}
 impl Default for AutomationRemoteOperationOperandId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

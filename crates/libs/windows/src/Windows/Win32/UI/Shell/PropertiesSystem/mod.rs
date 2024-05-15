@@ -2424,36 +2424,21 @@ impl windows_core::TypeKind for PCUSERIALIZEDPROPSTORAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
 }
-impl Copy for PROPERTYKEY {}
-impl Clone for PROPERTYKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROPERTYKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROPERTYKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
-    }
-}
 impl windows_core::TypeKind for PROPERTYKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROPERTYKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.fmtid == other.fmtid && self.pid == other.pid
-    }
-}
-impl Eq for PROPERTYKEY {}
 impl Default for PROPERTYKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PROPPRG {
     pub flPrg: u16,
     pub flPrgInit: u16,
@@ -2467,12 +2452,6 @@ pub struct PROPPRG {
     pub dwRealModeFlags: u32,
     pub achOtherFile: [i8; 80],
     pub achPIFFile: [i8; 260],
-}
-impl Copy for PROPPRG {}
-impl Clone for PROPPRG {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROPPRG {
     type TypeKind = windows_core::CopyType;

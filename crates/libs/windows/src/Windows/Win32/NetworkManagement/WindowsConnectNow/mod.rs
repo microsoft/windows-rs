@@ -580,16 +580,11 @@ impl core::fmt::Debug for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
 }
 pub const WCNDeviceObject: windows_core::GUID = windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub Category: u16,
     pub SubCategoryOUI: u32,
     pub SubCategory: u16,
-}
-impl Copy for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
-impl Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -600,32 +595,16 @@ impl Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCN_VENDOR_EXTENSION_SPEC {
     pub VendorId: u32,
     pub SubType: u32,
     pub Index: u32,
     pub Flags: u32,
 }
-impl Copy for WCN_VENDOR_EXTENSION_SPEC {}
-impl Clone for WCN_VENDOR_EXTENSION_SPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for WCN_VENDOR_EXTENSION_SPEC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCN_VENDOR_EXTENSION_SPEC {
-    fn eq(&self, other: &Self) -> bool {
-        self.VendorId == other.VendorId && self.SubType == other.SubType && self.Index == other.Index && self.Flags == other.Flags
-    }
-}
-impl Eq for WCN_VENDOR_EXTENSION_SPEC {}
 impl Default for WCN_VENDOR_EXTENSION_SPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

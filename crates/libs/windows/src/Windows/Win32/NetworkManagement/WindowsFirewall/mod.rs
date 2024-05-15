@@ -3241,94 +3241,46 @@ impl core::fmt::Debug for SHARINGCONNECTION_ENUM_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub id: windows_core::GUID,
     pub keyword: windows_core::PCWSTR,
     pub flags: u32,
     pub addresses: windows_core::PCWSTR,
 }
-impl Copy for FW_DYNAMIC_KEYWORD_ADDRESS0 {}
-impl Clone for FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FW_DYNAMIC_KEYWORD_ADDRESS0").field("id", &self.id).field("keyword", &self.keyword).field("flags", &self.flags).field("addresses", &self.addresses).finish()
-    }
-}
 impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.keyword == other.keyword && self.flags == other.flags && self.addresses == other.addresses
-    }
-}
-impl Eq for FW_DYNAMIC_KEYWORD_ADDRESS0 {}
 impl Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
     pub next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
     pub schemaVersion: u16,
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
 }
-impl Copy for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
-impl Clone for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FW_DYNAMIC_KEYWORD_ADDRESS_DATA0").field("dynamicKeywordAddress", &self.dynamicKeywordAddress).field("next", &self.next).field("schemaVersion", &self.schemaVersion).field("originType", &self.originType).finish()
-    }
-}
 impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dynamicKeywordAddress == other.dynamicKeywordAddress && self.next == other.next && self.schemaVersion == other.schemaVersion && self.originType == other.originType
-    }
-}
-impl Eq for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
 impl Default for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INET_FIREWALL_AC_BINARIES {
     pub count: u32,
     pub binaries: *mut windows_core::PWSTR,
 }
-impl Copy for INET_FIREWALL_AC_BINARIES {}
-impl Clone for INET_FIREWALL_AC_BINARIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INET_FIREWALL_AC_BINARIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_AC_BINARIES").field("count", &self.count).field("binaries", &self.binaries).finish()
-    }
-}
 impl windows_core::TypeKind for INET_FIREWALL_AC_BINARIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INET_FIREWALL_AC_BINARIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.binaries == other.binaries
-    }
-}
-impl Eq for INET_FIREWALL_AC_BINARIES {}
 impl Default for INET_FIREWALL_AC_BINARIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3336,36 +3288,15 @@ impl Default for INET_FIREWALL_AC_BINARIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INET_FIREWALL_AC_CAPABILITIES {
     pub count: u32,
     pub capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for INET_FIREWALL_AC_CAPABILITIES {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for INET_FIREWALL_AC_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for INET_FIREWALL_AC_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_AC_CAPABILITIES").field("count", &self.count).field("capabilities", &self.capabilities).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for INET_FIREWALL_AC_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for INET_FIREWALL_AC_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.capabilities == other.capabilities
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for INET_FIREWALL_AC_CAPABILITIES {}
 #[cfg(feature = "Win32_Security")]
 impl Default for INET_FIREWALL_AC_CAPABILITIES {
     fn default() -> Self {
@@ -3374,6 +3305,7 @@ impl Default for INET_FIREWALL_AC_CAPABILITIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct INET_FIREWALL_AC_CHANGE {
     pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
     pub createType: INET_FIREWALL_AC_CREATION_TYPE,
@@ -3381,14 +3313,6 @@ pub struct INET_FIREWALL_AC_CHANGE {
     pub userSid: *mut super::super::Security::SID,
     pub displayName: windows_core::PWSTR,
     pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for INET_FIREWALL_AC_CHANGE {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for INET_FIREWALL_AC_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for INET_FIREWALL_AC_CHANGE {
@@ -3402,17 +3326,10 @@ impl Default for INET_FIREWALL_AC_CHANGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
     pub binaries: INET_FIREWALL_AC_BINARIES,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for INET_FIREWALL_AC_CHANGE_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for INET_FIREWALL_AC_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for INET_FIREWALL_AC_CHANGE_0 {
@@ -3426,6 +3343,7 @@ impl Default for INET_FIREWALL_AC_CHANGE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INET_FIREWALL_APP_CONTAINER {
     pub appContainerSid: *mut super::super::Security::SID,
     pub userSid: *mut super::super::Security::SID,
@@ -3438,31 +3356,9 @@ pub struct INET_FIREWALL_APP_CONTAINER {
     pub packageFullName: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for INET_FIREWALL_APP_CONTAINER {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for INET_FIREWALL_APP_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for INET_FIREWALL_APP_CONTAINER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_APP_CONTAINER").field("appContainerSid", &self.appContainerSid).field("userSid", &self.userSid).field("appContainerName", &self.appContainerName).field("displayName", &self.displayName).field("description", &self.description).field("capabilities", &self.capabilities).field("binaries", &self.binaries).field("workingDirectory", &self.workingDirectory).field("packageFullName", &self.packageFullName).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for INET_FIREWALL_APP_CONTAINER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for INET_FIREWALL_APP_CONTAINER {
-    fn eq(&self, other: &Self) -> bool {
-        self.appContainerSid == other.appContainerSid && self.userSid == other.userSid && self.appContainerName == other.appContainerName && self.displayName == other.displayName && self.description == other.description && self.capabilities == other.capabilities && self.binaries == other.binaries && self.workingDirectory == other.workingDirectory && self.packageFullName == other.packageFullName
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for INET_FIREWALL_APP_CONTAINER {}
 #[cfg(feature = "Win32_Security")]
 impl Default for INET_FIREWALL_APP_CONTAINER {
     fn default() -> Self {
@@ -3470,6 +3366,7 @@ impl Default for INET_FIREWALL_APP_CONTAINER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETCON_PROPERTIES {
     pub guidId: windows_core::GUID,
     pub pszwName: windows_core::PWSTR,
@@ -3480,26 +3377,9 @@ pub struct NETCON_PROPERTIES {
     pub clsidThisObject: windows_core::GUID,
     pub clsidUiObject: windows_core::GUID,
 }
-impl Copy for NETCON_PROPERTIES {}
-impl Clone for NETCON_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETCON_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETCON_PROPERTIES").field("guidId", &self.guidId).field("pszwName", &self.pszwName).field("pszwDeviceName", &self.pszwDeviceName).field("Status", &self.Status).field("MediaType", &self.MediaType).field("dwCharacter", &self.dwCharacter).field("clsidThisObject", &self.clsidThisObject).field("clsidUiObject", &self.clsidUiObject).finish()
-    }
-}
 impl windows_core::TypeKind for NETCON_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETCON_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidId == other.guidId && self.pszwName == other.pszwName && self.pszwDeviceName == other.pszwDeviceName && self.Status == other.Status && self.MediaType == other.MediaType && self.dwCharacter == other.dwCharacter && self.clsidThisObject == other.clsidThisObject && self.clsidUiObject == other.clsidUiObject
-    }
-}
-impl Eq for NETCON_PROPERTIES {}
 impl Default for NETCON_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

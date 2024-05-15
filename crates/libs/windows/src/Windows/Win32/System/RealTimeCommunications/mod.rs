@@ -3889,37 +3889,16 @@ impl core::fmt::Debug for RTC_WATCHER_STATE {
 pub const RTCClient: windows_core::GUID = windows_core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSPORT_SETTING {
     pub SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,
     pub Length: *mut u32,
     pub Value: *mut u8,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for TRANSPORT_SETTING {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for TRANSPORT_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for TRANSPORT_SETTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSPORT_SETTING").field("SettingId", &self.SettingId).field("Length", &self.Length).field("Value", &self.Value).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for TRANSPORT_SETTING {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for TRANSPORT_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        self.SettingId == other.SettingId && self.Length == other.Length && self.Value == other.Value
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for TRANSPORT_SETTING {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for TRANSPORT_SETTING {
     fn default() -> Self {

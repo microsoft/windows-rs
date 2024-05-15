@@ -53,6 +53,7 @@ pub struct IDirect3DDevice9On12_Vtbl {
 }
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D9ON12_ARGS {
     pub Enable9On12: super::super::Foundation::BOOL,
     pub pD3D12Device: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -65,20 +66,9 @@ impl Clone for D3D9ON12_ARGS {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for D3D9ON12_ARGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D9ON12_ARGS").field("Enable9On12", &self.Enable9On12).field("pD3D12Device", &self.pD3D12Device).field("ppD3D12Queues", &self.ppD3D12Queues).field("NumQueues", &self.NumQueues).field("NodeMask", &self.NodeMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D9ON12_ARGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D9ON12_ARGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable9On12 == other.Enable9On12 && self.pD3D12Device == other.pD3D12Device && self.ppD3D12Queues == other.ppD3D12Queues && self.NumQueues == other.NumQueues && self.NodeMask == other.NodeMask
-    }
-}
-impl Eq for D3D9ON12_ARGS {}
 impl Default for D3D9ON12_ARGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

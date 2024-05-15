@@ -2120,68 +2120,37 @@ impl core::fmt::Debug for WELL_KNOWN_SID_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_ACE {}
-impl Clone for ACCESS_ALLOWED_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_ALLOWED_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_ALLOWED_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_ALLOWED_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_ALLOWED_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_ALLOWED_ACE {}
 impl Default for ACCESS_ALLOWED_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_CALLBACK_ACE {}
-impl Clone for ACCESS_ALLOWED_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_ALLOWED_CALLBACK_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_ALLOWED_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_ALLOWED_CALLBACK_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_ALLOWED_CALLBACK_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_ALLOWED_CALLBACK_ACE {}
 impl Default for ACCESS_ALLOWED_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -2190,32 +2159,16 @@ pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
-impl Clone for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_ALLOWED_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
 impl Default for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -2224,94 +2177,46 @@ pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_OBJECT_ACE {}
-impl Clone for ACCESS_ALLOWED_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_ALLOWED_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_ALLOWED_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_ALLOWED_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_ALLOWED_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_ALLOWED_OBJECT_ACE {}
 impl Default for ACCESS_ALLOWED_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_DENIED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_ACE {}
-impl Clone for ACCESS_DENIED_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_DENIED_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_DENIED_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_DENIED_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_DENIED_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_DENIED_ACE {}
 impl Default for ACCESS_DENIED_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_CALLBACK_ACE {}
-impl Clone for ACCESS_DENIED_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_DENIED_CALLBACK_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_DENIED_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_DENIED_CALLBACK_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_DENIED_CALLBACK_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_DENIED_CALLBACK_ACE {}
 impl Default for ACCESS_DENIED_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -2320,32 +2225,16 @@ pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
-impl Clone for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_DENIED_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
 impl Default for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_DENIED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -2354,92 +2243,44 @@ pub struct ACCESS_DENIED_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_OBJECT_ACE {}
-impl Clone for ACCESS_DENIED_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_DENIED_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_DENIED_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESS_DENIED_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_DENIED_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for ACCESS_DENIED_OBJECT_ACE {}
 impl Default for ACCESS_DENIED_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_REASONS {
     pub Data: [u32; 32],
-}
-impl Copy for ACCESS_REASONS {}
-impl Clone for ACCESS_REASONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESS_REASONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESS_REASONS").field("Data", &self.Data).finish()
-    }
 }
 impl windows_core::TypeKind for ACCESS_REASONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESS_REASONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-    }
-}
-impl Eq for ACCESS_REASONS {}
 impl Default for ACCESS_REASONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACE_HEADER {
     pub AceType: u8,
     pub AceFlags: u8,
     pub AceSize: u16,
 }
-impl Copy for ACE_HEADER {}
-impl Clone for ACE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACE_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACE_HEADER").field("AceType", &self.AceType).field("AceFlags", &self.AceFlags).field("AceSize", &self.AceSize).finish()
-    }
-}
 impl windows_core::TypeKind for ACE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.AceType == other.AceType && self.AceFlags == other.AceFlags && self.AceSize == other.AceSize
-    }
-}
-impl Eq for ACE_HEADER {}
 impl Default for ACE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACL {
     pub AclRevision: u8,
     pub Sbz1: u8,
@@ -2447,103 +2288,49 @@ pub struct ACL {
     pub AceCount: u16,
     pub Sbz2: u16,
 }
-impl Copy for ACL {}
-impl Clone for ACL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACL").field("AclRevision", &self.AclRevision).field("Sbz1", &self.Sbz1).field("AclSize", &self.AclSize).field("AceCount", &self.AceCount).field("Sbz2", &self.Sbz2).finish()
-    }
-}
 impl windows_core::TypeKind for ACL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACL {
-    fn eq(&self, other: &Self) -> bool {
-        self.AclRevision == other.AclRevision && self.Sbz1 == other.Sbz1 && self.AclSize == other.AclSize && self.AceCount == other.AceCount && self.Sbz2 == other.Sbz2
-    }
-}
-impl Eq for ACL {}
 impl Default for ACL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
-}
-impl Copy for ACL_REVISION_INFORMATION {}
-impl Clone for ACL_REVISION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACL_REVISION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACL_REVISION_INFORMATION").field("AclRevision", &self.AclRevision).finish()
-    }
 }
 impl windows_core::TypeKind for ACL_REVISION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACL_REVISION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AclRevision == other.AclRevision
-    }
-}
-impl Eq for ACL_REVISION_INFORMATION {}
 impl Default for ACL_REVISION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACL_SIZE_INFORMATION {
     pub AceCount: u32,
     pub AclBytesInUse: u32,
     pub AclBytesFree: u32,
 }
-impl Copy for ACL_SIZE_INFORMATION {}
-impl Clone for ACL_SIZE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACL_SIZE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACL_SIZE_INFORMATION").field("AceCount", &self.AceCount).field("AclBytesInUse", &self.AclBytesInUse).field("AclBytesFree", &self.AclBytesFree).finish()
-    }
-}
 impl windows_core::TypeKind for ACL_SIZE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACL_SIZE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AceCount == other.AceCount && self.AclBytesInUse == other.AclBytesInUse && self.AclBytesFree == other.AclBytesFree
-    }
-}
-impl Eq for ACL_SIZE_INFORMATION {}
 impl Default for ACL_SIZE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub Version: u16,
     pub Reserved: u16,
     pub AttributeCount: u32,
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
-}
-impl Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -2554,14 +2341,9 @@ impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
-}
-impl Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -2572,66 +2354,35 @@ impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub Name: windows_core::PWSTR,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Name == other.Name
-    }
-}
-impl Eq for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
 impl Default for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
-    }
-}
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pValue == other.pValue && self.ValueLength == other.ValueLength
-    }
-}
-impl Eq for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
 impl Default for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub Name: u32,
     pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
@@ -2639,12 +2390,6 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub Flags: CLAIM_SECURITY_ATTRIBUTE_FLAGS,
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
-}
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     type TypeKind = windows_core::CopyType;
@@ -2655,18 +2400,13 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pInt64: [u32; 1],
     pub pUint64: [u32; 1],
     pub ppString: [u32; 1],
     pub pFqbn: [u32; 1],
     pub pOctetString: [u32; 1],
-}
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     type TypeKind = windows_core::CopyType;
@@ -2677,6 +2417,7 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Name: windows_core::PWSTR,
     pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
@@ -2684,12 +2425,6 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Flags: u32,
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
-}
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_V1 {
     type TypeKind = windows_core::CopyType;
@@ -2700,18 +2435,13 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
     pub ppString: *mut windows_core::PWSTR,
     pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
-}
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     type TypeKind = windows_core::CopyType;
@@ -2722,32 +2452,16 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERIC_MAPPING {
     pub GenericRead: u32,
     pub GenericWrite: u32,
     pub GenericExecute: u32,
     pub GenericAll: u32,
 }
-impl Copy for GENERIC_MAPPING {}
-impl Clone for GENERIC_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GENERIC_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GENERIC_MAPPING").field("GenericRead", &self.GenericRead).field("GenericWrite", &self.GenericWrite).field("GenericExecute", &self.GenericExecute).field("GenericAll", &self.GenericAll).finish()
-    }
-}
 impl windows_core::TypeKind for GENERIC_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GENERIC_MAPPING {
-    fn eq(&self, other: &Self) -> bool {
-        self.GenericRead == other.GenericRead && self.GenericWrite == other.GenericWrite && self.GenericExecute == other.GenericExecute && self.GenericAll == other.GenericAll
-    }
-}
-impl Eq for GENERIC_MAPPING {}
 impl Default for GENERIC_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2850,14 +2564,9 @@ impl windows_core::TypeKind for HDIAGNOSTIC_REPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LLFILETIME {
     pub Anonymous: LLFILETIME_0,
-}
-impl Copy for LLFILETIME {}
-impl Clone for LLFILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LLFILETIME {
     type TypeKind = windows_core::CopyType;
@@ -2868,15 +2577,10 @@ impl Default for LLFILETIME {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LLFILETIME_0 {
     pub ll: i64,
     pub ft: super::Foundation::FILETIME,
-}
-impl Copy for LLFILETIME_0 {}
-impl Clone for LLFILETIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LLFILETIME_0 {
     type TypeKind = windows_core::CopyType;
@@ -2887,30 +2591,14 @@ impl Default for LLFILETIME_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: super::Foundation::LUID,
     pub Attributes: TOKEN_PRIVILEGES_ATTRIBUTES,
 }
-impl Copy for LUID_AND_ATTRIBUTES {}
-impl Clone for LUID_AND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LUID_AND_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LUID_AND_ATTRIBUTES").field("Luid", &self.Luid).field("Attributes", &self.Attributes).finish()
-    }
-}
 impl windows_core::TypeKind for LUID_AND_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LUID_AND_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Luid == other.Luid && self.Attributes == other.Attributes
-    }
-}
-impl Eq for LUID_AND_ATTRIBUTES {}
 impl Default for LUID_AND_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2949,62 +2637,30 @@ impl windows_core::TypeKind for NCRYPT_STREAM_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
     pub Sbz: u16,
     pub ObjectType: *mut windows_core::GUID,
 }
-impl Copy for OBJECT_TYPE_LIST {}
-impl Clone for OBJECT_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OBJECT_TYPE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OBJECT_TYPE_LIST").field("Level", &self.Level).field("Sbz", &self.Sbz).field("ObjectType", &self.ObjectType).finish()
-    }
-}
 impl windows_core::TypeKind for OBJECT_TYPE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OBJECT_TYPE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Level == other.Level && self.Sbz == other.Sbz && self.ObjectType == other.ObjectType
-    }
-}
-impl Eq for OBJECT_TYPE_LIST {}
 impl Default for OBJECT_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRIVILEGE_SET {
     pub PrivilegeCount: u32,
     pub Control: u32,
     pub Privilege: [LUID_AND_ATTRIBUTES; 1],
 }
-impl Copy for PRIVILEGE_SET {}
-impl Clone for PRIVILEGE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRIVILEGE_SET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRIVILEGE_SET").field("PrivilegeCount", &self.PrivilegeCount).field("Control", &self.Control).field("Privilege", &self.Privilege).finish()
-    }
-}
 impl windows_core::TypeKind for PRIVILEGE_SET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRIVILEGE_SET {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrivilegeCount == other.PrivilegeCount && self.Control == other.Control && self.Privilege == other.Privilege
-    }
-}
-impl Eq for PRIVILEGE_SET {}
 impl Default for PRIVILEGE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3027,6 +2683,7 @@ impl windows_core::TypeKind for PSECURITY_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUOTA_LIMITS {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
@@ -3035,26 +2692,9 @@ pub struct QUOTA_LIMITS {
     pub PagefileLimit: usize,
     pub TimeLimit: i64,
 }
-impl Copy for QUOTA_LIMITS {}
-impl Clone for QUOTA_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QUOTA_LIMITS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QUOTA_LIMITS").field("PagedPoolLimit", &self.PagedPoolLimit).field("NonPagedPoolLimit", &self.NonPagedPoolLimit).field("MinimumWorkingSetSize", &self.MinimumWorkingSetSize).field("MaximumWorkingSetSize", &self.MaximumWorkingSetSize).field("PagefileLimit", &self.PagefileLimit).field("TimeLimit", &self.TimeLimit).finish()
-    }
-}
 impl windows_core::TypeKind for QUOTA_LIMITS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QUOTA_LIMITS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PagedPoolLimit == other.PagedPoolLimit && self.NonPagedPoolLimit == other.NonPagedPoolLimit && self.MinimumWorkingSetSize == other.MinimumWorkingSetSize && self.MaximumWorkingSetSize == other.MaximumWorkingSetSize && self.PagefileLimit == other.PagefileLimit && self.TimeLimit == other.TimeLimit
-    }
-}
-impl Eq for QUOTA_LIMITS {}
 impl Default for QUOTA_LIMITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3093,69 +2733,38 @@ impl windows_core::TypeKind for SC_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: super::Foundation::BOOL,
 }
-impl Copy for SECURITY_ATTRIBUTES {}
-impl Clone for SECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.nLength == other.nLength && self.lpSecurityDescriptor == other.lpSecurityDescriptor && self.bInheritHandle == other.bInheritHandle
-    }
-}
-impl Eq for SECURITY_ATTRIBUTES {}
 impl Default for SECURITY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_CAPABILITIES {
     pub AppContainerSid: super::Foundation::PSID,
     pub Capabilities: *mut SID_AND_ATTRIBUTES,
     pub CapabilityCount: u32,
     pub Reserved: u32,
 }
-impl Copy for SECURITY_CAPABILITIES {}
-impl Clone for SECURITY_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_CAPABILITIES").field("AppContainerSid", &self.AppContainerSid).field("Capabilities", &self.Capabilities).field("CapabilityCount", &self.CapabilityCount).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.AppContainerSid == other.AppContainerSid && self.Capabilities == other.Capabilities && self.CapabilityCount == other.CapabilityCount && self.Reserved == other.Reserved
-    }
-}
-impl Eq for SECURITY_CAPABILITIES {}
 impl Default for SECURITY_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -3165,32 +2774,16 @@ pub struct SECURITY_DESCRIPTOR {
     pub Sacl: *mut ACL,
     pub Dacl: *mut ACL,
 }
-impl Copy for SECURITY_DESCRIPTOR {}
-impl Clone for SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_DESCRIPTOR").field("Revision", &self.Revision).field("Sbz1", &self.Sbz1).field("Control", &self.Control).field("Owner", &self.Owner).field("Group", &self.Group).field("Sacl", &self.Sacl).field("Dacl", &self.Dacl).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.Sbz1 == other.Sbz1 && self.Control == other.Control && self.Owner == other.Owner && self.Group == other.Group && self.Sacl == other.Sacl && self.Dacl == other.Dacl
-    }
-}
-impl Eq for SECURITY_DESCRIPTOR {}
 impl Default for SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -3200,64 +2793,32 @@ pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Sacl: u32,
     pub Dacl: u32,
 }
-impl Copy for SECURITY_DESCRIPTOR_RELATIVE {}
-impl Clone for SECURITY_DESCRIPTOR_RELATIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_DESCRIPTOR_RELATIVE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_DESCRIPTOR_RELATIVE").field("Revision", &self.Revision).field("Sbz1", &self.Sbz1).field("Control", &self.Control).field("Owner", &self.Owner).field("Group", &self.Group).field("Sacl", &self.Sacl).field("Dacl", &self.Dacl).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_DESCRIPTOR_RELATIVE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_DESCRIPTOR_RELATIVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.Sbz1 == other.Sbz1 && self.Control == other.Control && self.Owner == other.Owner && self.Group == other.Group && self.Sacl == other.Sacl && self.Dacl == other.Dacl
-    }
-}
-impl Eq for SECURITY_DESCRIPTOR_RELATIVE {}
 impl Default for SECURITY_DESCRIPTOR_RELATIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_QUALITY_OF_SERVICE {
     pub Length: u32,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub ContextTrackingMode: u8,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
 }
-impl Copy for SECURITY_QUALITY_OF_SERVICE {}
-impl Clone for SECURITY_QUALITY_OF_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_QUALITY_OF_SERVICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_QUALITY_OF_SERVICE").field("Length", &self.Length).field("ImpersonationLevel", &self.ImpersonationLevel).field("ContextTrackingMode", &self.ContextTrackingMode).field("EffectiveOnly", &self.EffectiveOnly).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_QUALITY_OF_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_QUALITY_OF_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.ImpersonationLevel == other.ImpersonationLevel && self.ContextTrackingMode == other.ContextTrackingMode && self.EffectiveOnly == other.EffectiveOnly
-    }
-}
-impl Eq for SECURITY_QUALITY_OF_SERVICE {}
 impl Default for SECURITY_QUALITY_OF_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
     pub ResultListCount: u32,
@@ -3266,32 +2827,16 @@ pub struct SE_ACCESS_REPLY {
     pub AccessReason: *mut ACCESS_REASONS,
     pub Privileges: *mut *mut PRIVILEGE_SET,
 }
-impl Copy for SE_ACCESS_REPLY {}
-impl Clone for SE_ACCESS_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SE_ACCESS_REPLY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SE_ACCESS_REPLY").field("Size", &self.Size).field("ResultListCount", &self.ResultListCount).field("GrantedAccess", &self.GrantedAccess).field("AccessStatus", &self.AccessStatus).field("AccessReason", &self.AccessReason).field("Privileges", &self.Privileges).finish()
-    }
-}
 impl windows_core::TypeKind for SE_ACCESS_REPLY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SE_ACCESS_REPLY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.ResultListCount == other.ResultListCount && self.GrantedAccess == other.GrantedAccess && self.AccessStatus == other.AccessStatus && self.AccessReason == other.AccessReason && self.Privileges == other.Privileges
-    }
-}
-impl Eq for SE_ACCESS_REPLY {}
 impl Default for SE_ACCESS_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ACCESS_REQUEST {
     pub Size: u32,
     pub SeSecurityDescriptor: *mut SE_SECURITY_DESCRIPTOR,
@@ -3302,104 +2847,50 @@ pub struct SE_ACCESS_REQUEST {
     pub ObjectTypeListCount: u32,
     pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
 }
-impl Copy for SE_ACCESS_REQUEST {}
-impl Clone for SE_ACCESS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SE_ACCESS_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SE_ACCESS_REQUEST").field("Size", &self.Size).field("SeSecurityDescriptor", &self.SeSecurityDescriptor).field("DesiredAccess", &self.DesiredAccess).field("PreviouslyGrantedAccess", &self.PreviouslyGrantedAccess).field("PrincipalSelfSid", &self.PrincipalSelfSid).field("GenericMapping", &self.GenericMapping).field("ObjectTypeListCount", &self.ObjectTypeListCount).field("ObjectTypeList", &self.ObjectTypeList).finish()
-    }
-}
 impl windows_core::TypeKind for SE_ACCESS_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SE_ACCESS_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SeSecurityDescriptor == other.SeSecurityDescriptor && self.DesiredAccess == other.DesiredAccess && self.PreviouslyGrantedAccess == other.PreviouslyGrantedAccess && self.PrincipalSelfSid == other.PrincipalSelfSid && self.GenericMapping == other.GenericMapping && self.ObjectTypeListCount == other.ObjectTypeListCount && self.ObjectTypeList == other.ObjectTypeList
-    }
-}
-impl Eq for SE_ACCESS_REQUEST {}
 impl Default for SE_ACCESS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: *mut core::ffi::c_void,
     pub CopyOnOpen: super::Foundation::BOOLEAN,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
-impl Copy for SE_IMPERSONATION_STATE {}
-impl Clone for SE_IMPERSONATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SE_IMPERSONATION_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SE_IMPERSONATION_STATE").field("Token", &self.Token).field("CopyOnOpen", &self.CopyOnOpen).field("EffectiveOnly", &self.EffectiveOnly).field("Level", &self.Level).finish()
-    }
-}
 impl windows_core::TypeKind for SE_IMPERSONATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SE_IMPERSONATION_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token && self.CopyOnOpen == other.CopyOnOpen && self.EffectiveOnly == other.EffectiveOnly && self.Level == other.Level
-    }
-}
-impl Eq for SE_IMPERSONATION_STATE {}
 impl Default for SE_IMPERSONATION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,
     pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
-impl Copy for SE_SECURITY_DESCRIPTOR {}
-impl Clone for SE_SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SE_SECURITY_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SE_SECURITY_DESCRIPTOR").field("Size", &self.Size).field("Flags", &self.Flags).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
-    }
-}
 impl windows_core::TypeKind for SE_SECURITY_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SE_SECURITY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Flags == other.Flags && self.SecurityDescriptor == other.SecurityDescriptor
-    }
-}
-impl Eq for SE_SECURITY_DESCRIPTOR {}
 impl Default for SE_SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SE_SID {
     pub Sid: SID,
     pub Buffer: [u8; 68],
-}
-impl Copy for SE_SID {}
-impl Clone for SE_SID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SE_SID {
     type TypeKind = windows_core::CopyType;
@@ -3410,221 +2901,110 @@ impl Default for SE_SID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID {
     pub Revision: u8,
     pub SubAuthorityCount: u8,
     pub IdentifierAuthority: SID_IDENTIFIER_AUTHORITY,
     pub SubAuthority: [u32; 1],
 }
-impl Copy for SID {}
-impl Clone for SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SID").field("Revision", &self.Revision).field("SubAuthorityCount", &self.SubAuthorityCount).field("IdentifierAuthority", &self.IdentifierAuthority).field("SubAuthority", &self.SubAuthority).finish()
-    }
-}
 impl windows_core::TypeKind for SID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.SubAuthorityCount == other.SubAuthorityCount && self.IdentifierAuthority == other.IdentifierAuthority && self.SubAuthority == other.SubAuthority
-    }
-}
-impl Eq for SID {}
 impl Default for SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_AND_ATTRIBUTES {
     pub Sid: super::Foundation::PSID,
     pub Attributes: u32,
 }
-impl Copy for SID_AND_ATTRIBUTES {}
-impl Clone for SID_AND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SID_AND_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SID_AND_ATTRIBUTES").field("Sid", &self.Sid).field("Attributes", &self.Attributes).finish()
-    }
-}
 impl windows_core::TypeKind for SID_AND_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SID_AND_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sid == other.Sid && self.Attributes == other.Attributes
-    }
-}
-impl Eq for SID_AND_ATTRIBUTES {}
 impl Default for SID_AND_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_AND_ATTRIBUTES_HASH {
     pub SidCount: u32,
     pub SidAttr: *mut SID_AND_ATTRIBUTES,
     pub Hash: [usize; 32],
 }
-impl Copy for SID_AND_ATTRIBUTES_HASH {}
-impl Clone for SID_AND_ATTRIBUTES_HASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SID_AND_ATTRIBUTES_HASH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SID_AND_ATTRIBUTES_HASH").field("SidCount", &self.SidCount).field("SidAttr", &self.SidAttr).field("Hash", &self.Hash).finish()
-    }
-}
 impl windows_core::TypeKind for SID_AND_ATTRIBUTES_HASH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SID_AND_ATTRIBUTES_HASH {
-    fn eq(&self, other: &Self) -> bool {
-        self.SidCount == other.SidCount && self.SidAttr == other.SidAttr && self.Hash == other.Hash
-    }
-}
-impl Eq for SID_AND_ATTRIBUTES_HASH {}
 impl Default for SID_AND_ATTRIBUTES_HASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
-}
-impl Copy for SID_IDENTIFIER_AUTHORITY {}
-impl Clone for SID_IDENTIFIER_AUTHORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SID_IDENTIFIER_AUTHORITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SID_IDENTIFIER_AUTHORITY").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for SID_IDENTIFIER_AUTHORITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SID_IDENTIFIER_AUTHORITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for SID_IDENTIFIER_AUTHORITY {}
 impl Default for SID_IDENTIFIER_AUTHORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ACCESS_FILTER_ACE {}
-impl Clone for SYSTEM_ACCESS_FILTER_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_ACCESS_FILTER_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_ACCESS_FILTER_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_ACCESS_FILTER_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_ACCESS_FILTER_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_ACCESS_FILTER_ACE {}
 impl Default for SYSTEM_ACCESS_FILTER_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_ACE {}
-impl Clone for SYSTEM_ALARM_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_ALARM_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_ALARM_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_ALARM_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_ALARM_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_ALARM_ACE {}
 impl Default for SYSTEM_ALARM_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_CALLBACK_ACE {}
-impl Clone for SYSTEM_ALARM_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_ALARM_CALLBACK_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_ALARM_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_ALARM_CALLBACK_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_ALARM_CALLBACK_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_ALARM_CALLBACK_ACE {}
 impl Default for SYSTEM_ALARM_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3633,32 +3013,16 @@ pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
-impl Clone for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_ALARM_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
 impl Default for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3667,94 +3031,46 @@ pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_OBJECT_ACE {}
-impl Clone for SYSTEM_ALARM_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_ALARM_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_ALARM_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_ALARM_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_ALARM_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_ALARM_OBJECT_ACE {}
 impl Default for SYSTEM_ALARM_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_ACE {}
-impl Clone for SYSTEM_AUDIT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_AUDIT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_AUDIT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_AUDIT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_AUDIT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_AUDIT_ACE {}
 impl Default for SYSTEM_AUDIT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_CALLBACK_ACE {}
-impl Clone for SYSTEM_AUDIT_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_AUDIT_CALLBACK_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_AUDIT_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_AUDIT_CALLBACK_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_AUDIT_CALLBACK_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_AUDIT_CALLBACK_ACE {}
 impl Default for SYSTEM_AUDIT_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3763,32 +3079,16 @@ pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
-impl Clone for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_AUDIT_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
 impl Default for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3797,156 +3097,76 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_OBJECT_ACE {}
-impl Clone for SYSTEM_AUDIT_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_AUDIT_OBJECT_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_AUDIT_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_AUDIT_OBJECT_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_AUDIT_OBJECT_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_AUDIT_OBJECT_ACE {}
 impl Default for SYSTEM_AUDIT_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_MANDATORY_LABEL_ACE {}
-impl Clone for SYSTEM_MANDATORY_LABEL_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_MANDATORY_LABEL_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_MANDATORY_LABEL_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_MANDATORY_LABEL_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_MANDATORY_LABEL_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_MANDATORY_LABEL_ACE {}
 impl Default for SYSTEM_MANDATORY_LABEL_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
-impl Clone for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_PROCESS_TRUST_LABEL_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
 impl Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
-impl Clone for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_RESOURCE_ATTRIBUTE_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
 impl Default for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_SCOPED_POLICY_ID_ACE {}
-impl Clone for SYSTEM_SCOPED_POLICY_ID_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_SCOPED_POLICY_ID_ACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_SCOPED_POLICY_ID_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_SCOPED_POLICY_ID_ACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_SCOPED_POLICY_ID_ACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
-    }
-}
-impl Eq for SYSTEM_SCOPED_POLICY_ID_ACE {}
 impl Default for SYSTEM_SCOPED_POLICY_ID_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_ACCESS_INFORMATION {
     pub SidHash: *mut SID_AND_ATTRIBUTES_HASH,
     pub RestrictedSidHash: *mut SID_AND_ATTRIBUTES_HASH,
@@ -3962,253 +3182,111 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub TrustLevelSid: super::Foundation::PSID,
     pub SecurityAttributes: *mut core::ffi::c_void,
 }
-impl Copy for TOKEN_ACCESS_INFORMATION {}
-impl Clone for TOKEN_ACCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_ACCESS_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_ACCESS_INFORMATION")
-            .field("SidHash", &self.SidHash)
-            .field("RestrictedSidHash", &self.RestrictedSidHash)
-            .field("Privileges", &self.Privileges)
-            .field("AuthenticationId", &self.AuthenticationId)
-            .field("TokenType", &self.TokenType)
-            .field("ImpersonationLevel", &self.ImpersonationLevel)
-            .field("MandatoryPolicy", &self.MandatoryPolicy)
-            .field("Flags", &self.Flags)
-            .field("AppContainerNumber", &self.AppContainerNumber)
-            .field("PackageSid", &self.PackageSid)
-            .field("CapabilitiesHash", &self.CapabilitiesHash)
-            .field("TrustLevelSid", &self.TrustLevelSid)
-            .field("SecurityAttributes", &self.SecurityAttributes)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_ACCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_ACCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.SidHash == other.SidHash && self.RestrictedSidHash == other.RestrictedSidHash && self.Privileges == other.Privileges && self.AuthenticationId == other.AuthenticationId && self.TokenType == other.TokenType && self.ImpersonationLevel == other.ImpersonationLevel && self.MandatoryPolicy == other.MandatoryPolicy && self.Flags == other.Flags && self.AppContainerNumber == other.AppContainerNumber && self.PackageSid == other.PackageSid && self.CapabilitiesHash == other.CapabilitiesHash && self.TrustLevelSid == other.TrustLevelSid && self.SecurityAttributes == other.SecurityAttributes
-    }
-}
-impl Eq for TOKEN_ACCESS_INFORMATION {}
 impl Default for TOKEN_ACCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: super::Foundation::PSID,
-}
-impl Copy for TOKEN_APPCONTAINER_INFORMATION {}
-impl Clone for TOKEN_APPCONTAINER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_APPCONTAINER_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_APPCONTAINER_INFORMATION").field("TokenAppContainer", &self.TokenAppContainer).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_APPCONTAINER_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_APPCONTAINER_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TokenAppContainer == other.TokenAppContainer
-    }
-}
-impl Eq for TOKEN_APPCONTAINER_INFORMATION {}
 impl Default for TOKEN_APPCONTAINER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_AUDIT_POLICY {
     pub PerUserPolicy: [u8; 30],
-}
-impl Copy for TOKEN_AUDIT_POLICY {}
-impl Clone for TOKEN_AUDIT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_AUDIT_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_AUDIT_POLICY").field("PerUserPolicy", &self.PerUserPolicy).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_AUDIT_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_AUDIT_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.PerUserPolicy == other.PerUserPolicy
-    }
-}
-impl Eq for TOKEN_AUDIT_POLICY {}
 impl Default for TOKEN_AUDIT_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_CONTROL {
     pub TokenId: super::Foundation::LUID,
     pub AuthenticationId: super::Foundation::LUID,
     pub ModifiedId: super::Foundation::LUID,
     pub TokenSource: TOKEN_SOURCE,
 }
-impl Copy for TOKEN_CONTROL {}
-impl Clone for TOKEN_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_CONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_CONTROL").field("TokenId", &self.TokenId).field("AuthenticationId", &self.AuthenticationId).field("ModifiedId", &self.ModifiedId).field("TokenSource", &self.TokenSource).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.TokenId == other.TokenId && self.AuthenticationId == other.AuthenticationId && self.ModifiedId == other.ModifiedId && self.TokenSource == other.TokenSource
-    }
-}
-impl Eq for TOKEN_CONTROL {}
 impl Default for TOKEN_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: *mut ACL,
-}
-impl Copy for TOKEN_DEFAULT_DACL {}
-impl Clone for TOKEN_DEFAULT_DACL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_DEFAULT_DACL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_DEFAULT_DACL").field("DefaultDacl", &self.DefaultDacl).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_DEFAULT_DACL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_DEFAULT_DACL {
-    fn eq(&self, other: &Self) -> bool {
-        self.DefaultDacl == other.DefaultDacl
-    }
-}
-impl Eq for TOKEN_DEFAULT_DACL {}
 impl Default for TOKEN_DEFAULT_DACL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_DEVICE_CLAIMS {
     pub DeviceClaims: *mut core::ffi::c_void,
-}
-impl Copy for TOKEN_DEVICE_CLAIMS {}
-impl Clone for TOKEN_DEVICE_CLAIMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_DEVICE_CLAIMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_DEVICE_CLAIMS").field("DeviceClaims", &self.DeviceClaims).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_DEVICE_CLAIMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_DEVICE_CLAIMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceClaims == other.DeviceClaims
-    }
-}
-impl Eq for TOKEN_DEVICE_CLAIMS {}
 impl Default for TOKEN_DEVICE_CLAIMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
-}
-impl Copy for TOKEN_ELEVATION {}
-impl Clone for TOKEN_ELEVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_ELEVATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_ELEVATION").field("TokenIsElevated", &self.TokenIsElevated).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_ELEVATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_ELEVATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TokenIsElevated == other.TokenIsElevated
-    }
-}
-impl Eq for TOKEN_ELEVATION {}
 impl Default for TOKEN_ELEVATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_GROUPS {
     pub GroupCount: u32,
     pub Groups: [SID_AND_ATTRIBUTES; 1],
 }
-impl Copy for TOKEN_GROUPS {}
-impl Clone for TOKEN_GROUPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_GROUPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_GROUPS").field("GroupCount", &self.GroupCount).field("Groups", &self.Groups).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_GROUPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_GROUPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.GroupCount == other.GroupCount && self.Groups == other.Groups
-    }
-}
-impl Eq for TOKEN_GROUPS {}
 impl Default for TOKEN_GROUPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub SidCount: u32,
     pub SidLength: u32,
@@ -4221,277 +3299,122 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub Privileges: *mut LUID_AND_ATTRIBUTES,
     pub AuthenticationId: super::Foundation::LUID,
 }
-impl Copy for TOKEN_GROUPS_AND_PRIVILEGES {}
-impl Clone for TOKEN_GROUPS_AND_PRIVILEGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_GROUPS_AND_PRIVILEGES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_GROUPS_AND_PRIVILEGES")
-            .field("SidCount", &self.SidCount)
-            .field("SidLength", &self.SidLength)
-            .field("Sids", &self.Sids)
-            .field("RestrictedSidCount", &self.RestrictedSidCount)
-            .field("RestrictedSidLength", &self.RestrictedSidLength)
-            .field("RestrictedSids", &self.RestrictedSids)
-            .field("PrivilegeCount", &self.PrivilegeCount)
-            .field("PrivilegeLength", &self.PrivilegeLength)
-            .field("Privileges", &self.Privileges)
-            .field("AuthenticationId", &self.AuthenticationId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_GROUPS_AND_PRIVILEGES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_GROUPS_AND_PRIVILEGES {
-    fn eq(&self, other: &Self) -> bool {
-        self.SidCount == other.SidCount && self.SidLength == other.SidLength && self.Sids == other.Sids && self.RestrictedSidCount == other.RestrictedSidCount && self.RestrictedSidLength == other.RestrictedSidLength && self.RestrictedSids == other.RestrictedSids && self.PrivilegeCount == other.PrivilegeCount && self.PrivilegeLength == other.PrivilegeLength && self.Privileges == other.Privileges && self.AuthenticationId == other.AuthenticationId
-    }
-}
-impl Eq for TOKEN_GROUPS_AND_PRIVILEGES {}
 impl Default for TOKEN_GROUPS_AND_PRIVILEGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_LINKED_TOKEN {
     pub LinkedToken: super::Foundation::HANDLE,
-}
-impl Copy for TOKEN_LINKED_TOKEN {}
-impl Clone for TOKEN_LINKED_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_LINKED_TOKEN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_LINKED_TOKEN").field("LinkedToken", &self.LinkedToken).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_LINKED_TOKEN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_LINKED_TOKEN {
-    fn eq(&self, other: &Self) -> bool {
-        self.LinkedToken == other.LinkedToken
-    }
-}
-impl Eq for TOKEN_LINKED_TOKEN {}
 impl Default for TOKEN_LINKED_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_LABEL {
     pub Label: SID_AND_ATTRIBUTES,
-}
-impl Copy for TOKEN_MANDATORY_LABEL {}
-impl Clone for TOKEN_MANDATORY_LABEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_MANDATORY_LABEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_MANDATORY_LABEL").field("Label", &self.Label).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_MANDATORY_LABEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_MANDATORY_LABEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Label == other.Label
-    }
-}
-impl Eq for TOKEN_MANDATORY_LABEL {}
 impl Default for TOKEN_MANDATORY_LABEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: TOKEN_MANDATORY_POLICY_ID,
-}
-impl Copy for TOKEN_MANDATORY_POLICY {}
-impl Clone for TOKEN_MANDATORY_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_MANDATORY_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_MANDATORY_POLICY").field("Policy", &self.Policy).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_MANDATORY_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_MANDATORY_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Policy == other.Policy
-    }
-}
-impl Eq for TOKEN_MANDATORY_POLICY {}
 impl Default for TOKEN_MANDATORY_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_ORIGIN {
     pub OriginatingLogonSession: super::Foundation::LUID,
-}
-impl Copy for TOKEN_ORIGIN {}
-impl Clone for TOKEN_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_ORIGIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_ORIGIN").field("OriginatingLogonSession", &self.OriginatingLogonSession).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_ORIGIN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_ORIGIN {
-    fn eq(&self, other: &Self) -> bool {
-        self.OriginatingLogonSession == other.OriginatingLogonSession
-    }
-}
-impl Eq for TOKEN_ORIGIN {}
 impl Default for TOKEN_ORIGIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_OWNER {
     pub Owner: super::Foundation::PSID,
-}
-impl Copy for TOKEN_OWNER {}
-impl Clone for TOKEN_OWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_OWNER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_OWNER").field("Owner", &self.Owner).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_OWNER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_OWNER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Owner == other.Owner
-    }
-}
-impl Eq for TOKEN_OWNER {}
 impl Default for TOKEN_OWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_PRIMARY_GROUP {
     pub PrimaryGroup: super::Foundation::PSID,
-}
-impl Copy for TOKEN_PRIMARY_GROUP {}
-impl Clone for TOKEN_PRIMARY_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_PRIMARY_GROUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_PRIMARY_GROUP").field("PrimaryGroup", &self.PrimaryGroup).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_PRIMARY_GROUP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_PRIMARY_GROUP {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrimaryGroup == other.PrimaryGroup
-    }
-}
-impl Eq for TOKEN_PRIMARY_GROUP {}
 impl Default for TOKEN_PRIMARY_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: u32,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
 }
-impl Copy for TOKEN_PRIVILEGES {}
-impl Clone for TOKEN_PRIVILEGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_PRIVILEGES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_PRIVILEGES").field("PrivilegeCount", &self.PrivilegeCount).field("Privileges", &self.Privileges).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_PRIVILEGES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_PRIVILEGES {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrivilegeCount == other.PrivilegeCount && self.Privileges == other.Privileges
-    }
-}
-impl Eq for TOKEN_PRIVILEGES {}
 impl Default for TOKEN_PRIVILEGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_SOURCE {
     pub SourceName: [i8; 8],
     pub SourceIdentifier: super::Foundation::LUID,
 }
-impl Copy for TOKEN_SOURCE {}
-impl Clone for TOKEN_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_SOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_SOURCE").field("SourceName", &self.SourceName).field("SourceIdentifier", &self.SourceIdentifier).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_SOURCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceName == other.SourceName && self.SourceIdentifier == other.SourceIdentifier
-    }
-}
-impl Eq for TOKEN_SOURCE {}
 impl Default for TOKEN_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_STATISTICS {
     pub TokenId: super::Foundation::LUID,
     pub AuthenticationId: super::Foundation::LUID,
@@ -4504,84 +3427,35 @@ pub struct TOKEN_STATISTICS {
     pub PrivilegeCount: u32,
     pub ModifiedId: super::Foundation::LUID,
 }
-impl Copy for TOKEN_STATISTICS {}
-impl Clone for TOKEN_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_STATISTICS").field("TokenId", &self.TokenId).field("AuthenticationId", &self.AuthenticationId).field("ExpirationTime", &self.ExpirationTime).field("TokenType", &self.TokenType).field("ImpersonationLevel", &self.ImpersonationLevel).field("DynamicCharged", &self.DynamicCharged).field("DynamicAvailable", &self.DynamicAvailable).field("GroupCount", &self.GroupCount).field("PrivilegeCount", &self.PrivilegeCount).field("ModifiedId", &self.ModifiedId).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.TokenId == other.TokenId && self.AuthenticationId == other.AuthenticationId && self.ExpirationTime == other.ExpirationTime && self.TokenType == other.TokenType && self.ImpersonationLevel == other.ImpersonationLevel && self.DynamicCharged == other.DynamicCharged && self.DynamicAvailable == other.DynamicAvailable && self.GroupCount == other.GroupCount && self.PrivilegeCount == other.PrivilegeCount && self.ModifiedId == other.ModifiedId
-    }
-}
-impl Eq for TOKEN_STATISTICS {}
 impl Default for TOKEN_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_USER {
     pub User: SID_AND_ATTRIBUTES,
-}
-impl Copy for TOKEN_USER {}
-impl Clone for TOKEN_USER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_USER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_USER").field("User", &self.User).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_USER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_USER {
-    fn eq(&self, other: &Self) -> bool {
-        self.User == other.User
-    }
-}
-impl Eq for TOKEN_USER {}
 impl Default for TOKEN_USER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: *mut core::ffi::c_void,
-}
-impl Copy for TOKEN_USER_CLAIMS {}
-impl Clone for TOKEN_USER_CLAIMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_USER_CLAIMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_USER_CLAIMS").field("UserClaims", &self.UserClaims).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_USER_CLAIMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_USER_CLAIMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserClaims == other.UserClaims
-    }
-}
-impl Eq for TOKEN_USER_CLAIMS {}
 impl Default for TOKEN_USER_CLAIMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

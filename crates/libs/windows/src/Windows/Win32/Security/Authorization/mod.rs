@@ -4820,66 +4820,35 @@ impl core::fmt::Debug for TRUSTEE_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESSA {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
 }
-impl Copy for ACTRL_ACCESSA {}
-impl Clone for ACTRL_ACCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESSA").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pPropertyAccessList == other.pPropertyAccessList
-    }
-}
-impl Eq for ACTRL_ACCESSA {}
 impl Default for ACTRL_ACCESSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESSW {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
 }
-impl Copy for ACTRL_ACCESSW {}
-impl Clone for ACTRL_ACCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESSW").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pPropertyAccessList == other.pPropertyAccessList
-    }
-}
-impl Eq for ACTRL_ACCESSW {}
 impl Default for ACTRL_ACCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRYA {
     pub Trustee: TRUSTEE_A,
     pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
@@ -4888,32 +4857,16 @@ pub struct ACTRL_ACCESS_ENTRYA {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_core::PSTR,
 }
-impl Copy for ACTRL_ACCESS_ENTRYA {}
-impl Clone for ACTRL_ACCESS_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESS_ENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRYA").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESS_ENTRYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESS_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Trustee == other.Trustee && self.fAccessFlags == other.fAccessFlags && self.Access == other.Access && self.ProvSpecificAccess == other.ProvSpecificAccess && self.Inheritance == other.Inheritance && self.lpInheritProperty == other.lpInheritProperty
-    }
-}
-impl Eq for ACTRL_ACCESS_ENTRYA {}
 impl Default for ACTRL_ACCESS_ENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRYW {
     pub Trustee: TRUSTEE_W,
     pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
@@ -4922,222 +4875,104 @@ pub struct ACTRL_ACCESS_ENTRYW {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_core::PWSTR,
 }
-impl Copy for ACTRL_ACCESS_ENTRYW {}
-impl Clone for ACTRL_ACCESS_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESS_ENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRYW").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESS_ENTRYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESS_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Trustee == other.Trustee && self.fAccessFlags == other.fAccessFlags && self.Access == other.Access && self.ProvSpecificAccess == other.ProvSpecificAccess && self.Inheritance == other.Inheritance && self.lpInheritProperty == other.lpInheritProperty
-    }
-}
-impl Eq for ACTRL_ACCESS_ENTRYW {}
 impl Default for ACTRL_ACCESS_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
 }
-impl Copy for ACTRL_ACCESS_ENTRY_LISTA {}
-impl Clone for ACTRL_ACCESS_ENTRY_LISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTA").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESS_ENTRY_LISTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESS_ENTRY_LISTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pAccessList == other.pAccessList
-    }
-}
-impl Eq for ACTRL_ACCESS_ENTRY_LISTA {}
 impl Default for ACTRL_ACCESS_ENTRY_LISTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
 }
-impl Copy for ACTRL_ACCESS_ENTRY_LISTW {}
-impl Clone for ACTRL_ACCESS_ENTRY_LISTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTW").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESS_ENTRY_LISTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESS_ENTRY_LISTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pAccessList == other.pAccessList
-    }
-}
-impl Eq for ACTRL_ACCESS_ENTRY_LISTW {}
 impl Default for ACTRL_ACCESS_ENTRY_LISTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_INFOA {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_core::PSTR,
 }
-impl Copy for ACTRL_ACCESS_INFOA {}
-impl Clone for ACTRL_ACCESS_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESS_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_INFOA").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESS_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESS_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.fAccessPermission == other.fAccessPermission && self.lpAccessPermissionName == other.lpAccessPermissionName
-    }
-}
-impl Eq for ACTRL_ACCESS_INFOA {}
 impl Default for ACTRL_ACCESS_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_INFOW {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_core::PWSTR,
 }
-impl Copy for ACTRL_ACCESS_INFOW {}
-impl Clone for ACTRL_ACCESS_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_ACCESS_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_INFOW").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_ACCESS_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_ACCESS_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.fAccessPermission == other.fAccessPermission && self.lpAccessPermissionName == other.lpAccessPermissionName
-    }
-}
-impl Eq for ACTRL_ACCESS_INFOW {}
 impl Default for ACTRL_ACCESS_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_CONTROL_INFOA {
     pub lpControlId: windows_core::PSTR,
     pub lpControlName: windows_core::PSTR,
 }
-impl Copy for ACTRL_CONTROL_INFOA {}
-impl Clone for ACTRL_CONTROL_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_CONTROL_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_CONTROL_INFOA").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_CONTROL_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_CONTROL_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpControlId == other.lpControlId && self.lpControlName == other.lpControlName
-    }
-}
-impl Eq for ACTRL_CONTROL_INFOA {}
 impl Default for ACTRL_CONTROL_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_CONTROL_INFOW {
     pub lpControlId: windows_core::PWSTR,
     pub lpControlName: windows_core::PWSTR,
 }
-impl Copy for ACTRL_CONTROL_INFOW {}
-impl Clone for ACTRL_CONTROL_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_CONTROL_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_CONTROL_INFOW").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_CONTROL_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_CONTROL_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpControlId == other.lpControlId && self.lpControlName == other.lpControlName
-    }
-}
-impl Eq for ACTRL_CONTROL_INFOW {}
 impl Default for ACTRL_CONTROL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_OVERLAPPED {
     pub Anonymous: ACTRL_OVERLAPPED_0,
     pub Reserved2: u32,
     pub hEvent: super::super::Foundation::HANDLE,
-}
-impl Copy for ACTRL_OVERLAPPED {}
-impl Clone for ACTRL_OVERLAPPED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ACTRL_OVERLAPPED {
     type TypeKind = windows_core::CopyType;
@@ -5148,15 +4983,10 @@ impl Default for ACTRL_OVERLAPPED {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut core::ffi::c_void,
     pub Reserved1: u32,
-}
-impl Copy for ACTRL_OVERLAPPED_0 {}
-impl Clone for ACTRL_OVERLAPPED_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ACTRL_OVERLAPPED_0 {
     type TypeKind = windows_core::CopyType;
@@ -5167,172 +4997,87 @@ impl Default for ACTRL_OVERLAPPED_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYA {
     pub lpProperty: windows_core::PSTR,
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
     pub fListFlags: u32,
 }
-impl Copy for ACTRL_PROPERTY_ENTRYA {}
-impl Clone for ACTRL_PROPERTY_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_PROPERTY_ENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_PROPERTY_ENTRYA").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_PROPERTY_ENTRYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_PROPERTY_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpProperty == other.lpProperty && self.pAccessEntryList == other.pAccessEntryList && self.fListFlags == other.fListFlags
-    }
-}
-impl Eq for ACTRL_PROPERTY_ENTRYA {}
 impl Default for ACTRL_PROPERTY_ENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYW {
     pub lpProperty: windows_core::PWSTR,
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
     pub fListFlags: u32,
 }
-impl Copy for ACTRL_PROPERTY_ENTRYW {}
-impl Clone for ACTRL_PROPERTY_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACTRL_PROPERTY_ENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACTRL_PROPERTY_ENTRYW").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
-    }
-}
 impl windows_core::TypeKind for ACTRL_PROPERTY_ENTRYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACTRL_PROPERTY_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpProperty == other.lpProperty && self.pAccessEntryList == other.pAccessEntryList && self.fListFlags == other.fListFlags
-    }
-}
-impl Eq for ACTRL_PROPERTY_ENTRYW {}
 impl Default for ACTRL_PROPERTY_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_IP_ADDRESS {
     pub pIpAddress: [u8; 128],
-}
-impl Copy for AUDIT_IP_ADDRESS {}
-impl Clone for AUDIT_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIT_IP_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIT_IP_ADDRESS").field("pIpAddress", &self.pIpAddress).finish()
-    }
 }
 impl windows_core::TypeKind for AUDIT_IP_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIT_IP_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pIpAddress == other.pIpAddress
-    }
-}
-impl Eq for AUDIT_IP_ADDRESS {}
 impl Default for AUDIT_IP_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
     pub Flags: u16,
     pub Level: u16,
     pub AccessMask: u32,
 }
-impl Copy for AUDIT_OBJECT_TYPE {}
-impl Clone for AUDIT_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIT_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIT_OBJECT_TYPE").field("ObjectType", &self.ObjectType).field("Flags", &self.Flags).field("Level", &self.Level).field("AccessMask", &self.AccessMask).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIT_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIT_OBJECT_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ObjectType == other.ObjectType && self.Flags == other.Flags && self.Level == other.Level && self.AccessMask == other.AccessMask
-    }
-}
-impl Eq for AUDIT_OBJECT_TYPE {}
 impl Default for AUDIT_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: u16,
     pub Flags: u16,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
 }
-impl Copy for AUDIT_OBJECT_TYPES {}
-impl Clone for AUDIT_OBJECT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIT_OBJECT_TYPES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIT_OBJECT_TYPES").field("Count", &self.Count).field("Flags", &self.Flags).field("pObjectTypes", &self.pObjectTypes).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIT_OBJECT_TYPES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIT_OBJECT_TYPES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Flags == other.Flags && self.pObjectTypes == other.pObjectTypes
-    }
-}
-impl Eq for AUDIT_OBJECT_TYPES {}
 impl Default for AUDIT_OBJECT_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_PARAM {
     pub Type: AUDIT_PARAM_TYPE,
     pub Length: u32,
     pub Flags: u32,
     pub Anonymous1: AUDIT_PARAM_0,
     pub Anonymous2: AUDIT_PARAM_1,
-}
-impl Copy for AUDIT_PARAM {}
-impl Clone for AUDIT_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUDIT_PARAM {
     type TypeKind = windows_core::CopyType;
@@ -5343,6 +5088,7 @@ impl Default for AUDIT_PARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUDIT_PARAM_0 {
     pub Data0: usize,
     pub String: windows_core::PWSTR,
@@ -5353,12 +5099,6 @@ pub union AUDIT_PARAM_0 {
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
     pub pIpAddress: *mut AUDIT_IP_ADDRESS,
 }
-impl Copy for AUDIT_PARAM_0 {}
-impl Clone for AUDIT_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AUDIT_PARAM_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -5368,15 +5108,10 @@ impl Default for AUDIT_PARAM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
-}
-impl Copy for AUDIT_PARAM_1 {}
-impl Clone for AUDIT_PARAM_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUDIT_PARAM_1 {
     type TypeKind = windows_core::CopyType;
@@ -5387,32 +5122,16 @@ impl Default for AUDIT_PARAM_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_PARAMS {
     pub Length: u32,
     pub Flags: u32,
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
 }
-impl Copy for AUDIT_PARAMS {}
-impl Clone for AUDIT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIT_PARAMS").field("Length", &self.Length).field("Flags", &self.Flags).field("Count", &self.Count).field("Parameters", &self.Parameters).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIT_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags && self.Count == other.Count && self.Parameters == other.Parameters
-    }
-}
-impl Eq for AUDIT_PARAMS {}
 impl Default for AUDIT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5435,38 +5154,23 @@ impl windows_core::TypeKind for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: u32,
     pub GrantedAccessMask: *mut u32,
     pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
     pub Error: *mut u32,
 }
-impl Copy for AUTHZ_ACCESS_REPLY {}
-impl Clone for AUTHZ_ACCESS_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_ACCESS_REPLY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_ACCESS_REPLY").field("ResultListLength", &self.ResultListLength).field("GrantedAccessMask", &self.GrantedAccessMask).field("SaclEvaluationResults", &self.SaclEvaluationResults).field("Error", &self.Error).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_ACCESS_REPLY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_ACCESS_REPLY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResultListLength == other.ResultListLength && self.GrantedAccessMask == other.GrantedAccessMask && self.SaclEvaluationResults == other.SaclEvaluationResults && self.Error == other.Error
-    }
-}
-impl Eq for AUTHZ_ACCESS_REPLY {}
 impl Default for AUTHZ_ACCESS_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: u32,
     pub PrincipalSelfSid: super::super::Foundation::PSID,
@@ -5474,26 +5178,9 @@ pub struct AUTHZ_ACCESS_REQUEST {
     pub ObjectTypeListLength: u32,
     pub OptionalArguments: *mut core::ffi::c_void,
 }
-impl Copy for AUTHZ_ACCESS_REQUEST {}
-impl Clone for AUTHZ_ACCESS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_ACCESS_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_ACCESS_REQUEST").field("DesiredAccess", &self.DesiredAccess).field("PrincipalSelfSid", &self.PrincipalSelfSid).field("ObjectTypeList", &self.ObjectTypeList).field("ObjectTypeListLength", &self.ObjectTypeListLength).field("OptionalArguments", &self.OptionalArguments).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_ACCESS_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_ACCESS_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.DesiredAccess == other.DesiredAccess && self.PrincipalSelfSid == other.PrincipalSelfSid && self.ObjectTypeList == other.ObjectTypeList && self.ObjectTypeListLength == other.ObjectTypeListLength && self.OptionalArguments == other.OptionalArguments
-    }
-}
-impl Eq for AUTHZ_ACCESS_REQUEST {}
 impl Default for AUTHZ_ACCESS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5532,37 +5219,22 @@ impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     pub CategoryId: u16,
     pub AuditId: u16,
     pub ParameterCount: u16,
 }
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_LEGACY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn eq(&self, other: &Self) -> bool {
-        self.CategoryId == other.CategoryId && self.AuditId == other.AuditId && self.ParameterCount == other.ParameterCount
-    }
-}
-impl Eq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
 impl Default for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub Version: u32,
     pub dwFlags: u32,
@@ -5570,12 +5242,6 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub hAudit: usize,
     pub LinkId: super::super::Foundation::LUID,
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
-}
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     type TypeKind = windows_core::CopyType;
@@ -5586,14 +5252,9 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
     pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
-}
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_UNION {
     type TypeKind = windows_core::CopyType;
@@ -5636,6 +5297,7 @@ impl windows_core::TypeKind for AUTHZ_CLIENT_CONTEXT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: windows_core::PCWSTR,
@@ -5644,17 +5306,6 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
-}
-impl Copy for AUTHZ_INIT_INFO {}
-impl Clone for AUTHZ_INIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_INIT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_INIT_INFO").field("version", &self.version).field("szResourceManagerName", &self.szResourceManagerName).finish()
-    }
 }
 impl windows_core::TypeKind for AUTHZ_INIT_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5665,30 +5316,14 @@ impl Default for AUTHZ_INIT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_core::PWSTR,
     pub dwOffset: u32,
 }
-impl Copy for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
-impl Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET").field("szObjectTypeName", &self.szObjectTypeName).field("dwOffset", &self.dwOffset).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.szObjectTypeName == other.szObjectTypeName && self.dwOffset == other.dwOffset
-    }
-}
-impl Eq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
 impl Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5711,6 +5346,7 @@ impl windows_core::TypeKind for AUTHZ_RESOURCE_MANAGER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub version: u16,
     pub ObjectUuid: windows_core::PWSTR,
@@ -5720,43 +5356,21 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Options: windows_core::PWSTR,
     pub ServerSpn: windows_core::PWSTR,
 }
-impl Copy for AUTHZ_RPC_INIT_INFO_CLIENT {}
-impl Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_RPC_INIT_INFO_CLIENT").field("version", &self.version).field("ObjectUuid", &self.ObjectUuid).field("ProtSeq", &self.ProtSeq).field("NetworkAddr", &self.NetworkAddr).field("Endpoint", &self.Endpoint).field("Options", &self.Options).field("ServerSpn", &self.ServerSpn).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_RPC_INIT_INFO_CLIENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version && self.ObjectUuid == other.ObjectUuid && self.ProtSeq == other.ProtSeq && self.NetworkAddr == other.NetworkAddr && self.Endpoint == other.Endpoint && self.Options == other.Options && self.ServerSpn == other.ServerSpn
-    }
-}
-impl Eq for AUTHZ_RPC_INIT_INFO_CLIENT {}
 impl Default for AUTHZ_RPC_INIT_INFO_CLIENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     pub Version: u16,
     pub Reserved: u16,
     pub AttributeCount: u32,
     pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
-}
-impl Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -5767,14 +5381,9 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
-}
-impl Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -5785,66 +5394,35 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_core::PWSTR,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("pName", &self.pName).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.pName == other.pName
-    }
-}
-impl Eq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
 impl Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pValue == other.pValue && self.ValueLength == other.ValueLength
-    }
-}
-impl Eq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
 impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub pName: windows_core::PWSTR,
     pub ValueType: u16,
@@ -5852,12 +5430,6 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub Flags: AUTHZ_SECURITY_ATTRIBUTE_FLAGS,
     pub ValueCount: u32,
     pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
-}
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     type TypeKind = windows_core::CopyType;
@@ -5868,18 +5440,13 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
     pub ppString: *mut windows_core::PWSTR,
     pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
-}
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     type TypeKind = windows_core::CopyType;
@@ -5906,6 +5473,7 @@ impl windows_core::TypeKind for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub dwFlags: u32,
     pub szEventSourceName: windows_core::PWSTR,
@@ -5917,12 +5485,6 @@ pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub dwObjectTypeNameCount: u32,
     pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
 }
-impl Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
-impl Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
@@ -5932,15 +5494,10 @@ impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut core::ffi::c_void,
     pub pProviderGuid: *mut windows_core::GUID,
-}
-impl Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
-impl Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -5954,159 +5511,80 @@ pub const AzAuthorizationStore: windows_core::GUID = windows_core::GUID::from_u1
 pub const AzBizRuleContext: windows_core::GUID = windows_core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
 pub const AzPrincipalLocator: windows_core::GUID = windows_core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPLICIT_ACCESS_A {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
     pub grfInheritance: super::ACE_FLAGS,
     pub Trustee: TRUSTEE_A,
 }
-impl Copy for EXPLICIT_ACCESS_A {}
-impl Clone for EXPLICIT_ACCESS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EXPLICIT_ACCESS_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EXPLICIT_ACCESS_A").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
-    }
-}
 impl windows_core::TypeKind for EXPLICIT_ACCESS_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EXPLICIT_ACCESS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.grfAccessPermissions == other.grfAccessPermissions && self.grfAccessMode == other.grfAccessMode && self.grfInheritance == other.grfInheritance && self.Trustee == other.Trustee
-    }
-}
-impl Eq for EXPLICIT_ACCESS_A {}
 impl Default for EXPLICIT_ACCESS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPLICIT_ACCESS_W {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
     pub grfInheritance: super::ACE_FLAGS,
     pub Trustee: TRUSTEE_W,
 }
-impl Copy for EXPLICIT_ACCESS_W {}
-impl Clone for EXPLICIT_ACCESS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EXPLICIT_ACCESS_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EXPLICIT_ACCESS_W").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
-    }
-}
 impl windows_core::TypeKind for EXPLICIT_ACCESS_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EXPLICIT_ACCESS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.grfAccessPermissions == other.grfAccessPermissions && self.grfAccessMode == other.grfAccessMode && self.grfInheritance == other.grfInheritance && self.Trustee == other.Trustee
-    }
-}
-impl Eq for EXPLICIT_ACCESS_W {}
 impl Default for EXPLICIT_ACCESS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
-}
-impl Copy for FN_OBJECT_MGR_FUNCTS {}
-impl Clone for FN_OBJECT_MGR_FUNCTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FN_OBJECT_MGR_FUNCTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FN_OBJECT_MGR_FUNCTS").field("Placeholder", &self.Placeholder).finish()
-    }
 }
 impl windows_core::TypeKind for FN_OBJECT_MGR_FUNCTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FN_OBJECT_MGR_FUNCTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Placeholder == other.Placeholder
-    }
-}
-impl Eq for FN_OBJECT_MGR_FUNCTS {}
 impl Default for FN_OBJECT_MGR_FUNCTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INHERITED_FROMA {
     pub GenerationGap: i32,
     pub AncestorName: windows_core::PSTR,
 }
-impl Copy for INHERITED_FROMA {}
-impl Clone for INHERITED_FROMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INHERITED_FROMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INHERITED_FROMA").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
-    }
-}
 impl windows_core::TypeKind for INHERITED_FROMA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INHERITED_FROMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.GenerationGap == other.GenerationGap && self.AncestorName == other.AncestorName
-    }
-}
-impl Eq for INHERITED_FROMA {}
 impl Default for INHERITED_FROMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INHERITED_FROMW {
     pub GenerationGap: i32,
     pub AncestorName: windows_core::PWSTR,
 }
-impl Copy for INHERITED_FROMW {}
-impl Clone for INHERITED_FROMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INHERITED_FROMW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INHERITED_FROMW").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
-    }
-}
 impl windows_core::TypeKind for INHERITED_FROMW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INHERITED_FROMW {
-    fn eq(&self, other: &Self) -> bool {
-        self.GenerationGap == other.GenerationGap && self.AncestorName == other.AncestorName
-    }
-}
-impl Eq for INHERITED_FROMW {}
 impl Default for INHERITED_FROMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECTS_AND_NAME_A {
     pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
     pub ObjectType: SE_OBJECT_TYPE,
@@ -6114,32 +5592,16 @@ pub struct OBJECTS_AND_NAME_A {
     pub InheritedObjectTypeName: windows_core::PSTR,
     pub ptstrName: windows_core::PSTR,
 }
-impl Copy for OBJECTS_AND_NAME_A {}
-impl Clone for OBJECTS_AND_NAME_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OBJECTS_AND_NAME_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OBJECTS_AND_NAME_A").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
-    }
-}
 impl windows_core::TypeKind for OBJECTS_AND_NAME_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OBJECTS_AND_NAME_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.ObjectsPresent == other.ObjectsPresent && self.ObjectType == other.ObjectType && self.ObjectTypeName == other.ObjectTypeName && self.InheritedObjectTypeName == other.InheritedObjectTypeName && self.ptstrName == other.ptstrName
-    }
-}
-impl Eq for OBJECTS_AND_NAME_A {}
 impl Default for OBJECTS_AND_NAME_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECTS_AND_NAME_W {
     pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
     pub ObjectType: SE_OBJECT_TYPE,
@@ -6147,64 +5609,32 @@ pub struct OBJECTS_AND_NAME_W {
     pub InheritedObjectTypeName: windows_core::PWSTR,
     pub ptstrName: windows_core::PWSTR,
 }
-impl Copy for OBJECTS_AND_NAME_W {}
-impl Clone for OBJECTS_AND_NAME_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OBJECTS_AND_NAME_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OBJECTS_AND_NAME_W").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
-    }
-}
 impl windows_core::TypeKind for OBJECTS_AND_NAME_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OBJECTS_AND_NAME_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.ObjectsPresent == other.ObjectsPresent && self.ObjectType == other.ObjectType && self.ObjectTypeName == other.ObjectTypeName && self.InheritedObjectTypeName == other.InheritedObjectTypeName && self.ptstrName == other.ptstrName
-    }
-}
-impl Eq for OBJECTS_AND_NAME_W {}
 impl Default for OBJECTS_AND_NAME_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECTS_AND_SID {
     pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
     pub ObjectTypeGuid: windows_core::GUID,
     pub InheritedObjectTypeGuid: windows_core::GUID,
     pub pSid: *mut super::SID,
 }
-impl Copy for OBJECTS_AND_SID {}
-impl Clone for OBJECTS_AND_SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OBJECTS_AND_SID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OBJECTS_AND_SID").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectTypeGuid", &self.ObjectTypeGuid).field("InheritedObjectTypeGuid", &self.InheritedObjectTypeGuid).field("pSid", &self.pSid).finish()
-    }
-}
 impl windows_core::TypeKind for OBJECTS_AND_SID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OBJECTS_AND_SID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ObjectsPresent == other.ObjectsPresent && self.ObjectTypeGuid == other.ObjectTypeGuid && self.InheritedObjectTypeGuid == other.InheritedObjectTypeGuid && self.pSid == other.pSid
-    }
-}
-impl Eq for OBJECTS_AND_SID {}
 impl Default for OBJECTS_AND_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUSTEE_A {
     pub pMultipleTrustee: *mut TRUSTEE_A,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
@@ -6212,96 +5642,48 @@ pub struct TRUSTEE_A {
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: windows_core::PSTR,
 }
-impl Copy for TRUSTEE_A {}
-impl Clone for TRUSTEE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRUSTEE_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRUSTEE_A").field("pMultipleTrustee", &self.pMultipleTrustee).field("MultipleTrusteeOperation", &self.MultipleTrusteeOperation).field("TrusteeForm", &self.TrusteeForm).field("TrusteeType", &self.TrusteeType).field("ptstrName", &self.ptstrName).finish()
-    }
-}
 impl windows_core::TypeKind for TRUSTEE_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRUSTEE_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMultipleTrustee == other.pMultipleTrustee && self.MultipleTrusteeOperation == other.MultipleTrusteeOperation && self.TrusteeForm == other.TrusteeForm && self.TrusteeType == other.TrusteeType && self.ptstrName == other.ptstrName
-    }
-}
-impl Eq for TRUSTEE_A {}
 impl Default for TRUSTEE_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUSTEE_ACCESSA {
     pub lpProperty: windows_core::PSTR,
     pub Access: u32,
     pub fAccessFlags: u32,
     pub fReturnedAccess: u32,
 }
-impl Copy for TRUSTEE_ACCESSA {}
-impl Clone for TRUSTEE_ACCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRUSTEE_ACCESSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRUSTEE_ACCESSA").field("lpProperty", &self.lpProperty).field("Access", &self.Access).field("fAccessFlags", &self.fAccessFlags).field("fReturnedAccess", &self.fReturnedAccess).finish()
-    }
-}
 impl windows_core::TypeKind for TRUSTEE_ACCESSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRUSTEE_ACCESSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpProperty == other.lpProperty && self.Access == other.Access && self.fAccessFlags == other.fAccessFlags && self.fReturnedAccess == other.fReturnedAccess
-    }
-}
-impl Eq for TRUSTEE_ACCESSA {}
 impl Default for TRUSTEE_ACCESSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUSTEE_ACCESSW {
     pub lpProperty: windows_core::PWSTR,
     pub Access: u32,
     pub fAccessFlags: u32,
     pub fReturnedAccess: u32,
 }
-impl Copy for TRUSTEE_ACCESSW {}
-impl Clone for TRUSTEE_ACCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRUSTEE_ACCESSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRUSTEE_ACCESSW").field("lpProperty", &self.lpProperty).field("Access", &self.Access).field("fAccessFlags", &self.fAccessFlags).field("fReturnedAccess", &self.fReturnedAccess).finish()
-    }
-}
 impl windows_core::TypeKind for TRUSTEE_ACCESSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRUSTEE_ACCESSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpProperty == other.lpProperty && self.Access == other.Access && self.fAccessFlags == other.fAccessFlags && self.fReturnedAccess == other.fReturnedAccess
-    }
-}
-impl Eq for TRUSTEE_ACCESSW {}
 impl Default for TRUSTEE_ACCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUSTEE_W {
     pub pMultipleTrustee: *mut TRUSTEE_W,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
@@ -6309,26 +5691,9 @@ pub struct TRUSTEE_W {
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: windows_core::PWSTR,
 }
-impl Copy for TRUSTEE_W {}
-impl Clone for TRUSTEE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRUSTEE_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRUSTEE_W").field("pMultipleTrustee", &self.pMultipleTrustee).field("MultipleTrusteeOperation", &self.MultipleTrusteeOperation).field("TrusteeForm", &self.TrusteeForm).field("TrusteeType", &self.TrusteeType).field("ptstrName", &self.ptstrName).finish()
-    }
-}
 impl windows_core::TypeKind for TRUSTEE_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRUSTEE_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMultipleTrustee == other.pMultipleTrustee && self.MultipleTrusteeOperation == other.MultipleTrusteeOperation && self.TrusteeForm == other.TrusteeForm && self.TrusteeType == other.TrusteeType && self.ptstrName == other.ptstrName
-    }
-}
-impl Eq for TRUSTEE_W {}
 impl Default for TRUSTEE_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

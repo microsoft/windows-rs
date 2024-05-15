@@ -3844,31 +3844,15 @@ pub const CoSniffStream: windows_core::GUID = windows_core::GUID::from_u128(0x6a
 pub const HomePage: windows_core::GUID = windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
 pub const HomePageSetting: windows_core::GUID = windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
     pub dwLaunchOptionFlags: u32,
 }
-impl Copy for IELAUNCHURLINFO {}
-impl Clone for IELAUNCHURLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IELAUNCHURLINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IELAUNCHURLINFO").field("cbSize", &self.cbSize).field("dwCreationFlags", &self.dwCreationFlags).field("dwLaunchOptionFlags", &self.dwLaunchOptionFlags).finish()
-    }
-}
 impl windows_core::TypeKind for IELAUNCHURLINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IELAUNCHURLINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwCreationFlags == other.dwCreationFlags && self.dwLaunchOptionFlags == other.dwLaunchOptionFlags
-    }
-}
-impl Eq for IELAUNCHURLINFO {}
 impl Default for IELAUNCHURLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3878,6 +3862,7 @@ pub const IEWebDriverManager: windows_core::GUID = windows_core::GUID::from_u128
 pub const IntelliForms: windows_core::GUID = windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
 pub const InternetExplorerManager: windows_core::GUID = windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
@@ -3885,26 +3870,9 @@ pub struct NAVIGATEDATA {
     pub ulPostData: u32,
     pub dwFlags: u32,
 }
-impl Copy for NAVIGATEDATA {}
-impl Clone for NAVIGATEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NAVIGATEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NAVIGATEDATA").field("ulTarget", &self.ulTarget).field("ulURL", &self.ulURL).field("ulRefURL", &self.ulRefURL).field("ulPostData", &self.ulPostData).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NAVIGATEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NAVIGATEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulTarget == other.ulTarget && self.ulURL == other.ulURL && self.ulRefURL == other.ulRefURL && self.ulPostData == other.ulPostData && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for NAVIGATEDATA {}
 impl Default for NAVIGATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3914,6 +3882,7 @@ pub const OpenServiceActivityManager: windows_core::GUID = windows_core::GUID::f
 pub const OpenServiceManager: windows_core::GUID = windows_core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
 pub const PeerFactory: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STATURL {
     pub cbSize: u32,
     pub pwcsUrl: windows_core::PWSTR,
@@ -3923,26 +3892,9 @@ pub struct STATURL {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }
-impl Copy for STATURL {}
-impl Clone for STATURL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STATURL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STATURL").field("cbSize", &self.cbSize).field("pwcsUrl", &self.pwcsUrl).field("pwcsTitle", &self.pwcsTitle).field("ftLastVisited", &self.ftLastVisited).field("ftLastUpdated", &self.ftLastUpdated).field("ftExpires", &self.ftExpires).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for STATURL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STATURL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pwcsUrl == other.pwcsUrl && self.pwcsTitle == other.pwcsTitle && self.ftLastVisited == other.ftLastVisited && self.ftLastUpdated == other.ftLastUpdated && self.ftExpires == other.ftExpires && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for STATURL {}
 impl Default for STATURL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

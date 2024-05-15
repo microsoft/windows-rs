@@ -1185,30 +1185,14 @@ impl core::fmt::Debug for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTACT_AGGREGATION_BLOB {
     pub dwCount: u32,
     pub lpb: *mut u8,
 }
-impl Copy for CONTACT_AGGREGATION_BLOB {}
-impl Clone for CONTACT_AGGREGATION_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONTACT_AGGREGATION_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONTACT_AGGREGATION_BLOB").field("dwCount", &self.dwCount).field("lpb", &self.lpb).finish()
-    }
-}
 impl windows_core::TypeKind for CONTACT_AGGREGATION_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONTACT_AGGREGATION_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCount == other.dwCount && self.lpb == other.lpb
-    }
-}
-impl Eq for CONTACT_AGGREGATION_BLOB {}
 impl Default for CONTACT_AGGREGATION_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1223,6 +1223,7 @@ pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
 pub const _FACDS: u32 = 2168u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS3DBUFFER {
     pub dwSize: u32,
     pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
@@ -1236,31 +1237,9 @@ pub struct DS3DBUFFER {
     pub dwMode: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for DS3DBUFFER {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for DS3DBUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for DS3DBUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DS3DBUFFER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("dwInsideConeAngle", &self.dwInsideConeAngle).field("dwOutsideConeAngle", &self.dwOutsideConeAngle).field("vConeOrientation", &self.vConeOrientation).field("lConeOutsideVolume", &self.lConeOutsideVolume).field("flMinDistance", &self.flMinDistance).field("flMaxDistance", &self.flMaxDistance).field("dwMode", &self.dwMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for DS3DBUFFER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for DS3DBUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.vPosition == other.vPosition && self.vVelocity == other.vVelocity && self.dwInsideConeAngle == other.dwInsideConeAngle && self.dwOutsideConeAngle == other.dwOutsideConeAngle && self.vConeOrientation == other.vConeOrientation && self.lConeOutsideVolume == other.lConeOutsideVolume && self.flMinDistance == other.flMinDistance && self.flMaxDistance == other.flMaxDistance && self.dwMode == other.dwMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for DS3DBUFFER {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for DS3DBUFFER {
     fn default() -> Self {
@@ -1269,6 +1248,7 @@ impl Default for DS3DBUFFER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS3DLISTENER {
     pub dwSize: u32,
     pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
@@ -1280,31 +1260,9 @@ pub struct DS3DLISTENER {
     pub flDopplerFactor: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for DS3DLISTENER {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for DS3DLISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for DS3DLISTENER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DS3DLISTENER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("vOrientFront", &self.vOrientFront).field("vOrientTop", &self.vOrientTop).field("flDistanceFactor", &self.flDistanceFactor).field("flRolloffFactor", &self.flRolloffFactor).field("flDopplerFactor", &self.flDopplerFactor).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for DS3DLISTENER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for DS3DLISTENER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.vPosition == other.vPosition && self.vVelocity == other.vVelocity && self.vOrientFront == other.vOrientFront && self.vOrientTop == other.vOrientTop && self.flDistanceFactor == other.flDistanceFactor && self.flRolloffFactor == other.flRolloffFactor && self.flDopplerFactor == other.flDopplerFactor
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for DS3DLISTENER {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for DS3DLISTENER {
     fn default() -> Self {
@@ -1312,6 +1270,7 @@ impl Default for DS3DLISTENER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1319,62 +1278,30 @@ pub struct DSBCAPS {
     pub dwUnlockTransferRate: u32,
     pub dwPlayCpuOverhead: u32,
 }
-impl Copy for DSBCAPS {}
-impl Clone for DSBCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSBCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwUnlockTransferRate", &self.dwUnlockTransferRate).field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead).finish()
-    }
-}
 impl windows_core::TypeKind for DSBCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSBCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwUnlockTransferRate == other.dwUnlockTransferRate && self.dwPlayCpuOverhead == other.dwPlayCpuOverhead
-    }
-}
-impl Eq for DSBCAPS {}
 impl Default for DSBCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::super::super::Foundation::HANDLE,
 }
-impl Copy for DSBPOSITIONNOTIFY {}
-impl Clone for DSBPOSITIONNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSBPOSITIONNOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSBPOSITIONNOTIFY").field("dwOffset", &self.dwOffset).field("hEventNotify", &self.hEventNotify).finish()
-    }
-}
 impl windows_core::TypeKind for DSBPOSITIONNOTIFY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSBPOSITIONNOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOffset == other.dwOffset && self.hEventNotify == other.hEventNotify
-    }
-}
-impl Eq for DSBPOSITIONNOTIFY {}
 impl Default for DSBPOSITIONNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1383,32 +1310,16 @@ pub struct DSBUFFERDESC {
     pub lpwfxFormat: *mut super::WAVEFORMATEX,
     pub guid3DAlgorithm: windows_core::GUID,
 }
-impl Copy for DSBUFFERDESC {}
-impl Clone for DSBUFFERDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSBUFFERDESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("guid3DAlgorithm", &self.guid3DAlgorithm).finish()
-    }
-}
 impl windows_core::TypeKind for DSBUFFERDESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSBUFFERDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat && self.guid3DAlgorithm == other.guid3DAlgorithm
-    }
-}
-impl Eq for DSBUFFERDESC {}
 impl Default for DSBUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1416,32 +1327,16 @@ pub struct DSBUFFERDESC1 {
     pub dwReserved: u32,
     pub lpwfxFormat: *mut super::WAVEFORMATEX,
 }
-impl Copy for DSBUFFERDESC1 {}
-impl Clone for DSBUFFERDESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSBUFFERDESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
-    }
-}
 impl windows_core::TypeKind for DSBUFFERDESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSBUFFERDESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat
-    }
-}
-impl Eq for DSBUFFERDESC1 {}
 impl Default for DSBUFFERDESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1468,112 +1363,32 @@ pub struct DSCAPS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for DSCAPS {}
-impl Clone for DSCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwMinSecondarySampleRate", &self.dwMinSecondarySampleRate)
-            .field("dwMaxSecondarySampleRate", &self.dwMaxSecondarySampleRate)
-            .field("dwPrimaryBuffers", &self.dwPrimaryBuffers)
-            .field("dwMaxHwMixingAllBuffers", &self.dwMaxHwMixingAllBuffers)
-            .field("dwMaxHwMixingStaticBuffers", &self.dwMaxHwMixingStaticBuffers)
-            .field("dwMaxHwMixingStreamingBuffers", &self.dwMaxHwMixingStreamingBuffers)
-            .field("dwFreeHwMixingAllBuffers", &self.dwFreeHwMixingAllBuffers)
-            .field("dwFreeHwMixingStaticBuffers", &self.dwFreeHwMixingStaticBuffers)
-            .field("dwFreeHwMixingStreamingBuffers", &self.dwFreeHwMixingStreamingBuffers)
-            .field("dwMaxHw3DAllBuffers", &self.dwMaxHw3DAllBuffers)
-            .field("dwMaxHw3DStaticBuffers", &self.dwMaxHw3DStaticBuffers)
-            .field("dwMaxHw3DStreamingBuffers", &self.dwMaxHw3DStreamingBuffers)
-            .field("dwFreeHw3DAllBuffers", &self.dwFreeHw3DAllBuffers)
-            .field("dwFreeHw3DStaticBuffers", &self.dwFreeHw3DStaticBuffers)
-            .field("dwFreeHw3DStreamingBuffers", &self.dwFreeHw3DStreamingBuffers)
-            .field("dwTotalHwMemBytes", &self.dwTotalHwMemBytes)
-            .field("dwFreeHwMemBytes", &self.dwFreeHwMemBytes)
-            .field("dwMaxContigFreeHwMemBytes", &self.dwMaxContigFreeHwMemBytes)
-            .field("dwUnlockTransferRateHwBuffers", &self.dwUnlockTransferRateHwBuffers)
-            .field("dwPlayCpuOverheadSwBuffers", &self.dwPlayCpuOverheadSwBuffers)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DSCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwMinSecondarySampleRate == other.dwMinSecondarySampleRate
-            && self.dwMaxSecondarySampleRate == other.dwMaxSecondarySampleRate
-            && self.dwPrimaryBuffers == other.dwPrimaryBuffers
-            && self.dwMaxHwMixingAllBuffers == other.dwMaxHwMixingAllBuffers
-            && self.dwMaxHwMixingStaticBuffers == other.dwMaxHwMixingStaticBuffers
-            && self.dwMaxHwMixingStreamingBuffers == other.dwMaxHwMixingStreamingBuffers
-            && self.dwFreeHwMixingAllBuffers == other.dwFreeHwMixingAllBuffers
-            && self.dwFreeHwMixingStaticBuffers == other.dwFreeHwMixingStaticBuffers
-            && self.dwFreeHwMixingStreamingBuffers == other.dwFreeHwMixingStreamingBuffers
-            && self.dwMaxHw3DAllBuffers == other.dwMaxHw3DAllBuffers
-            && self.dwMaxHw3DStaticBuffers == other.dwMaxHw3DStaticBuffers
-            && self.dwMaxHw3DStreamingBuffers == other.dwMaxHw3DStreamingBuffers
-            && self.dwFreeHw3DAllBuffers == other.dwFreeHw3DAllBuffers
-            && self.dwFreeHw3DStaticBuffers == other.dwFreeHw3DStaticBuffers
-            && self.dwFreeHw3DStreamingBuffers == other.dwFreeHw3DStreamingBuffers
-            && self.dwTotalHwMemBytes == other.dwTotalHwMemBytes
-            && self.dwFreeHwMemBytes == other.dwFreeHwMemBytes
-            && self.dwMaxContigFreeHwMemBytes == other.dwMaxContigFreeHwMemBytes
-            && self.dwUnlockTransferRateHwBuffers == other.dwUnlockTransferRateHwBuffers
-            && self.dwPlayCpuOverheadSwBuffers == other.dwPlayCpuOverheadSwBuffers
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for DSCAPS {}
 impl Default for DSCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwBufferBytes: u32,
     pub dwReserved: u32,
 }
-impl Copy for DSCBCAPS {}
-impl Clone for DSCBCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCBCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for DSCBCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCBCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for DSCBCAPS {}
 impl Default for DSCBCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1583,32 +1398,16 @@ pub struct DSCBUFFERDESC {
     pub dwFXCount: u32,
     pub lpDSCFXDesc: *mut DSCEFFECTDESC,
 }
-impl Copy for DSCBUFFERDESC {}
-impl Clone for DSCBUFFERDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCBUFFERDESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("dwFXCount", &self.dwFXCount).field("lpDSCFXDesc", &self.lpDSCFXDesc).finish()
-    }
-}
 impl windows_core::TypeKind for DSCBUFFERDESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCBUFFERDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat && self.dwFXCount == other.dwFXCount && self.lpDSCFXDesc == other.lpDSCFXDesc
-    }
-}
-impl Eq for DSCBUFFERDESC {}
 impl Default for DSCBUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1616,64 +1415,32 @@ pub struct DSCBUFFERDESC1 {
     pub dwReserved: u32,
     pub lpwfxFormat: *mut super::WAVEFORMATEX,
 }
-impl Copy for DSCBUFFERDESC1 {}
-impl Clone for DSCBUFFERDESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCBUFFERDESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
-    }
-}
 impl windows_core::TypeKind for DSCBUFFERDESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCBUFFERDESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat
-    }
-}
-impl Eq for DSCBUFFERDESC1 {}
 impl Default for DSCBUFFERDESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwFormats: u32,
     pub dwChannels: u32,
 }
-impl Copy for DSCCAPS {}
-impl Clone for DSCCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFormats", &self.dwFormats).field("dwChannels", &self.dwChannels).finish()
-    }
-}
 impl windows_core::TypeKind for DSCCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwFormats == other.dwFormats && self.dwChannels == other.dwChannels
-    }
-}
-impl Eq for DSCCAPS {}
 impl Default for DSCCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1682,92 +1449,44 @@ pub struct DSCEFFECTDESC {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for DSCEFFECTDESC {}
-impl Clone for DSCEFFECTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCEFFECTDESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSCFXClass", &self.guidDSCFXClass).field("guidDSCFXInstance", &self.guidDSCFXInstance).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for DSCEFFECTDESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCEFFECTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidDSCFXClass == other.guidDSCFXClass && self.guidDSCFXInstance == other.guidDSCFXInstance && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for DSCEFFECTDESC {}
 impl Default for DSCEFFECTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCFXAec {
     pub fEnable: super::super::super::Foundation::BOOL,
     pub fNoiseFill: super::super::super::Foundation::BOOL,
     pub dwMode: u32,
 }
-impl Copy for DSCFXAec {}
-impl Clone for DSCFXAec {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCFXAec {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCFXAec").field("fEnable", &self.fEnable).field("fNoiseFill", &self.fNoiseFill).field("dwMode", &self.dwMode).finish()
-    }
-}
 impl windows_core::TypeKind for DSCFXAec {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCFXAec {
-    fn eq(&self, other: &Self) -> bool {
-        self.fEnable == other.fEnable && self.fNoiseFill == other.fNoiseFill && self.dwMode == other.dwMode
-    }
-}
-impl Eq for DSCFXAec {}
 impl Default for DSCFXAec {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSCFXNoiseSuppress {
     pub fEnable: super::super::super::Foundation::BOOL,
-}
-impl Copy for DSCFXNoiseSuppress {}
-impl Clone for DSCFXNoiseSuppress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSCFXNoiseSuppress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSCFXNoiseSuppress").field("fEnable", &self.fEnable).finish()
-    }
 }
 impl windows_core::TypeKind for DSCFXNoiseSuppress {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSCFXNoiseSuppress {
-    fn eq(&self, other: &Self) -> bool {
-        self.fEnable == other.fEnable
-    }
-}
-impl Eq for DSCFXNoiseSuppress {}
 impl Default for DSCFXNoiseSuppress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1775,32 +1494,16 @@ pub struct DSEFFECTDESC {
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-impl Copy for DSEFFECTDESC {}
-impl Clone for DSEFFECTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSEFFECTDESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSFXClass", &self.guidDSFXClass).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for DSEFFECTDESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSEFFECTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidDSFXClass == other.guidDSFXClass && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for DSEFFECTDESC {}
 impl Default for DSEFFECTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXChorus {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -1810,32 +1513,16 @@ pub struct DSFXChorus {
     pub fDelay: f32,
     pub lPhase: i32,
 }
-impl Copy for DSFXChorus {}
-impl Clone for DSFXChorus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXChorus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXChorus").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXChorus {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXChorus {
-    fn eq(&self, other: &Self) -> bool {
-        self.fWetDryMix == other.fWetDryMix && self.fDepth == other.fDepth && self.fFeedback == other.fFeedback && self.fFrequency == other.fFrequency && self.lWaveform == other.lWaveform && self.fDelay == other.fDelay && self.lPhase == other.lPhase
-    }
-}
-impl Eq for DSFXChorus {}
 impl Default for DSFXChorus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXCompressor {
     pub fGain: f32,
     pub fAttack: f32,
@@ -1844,32 +1531,16 @@ pub struct DSFXCompressor {
     pub fRatio: f32,
     pub fPredelay: f32,
 }
-impl Copy for DSFXCompressor {}
-impl Clone for DSFXCompressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXCompressor {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXCompressor").field("fGain", &self.fGain).field("fAttack", &self.fAttack).field("fRelease", &self.fRelease).field("fThreshold", &self.fThreshold).field("fRatio", &self.fRatio).field("fPredelay", &self.fPredelay).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXCompressor {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXCompressor {
-    fn eq(&self, other: &Self) -> bool {
-        self.fGain == other.fGain && self.fAttack == other.fAttack && self.fRelease == other.fRelease && self.fThreshold == other.fThreshold && self.fRatio == other.fRatio && self.fPredelay == other.fPredelay
-    }
-}
-impl Eq for DSFXCompressor {}
 impl Default for DSFXCompressor {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXDistortion {
     pub fGain: f32,
     pub fEdge: f32,
@@ -1877,32 +1548,16 @@ pub struct DSFXDistortion {
     pub fPostEQBandwidth: f32,
     pub fPreLowpassCutoff: f32,
 }
-impl Copy for DSFXDistortion {}
-impl Clone for DSFXDistortion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXDistortion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXDistortion").field("fGain", &self.fGain).field("fEdge", &self.fEdge).field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency).field("fPostEQBandwidth", &self.fPostEQBandwidth).field("fPreLowpassCutoff", &self.fPreLowpassCutoff).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXDistortion {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXDistortion {
-    fn eq(&self, other: &Self) -> bool {
-        self.fGain == other.fGain && self.fEdge == other.fEdge && self.fPostEQCenterFrequency == other.fPostEQCenterFrequency && self.fPostEQBandwidth == other.fPostEQBandwidth && self.fPreLowpassCutoff == other.fPreLowpassCutoff
-    }
-}
-impl Eq for DSFXDistortion {}
 impl Default for DSFXDistortion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXEcho {
     pub fWetDryMix: f32,
     pub fFeedback: f32,
@@ -1910,32 +1565,16 @@ pub struct DSFXEcho {
     pub fRightDelay: f32,
     pub lPanDelay: i32,
 }
-impl Copy for DSFXEcho {}
-impl Clone for DSFXEcho {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXEcho {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXEcho").field("fWetDryMix", &self.fWetDryMix).field("fFeedback", &self.fFeedback).field("fLeftDelay", &self.fLeftDelay).field("fRightDelay", &self.fRightDelay).field("lPanDelay", &self.lPanDelay).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXEcho {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXEcho {
-    fn eq(&self, other: &Self) -> bool {
-        self.fWetDryMix == other.fWetDryMix && self.fFeedback == other.fFeedback && self.fLeftDelay == other.fLeftDelay && self.fRightDelay == other.fRightDelay && self.lPanDelay == other.lPanDelay
-    }
-}
-impl Eq for DSFXEcho {}
 impl Default for DSFXEcho {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXFlanger {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -1945,62 +1584,30 @@ pub struct DSFXFlanger {
     pub fDelay: f32,
     pub lPhase: i32,
 }
-impl Copy for DSFXFlanger {}
-impl Clone for DSFXFlanger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXFlanger {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXFlanger").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXFlanger {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXFlanger {
-    fn eq(&self, other: &Self) -> bool {
-        self.fWetDryMix == other.fWetDryMix && self.fDepth == other.fDepth && self.fFeedback == other.fFeedback && self.fFrequency == other.fFrequency && self.lWaveform == other.lWaveform && self.fDelay == other.fDelay && self.lPhase == other.lPhase
-    }
-}
-impl Eq for DSFXFlanger {}
 impl Default for DSFXFlanger {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSFXGargle {
     pub dwRateHz: u32,
     pub dwWaveShape: u32,
 }
-impl Copy for DSFXGargle {}
-impl Clone for DSFXGargle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXGargle {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXGargle").field("dwRateHz", &self.dwRateHz).field("dwWaveShape", &self.dwWaveShape).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXGargle {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXGargle {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRateHz == other.dwRateHz && self.dwWaveShape == other.dwWaveShape
-    }
-}
-impl Eq for DSFXGargle {}
 impl Default for DSFXGargle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXI3DL2Reverb {
     pub lRoom: i32,
     pub lRoomHF: i32,
@@ -2015,102 +1622,40 @@ pub struct DSFXI3DL2Reverb {
     pub flDensity: f32,
     pub flHFReference: f32,
 }
-impl Copy for DSFXI3DL2Reverb {}
-impl Clone for DSFXI3DL2Reverb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXI3DL2Reverb {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXI3DL2Reverb")
-            .field("lRoom", &self.lRoom)
-            .field("lRoomHF", &self.lRoomHF)
-            .field("flRoomRolloffFactor", &self.flRoomRolloffFactor)
-            .field("flDecayTime", &self.flDecayTime)
-            .field("flDecayHFRatio", &self.flDecayHFRatio)
-            .field("lReflections", &self.lReflections)
-            .field("flReflectionsDelay", &self.flReflectionsDelay)
-            .field("lReverb", &self.lReverb)
-            .field("flReverbDelay", &self.flReverbDelay)
-            .field("flDiffusion", &self.flDiffusion)
-            .field("flDensity", &self.flDensity)
-            .field("flHFReference", &self.flHFReference)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DSFXI3DL2Reverb {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXI3DL2Reverb {
-    fn eq(&self, other: &Self) -> bool {
-        self.lRoom == other.lRoom && self.lRoomHF == other.lRoomHF && self.flRoomRolloffFactor == other.flRoomRolloffFactor && self.flDecayTime == other.flDecayTime && self.flDecayHFRatio == other.flDecayHFRatio && self.lReflections == other.lReflections && self.flReflectionsDelay == other.flReflectionsDelay && self.lReverb == other.lReverb && self.flReverbDelay == other.flReverbDelay && self.flDiffusion == other.flDiffusion && self.flDensity == other.flDensity && self.flHFReference == other.flHFReference
-    }
-}
-impl Eq for DSFXI3DL2Reverb {}
 impl Default for DSFXI3DL2Reverb {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXParamEq {
     pub fCenter: f32,
     pub fBandwidth: f32,
     pub fGain: f32,
 }
-impl Copy for DSFXParamEq {}
-impl Clone for DSFXParamEq {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXParamEq {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXParamEq").field("fCenter", &self.fCenter).field("fBandwidth", &self.fBandwidth).field("fGain", &self.fGain).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXParamEq {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXParamEq {
-    fn eq(&self, other: &Self) -> bool {
-        self.fCenter == other.fCenter && self.fBandwidth == other.fBandwidth && self.fGain == other.fGain
-    }
-}
-impl Eq for DSFXParamEq {}
 impl Default for DSFXParamEq {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXWavesReverb {
     pub fInGain: f32,
     pub fReverbMix: f32,
     pub fReverbTime: f32,
     pub fHighFreqRTRatio: f32,
 }
-impl Copy for DSFXWavesReverb {}
-impl Clone for DSFXWavesReverb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSFXWavesReverb {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSFXWavesReverb").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
-    }
-}
 impl windows_core::TypeKind for DSFXWavesReverb {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSFXWavesReverb {
-    fn eq(&self, other: &Self) -> bool {
-        self.fInGain == other.fInGain && self.fReverbMix == other.fReverbMix && self.fReverbTime == other.fReverbTime && self.fHighFreqRTRatio == other.fHighFreqRTRatio
-    }
-}
-impl Eq for DSFXWavesReverb {}
 impl Default for DSFXWavesReverb {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

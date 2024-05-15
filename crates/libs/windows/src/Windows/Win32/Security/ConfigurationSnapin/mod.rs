@@ -121,84 +121,42 @@ impl core::fmt::Debug for SCE_LOG_ERR_LEVEL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCESVC_ANALYSIS_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_ANALYSIS_LINE,
 }
-impl Copy for SCESVC_ANALYSIS_INFO {}
-impl Clone for SCESVC_ANALYSIS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCESVC_ANALYSIS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCESVC_ANALYSIS_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
-    }
-}
 impl windows_core::TypeKind for SCESVC_ANALYSIS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCESVC_ANALYSIS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Lines == other.Lines
-    }
-}
-impl Eq for SCESVC_ANALYSIS_INFO {}
 impl Default for SCESVC_ANALYSIS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCESVC_ANALYSIS_LINE {
     pub Key: *mut i8,
     pub Value: *mut u8,
     pub ValueLen: u32,
 }
-impl Copy for SCESVC_ANALYSIS_LINE {}
-impl Clone for SCESVC_ANALYSIS_LINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCESVC_ANALYSIS_LINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCESVC_ANALYSIS_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
-    }
-}
 impl windows_core::TypeKind for SCESVC_ANALYSIS_LINE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCESVC_ANALYSIS_LINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value && self.ValueLen == other.ValueLen
-    }
-}
-impl Eq for SCESVC_ANALYSIS_LINE {}
 impl Default for SCESVC_ANALYSIS_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut core::ffi::c_void,
     pub pfQueryInfo: PFSCE_QUERY_INFO,
     pub pfSetInfo: PFSCE_SET_INFO,
     pub pfFreeInfo: PFSCE_FREE_INFO,
     pub pfLogInfo: PFSCE_LOG_INFO,
-}
-impl Copy for SCESVC_CALLBACK_INFO {}
-impl Clone for SCESVC_CALLBACK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCESVC_CALLBACK_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).finish()
-    }
 }
 impl windows_core::TypeKind for SCESVC_CALLBACK_INFO {
     type TypeKind = windows_core::CopyType;
@@ -209,61 +167,29 @@ impl Default for SCESVC_CALLBACK_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCESVC_CONFIGURATION_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_CONFIGURATION_LINE,
 }
-impl Copy for SCESVC_CONFIGURATION_INFO {}
-impl Clone for SCESVC_CONFIGURATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCESVC_CONFIGURATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCESVC_CONFIGURATION_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
-    }
-}
 impl windows_core::TypeKind for SCESVC_CONFIGURATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCESVC_CONFIGURATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Lines == other.Lines
-    }
-}
-impl Eq for SCESVC_CONFIGURATION_INFO {}
 impl Default for SCESVC_CONFIGURATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCESVC_CONFIGURATION_LINE {
     pub Key: *mut i8,
     pub Value: *mut i8,
     pub ValueLen: u32,
 }
-impl Copy for SCESVC_CONFIGURATION_LINE {}
-impl Clone for SCESVC_CONFIGURATION_LINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCESVC_CONFIGURATION_LINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCESVC_CONFIGURATION_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
-    }
-}
 impl windows_core::TypeKind for SCESVC_CONFIGURATION_LINE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCESVC_CONFIGURATION_LINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value && self.ValueLen == other.ValueLen
-    }
-}
-impl Eq for SCESVC_CONFIGURATION_LINE {}
 impl Default for SCESVC_CONFIGURATION_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

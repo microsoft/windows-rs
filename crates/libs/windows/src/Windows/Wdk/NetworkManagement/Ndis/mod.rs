@@ -3327,152 +3327,72 @@ impl core::fmt::Debug for UDP_ENCAP_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BINARY_DATA {
     pub Length: u16,
     pub Buffer: *mut core::ffi::c_void,
 }
-impl Copy for BINARY_DATA {}
-impl Clone for BINARY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BINARY_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BINARY_DATA").field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
-    }
-}
 impl windows_core::TypeKind for BINARY_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BINARY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Buffer == other.Buffer
-    }
-}
-impl Eq for BINARY_DATA {}
 impl Default for BINARY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSSID_INFO {
     pub BSSID: [u8; 6],
     pub PMKID: [u8; 16],
 }
-impl Copy for BSSID_INFO {}
-impl Clone for BSSID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BSSID_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BSSID_INFO").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).finish()
-    }
-}
 impl windows_core::TypeKind for BSSID_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BSSID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.BSSID == other.BSSID && self.PMKID == other.PMKID
-    }
-}
-impl Eq for BSSID_INFO {}
 impl Default for BSSID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_ADDRESS {
     pub AddressSize: u32,
     pub Address: [u8; 1],
 }
-impl Copy for CO_ADDRESS {}
-impl Clone for CO_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CO_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_ADDRESS").field("AddressSize", &self.AddressSize).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for CO_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CO_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressSize == other.AddressSize && self.Address == other.Address
-    }
-}
-impl Eq for CO_ADDRESS {}
 impl Default for CO_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_ADDRESS_FAMILY {
     pub AddressFamily: u32,
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl Copy for CO_ADDRESS_FAMILY {}
-impl Clone for CO_ADDRESS_FAMILY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CO_ADDRESS_FAMILY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_ADDRESS_FAMILY").field("AddressFamily", &self.AddressFamily).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for CO_ADDRESS_FAMILY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CO_ADDRESS_FAMILY {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl Eq for CO_ADDRESS_FAMILY {}
 impl Default for CO_ADDRESS_FAMILY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_ADDRESS_LIST {
     pub NumberOfAddressesAvailable: u32,
     pub NumberOfAddresses: u32,
     pub AddressList: CO_ADDRESS,
 }
-impl Copy for CO_ADDRESS_LIST {}
-impl Clone for CO_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CO_ADDRESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_ADDRESS_LIST").field("NumberOfAddressesAvailable", &self.NumberOfAddressesAvailable).field("NumberOfAddresses", &self.NumberOfAddresses).field("AddressList", &self.AddressList).finish()
-    }
-}
 impl windows_core::TypeKind for CO_ADDRESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CO_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfAddressesAvailable == other.NumberOfAddressesAvailable && self.NumberOfAddresses == other.NumberOfAddresses && self.AddressList == other.AddressList
-    }
-}
-impl Eq for CO_ADDRESS_LIST {}
 impl Default for CO_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3480,37 +3400,16 @@ impl Default for CO_ADDRESS_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_CALL_MANAGER_PARAMETERS {
     pub Transmit: super::super::super::Win32::Networking::WinSock::FLOWSPEC,
     pub Receive: super::super::super::Win32::Networking::WinSock::FLOWSPEC,
     pub CallMgrSpecific: CO_SPECIFIC_PARAMETERS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for CO_CALL_MANAGER_PARAMETERS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for CO_CALL_MANAGER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for CO_CALL_MANAGER_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_CALL_MANAGER_PARAMETERS").field("Transmit", &self.Transmit).field("Receive", &self.Receive).field("CallMgrSpecific", &self.CallMgrSpecific).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for CO_CALL_MANAGER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for CO_CALL_MANAGER_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Transmit == other.Transmit && self.Receive == other.Receive && self.CallMgrSpecific == other.CallMgrSpecific
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for CO_CALL_MANAGER_PARAMETERS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for CO_CALL_MANAGER_PARAMETERS {
     fn default() -> Self {
@@ -3540,92 +3439,44 @@ impl windows_core::TypeKind for CO_MEDIA_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_PVC {
     pub NdisAfHandle: *mut core::ffi::c_void,
     pub PvcParameters: CO_SPECIFIC_PARAMETERS,
 }
-impl Copy for CO_PVC {}
-impl Clone for CO_PVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CO_PVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_PVC").field("NdisAfHandle", &self.NdisAfHandle).field("PvcParameters", &self.PvcParameters).finish()
-    }
-}
 impl windows_core::TypeKind for CO_PVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CO_PVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NdisAfHandle == other.NdisAfHandle && self.PvcParameters == other.PvcParameters
-    }
-}
-impl Eq for CO_PVC {}
 impl Default for CO_PVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_SAP {
     pub SapType: u32,
     pub SapLength: u32,
     pub Sap: [u8; 1],
 }
-impl Copy for CO_SAP {}
-impl Clone for CO_SAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CO_SAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_SAP").field("SapType", &self.SapType).field("SapLength", &self.SapLength).field("Sap", &self.Sap).finish()
-    }
-}
 impl windows_core::TypeKind for CO_SAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CO_SAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.SapType == other.SapType && self.SapLength == other.SapLength && self.Sap == other.Sap
-    }
-}
-impl Eq for CO_SAP {}
 impl Default for CO_SAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_SPECIFIC_PARAMETERS {
     pub ParamType: u32,
     pub Length: u32,
     pub Parameters: [u8; 1],
 }
-impl Copy for CO_SPECIFIC_PARAMETERS {}
-impl Clone for CO_SPECIFIC_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CO_SPECIFIC_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CO_SPECIFIC_PARAMETERS").field("ParamType", &self.ParamType).field("Length", &self.Length).field("Parameters", &self.Parameters).finish()
-    }
-}
 impl windows_core::TypeKind for CO_SPECIFIC_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CO_SPECIFIC_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ParamType == other.ParamType && self.Length == other.Length && self.Parameters == other.Parameters
-    }
-}
-impl Eq for CO_SPECIFIC_PARAMETERS {}
 impl Default for CO_SPECIFIC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3643,17 +3494,12 @@ impl windows_core::TypeKind for ETH_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTERDBS {
     pub Anonymous: FILTERDBS_0,
     pub TrDB: *mut isize,
     pub YYYDB: *mut core::ffi::c_void,
     pub XXXDB: *mut core::ffi::c_void,
-}
-impl Copy for FILTERDBS {}
-impl Clone for FILTERDBS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILTERDBS {
     type TypeKind = windows_core::CopyType;
@@ -3664,15 +3510,10 @@ impl Default for FILTERDBS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILTERDBS_0 {
     pub EthDB: *mut ETH_FILTER,
     pub NullDB: *mut isize,
-}
-impl Copy for FILTERDBS_0 {}
-impl Clone for FILTERDBS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILTERDBS_0 {
     type TypeKind = windows_core::CopyType;
@@ -3683,189 +3524,94 @@ impl Default for FILTERDBS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GEN_GET_NETCARD_TIME {
     pub ReadTime: u64,
-}
-impl Copy for GEN_GET_NETCARD_TIME {}
-impl Clone for GEN_GET_NETCARD_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GEN_GET_NETCARD_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GEN_GET_NETCARD_TIME").field("ReadTime", &self.ReadTime).finish()
-    }
 }
 impl windows_core::TypeKind for GEN_GET_NETCARD_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GEN_GET_NETCARD_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReadTime == other.ReadTime
-    }
-}
-impl Eq for GEN_GET_NETCARD_TIME {}
 impl Default for GEN_GET_NETCARD_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GEN_GET_TIME_CAPS {
     pub Flags: u32,
     pub ClockPrecision: u32,
 }
-impl Copy for GEN_GET_TIME_CAPS {}
-impl Clone for GEN_GET_TIME_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GEN_GET_TIME_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GEN_GET_TIME_CAPS").field("Flags", &self.Flags).field("ClockPrecision", &self.ClockPrecision).finish()
-    }
-}
 impl windows_core::TypeKind for GEN_GET_TIME_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GEN_GET_TIME_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.ClockPrecision == other.ClockPrecision
-    }
-}
-impl Eq for GEN_GET_TIME_CAPS {}
 impl Default for GEN_GET_TIME_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCK_STATE {
     pub LockState: u16,
     pub OldIrql: u8,
 }
-impl Copy for LOCK_STATE {}
-impl Clone for LOCK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LOCK_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LOCK_STATE").field("LockState", &self.LockState).field("OldIrql", &self.OldIrql).finish()
-    }
-}
 impl windows_core::TypeKind for LOCK_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LOCK_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.LockState == other.LockState && self.OldIrql == other.OldIrql
-    }
-}
-impl Eq for LOCK_STATE {}
 impl Default for LOCK_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEDIA_SPECIFIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub ClassId: NDIS_CLASS_ID,
     pub Size: u32,
     pub ClassInformation: [u8; 1],
 }
-impl Copy for MEDIA_SPECIFIC_INFORMATION {}
-impl Clone for MEDIA_SPECIFIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEDIA_SPECIFIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEDIA_SPECIFIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("ClassId", &self.ClassId).field("Size", &self.Size).field("ClassInformation", &self.ClassInformation).finish()
-    }
-}
 impl windows_core::TypeKind for MEDIA_SPECIFIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEDIA_SPECIFIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.ClassId == other.ClassId && self.Size == other.Size && self.ClassInformation == other.ClassInformation
-    }
-}
-impl Eq for MEDIA_SPECIFIC_INFORMATION {}
 impl Default for MEDIA_SPECIFIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_REQFI {
     pub Capabilities: u16,
     pub ListenInterval: u16,
     pub CurrentAPAddress: [u8; 6],
 }
-impl Copy for NDIS_802_11_AI_REQFI {}
-impl Clone for NDIS_802_11_AI_REQFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_AI_REQFI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AI_REQFI").field("Capabilities", &self.Capabilities).field("ListenInterval", &self.ListenInterval).field("CurrentAPAddress", &self.CurrentAPAddress).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_AI_REQFI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_AI_REQFI {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.ListenInterval == other.ListenInterval && self.CurrentAPAddress == other.CurrentAPAddress
-    }
-}
-impl Eq for NDIS_802_11_AI_REQFI {}
 impl Default for NDIS_802_11_AI_REQFI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_RESFI {
     pub Capabilities: u16,
     pub StatusCode: u16,
     pub AssociationId: u16,
 }
-impl Copy for NDIS_802_11_AI_RESFI {}
-impl Clone for NDIS_802_11_AI_RESFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_AI_RESFI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AI_RESFI").field("Capabilities", &self.Capabilities).field("StatusCode", &self.StatusCode).field("AssociationId", &self.AssociationId).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_AI_RESFI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_AI_RESFI {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.StatusCode == other.StatusCode && self.AssociationId == other.AssociationId
-    }
-}
-impl Eq for NDIS_802_11_AI_RESFI {}
 impl Default for NDIS_802_11_AI_RESFI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub Length: u32,
     pub AvailableRequestFixedIEs: u16,
@@ -3877,193 +3623,87 @@ pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub ResponseIELength: u32,
     pub OffsetResponseIEs: u32,
 }
-impl Copy for NDIS_802_11_ASSOCIATION_INFORMATION {}
-impl Clone for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_ASSOCIATION_INFORMATION")
-            .field("Length", &self.Length)
-            .field("AvailableRequestFixedIEs", &self.AvailableRequestFixedIEs)
-            .field("RequestFixedIEs", &self.RequestFixedIEs)
-            .field("RequestIELength", &self.RequestIELength)
-            .field("OffsetRequestIEs", &self.OffsetRequestIEs)
-            .field("AvailableResponseFixedIEs", &self.AvailableResponseFixedIEs)
-            .field("ResponseFixedIEs", &self.ResponseFixedIEs)
-            .field("ResponseIELength", &self.ResponseIELength)
-            .field("OffsetResponseIEs", &self.OffsetResponseIEs)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_ASSOCIATION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.AvailableRequestFixedIEs == other.AvailableRequestFixedIEs && self.RequestFixedIEs == other.RequestFixedIEs && self.RequestIELength == other.RequestIELength && self.OffsetRequestIEs == other.OffsetRequestIEs && self.AvailableResponseFixedIEs == other.AvailableResponseFixedIEs && self.ResponseFixedIEs == other.ResponseFixedIEs && self.ResponseIELength == other.ResponseIELength && self.OffsetResponseIEs == other.OffsetResponseIEs
-    }
-}
-impl Eq for NDIS_802_11_ASSOCIATION_INFORMATION {}
 impl Default for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
     pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
 }
-impl Copy for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
-impl Clone for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION").field("AuthModeSupported", &self.AuthModeSupported).field("EncryptStatusSupported", &self.EncryptStatusSupported).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AuthModeSupported == other.AuthModeSupported && self.EncryptStatusSupported == other.EncryptStatusSupported
-    }
-}
-impl Eq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
 impl Default for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_EVENT {
     pub Status: NDIS_802_11_STATUS_INDICATION,
     pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
 }
-impl Copy for NDIS_802_11_AUTHENTICATION_EVENT {}
-impl Clone for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT").field("Status", &self.Status).field("Request", &self.Request).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.Request == other.Request
-    }
-}
-impl Eq for NDIS_802_11_AUTHENTICATION_EVENT {}
 impl Default for NDIS_802_11_AUTHENTICATION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
     pub Length: u32,
     pub Bssid: [u8; 6],
     pub Flags: u32,
 }
-impl Copy for NDIS_802_11_AUTHENTICATION_REQUEST {}
-impl Clone for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST").field("Length", &self.Length).field("Bssid", &self.Bssid).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Bssid == other.Bssid && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_802_11_AUTHENTICATION_REQUEST {}
 impl Default for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID; 1],
 }
-impl Copy for NDIS_802_11_BSSID_LIST {}
-impl Clone for NDIS_802_11_BSSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_BSSID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_BSSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_BSSID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_BSSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfItems == other.NumberOfItems && self.Bssid == other.Bssid
-    }
-}
-impl Eq for NDIS_802_11_BSSID_LIST {}
 impl Default for NDIS_802_11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST_EX {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
 }
-impl Copy for NDIS_802_11_BSSID_LIST_EX {}
-impl Clone for NDIS_802_11_BSSID_LIST_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_BSSID_LIST_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_BSSID_LIST_EX").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_BSSID_LIST_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_BSSID_LIST_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfItems == other.NumberOfItems && self.Bssid == other.Bssid
-    }
-}
-impl Eq for NDIS_802_11_BSSID_LIST_EX {}
 impl Default for NDIS_802_11_BSSID_LIST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CAPABILITY {
     pub Length: u32,
     pub Version: u32,
@@ -4071,32 +3711,16 @@ pub struct NDIS_802_11_CAPABILITY {
     pub NoOfAuthEncryptPairsSupported: u32,
     pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
 }
-impl Copy for NDIS_802_11_CAPABILITY {}
-impl Clone for NDIS_802_11_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_CAPABILITY").field("Length", &self.Length).field("Version", &self.Version).field("NoOfPMKIDs", &self.NoOfPMKIDs).field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported).field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Version == other.Version && self.NoOfPMKIDs == other.NoOfPMKIDs && self.NoOfAuthEncryptPairsSupported == other.NoOfAuthEncryptPairsSupported && self.AuthenticationEncryptionSupported == other.AuthenticationEncryptionSupported
-    }
-}
-impl Eq for NDIS_802_11_CAPABILITY {}
 impl Default for NDIS_802_11_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION {
     pub Length: u32,
     pub BeaconPeriod: u32,
@@ -4104,95 +3728,47 @@ pub struct NDIS_802_11_CONFIGURATION {
     pub DSConfig: u32,
     pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
 }
-impl Copy for NDIS_802_11_CONFIGURATION {}
-impl Clone for NDIS_802_11_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_CONFIGURATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_CONFIGURATION").field("Length", &self.Length).field("BeaconPeriod", &self.BeaconPeriod).field("ATIMWindow", &self.ATIMWindow).field("DSConfig", &self.DSConfig).field("FHConfig", &self.FHConfig).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.BeaconPeriod == other.BeaconPeriod && self.ATIMWindow == other.ATIMWindow && self.DSConfig == other.DSConfig && self.FHConfig == other.FHConfig
-    }
-}
-impl Eq for NDIS_802_11_CONFIGURATION {}
 impl Default for NDIS_802_11_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION_FH {
     pub Length: u32,
     pub HopPattern: u32,
     pub HopSet: u32,
     pub DwellTime: u32,
 }
-impl Copy for NDIS_802_11_CONFIGURATION_FH {}
-impl Clone for NDIS_802_11_CONFIGURATION_FH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_CONFIGURATION_FH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_CONFIGURATION_FH").field("Length", &self.Length).field("HopPattern", &self.HopPattern).field("HopSet", &self.HopSet).field("DwellTime", &self.DwellTime).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_CONFIGURATION_FH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_CONFIGURATION_FH {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.HopPattern == other.HopPattern && self.HopSet == other.HopSet && self.DwellTime == other.DwellTime
-    }
-}
-impl Eq for NDIS_802_11_CONFIGURATION_FH {}
 impl Default for NDIS_802_11_CONFIGURATION_FH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_FIXED_IEs {
     pub Timestamp: [u8; 8],
     pub BeaconInterval: u16,
     pub Capabilities: u16,
 }
-impl Copy for NDIS_802_11_FIXED_IEs {}
-impl Clone for NDIS_802_11_FIXED_IEs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_FIXED_IEs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_FIXED_IEs").field("Timestamp", &self.Timestamp).field("BeaconInterval", &self.BeaconInterval).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_FIXED_IEs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_FIXED_IEs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.BeaconInterval == other.BeaconInterval && self.Capabilities == other.Capabilities
-    }
-}
-impl Eq for NDIS_802_11_FIXED_IEs {}
 impl Default for NDIS_802_11_FIXED_IEs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
@@ -4201,215 +3777,103 @@ pub struct NDIS_802_11_KEY {
     pub KeyRSC: u64,
     pub KeyMaterial: [u8; 1],
 }
-impl Copy for NDIS_802_11_KEY {}
-impl Clone for NDIS_802_11_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("BSSID", &self.BSSID).field("KeyRSC", &self.KeyRSC).field("KeyMaterial", &self.KeyMaterial).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_KEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.KeyLength == other.KeyLength && self.BSSID == other.BSSID && self.KeyRSC == other.KeyRSC && self.KeyMaterial == other.KeyMaterial
-    }
-}
-impl Eq for NDIS_802_11_KEY {}
 impl Default for NDIS_802_11_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NETWORK_TYPE_LIST {
     pub NumberOfItems: u32,
     pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
 }
-impl Copy for NDIS_802_11_NETWORK_TYPE_LIST {}
-impl Clone for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST").field("NumberOfItems", &self.NumberOfItems).field("NetworkType", &self.NetworkType).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfItems == other.NumberOfItems && self.NetworkType == other.NetworkType
-    }
-}
-impl Eq for NDIS_802_11_NETWORK_TYPE_LIST {}
 impl Default for NDIS_802_11_NETWORK_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
     pub NumberOfItems: u32,
     pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
 }
-impl Copy for NDIS_802_11_NON_BCAST_SSID_LIST {}
-impl Clone for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_NON_BCAST_SSID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfItems == other.NumberOfItems && self.Non_Bcast_Ssid == other.Non_Bcast_Ssid
-    }
-}
-impl Eq for NDIS_802_11_NON_BCAST_SSID_LIST {}
 impl Default for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID {
     pub Length: u32,
     pub BSSIDInfoCount: u32,
     pub BSSIDInfo: [BSSID_INFO; 1],
 }
-impl Copy for NDIS_802_11_PMKID {}
-impl Clone for NDIS_802_11_PMKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_PMKID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_PMKID").field("Length", &self.Length).field("BSSIDInfoCount", &self.BSSIDInfoCount).field("BSSIDInfo", &self.BSSIDInfo).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_PMKID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_PMKID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.BSSIDInfoCount == other.BSSIDInfoCount && self.BSSIDInfo == other.BSSIDInfo
-    }
-}
-impl Eq for NDIS_802_11_PMKID {}
 impl Default for NDIS_802_11_PMKID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
     pub Version: u32,
     pub NumCandidates: u32,
     pub CandidateList: [PMKID_CANDIDATE; 1],
 }
-impl Copy for NDIS_802_11_PMKID_CANDIDATE_LIST {}
-impl Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST").field("Version", &self.Version).field("NumCandidates", &self.NumCandidates).field("CandidateList", &self.CandidateList).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_PMKID_CANDIDATE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.NumCandidates == other.NumCandidates && self.CandidateList == other.CandidateList
-    }
-}
-impl Eq for NDIS_802_11_PMKID_CANDIDATE_LIST {}
 impl Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_REMOVE_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
     pub BSSID: [u8; 6],
 }
-impl Copy for NDIS_802_11_REMOVE_KEY {}
-impl Clone for NDIS_802_11_REMOVE_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_REMOVE_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_REMOVE_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("BSSID", &self.BSSID).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_REMOVE_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_REMOVE_KEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.BSSID == other.BSSID
-    }
-}
-impl Eq for NDIS_802_11_REMOVE_KEY {}
 impl Default for NDIS_802_11_REMOVE_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_SSID {
     pub SsidLength: u32,
     pub Ssid: [u8; 32],
 }
-impl Copy for NDIS_802_11_SSID {}
-impl Clone for NDIS_802_11_SSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_SSID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_SSID").field("SsidLength", &self.SsidLength).field("Ssid", &self.Ssid).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_SSID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_SSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.SsidLength == other.SsidLength && self.Ssid == other.Ssid
-    }
-}
-impl Eq for NDIS_802_11_SSID {}
 impl Default for NDIS_802_11_SSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_STATISTICS {
     pub Length: u32,
     pub TransmittedFragmentCount: i64,
@@ -4437,121 +3901,33 @@ pub struct NDIS_802_11_STATISTICS {
     pub DecryptSuccessCount: i64,
     pub DecryptFailureCount: i64,
 }
-impl Copy for NDIS_802_11_STATISTICS {}
-impl Clone for NDIS_802_11_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_STATISTICS")
-            .field("Length", &self.Length)
-            .field("TransmittedFragmentCount", &self.TransmittedFragmentCount)
-            .field("MulticastTransmittedFrameCount", &self.MulticastTransmittedFrameCount)
-            .field("FailedCount", &self.FailedCount)
-            .field("RetryCount", &self.RetryCount)
-            .field("MultipleRetryCount", &self.MultipleRetryCount)
-            .field("RTSSuccessCount", &self.RTSSuccessCount)
-            .field("RTSFailureCount", &self.RTSFailureCount)
-            .field("ACKFailureCount", &self.ACKFailureCount)
-            .field("FrameDuplicateCount", &self.FrameDuplicateCount)
-            .field("ReceivedFragmentCount", &self.ReceivedFragmentCount)
-            .field("MulticastReceivedFrameCount", &self.MulticastReceivedFrameCount)
-            .field("FCSErrorCount", &self.FCSErrorCount)
-            .field("TKIPLocalMICFailures", &self.TKIPLocalMICFailures)
-            .field("TKIPICVErrorCount", &self.TKIPICVErrorCount)
-            .field("TKIPCounterMeasuresInvoked", &self.TKIPCounterMeasuresInvoked)
-            .field("TKIPReplays", &self.TKIPReplays)
-            .field("CCMPFormatErrors", &self.CCMPFormatErrors)
-            .field("CCMPReplays", &self.CCMPReplays)
-            .field("CCMPDecryptErrors", &self.CCMPDecryptErrors)
-            .field("FourWayHandshakeFailures", &self.FourWayHandshakeFailures)
-            .field("WEPUndecryptableCount", &self.WEPUndecryptableCount)
-            .field("WEPICVErrorCount", &self.WEPICVErrorCount)
-            .field("DecryptSuccessCount", &self.DecryptSuccessCount)
-            .field("DecryptFailureCount", &self.DecryptFailureCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.TransmittedFragmentCount == other.TransmittedFragmentCount
-            && self.MulticastTransmittedFrameCount == other.MulticastTransmittedFrameCount
-            && self.FailedCount == other.FailedCount
-            && self.RetryCount == other.RetryCount
-            && self.MultipleRetryCount == other.MultipleRetryCount
-            && self.RTSSuccessCount == other.RTSSuccessCount
-            && self.RTSFailureCount == other.RTSFailureCount
-            && self.ACKFailureCount == other.ACKFailureCount
-            && self.FrameDuplicateCount == other.FrameDuplicateCount
-            && self.ReceivedFragmentCount == other.ReceivedFragmentCount
-            && self.MulticastReceivedFrameCount == other.MulticastReceivedFrameCount
-            && self.FCSErrorCount == other.FCSErrorCount
-            && self.TKIPLocalMICFailures == other.TKIPLocalMICFailures
-            && self.TKIPICVErrorCount == other.TKIPICVErrorCount
-            && self.TKIPCounterMeasuresInvoked == other.TKIPCounterMeasuresInvoked
-            && self.TKIPReplays == other.TKIPReplays
-            && self.CCMPFormatErrors == other.CCMPFormatErrors
-            && self.CCMPReplays == other.CCMPReplays
-            && self.CCMPDecryptErrors == other.CCMPDecryptErrors
-            && self.FourWayHandshakeFailures == other.FourWayHandshakeFailures
-            && self.WEPUndecryptableCount == other.WEPUndecryptableCount
-            && self.WEPICVErrorCount == other.WEPICVErrorCount
-            && self.DecryptSuccessCount == other.DecryptSuccessCount
-            && self.DecryptFailureCount == other.DecryptFailureCount
-    }
-}
-impl Eq for NDIS_802_11_STATISTICS {}
 impl Default for NDIS_802_11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_STATUS_INDICATION {
     pub StatusType: NDIS_802_11_STATUS_TYPE,
-}
-impl Copy for NDIS_802_11_STATUS_INDICATION {}
-impl Clone for NDIS_802_11_STATUS_INDICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_STATUS_INDICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_STATUS_INDICATION").field("StatusType", &self.StatusType).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_802_11_STATUS_INDICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_STATUS_INDICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StatusType == other.StatusType
-    }
-}
-impl Eq for NDIS_802_11_STATUS_INDICATION {}
 impl Default for NDIS_802_11_STATUS_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_TEST {
     pub Length: u32,
     pub Type: u32,
     pub Anonymous: NDIS_802_11_TEST_0,
-}
-impl Copy for NDIS_802_11_TEST {}
-impl Clone for NDIS_802_11_TEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_802_11_TEST {
     type TypeKind = windows_core::CopyType;
@@ -4562,15 +3938,10 @@ impl Default for NDIS_802_11_TEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_802_11_TEST_0 {
     pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
     pub RssiTrigger: i32,
-}
-impl Copy for NDIS_802_11_TEST_0 {}
-impl Clone for NDIS_802_11_TEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_802_11_TEST_0 {
     type TypeKind = windows_core::CopyType;
@@ -4581,63 +3952,31 @@ impl Default for NDIS_802_11_TEST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_VARIABLE_IEs {
     pub ElementID: u8,
     pub Length: u8,
     pub data: [u8; 1],
 }
-impl Copy for NDIS_802_11_VARIABLE_IEs {}
-impl Clone for NDIS_802_11_VARIABLE_IEs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_VARIABLE_IEs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_VARIABLE_IEs").field("ElementID", &self.ElementID).field("Length", &self.Length).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_VARIABLE_IEs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_VARIABLE_IEs {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementID == other.ElementID && self.Length == other.Length && self.data == other.data
-    }
-}
-impl Eq for NDIS_802_11_VARIABLE_IEs {}
 impl Default for NDIS_802_11_VARIABLE_IEs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_WEP {
     pub Length: u32,
     pub KeyIndex: u32,
     pub KeyLength: u32,
     pub KeyMaterial: [u8; 1],
 }
-impl Copy for NDIS_802_11_WEP {}
-impl Clone for NDIS_802_11_WEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_802_11_WEP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_802_11_WEP").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("KeyMaterial", &self.KeyMaterial).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_802_11_WEP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_802_11_WEP {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.KeyLength == other.KeyLength && self.KeyMaterial == other.KeyMaterial
-    }
-}
-impl Eq for NDIS_802_11_WEP {}
 impl Default for NDIS_802_11_WEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4666,15 +4005,10 @@ impl windows_core::TypeKind for NDIS_CALL_MANAGER_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_CONFIGURATION_PARAMETER {
     pub ParameterType: NDIS_PARAMETER_TYPE,
     pub ParameterData: NDIS_CONFIGURATION_PARAMETER_0,
-}
-impl Copy for NDIS_CONFIGURATION_PARAMETER {}
-impl Clone for NDIS_CONFIGURATION_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_CONFIGURATION_PARAMETER {
     type TypeKind = windows_core::CopyType;
@@ -4685,16 +4019,11 @@ impl Default for NDIS_CONFIGURATION_PARAMETER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_CONFIGURATION_PARAMETER_0 {
     pub IntegerData: u32,
     pub StringData: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub BinaryData: BINARY_DATA,
-}
-impl Copy for NDIS_CONFIGURATION_PARAMETER_0 {}
-impl Clone for NDIS_CONFIGURATION_PARAMETER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_CONFIGURATION_PARAMETER_0 {
     type TypeKind = windows_core::CopyType;
@@ -4705,6 +4034,7 @@ impl Default for NDIS_CONFIGURATION_PARAMETER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_CO_DEVICE_PROFILE {
     pub DeviceDescription: NDIS_VAR_DATA_DESC,
     pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
@@ -4735,112 +4065,23 @@ pub struct NDIS_CO_DEVICE_PROFILE {
     pub ulUUISendUserUserInfoSize: u32,
     pub ulUUICallInfoSize: u32,
 }
-impl Copy for NDIS_CO_DEVICE_PROFILE {}
-impl Clone for NDIS_CO_DEVICE_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_CO_DEVICE_PROFILE")
-            .field("DeviceDescription", &self.DeviceDescription)
-            .field("DevSpecificInfo", &self.DevSpecificInfo)
-            .field("ulTAPISupplementaryPassThru", &self.ulTAPISupplementaryPassThru)
-            .field("ulAddressModes", &self.ulAddressModes)
-            .field("ulNumAddresses", &self.ulNumAddresses)
-            .field("ulBearerModes", &self.ulBearerModes)
-            .field("ulMaxTxRate", &self.ulMaxTxRate)
-            .field("ulMinTxRate", &self.ulMinTxRate)
-            .field("ulMaxRxRate", &self.ulMaxRxRate)
-            .field("ulMinRxRate", &self.ulMinRxRate)
-            .field("ulMediaModes", &self.ulMediaModes)
-            .field("ulGenerateToneModes", &self.ulGenerateToneModes)
-            .field("ulGenerateToneMaxNumFreq", &self.ulGenerateToneMaxNumFreq)
-            .field("ulGenerateDigitModes", &self.ulGenerateDigitModes)
-            .field("ulMonitorToneMaxNumFreq", &self.ulMonitorToneMaxNumFreq)
-            .field("ulMonitorToneMaxNumEntries", &self.ulMonitorToneMaxNumEntries)
-            .field("ulMonitorDigitModes", &self.ulMonitorDigitModes)
-            .field("ulGatherDigitsMinTimeout", &self.ulGatherDigitsMinTimeout)
-            .field("ulGatherDigitsMaxTimeout", &self.ulGatherDigitsMaxTimeout)
-            .field("ulDevCapFlags", &self.ulDevCapFlags)
-            .field("ulMaxNumActiveCalls", &self.ulMaxNumActiveCalls)
-            .field("ulAnswerMode", &self.ulAnswerMode)
-            .field("ulUUIAcceptSize", &self.ulUUIAcceptSize)
-            .field("ulUUIAnswerSize", &self.ulUUIAnswerSize)
-            .field("ulUUIMakeCallSize", &self.ulUUIMakeCallSize)
-            .field("ulUUIDropSize", &self.ulUUIDropSize)
-            .field("ulUUISendUserUserInfoSize", &self.ulUUISendUserUserInfoSize)
-            .field("ulUUICallInfoSize", &self.ulUUICallInfoSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_CO_DEVICE_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_CO_DEVICE_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceDescription == other.DeviceDescription
-            && self.DevSpecificInfo == other.DevSpecificInfo
-            && self.ulTAPISupplementaryPassThru == other.ulTAPISupplementaryPassThru
-            && self.ulAddressModes == other.ulAddressModes
-            && self.ulNumAddresses == other.ulNumAddresses
-            && self.ulBearerModes == other.ulBearerModes
-            && self.ulMaxTxRate == other.ulMaxTxRate
-            && self.ulMinTxRate == other.ulMinTxRate
-            && self.ulMaxRxRate == other.ulMaxRxRate
-            && self.ulMinRxRate == other.ulMinRxRate
-            && self.ulMediaModes == other.ulMediaModes
-            && self.ulGenerateToneModes == other.ulGenerateToneModes
-            && self.ulGenerateToneMaxNumFreq == other.ulGenerateToneMaxNumFreq
-            && self.ulGenerateDigitModes == other.ulGenerateDigitModes
-            && self.ulMonitorToneMaxNumFreq == other.ulMonitorToneMaxNumFreq
-            && self.ulMonitorToneMaxNumEntries == other.ulMonitorToneMaxNumEntries
-            && self.ulMonitorDigitModes == other.ulMonitorDigitModes
-            && self.ulGatherDigitsMinTimeout == other.ulGatherDigitsMinTimeout
-            && self.ulGatherDigitsMaxTimeout == other.ulGatherDigitsMaxTimeout
-            && self.ulDevCapFlags == other.ulDevCapFlags
-            && self.ulMaxNumActiveCalls == other.ulMaxNumActiveCalls
-            && self.ulAnswerMode == other.ulAnswerMode
-            && self.ulUUIAcceptSize == other.ulUUIAcceptSize
-            && self.ulUUIAnswerSize == other.ulUUIAnswerSize
-            && self.ulUUIMakeCallSize == other.ulUUIMakeCallSize
-            && self.ulUUIDropSize == other.ulUUIDropSize
-            && self.ulUUISendUserUserInfoSize == other.ulUUISendUserUserInfoSize
-            && self.ulUUICallInfoSize == other.ulUUICallInfoSize
-    }
-}
-impl Eq for NDIS_CO_DEVICE_PROFILE {}
 impl Default for NDIS_CO_DEVICE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_CO_LINK_SPEED {
     pub Outbound: u32,
     pub Inbound: u32,
 }
-impl Copy for NDIS_CO_LINK_SPEED {}
-impl Clone for NDIS_CO_LINK_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_CO_LINK_SPEED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_CO_LINK_SPEED").field("Outbound", &self.Outbound).field("Inbound", &self.Inbound).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_CO_LINK_SPEED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_CO_LINK_SPEED {
-    fn eq(&self, other: &Self) -> bool {
-        self.Outbound == other.Outbound && self.Inbound == other.Inbound
-    }
-}
-impl Eq for NDIS_CO_LINK_SPEED {}
 impl Default for NDIS_CO_LINK_SPEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4848,20 +4089,13 @@ impl Default for NDIS_CO_LINK_SPEED {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct NDIS_DMA_BLOCK {
     pub MapRegisterBase: *mut core::ffi::c_void,
     pub AllocationEvent: super::super::Foundation::KEVENT,
     pub SystemAdapterObject: *mut core::ffi::c_void,
     pub Miniport: *mut core::ffi::c_void,
     pub InProgress: super::super::super::Win32::Foundation::BOOLEAN,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for NDIS_DMA_BLOCK {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for NDIS_DMA_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for NDIS_DMA_BLOCK {
@@ -4875,6 +4109,7 @@ impl Default for NDIS_DMA_BLOCK {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_System_SystemServices")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_DMA_DESCRIPTION {
     pub DemandMode: super::super::super::Win32::Foundation::BOOLEAN,
     pub AutoInitialize: super::super::super::Win32::Foundation::BOOLEAN,
@@ -4885,31 +4120,9 @@ pub struct NDIS_DMA_DESCRIPTION {
     pub DmaChannel: u32,
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
-impl Copy for NDIS_DMA_DESCRIPTION {}
-#[cfg(feature = "Wdk_System_SystemServices")]
-impl Clone for NDIS_DMA_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Wdk_System_SystemServices")]
-impl core::fmt::Debug for NDIS_DMA_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_DMA_DESCRIPTION").field("DemandMode", &self.DemandMode).field("AutoInitialize", &self.AutoInitialize).field("DmaChannelSpecified", &self.DmaChannelSpecified).field("DmaWidth", &self.DmaWidth).field("DmaSpeed", &self.DmaSpeed).field("DmaPort", &self.DmaPort).field("DmaChannel", &self.DmaChannel).finish()
-    }
-}
-#[cfg(feature = "Wdk_System_SystemServices")]
 impl windows_core::TypeKind for NDIS_DMA_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Wdk_System_SystemServices")]
-impl PartialEq for NDIS_DMA_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.DemandMode == other.DemandMode && self.AutoInitialize == other.AutoInitialize && self.DmaChannelSpecified == other.DmaChannelSpecified && self.DmaWidth == other.DmaWidth && self.DmaSpeed == other.DmaSpeed && self.DmaPort == other.DmaPort && self.DmaChannel == other.DmaChannel
-    }
-}
-#[cfg(feature = "Wdk_System_SystemServices")]
-impl Eq for NDIS_DMA_DESCRIPTION {}
 #[cfg(feature = "Wdk_System_SystemServices")]
 impl Default for NDIS_DMA_DESCRIPTION {
     fn default() -> Self {
@@ -4918,16 +4131,9 @@ impl Default for NDIS_DMA_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct NDIS_EVENT {
     pub Event: super::super::Foundation::KEVENT,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for NDIS_EVENT {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for NDIS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for NDIS_EVENT {
@@ -4940,17 +4146,12 @@ impl Default for NDIS_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_GUID {
     pub Guid: windows_core::GUID,
     pub Anonymous: NDIS_GUID_0,
     pub Size: u32,
     pub Flags: u32,
-}
-impl Copy for NDIS_GUID {}
-impl Clone for NDIS_GUID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_GUID {
     type TypeKind = windows_core::CopyType;
@@ -4961,15 +4162,10 @@ impl Default for NDIS_GUID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_GUID_0 {
     pub Oid: u32,
     pub Status: i32,
-}
-impl Copy for NDIS_GUID_0 {}
-impl Clone for NDIS_GUID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_GUID_0 {
     type TypeKind = windows_core::CopyType;
@@ -4980,6 +4176,7 @@ impl Default for NDIS_GUID_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -4987,152 +4184,72 @@ pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
-impl Copy for NDIS_HARDWARE_CROSSTIMESTAMP {}
-impl Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP").field("Header", &self.Header).field("Flags", &self.Flags).field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_HARDWARE_CROSSTIMESTAMP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.SystemTimestamp1 == other.SystemTimestamp1 && self.HardwareClockTimestamp == other.HardwareClockTimestamp && self.SystemTimestamp2 == other.SystemTimestamp2
-    }
-}
-impl Eq for NDIS_HARDWARE_CROSSTIMESTAMP {}
 impl Default for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
 }
-impl Copy for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
-impl Clone for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("InterruptModeration", &self.InterruptModeration).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.InterruptModeration == other.InterruptModeration
-    }
-}
-impl Eq for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
 impl Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
     pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
     pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
 }
-impl Copy for NDIS_IPSEC_OFFLOAD_V1 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Supported == other.Supported && self.IPv4AH == other.IPv4AH && self.IPv4ESP == other.IPv4ESP
-    }
-}
-impl Eq for NDIS_IPSEC_OFFLOAD_V1 {}
 impl Default for NDIS_IPSEC_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub _bitfield: u32,
-}
-impl Copy for NDIS_IPSEC_OFFLOAD_V1_0 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_IPSEC_OFFLOAD_V1_0 {}
 impl Default for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
-}
-impl Copy for NDIS_IPSEC_OFFLOAD_V1_1 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_1").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_IPSEC_OFFLOAD_V1_1 {}
 impl Default for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -5140,26 +4257,9 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_IPSEC_OFFLOAD_V1_2 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.AhEspCombined == other.AhEspCombined && self.TransportTunnelCombined == other.TransportTunnelCombined && self.IPv4Options == other.IPv4Options && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_IPSEC_OFFLOAD_V1_2 {}
 impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5167,37 +4267,16 @@ impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_IP_OPER_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_IP_OPER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_IP_OPER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IP_OPER_STATE").field("Header", &self.Header).field("Flags", &self.Flags).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_IP_OPER_STATE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_IP_OPER_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.IpOperationalStatus == other.IpOperationalStatus
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_IP_OPER_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_IP_OPER_STATE {
     fn default() -> Self {
@@ -5206,37 +4285,16 @@ impl Default for NDIS_IP_OPER_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
     pub OperationalStatus: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_IP_OPER_STATUS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_IP_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_IP_OPER_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IP_OPER_STATUS").field("AddressFamily", &self.AddressFamily).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_IP_OPER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_IP_OPER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.OperationalStatus == other.OperationalStatus && self.OperationalStatusFlags == other.OperationalStatusFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_IP_OPER_STATUS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_IP_OPER_STATUS {
     fn default() -> Self {
@@ -5245,6 +4303,7 @@ impl Default for NDIS_IP_OPER_STATUS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -5252,31 +4311,9 @@ pub struct NDIS_IP_OPER_STATUS_INFO {
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_IP_OPER_STATUS_INFO {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_IP_OPER_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_IP_OPER_STATUS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IP_OPER_STATUS_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("NumberofAddressFamiliesReturned", &self.NumberofAddressFamiliesReturned).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_IP_OPER_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_IP_OPER_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.NumberofAddressFamiliesReturned == other.NumberofAddressFamiliesReturned && self.IpOperationalStatus == other.IpOperationalStatus
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_IP_OPER_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_IP_OPER_STATUS_INFO {
     fn default() -> Self {
@@ -5284,30 +4321,14 @@ impl Default for NDIS_IP_OPER_STATUS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IRDA_PACKET_INFO {
     pub ExtraBOFs: u32,
     pub MinTurnAroundTime: u32,
 }
-impl Copy for NDIS_IRDA_PACKET_INFO {}
-impl Clone for NDIS_IRDA_PACKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_IRDA_PACKET_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_IRDA_PACKET_INFO").field("ExtraBOFs", &self.ExtraBOFs).field("MinTurnAroundTime", &self.MinTurnAroundTime).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_IRDA_PACKET_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_IRDA_PACKET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtraBOFs == other.ExtraBOFs && self.MinTurnAroundTime == other.MinTurnAroundTime
-    }
-}
-impl Eq for NDIS_IRDA_PACKET_INFO {}
 impl Default for NDIS_IRDA_PACKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5315,6 +4336,7 @@ impl Default for NDIS_IRDA_PACKET_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaDuplexState: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_MEDIA_DUPLEX_STATE,
@@ -5324,31 +4346,9 @@ pub struct NDIS_LINK_PARAMETERS {
     pub AutoNegotiationFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_LINK_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_LINK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_LINK_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_LINK_PARAMETERS").field("Header", &self.Header).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_LINK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_LINK_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.MediaDuplexState == other.MediaDuplexState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.PauseFunctions == other.PauseFunctions && self.AutoNegotiationFlags == other.AutoNegotiationFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_LINK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_LINK_PARAMETERS {
     fn default() -> Self {
@@ -5356,30 +4356,14 @@ impl Default for NDIS_LINK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_LINK_SPEED {
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
 }
-impl Copy for NDIS_LINK_SPEED {}
-impl Clone for NDIS_LINK_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_LINK_SPEED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_LINK_SPEED").field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_LINK_SPEED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_LINK_SPEED {
-    fn eq(&self, other: &Self) -> bool {
-        self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed
-    }
-}
-impl Eq for NDIS_LINK_SPEED {}
 impl Default for NDIS_LINK_SPEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5387,6 +4371,7 @@ impl Default for NDIS_LINK_SPEED {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_LINK_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaConnectState: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_MEDIA_CONNECT_STATE,
@@ -5397,31 +4382,9 @@ pub struct NDIS_LINK_STATE {
     pub AutoNegotiationFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_LINK_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_LINK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_LINK_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_LINK_STATE").field("Header", &self.Header).field("MediaConnectState", &self.MediaConnectState).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_LINK_STATE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_LINK_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.MediaConnectState == other.MediaConnectState && self.MediaDuplexState == other.MediaDuplexState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.PauseFunctions == other.PauseFunctions && self.AutoNegotiationFlags == other.AutoNegotiationFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_LINK_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_LINK_STATE {
     fn default() -> Self {
@@ -5441,6 +4404,7 @@ impl windows_core::TypeKind for NDIS_MINIPORT_BLOCK {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct NDIS_MINIPORT_TIMER {
     pub Timer: super::super::System::SystemServices::KTIMER,
     pub Dpc: super::super::Foundation::KDPC,
@@ -5448,14 +4412,6 @@ pub struct NDIS_MINIPORT_TIMER {
     pub MiniportTimerContext: *mut core::ffi::c_void,
     pub Miniport: *mut NDIS_MINIPORT_BLOCK,
     pub NextTimer: *mut NDIS_MINIPORT_TIMER,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl Copy for NDIS_MINIPORT_TIMER {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl Clone for NDIS_MINIPORT_TIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for NDIS_MINIPORT_TIMER {
@@ -5479,37 +4435,22 @@ impl windows_core::TypeKind for NDIS_M_DRIVER_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OBJECT_HEADER {
     pub Type: u8,
     pub Revision: u8,
     pub Size: u16,
 }
-impl Copy for NDIS_OBJECT_HEADER {}
-impl Clone for NDIS_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_OBJECT_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_OBJECT_HEADER").field("Type", &self.Type).field("Revision", &self.Revision).field("Size", &self.Size).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_OBJECT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_OBJECT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Revision == other.Revision && self.Size == other.Size
-    }
-}
-impl Eq for NDIS_OBJECT_HEADER {}
 impl Default for NDIS_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
@@ -5518,32 +4459,16 @@ pub struct NDIS_OFFLOAD {
     pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
-impl Copy for NDIS_OFFLOAD {}
-impl Clone for NDIS_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Checksum == other.Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2 == other.LsoV2 && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_OFFLOAD {}
 impl Default for NDIS_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub IPv4Checksum: u8,
@@ -5559,40 +4484,9 @@ pub struct NDIS_OFFLOAD_PARAMETERS {
     pub TcpConnectionIPv6: u8,
     pub Flags: u32,
 }
-impl Copy for NDIS_OFFLOAD_PARAMETERS {}
-impl Clone for NDIS_OFFLOAD_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_OFFLOAD_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_OFFLOAD_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("IPv4Checksum", &self.IPv4Checksum)
-            .field("TCPIPv4Checksum", &self.TCPIPv4Checksum)
-            .field("UDPIPv4Checksum", &self.UDPIPv4Checksum)
-            .field("TCPIPv6Checksum", &self.TCPIPv6Checksum)
-            .field("UDPIPv6Checksum", &self.UDPIPv6Checksum)
-            .field("LsoV1", &self.LsoV1)
-            .field("IPsecV1", &self.IPsecV1)
-            .field("LsoV2IPv4", &self.LsoV2IPv4)
-            .field("LsoV2IPv6", &self.LsoV2IPv6)
-            .field("TcpConnectionIPv4", &self.TcpConnectionIPv4)
-            .field("TcpConnectionIPv6", &self.TcpConnectionIPv6)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_OFFLOAD_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_OFFLOAD_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.IPv4Checksum == other.IPv4Checksum && self.TCPIPv4Checksum == other.TCPIPv4Checksum && self.UDPIPv4Checksum == other.UDPIPv4Checksum && self.TCPIPv6Checksum == other.TCPIPv6Checksum && self.UDPIPv6Checksum == other.UDPIPv6Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2IPv4 == other.LsoV2IPv4 && self.LsoV2IPv6 == other.LsoV2IPv6 && self.TcpConnectionIPv4 == other.TcpConnectionIPv4 && self.TcpConnectionIPv6 == other.TcpConnectionIPv6 && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_OFFLOAD_PARAMETERS {}
 impl Default for NDIS_OFFLOAD_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5611,37 +4505,16 @@ impl windows_core::TypeKind for NDIS_OPEN_BLOCK {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub OperationalStatus: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_OPER_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_OPER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_OPER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_OPER_STATE").field("Header", &self.Header).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_OPER_STATE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_OPER_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.OperationalStatus == other.OperationalStatus && self.OperationalStatusFlags == other.OperationalStatusFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_OPER_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_OPER_STATE {
     fn default() -> Self {
@@ -5649,14 +4522,9 @@ impl Default for NDIS_OPER_STATE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PACKET_8021Q_INFO {
     pub Anonymous: NDIS_PACKET_8021Q_INFO_0,
-}
-impl Copy for NDIS_PACKET_8021Q_INFO {}
-impl Clone for NDIS_PACKET_8021Q_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5667,15 +4535,10 @@ impl Default for NDIS_PACKET_8021Q_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_PACKET_8021Q_INFO_0 {
     pub TagHeader: NDIS_PACKET_8021Q_INFO_0_0,
     pub Value: *mut core::ffi::c_void,
-}
-impl Copy for NDIS_PACKET_8021Q_INFO_0 {}
-impl Clone for NDIS_PACKET_8021Q_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -5686,35 +4549,20 @@ impl Default for NDIS_PACKET_8021Q_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PACKET_8021Q_INFO_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for NDIS_PACKET_8021Q_INFO_0_0 {}
-impl Clone for NDIS_PACKET_8021Q_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PACKET_8021Q_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PACKET_8021Q_INFO_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PACKET_8021Q_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_PACKET_8021Q_INFO_0_0 {}
 impl Default for NDIS_PACKET_8021Q_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub DeviceType: u32,
@@ -5730,40 +4578,9 @@ pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub InterruptType: u32,
     pub MaxInterruptMessages: u32,
 }
-impl Copy for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
-impl Clone for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PCI_DEVICE_CUSTOM_PROPERTIES")
-            .field("Header", &self.Header)
-            .field("DeviceType", &self.DeviceType)
-            .field("CurrentSpeedAndMode", &self.CurrentSpeedAndMode)
-            .field("CurrentPayloadSize", &self.CurrentPayloadSize)
-            .field("MaxPayloadSize", &self.MaxPayloadSize)
-            .field("MaxReadRequestSize", &self.MaxReadRequestSize)
-            .field("CurrentLinkSpeed", &self.CurrentLinkSpeed)
-            .field("CurrentLinkWidth", &self.CurrentLinkWidth)
-            .field("MaxLinkSpeed", &self.MaxLinkSpeed)
-            .field("MaxLinkWidth", &self.MaxLinkWidth)
-            .field("PciExpressVersion", &self.PciExpressVersion)
-            .field("InterruptType", &self.InterruptType)
-            .field("MaxInterruptMessages", &self.MaxInterruptMessages)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.DeviceType == other.DeviceType && self.CurrentSpeedAndMode == other.CurrentSpeedAndMode && self.CurrentPayloadSize == other.CurrentPayloadSize && self.MaxPayloadSize == other.MaxPayloadSize && self.MaxReadRequestSize == other.MaxReadRequestSize && self.CurrentLinkSpeed == other.CurrentLinkSpeed && self.CurrentLinkWidth == other.CurrentLinkWidth && self.MaxLinkSpeed == other.MaxLinkSpeed && self.MaxLinkWidth == other.MaxLinkWidth && self.PciExpressVersion == other.PciExpressVersion && self.InterruptType == other.InterruptType && self.MaxInterruptMessages == other.MaxInterruptMessages
-    }
-}
-impl Eq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
 impl Default for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5803,36 +4620,21 @@ impl windows_core::TypeKind for NDIS_PD_PROVIDER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PHYSICAL_ADDRESS_UNIT {
     pub PhysicalAddress: i64,
     pub Length: u32,
 }
-impl Copy for NDIS_PHYSICAL_ADDRESS_UNIT {}
-impl Clone for NDIS_PHYSICAL_ADDRESS_UNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PHYSICAL_ADDRESS_UNIT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PHYSICAL_ADDRESS_UNIT").field("PhysicalAddress", &self.PhysicalAddress).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PHYSICAL_ADDRESS_UNIT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PHYSICAL_ADDRESS_UNIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalAddress == other.PhysicalAddress && self.Length == other.Length
-    }
-}
-impl Eq for NDIS_PHYSICAL_ADDRESS_UNIT {}
 impl Default for NDIS_PHYSICAL_ADDRESS_UNIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PM_PACKET_PATTERN {
     pub Priority: u32,
     pub Reserved: u32,
@@ -5841,87 +4643,38 @@ pub struct NDIS_PM_PACKET_PATTERN {
     pub PatternSize: u32,
     pub PatternFlags: u32,
 }
-impl Copy for NDIS_PM_PACKET_PATTERN {}
-impl Clone for NDIS_PM_PACKET_PATTERN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PM_PACKET_PATTERN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PM_PACKET_PATTERN").field("Priority", &self.Priority).field("Reserved", &self.Reserved).field("MaskSize", &self.MaskSize).field("PatternOffset", &self.PatternOffset).field("PatternSize", &self.PatternSize).field("PatternFlags", &self.PatternFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PM_PACKET_PATTERN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PM_PACKET_PATTERN {
-    fn eq(&self, other: &Self) -> bool {
-        self.Priority == other.Priority && self.Reserved == other.Reserved && self.MaskSize == other.MaskSize && self.PatternOffset == other.PatternOffset && self.PatternSize == other.PatternSize && self.PatternFlags == other.PatternFlags
-    }
-}
-impl Eq for NDIS_PM_PACKET_PATTERN {}
 impl Default for NDIS_PM_PACKET_PATTERN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
     pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
 }
-impl Copy for NDIS_PM_WAKE_UP_CAPABILITIES {}
-impl Clone for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES").field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp).field("MinPatternWakeUp", &self.MinPatternWakeUp).field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PM_WAKE_UP_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinMagicPacketWakeUp == other.MinMagicPacketWakeUp && self.MinPatternWakeUp == other.MinPatternWakeUp && self.MinLinkChangeWakeUp == other.MinLinkChangeWakeUp
-    }
-}
-impl Eq for NDIS_PM_WAKE_UP_CAPABILITIES {}
 impl Default for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PNP_CAPABILITIES {
     pub Flags: u32,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
 }
-impl Copy for NDIS_PNP_CAPABILITIES {}
-impl Clone for NDIS_PNP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PNP_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PNP_CAPABILITIES").field("Flags", &self.Flags).field("WakeUpCapabilities", &self.WakeUpCapabilities).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PNP_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PNP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.WakeUpCapabilities == other.WakeUpCapabilities
-    }
-}
-impl Eq for NDIS_PNP_CAPABILITIES {}
 impl Default for NDIS_PNP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5940,6 +4693,7 @@ impl windows_core::TypeKind for NDIS_POLL_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT {
     pub Next: *mut NDIS_PORT,
     pub NdisReserved: *mut core::ffi::c_void,
@@ -5948,31 +4702,9 @@ pub struct NDIS_PORT {
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_PORT {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_PORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PORT").field("Next", &self.Next).field("NdisReserved", &self.NdisReserved).field("MiniportReserved", &self.MiniportReserved).field("ProtocolReserved", &self.ProtocolReserved).field("PortCharacteristics", &self.PortCharacteristics).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_PORT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_PORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.NdisReserved == other.NdisReserved && self.MiniportReserved == other.MiniportReserved && self.ProtocolReserved == other.ProtocolReserved && self.PortCharacteristics == other.PortCharacteristics
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_PORT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT {
     fn default() -> Self {
@@ -5981,6 +4713,7 @@ impl Default for NDIS_PORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_ARRAY {
     pub Header: NDIS_OBJECT_HEADER,
     pub NumberOfPorts: u32,
@@ -5989,31 +4722,9 @@ pub struct NDIS_PORT_ARRAY {
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_PORT_ARRAY {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_PORT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_PORT_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PORT_ARRAY").field("Header", &self.Header).field("NumberOfPorts", &self.NumberOfPorts).field("OffsetFirstPort", &self.OffsetFirstPort).field("ElementSize", &self.ElementSize).field("Ports", &self.Ports).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_PORT_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_PORT_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.NumberOfPorts == other.NumberOfPorts && self.OffsetFirstPort == other.OffsetFirstPort && self.ElementSize == other.ElementSize && self.Ports == other.Ports
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_PORT_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT_ARRAY {
     fn default() -> Self {
@@ -6021,6 +4732,7 @@ impl Default for NDIS_PORT_ARRAY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
@@ -6028,26 +4740,9 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
-impl Copy for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
-impl Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS").field("Header", &self.Header).field("SendControlState", &self.SendControlState).field("RcvControlState", &self.RcvControlState).field("SendAuthorizationState", &self.SendAuthorizationState).field("RcvAuthorizationState", &self.RcvAuthorizationState).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState
-    }
-}
-impl Eq for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
 impl Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6055,6 +4750,7 @@ impl Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -6070,44 +4766,9 @@ pub struct NDIS_PORT_CHARACTERISTICS {
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_PORT_CHARACTERISTICS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_PORT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_PORT_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PORT_CHARACTERISTICS")
-            .field("Header", &self.Header)
-            .field("PortNumber", &self.PortNumber)
-            .field("Flags", &self.Flags)
-            .field("Type", &self.Type)
-            .field("MediaConnectState", &self.MediaConnectState)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("Direction", &self.Direction)
-            .field("SendControlState", &self.SendControlState)
-            .field("RcvControlState", &self.RcvControlState)
-            .field("SendAuthorizationState", &self.SendAuthorizationState)
-            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_PORT_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_PORT_CHARACTERISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PortNumber == other.PortNumber && self.Flags == other.Flags && self.Type == other.Type && self.MediaConnectState == other.MediaConnectState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.Direction == other.Direction && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_PORT_CHARACTERISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT_CHARACTERISTICS {
     fn default() -> Self {
@@ -6116,6 +4777,7 @@ impl Default for NDIS_PORT_CHARACTERISTICS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaConnectState: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_MEDIA_CONNECT_STATE,
@@ -6129,42 +4791,9 @@ pub struct NDIS_PORT_STATE {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_PORT_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_PORT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for NDIS_PORT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_PORT_STATE")
-            .field("Header", &self.Header)
-            .field("MediaConnectState", &self.MediaConnectState)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("Direction", &self.Direction)
-            .field("SendControlState", &self.SendControlState)
-            .field("RcvControlState", &self.RcvControlState)
-            .field("SendAuthorizationState", &self.SendAuthorizationState)
-            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_PORT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for NDIS_PORT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.MediaConnectState == other.MediaConnectState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.Direction == other.Direction && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for NDIS_PORT_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT_STATE {
     fn default() -> Self {
@@ -6183,6 +4812,7 @@ impl windows_core::TypeKind for NDIS_PROTOCOL_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -6190,64 +4820,32 @@ pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
-impl Copy for NDIS_RECEIVE_HASH_PARAMETERS {}
-impl Clone for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("HashInformation", &self.HashInformation).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_RECEIVE_HASH_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.HashInformation == other.HashInformation && self.HashSecretKeySize == other.HashSecretKeySize && self.HashSecretKeyOffset == other.HashSecretKeyOffset
-    }
-}
-impl Eq for NDIS_RECEIVE_HASH_PARAMETERS {}
 impl Default for NDIS_RECEIVE_HASH_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub CapabilitiesFlags: u32,
     pub NumberOfInterruptMessages: u32,
     pub NumberOfReceiveQueues: u32,
 }
-impl Copy for NDIS_RECEIVE_SCALE_CAPABILITIES {}
-impl Clone for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES").field("Header", &self.Header).field("CapabilitiesFlags", &self.CapabilitiesFlags).field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages).field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_RECEIVE_SCALE_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.CapabilitiesFlags == other.CapabilitiesFlags && self.NumberOfInterruptMessages == other.NumberOfInterruptMessages && self.NumberOfReceiveQueues == other.NumberOfReceiveQueues
-    }
-}
-impl Eq for NDIS_RECEIVE_SCALE_CAPABILITIES {}
 impl Default for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u16,
@@ -6258,41 +4856,19 @@ pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
-impl Copy for NDIS_RECEIVE_SCALE_PARAMETERS {}
-impl Clone for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("BaseCpuNumber", &self.BaseCpuNumber).field("HashInformation", &self.HashInformation).field("IndirectionTableSize", &self.IndirectionTableSize).field("IndirectionTableOffset", &self.IndirectionTableOffset).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_RECEIVE_SCALE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.BaseCpuNumber == other.BaseCpuNumber && self.HashInformation == other.HashInformation && self.IndirectionTableSize == other.IndirectionTableSize && self.IndirectionTableOffset == other.IndirectionTableOffset && self.HashSecretKeySize == other.HashSecretKeySize && self.HashSecretKeyOffset == other.HashSecretKeyOffset
-    }
-}
-impl Eq for NDIS_RECEIVE_SCALE_PARAMETERS {}
 impl Default for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_RW_LOCK {
     pub Anonymous1: NDIS_RW_LOCK_0,
     pub Anonymous2: NDIS_RW_LOCK_1,
-}
-impl Copy for NDIS_RW_LOCK {}
-impl Clone for NDIS_RW_LOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_RW_LOCK {
     type TypeKind = windows_core::CopyType;
@@ -6303,15 +4879,10 @@ impl Default for NDIS_RW_LOCK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_RW_LOCK_0 {
     pub Anonymous: NDIS_RW_LOCK_0_0,
     pub Reserved: [u8; 16],
-}
-impl Copy for NDIS_RW_LOCK_0 {}
-impl Clone for NDIS_RW_LOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_RW_LOCK_0 {
     type TypeKind = windows_core::CopyType;
@@ -6322,46 +4893,25 @@ impl Default for NDIS_RW_LOCK_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RW_LOCK_0_0 {
     pub SpinLock: usize,
     pub Context: *mut core::ffi::c_void,
 }
-impl Copy for NDIS_RW_LOCK_0_0 {}
-impl Clone for NDIS_RW_LOCK_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_RW_LOCK_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_RW_LOCK_0_0").field("SpinLock", &self.SpinLock).field("Context", &self.Context).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_RW_LOCK_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_RW_LOCK_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SpinLock == other.SpinLock && self.Context == other.Context
-    }
-}
-impl Eq for NDIS_RW_LOCK_0_0 {}
 impl Default for NDIS_RW_LOCK_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_RW_LOCK_1 {
     pub RefCount: [NDIS_RW_LOCK_REFCOUNT; 32],
     pub RefCountEx: [u32; 128],
     pub Anonymous: NDIS_RW_LOCK_1_0,
-}
-impl Copy for NDIS_RW_LOCK_1 {}
-impl Clone for NDIS_RW_LOCK_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_RW_LOCK_1 {
     type TypeKind = windows_core::CopyType;
@@ -6372,46 +4922,25 @@ impl Default for NDIS_RW_LOCK_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RW_LOCK_1_0 {
     pub RefCountLock: usize,
     pub SharedRefCount: u32,
     pub WriterWaiting: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for NDIS_RW_LOCK_1_0 {}
-impl Clone for NDIS_RW_LOCK_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_RW_LOCK_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_RW_LOCK_1_0").field("RefCountLock", &self.RefCountLock).field("SharedRefCount", &self.SharedRefCount).field("WriterWaiting", &self.WriterWaiting).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_RW_LOCK_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_RW_LOCK_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RefCountLock == other.RefCountLock && self.SharedRefCount == other.SharedRefCount && self.WriterWaiting == other.WriterWaiting
-    }
-}
-impl Eq for NDIS_RW_LOCK_1_0 {}
 impl Default for NDIS_RW_LOCK_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_RW_LOCK_REFCOUNT {
     pub RefCount: u32,
     pub cacheLine: [u8; 16],
-}
-impl Copy for NDIS_RW_LOCK_REFCOUNT {}
-impl Clone for NDIS_RW_LOCK_REFCOUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_RW_LOCK_REFCOUNT {
     type TypeKind = windows_core::CopyType;
@@ -6422,36 +4951,21 @@ impl Default for NDIS_RW_LOCK_REFCOUNT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_SPIN_LOCK {
     pub SpinLock: usize,
     pub OldIrql: u8,
 }
-impl Copy for NDIS_SPIN_LOCK {}
-impl Clone for NDIS_SPIN_LOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_SPIN_LOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_SPIN_LOCK").field("SpinLock", &self.SpinLock).field("OldIrql", &self.OldIrql).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_SPIN_LOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_SPIN_LOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.SpinLock == other.SpinLock && self.OldIrql == other.OldIrql
-    }
-}
-impl Eq for NDIS_SPIN_LOCK {}
 impl Default for NDIS_SPIN_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub SupportedStatistics: u32,
@@ -6474,135 +4988,47 @@ pub struct NDIS_STATISTICS_INFO {
     pub ifHCOutMulticastOctets: u64,
     pub ifHCOutBroadcastOctets: u64,
 }
-impl Copy for NDIS_STATISTICS_INFO {}
-impl Clone for NDIS_STATISTICS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_STATISTICS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_STATISTICS_INFO")
-            .field("Header", &self.Header)
-            .field("SupportedStatistics", &self.SupportedStatistics)
-            .field("ifInDiscards", &self.ifInDiscards)
-            .field("ifInErrors", &self.ifInErrors)
-            .field("ifHCInOctets", &self.ifHCInOctets)
-            .field("ifHCInUcastPkts", &self.ifHCInUcastPkts)
-            .field("ifHCInMulticastPkts", &self.ifHCInMulticastPkts)
-            .field("ifHCInBroadcastPkts", &self.ifHCInBroadcastPkts)
-            .field("ifHCOutOctets", &self.ifHCOutOctets)
-            .field("ifHCOutUcastPkts", &self.ifHCOutUcastPkts)
-            .field("ifHCOutMulticastPkts", &self.ifHCOutMulticastPkts)
-            .field("ifHCOutBroadcastPkts", &self.ifHCOutBroadcastPkts)
-            .field("ifOutErrors", &self.ifOutErrors)
-            .field("ifOutDiscards", &self.ifOutDiscards)
-            .field("ifHCInUcastOctets", &self.ifHCInUcastOctets)
-            .field("ifHCInMulticastOctets", &self.ifHCInMulticastOctets)
-            .field("ifHCInBroadcastOctets", &self.ifHCInBroadcastOctets)
-            .field("ifHCOutUcastOctets", &self.ifHCOutUcastOctets)
-            .field("ifHCOutMulticastOctets", &self.ifHCOutMulticastOctets)
-            .field("ifHCOutBroadcastOctets", &self.ifHCOutBroadcastOctets)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_STATISTICS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_STATISTICS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.SupportedStatistics == other.SupportedStatistics
-            && self.ifInDiscards == other.ifInDiscards
-            && self.ifInErrors == other.ifInErrors
-            && self.ifHCInOctets == other.ifHCInOctets
-            && self.ifHCInUcastPkts == other.ifHCInUcastPkts
-            && self.ifHCInMulticastPkts == other.ifHCInMulticastPkts
-            && self.ifHCInBroadcastPkts == other.ifHCInBroadcastPkts
-            && self.ifHCOutOctets == other.ifHCOutOctets
-            && self.ifHCOutUcastPkts == other.ifHCOutUcastPkts
-            && self.ifHCOutMulticastPkts == other.ifHCOutMulticastPkts
-            && self.ifHCOutBroadcastPkts == other.ifHCOutBroadcastPkts
-            && self.ifOutErrors == other.ifOutErrors
-            && self.ifOutDiscards == other.ifOutDiscards
-            && self.ifHCInUcastOctets == other.ifHCInUcastOctets
-            && self.ifHCInMulticastOctets == other.ifHCInMulticastOctets
-            && self.ifHCInBroadcastOctets == other.ifHCInBroadcastOctets
-            && self.ifHCOutUcastOctets == other.ifHCOutUcastOctets
-            && self.ifHCOutMulticastOctets == other.ifHCOutMulticastOctets
-            && self.ifHCOutBroadcastOctets == other.ifHCOutBroadcastOctets
-    }
-}
-impl Eq for NDIS_STATISTICS_INFO {}
 impl Default for NDIS_STATISTICS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE {
     pub Oid: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl Copy for NDIS_STATISTICS_VALUE {}
-impl Clone for NDIS_STATISTICS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_STATISTICS_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_STATISTICS_VALUE").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_STATISTICS_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_STATISTICS_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Oid == other.Oid && self.DataLength == other.DataLength && self.Data == other.Data
-    }
-}
-impl Eq for NDIS_STATISTICS_VALUE {}
 impl Default for NDIS_STATISTICS_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE_EX {
     pub Oid: u32,
     pub DataLength: u32,
     pub Length: u32,
     pub Data: [u8; 1],
 }
-impl Copy for NDIS_STATISTICS_VALUE_EX {}
-impl Clone for NDIS_STATISTICS_VALUE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_STATISTICS_VALUE_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_STATISTICS_VALUE_EX").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Length", &self.Length).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_STATISTICS_VALUE_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_STATISTICS_VALUE_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Oid == other.Oid && self.DataLength == other.DataLength && self.Length == other.Length && self.Data == other.Data
-    }
-}
-impl Eq for NDIS_STATISTICS_VALUE_EX {}
 impl Default for NDIS_STATISTICS_VALUE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -6610,192 +5036,90 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_TCP_CONNECTION_OFFLOAD {}
-impl Clone for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_CONNECTION_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_TCP_CONNECTION_OFFLOAD {}
 impl Default for NDIS_TCP_CONNECTION_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
     pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
     pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.IPv4Transmit == other.IPv4Transmit && self.IPv4Receive == other.IPv4Receive && self.IPv6Transmit == other.IPv6Transmit && self.IPv6Receive == other.IPv6Receive
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     pub Anonymous: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0,
-}
-impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     type TypeKind = windows_core::CopyType;
@@ -6806,16 +5130,11 @@ impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     pub Transmit: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1,
     pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0,
     pub Value: u32,
-}
-impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -6826,244 +5145,116 @@ impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {}
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     pub _bitfield: u32,
-}
-impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {}
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
-}
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IPv4 == other.IPv4
-    }
-}
-impl Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IPv4 == other.IPv4 && self.IPv6 == other.IPv6
-    }
-}
-impl Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount
-    }
-}
-impl Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub TimeoutArrayLength: u32,
     pub TimeoutArray: [u32; 1],
 }
-impl Copy for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
-impl Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES").field("Header", &self.Header).field("Flags", &self.Flags).field("TimeoutArrayLength", &self.TimeoutArrayLength).field("TimeoutArray", &self.TimeoutArray).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.TimeoutArrayLength == other.TimeoutArrayLength && self.TimeoutArray == other.TimeoutArray
-    }
-}
-impl Eq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
 impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7071,17 +5262,10 @@ impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct NDIS_TIMER {
     pub Timer: super::super::System::SystemServices::KTIMER,
     pub Dpc: super::super::Foundation::KDPC,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl Copy for NDIS_TIMER {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl Clone for NDIS_TIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for NDIS_TIMER {
@@ -7094,6 +5278,7 @@ impl Default for NDIS_TIMER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
@@ -7102,32 +5287,16 @@ pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
-impl Copy for NDIS_TIMESTAMP_CAPABILITIES {}
-impl Clone for NDIS_TIMESTAMP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TIMESTAMP_CAPABILITIES").field("Header", &self.Header).field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("CrossTimestamp", &self.CrossTimestamp).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("TimestampFlags", &self.TimestampFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz && self.CrossTimestamp == other.CrossTimestamp && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.TimestampFlags == other.TimestampFlags
-    }
-}
-impl Eq for NDIS_TIMESTAMP_CAPABILITIES {}
 impl Default for NDIS_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
@@ -7144,121 +5313,45 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub AllTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
     pub TaggedTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
-impl Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_TIMESTAMP_CAPABILITY_FLAGS")
-            .field("PtpV2OverUdpIPv4EventMsgReceiveHw", &self.PtpV2OverUdpIPv4EventMsgReceiveHw)
-            .field("PtpV2OverUdpIPv4AllMsgReceiveHw", &self.PtpV2OverUdpIPv4AllMsgReceiveHw)
-            .field("PtpV2OverUdpIPv4EventMsgTransmitHw", &self.PtpV2OverUdpIPv4EventMsgTransmitHw)
-            .field("PtpV2OverUdpIPv4AllMsgTransmitHw", &self.PtpV2OverUdpIPv4AllMsgTransmitHw)
-            .field("PtpV2OverUdpIPv6EventMsgReceiveHw", &self.PtpV2OverUdpIPv6EventMsgReceiveHw)
-            .field("PtpV2OverUdpIPv6AllMsgReceiveHw", &self.PtpV2OverUdpIPv6AllMsgReceiveHw)
-            .field("PtpV2OverUdpIPv6EventMsgTransmitHw", &self.PtpV2OverUdpIPv6EventMsgTransmitHw)
-            .field("PtpV2OverUdpIPv6AllMsgTransmitHw", &self.PtpV2OverUdpIPv6AllMsgTransmitHw)
-            .field("AllReceiveHw", &self.AllReceiveHw)
-            .field("AllTransmitHw", &self.AllTransmitHw)
-            .field("TaggedTransmitHw", &self.TaggedTransmitHw)
-            .field("AllReceiveSw", &self.AllReceiveSw)
-            .field("AllTransmitSw", &self.AllTransmitSw)
-            .field("TaggedTransmitSw", &self.TaggedTransmitSw)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PtpV2OverUdpIPv4EventMsgReceiveHw == other.PtpV2OverUdpIPv4EventMsgReceiveHw
-            && self.PtpV2OverUdpIPv4AllMsgReceiveHw == other.PtpV2OverUdpIPv4AllMsgReceiveHw
-            && self.PtpV2OverUdpIPv4EventMsgTransmitHw == other.PtpV2OverUdpIPv4EventMsgTransmitHw
-            && self.PtpV2OverUdpIPv4AllMsgTransmitHw == other.PtpV2OverUdpIPv4AllMsgTransmitHw
-            && self.PtpV2OverUdpIPv6EventMsgReceiveHw == other.PtpV2OverUdpIPv6EventMsgReceiveHw
-            && self.PtpV2OverUdpIPv6AllMsgReceiveHw == other.PtpV2OverUdpIPv6AllMsgReceiveHw
-            && self.PtpV2OverUdpIPv6EventMsgTransmitHw == other.PtpV2OverUdpIPv6EventMsgTransmitHw
-            && self.PtpV2OverUdpIPv6AllMsgTransmitHw == other.PtpV2OverUdpIPv6AllMsgTransmitHw
-            && self.AllReceiveHw == other.AllReceiveHw
-            && self.AllTransmitHw == other.AllTransmitHw
-            && self.TaggedTransmitHw == other.TaggedTransmitHw
-            && self.AllReceiveSw == other.AllReceiveSw
-            && self.AllTransmitSw == other.AllTransmitSw
-            && self.TaggedTransmitSw == other.TaggedTransmitSw
-    }
-}
-impl Eq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
 impl Default for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_VAR_DATA_DESC {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Offset: usize,
 }
-impl Copy for NDIS_VAR_DATA_DESC {}
-impl Clone for NDIS_VAR_DATA_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_VAR_DATA_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_VAR_DATA_DESC").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Offset", &self.Offset).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_VAR_DATA_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_VAR_DATA_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Offset == other.Offset
-    }
-}
-impl Eq for NDIS_VAR_DATA_DESC {}
 impl Default for NDIS_VAR_DATA_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_FRAGMENT {
     pub RemoteAddress: [u8; 6],
     pub LocalAddress: [u8; 6],
 }
-impl Copy for NDIS_WAN_FRAGMENT {}
-impl Clone for NDIS_WAN_FRAGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WAN_FRAGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WAN_FRAGMENT").field("RemoteAddress", &self.RemoteAddress).field("LocalAddress", &self.LocalAddress).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WAN_FRAGMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WAN_FRAGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.RemoteAddress == other.RemoteAddress && self.LocalAddress == other.LocalAddress
-    }
-}
-impl Eq for NDIS_WAN_FRAGMENT {}
 impl Default for NDIS_WAN_FRAGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_GET_STATS {
     pub LocalAddress: [u8; 6],
     pub BytesSent: u32,
@@ -7276,78 +5369,30 @@ pub struct NDIS_WAN_GET_STATS {
     pub BytesTransmittedCompressed: u32,
     pub BytesReceivedCompressed: u32,
 }
-impl Copy for NDIS_WAN_GET_STATS {}
-impl Clone for NDIS_WAN_GET_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WAN_GET_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WAN_GET_STATS")
-            .field("LocalAddress", &self.LocalAddress)
-            .field("BytesSent", &self.BytesSent)
-            .field("BytesRcvd", &self.BytesRcvd)
-            .field("FramesSent", &self.FramesSent)
-            .field("FramesRcvd", &self.FramesRcvd)
-            .field("CRCErrors", &self.CRCErrors)
-            .field("TimeoutErrors", &self.TimeoutErrors)
-            .field("AlignmentErrors", &self.AlignmentErrors)
-            .field("SerialOverrunErrors", &self.SerialOverrunErrors)
-            .field("FramingErrors", &self.FramingErrors)
-            .field("BufferOverrunErrors", &self.BufferOverrunErrors)
-            .field("BytesTransmittedUncompressed", &self.BytesTransmittedUncompressed)
-            .field("BytesReceivedUncompressed", &self.BytesReceivedUncompressed)
-            .field("BytesTransmittedCompressed", &self.BytesTransmittedCompressed)
-            .field("BytesReceivedCompressed", &self.BytesReceivedCompressed)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WAN_GET_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WAN_GET_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.LocalAddress == other.LocalAddress && self.BytesSent == other.BytesSent && self.BytesRcvd == other.BytesRcvd && self.FramesSent == other.FramesSent && self.FramesRcvd == other.FramesRcvd && self.CRCErrors == other.CRCErrors && self.TimeoutErrors == other.TimeoutErrors && self.AlignmentErrors == other.AlignmentErrors && self.SerialOverrunErrors == other.SerialOverrunErrors && self.FramingErrors == other.FramingErrors && self.BufferOverrunErrors == other.BufferOverrunErrors && self.BytesTransmittedUncompressed == other.BytesTransmittedUncompressed && self.BytesReceivedUncompressed == other.BytesReceivedUncompressed && self.BytesTransmittedCompressed == other.BytesTransmittedCompressed && self.BytesReceivedCompressed == other.BytesReceivedCompressed
-    }
-}
-impl Eq for NDIS_WAN_GET_STATS {}
 impl Default for NDIS_WAN_GET_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_LINE_DOWN {
     pub RemoteAddress: [u8; 6],
     pub LocalAddress: [u8; 6],
 }
-impl Copy for NDIS_WAN_LINE_DOWN {}
-impl Clone for NDIS_WAN_LINE_DOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WAN_LINE_DOWN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WAN_LINE_DOWN").field("RemoteAddress", &self.RemoteAddress).field("LocalAddress", &self.LocalAddress).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WAN_LINE_DOWN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WAN_LINE_DOWN {
-    fn eq(&self, other: &Self) -> bool {
-        self.RemoteAddress == other.RemoteAddress && self.LocalAddress == other.LocalAddress
-    }
-}
-impl Eq for NDIS_WAN_LINE_DOWN {}
 impl Default for NDIS_WAN_LINE_DOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_LINE_UP {
     pub LinkSpeed: u32,
     pub MaximumTotalSize: u32,
@@ -7360,62 +5405,30 @@ pub struct NDIS_WAN_LINE_UP {
     pub ProtocolType: u16,
     pub DeviceName: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for NDIS_WAN_LINE_UP {}
-impl Clone for NDIS_WAN_LINE_UP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WAN_LINE_UP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WAN_LINE_UP").field("LinkSpeed", &self.LinkSpeed).field("MaximumTotalSize", &self.MaximumTotalSize).field("Quality", &self.Quality).field("SendWindow", &self.SendWindow).field("RemoteAddress", &self.RemoteAddress).field("LocalAddress", &self.LocalAddress).field("ProtocolBufferLength", &self.ProtocolBufferLength).field("ProtocolBuffer", &self.ProtocolBuffer).field("ProtocolType", &self.ProtocolType).field("DeviceName", &self.DeviceName).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WAN_LINE_UP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WAN_LINE_UP {
-    fn eq(&self, other: &Self) -> bool {
-        self.LinkSpeed == other.LinkSpeed && self.MaximumTotalSize == other.MaximumTotalSize && self.Quality == other.Quality && self.SendWindow == other.SendWindow && self.RemoteAddress == other.RemoteAddress && self.LocalAddress == other.LocalAddress && self.ProtocolBufferLength == other.ProtocolBufferLength && self.ProtocolBuffer == other.ProtocolBuffer && self.ProtocolType == other.ProtocolType && self.DeviceName == other.DeviceName
-    }
-}
-impl Eq for NDIS_WAN_LINE_UP {}
 impl Default for NDIS_WAN_LINE_UP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_PROTOCOL_CAPS {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for NDIS_WAN_PROTOCOL_CAPS {}
-impl Clone for NDIS_WAN_PROTOCOL_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WAN_PROTOCOL_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WAN_PROTOCOL_CAPS").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WAN_PROTOCOL_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WAN_PROTOCOL_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reserved == other.Reserved
-    }
-}
-impl Eq for NDIS_WAN_PROTOCOL_CAPS {}
 impl Default for NDIS_WAN_PROTOCOL_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID {
     pub Length: u32,
     pub MacAddress: [u8; 6],
@@ -7428,32 +5441,16 @@ pub struct NDIS_WLAN_BSSID {
     pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
     pub SupportedRates: [u8; 8],
 }
-impl Copy for NDIS_WLAN_BSSID {}
-impl Clone for NDIS_WLAN_BSSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WLAN_BSSID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WLAN_BSSID").field("Length", &self.Length).field("MacAddress", &self.MacAddress).field("Reserved", &self.Reserved).field("Ssid", &self.Ssid).field("Privacy", &self.Privacy).field("Rssi", &self.Rssi).field("NetworkTypeInUse", &self.NetworkTypeInUse).field("Configuration", &self.Configuration).field("InfrastructureMode", &self.InfrastructureMode).field("SupportedRates", &self.SupportedRates).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WLAN_BSSID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WLAN_BSSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.MacAddress == other.MacAddress && self.Reserved == other.Reserved && self.Ssid == other.Ssid && self.Privacy == other.Privacy && self.Rssi == other.Rssi && self.NetworkTypeInUse == other.NetworkTypeInUse && self.Configuration == other.Configuration && self.InfrastructureMode == other.InfrastructureMode && self.SupportedRates == other.SupportedRates
-    }
-}
-impl Eq for NDIS_WLAN_BSSID {}
 impl Default for NDIS_WLAN_BSSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID_EX {
     pub Length: u32,
     pub MacAddress: [u8; 6],
@@ -7468,39 +5465,9 @@ pub struct NDIS_WLAN_BSSID_EX {
     pub IELength: u32,
     pub IEs: [u8; 1],
 }
-impl Copy for NDIS_WLAN_BSSID_EX {}
-impl Clone for NDIS_WLAN_BSSID_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WLAN_BSSID_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WLAN_BSSID_EX")
-            .field("Length", &self.Length)
-            .field("MacAddress", &self.MacAddress)
-            .field("Reserved", &self.Reserved)
-            .field("Ssid", &self.Ssid)
-            .field("Privacy", &self.Privacy)
-            .field("Rssi", &self.Rssi)
-            .field("NetworkTypeInUse", &self.NetworkTypeInUse)
-            .field("Configuration", &self.Configuration)
-            .field("InfrastructureMode", &self.InfrastructureMode)
-            .field("SupportedRates", &self.SupportedRates)
-            .field("IELength", &self.IELength)
-            .field("IEs", &self.IEs)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WLAN_BSSID_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WLAN_BSSID_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.MacAddress == other.MacAddress && self.Reserved == other.Reserved && self.Ssid == other.Ssid && self.Privacy == other.Privacy && self.Rssi == other.Rssi && self.NetworkTypeInUse == other.NetworkTypeInUse && self.Configuration == other.Configuration && self.InfrastructureMode == other.InfrastructureMode && self.SupportedRates == other.SupportedRates && self.IELength == other.IELength && self.IEs == other.IEs
-    }
-}
-impl Eq for NDIS_WLAN_BSSID_EX {}
 impl Default for NDIS_WLAN_BSSID_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7508,20 +5475,13 @@ impl Default for NDIS_WLAN_BSSID_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
     pub NetLuid: super::super::super::Win32::NetworkManagement::Ndis::NET_LUID_LH,
     pub DeviceNameLength: u16,
     pub DeviceName: [i8; 1],
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_WMI_ENUM_ADAPTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
@@ -7535,6 +5495,7 @@ impl Default for NDIS_WMI_ENUM_ADAPTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_EVENT_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
@@ -7544,14 +5505,6 @@ pub struct NDIS_WMI_EVENT_HEADER {
     pub DeviceNameLength: u32,
     pub DeviceNameOffset: u32,
     pub Padding: [u8; 4],
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_WMI_EVENT_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_WMI_EVENT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_WMI_EVENT_HEADER {
@@ -7564,37 +5517,22 @@ impl Default for NDIS_WMI_EVENT_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
     pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
     pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Supported == other.Supported && self.IPv4AH == other.IPv4AH && self.IPv4ESP == other.IPv4ESP
-    }
-}
-impl Eq for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Md5: u32,
     pub Sha_1: u32,
@@ -7603,32 +5541,16 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Send: u32,
     pub Receive: u32,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_0").field("Md5", &self.Md5).field("Sha_1", &self.Sha_1).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Md5 == other.Md5 && self.Sha_1 == other.Sha_1 && self.Transport == other.Transport && self.Tunnel == other.Tunnel && self.Send == other.Send && self.Receive == other.Receive
-    }
-}
-impl Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Des: u32,
     pub Reserved: u32,
@@ -7639,32 +5561,16 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Send: u32,
     pub Receive: u32,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_1").field("Des", &self.Des).field("Reserved", &self.Reserved).field("TripleDes", &self.TripleDes).field("NullEsp", &self.NullEsp).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Des == other.Des && self.Reserved == other.Reserved && self.TripleDes == other.TripleDes && self.NullEsp == other.NullEsp && self.Transport == other.Transport && self.Tunnel == other.Tunnel && self.Send == other.Send && self.Receive == other.Receive
-    }
-}
-impl Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -7672,26 +5578,9 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.AhEspCombined == other.AhEspCombined && self.TransportTunnelCombined == other.TransportTunnelCombined && self.IPv4Options == other.IPv4Options && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7699,6 +5588,7 @@ impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_METHOD_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -7706,14 +5596,6 @@ pub struct NDIS_WMI_METHOD_HEADER {
     pub RequestId: u64,
     pub Timeout: u32,
     pub Padding: [u8; 4],
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_WMI_METHOD_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_WMI_METHOD_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_WMI_METHOD_HEADER {
@@ -7726,6 +5608,7 @@ impl Default for NDIS_WMI_METHOD_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
@@ -7734,58 +5617,25 @@ pub struct NDIS_WMI_OFFLOAD {
     pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
-impl Copy for NDIS_WMI_OFFLOAD {}
-impl Clone for NDIS_WMI_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Checksum == other.Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2 == other.LsoV2 && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_WMI_OFFLOAD {}
 impl Default for NDIS_WMI_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_OUTPUT_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub SupportedRevision: u8,
     pub DataOffset: u32,
 }
-impl Copy for NDIS_WMI_OUTPUT_INFO {}
-impl Clone for NDIS_WMI_OUTPUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_OUTPUT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_OUTPUT_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("SupportedRevision", &self.SupportedRevision).field("DataOffset", &self.DataOffset).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_OUTPUT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_OUTPUT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Flags == other.Flags && self.SupportedRevision == other.SupportedRevision && self.DataOffset == other.DataOffset
-    }
-}
-impl Eq for NDIS_WMI_OUTPUT_INFO {}
 impl Default for NDIS_WMI_OUTPUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7793,6 +5643,7 @@ impl Default for NDIS_WMI_OUTPUT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_SET_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -7800,14 +5651,6 @@ pub struct NDIS_WMI_SET_HEADER {
     pub RequestId: u64,
     pub Timeout: u32,
     pub Padding: [u8; 4],
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for NDIS_WMI_SET_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for NDIS_WMI_SET_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for NDIS_WMI_SET_HEADER {
@@ -7820,6 +5663,7 @@ impl Default for NDIS_WMI_SET_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -7830,64 +5674,32 @@ pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
-impl Clone for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("SupportIPv4", &self.SupportIPv4).field("SupportIPv6", &self.SupportIPv6).field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders).field("SupportSack", &self.SupportSack).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Encapsulation == other.Encapsulation && self.SupportIPv4 == other.SupportIPv4 && self.SupportIPv6 == other.SupportIPv6 && self.SupportIPv6ExtensionHeaders == other.SupportIPv6ExtensionHeaders && self.SupportSack == other.SupportSack && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity && self.Flags == other.Flags
-    }
-}
-impl Eq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
 impl Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
     pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
     pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.IPv4Transmit == other.IPv4Transmit && self.IPv4Receive == other.IPv4Receive && self.IPv6Transmit == other.IPv6Transmit && self.IPv6Receive == other.IPv6Receive
-    }
-}
-impl Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -7896,32 +5708,16 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.IpOptionsSupported == other.IpOptionsSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum && self.IpChecksum == other.IpChecksum
-    }
-}
-impl Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -7930,32 +5726,16 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.IpOptionsSupported == other.IpOptionsSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum && self.IpChecksum == other.IpChecksum
-    }
-}
-impl Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -7963,32 +5743,16 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum
-    }
-}
-impl Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -7996,61 +5760,29 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum
-    }
-}
-impl Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
-}
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IPv4 == other.IPv4
-    }
-}
-impl Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -8058,93 +5790,45 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub TcpOptions: u32,
     pub IpOptions: u32,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("TcpOptions", &self.TcpOptions).field("IpOptions", &self.IpOptions).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self.TcpOptions == other.TcpOptions && self.IpOptions == other.IpOptions
-    }
-}
-impl Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IPv4 == other.IPv4 && self.IPv6 == other.IPv6
-    }
-}
-impl Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount
-    }
-}
-impl Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -8152,47 +5836,20 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported
-    }
-}
-impl Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct NDIS_WORK_ITEM {
     pub Context: *mut core::ffi::c_void,
     pub Routine: NDIS_PROC,
     pub WrapperReserved: [u8; 32],
-}
-impl Copy for NDIS_WORK_ITEM {}
-impl Clone for NDIS_WORK_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NDIS_WORK_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NDIS_WORK_ITEM").field("Context", &self.Context).field("WrapperReserved", &self.WrapperReserved).finish()
-    }
 }
 impl windows_core::TypeKind for NDIS_WORK_ITEM {
     type TypeKind = windows_core::CopyType;
@@ -8214,156 +5871,76 @@ impl windows_core::TypeKind for NDIS_WRAPPER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS {
     pub AddressLength: u16,
     pub AddressType: u16,
     pub Address: [u8; 1],
 }
-impl Copy for NETWORK_ADDRESS {}
-impl Clone for NETWORK_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETWORK_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS").field("AddressLength", &self.AddressLength).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for NETWORK_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETWORK_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressLength == other.AddressLength && self.AddressType == other.AddressType && self.Address == other.Address
-    }
-}
-impl Eq for NETWORK_ADDRESS {}
 impl Default for NETWORK_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP {
     pub sin_port: u16,
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
 }
-impl Copy for NETWORK_ADDRESS_IP {}
-impl Clone for NETWORK_ADDRESS_IP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETWORK_ADDRESS_IP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_IP").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
-    }
-}
 impl windows_core::TypeKind for NETWORK_ADDRESS_IP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETWORK_ADDRESS_IP {
-    fn eq(&self, other: &Self) -> bool {
-        self.sin_port == other.sin_port && self.IN_ADDR == other.IN_ADDR && self.sin_zero == other.sin_zero
-    }
-}
-impl Eq for NETWORK_ADDRESS_IP {}
 impl Default for NETWORK_ADDRESS_IP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP6 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
-impl Copy for NETWORK_ADDRESS_IP6 {}
-impl Clone for NETWORK_ADDRESS_IP6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETWORK_ADDRESS_IP6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_IP6").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
-    }
-}
 impl windows_core::TypeKind for NETWORK_ADDRESS_IP6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETWORK_ADDRESS_IP6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sin6_port == other.sin6_port && self.sin6_flowinfo == other.sin6_flowinfo && self.sin6_addr == other.sin6_addr && self.sin6_scope_id == other.sin6_scope_id
-    }
-}
-impl Eq for NETWORK_ADDRESS_IP6 {}
 impl Default for NETWORK_ADDRESS_IP6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IPX {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
     pub Socket: u16,
 }
-impl Copy for NETWORK_ADDRESS_IPX {}
-impl Clone for NETWORK_ADDRESS_IPX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETWORK_ADDRESS_IPX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_IPX").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
-    }
-}
 impl windows_core::TypeKind for NETWORK_ADDRESS_IPX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETWORK_ADDRESS_IPX {
-    fn eq(&self, other: &Self) -> bool {
-        self.NetworkAddress == other.NetworkAddress && self.NodeAddress == other.NodeAddress && self.Socket == other.Socket
-    }
-}
-impl Eq for NETWORK_ADDRESS_IPX {}
 impl Default for NETWORK_ADDRESS_IPX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_LIST {
     pub AddressCount: i32,
     pub AddressType: u16,
     pub Address: [NETWORK_ADDRESS; 1],
 }
-impl Copy for NETWORK_ADDRESS_LIST {}
-impl Clone for NETWORK_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETWORK_ADDRESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for NETWORK_ADDRESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETWORK_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressCount == other.AddressCount && self.AddressType == other.AddressType && self.Address == other.Address
-    }
-}
-impl Eq for NETWORK_ADDRESS_LIST {}
 impl Default for NETWORK_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8381,37 +5958,22 @@ impl windows_core::TypeKind for NULL_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_ALGO_INFO {
     pub algoIdentifier: u32,
     pub algoKeylen: u32,
     pub algoRounds: u32,
 }
-impl Copy for OFFLOAD_ALGO_INFO {}
-impl Clone for OFFLOAD_ALGO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_ALGO_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_ALGO_INFO").field("algoIdentifier", &self.algoIdentifier).field("algoKeylen", &self.algoKeylen).field("algoRounds", &self.algoRounds).finish()
-    }
-}
 impl windows_core::TypeKind for OFFLOAD_ALGO_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_ALGO_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.algoIdentifier == other.algoIdentifier && self.algoKeylen == other.algoKeylen && self.algoRounds == other.algoRounds
-    }
-}
-impl Eq for OFFLOAD_ALGO_INFO {}
 impl Default for OFFLOAD_ALGO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -8429,48 +5991,16 @@ pub struct OFFLOAD_IPSEC_ADD_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-impl Copy for OFFLOAD_IPSEC_ADD_SA {}
-impl Clone for OFFLOAD_IPSEC_ADD_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_IPSEC_ADD_SA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_ADD_SA")
-            .field("SrcAddr", &self.SrcAddr)
-            .field("SrcMask", &self.SrcMask)
-            .field("DestAddr", &self.DestAddr)
-            .field("DestMask", &self.DestMask)
-            .field("Protocol", &self.Protocol)
-            .field("SrcPort", &self.SrcPort)
-            .field("DestPort", &self.DestPort)
-            .field("SrcTunnelAddr", &self.SrcTunnelAddr)
-            .field("DestTunnelAddr", &self.DestTunnelAddr)
-            .field("Flags", &self.Flags)
-            .field("NumSAs", &self.NumSAs)
-            .field("SecAssoc", &self.SecAssoc)
-            .field("OffloadHandle", &self.OffloadHandle)
-            .field("KeyLen", &self.KeyLen)
-            .field("KeyMat", &self.KeyMat)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OFFLOAD_IPSEC_ADD_SA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_IPSEC_ADD_SA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DestAddr == other.DestAddr && self.DestMask == other.DestMask && self.Protocol == other.Protocol && self.SrcPort == other.SrcPort && self.DestPort == other.DestPort && self.SrcTunnelAddr == other.SrcTunnelAddr && self.DestTunnelAddr == other.DestTunnelAddr && self.Flags == other.Flags && self.NumSAs == other.NumSAs && self.SecAssoc == other.SecAssoc && self.OffloadHandle == other.OffloadHandle && self.KeyLen == other.KeyLen && self.KeyMat == other.KeyMat
-    }
-}
-impl Eq for OFFLOAD_IPSEC_ADD_SA {}
 impl Default for OFFLOAD_IPSEC_ADD_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -8490,139 +6020,57 @@ pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-impl Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
-impl Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_ADD_UDPESP_SA")
-            .field("SrcAddr", &self.SrcAddr)
-            .field("SrcMask", &self.SrcMask)
-            .field("DstAddr", &self.DstAddr)
-            .field("DstMask", &self.DstMask)
-            .field("Protocol", &self.Protocol)
-            .field("SrcPort", &self.SrcPort)
-            .field("DstPort", &self.DstPort)
-            .field("SrcTunnelAddr", &self.SrcTunnelAddr)
-            .field("DstTunnelAddr", &self.DstTunnelAddr)
-            .field("Flags", &self.Flags)
-            .field("NumSAs", &self.NumSAs)
-            .field("SecAssoc", &self.SecAssoc)
-            .field("OffloadHandle", &self.OffloadHandle)
-            .field("EncapTypeEntry", &self.EncapTypeEntry)
-            .field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle)
-            .field("KeyLen", &self.KeyLen)
-            .field("KeyMat", &self.KeyMat)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DstAddr == other.DstAddr && self.DstMask == other.DstMask && self.Protocol == other.Protocol && self.SrcPort == other.SrcPort && self.DstPort == other.DstPort && self.SrcTunnelAddr == other.SrcTunnelAddr && self.DstTunnelAddr == other.DstTunnelAddr && self.Flags == other.Flags && self.NumSAs == other.NumSAs && self.SecAssoc == other.SecAssoc && self.OffloadHandle == other.OffloadHandle && self.EncapTypeEntry == other.EncapTypeEntry && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle && self.KeyLen == other.KeyLen && self.KeyMat == other.KeyMat
-    }
-}
-impl Eq for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
 impl Default for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Copy for OFFLOAD_IPSEC_DELETE_SA {}
-impl Clone for OFFLOAD_IPSEC_DELETE_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_IPSEC_DELETE_SA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_DELETE_SA").field("OffloadHandle", &self.OffloadHandle).finish()
-    }
 }
 impl windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_SA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_IPSEC_DELETE_SA {
-    fn eq(&self, other: &Self) -> bool {
-        self.OffloadHandle == other.OffloadHandle
-    }
-}
-impl Eq for OFFLOAD_IPSEC_DELETE_SA {}
 impl Default for OFFLOAD_IPSEC_DELETE_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::super::super::Win32::Foundation::HANDLE,
     pub EncapTypeEntryOffldHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
-impl Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_DELETE_UDPESP_SA").field("OffloadHandle", &self.OffloadHandle).field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle).finish()
-    }
-}
 impl windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn eq(&self, other: &Self) -> bool {
-        self.OffloadHandle == other.OffloadHandle && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle
-    }
-}
-impl Eq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
 impl Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     pub UdpEncapType: UDP_ENCAP_TYPE,
     pub DstEncapPort: u16,
 }
-impl Copy for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
-impl Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY").field("UdpEncapType", &self.UdpEncapType).field("DstEncapPort", &self.DstEncapPort).finish()
-    }
-}
 impl windows_core::TypeKind for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.UdpEncapType == other.UdpEncapType && self.DstEncapPort == other.DstEncapPort
-    }
-}
-impl Eq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
 impl Default for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub Operation: OFFLOAD_OPERATION_E,
     pub SPI: u32,
@@ -8630,117 +6078,52 @@ pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub ConfAlgo: OFFLOAD_ALGO_INFO,
     pub Reserved: OFFLOAD_ALGO_INFO,
 }
-impl Copy for OFFLOAD_SECURITY_ASSOCIATION {}
-impl Clone for OFFLOAD_SECURITY_ASSOCIATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OFFLOAD_SECURITY_ASSOCIATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OFFLOAD_SECURITY_ASSOCIATION").field("Operation", &self.Operation).field("SPI", &self.SPI).field("IntegrityAlgo", &self.IntegrityAlgo).field("ConfAlgo", &self.ConfAlgo).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for OFFLOAD_SECURITY_ASSOCIATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Operation == other.Operation && self.SPI == other.SPI && self.IntegrityAlgo == other.IntegrityAlgo && self.ConfAlgo == other.ConfAlgo && self.Reserved == other.Reserved
-    }
-}
-impl Eq for OFFLOAD_SECURITY_ASSOCIATION {}
 impl Default for OFFLOAD_SECURITY_ASSOCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PMKID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub Flags: u32,
 }
-impl Copy for PMKID_CANDIDATE {}
-impl Clone for PMKID_CANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PMKID_CANDIDATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PMKID_CANDIDATE").field("BSSID", &self.BSSID).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for PMKID_CANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PMKID_CANDIDATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BSSID == other.BSSID && self.Flags == other.Flags
-    }
-}
-impl Eq for PMKID_CANDIDATE {}
 impl Default for PMKID_CANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFERENCE {
     pub SpinLock: usize,
     pub ReferenceCount: u16,
     pub Closing: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for REFERENCE {}
-impl Clone for REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REFERENCE").field("SpinLock", &self.SpinLock).field("ReferenceCount", &self.ReferenceCount).field("Closing", &self.Closing).finish()
-    }
-}
 impl windows_core::TypeKind for REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SpinLock == other.SpinLock && self.ReferenceCount == other.ReferenceCount && self.Closing == other.Closing
-    }
-}
-impl Eq for REFERENCE {}
 impl Default for REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSPORT_HEADER_OFFSET {
     pub ProtocolType: u16,
     pub HeaderOffset: u16,
 }
-impl Copy for TRANSPORT_HEADER_OFFSET {}
-impl Clone for TRANSPORT_HEADER_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSPORT_HEADER_OFFSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSPORT_HEADER_OFFSET").field("ProtocolType", &self.ProtocolType).field("HeaderOffset", &self.HeaderOffset).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSPORT_HEADER_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSPORT_HEADER_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProtocolType == other.ProtocolType && self.HeaderOffset == other.HeaderOffset
-    }
-}
-impl Eq for TRANSPORT_HEADER_OFFSET {}
 impl Default for TRANSPORT_HEADER_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8758,6 +6141,7 @@ impl windows_core::TypeKind for TR_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VAR_STRING {
     pub ulTotalSize: u32,
     pub ulNeededSize: u32,
@@ -8766,26 +6150,9 @@ pub struct VAR_STRING {
     pub ulStringSize: u32,
     pub ulStringOffset: u32,
 }
-impl Copy for VAR_STRING {}
-impl Clone for VAR_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VAR_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VAR_STRING").field("ulTotalSize", &self.ulTotalSize).field("ulNeededSize", &self.ulNeededSize).field("ulUsedSize", &self.ulUsedSize).field("ulStringFormat", &self.ulStringFormat).field("ulStringSize", &self.ulStringSize).field("ulStringOffset", &self.ulStringOffset).finish()
-    }
-}
 impl windows_core::TypeKind for VAR_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VAR_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulTotalSize == other.ulTotalSize && self.ulNeededSize == other.ulNeededSize && self.ulUsedSize == other.ulUsedSize && self.ulStringFormat == other.ulStringFormat && self.ulStringSize == other.ulStringSize && self.ulStringOffset == other.ulStringOffset
-    }
-}
-impl Eq for VAR_STRING {}
 impl Default for VAR_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

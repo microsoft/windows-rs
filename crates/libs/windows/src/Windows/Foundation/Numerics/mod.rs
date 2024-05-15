@@ -1,4 +1,5 @@
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Matrix3x2 {
     pub M11: f32,
     pub M12: f32,
@@ -7,35 +8,19 @@ pub struct Matrix3x2 {
     pub M31: f32,
     pub M32: f32,
 }
-impl Copy for Matrix3x2 {}
-impl Clone for Matrix3x2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Matrix3x2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Matrix3x2").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
-    }
-}
 impl windows_core::TypeKind for Matrix3x2 {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for Matrix3x2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
 }
-impl PartialEq for Matrix3x2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.M11 == other.M11 && self.M12 == other.M12 && self.M21 == other.M21 && self.M22 == other.M22 && self.M31 == other.M31 && self.M32 == other.M32
-    }
-}
-impl Eq for Matrix3x2 {}
 impl Default for Matrix3x2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Matrix4x4 {
     pub M11: f32,
     pub M12: f32,
@@ -54,49 +39,22 @@ pub struct Matrix4x4 {
     pub M43: f32,
     pub M44: f32,
 }
-impl Copy for Matrix4x4 {}
-impl Clone for Matrix4x4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Matrix4x4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Matrix4x4").field("M11", &self.M11).field("M12", &self.M12).field("M13", &self.M13).field("M14", &self.M14).field("M21", &self.M21).field("M22", &self.M22).field("M23", &self.M23).field("M24", &self.M24).field("M31", &self.M31).field("M32", &self.M32).field("M33", &self.M33).field("M34", &self.M34).field("M41", &self.M41).field("M42", &self.M42).field("M43", &self.M43).field("M44", &self.M44).finish()
-    }
-}
 impl windows_core::TypeKind for Matrix4x4 {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for Matrix4x4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
 }
-impl PartialEq for Matrix4x4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.M11 == other.M11 && self.M12 == other.M12 && self.M13 == other.M13 && self.M14 == other.M14 && self.M21 == other.M21 && self.M22 == other.M22 && self.M23 == other.M23 && self.M24 == other.M24 && self.M31 == other.M31 && self.M32 == other.M32 && self.M33 == other.M33 && self.M34 == other.M34 && self.M41 == other.M41 && self.M42 == other.M42 && self.M43 == other.M43 && self.M44 == other.M44
-    }
-}
-impl Eq for Matrix4x4 {}
 impl Default for Matrix4x4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Plane {
     pub Normal: Vector3,
     pub D: f32,
-}
-impl Copy for Plane {}
-impl Clone for Plane {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Plane {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Plane").field("Normal", &self.Normal).field("D", &self.D).finish()
-    }
 }
 impl windows_core::TypeKind for Plane {
     type TypeKind = windows_core::CopyType;
@@ -104,34 +62,18 @@ impl windows_core::TypeKind for Plane {
 impl windows_core::RuntimeType for Plane {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
-impl PartialEq for Plane {
-    fn eq(&self, other: &Self) -> bool {
-        self.Normal == other.Normal && self.D == other.D
-    }
-}
-impl Eq for Plane {}
 impl Default for Plane {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Quaternion {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
     pub W: f32,
-}
-impl Copy for Quaternion {}
-impl Clone for Quaternion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Quaternion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Quaternion").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
-    }
 }
 impl windows_core::TypeKind for Quaternion {
     type TypeKind = windows_core::CopyType;
@@ -139,32 +81,16 @@ impl windows_core::TypeKind for Quaternion {
 impl windows_core::RuntimeType for Quaternion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
 }
-impl PartialEq for Quaternion {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
-    }
-}
-impl Eq for Quaternion {}
 impl Default for Quaternion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Rational {
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Copy for Rational {}
-impl Clone for Rational {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Rational {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Rational").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
-    }
 }
 impl windows_core::TypeKind for Rational {
     type TypeKind = windows_core::CopyType;
@@ -172,32 +98,16 @@ impl windows_core::TypeKind for Rational {
 impl windows_core::RuntimeType for Rational {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
 }
-impl PartialEq for Rational {
-    fn eq(&self, other: &Self) -> bool {
-        self.Numerator == other.Numerator && self.Denominator == other.Denominator
-    }
-}
-impl Eq for Rational {}
 impl Default for Rational {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Vector2 {
     pub X: f32,
     pub Y: f32,
-}
-impl Copy for Vector2 {}
-impl Clone for Vector2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Vector2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Vector2").field("X", &self.X).field("Y", &self.Y).finish()
-    }
 }
 impl windows_core::TypeKind for Vector2 {
     type TypeKind = windows_core::CopyType;
@@ -205,33 +115,17 @@ impl windows_core::TypeKind for Vector2 {
 impl windows_core::RuntimeType for Vector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
 }
-impl PartialEq for Vector2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl Eq for Vector2 {}
 impl Default for Vector2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Vector3 {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
-}
-impl Copy for Vector3 {}
-impl Clone for Vector3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Vector3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Vector3").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
 }
 impl windows_core::TypeKind for Vector3 {
     type TypeKind = windows_core::CopyType;
@@ -239,34 +133,18 @@ impl windows_core::TypeKind for Vector3 {
 impl windows_core::RuntimeType for Vector3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
 }
-impl PartialEq for Vector3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl Eq for Vector3 {}
 impl Default for Vector3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Vector4 {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
     pub W: f32,
-}
-impl Copy for Vector4 {}
-impl Clone for Vector4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Vector4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Vector4").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
-    }
 }
 impl windows_core::TypeKind for Vector4 {
     type TypeKind = windows_core::CopyType;
@@ -274,12 +152,6 @@ impl windows_core::TypeKind for Vector4 {
 impl windows_core::RuntimeType for Vector4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
 }
-impl PartialEq for Vector4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
-    }
-}
-impl Eq for Vector4 {}
 impl Default for Vector4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

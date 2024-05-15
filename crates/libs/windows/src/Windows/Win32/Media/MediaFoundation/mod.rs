@@ -26778,6 +26778,7 @@ impl core::fmt::Debug for eVideoEncoderDisplayContentType {
 pub const AACMFTEncoder: windows_core::GUID = windows_core::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);
 pub const ALawCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -26794,35 +26795,19 @@ impl Clone for AM_MEDIA_TYPE {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AM_MEDIA_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
-    }
-}
 impl windows_core::TypeKind for AM_MEDIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AM_MEDIA_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
-    }
-}
-impl Eq for AM_MEDIA_TYPE {}
 impl Default for AM_MEDIA_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ASF_FLAT_PICTURE {
     pub bPictureType: u8,
     pub dwDataLen: u32,
-}
-impl Copy for ASF_FLAT_PICTURE {}
-impl Clone for ASF_FLAT_PICTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ASF_FLAT_PICTURE {
     type TypeKind = windows_core::CopyType;
@@ -26833,16 +26818,11 @@ impl Default for ASF_FLAT_PICTURE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ASF_FLAT_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
     pub dwLyricsLen: u32,
-}
-impl Copy for ASF_FLAT_SYNCHRONISED_LYRICS {}
-impl Clone for ASF_FLAT_SYNCHRONISED_LYRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ASF_FLAT_SYNCHRONISED_LYRICS {
     type TypeKind = windows_core::CopyType;
@@ -26853,98 +26833,51 @@ impl Default for ASF_FLAT_SYNCHRONISED_LYRICS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ASF_INDEX_DESCRIPTOR {
     pub Identifier: ASF_INDEX_IDENTIFIER,
     pub cPerEntryBytes: u16,
     pub szDescription: [u16; 32],
     pub dwInterval: u32,
 }
-impl Copy for ASF_INDEX_DESCRIPTOR {}
-impl Clone for ASF_INDEX_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ASF_INDEX_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ASF_INDEX_DESCRIPTOR").field("Identifier", &self.Identifier).field("cPerEntryBytes", &self.cPerEntryBytes).field("szDescription", &self.szDescription).field("dwInterval", &self.dwInterval).finish()
-    }
-}
 impl windows_core::TypeKind for ASF_INDEX_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ASF_INDEX_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Identifier == other.Identifier && self.cPerEntryBytes == other.cPerEntryBytes && self.szDescription == other.szDescription && self.dwInterval == other.dwInterval
-    }
-}
-impl Eq for ASF_INDEX_DESCRIPTOR {}
 impl Default for ASF_INDEX_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ASF_INDEX_IDENTIFIER {
     pub guidIndexType: windows_core::GUID,
     pub wStreamNumber: u16,
 }
-impl Copy for ASF_INDEX_IDENTIFIER {}
-impl Clone for ASF_INDEX_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ASF_INDEX_IDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ASF_INDEX_IDENTIFIER").field("guidIndexType", &self.guidIndexType).field("wStreamNumber", &self.wStreamNumber).finish()
-    }
-}
 impl windows_core::TypeKind for ASF_INDEX_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ASF_INDEX_IDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidIndexType == other.guidIndexType && self.wStreamNumber == other.wStreamNumber
-    }
-}
-impl Eq for ASF_INDEX_IDENTIFIER {}
 impl Default for ASF_INDEX_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ASF_MUX_STATISTICS {
     pub cFramesWritten: u32,
     pub cFramesDropped: u32,
 }
-impl Copy for ASF_MUX_STATISTICS {}
-impl Clone for ASF_MUX_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ASF_MUX_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ASF_MUX_STATISTICS").field("cFramesWritten", &self.cFramesWritten).field("cFramesDropped", &self.cFramesDropped).finish()
-    }
-}
 impl windows_core::TypeKind for ASF_MUX_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ASF_MUX_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cFramesWritten == other.cFramesWritten && self.cFramesDropped == other.cFramesDropped
-    }
-}
-impl Eq for ASF_MUX_STATISTICS {}
 impl Default for ASF_MUX_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AecQualityMetrics_Struct {
     pub i64Timestamp: i64,
     pub ConvergenceFlag: u8,
@@ -26966,64 +26899,9 @@ pub struct AecQualityMetrics_Struct {
     pub fAvgERLE: f32,
     pub dwReserved: u32,
 }
-impl Copy for AecQualityMetrics_Struct {}
-impl Clone for AecQualityMetrics_Struct {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AecQualityMetrics_Struct {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AecQualityMetrics_Struct")
-            .field("i64Timestamp", &self.i64Timestamp)
-            .field("ConvergenceFlag", &self.ConvergenceFlag)
-            .field("MicClippedFlag", &self.MicClippedFlag)
-            .field("MicSilenceFlag", &self.MicSilenceFlag)
-            .field("PstvFeadbackFlag", &self.PstvFeadbackFlag)
-            .field("SpkClippedFlag", &self.SpkClippedFlag)
-            .field("SpkMuteFlag", &self.SpkMuteFlag)
-            .field("GlitchFlag", &self.GlitchFlag)
-            .field("DoubleTalkFlag", &self.DoubleTalkFlag)
-            .field("uGlitchCount", &self.uGlitchCount)
-            .field("uMicClipCount", &self.uMicClipCount)
-            .field("fDuration", &self.fDuration)
-            .field("fTSVariance", &self.fTSVariance)
-            .field("fTSDriftRate", &self.fTSDriftRate)
-            .field("fVoiceLevel", &self.fVoiceLevel)
-            .field("fNoiseLevel", &self.fNoiseLevel)
-            .field("fERLE", &self.fERLE)
-            .field("fAvgERLE", &self.fAvgERLE)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for AecQualityMetrics_Struct {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AecQualityMetrics_Struct {
-    fn eq(&self, other: &Self) -> bool {
-        self.i64Timestamp == other.i64Timestamp
-            && self.ConvergenceFlag == other.ConvergenceFlag
-            && self.MicClippedFlag == other.MicClippedFlag
-            && self.MicSilenceFlag == other.MicSilenceFlag
-            && self.PstvFeadbackFlag == other.PstvFeadbackFlag
-            && self.SpkClippedFlag == other.SpkClippedFlag
-            && self.SpkMuteFlag == other.SpkMuteFlag
-            && self.GlitchFlag == other.GlitchFlag
-            && self.DoubleTalkFlag == other.DoubleTalkFlag
-            && self.uGlitchCount == other.uGlitchCount
-            && self.uMicClipCount == other.uMicClipCount
-            && self.fDuration == other.fDuration
-            && self.fTSVariance == other.fTSVariance
-            && self.fTSDriftRate == other.fTSDriftRate
-            && self.fVoiceLevel == other.fVoiceLevel
-            && self.fNoiseLevel == other.fNoiseLevel
-            && self.fERLE == other.fERLE
-            && self.fAvgERLE == other.fAvgERLE
-            && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for AecQualityMetrics_Struct {}
 impl Default for AecQualityMetrics_Struct {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -27432,60 +27310,28 @@ pub const CWVC1EncMediaObject: windows_core::GUID = windows_core::GUID::from_u12
 pub const CZuneAACCCDecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a);
 pub const CZuneM4S2DecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CodecAPIEventData {
     pub guid: windows_core::GUID,
     pub dataLength: u32,
     pub reserved: [u32; 3],
 }
-impl Copy for CodecAPIEventData {}
-impl Clone for CodecAPIEventData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CodecAPIEventData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CodecAPIEventData").field("guid", &self.guid).field("dataLength", &self.dataLength).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for CodecAPIEventData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CodecAPIEventData {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.dataLength == other.dataLength && self.reserved == other.reserved
-    }
-}
-impl Eq for CodecAPIEventData {}
 impl Default for CodecAPIEventData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     pub IOCoherent: super::super::Foundation::BOOL,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE").field("IOCoherent", &self.IOCoherent).finish()
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.IOCoherent == other.IOCoherent
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -27493,37 +27339,16 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE").field("VideoDecoderHeapDesc", &self.VideoDecoderHeapDesc).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.VideoDecoderHeapDesc == other.VideoDecoderHeapDesc && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     fn default() -> Self {
@@ -27532,6 +27357,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub Protected: super::super::Foundation::BOOL,
@@ -27539,31 +27365,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub MemoryPoolL1Size: u64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1").field("VideoDecoderHeapDesc", &self.VideoDecoderHeapDesc).field("Protected", &self.Protected).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VideoDecoderHeapDesc == other.VideoDecoderHeapDesc && self.Protected == other.Protected && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     fn default() -> Self {
@@ -27572,6 +27376,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -27583,31 +27388,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("DecodeSample", &self.DecodeSample).field("OutputFormat", &self.OutputFormat).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("SupportFlags", &self.SupportFlags).field("ScaleSupport", &self.ScaleSupport).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.DecodeSample == other.DecodeSample && self.OutputFormat == other.OutputFormat && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate && self.SupportFlags == other.SupportFlags && self.ScaleSupport == other.ScaleSupport
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     fn default() -> Self {
@@ -27616,6 +27399,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -27623,31 +27407,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     pub pOutputFormats: *mut super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("FormatCount", &self.FormatCount).field("pOutputFormats", &self.pOutputFormats).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.FormatCount == other.FormatCount && self.pOutputFormats == other.pOutputFormats
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     fn default() -> Self {
@@ -27655,31 +27417,15 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
     pub FormatCount: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("FormatCount", &self.FormatCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.FormatCount == other.FormatCount
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -27687,6 +27433,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub NodeIndex: u32,
     pub DecodeProfile: windows_core::GUID,
@@ -27698,31 +27445,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub CounterBitDepth: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM").field("NodeIndex", &self.NodeIndex).field("DecodeProfile", &self.DecodeProfile).field("Width", &self.Width).field("Height", &self.Height).field("DecodeFormat", &self.DecodeFormat).field("Components", &self.Components).field("BinCount", &self.BinCount).field("CounterBitDepth", &self.CounterBitDepth).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.DecodeProfile == other.DecodeProfile && self.Width == other.Width && self.Height == other.Height && self.DecodeFormat == other.DecodeFormat && self.Components == other.Components && self.BinCount == other.BinCount && self.CounterBitDepth == other.CounterBitDepth
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     fn default() -> Self {
@@ -27730,92 +27455,44 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
     pub pProfiles: *mut windows_core::GUID,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES").field("NodeIndex", &self.NodeIndex).field("ProfileCount", &self.ProfileCount).field("pProfiles", &self.pProfiles).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.ProfileCount == other.ProfileCount && self.pProfiles == other.pProfiles
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT").field("NodeIndex", &self.NodeIndex).field("ProfileCount", &self.ProfileCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.ProfileCount == other.ProfileCount
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("SupportFlags", &self.SupportFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.SupportFlags == other.SupportFlags
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -27823,6 +27500,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -27836,31 +27514,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub DecodeTier: D3D12_VIDEO_DECODE_TIER,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("Width", &self.Width).field("Height", &self.Height).field("DecodeFormat", &self.DecodeFormat).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("SupportFlags", &self.SupportFlags).field("ConfigurationFlags", &self.ConfigurationFlags).field("DecodeTier", &self.DecodeTier).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.Width == other.Width && self.Height == other.Height && self.DecodeFormat == other.DecodeFormat && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate && self.SupportFlags == other.SupportFlags && self.ConfigurationFlags == other.ConfigurationFlags && self.DecodeTier == other.DecodeTier
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     fn default() -> Self {
@@ -27868,49 +27524,28 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub IsSupported: super::super::Foundation::BOOL,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("IsSupported", &self.IsSupported).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.IsSupported == other.IsSupported
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
     pub IsSupported: super::super::Foundation::BOOL,
     pub CodecSupportLimits: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type TypeKind = windows_core::CopyType;
@@ -27921,18 +27556,13 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
     pub IsSupported: super::super::Foundation::BOOL,
     pub PictureSupport: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     type TypeKind = windows_core::CopyType;
@@ -27943,6 +27573,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT 
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -27953,12 +27584,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
     pub CodecSupport: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
     pub IsSupported: super::super::Foundation::BOOL,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
@@ -27968,6 +27593,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG 
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -27975,12 +27601,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
     pub SubregionMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
     pub IsSupported: super::super::Foundation::BOOL,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     type TypeKind = windows_core::CopyType;
@@ -27991,17 +27611,12 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
     pub IsSupported: super::super::Foundation::BOOL,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     type TypeKind = windows_core::CopyType;
@@ -28013,20 +27628,13 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub IsSupported: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
@@ -28039,6 +27647,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -28046,12 +27655,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
     pub IntraRefreshMode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub IsSupported: super::super::Foundation::BOOL,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type TypeKind = windows_core::CopyType;
@@ -28062,6 +27665,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -28073,73 +27677,31 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     pub ResolutionHeightMultipleRequirement: u32,
     pub pResolutionRatios: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("Codec", &self.Codec)
-            .field("ResolutionRatiosCount", &self.ResolutionRatiosCount)
-            .field("IsSupported", &self.IsSupported)
-            .field("MinResolutionSupported", &self.MinResolutionSupported)
-            .field("MaxResolutionSupported", &self.MaxResolutionSupported)
-            .field("ResolutionWidthMultipleRequirement", &self.ResolutionWidthMultipleRequirement)
-            .field("ResolutionHeightMultipleRequirement", &self.ResolutionHeightMultipleRequirement)
-            .field("pResolutionRatios", &self.pResolutionRatios)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.ResolutionRatiosCount == other.ResolutionRatiosCount && self.IsSupported == other.IsSupported && self.MinResolutionSupported == other.MinResolutionSupported && self.MaxResolutionSupported == other.MaxResolutionSupported && self.ResolutionWidthMultipleRequirement == other.ResolutionWidthMultipleRequirement && self.ResolutionHeightMultipleRequirement == other.ResolutionHeightMultipleRequirement && self.pResolutionRatios == other.pResolutionRatios
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub ResolutionRatiosCount: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("ResolutionRatiosCount", &self.ResolutionRatiosCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.ResolutionRatiosCount == other.ResolutionRatiosCount
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -28147,12 +27709,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     pub IsSupported: super::super::Foundation::BOOL,
     pub MinSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
     pub MaxSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-}
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     type TypeKind = windows_core::CopyType;
@@ -28163,64 +27719,32 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub RateControlMode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
     pub IsSupported: super::super::Foundation::BOOL,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("RateControlMode", &self.RateControlMode).field("IsSupported", &self.IsSupported).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.RateControlMode == other.RateControlMode && self.IsSupported == other.IsSupported
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
     pub SubregionBlockPixelsSize: u32,
     pub QPMapRegionPixelsSize: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS").field("MaxSubregionsNumber", &self.MaxSubregionsNumber).field("MaxIntraRefreshFrameDuration", &self.MaxIntraRefreshFrameDuration).field("SubregionBlockPixelsSize", &self.SubregionBlockPixelsSize).field("QPMapRegionPixelsSize", &self.QPMapRegionPixelsSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxSubregionsNumber == other.MaxSubregionsNumber && self.MaxIntraRefreshFrameDuration == other.MaxIntraRefreshFrameDuration && self.SubregionBlockPixelsSize == other.SubregionBlockPixelsSize && self.QPMapRegionPixelsSize == other.QPMapRegionPixelsSize
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -28228,6 +27752,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -28238,14 +27763,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     pub CompressedBitstreamBufferAccessAlignment: u32,
     pub EncoderMetadataBufferAccessAlignment: u32,
     pub MaxEncoderOutputMetadataBufferSize: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
@@ -28259,6 +27776,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -28278,14 +27796,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     pub pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
@@ -28297,6 +27807,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -28318,14 +27829,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
     pub MaxQualityVsSpeed: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
     type TypeKind = windows_core::CopyType;
 }
@@ -28337,37 +27840,16 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     pub NodeIndex: u32,
     pub CommandCount: u32,
     pub pCommandInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_INFO,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS").field("NodeIndex", &self.NodeIndex).field("CommandCount", &self.CommandCount).field("pCommandInfos", &self.pCommandInfos).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.CommandCount == other.CommandCount && self.pCommandInfos == other.pCommandInfos
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     fn default() -> Self {
@@ -28375,100 +27857,53 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     pub NodeIndex: u32,
     pub CommandCount: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT").field("NodeIndex", &self.NodeIndex).field("CommandCount", &self.CommandCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.CommandCount == other.CommandCount
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
     pub ParameterCount: u32,
     pub pParameterInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS").field("CommandId", &self.CommandId).field("Stage", &self.Stage).field("ParameterCount", &self.ParameterCount).field("pParameterInfos", &self.pParameterInfos).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.CommandId == other.CommandId && self.Stage == other.Stage && self.ParameterCount == other.ParameterCount && self.pParameterInfos == other.pParameterInfos
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
     pub ParameterCount: u32,
     pub ParameterPacking: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT").field("CommandId", &self.CommandId).field("Stage", &self.Stage).field("ParameterCount", &self.ParameterCount).field("ParameterPacking", &self.ParameterPacking).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
-    fn eq(&self, other: &Self) -> bool {
-        self.CommandId == other.CommandId && self.Stage == other.Stage && self.ParameterCount == other.ParameterCount && self.ParameterPacking == other.ParameterPacking
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     pub NodeIndex: u32,
     pub CommandId: windows_core::GUID,
@@ -28477,32 +27912,16 @@ pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE").field("NodeIndex", &self.NodeIndex).field("CommandId", &self.CommandId).field("pCreationParameters", &self.pCreationParameters).field("CreationParametersSizeInBytes", &self.CreationParametersSizeInBytes).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.CommandId == other.CommandId && self.pCreationParameters == other.pCreationParameters && self.CreationParametersSizeInBytes == other.CreationParametersSizeInBytes && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     pub NodeIndex: u32,
     pub CommandId: windows_core::GUID,
@@ -28511,58 +27930,25 @@ pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     pub pOutputData: *mut core::ffi::c_void,
     pub OutputDataSizeInBytes: usize,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT").field("NodeIndex", &self.NodeIndex).field("CommandId", &self.CommandId).field("pInputData", &self.pInputData).field("InputDataSizeInBytes", &self.InputDataSizeInBytes).field("pOutputData", &self.pOutputData).field("OutputDataSizeInBytes", &self.OutputDataSizeInBytes).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.CommandId == other.CommandId && self.pInputData == other.pInputData && self.InputDataSizeInBytes == other.InputDataSizeInBytes && self.pOutputData == other.pOutputData && self.OutputDataSizeInBytes == other.OutputDataSizeInBytes
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     pub NodeIndex: u32,
     pub VideoDecodeSupport: super::super::Foundation::BOOL,
     pub VideoProcessSupport: super::super::Foundation::BOOL,
     pub VideoEncodeSupport: super::super::Foundation::BOOL,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT").field("NodeIndex", &self.NodeIndex).field("VideoDecodeSupport", &self.VideoDecodeSupport).field("VideoProcessSupport", &self.VideoProcessSupport).field("VideoEncodeSupport", &self.VideoEncodeSupport).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.VideoDecodeSupport == other.VideoDecodeSupport && self.VideoProcessSupport == other.VideoProcessSupport && self.VideoEncodeSupport == other.VideoEncodeSupport
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -28570,6 +27956,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub NodeIndex: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -28578,31 +27965,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR").field("NodeIndex", &self.NodeIndex).field("InputFormat", &self.InputFormat).field("BlockSizeFlags", &self.BlockSizeFlags).field("PrecisionFlags", &self.PrecisionFlags).field("SizeRange", &self.SizeRange).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.InputFormat == other.InputFormat && self.BlockSizeFlags == other.BlockSizeFlags && self.PrecisionFlags == other.PrecisionFlags && self.SizeRange == other.SizeRange
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     fn default() -> Self {
@@ -28610,30 +27975,14 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES").field("NodeIndex", &self.NodeIndex).field("SupportFlags", &self.SupportFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.SupportFlags == other.SupportFlags
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -28641,6 +27990,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub NodeIndex: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -28654,42 +28004,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub MotionEstimatorMemoryPoolL1Size: u64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("InputFormat", &self.InputFormat)
-            .field("BlockSize", &self.BlockSize)
-            .field("Precision", &self.Precision)
-            .field("SizeRange", &self.SizeRange)
-            .field("Protected", &self.Protected)
-            .field("MotionVectorHeapMemoryPoolL0Size", &self.MotionVectorHeapMemoryPoolL0Size)
-            .field("MotionVectorHeapMemoryPoolL1Size", &self.MotionVectorHeapMemoryPoolL1Size)
-            .field("MotionEstimatorMemoryPoolL0Size", &self.MotionEstimatorMemoryPoolL0Size)
-            .field("MotionEstimatorMemoryPoolL1Size", &self.MotionEstimatorMemoryPoolL1Size)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange && self.Protected == other.Protected && self.MotionVectorHeapMemoryPoolL0Size == other.MotionVectorHeapMemoryPoolL0Size && self.MotionVectorHeapMemoryPoolL1Size == other.MotionVectorHeapMemoryPoolL1Size && self.MotionEstimatorMemoryPoolL0Size == other.MotionEstimatorMemoryPoolL0Size && self.MotionEstimatorMemoryPoolL1Size == other.MotionEstimatorMemoryPoolL1Size
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     fn default() -> Self {
@@ -28698,6 +28015,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub NodeMask: u32,
     pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
@@ -28707,31 +28025,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub MemoryPoolL1Size: u64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE").field("NodeMask", &self.NodeMask).field("pOutputStreamDesc", &self.pOutputStreamDesc).field("NumInputStreamDescs", &self.NumInputStreamDescs).field("pInputStreamDescs", &self.pInputStreamDescs).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.pOutputStreamDesc == other.pOutputStreamDesc && self.NumInputStreamDescs == other.NumInputStreamDescs && self.pInputStreamDescs == other.pInputStreamDescs && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     fn default() -> Self {
@@ -28740,6 +28036,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub NodeMask: u32,
     pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
@@ -28750,31 +28047,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub MemoryPoolL1Size: u64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1").field("NodeMask", &self.NodeMask).field("pOutputStreamDesc", &self.pOutputStreamDesc).field("NumInputStreamDescs", &self.NumInputStreamDescs).field("pInputStreamDescs", &self.pInputStreamDescs).field("Protected", &self.Protected).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.pOutputStreamDesc == other.pOutputStreamDesc && self.NumInputStreamDescs == other.NumInputStreamDescs && self.pInputStreamDescs == other.pInputStreamDescs && self.Protected == other.Protected && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     fn default() -> Self {
@@ -28782,60 +28057,28 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     pub NodeIndex: u32,
     pub MaxInputStreams: u32,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS").field("NodeIndex", &self.NodeIndex).field("MaxInputStreams", &self.MaxInputStreams).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.MaxInputStreams == other.MaxInputStreams
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
-impl Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {}
-impl Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES").field("NodeIndex", &self.NodeIndex).field("SupportFlags", &self.SupportFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.SupportFlags == other.SupportFlags
-    }
-}
-impl Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {}
 impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -28843,6 +28086,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub NodeIndex: u32,
     pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
@@ -28855,31 +28099,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub FutureFrames: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO").field("NodeIndex", &self.NodeIndex).field("DeinterlaceMode", &self.DeinterlaceMode).field("Filters", &self.Filters).field("FeatureSupport", &self.FeatureSupport).field("InputFrameRate", &self.InputFrameRate).field("OutputFrameRate", &self.OutputFrameRate).field("EnableAutoProcessing", &self.EnableAutoProcessing).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.DeinterlaceMode == other.DeinterlaceMode && self.Filters == other.Filters && self.FeatureSupport == other.FeatureSupport && self.InputFrameRate == other.InputFrameRate && self.OutputFrameRate == other.OutputFrameRate && self.EnableAutoProcessing == other.EnableAutoProcessing && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     fn default() -> Self {
@@ -28888,6 +28110,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     pub NodeIndex: u32,
     pub InputSample: D3D12_VIDEO_SAMPLE,
@@ -28906,47 +28129,9 @@ pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     pub FilterRangeSupport: [D3D12_VIDEO_PROCESS_FILTER_RANGE; 32],
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("InputSample", &self.InputSample)
-            .field("InputFieldType", &self.InputFieldType)
-            .field("InputStereoFormat", &self.InputStereoFormat)
-            .field("InputFrameRate", &self.InputFrameRate)
-            .field("OutputFormat", &self.OutputFormat)
-            .field("OutputStereoFormat", &self.OutputStereoFormat)
-            .field("OutputFrameRate", &self.OutputFrameRate)
-            .field("SupportFlags", &self.SupportFlags)
-            .field("ScaleSupport", &self.ScaleSupport)
-            .field("FeatureSupport", &self.FeatureSupport)
-            .field("DeinterlaceSupport", &self.DeinterlaceSupport)
-            .field("AutoProcessingSupport", &self.AutoProcessingSupport)
-            .field("FilterSupport", &self.FilterSupport)
-            .field("FilterRangeSupport", &self.FilterRangeSupport)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex && self.InputSample == other.InputSample && self.InputFieldType == other.InputFieldType && self.InputStereoFormat == other.InputStereoFormat && self.InputFrameRate == other.InputFrameRate && self.OutputFormat == other.OutputFormat && self.OutputStereoFormat == other.OutputStereoFormat && self.OutputFrameRate == other.OutputFrameRate && self.SupportFlags == other.SupportFlags && self.ScaleSupport == other.ScaleSupport && self.FeatureSupport == other.FeatureSupport && self.DeinterlaceSupport == other.DeinterlaceSupport && self.AutoProcessingSupport == other.AutoProcessingSupport && self.FilterSupport == other.FilterSupport && self.FilterRangeSupport == other.FilterRangeSupport
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     fn default() -> Self {
@@ -28955,6 +28140,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub Status: u64,
     pub NumMacroblocksAffected: u64,
@@ -28962,31 +28148,9 @@ pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub BitRate: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS").field("Status", &self.Status).field("NumMacroblocksAffected", &self.NumMacroblocksAffected).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.NumMacroblocksAffected == other.NumMacroblocksAffected && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     fn default() -> Self {
@@ -28995,6 +28159,7 @@ impl Default for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: std::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
     pub PixelWidth: u32,
@@ -29007,23 +28172,9 @@ impl Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT").field("pMotionVectorHeap", &self.pMotionVectorHeap).field("PixelWidth", &self.PixelWidth).field("PixelHeight", &self.PixelHeight).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMotionVectorHeap == other.pMotionVectorHeap && self.PixelWidth == other.PixelWidth && self.PixelHeight == other.PixelHeight
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     fn default() -> Self {
@@ -29032,6 +28183,7 @@ impl Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     pub pMotionVectorTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
@@ -29043,23 +28195,9 @@ impl Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT").field("pMotionVectorTexture2D", &self.pMotionVectorTexture2D).field("MotionVectorCoordinate", &self.MotionVectorCoordinate).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMotionVectorTexture2D == other.pMotionVectorTexture2D && self.MotionVectorCoordinate == other.MotionVectorCoordinate
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     fn default() -> Self {
@@ -29067,62 +28205,30 @@ impl Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_COORDINATE {
     pub X: u64,
     pub Y: u32,
     pub Z: u32,
     pub SubresourceIndex: u32,
 }
-impl Copy for D3D12_RESOURCE_COORDINATE {}
-impl Clone for D3D12_RESOURCE_COORDINATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_RESOURCE_COORDINATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_RESOURCE_COORDINATE").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("SubresourceIndex", &self.SubresourceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_RESOURCE_COORDINATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_RESOURCE_COORDINATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.SubresourceIndex == other.SubresourceIndex
-    }
-}
-impl Eq for D3D12_RESOURCE_COORDINATE {}
 impl Default for D3D12_RESOURCE_COORDINATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
 }
-impl Copy for D3D12_VIDEO_DECODER_DESC {}
-impl Clone for D3D12_VIDEO_DECODER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_DECODER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODER_DESC").field("NodeMask", &self.NodeMask).field("Configuration", &self.Configuration).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_DECODER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_DECODER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.Configuration == other.Configuration
-    }
-}
-impl Eq for D3D12_VIDEO_DECODER_DESC {}
 impl Default for D3D12_VIDEO_DECODER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -29130,6 +28236,7 @@ impl Default for D3D12_VIDEO_DECODER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -29141,31 +28248,9 @@ pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub MaxDecodePictureBufferCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_DECODER_HEAP_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_DECODER_HEAP_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_DECODER_HEAP_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODER_HEAP_DESC").field("NodeMask", &self.NodeMask).field("Configuration", &self.Configuration).field("DecodeWidth", &self.DecodeWidth).field("DecodeHeight", &self.DecodeHeight).field("Format", &self.Format).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("MaxDecodePictureBufferCount", &self.MaxDecodePictureBufferCount).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODER_HEAP_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_DECODER_HEAP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.Configuration == other.Configuration && self.DecodeWidth == other.DecodeWidth && self.DecodeHeight == other.DecodeHeight && self.Format == other.Format && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate && self.MaxDecodePictureBufferCount == other.MaxDecodePictureBufferCount
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_DECODER_HEAP_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_DECODER_HEAP_DESC {
     fn default() -> Self {
@@ -29174,6 +28259,7 @@ impl Default for D3D12_VIDEO_DECODER_HEAP_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     pub pBuffer: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
@@ -29186,23 +28272,9 @@ impl Clone for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM").field("pBuffer", &self.pBuffer).field("Offset", &self.Offset).field("Size", &self.Size).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.Offset == other.Offset && self.Size == other.Size
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     fn default() -> Self {
@@ -29210,31 +28282,15 @@ impl Default for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
     pub DecodeProfile: windows_core::GUID,
     pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
     pub InterlaceType: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE,
 }
-impl Copy for D3D12_VIDEO_DECODE_CONFIGURATION {}
-impl Clone for D3D12_VIDEO_DECODE_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_CONFIGURATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_CONFIGURATION").field("DecodeProfile", &self.DecodeProfile).field("BitstreamEncryption", &self.BitstreamEncryption).field("InterlaceType", &self.InterlaceType).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_DECODE_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.DecodeProfile == other.DecodeProfile && self.BitstreamEncryption == other.BitstreamEncryption && self.InterlaceType == other.InterlaceType
-    }
-}
-impl Eq for D3D12_VIDEO_DECODE_CONFIGURATION {}
 impl Default for D3D12_VIDEO_DECODE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -29242,6 +28298,7 @@ impl Default for D3D12_VIDEO_DECODE_CONFIGURATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: super::super::Foundation::BOOL,
     pub pReferenceTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -29256,23 +28313,9 @@ impl Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS").field("Enable", &self.Enable).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresource", &self.ReferenceSubresource).field("OutputColorSpace", &self.OutputColorSpace).field("DecodeColorSpace", &self.DecodeColorSpace).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.pReferenceTexture2D == other.pReferenceTexture2D && self.ReferenceSubresource == other.ReferenceSubresource && self.OutputColorSpace == other.OutputColorSpace && self.DecodeColorSpace == other.DecodeColorSpace
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     fn default() -> Self {
@@ -29281,6 +28324,7 @@ impl Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: super::super::Foundation::BOOL,
     pub pReferenceTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -29297,23 +28341,9 @@ impl Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1").field("Enable", &self.Enable).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresource", &self.ReferenceSubresource).field("OutputColorSpace", &self.OutputColorSpace).field("DecodeColorSpace", &self.DecodeColorSpace).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.pReferenceTexture2D == other.pReferenceTexture2D && self.ReferenceSubresource == other.ReferenceSubresource && self.OutputColorSpace == other.OutputColorSpace && self.DecodeColorSpace == other.DecodeColorSpace && self.OutputWidth == other.OutputWidth && self.OutputHeight == other.OutputHeight
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     fn default() -> Self {
@@ -29321,31 +28351,15 @@ impl Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     pub Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
     pub Size: u32,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {}
-impl Clone for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_FRAME_ARGUMENT").field("Type", &self.Type).field("Size", &self.Size).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Size == other.Size && self.pData == other.pData
-    }
-}
-impl Eq for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {}
 impl Default for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -29353,6 +28367,7 @@ impl Default for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     pub NumFrameArguments: u32,
     pub FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
@@ -29367,23 +28382,9 @@ impl Clone for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS").field("NumFrameArguments", &self.NumFrameArguments).field("FrameArguments", &self.FrameArguments).field("ReferenceFrames", &self.ReferenceFrames).field("CompressedBitstream", &self.CompressedBitstream).field("pHeap", &self.pHeap).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumFrameArguments == other.NumFrameArguments && self.FrameArguments == other.FrameArguments && self.ReferenceFrames == other.ReferenceFrames && self.CompressedBitstream == other.CompressedBitstream && self.pHeap == other.pHeap
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     fn default() -> Self {
@@ -29392,6 +28393,7 @@ impl Default for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
     pub pBuffer: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -29403,23 +28405,9 @@ impl Clone for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM").field("Offset", &self.Offset).field("pBuffer", &self.pBuffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.pBuffer == other.pBuffer
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     fn default() -> Self {
@@ -29428,6 +28416,7 @@ impl Default for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     pub pOutputTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub OutputSubresource: u32,
@@ -29440,23 +28429,9 @@ impl Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS").field("pOutputTexture2D", &self.pOutputTexture2D).field("OutputSubresource", &self.OutputSubresource).field("ConversionArguments", &self.ConversionArguments).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pOutputTexture2D == other.pOutputTexture2D && self.OutputSubresource == other.OutputSubresource && self.ConversionArguments == other.ConversionArguments
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     fn default() -> Self {
@@ -29465,6 +28440,7 @@ impl Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     pub pOutputTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub OutputSubresource: u32,
@@ -29478,23 +28454,9 @@ impl Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1").field("pOutputTexture2D", &self.pOutputTexture2D).field("OutputSubresource", &self.OutputSubresource).field("ConversionArguments", &self.ConversionArguments).field("Histograms", &self.Histograms).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pOutputTexture2D == other.pOutputTexture2D && self.OutputSubresource == other.OutputSubresource && self.ConversionArguments == other.ConversionArguments && self.Histograms == other.Histograms
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     fn default() -> Self {
@@ -29503,6 +28465,7 @@ impl Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
     pub ppTexture2Ds: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -29510,31 +28473,9 @@ pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub ppHeaps: *mut Option<ID3D12VideoDecoderHeap>,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_DECODE_REFERENCE_FRAMES").field("NumTexture2Ds", &self.NumTexture2Ds).field("ppTexture2Ds", &self.ppTexture2Ds).field("pSubresources", &self.pSubresources).field("ppHeaps", &self.ppHeaps).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumTexture2Ds == other.NumTexture2Ds && self.ppTexture2Ds == other.ppTexture2Ds && self.pSubresources == other.pSubresources && self.ppHeaps == other.ppHeaps
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     fn default() -> Self {
@@ -29542,6 +28483,7 @@ impl Default for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     pub CdefBits: u64,
     pub CdefDampingMinus3: u64,
@@ -29550,62 +28492,30 @@ pub struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     pub CdefYSecStrength: [u64; 8],
     pub CdefUVSecStrength: [u64; 8],
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG").field("CdefBits", &self.CdefBits).field("CdefDampingMinus3", &self.CdefDampingMinus3).field("CdefYPriStrength", &self.CdefYPriStrength).field("CdefUVPriStrength", &self.CdefUVPriStrength).field("CdefYSecStrength", &self.CdefYSecStrength).field("CdefUVSecStrength", &self.CdefUVSecStrength).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.CdefBits == other.CdefBits && self.CdefDampingMinus3 == other.CdefDampingMinus3 && self.CdefYPriStrength == other.CdefYPriStrength && self.CdefUVPriStrength == other.CdefUVPriStrength && self.CdefYSecStrength == other.CdefYSecStrength && self.CdefUVSecStrength == other.CdefUVSecStrength
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     pub FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub OrderHintBitsMinus1: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION").field("FeatureFlags", &self.FeatureFlags).field("OrderHintBitsMinus1", &self.OrderHintBitsMinus1).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FeatureFlags == other.FeatureFlags && self.OrderHintBitsMinus1 == other.OrderHintBitsMinus1
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
     pub SupportedFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub RequiredFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
@@ -29618,43 +28528,16 @@ pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
     pub MaxTemporalLayers: u32,
     pub MaxSpatialLayers: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT")
-            .field("SupportedFeatureFlags", &self.SupportedFeatureFlags)
-            .field("RequiredFeatureFlags", &self.RequiredFeatureFlags)
-            .field("SupportedInterpolationFilters", &self.SupportedInterpolationFilters)
-            .field("SupportedRestorationParams", &self.SupportedRestorationParams)
-            .field("SupportedSegmentationModes", &self.SupportedSegmentationModes)
-            .field("SupportedTxModes", &self.SupportedTxModes)
-            .field("SegmentationBlockSize", &self.SegmentationBlockSize)
-            .field("PostEncodeValuesFlags", &self.PostEncodeValuesFlags)
-            .field("MaxTemporalLayers", &self.MaxTemporalLayers)
-            .field("MaxSpatialLayers", &self.MaxSpatialLayers)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SupportedFeatureFlags == other.SupportedFeatureFlags && self.RequiredFeatureFlags == other.RequiredFeatureFlags && self.SupportedInterpolationFilters == other.SupportedInterpolationFilters && self.SupportedRestorationParams == other.SupportedRestorationParams && self.SupportedSegmentationModes == other.SupportedSegmentationModes && self.SupportedTxModes == other.SupportedTxModes && self.SegmentationBlockSize == other.SegmentationBlockSize && self.PostEncodeValuesFlags == other.PostEncodeValuesFlags && self.MaxTemporalLayers == other.MaxTemporalLayers && self.MaxSpatialLayers == other.MaxSpatialLayers
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub Use128SuperBlocks: super::super::Foundation::BOOL,
     pub TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
@@ -29669,75 +28552,30 @@ pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub MaxTileArea: u32,
     pub TileSizeBytesMinus1: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT")
-            .field("Use128SuperBlocks", &self.Use128SuperBlocks)
-            .field("TilesConfiguration", &self.TilesConfiguration)
-            .field("ValidationFlags", &self.ValidationFlags)
-            .field("MinTileRows", &self.MinTileRows)
-            .field("MaxTileRows", &self.MaxTileRows)
-            .field("MinTileCols", &self.MinTileCols)
-            .field("MaxTileCols", &self.MaxTileCols)
-            .field("MinTileWidth", &self.MinTileWidth)
-            .field("MaxTileWidth", &self.MaxTileWidth)
-            .field("MinTileArea", &self.MinTileArea)
-            .field("MaxTileArea", &self.MaxTileArea)
-            .field("TileSizeBytesMinus1", &self.TileSizeBytesMinus1)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Use128SuperBlocks == other.Use128SuperBlocks && self.TilesConfiguration == other.TilesConfiguration && self.ValidationFlags == other.ValidationFlags && self.MinTileRows == other.MinTileRows && self.MaxTileRows == other.MaxTileRows && self.MinTileCols == other.MinTileCols && self.MaxTileCols == other.MaxTileCols && self.MinTileWidth == other.MinTileWidth && self.MaxTileWidth == other.MaxTileWidth && self.MinTileArea == other.MinTileArea && self.MaxTileArea == other.MaxTileArea && self.TileSizeBytesMinus1 == other.TileSizeBytesMinus1
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     pub Level: D3D12_VIDEO_ENCODER_AV1_LEVELS,
     pub Tier: D3D12_VIDEO_ENCODER_AV1_TIER,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS").field("Level", &self.Level).field("Tier", &self.Tier).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Level == other.Level && self.Tier == other.Tier
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
     pub Flags: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
@@ -29764,80 +28602,16 @@ pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
     pub CustomSegmentation: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
     pub CustomSegmentsMap: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA")
-            .field("Flags", &self.Flags)
-            .field("FrameType", &self.FrameType)
-            .field("CompoundPredictionType", &self.CompoundPredictionType)
-            .field("InterpolationFilter", &self.InterpolationFilter)
-            .field("FrameRestorationConfig", &self.FrameRestorationConfig)
-            .field("TxMode", &self.TxMode)
-            .field("SuperResDenominator", &self.SuperResDenominator)
-            .field("OrderHint", &self.OrderHint)
-            .field("PictureIndex", &self.PictureIndex)
-            .field("TemporalLayerIndexPlus1", &self.TemporalLayerIndexPlus1)
-            .field("SpatialLayerIndexPlus1", &self.SpatialLayerIndexPlus1)
-            .field("ReferenceFramesReconPictureDescriptors", &self.ReferenceFramesReconPictureDescriptors)
-            .field("ReferenceIndices", &self.ReferenceIndices)
-            .field("PrimaryRefFrame", &self.PrimaryRefFrame)
-            .field("RefreshFrameFlags", &self.RefreshFrameFlags)
-            .field("LoopFilter", &self.LoopFilter)
-            .field("LoopFilterDelta", &self.LoopFilterDelta)
-            .field("Quantization", &self.Quantization)
-            .field("QuantizationDelta", &self.QuantizationDelta)
-            .field("CDEF", &self.CDEF)
-            .field("QPMapValuesCount", &self.QPMapValuesCount)
-            .field("pRateControlQPMap", &self.pRateControlQPMap)
-            .field("CustomSegmentation", &self.CustomSegmentation)
-            .field("CustomSegmentsMap", &self.CustomSegmentsMap)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FrameType == other.FrameType
-            && self.CompoundPredictionType == other.CompoundPredictionType
-            && self.InterpolationFilter == other.InterpolationFilter
-            && self.FrameRestorationConfig == other.FrameRestorationConfig
-            && self.TxMode == other.TxMode
-            && self.SuperResDenominator == other.SuperResDenominator
-            && self.OrderHint == other.OrderHint
-            && self.PictureIndex == other.PictureIndex
-            && self.TemporalLayerIndexPlus1 == other.TemporalLayerIndexPlus1
-            && self.SpatialLayerIndexPlus1 == other.SpatialLayerIndexPlus1
-            && self.ReferenceFramesReconPictureDescriptors == other.ReferenceFramesReconPictureDescriptors
-            && self.ReferenceIndices == other.ReferenceIndices
-            && self.PrimaryRefFrame == other.PrimaryRefFrame
-            && self.RefreshFrameFlags == other.RefreshFrameFlags
-            && self.LoopFilter == other.LoopFilter
-            && self.LoopFilterDelta == other.LoopFilterDelta
-            && self.Quantization == other.Quantization
-            && self.QuantizationDelta == other.QuantizationDelta
-            && self.CDEF == other.CDEF
-            && self.QPMapValuesCount == other.QPMapValuesCount
-            && self.pRateControlQPMap == other.pRateControlQPMap
-            && self.CustomSegmentation == other.CustomSegmentation
-            && self.CustomSegmentsMap == other.CustomSegmentsMap
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
     pub RowCount: u64,
     pub ColCount: u64,
@@ -29845,32 +28619,16 @@ pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES 
     pub ColWidths: [u64; 64],
     pub ContextUpdateTileId: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES").field("RowCount", &self.RowCount).field("ColCount", &self.ColCount).field("RowHeights", &self.RowHeights).field("ColWidths", &self.ColWidths).field("ContextUpdateTileId", &self.ContextUpdateTileId).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
-    fn eq(&self, other: &Self) -> bool {
-        self.RowCount == other.RowCount && self.ColCount == other.ColCount && self.RowHeights == other.RowHeights && self.ColWidths == other.ColWidths && self.ContextUpdateTileId == other.ContextUpdateTileId
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     pub CompoundPredictionType: u64,
     pub LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
@@ -29882,42 +28640,16 @@ pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     pub PrimaryRefFrame: u64,
     pub ReferenceIndices: [u64; 7],
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES")
-            .field("CompoundPredictionType", &self.CompoundPredictionType)
-            .field("LoopFilter", &self.LoopFilter)
-            .field("LoopFilterDelta", &self.LoopFilterDelta)
-            .field("Quantization", &self.Quantization)
-            .field("QuantizationDelta", &self.QuantizationDelta)
-            .field("CDEF", &self.CDEF)
-            .field("SegmentationConfig", &self.SegmentationConfig)
-            .field("PrimaryRefFrame", &self.PrimaryRefFrame)
-            .field("ReferenceIndices", &self.ReferenceIndices)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompoundPredictionType == other.CompoundPredictionType && self.LoopFilter == other.LoopFilter && self.LoopFilterDelta == other.LoopFilterDelta && self.Quantization == other.Quantization && self.QuantizationDelta == other.QuantizationDelta && self.CDEF == other.CDEF && self.SegmentationConfig == other.SegmentationConfig && self.PrimaryRefFrame == other.PrimaryRefFrame && self.ReferenceIndices == other.ReferenceIndices
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub ReconstructedPictureResourceIndex: u32,
     pub TemporalLayerIndexPlus1: u32,
@@ -29927,93 +28659,45 @@ pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub OrderHint: u32,
     pub PictureIndex: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("TemporalLayerIndexPlus1", &self.TemporalLayerIndexPlus1).field("SpatialLayerIndexPlus1", &self.SpatialLayerIndexPlus1).field("FrameType", &self.FrameType).field("WarpedMotionInfo", &self.WarpedMotionInfo).field("OrderHint", &self.OrderHint).field("PictureIndex", &self.PictureIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReconstructedPictureResourceIndex == other.ReconstructedPictureResourceIndex && self.TemporalLayerIndexPlus1 == other.TemporalLayerIndexPlus1 && self.SpatialLayerIndexPlus1 == other.SpatialLayerIndexPlus1 && self.FrameType == other.FrameType && self.WarpedMotionInfo == other.WarpedMotionInfo && self.OrderHint == other.OrderHint && self.PictureIndex == other.PictureIndex
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
     pub TransformationType: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION,
     pub TransformationMatrix: [i32; 8],
     pub InvalidAffineSet: super::super::Foundation::BOOL,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO").field("TransformationType", &self.TransformationType).field("TransformationMatrix", &self.TransformationMatrix).field("InvalidAffineSet", &self.InvalidAffineSet).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransformationType == other.TransformationType && self.TransformationMatrix == other.TransformationMatrix && self.InvalidAffineSet == other.InvalidAffineSet
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
     pub FrameRestorationType: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE; 3],
     pub LoopRestorationPixelSize: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE; 3],
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG").field("FrameRestorationType", &self.FrameRestorationType).field("LoopRestorationPixelSize", &self.LoopRestorationPixelSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameRestorationType == other.FrameRestorationType && self.LoopRestorationPixelSize == other.LoopRestorationPixelSize
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     pub UpdateMap: u64,
     pub TemporalUpdate: u64,
@@ -30021,122 +28705,58 @@ pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     pub NumSegments: u64,
     pub SegmentsData: [D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA; 8],
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG").field("UpdateMap", &self.UpdateMap).field("TemporalUpdate", &self.TemporalUpdate).field("UpdateData", &self.UpdateData).field("NumSegments", &self.NumSegments).field("SegmentsData", &self.SegmentsData).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.UpdateMap == other.UpdateMap && self.TemporalUpdate == other.TemporalUpdate && self.UpdateData == other.UpdateData && self.NumSegments == other.NumSegments && self.SegmentsData == other.SegmentsData
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
     pub SegmentsMapByteSize: u32,
     pub pSegmentsMap: *mut u8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP").field("SegmentsMapByteSize", &self.SegmentsMapByteSize).field("pSegmentsMap", &self.pSegmentsMap).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.SegmentsMapByteSize == other.SegmentsMapByteSize && self.pSegmentsMap == other.pSegmentsMap
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     pub EnabledFeatures: u64,
     pub FeatureValue: [i64; 8],
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA").field("EnabledFeatures", &self.EnabledFeatures).field("FeatureValue", &self.FeatureValue).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnabledFeatures == other.EnabledFeatures && self.FeatureValue == other.FeatureValue
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     pub IntraDistance: u32,
     pub InterFramePeriod: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {}
-impl Clone for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE").field("IntraDistance", &self.IntraDistance).field("InterFramePeriod", &self.InterFramePeriod).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.IntraDistance == other.IntraDistance && self.InterFramePeriod == other.InterFramePeriod
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {}
 impl Default for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     pub LoopFilterLevel: [u64; 2],
     pub LoopFilterLevelU: u64,
@@ -30148,105 +28768,47 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     pub UpdateModeDelta: u64,
     pub ModeDeltas: [i64; 2],
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG")
-            .field("LoopFilterLevel", &self.LoopFilterLevel)
-            .field("LoopFilterLevelU", &self.LoopFilterLevelU)
-            .field("LoopFilterLevelV", &self.LoopFilterLevelV)
-            .field("LoopFilterSharpnessLevel", &self.LoopFilterSharpnessLevel)
-            .field("LoopFilterDeltaEnabled", &self.LoopFilterDeltaEnabled)
-            .field("UpdateRefDelta", &self.UpdateRefDelta)
-            .field("RefDeltas", &self.RefDeltas)
-            .field("UpdateModeDelta", &self.UpdateModeDelta)
-            .field("ModeDeltas", &self.ModeDeltas)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.LoopFilterLevel == other.LoopFilterLevel && self.LoopFilterLevelU == other.LoopFilterLevelU && self.LoopFilterLevelV == other.LoopFilterLevelV && self.LoopFilterSharpnessLevel == other.LoopFilterSharpnessLevel && self.LoopFilterDeltaEnabled == other.LoopFilterDeltaEnabled && self.UpdateRefDelta == other.UpdateRefDelta && self.RefDeltas == other.RefDeltas && self.UpdateModeDelta == other.UpdateModeDelta && self.ModeDeltas == other.ModeDeltas
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
     pub DeltaLFPresent: u64,
     pub DeltaLFMulti: u64,
     pub DeltaLFRes: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG").field("DeltaLFPresent", &self.DeltaLFPresent).field("DeltaLFMulti", &self.DeltaLFMulti).field("DeltaLFRes", &self.DeltaLFRes).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeltaLFPresent == other.DeltaLFPresent && self.DeltaLFMulti == other.DeltaLFMulti && self.DeltaLFRes == other.DeltaLFRes
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     pub PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
     pub MaxUniqueReferencesPerFrame: u32,
     pub SupportedFrameTypes: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS,
     pub SupportedReferenceWarpedMotionFlags: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT").field("PredictionMode", &self.PredictionMode).field("MaxUniqueReferencesPerFrame", &self.MaxUniqueReferencesPerFrame).field("SupportedFrameTypes", &self.SupportedFrameTypes).field("SupportedReferenceWarpedMotionFlags", &self.SupportedReferenceWarpedMotionFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PredictionMode == other.PredictionMode && self.MaxUniqueReferencesPerFrame == other.MaxUniqueReferencesPerFrame && self.SupportedFrameTypes == other.SupportedFrameTypes && self.SupportedReferenceWarpedMotionFlags == other.SupportedReferenceWarpedMotionFlags
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub BaseQIndex: u64,
     pub YDCDeltaQ: i64,
@@ -30259,71 +28821,33 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub QMU: u64,
     pub QMV: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG").field("BaseQIndex", &self.BaseQIndex).field("YDCDeltaQ", &self.YDCDeltaQ).field("UDCDeltaQ", &self.UDCDeltaQ).field("UACDeltaQ", &self.UACDeltaQ).field("VDCDeltaQ", &self.VDCDeltaQ).field("VACDeltaQ", &self.VACDeltaQ).field("UsingQMatrix", &self.UsingQMatrix).field("QMY", &self.QMY).field("QMU", &self.QMU).field("QMV", &self.QMV).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseQIndex == other.BaseQIndex && self.YDCDeltaQ == other.YDCDeltaQ && self.UDCDeltaQ == other.UDCDeltaQ && self.UACDeltaQ == other.UACDeltaQ && self.VDCDeltaQ == other.VDCDeltaQ && self.VACDeltaQ == other.VACDeltaQ && self.UsingQMatrix == other.UsingQMatrix && self.QMY == other.QMY && self.QMU == other.QMU && self.QMV == other.QMV
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
     pub DeltaQPresent: u64,
     pub DeltaQRes: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG").field("DeltaQPresent", &self.DeltaQPresent).field("DeltaQRes", &self.DeltaQRes).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeltaQPresent == other.DeltaQPresent && self.DeltaQRes == other.DeltaQRes
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
@@ -30334,16 +28858,11 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     pub pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
     pub pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
     pub pAV1Config: *mut D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION,
-}
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -30354,37 +28873,22 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
     pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
     pub DisableDeblockingFilterConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264").field("ConfigurationFlags", &self.ConfigurationFlags).field("DirectModeConfig", &self.DirectModeConfig).field("DisableDeblockingFilterConfig", &self.DisableDeblockingFilterConfig).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConfigurationFlags == other.ConfigurationFlags && self.DirectModeConfig == other.DirectModeConfig && self.DisableDeblockingFilterConfig == other.DisableDeblockingFilterConfig
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -30394,49 +28898,19 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub max_transform_hierarchy_depth_inter: u8,
     pub max_transform_hierarchy_depth_intra: u8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC")
-            .field("ConfigurationFlags", &self.ConfigurationFlags)
-            .field("MinLumaCodingUnitSize", &self.MinLumaCodingUnitSize)
-            .field("MaxLumaCodingUnitSize", &self.MaxLumaCodingUnitSize)
-            .field("MinLumaTransformUnitSize", &self.MinLumaTransformUnitSize)
-            .field("MaxLumaTransformUnitSize", &self.MaxLumaTransformUnitSize)
-            .field("max_transform_hierarchy_depth_inter", &self.max_transform_hierarchy_depth_inter)
-            .field("max_transform_hierarchy_depth_intra", &self.max_transform_hierarchy_depth_intra)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConfigurationFlags == other.ConfigurationFlags && self.MinLumaCodingUnitSize == other.MinLumaCodingUnitSize && self.MaxLumaCodingUnitSize == other.MaxLumaCodingUnitSize && self.MinLumaTransformUnitSize == other.MinLumaTransformUnitSize && self.MaxLumaTransformUnitSize == other.MaxLumaTransformUnitSize && self.max_transform_hierarchy_depth_inter == other.max_transform_hierarchy_depth_inter && self.max_transform_hierarchy_depth_intra == other.max_transform_hierarchy_depth_intra
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type TypeKind = windows_core::CopyType;
@@ -30447,16 +28921,11 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
     pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
     pub pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT,
-}
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     type TypeKind = windows_core::CopyType;
@@ -30467,36 +28936,21 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
     pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264").field("SupportFlags", &self.SupportFlags).field("DisableDeblockingFilterSupportedModes", &self.DisableDeblockingFilterSupportedModes).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SupportFlags == other.SupportFlags && self.DisableDeblockingFilterSupportedModes == other.DisableDeblockingFilterSupportedModes
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -30506,49 +28960,19 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub max_transform_hierarchy_depth_inter: u8,
     pub max_transform_hierarchy_depth_intra: u8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC")
-            .field("SupportFlags", &self.SupportFlags)
-            .field("MinLumaCodingUnitSize", &self.MinLumaCodingUnitSize)
-            .field("MaxLumaCodingUnitSize", &self.MaxLumaCodingUnitSize)
-            .field("MinLumaTransformUnitSize", &self.MinLumaTransformUnitSize)
-            .field("MaxLumaTransformUnitSize", &self.MaxLumaTransformUnitSize)
-            .field("max_transform_hierarchy_depth_inter", &self.max_transform_hierarchy_depth_inter)
-            .field("max_transform_hierarchy_depth_intra", &self.max_transform_hierarchy_depth_intra)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.SupportFlags == other.SupportFlags && self.MinLumaCodingUnitSize == other.MinLumaCodingUnitSize && self.MaxLumaCodingUnitSize == other.MaxLumaCodingUnitSize && self.MinLumaTransformUnitSize == other.MinLumaTransformUnitSize && self.MaxLumaTransformUnitSize == other.MaxLumaTransformUnitSize && self.max_transform_hierarchy_depth_inter == other.max_transform_hierarchy_depth_inter && self.max_transform_hierarchy_depth_intra == other.max_transform_hierarchy_depth_intra
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     type TypeKind = windows_core::CopyType;
@@ -30559,16 +28983,11 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
     pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
     pub pAV1Support: *mut D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT,
-}
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     type TypeKind = windows_core::CopyType;
@@ -30579,6 +28998,7 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -30586,32 +29006,16 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxLongTermReferences: u32,
     pub MaxDPBCapacity: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264").field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP).field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB).field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB).field("MaxLongTermReferences", &self.MaxLongTermReferences).field("MaxDPBCapacity", &self.MaxDPBCapacity).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxL0ReferencesForP == other.MaxL0ReferencesForP && self.MaxL0ReferencesForB == other.MaxL0ReferencesForB && self.MaxL1ReferencesForB == other.MaxL1ReferencesForB && self.MaxLongTermReferences == other.MaxLongTermReferences && self.MaxDPBCapacity == other.MaxDPBCapacity
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -30619,26 +29023,9 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxLongTermReferences: u32,
     pub MaxDPBCapacity: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC").field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP).field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB).field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB).field("MaxLongTermReferences", &self.MaxLongTermReferences).field("MaxDPBCapacity", &self.MaxDPBCapacity).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxL0ReferencesForP == other.MaxL0ReferencesForP && self.MaxL0ReferencesForB == other.MaxL0ReferencesForB && self.MaxL1ReferencesForB == other.MaxL1ReferencesForB && self.MaxLongTermReferences == other.MaxLongTermReferences && self.MaxDPBCapacity == other.MaxDPBCapacity
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -30646,6 +29033,7 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub pBuffer: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub FrameStartOffset: u64,
@@ -30657,23 +29045,9 @@ impl Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM").field("pBuffer", &self.pBuffer).field("FrameStartOffset", &self.FrameStartOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.FrameStartOffset == other.FrameStartOffset
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     fn default() -> Self {
@@ -30682,6 +29056,7 @@ impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_VIDEO_ENCODER_FLAGS,
@@ -30690,14 +29065,6 @@ pub struct D3D12_VIDEO_ENCODER_DESC {
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
     pub MaxMotionEstimationPrecision: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_ENCODER_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_ENCODER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_DESC {
@@ -30736,6 +29103,7 @@ impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
     pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
@@ -30748,23 +29116,9 @@ impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS").field("Bitstream", &self.Bitstream).field("ReconstructedPicture", &self.ReconstructedPicture).field("EncoderOutputMetadata", &self.EncoderOutputMetadata).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bitstream == other.Bitstream && self.ReconstructedPicture == other.ReconstructedPicture && self.EncoderOutputMetadata == other.EncoderOutputMetadata
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     fn default() -> Self {
@@ -30773,6 +29127,7 @@ impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     pub pBuffer: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
@@ -30784,23 +29139,9 @@ impl Clone for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER").field("pBuffer", &self.pBuffer).field("Offset", &self.Offset).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.Offset == other.Offset
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     fn default() -> Self {
@@ -30808,15 +29149,10 @@ impl Default for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {}
-impl Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     type TypeKind = windows_core::CopyType;
@@ -30827,14 +29163,9 @@ impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
     pub pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
-}
-impl Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
     type TypeKind = windows_core::CopyType;
@@ -30845,37 +29176,22 @@ impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     pub bSize: u64,
     pub bStartOffset: u64,
     pub bHeaderSize: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {}
-impl Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA").field("bSize", &self.bSize).field("bStartOffset", &self.bStartOffset).field("bHeaderSize", &self.bHeaderSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.bSize == other.bSize && self.bStartOffset == other.bStartOffset && self.bHeaderSize == other.bHeaderSize
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {}
 impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
@@ -30884,12 +29200,6 @@ pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
     pub EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
     pub ResolutionsListCount: u32,
     pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-}
-impl Copy for D3D12_VIDEO_ENCODER_HEAP_DESC {}
-impl Clone for D3D12_VIDEO_ENCODER_HEAP_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_HEAP_DESC {
     type TypeKind = windows_core::CopyType;
@@ -30900,45 +29210,24 @@ impl Default for D3D12_VIDEO_ENCODER_HEAP_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub IntraRefreshDuration: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_INTRA_REFRESH {}
-impl Clone for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_INTRA_REFRESH").field("Mode", &self.Mode).field("IntraRefreshDuration", &self.IntraRefreshDuration).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mode == other.Mode && self.IntraRefreshDuration == other.IntraRefreshDuration
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_INTRA_REFRESH {}
 impl Default for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_LEVEL_SETTING_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_LEVEL_SETTING {}
-impl Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     type TypeKind = windows_core::CopyType;
@@ -30949,16 +29238,11 @@ impl Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     pub pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
     pub pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
     pub pAV1LevelSetting: *mut D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS,
-}
-impl Copy for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     type TypeKind = windows_core::CopyType;
@@ -30969,68 +29253,37 @@ impl Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
     pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
 }
-impl Copy for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC").field("Level", &self.Level).field("Tier", &self.Tier).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Level == other.Level && self.Tier == other.Tier
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub EncodeErrorFlags: u64,
     pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
     pub EncodedBitstreamWrittenBytesCount: u64,
     pub WrittenSubregionsCount: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {}
-impl Clone for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_OUTPUT_METADATA").field("EncodeErrorFlags", &self.EncodeErrorFlags).field("EncodeStats", &self.EncodeStats).field("EncodedBitstreamWrittenBytesCount", &self.EncodedBitstreamWrittenBytesCount).field("WrittenSubregionsCount", &self.WrittenSubregionsCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.EncodeErrorFlags == other.EncodeErrorFlags && self.EncodeStats == other.EncodeStats && self.EncodedBitstreamWrittenBytesCount == other.EncodedBitstreamWrittenBytesCount && self.WrittenSubregionsCount == other.WrittenSubregionsCount
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {}
 impl Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub AverageQP: u64,
     pub IntraCodingUnitsCount: u64,
@@ -31039,41 +29292,19 @@ pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub AverageMotionEstimationXDirection: u64,
     pub AverageMotionEstimationYDirection: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {}
-impl Clone for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS").field("AverageQP", &self.AverageQP).field("IntraCodingUnitsCount", &self.IntraCodingUnitsCount).field("InterCodingUnitsCount", &self.InterCodingUnitsCount).field("SkipCodingUnitsCount", &self.SkipCodingUnitsCount).field("AverageMotionEstimationXDirection", &self.AverageMotionEstimationXDirection).field("AverageMotionEstimationYDirection", &self.AverageMotionEstimationYDirection).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AverageQP == other.AverageQP && self.IntraCodingUnitsCount == other.IntraCodingUnitsCount && self.InterCodingUnitsCount == other.InterCodingUnitsCount && self.SkipCodingUnitsCount == other.SkipCodingUnitsCount && self.AverageMotionEstimationXDirection == other.AverageMotionEstimationXDirection && self.AverageMotionEstimationYDirection == other.AverageMotionEstimationYDirection
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {}
 impl Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     type TypeKind = windows_core::CopyType;
@@ -31084,16 +29315,11 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
     pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
     pub pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -31104,6 +29330,7 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
@@ -31128,107 +29355,31 @@ pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     pub QPMapValuesCount: u32,
     pub pRateControlQPMap: *mut i8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264")
-            .field("Flags", &self.Flags)
-            .field("FrameType", &self.FrameType)
-            .field("pic_parameter_set_id", &self.pic_parameter_set_id)
-            .field("idr_pic_id", &self.idr_pic_id)
-            .field("PictureOrderCountNumber", &self.PictureOrderCountNumber)
-            .field("FrameDecodingOrderNumber", &self.FrameDecodingOrderNumber)
-            .field("TemporalLayerIndex", &self.TemporalLayerIndex)
-            .field("List0ReferenceFramesCount", &self.List0ReferenceFramesCount)
-            .field("pList0ReferenceFrames", &self.pList0ReferenceFrames)
-            .field("List1ReferenceFramesCount", &self.List1ReferenceFramesCount)
-            .field("pList1ReferenceFrames", &self.pList1ReferenceFrames)
-            .field("ReferenceFramesReconPictureDescriptorsCount", &self.ReferenceFramesReconPictureDescriptorsCount)
-            .field("pReferenceFramesReconPictureDescriptors", &self.pReferenceFramesReconPictureDescriptors)
-            .field("adaptive_ref_pic_marking_mode_flag", &self.adaptive_ref_pic_marking_mode_flag)
-            .field("RefPicMarkingOperationsCommandsCount", &self.RefPicMarkingOperationsCommandsCount)
-            .field("pRefPicMarkingOperationsCommands", &self.pRefPicMarkingOperationsCommands)
-            .field("List0RefPicModificationsCount", &self.List0RefPicModificationsCount)
-            .field("pList0RefPicModifications", &self.pList0RefPicModifications)
-            .field("List1RefPicModificationsCount", &self.List1RefPicModificationsCount)
-            .field("pList1RefPicModifications", &self.pList1RefPicModifications)
-            .field("QPMapValuesCount", &self.QPMapValuesCount)
-            .field("pRateControlQPMap", &self.pRateControlQPMap)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FrameType == other.FrameType
-            && self.pic_parameter_set_id == other.pic_parameter_set_id
-            && self.idr_pic_id == other.idr_pic_id
-            && self.PictureOrderCountNumber == other.PictureOrderCountNumber
-            && self.FrameDecodingOrderNumber == other.FrameDecodingOrderNumber
-            && self.TemporalLayerIndex == other.TemporalLayerIndex
-            && self.List0ReferenceFramesCount == other.List0ReferenceFramesCount
-            && self.pList0ReferenceFrames == other.pList0ReferenceFrames
-            && self.List1ReferenceFramesCount == other.List1ReferenceFramesCount
-            && self.pList1ReferenceFrames == other.pList1ReferenceFrames
-            && self.ReferenceFramesReconPictureDescriptorsCount == other.ReferenceFramesReconPictureDescriptorsCount
-            && self.pReferenceFramesReconPictureDescriptors == other.pReferenceFramesReconPictureDescriptors
-            && self.adaptive_ref_pic_marking_mode_flag == other.adaptive_ref_pic_marking_mode_flag
-            && self.RefPicMarkingOperationsCommandsCount == other.RefPicMarkingOperationsCommandsCount
-            && self.pRefPicMarkingOperationsCommands == other.pRefPicMarkingOperationsCommands
-            && self.List0RefPicModificationsCount == other.List0RefPicModificationsCount
-            && self.pList0RefPicModifications == other.pList0RefPicModifications
-            && self.List1RefPicModificationsCount == other.List1RefPicModificationsCount
-            && self.pList1RefPicModifications == other.pList1RefPicModifications
-            && self.QPMapValuesCount == other.QPMapValuesCount
-            && self.pRateControlQPMap == other.pRateControlQPMap
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {}
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     pub modification_of_pic_nums_idc: u8,
     pub abs_diff_pic_num_minus1: u32,
     pub long_term_pic_num: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION").field("modification_of_pic_nums_idc", &self.modification_of_pic_nums_idc).field("abs_diff_pic_num_minus1", &self.abs_diff_pic_num_minus1).field("long_term_pic_num", &self.long_term_pic_num).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.modification_of_pic_nums_idc == other.modification_of_pic_nums_idc && self.abs_diff_pic_num_minus1 == other.abs_diff_pic_num_minus1 && self.long_term_pic_num == other.long_term_pic_num
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {}
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     pub memory_management_control_operation: u8,
     pub difference_of_pic_nums_minus1: u32,
@@ -31236,32 +29387,16 @@ pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE
     pub long_term_frame_idx: u32,
     pub max_long_term_frame_idx_plus1: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION").field("memory_management_control_operation", &self.memory_management_control_operation).field("difference_of_pic_nums_minus1", &self.difference_of_pic_nums_minus1).field("long_term_pic_num", &self.long_term_pic_num).field("long_term_frame_idx", &self.long_term_frame_idx).field("max_long_term_frame_idx_plus1", &self.max_long_term_frame_idx_plus1).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.memory_management_control_operation == other.memory_management_control_operation && self.difference_of_pic_nums_minus1 == other.difference_of_pic_nums_minus1 && self.long_term_pic_num == other.long_term_pic_num && self.long_term_frame_idx == other.long_term_frame_idx && self.max_long_term_frame_idx_plus1 == other.max_long_term_frame_idx_plus1
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {}
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
@@ -31281,60 +29416,9 @@ pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     pub QPMapValuesCount: u32,
     pub pRateControlQPMap: *mut i8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC")
-            .field("Flags", &self.Flags)
-            .field("FrameType", &self.FrameType)
-            .field("slice_pic_parameter_set_id", &self.slice_pic_parameter_set_id)
-            .field("PictureOrderCountNumber", &self.PictureOrderCountNumber)
-            .field("TemporalLayerIndex", &self.TemporalLayerIndex)
-            .field("List0ReferenceFramesCount", &self.List0ReferenceFramesCount)
-            .field("pList0ReferenceFrames", &self.pList0ReferenceFrames)
-            .field("List1ReferenceFramesCount", &self.List1ReferenceFramesCount)
-            .field("pList1ReferenceFrames", &self.pList1ReferenceFrames)
-            .field("ReferenceFramesReconPictureDescriptorsCount", &self.ReferenceFramesReconPictureDescriptorsCount)
-            .field("pReferenceFramesReconPictureDescriptors", &self.pReferenceFramesReconPictureDescriptors)
-            .field("List0RefPicModificationsCount", &self.List0RefPicModificationsCount)
-            .field("pList0RefPicModifications", &self.pList0RefPicModifications)
-            .field("List1RefPicModificationsCount", &self.List1RefPicModificationsCount)
-            .field("pList1RefPicModifications", &self.pList1RefPicModifications)
-            .field("QPMapValuesCount", &self.QPMapValuesCount)
-            .field("pRateControlQPMap", &self.pRateControlQPMap)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FrameType == other.FrameType
-            && self.slice_pic_parameter_set_id == other.slice_pic_parameter_set_id
-            && self.PictureOrderCountNumber == other.PictureOrderCountNumber
-            && self.TemporalLayerIndex == other.TemporalLayerIndex
-            && self.List0ReferenceFramesCount == other.List0ReferenceFramesCount
-            && self.pList0ReferenceFrames == other.pList0ReferenceFrames
-            && self.List1ReferenceFramesCount == other.List1ReferenceFramesCount
-            && self.pList1ReferenceFrames == other.pList1ReferenceFrames
-            && self.ReferenceFramesReconPictureDescriptorsCount == other.ReferenceFramesReconPictureDescriptorsCount
-            && self.pReferenceFramesReconPictureDescriptors == other.pReferenceFramesReconPictureDescriptors
-            && self.List0RefPicModificationsCount == other.List0RefPicModificationsCount
-            && self.pList0RefPicModifications == other.pList0RefPicModifications
-            && self.List1RefPicModificationsCount == other.List1RefPicModificationsCount
-            && self.pList1RefPicModifications == other.pList1RefPicModifications
-            && self.QPMapValuesCount == other.QPMapValuesCount
-            && self.pRateControlQPMap == other.pRateControlQPMap
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -31342,19 +29426,12 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     pub IntraRefreshFrameIndex: u32,
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
     pub PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA,
     pub ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
@@ -31367,15 +29444,10 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     type TypeKind = windows_core::CopyType;
@@ -31386,16 +29458,11 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     pub pSlicesPartition_H264: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
     pub pSlicesPartition_HEVC: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
     pub pTilesPartition_AV1: *const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -31406,14 +29473,9 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     type TypeKind = windows_core::CopyType;
@@ -31424,17 +29486,12 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLIC
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     pub MaxBytesPerSlice: u32,
     pub NumberOfCodingUnitsPerSlice: u32,
     pub NumberOfRowsPerSlice: u32,
     pub NumberOfSlicesPerFrame: u32,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     type TypeKind = windows_core::CopyType;
@@ -31445,75 +29502,38 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLIC
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     pub Width: u32,
     pub Height: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {}
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     pub WidthRatio: u32,
     pub HeightRatio: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {}
-impl Clone for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC").field("WidthRatio", &self.WidthRatio).field("HeightRatio", &self.HeightRatio).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.WidthRatio == other.WidthRatio && self.HeightRatio == other.HeightRatio
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {}
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PROFILE_DESC_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PROFILE_DESC {}
-impl Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     type TypeKind = windows_core::CopyType;
@@ -31524,16 +29544,11 @@ impl Default for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     pub pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
     pub pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
     pub pAV1Profile: *mut D3D12_VIDEO_ENCODER_AV1_PROFILE,
-}
-impl Copy for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -31545,19 +29560,12 @@ impl Default for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
     pub Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
     pub Flags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS,
     pub ConfigParams: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS,
     pub TargetFrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL {
@@ -31570,35 +29578,20 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
     pub QualityVsSpeed: u32,
-}
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP").field("QualityVsSpeed", &self.QualityVsSpeed).finish()
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.QualityVsSpeed == other.QualityVsSpeed
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -31608,32 +29601,16 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub VBVCapacity: u64,
     pub InitialVBVFullness: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetBitRate", &self.TargetBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetBitRate == other.TargetBitRate && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -31644,41 +29621,19 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     pub InitialVBVFullness: u64,
     pub QualityVsSpeed: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetBitRate", &self.TargetBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).field("QualityVsSpeed", &self.QualityVsSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetBitRate == other.TargetBitRate && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness && self.QualityVsSpeed == other.QualityVsSpeed
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     type TypeKind = windows_core::CopyType;
@@ -31689,6 +29644,7 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     pub pConfiguration_CQP: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
     pub pConfiguration_CBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
@@ -31700,12 +29656,6 @@ pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     pub pConfiguration_QVBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1,
     pub pConfiguration_AbsoluteQPMap: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -31715,69 +29665,38 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
     pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP").field("ConstantQP_FullIntracodedFrame", &self.ConstantQP_FullIntracodedFrame).field("ConstantQP_InterPredictedFrame_PrevRefOnly", &self.ConstantQP_InterPredictedFrame_PrevRefOnly).field("ConstantQP_InterPredictedFrame_BiDirectionalRef", &self.ConstantQP_InterPredictedFrame_BiDirectionalRef).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConstantQP_FullIntracodedFrame == other.ConstantQP_FullIntracodedFrame && self.ConstantQP_InterPredictedFrame_PrevRefOnly == other.ConstantQP_InterPredictedFrame_PrevRefOnly && self.ConstantQP_InterPredictedFrame_BiDirectionalRef == other.ConstantQP_InterPredictedFrame_BiDirectionalRef
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
     pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
     pub QualityVsSpeed: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1").field("ConstantQP_FullIntracodedFrame", &self.ConstantQP_FullIntracodedFrame).field("ConstantQP_InterPredictedFrame_PrevRefOnly", &self.ConstantQP_InterPredictedFrame_PrevRefOnly).field("ConstantQP_InterPredictedFrame_BiDirectionalRef", &self.ConstantQP_InterPredictedFrame_BiDirectionalRef).field("QualityVsSpeed", &self.QualityVsSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConstantQP_FullIntracodedFrame == other.ConstantQP_FullIntracodedFrame && self.ConstantQP_InterPredictedFrame_PrevRefOnly == other.ConstantQP_InterPredictedFrame_PrevRefOnly && self.ConstantQP_InterPredictedFrame_BiDirectionalRef == other.ConstantQP_InterPredictedFrame_BiDirectionalRef && self.QualityVsSpeed == other.QualityVsSpeed
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -31787,32 +29706,16 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub PeakBitRate: u64,
     pub ConstantQualityTarget: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("ConstantQualityTarget", &self.ConstantQualityTarget).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetAvgBitRate == other.TargetAvgBitRate && self.PeakBitRate == other.PeakBitRate && self.ConstantQualityTarget == other.ConstantQualityTarget
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -31825,43 +29728,16 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub InitialVBVFullness: u64,
     pub QualityVsSpeed: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1")
-            .field("InitialQP", &self.InitialQP)
-            .field("MinQP", &self.MinQP)
-            .field("MaxQP", &self.MaxQP)
-            .field("MaxFrameBitSize", &self.MaxFrameBitSize)
-            .field("TargetAvgBitRate", &self.TargetAvgBitRate)
-            .field("PeakBitRate", &self.PeakBitRate)
-            .field("ConstantQualityTarget", &self.ConstantQualityTarget)
-            .field("VBVCapacity", &self.VBVCapacity)
-            .field("InitialVBVFullness", &self.InitialVBVFullness)
-            .field("QualityVsSpeed", &self.QualityVsSpeed)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetAvgBitRate == other.TargetAvgBitRate && self.PeakBitRate == other.PeakBitRate && self.ConstantQualityTarget == other.ConstantQualityTarget && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness && self.QualityVsSpeed == other.QualityVsSpeed
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -31872,32 +29748,16 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub VBVCapacity: u64,
     pub InitialVBVFullness: u64,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetAvgBitRate == other.TargetAvgBitRate && self.PeakBitRate == other.PeakBitRate && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -31909,26 +29769,9 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub InitialVBVFullness: u64,
     pub QualityVsSpeed: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {}
-impl Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).field("QualityVsSpeed", &self.QualityVsSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetAvgBitRate == other.TargetAvgBitRate && self.PeakBitRate == other.PeakBitRate && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness && self.QualityVsSpeed == other.QualityVsSpeed
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {}
 impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -31936,6 +29779,7 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     pub pReconstructedPicture: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub ReconstructedPictureSubresource: u32,
@@ -31947,23 +29791,9 @@ impl Clone for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE").field("pReconstructedPicture", &self.pReconstructedPicture).field("ReconstructedPictureSubresource", &self.ReconstructedPictureSubresource).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pReconstructedPicture == other.pReconstructedPicture && self.ReconstructedPictureSubresource == other.ReconstructedPictureSubresource
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     fn default() -> Self {
@@ -31971,6 +29801,7 @@ impl Default for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsLongTermReference: super::super::Foundation::BOOL,
@@ -31979,32 +29810,16 @@ pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub FrameDecodingOrderNumber: u32,
     pub TemporalLayerIndex: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {}
-impl Clone for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("IsLongTermReference", &self.IsLongTermReference).field("LongTermPictureIdx", &self.LongTermPictureIdx).field("PictureOrderCountNumber", &self.PictureOrderCountNumber).field("FrameDecodingOrderNumber", &self.FrameDecodingOrderNumber).field("TemporalLayerIndex", &self.TemporalLayerIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReconstructedPictureResourceIndex == other.ReconstructedPictureResourceIndex && self.IsLongTermReference == other.IsLongTermReference && self.LongTermPictureIdx == other.LongTermPictureIdx && self.PictureOrderCountNumber == other.PictureOrderCountNumber && self.FrameDecodingOrderNumber == other.FrameDecodingOrderNumber && self.TemporalLayerIndex == other.TemporalLayerIndex
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {}
 impl Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsRefUsedByCurrentPic: super::super::Foundation::BOOL,
@@ -32012,26 +29827,9 @@ pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub PictureOrderCountNumber: u32,
     pub TemporalLayerIndex: u32,
 }
-impl Copy for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("IsRefUsedByCurrentPic", &self.IsRefUsedByCurrentPic).field("IsLongTermReference", &self.IsLongTermReference).field("PictureOrderCountNumber", &self.PictureOrderCountNumber).field("TemporalLayerIndex", &self.TemporalLayerIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReconstructedPictureResourceIndex == other.ReconstructedPictureResourceIndex && self.IsRefUsedByCurrentPic == other.IsRefUsedByCurrentPic && self.IsLongTermReference == other.IsLongTermReference && self.PictureOrderCountNumber == other.PictureOrderCountNumber && self.TemporalLayerIndex == other.TemporalLayerIndex
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32064,6 +29862,7 @@ impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
 }
@@ -32074,23 +29873,9 @@ impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS").field("ResolvedLayoutMetadata", &self.ResolvedLayoutMetadata).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResolvedLayoutMetadata == other.ResolvedLayoutMetadata
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     fn default() -> Self {
@@ -32099,6 +29884,7 @@ impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     pub Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
     pub IntraRefreshConfig: D3D12_VIDEO_ENCODER_INTRA_REFRESH,
@@ -32107,14 +29893,6 @@ pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     pub SelectedLayoutMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
     pub FrameSubregionsLayoutData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
     pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
@@ -32127,15 +29905,10 @@ impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0,
-}
-impl Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {}
-impl Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     type TypeKind = windows_core::CopyType;
@@ -32146,16 +29919,11 @@ impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     pub pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
     pub pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
     pub pAV1SequenceStructure: *mut D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE,
-}
-impl Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {}
-impl Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     type TypeKind = windows_core::CopyType;
@@ -32166,6 +29934,7 @@ impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -32173,57 +29942,24 @@ pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub log2_max_frame_num_minus4: u8,
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {}
-impl Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264").field("GOPLength", &self.GOPLength).field("PPicturePeriod", &self.PPicturePeriod).field("pic_order_cnt_type", &self.pic_order_cnt_type).field("log2_max_frame_num_minus4", &self.log2_max_frame_num_minus4).field("log2_max_pic_order_cnt_lsb_minus4", &self.log2_max_pic_order_cnt_lsb_minus4).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GOPLength == other.GOPLength && self.PPicturePeriod == other.PPicturePeriod && self.pic_order_cnt_type == other.pic_order_cnt_type && self.log2_max_frame_num_minus4 == other.log2_max_frame_num_minus4 && self.log2_max_pic_order_cnt_lsb_minus4 == other.log2_max_pic_order_cnt_lsb_minus4
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {}
 impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
 }
-impl Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {}
-impl Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC").field("GOPLength", &self.GOPLength).field("PPicturePeriod", &self.PPicturePeriod).field("log2_max_pic_order_cnt_lsb_minus4", &self.log2_max_pic_order_cnt_lsb_minus4).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
-    fn eq(&self, other: &Self) -> bool {
-        self.GOPLength == other.GOPLength && self.PPicturePeriod == other.PPicturePeriod && self.log2_max_pic_order_cnt_lsb_minus4 == other.log2_max_pic_order_cnt_lsb_minus4
-    }
-}
-impl Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {}
 impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32231,37 +29967,16 @@ impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
     pub ppTexture2Ds: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
     pub pSubresources: *mut u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_ENCODE_REFERENCE_FRAMES").field("NumTexture2Ds", &self.NumTexture2Ds).field("ppTexture2Ds", &self.ppTexture2Ds).field("pSubresources", &self.pSubresources).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumTexture2Ds == other.NumTexture2Ds && self.ppTexture2Ds == other.ppTexture2Ds && self.pSubresources == other.pSubresources
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     fn default() -> Self {
@@ -32269,30 +29984,14 @@ impl Default for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     pub NodeMask: u32,
     pub CommandId: windows_core::GUID,
 }
-impl Copy for D3D12_VIDEO_EXTENSION_COMMAND_DESC {}
-impl Clone for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_EXTENSION_COMMAND_DESC").field("NodeMask", &self.NodeMask).field("CommandId", &self.CommandId).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.CommandId == other.CommandId
-    }
-}
-impl Eq for D3D12_VIDEO_EXTENSION_COMMAND_DESC {}
 impl Default for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32300,37 +29999,16 @@ impl Default for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     pub CommandId: windows_core::GUID,
     pub Name: windows_core::PCWSTR,
     pub CommandListSupportFlags: super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_SUPPORT_FLAGS,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for D3D12_VIDEO_EXTENSION_COMMAND_INFO {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_EXTENSION_COMMAND_INFO").field("CommandId", &self.CommandId).field("Name", &self.Name).field("CommandListSupportFlags", &self.CommandListSupportFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CommandId == other.CommandId && self.Name == other.Name && self.CommandListSupportFlags == other.CommandListSupportFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_EXTENSION_COMMAND_INFO {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     fn default() -> Self {
@@ -32338,31 +30016,15 @@ impl Default for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     pub Name: windows_core::PCWSTR,
     pub Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
     pub Flags: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS,
 }
-impl Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {}
-impl Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO").field("Name", &self.Name).field("Type", &self.Type).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Type == other.Type && self.Flags == other.Flags
-    }
-}
-impl Eq for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {}
 impl Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32370,36 +30032,15 @@ impl Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_FORMAT {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_FORMAT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_FORMAT").field("Format", &self.Format).field("ColorSpace", &self.ColorSpace).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format && self.ColorSpace == other.ColorSpace
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_FORMAT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_FORMAT {
     fn default() -> Self {
@@ -32408,6 +30049,7 @@ impl Default for D3D12_VIDEO_FORMAT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -32416,31 +30058,9 @@ pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_DESC").field("NodeMask", &self.NodeMask).field("InputFormat", &self.InputFormat).field("BlockSize", &self.BlockSize).field("Precision", &self.Precision).field("SizeRange", &self.SizeRange).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     fn default() -> Self {
@@ -32449,6 +30069,7 @@ impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pInputTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub InputSubresourceIndex: u32,
@@ -32463,23 +30084,9 @@ impl Clone for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_INPUT").field("pInputTexture2D", &self.pInputTexture2D).field("InputSubresourceIndex", &self.InputSubresourceIndex).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresourceIndex", &self.ReferenceSubresourceIndex).field("pHintMotionVectorHeap", &self.pHintMotionVectorHeap).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pInputTexture2D == other.pInputTexture2D && self.InputSubresourceIndex == other.InputSubresourceIndex && self.pReferenceTexture2D == other.pReferenceTexture2D && self.ReferenceSubresourceIndex == other.ReferenceSubresourceIndex && self.pHintMotionVectorHeap == other.pHintMotionVectorHeap
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     fn default() -> Self {
@@ -32488,6 +30095,7 @@ impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: std::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
 }
@@ -32498,23 +30106,9 @@ impl Clone for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT").field("pMotionVectorHeap", &self.pMotionVectorHeap).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMotionVectorHeap == other.pMotionVectorHeap
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn default() -> Self {
@@ -32523,6 +30117,7 @@ impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -32531,31 +30126,9 @@ pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC").field("NodeMask", &self.NodeMask).field("InputFormat", &self.InputFormat).field("BlockSize", &self.BlockSize).field("Precision", &self.Precision).field("SizeRange", &self.SizeRange).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeMask == other.NodeMask && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     fn default() -> Self {
@@ -32563,62 +30136,30 @@ impl Default for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     pub Enable: super::super::Foundation::BOOL,
     pub Alpha: f32,
 }
-impl Copy for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {}
-impl Clone for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_ALPHA_BLENDING").field("Enable", &self.Enable).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Alpha == other.Alpha
-    }
-}
-impl Eq for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {}
 impl Default for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
     pub Minimum: i32,
     pub Maximum: i32,
     pub Default: i32,
     pub Multiplier: f32,
 }
-impl Copy for D3D12_VIDEO_PROCESS_FILTER_RANGE {}
-impl Clone for D3D12_VIDEO_PROCESS_FILTER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_FILTER_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_FILTER_RANGE").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Default", &self.Default).field("Multiplier", &self.Multiplier).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_PROCESS_FILTER_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.Default == other.Default && self.Multiplier == other.Multiplier
-    }
-}
-impl Eq for D3D12_VIDEO_PROCESS_FILTER_RANGE {}
 impl Default for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32626,6 +30167,7 @@ impl Default for D3D12_VIDEO_PROCESS_FILTER_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
     pub pTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Subresource: u32,
@@ -32638,23 +30180,9 @@ impl Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM").field("pTexture2D", &self.pTexture2D).field("Subresource", &self.Subresource).field("ReferenceSet", &self.ReferenceSet).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pTexture2D == other.pTexture2D && self.Subresource == other.Subresource && self.ReferenceSet == other.ReferenceSet
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     fn default() -> Self {
@@ -32663,6 +30191,7 @@ impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
     pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
@@ -32678,23 +30207,9 @@ impl Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS").field("InputStream", &self.InputStream).field("Transform", &self.Transform).field("Flags", &self.Flags).field("RateInfo", &self.RateInfo).field("FilterLevels", &self.FilterLevels).field("AlphaBlending", &self.AlphaBlending).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputStream == other.InputStream && self.Transform == other.Transform && self.Flags == other.Flags && self.RateInfo == other.RateInfo && self.FilterLevels == other.FilterLevels && self.AlphaBlending == other.AlphaBlending
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     fn default() -> Self {
@@ -32703,6 +30218,7 @@ impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
     pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
@@ -32719,23 +30235,9 @@ impl Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1").field("InputStream", &self.InputStream).field("Transform", &self.Transform).field("Flags", &self.Flags).field("RateInfo", &self.RateInfo).field("FilterLevels", &self.FilterLevels).field("AlphaBlending", &self.AlphaBlending).field("FieldType", &self.FieldType).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputStream == other.InputStream && self.Transform == other.Transform && self.Flags == other.Flags && self.RateInfo == other.RateInfo && self.FilterLevels == other.FilterLevels && self.AlphaBlending == other.AlphaBlending && self.FieldType == other.FieldType
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     fn default() -> Self {
@@ -32744,6 +30246,7 @@ impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -32764,65 +30267,9 @@ pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub EnableAutoProcessing: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC")
-            .field("Format", &self.Format)
-            .field("ColorSpace", &self.ColorSpace)
-            .field("SourceAspectRatio", &self.SourceAspectRatio)
-            .field("DestinationAspectRatio", &self.DestinationAspectRatio)
-            .field("FrameRate", &self.FrameRate)
-            .field("SourceSizeRange", &self.SourceSizeRange)
-            .field("DestinationSizeRange", &self.DestinationSizeRange)
-            .field("EnableOrientation", &self.EnableOrientation)
-            .field("FilterFlags", &self.FilterFlags)
-            .field("StereoFormat", &self.StereoFormat)
-            .field("FieldType", &self.FieldType)
-            .field("DeinterlaceMode", &self.DeinterlaceMode)
-            .field("EnableAlphaBlending", &self.EnableAlphaBlending)
-            .field("LumaKey", &self.LumaKey)
-            .field("NumPastFrames", &self.NumPastFrames)
-            .field("NumFutureFrames", &self.NumFutureFrames)
-            .field("EnableAutoProcessing", &self.EnableAutoProcessing)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format
-            && self.ColorSpace == other.ColorSpace
-            && self.SourceAspectRatio == other.SourceAspectRatio
-            && self.DestinationAspectRatio == other.DestinationAspectRatio
-            && self.FrameRate == other.FrameRate
-            && self.SourceSizeRange == other.SourceSizeRange
-            && self.DestinationSizeRange == other.DestinationSizeRange
-            && self.EnableOrientation == other.EnableOrientation
-            && self.FilterFlags == other.FilterFlags
-            && self.StereoFormat == other.StereoFormat
-            && self.FieldType == other.FieldType
-            && self.DeinterlaceMode == other.DeinterlaceMode
-            && self.EnableAlphaBlending == other.EnableAlphaBlending
-            && self.LumaKey == other.LumaKey
-            && self.NumPastFrames == other.NumPastFrames
-            && self.NumFutureFrames == other.NumFutureFrames
-            && self.EnableAutoProcessing == other.EnableAutoProcessing
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     fn default() -> Self {
@@ -32830,61 +30277,29 @@ impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     pub OutputIndex: u32,
     pub InputFrameOrField: u32,
 }
-impl Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {}
-impl Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE").field("OutputIndex", &self.OutputIndex).field("InputFrameOrField", &self.InputFrameOrField).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField
-    }
-}
-impl Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {}
 impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
     pub Enable: super::super::Foundation::BOOL,
     pub Lower: f32,
     pub Upper: f32,
 }
-impl Copy for D3D12_VIDEO_PROCESS_LUMA_KEY {}
-impl Clone for D3D12_VIDEO_PROCESS_LUMA_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_LUMA_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_LUMA_KEY").field("Enable", &self.Enable).field("Lower", &self.Lower).field("Upper", &self.Upper).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_LUMA_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_PROCESS_LUMA_KEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Lower == other.Lower && self.Upper == other.Upper
-    }
-}
-impl Eq for D3D12_VIDEO_PROCESS_LUMA_KEY {}
 impl Default for D3D12_VIDEO_PROCESS_LUMA_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32892,6 +30307,7 @@ impl Default for D3D12_VIDEO_PROCESS_LUMA_KEY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     pub pTexture2D: std::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Subresource: u32,
@@ -32903,23 +30319,9 @@ impl Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM").field("pTexture2D", &self.pTexture2D).field("Subresource", &self.Subresource).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pTexture2D == other.pTexture2D && self.Subresource == other.Subresource
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     fn default() -> Self {
@@ -32928,6 +30330,7 @@ impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
     pub TargetRectangle: super::super::Foundation::RECT,
@@ -32939,23 +30342,9 @@ impl Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS").field("OutputStream", &self.OutputStream).field("TargetRectangle", &self.TargetRectangle).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputStream == other.OutputStream && self.TargetRectangle == other.TargetRectangle
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     fn default() -> Self {
@@ -32964,6 +30353,7 @@ impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -32974,31 +30364,9 @@ pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     pub EnableStereo: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC").field("Format", &self.Format).field("ColorSpace", &self.ColorSpace).field("AlphaFillMode", &self.AlphaFillMode).field("AlphaFillModeSourceStreamIndex", &self.AlphaFillModeSourceStreamIndex).field("BackgroundColor", &self.BackgroundColor).field("FrameRate", &self.FrameRate).field("EnableStereo", &self.EnableStereo).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format && self.ColorSpace == other.ColorSpace && self.AlphaFillMode == other.AlphaFillMode && self.AlphaFillModeSourceStreamIndex == other.AlphaFillModeSourceStreamIndex && self.BackgroundColor == other.BackgroundColor && self.FrameRate == other.FrameRate && self.EnableStereo == other.EnableStereo
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     fn default() -> Self {
@@ -33007,6 +30375,7 @@ impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub NumPastFrames: u32,
     pub ppPastFrames: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -33016,31 +30385,9 @@ pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub pFutureSubresources: *mut u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Copy for D3D12_VIDEO_PROCESS_REFERENCE_SET {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Clone for D3D12_VIDEO_PROCESS_REFERENCE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_REFERENCE_SET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_REFERENCE_SET").field("NumPastFrames", &self.NumPastFrames).field("ppPastFrames", &self.ppPastFrames).field("pPastSubresources", &self.pPastSubresources).field("NumFutureFrames", &self.NumFutureFrames).field("ppFutureFrames", &self.ppFutureFrames).field("pFutureSubresources", &self.pFutureSubresources).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for D3D12_VIDEO_PROCESS_REFERENCE_SET {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumPastFrames == other.NumPastFrames && self.ppPastFrames == other.ppPastFrames && self.pPastSubresources == other.pPastSubresources && self.NumFutureFrames == other.NumFutureFrames && self.ppFutureFrames == other.ppFutureFrames && self.pFutureSubresources == other.pFutureSubresources
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for D3D12_VIDEO_PROCESS_REFERENCE_SET {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     fn default() -> Self {
@@ -33048,31 +30395,15 @@ impl Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
     pub SourceRectangle: super::super::Foundation::RECT,
     pub DestinationRectangle: super::super::Foundation::RECT,
     pub Orientation: D3D12_VIDEO_PROCESS_ORIENTATION,
 }
-impl Copy for D3D12_VIDEO_PROCESS_TRANSFORM {}
-impl Clone for D3D12_VIDEO_PROCESS_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_PROCESS_TRANSFORM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_PROCESS_TRANSFORM").field("SourceRectangle", &self.SourceRectangle).field("DestinationRectangle", &self.DestinationRectangle).field("Orientation", &self.Orientation).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_TRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_PROCESS_TRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceRectangle == other.SourceRectangle && self.DestinationRectangle == other.DestinationRectangle && self.Orientation == other.Orientation
-    }
-}
-impl Eq for D3D12_VIDEO_PROCESS_TRANSFORM {}
 impl Default for D3D12_VIDEO_PROCESS_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -33080,37 +30411,16 @@ impl Default for D3D12_VIDEO_PROCESS_TRANSFORM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SAMPLE {
     pub Width: u32,
     pub Height: u32,
     pub Format: D3D12_VIDEO_FORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D12_VIDEO_SAMPLE {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D12_VIDEO_SAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D12_VIDEO_SAMPLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_SAMPLE").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D12_VIDEO_SAMPLE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D12_VIDEO_SAMPLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D12_VIDEO_SAMPLE {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_VIDEO_SAMPLE {
     fn default() -> Self {
@@ -33118,62 +30428,30 @@ impl Default for D3D12_VIDEO_SAMPLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT {
     pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
     pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
 }
-impl Copy for D3D12_VIDEO_SCALE_SUPPORT {}
-impl Clone for D3D12_VIDEO_SCALE_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_SCALE_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_SCALE_SUPPORT").field("OutputSizeRange", &self.OutputSizeRange).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_SCALE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_SCALE_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputSizeRange == other.OutputSizeRange && self.Flags == other.Flags
-    }
-}
-impl Eq for D3D12_VIDEO_SCALE_SUPPORT {}
 impl Default for D3D12_VIDEO_SCALE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SIZE_RANGE {
     pub MaxWidth: u32,
     pub MaxHeight: u32,
     pub MinWidth: u32,
     pub MinHeight: u32,
 }
-impl Copy for D3D12_VIDEO_SIZE_RANGE {}
-impl Clone for D3D12_VIDEO_SIZE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D12_VIDEO_SIZE_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D12_VIDEO_SIZE_RANGE").field("MaxWidth", &self.MaxWidth).field("MaxHeight", &self.MaxHeight).field("MinWidth", &self.MinWidth).field("MinHeight", &self.MinHeight).finish()
-    }
-}
 impl windows_core::TypeKind for D3D12_VIDEO_SIZE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D12_VIDEO_SIZE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxWidth == other.MaxWidth && self.MaxHeight == other.MaxHeight && self.MinWidth == other.MinWidth && self.MinHeight == other.MinHeight
-    }
-}
-impl Eq for D3D12_VIDEO_SIZE_RANGE {}
 impl Default for D3D12_VIDEO_SIZE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -33181,20 +30459,13 @@ impl Default for D3D12_VIDEO_SIZE_RANGE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
     pub BufferAlignmentStart: u32,
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for D3DCONTENTPROTECTIONCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for D3DCONTENTPROTECTIONCAPS {
@@ -33208,20 +30479,13 @@ impl Default for D3DCONTENTPROTECTIONCAPS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
     pub BufferAlignmentStart: u32,
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(target_arch = "x86")]
-impl Clone for D3DCONTENTPROTECTIONCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for D3DCONTENTPROTECTIONCAPS {
@@ -33234,37 +30498,22 @@ impl Default for D3DCONTENTPROTECTIONCAPS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DOVERLAYCAPS {
     pub Caps: u32,
     pub MaxOverlayDisplayWidth: u32,
     pub MaxOverlayDisplayHeight: u32,
 }
-impl Copy for D3DOVERLAYCAPS {}
-impl Clone for D3DOVERLAYCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3DOVERLAYCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3DOVERLAYCAPS").field("Caps", &self.Caps).field("MaxOverlayDisplayWidth", &self.MaxOverlayDisplayWidth).field("MaxOverlayDisplayHeight", &self.MaxOverlayDisplayHeight).finish()
-    }
-}
 impl windows_core::TypeKind for D3DOVERLAYCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3DOVERLAYCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Caps == other.Caps && self.MaxOverlayDisplayWidth == other.MaxOverlayDisplayWidth && self.MaxOverlayDisplayHeight == other.MaxOverlayDisplayHeight
-    }
-}
-impl Eq for D3DOVERLAYCAPS {}
 impl Default for D3DOVERLAYCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DEVICE_INFO {
     pub pFriendlyDeviceName: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub pUniqueDeviceName: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -33277,151 +30526,77 @@ impl Clone for DEVICE_INFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DEVICE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVICE_INFO").field("pFriendlyDeviceName", &self.pFriendlyDeviceName).field("pUniqueDeviceName", &self.pUniqueDeviceName).field("pManufacturerName", &self.pManufacturerName).field("pModelName", &self.pModelName).field("pIconURL", &self.pIconURL).finish()
-    }
-}
 impl windows_core::TypeKind for DEVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pFriendlyDeviceName == other.pFriendlyDeviceName && self.pUniqueDeviceName == other.pUniqueDeviceName && self.pManufacturerName == other.pManufacturerName && self.pModelName == other.pModelName && self.pIconURL == other.pIconURL
-    }
-}
-impl Eq for DEVICE_INFO {}
 impl Default for DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIRTYRECT_INFO {
     pub FrameNumber: u32,
     pub NumDirtyRects: u32,
     pub DirtyRects: [super::super::Foundation::RECT; 1],
 }
-impl Copy for DIRTYRECT_INFO {}
-impl Clone for DIRTYRECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DIRTYRECT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DIRTYRECT_INFO").field("FrameNumber", &self.FrameNumber).field("NumDirtyRects", &self.NumDirtyRects).field("DirtyRects", &self.DirtyRects).finish()
-    }
-}
 impl windows_core::TypeKind for DIRTYRECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DIRTYRECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameNumber == other.FrameNumber && self.NumDirtyRects == other.NumDirtyRects && self.DirtyRects == other.DirtyRects
-    }
-}
-impl Eq for DIRTYRECT_INFO {}
 impl Default for DIRTYRECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
 }
-impl Copy for DXVA2_AES_CTR_IV {}
-impl Clone for DXVA2_AES_CTR_IV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_AES_CTR_IV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_AES_CTR_IV").field("IV", &self.IV).field("Count", &self.Count).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_AES_CTR_IV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_AES_CTR_IV {
-    fn eq(&self, other: &Self) -> bool {
-        self.IV == other.IV && self.Count == other.Count
-    }
-}
-impl Eq for DXVA2_AES_CTR_IV {}
 impl Default for DXVA2_AES_CTR_IV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_AYUVSample16 {
     pub Cr: u16,
     pub Cb: u16,
     pub Y: u16,
     pub Alpha: u16,
 }
-impl Copy for DXVA2_AYUVSample16 {}
-impl Clone for DXVA2_AYUVSample16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_AYUVSample16 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_AYUVSample16").field("Cr", &self.Cr).field("Cb", &self.Cb).field("Y", &self.Y).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_AYUVSample16 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_AYUVSample16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Cr == other.Cr && self.Cb == other.Cb && self.Y == other.Y && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DXVA2_AYUVSample16 {}
 impl Default for DXVA2_AYUVSample16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_AYUVSample8 {
     pub Cr: u8,
     pub Cb: u8,
     pub Y: u8,
     pub Alpha: u8,
 }
-impl Copy for DXVA2_AYUVSample8 {}
-impl Clone for DXVA2_AYUVSample8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_AYUVSample8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_AYUVSample8").field("Cr", &self.Cr).field("Cb", &self.Cb).field("Y", &self.Y).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_AYUVSample8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_AYUVSample8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Cr == other.Cr && self.Cb == other.Cb && self.Y == other.Y && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DXVA2_AYUVSample8 {}
 impl Default for DXVA2_AYUVSample8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_ConfigPictureDecode {
     pub guidConfigBitstreamEncryption: windows_core::GUID,
     pub guidConfigMBcontrolEncryption: windows_core::GUID,
@@ -33441,66 +30616,16 @@ pub struct DXVA2_ConfigPictureDecode {
     pub ConfigMinRenderTargetBuffCount: u16,
     pub ConfigDecoderSpecific: u16,
 }
-impl Copy for DXVA2_ConfigPictureDecode {}
-impl Clone for DXVA2_ConfigPictureDecode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_ConfigPictureDecode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_ConfigPictureDecode")
-            .field("guidConfigBitstreamEncryption", &self.guidConfigBitstreamEncryption)
-            .field("guidConfigMBcontrolEncryption", &self.guidConfigMBcontrolEncryption)
-            .field("guidConfigResidDiffEncryption", &self.guidConfigResidDiffEncryption)
-            .field("ConfigBitstreamRaw", &self.ConfigBitstreamRaw)
-            .field("ConfigMBcontrolRasterOrder", &self.ConfigMBcontrolRasterOrder)
-            .field("ConfigResidDiffHost", &self.ConfigResidDiffHost)
-            .field("ConfigSpatialResid8", &self.ConfigSpatialResid8)
-            .field("ConfigResid8Subtraction", &self.ConfigResid8Subtraction)
-            .field("ConfigSpatialHost8or9Clipping", &self.ConfigSpatialHost8or9Clipping)
-            .field("ConfigSpatialResidInterleaved", &self.ConfigSpatialResidInterleaved)
-            .field("ConfigIntraResidUnsigned", &self.ConfigIntraResidUnsigned)
-            .field("ConfigResidDiffAccelerator", &self.ConfigResidDiffAccelerator)
-            .field("ConfigHostInverseScan", &self.ConfigHostInverseScan)
-            .field("ConfigSpecificIDCT", &self.ConfigSpecificIDCT)
-            .field("Config4GroupedCoefs", &self.Config4GroupedCoefs)
-            .field("ConfigMinRenderTargetBuffCount", &self.ConfigMinRenderTargetBuffCount)
-            .field("ConfigDecoderSpecific", &self.ConfigDecoderSpecific)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_ConfigPictureDecode {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_ConfigPictureDecode {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidConfigBitstreamEncryption == other.guidConfigBitstreamEncryption
-            && self.guidConfigMBcontrolEncryption == other.guidConfigMBcontrolEncryption
-            && self.guidConfigResidDiffEncryption == other.guidConfigResidDiffEncryption
-            && self.ConfigBitstreamRaw == other.ConfigBitstreamRaw
-            && self.ConfigMBcontrolRasterOrder == other.ConfigMBcontrolRasterOrder
-            && self.ConfigResidDiffHost == other.ConfigResidDiffHost
-            && self.ConfigSpatialResid8 == other.ConfigSpatialResid8
-            && self.ConfigResid8Subtraction == other.ConfigResid8Subtraction
-            && self.ConfigSpatialHost8or9Clipping == other.ConfigSpatialHost8or9Clipping
-            && self.ConfigSpatialResidInterleaved == other.ConfigSpatialResidInterleaved
-            && self.ConfigIntraResidUnsigned == other.ConfigIntraResidUnsigned
-            && self.ConfigResidDiffAccelerator == other.ConfigResidDiffAccelerator
-            && self.ConfigHostInverseScan == other.ConfigHostInverseScan
-            && self.ConfigSpecificIDCT == other.ConfigSpecificIDCT
-            && self.Config4GroupedCoefs == other.Config4GroupedCoefs
-            && self.ConfigMinRenderTargetBuffCount == other.ConfigMinRenderTargetBuffCount
-            && self.ConfigDecoderSpecific == other.ConfigDecoderSpecific
-    }
-}
-impl Eq for DXVA2_ConfigPictureDecode {}
 impl Default for DXVA2_ConfigPictureDecode {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_DecodeBufferDesc {
     pub CompressedBufferType: u32,
     pub BufferIndex: u32,
@@ -33514,63 +30639,31 @@ pub struct DXVA2_DecodeBufferDesc {
     pub ReservedBits: u32,
     pub pvPVPState: *mut core::ffi::c_void,
 }
-impl Copy for DXVA2_DecodeBufferDesc {}
-impl Clone for DXVA2_DecodeBufferDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_DecodeBufferDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_DecodeBufferDesc").field("CompressedBufferType", &self.CompressedBufferType).field("BufferIndex", &self.BufferIndex).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).field("FirstMBaddress", &self.FirstMBaddress).field("NumMBsInBuffer", &self.NumMBsInBuffer).field("Width", &self.Width).field("Height", &self.Height).field("Stride", &self.Stride).field("ReservedBits", &self.ReservedBits).field("pvPVPState", &self.pvPVPState).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_DecodeBufferDesc {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_DecodeBufferDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompressedBufferType == other.CompressedBufferType && self.BufferIndex == other.BufferIndex && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize && self.FirstMBaddress == other.FirstMBaddress && self.NumMBsInBuffer == other.NumMBsInBuffer && self.Width == other.Width && self.Height == other.Height && self.Stride == other.Stride && self.ReservedBits == other.ReservedBits && self.pvPVPState == other.pvPVPState
-    }
-}
-impl Eq for DXVA2_DecodeBufferDesc {}
 impl Default for DXVA2_DecodeBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_DecodeExecuteParams {
     pub NumCompBuffers: u32,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
     pub pExtensionData: *mut DXVA2_DecodeExtensionData,
 }
-impl Copy for DXVA2_DecodeExecuteParams {}
-impl Clone for DXVA2_DecodeExecuteParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_DecodeExecuteParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_DecodeExecuteParams").field("NumCompBuffers", &self.NumCompBuffers).field("pCompressedBuffers", &self.pCompressedBuffers).field("pExtensionData", &self.pExtensionData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_DecodeExecuteParams {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_DecodeExecuteParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumCompBuffers == other.NumCompBuffers && self.pCompressedBuffers == other.pCompressedBuffers && self.pExtensionData == other.pExtensionData
-    }
-}
-impl Eq for DXVA2_DecodeExecuteParams {}
 impl Default for DXVA2_DecodeExecuteParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_DecodeExtensionData {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
@@ -33578,40 +30671,18 @@ pub struct DXVA2_DecodeExtensionData {
     pub pPrivateOutputData: *mut core::ffi::c_void,
     pub PrivateOutputDataSize: u32,
 }
-impl Copy for DXVA2_DecodeExtensionData {}
-impl Clone for DXVA2_DecodeExtensionData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_DecodeExtensionData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_DecodeExtensionData").field("Function", &self.Function).field("pPrivateInputData", &self.pPrivateInputData).field("PrivateInputDataSize", &self.PrivateInputDataSize).field("pPrivateOutputData", &self.pPrivateOutputData).field("PrivateOutputDataSize", &self.PrivateOutputDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_DecodeExtensionData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_DecodeExtensionData {
-    fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function && self.pPrivateInputData == other.pPrivateInputData && self.PrivateInputDataSize == other.PrivateInputDataSize && self.pPrivateOutputData == other.pPrivateOutputData && self.PrivateOutputDataSize == other.PrivateOutputDataSize
-    }
-}
-impl Eq for DXVA2_DecodeExtensionData {}
 impl Default for DXVA2_DecodeExtensionData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_ExtendedFormat {
     pub Anonymous: DXVA2_ExtendedFormat_0,
-}
-impl Copy for DXVA2_ExtendedFormat {}
-impl Clone for DXVA2_ExtendedFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_ExtendedFormat {
     type TypeKind = windows_core::CopyType;
@@ -33622,15 +30693,10 @@ impl Default for DXVA2_ExtendedFormat {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DXVA2_ExtendedFormat_0 {
     pub Anonymous: DXVA2_ExtendedFormat_0_0,
     pub value: u32,
-}
-impl Copy for DXVA2_ExtendedFormat_0 {}
-impl Clone for DXVA2_ExtendedFormat_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_ExtendedFormat_0 {
     type TypeKind = windows_core::CopyType;
@@ -33641,45 +30707,24 @@ impl Default for DXVA2_ExtendedFormat_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for DXVA2_ExtendedFormat_0_0 {}
-impl Clone for DXVA2_ExtendedFormat_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_ExtendedFormat_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_ExtendedFormat_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DXVA2_ExtendedFormat_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_ExtendedFormat_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DXVA2_ExtendedFormat_0_0 {}
 impl Default for DXVA2_ExtendedFormat_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_FilterValues {
     pub Level: DXVA2_Fixed32,
     pub Threshold: DXVA2_Fixed32,
     pub Radius: DXVA2_Fixed32,
-}
-impl Copy for DXVA2_FilterValues {}
-impl Clone for DXVA2_FilterValues {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_FilterValues {
     type TypeKind = windows_core::CopyType;
@@ -33690,14 +30735,9 @@ impl Default for DXVA2_FilterValues {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_Fixed32 {
     pub Anonymous: DXVA2_Fixed32_0,
-}
-impl Copy for DXVA2_Fixed32 {}
-impl Clone for DXVA2_Fixed32 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_Fixed32 {
     type TypeKind = windows_core::CopyType;
@@ -33708,15 +30748,10 @@ impl Default for DXVA2_Fixed32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DXVA2_Fixed32_0 {
     pub Anonymous: DXVA2_Fixed32_0_0,
     pub ll: i32,
-}
-impl Copy for DXVA2_Fixed32_0 {}
-impl Clone for DXVA2_Fixed32_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_Fixed32_0 {
     type TypeKind = windows_core::CopyType;
@@ -33727,77 +30762,40 @@ impl Default for DXVA2_Fixed32_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_Fixed32_0_0 {
     pub Fraction: u16,
     pub Value: i16,
 }
-impl Copy for DXVA2_Fixed32_0_0 {}
-impl Clone for DXVA2_Fixed32_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_Fixed32_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_Fixed32_0_0").field("Fraction", &self.Fraction).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_Fixed32_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_Fixed32_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Fraction == other.Fraction && self.Value == other.Value
-    }
-}
-impl Eq for DXVA2_Fixed32_0_0 {}
 impl Default for DXVA2_Fixed32_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl Copy for DXVA2_Frequency {}
-impl Clone for DXVA2_Frequency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA2_Frequency {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_Frequency").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA2_Frequency {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA2_Frequency {
-    fn eq(&self, other: &Self) -> bool {
-        self.Numerator == other.Numerator && self.Denominator == other.Denominator
-    }
-}
-impl Eq for DXVA2_Frequency {}
 impl Default for DXVA2_Frequency {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_ProcAmpValues {
     pub Brightness: DXVA2_Fixed32,
     pub Contrast: DXVA2_Fixed32,
     pub Hue: DXVA2_Fixed32,
     pub Saturation: DXVA2_Fixed32,
-}
-impl Copy for DXVA2_ProcAmpValues {}
-impl Clone for DXVA2_ProcAmpValues {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_ProcAmpValues {
     type TypeKind = windows_core::CopyType;
@@ -33808,17 +30806,12 @@ impl Default for DXVA2_ProcAmpValues {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_ValueRange {
     pub MinValue: DXVA2_Fixed32,
     pub MaxValue: DXVA2_Fixed32,
     pub DefaultValue: DXVA2_Fixed32,
     pub StepSize: DXVA2_Fixed32,
-}
-impl Copy for DXVA2_ValueRange {}
-impl Clone for DXVA2_ValueRange {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVA2_ValueRange {
     type TypeKind = windows_core::CopyType;
@@ -33830,6 +30823,7 @@ impl Default for DXVA2_ValueRange {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy)]
 pub struct DXVA2_VideoDesc {
     pub SampleWidth: u32,
     pub SampleHeight: u32,
@@ -33839,14 +30833,6 @@ pub struct DXVA2_VideoDesc {
     pub OutputFrameFreq: DXVA2_Frequency,
     pub UABProtectionLevel: u32,
     pub Reserved: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA2_VideoDesc {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA2_VideoDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA2_VideoDesc {
@@ -33859,6 +30845,7 @@ impl Default for DXVA2_VideoDesc {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: i64,
     pub TargetRect: super::super::Foundation::RECT,
@@ -33874,12 +30861,6 @@ pub struct DXVA2_VideoProcessBltParams {
     pub DetailFilterChroma: DXVA2_FilterValues,
     pub DestData: u32,
 }
-impl Copy for DXVA2_VideoProcessBltParams {}
-impl Clone for DXVA2_VideoProcessBltParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DXVA2_VideoProcessBltParams {
     type TypeKind = windows_core::CopyType;
 }
@@ -33890,6 +30871,7 @@ impl Default for DXVA2_VideoProcessBltParams {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
     pub InputPool: super::super::Graphics::Direct3D9::D3DPOOL,
@@ -33903,42 +30885,9 @@ pub struct DXVA2_VideoProcessorCaps {
     pub DetailFilterTechnology: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA2_VideoProcessorCaps {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA2_VideoProcessorCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVA2_VideoProcessorCaps {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA2_VideoProcessorCaps")
-            .field("DeviceCaps", &self.DeviceCaps)
-            .field("InputPool", &self.InputPool)
-            .field("NumForwardRefSamples", &self.NumForwardRefSamples)
-            .field("NumBackwardRefSamples", &self.NumBackwardRefSamples)
-            .field("Reserved", &self.Reserved)
-            .field("DeinterlaceTechnology", &self.DeinterlaceTechnology)
-            .field("ProcAmpControlCaps", &self.ProcAmpControlCaps)
-            .field("VideoProcessorOperations", &self.VideoProcessorOperations)
-            .field("NoiseFilterTechnology", &self.NoiseFilterTechnology)
-            .field("DetailFilterTechnology", &self.DetailFilterTechnology)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA2_VideoProcessorCaps {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVA2_VideoProcessorCaps {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceCaps == other.DeviceCaps && self.InputPool == other.InputPool && self.NumForwardRefSamples == other.NumForwardRefSamples && self.NumBackwardRefSamples == other.NumBackwardRefSamples && self.Reserved == other.Reserved && self.DeinterlaceTechnology == other.DeinterlaceTechnology && self.ProcAmpControlCaps == other.ProcAmpControlCaps && self.VideoProcessorOperations == other.VideoProcessorOperations && self.NoiseFilterTechnology == other.NoiseFilterTechnology && self.DetailFilterTechnology == other.DetailFilterTechnology
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVA2_VideoProcessorCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA2_VideoProcessorCaps {
     fn default() -> Self {
@@ -33975,31 +30924,15 @@ impl Default for DXVA2_VideoSample {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVABufferInfo {
     pub pCompSurface: *mut core::ffi::c_void,
     pub DataOffset: u32,
     pub DataSize: u32,
 }
-impl Copy for DXVABufferInfo {}
-impl Clone for DXVABufferInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVABufferInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVABufferInfo").field("pCompSurface", &self.pCompSurface).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).finish()
-    }
-}
 impl windows_core::TypeKind for DXVABufferInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVABufferInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.pCompSurface == other.pCompSurface && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize
-    }
-}
-impl Eq for DXVABufferInfo {}
 impl Default for DXVABufferInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -34007,6 +30940,7 @@ impl Default for DXVABufferInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVACompBufferInfo {
     pub NumCompBuffers: u32,
     pub WidthToCreate: u32,
@@ -34017,31 +30951,9 @@ pub struct DXVACompBufferInfo {
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVACompBufferInfo {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVACompBufferInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVACompBufferInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVACompBufferInfo").field("NumCompBuffers", &self.NumCompBuffers).field("WidthToCreate", &self.WidthToCreate).field("HeightToCreate", &self.HeightToCreate).field("BytesToAllocate", &self.BytesToAllocate).field("Usage", &self.Usage).field("Pool", &self.Pool).field("Format", &self.Format).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVACompBufferInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVACompBufferInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumCompBuffers == other.NumCompBuffers && self.WidthToCreate == other.WidthToCreate && self.HeightToCreate == other.HeightToCreate && self.BytesToAllocate == other.BytesToAllocate && self.Usage == other.Usage && self.Pool == other.Pool && self.Format == other.Format
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVACompBufferInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVACompBufferInfo {
     fn default() -> Self {
@@ -34049,60 +30961,28 @@ impl Default for DXVACompBufferInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR {
     pub pObject: u64,
     pub pD3D9Ex: u64,
     pub VPGuid: windows_core::GUID,
 }
-impl Copy for DXVAHDETW_CREATEVIDEOPROCESSOR {}
-impl Clone for DXVAHDETW_CREATEVIDEOPROCESSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHDETW_CREATEVIDEOPROCESSOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDETW_CREATEVIDEOPROCESSOR").field("pObject", &self.pObject).field("pD3D9Ex", &self.pD3D9Ex).field("VPGuid", &self.VPGuid).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHDETW_CREATEVIDEOPROCESSOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHDETW_CREATEVIDEOPROCESSOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject && self.pD3D9Ex == other.pD3D9Ex && self.VPGuid == other.VPGuid
-    }
-}
-impl Eq for DXVAHDETW_CREATEVIDEOPROCESSOR {}
 impl Default for DXVAHDETW_CREATEVIDEOPROCESSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR {
     pub pObject: u64,
-}
-impl Copy for DXVAHDETW_DESTROYVIDEOPROCESSOR {}
-impl Clone for DXVAHDETW_DESTROYVIDEOPROCESSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHDETW_DESTROYVIDEOPROCESSOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDETW_DESTROYVIDEOPROCESSOR").field("pObject", &self.pObject).finish()
-    }
 }
 impl windows_core::TypeKind for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHDETW_DESTROYVIDEOPROCESSOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject
-    }
-}
-impl Eq for DXVAHDETW_DESTROYVIDEOPROCESSOR {}
 impl Default for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -34110,6 +30990,7 @@ impl Default for DXVAHDETW_DESTROYVIDEOPROCESSOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub pObject: u64,
     pub pOutputSurface: u64,
@@ -34121,31 +31002,9 @@ pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub Enter: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVAHDETW_VIDEOPROCESSBLTHD {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVAHDETW_VIDEOPROCESSBLTHD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTHD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDETW_VIDEOPROCESSBLTHD").field("pObject", &self.pObject).field("pOutputSurface", &self.pOutputSurface).field("TargetRect", &self.TargetRect).field("OutputFormat", &self.OutputFormat).field("ColorSpace", &self.ColorSpace).field("OutputFrame", &self.OutputFrame).field("StreamCount", &self.StreamCount).field("Enter", &self.Enter).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSBLTHD {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVAHDETW_VIDEOPROCESSBLTHD {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject && self.pOutputSurface == other.pOutputSurface && self.TargetRect == other.TargetRect && self.OutputFormat == other.OutputFormat && self.ColorSpace == other.ColorSpace && self.OutputFrame == other.OutputFrame && self.StreamCount == other.StreamCount && self.Enter == other.Enter
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVAHDETW_VIDEOPROCESSBLTHD {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVAHDETW_VIDEOPROCESSBLTHD {
     fn default() -> Self {
@@ -34154,6 +31013,7 @@ impl Default for DXVAHDETW_VIDEOPROCESSBLTHD {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub pObject: u64,
     pub pInputSurface: u64,
@@ -34169,44 +31029,9 @@ pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub FutureFrames: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDETW_VIDEOPROCESSBLTHD_STREAM")
-            .field("pObject", &self.pObject)
-            .field("pInputSurface", &self.pInputSurface)
-            .field("SourceRect", &self.SourceRect)
-            .field("DestinationRect", &self.DestinationRect)
-            .field("InputFormat", &self.InputFormat)
-            .field("FrameFormat", &self.FrameFormat)
-            .field("ColorSpace", &self.ColorSpace)
-            .field("StreamNumber", &self.StreamNumber)
-            .field("OutputIndex", &self.OutputIndex)
-            .field("InputFrameOrField", &self.InputFrameOrField)
-            .field("PastFrames", &self.PastFrames)
-            .field("FutureFrames", &self.FutureFrames)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject && self.pInputSurface == other.pInputSurface && self.SourceRect == other.SourceRect && self.DestinationRect == other.DestinationRect && self.InputFormat == other.InputFormat && self.FrameFormat == other.FrameFormat && self.ColorSpace == other.ColorSpace && self.StreamNumber == other.StreamNumber && self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     fn default() -> Self {
@@ -34214,38 +31039,23 @@ impl Default for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE {
     pub pObject: u64,
     pub State: DXVAHD_BLT_STATE,
     pub DataSize: u32,
     pub SetState: super::super::Foundation::BOOL,
 }
-impl Copy for DXVAHDETW_VIDEOPROCESSBLTSTATE {}
-impl Clone for DXVAHDETW_VIDEOPROCESSBLTSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTSTATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDETW_VIDEOPROCESSBLTSTATE").field("pObject", &self.pObject).field("State", &self.State).field("DataSize", &self.DataSize).field("SetState", &self.SetState).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHDETW_VIDEOPROCESSBLTSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject && self.State == other.State && self.DataSize == other.DataSize && self.SetState == other.SetState
-    }
-}
-impl Eq for DXVAHDETW_VIDEOPROCESSBLTSTATE {}
 impl Default for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub pObject: u64,
     pub StreamNumber: u32,
@@ -34253,26 +31063,9 @@ pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub DataSize: u32,
     pub SetState: super::super::Foundation::BOOL,
 }
-impl Copy for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {}
-impl Clone for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDETW_VIDEOPROCESSSTREAMSTATE").field("pObject", &self.pObject).field("StreamNumber", &self.StreamNumber).field("State", &self.State).field("DataSize", &self.DataSize).field("SetState", &self.SetState).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject && self.StreamNumber == other.StreamNumber && self.State == other.State && self.DataSize == other.DataSize && self.SetState == other.SetState
-    }
-}
-impl Eq for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {}
 impl Default for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -34280,6 +31073,7 @@ impl Default for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug)]
 pub struct DXVAHDSW_CALLBACKS {
     pub CreateDevice: PDXVAHDSW_CreateDevice,
     pub ProposeVideoPrivateFormat: PDXVAHDSW_ProposeVideoPrivateFormat,
@@ -34299,20 +31093,6 @@ pub struct DXVAHDSW_CALLBACKS {
     pub DestroyVideoProcessor: PDXVAHDSW_DestroyVideoProcessor,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVAHDSW_CALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVAHDSW_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAHDSW_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHDSW_CALLBACKS").finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAHDSW_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -34323,45 +31103,24 @@ impl Default for DXVAHDSW_CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     pub Mode: DXVAHD_ALPHA_FILL_MODE,
     pub StreamNumber: u32,
 }
-impl Copy for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {}
-impl Clone for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_BLT_STATE_ALPHA_FILL_DATA").field("Mode", &self.Mode).field("StreamNumber", &self.StreamNumber).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mode == other.Mode && self.StreamNumber == other.StreamNumber
-    }
-}
-impl Eq for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {}
 impl Default for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     pub YCbCr: super::super::Foundation::BOOL,
     pub BackgroundColor: DXVAHD_COLOR,
-}
-impl Copy for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {}
-impl Clone for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     type TypeKind = windows_core::CopyType;
@@ -34372,44 +31131,23 @@ impl Default for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Size: super::super::Foundation::SIZE,
 }
-impl Copy for DXVAHD_BLT_STATE_CONSTRICTION_DATA {}
-impl Clone for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_BLT_STATE_CONSTRICTION_DATA").field("Enable", &self.Enable).field("Size", &self.Size).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Size == other.Size
-    }
-}
-impl Eq for DXVAHD_BLT_STATE_CONSTRICTION_DATA {}
 impl Default for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0,
-}
-impl Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {}
-impl Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     type TypeKind = windows_core::CopyType;
@@ -34420,15 +31158,10 @@ impl Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0,
     pub Value: u32,
-}
-impl Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {}
-impl Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -34439,105 +31172,52 @@ impl Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {}
-impl Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {}
 impl Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_BLT_STATE_PRIVATE_DATA {
     pub Guid: windows_core::GUID,
     pub DataSize: u32,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for DXVAHD_BLT_STATE_PRIVATE_DATA {}
-impl Clone for DXVAHD_BLT_STATE_PRIVATE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_BLT_STATE_PRIVATE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_BLT_STATE_PRIVATE_DATA").field("Guid", &self.Guid).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_PRIVATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_BLT_STATE_PRIVATE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Guid == other.Guid && self.DataSize == other.DataSize && self.pData == other.pData
-    }
-}
-impl Eq for DXVAHD_BLT_STATE_PRIVATE_DATA {}
 impl Default for DXVAHD_BLT_STATE_PRIVATE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub TargetRect: super::super::Foundation::RECT,
 }
-impl Copy for DXVAHD_BLT_STATE_TARGET_RECT_DATA {}
-impl Clone for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_BLT_STATE_TARGET_RECT_DATA").field("Enable", &self.Enable).field("TargetRect", &self.TargetRect).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.TargetRect == other.TargetRect
-    }
-}
-impl Eq for DXVAHD_BLT_STATE_TARGET_RECT_DATA {}
 impl Default for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DXVAHD_COLOR {
     pub RGB: DXVAHD_COLOR_RGBA,
     pub YCbCr: DXVAHD_COLOR_YCbCrA,
-}
-impl Copy for DXVAHD_COLOR {}
-impl Clone for DXVAHD_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVAHD_COLOR {
     type TypeKind = windows_core::CopyType;
@@ -34548,70 +31228,39 @@ impl Default for DXVAHD_COLOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_COLOR_RGBA {
     pub R: f32,
     pub G: f32,
     pub B: f32,
     pub A: f32,
 }
-impl Copy for DXVAHD_COLOR_RGBA {}
-impl Clone for DXVAHD_COLOR_RGBA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_COLOR_RGBA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_COLOR_RGBA").field("R", &self.R).field("G", &self.G).field("B", &self.B).field("A", &self.A).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_COLOR_RGBA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_COLOR_RGBA {
-    fn eq(&self, other: &Self) -> bool {
-        self.R == other.R && self.G == other.G && self.B == other.B && self.A == other.A
-    }
-}
-impl Eq for DXVAHD_COLOR_RGBA {}
 impl Default for DXVAHD_COLOR_RGBA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_COLOR_YCbCrA {
     pub Y: f32,
     pub Cb: f32,
     pub Cr: f32,
     pub A: f32,
 }
-impl Copy for DXVAHD_COLOR_YCbCrA {}
-impl Clone for DXVAHD_COLOR_YCbCrA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_COLOR_YCbCrA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_COLOR_YCbCrA").field("Y", &self.Y).field("Cb", &self.Cb).field("Cr", &self.Cr).field("A", &self.A).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_COLOR_YCbCrA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_COLOR_YCbCrA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Y == other.Y && self.Cb == other.Cb && self.Cr == other.Cr && self.A == other.A
-    }
-}
-impl Eq for DXVAHD_COLOR_YCbCrA {}
 impl Default for DXVAHD_COLOR_YCbCrA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_CONTENT_DESC {
     pub InputFrameFormat: DXVAHD_FRAME_FORMAT,
     pub InputFrameRate: DXVAHD_RATIONAL,
@@ -34621,120 +31270,55 @@ pub struct DXVAHD_CONTENT_DESC {
     pub OutputWidth: u32,
     pub OutputHeight: u32,
 }
-impl Copy for DXVAHD_CONTENT_DESC {}
-impl Clone for DXVAHD_CONTENT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_CONTENT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_CONTENT_DESC").field("InputFrameFormat", &self.InputFrameFormat).field("InputFrameRate", &self.InputFrameRate).field("InputWidth", &self.InputWidth).field("InputHeight", &self.InputHeight).field("OutputFrameRate", &self.OutputFrameRate).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_CONTENT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_CONTENT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputFrameFormat == other.InputFrameFormat && self.InputFrameRate == other.InputFrameRate && self.InputWidth == other.InputWidth && self.InputHeight == other.InputHeight && self.OutputFrameRate == other.OutputFrameRate && self.OutputWidth == other.OutputWidth && self.OutputHeight == other.OutputHeight
-    }
-}
-impl Eq for DXVAHD_CONTENT_DESC {}
 impl Default for DXVAHD_CONTENT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_CUSTOM_RATE_DATA {
     pub CustomRate: DXVAHD_RATIONAL,
     pub OutputFrames: u32,
     pub InputInterlaced: super::super::Foundation::BOOL,
     pub InputFramesOrFields: u32,
 }
-impl Copy for DXVAHD_CUSTOM_RATE_DATA {}
-impl Clone for DXVAHD_CUSTOM_RATE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_CUSTOM_RATE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_CUSTOM_RATE_DATA").field("CustomRate", &self.CustomRate).field("OutputFrames", &self.OutputFrames).field("InputInterlaced", &self.InputInterlaced).field("InputFramesOrFields", &self.InputFramesOrFields).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_CUSTOM_RATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_CUSTOM_RATE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.CustomRate == other.CustomRate && self.OutputFrames == other.OutputFrames && self.InputInterlaced == other.InputInterlaced && self.InputFramesOrFields == other.InputFramesOrFields
-    }
-}
-impl Eq for DXVAHD_CUSTOM_RATE_DATA {}
 impl Default for DXVAHD_CUSTOM_RATE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_FILTER_RANGE_DATA {
     pub Minimum: i32,
     pub Maximum: i32,
     pub Default: i32,
     pub Multiplier: f32,
 }
-impl Copy for DXVAHD_FILTER_RANGE_DATA {}
-impl Clone for DXVAHD_FILTER_RANGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_FILTER_RANGE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_FILTER_RANGE_DATA").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Default", &self.Default).field("Multiplier", &self.Multiplier).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_FILTER_RANGE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_FILTER_RANGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.Default == other.Default && self.Multiplier == other.Multiplier
-    }
-}
-impl Eq for DXVAHD_FILTER_RANGE_DATA {}
 impl Default for DXVAHD_FILTER_RANGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl Copy for DXVAHD_RATIONAL {}
-impl Clone for DXVAHD_RATIONAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_RATIONAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_RATIONAL").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_RATIONAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_RATIONAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Numerator == other.Numerator && self.Denominator == other.Denominator
-    }
-}
-impl Eq for DXVAHD_RATIONAL {}
 impl Default for DXVAHD_RATIONAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -34742,6 +31326,7 @@ impl Default for DXVAHD_RATIONAL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub OutputIndex: u32,
@@ -34759,23 +31344,9 @@ impl Clone for DXVAHD_STREAM_DATA {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAHD_STREAM_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_DATA").field("Enable", &self.Enable).field("OutputIndex", &self.OutputIndex).field("InputFrameOrField", &self.InputFrameOrField).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ppPastSurfaces", &self.ppPastSurfaces).field("pInputSurface", &self.pInputSurface).field("ppFutureSurfaces", &self.ppFutureSurfaces).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAHD_STREAM_DATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVAHD_STREAM_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames && self.ppPastSurfaces == other.ppPastSurfaces && self.pInputSurface == other.pInputSurface && self.ppFutureSurfaces == other.ppFutureSurfaces
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVAHD_STREAM_DATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVAHD_STREAM_DATA {
     fn default() -> Self {
@@ -34783,61 +31354,29 @@ impl Default for DXVAHD_STREAM_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Alpha: f32,
 }
-impl Copy for DXVAHD_STREAM_STATE_ALPHA_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_ALPHA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_ALPHA_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_ALPHA_DATA").field("Enable", &self.Enable).field("Alpha", &self.Alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_ALPHA_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_ALPHA_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Alpha == other.Alpha
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_ALPHA_DATA {}
 impl Default for DXVAHD_STREAM_STATE_ALPHA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub SourceAspectRatio: DXVAHD_RATIONAL,
     pub DestinationAspectRatio: DXVAHD_RATIONAL,
 }
-impl Copy for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA").field("Enable", &self.Enable).field("SourceAspectRatio", &self.SourceAspectRatio).field("DestinationAspectRatio", &self.DestinationAspectRatio).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.SourceAspectRatio == other.SourceAspectRatio && self.DestinationAspectRatio == other.DestinationAspectRatio
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {}
 impl Default for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -34845,35 +31384,14 @@ impl Default for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_D3DFORMAT_DATA").field("Format", &self.Format).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     fn default() -> Self {
@@ -34881,103 +31399,50 @@ impl Default for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub DestinationRect: super::super::Foundation::RECT,
 }
-impl Copy for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA").field("Enable", &self.Enable).field("DestinationRect", &self.DestinationRect).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.DestinationRect == other.DestinationRect
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {}
 impl Default for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Level: i32,
 }
-impl Copy for DXVAHD_STREAM_STATE_FILTER_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_FILTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_FILTER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_FILTER_DATA").field("Enable", &self.Enable).field("Level", &self.Level).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_FILTER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_FILTER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Level == other.Level
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_FILTER_DATA {}
 impl Default for DXVAHD_STREAM_STATE_FILTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     pub FrameFormat: DXVAHD_FRAME_FORMAT,
-}
-impl Copy for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA").field("FrameFormat", &self.FrameFormat).finish()
-    }
 }
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameFormat == other.FrameFormat
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {}
 impl Default for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0,
-}
-impl Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     type TypeKind = windows_core::CopyType;
@@ -34988,15 +31453,10 @@ impl Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0,
     pub Value: u32,
-}
-impl Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {}
-impl Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -35007,220 +31467,109 @@ impl Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {}
-impl Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {}
 impl Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Lower: f32,
     pub Upper: f32,
 }
-impl Copy for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_LUMA_KEY_DATA").field("Enable", &self.Enable).field("Lower", &self.Lower).field("Upper", &self.Upper).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Lower == other.Lower && self.Upper == other.Upper
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {}
 impl Default for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     pub RepeatFrame: super::super::Foundation::BOOL,
     pub OutputRate: DXVAHD_OUTPUT_RATE,
     pub CustomRate: DXVAHD_RATIONAL,
 }
-impl Copy for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA").field("RepeatFrame", &self.RepeatFrame).field("OutputRate", &self.OutputRate).field("CustomRate", &self.CustomRate).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.RepeatFrame == other.RepeatFrame && self.OutputRate == other.OutputRate && self.CustomRate == other.CustomRate
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {}
 impl Default for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PALETTE_DATA {
     pub Count: u32,
     pub pEntries: *mut u32,
 }
-impl Copy for DXVAHD_STREAM_STATE_PALETTE_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_PALETTE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_PALETTE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_PALETTE_DATA").field("Count", &self.Count).field("pEntries", &self.pEntries).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_PALETTE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_PALETTE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.pEntries == other.pEntries
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_PALETTE_DATA {}
 impl Default for DXVAHD_STREAM_STATE_PALETTE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA {
     pub Guid: windows_core::GUID,
     pub DataSize: u32,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_PRIVATE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_PRIVATE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_PRIVATE_DATA").field("Guid", &self.Guid).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_PRIVATE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Guid == other.Guid && self.DataSize == other.DataSize && self.pData == other.pData
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
 impl Default for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub ITelecineFlags: u32,
     pub Frames: u32,
     pub InputField: u32,
 }
-impl Copy for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA").field("Enable", &self.Enable).field("ITelecineFlags", &self.ITelecineFlags).field("Frames", &self.Frames).field("InputField", &self.InputField).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.ITelecineFlags == other.ITelecineFlags && self.Frames == other.Frames && self.InputField == other.InputField
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {}
 impl Default for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub SourceRect: super::super::Foundation::RECT,
 }
-impl Copy for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {}
-impl Clone for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_STREAM_STATE_SOURCE_RECT_DATA").field("Enable", &self.Enable).field("SourceRect", &self.SourceRect).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.SourceRect == other.SourceRect
-    }
-}
-impl Eq for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {}
 impl Default for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_VPCAPS {
     pub VPGuid: windows_core::GUID,
     pub PastFrames: u32,
@@ -35229,26 +31578,9 @@ pub struct DXVAHD_VPCAPS {
     pub ITelecineCaps: u32,
     pub CustomRateCount: u32,
 }
-impl Copy for DXVAHD_VPCAPS {}
-impl Clone for DXVAHD_VPCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVAHD_VPCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_VPCAPS").field("VPGuid", &self.VPGuid).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ProcessorCaps", &self.ProcessorCaps).field("ITelecineCaps", &self.ITelecineCaps).field("CustomRateCount", &self.CustomRateCount).finish()
-    }
-}
 impl windows_core::TypeKind for DXVAHD_VPCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVAHD_VPCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.VPGuid == other.VPGuid && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames && self.ProcessorCaps == other.ProcessorCaps && self.ITelecineCaps == other.ITelecineCaps && self.CustomRateCount == other.CustomRateCount
-    }
-}
-impl Eq for DXVAHD_VPCAPS {}
 impl Default for DXVAHD_VPCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35256,6 +31588,7 @@ impl Default for DXVAHD_VPCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAHD_VPDEVCAPS {
     pub DeviceType: DXVAHD_DEVICE_TYPE,
     pub DeviceCaps: u32,
@@ -35270,43 +31603,9 @@ pub struct DXVAHD_VPDEVCAPS {
     pub MaxStreamStates: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVAHD_VPDEVCAPS {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVAHD_VPDEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAHD_VPDEVCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAHD_VPDEVCAPS")
-            .field("DeviceType", &self.DeviceType)
-            .field("DeviceCaps", &self.DeviceCaps)
-            .field("FeatureCaps", &self.FeatureCaps)
-            .field("FilterCaps", &self.FilterCaps)
-            .field("InputFormatCaps", &self.InputFormatCaps)
-            .field("InputPool", &self.InputPool)
-            .field("OutputFormatCount", &self.OutputFormatCount)
-            .field("InputFormatCount", &self.InputFormatCount)
-            .field("VideoProcessorCount", &self.VideoProcessorCount)
-            .field("MaxInputStreams", &self.MaxInputStreams)
-            .field("MaxStreamStates", &self.MaxStreamStates)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAHD_VPDEVCAPS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVAHD_VPDEVCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceType == other.DeviceType && self.DeviceCaps == other.DeviceCaps && self.FeatureCaps == other.FeatureCaps && self.FilterCaps == other.FilterCaps && self.InputFormatCaps == other.InputFormatCaps && self.InputPool == other.InputPool && self.OutputFormatCount == other.OutputFormatCount && self.InputFormatCount == other.InputFormatCount && self.VideoProcessorCount == other.VideoProcessorCount && self.MaxInputStreams == other.MaxInputStreams && self.MaxStreamStates == other.MaxStreamStates
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVAHD_VPDEVCAPS {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVAHD_VPDEVCAPS {
     fn default() -> Self {
@@ -35315,37 +31614,16 @@ impl Default for DXVAHD_VPDEVCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVAUncompDataInfo {
     pub UncompWidth: u32,
     pub UncompHeight: u32,
     pub UncompFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVAUncompDataInfo {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVAUncompDataInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVAUncompDataInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVAUncompDataInfo").field("UncompWidth", &self.UncompWidth).field("UncompHeight", &self.UncompHeight).field("UncompFormat", &self.UncompFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVAUncompDataInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVAUncompDataInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.UncompWidth == other.UncompWidth && self.UncompHeight == other.UncompHeight && self.UncompFormat == other.UncompFormat
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVAUncompDataInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVAUncompDataInfo {
     fn default() -> Self {
@@ -35353,38 +31631,23 @@ impl Default for DXVAUncompDataInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_AYUVsample2 {
     pub bCrValue: u8,
     pub bCbValue: u8,
     pub bY_Value: u8,
     pub bSampleAlpha8: u8,
 }
-impl Copy for DXVA_AYUVsample2 {}
-impl Clone for DXVA_AYUVsample2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_AYUVsample2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_AYUVsample2").field("bCrValue", &self.bCrValue).field("bCbValue", &self.bCbValue).field("bY_Value", &self.bY_Value).field("bSampleAlpha8", &self.bSampleAlpha8).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_AYUVsample2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_AYUVsample2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCrValue == other.bCrValue && self.bCbValue == other.bCbValue && self.bY_Value == other.bY_Value && self.bSampleAlpha8 == other.bSampleAlpha8
-    }
-}
-impl Eq for DXVA_AYUVsample2 {}
 impl Default for DXVA_AYUVsample2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DXVA_BufferDescription {
     pub dwTypeIndex: u32,
     pub dwBufferIndex: u32,
@@ -35397,12 +31660,6 @@ pub struct DXVA_BufferDescription {
     pub dwStride: u32,
     pub dwReservedBits: u32,
 }
-impl Copy for DXVA_BufferDescription {}
-impl Clone for DXVA_BufferDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DXVA_BufferDescription {
     type TypeKind = windows_core::CopyType;
 }
@@ -35412,6 +31669,7 @@ impl Default for DXVA_BufferDescription {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPCommand {
     pub macKDI: windows_core::GUID,
     pub guidCommandID: windows_core::GUID,
@@ -35419,61 +31677,29 @@ pub struct DXVA_COPPCommand {
     pub cbSizeData: u32,
     pub CommandData: [u8; 4056],
 }
-impl Copy for DXVA_COPPCommand {}
-impl Clone for DXVA_COPPCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPCommand {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPCommand").field("macKDI", &self.macKDI).field("guidCommandID", &self.guidCommandID).field("dwSequence", &self.dwSequence).field("cbSizeData", &self.cbSizeData).field("CommandData", &self.CommandData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPCommand {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.macKDI == other.macKDI && self.guidCommandID == other.guidCommandID && self.dwSequence == other.dwSequence && self.cbSizeData == other.cbSizeData && self.CommandData == other.CommandData
-    }
-}
-impl Eq for DXVA_COPPCommand {}
 impl Default for DXVA_COPPCommand {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPSignature {
     pub Signature: [u8; 256],
-}
-impl Copy for DXVA_COPPSignature {}
-impl Clone for DXVA_COPPSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPSignature {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPSignature").field("Signature", &self.Signature).finish()
-    }
 }
 impl windows_core::TypeKind for DXVA_COPPSignature {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-    }
-}
-impl Eq for DXVA_COPPSignature {}
 impl Default for DXVA_COPPSignature {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPStatusInput {
     pub rApp: windows_core::GUID,
     pub guidStatusRequestID: windows_core::GUID,
@@ -35481,63 +31707,31 @@ pub struct DXVA_COPPStatusInput {
     pub cbSizeData: u32,
     pub StatusData: [u8; 4056],
 }
-impl Copy for DXVA_COPPStatusInput {}
-impl Clone for DXVA_COPPStatusInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPStatusInput {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPStatusInput").field("rApp", &self.rApp).field("guidStatusRequestID", &self.guidStatusRequestID).field("dwSequence", &self.dwSequence).field("cbSizeData", &self.cbSizeData).field("StatusData", &self.StatusData).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPStatusInput {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPStatusInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.rApp == other.rApp && self.guidStatusRequestID == other.guidStatusRequestID && self.dwSequence == other.dwSequence && self.cbSizeData == other.cbSizeData && self.StatusData == other.StatusData
-    }
-}
-impl Eq for DXVA_COPPStatusInput {}
 impl Default for DXVA_COPPStatusInput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_COPPStatusOutput {
     pub macKDI: windows_core::GUID,
     pub cbSizeData: u32,
     pub COPPStatus: [u8; 4076],
 }
-impl Copy for DXVA_COPPStatusOutput {}
-impl Clone for DXVA_COPPStatusOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_COPPStatusOutput {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_COPPStatusOutput").field("macKDI", &self.macKDI).field("cbSizeData", &self.cbSizeData).field("COPPStatus", &self.COPPStatus).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_COPPStatusOutput {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_COPPStatusOutput {
-    fn eq(&self, other: &Self) -> bool {
-        self.macKDI == other.macKDI && self.cbSizeData == other.cbSizeData && self.COPPStatus == other.COPPStatus
-    }
-}
-impl Eq for DXVA_COPPStatusOutput {}
 impl Default for DXVA_COPPStatusOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DXVA_ConfigPictureDecode {
     pub dwFunction: u32,
     pub dwReservedBits: [u32; 3],
@@ -35557,12 +31751,6 @@ pub struct DXVA_ConfigPictureDecode {
     pub bConfigSpecificIDCT: u8,
     pub bConfig4GroupedCoefs: u8,
 }
-impl Copy for DXVA_ConfigPictureDecode {}
-impl Clone for DXVA_ConfigPictureDecode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DXVA_ConfigPictureDecode {
     type TypeKind = windows_core::CopyType;
 }
@@ -35572,6 +31760,7 @@ impl Default for DXVA_ConfigPictureDecode {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceBlt {
     pub Size: u32,
     pub Reserved: u32,
@@ -35582,32 +31771,16 @@ pub struct DXVA_DeinterlaceBlt {
     pub Alpha: f32,
     pub Source: [DXVA_VideoSample; 32],
 }
-impl Copy for DXVA_DeinterlaceBlt {}
-impl Clone for DXVA_DeinterlaceBlt {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_DeinterlaceBlt {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_DeinterlaceBlt").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtTarget", &self.rtTarget).field("DstRect", &self.DstRect).field("SrcRect", &self.SrcRect).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_DeinterlaceBlt {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_DeinterlaceBlt {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Reserved == other.Reserved && self.rtTarget == other.rtTarget && self.DstRect == other.DstRect && self.SrcRect == other.SrcRect && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source
-    }
-}
-impl Eq for DXVA_DeinterlaceBlt {}
 impl Default for DXVA_DeinterlaceBlt {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceBltEx {
     pub Size: u32,
     pub BackgroundColor: DXVA_AYUVsample2,
@@ -35619,26 +31792,9 @@ pub struct DXVA_DeinterlaceBltEx {
     pub DestinationFormat: u32,
     pub DestinationFlags: u32,
 }
-impl Copy for DXVA_DeinterlaceBltEx {}
-impl Clone for DXVA_DeinterlaceBltEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_DeinterlaceBltEx {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_DeinterlaceBltEx").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_DeinterlaceBltEx {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_DeinterlaceBltEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.BackgroundColor == other.BackgroundColor && self.rcTarget == other.rcTarget && self.rtTarget == other.rtTarget && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source && self.DestinationFormat == other.DestinationFormat && self.DestinationFlags == other.DestinationFlags
-    }
-}
-impl Eq for DXVA_DeinterlaceBltEx {}
 impl Default for DXVA_DeinterlaceBltEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35646,6 +31802,7 @@ impl Default for DXVA_DeinterlaceBltEx {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceBltEx32 {
     pub Size: u32,
     pub BackgroundColor: DXVA_AYUVsample2,
@@ -35658,31 +31815,9 @@ pub struct DXVA_DeinterlaceBltEx32 {
     pub DestinationFlags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DXVA_DeinterlaceBltEx32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DXVA_DeinterlaceBltEx32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for DXVA_DeinterlaceBltEx32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_DeinterlaceBltEx32").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DXVA_DeinterlaceBltEx32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for DXVA_DeinterlaceBltEx32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.BackgroundColor == other.BackgroundColor && self.rcTarget == other.rcTarget && self.rtTarget == other.rtTarget && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source && self.DestinationFormat == other.DestinationFormat && self.DestinationFlags == other.DestinationFlags
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for DXVA_DeinterlaceBltEx32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DXVA_DeinterlaceBltEx32 {
     fn default() -> Self {
@@ -35691,6 +31826,7 @@ impl Default for DXVA_DeinterlaceBltEx32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_DeinterlaceCaps {
     pub Size: u32,
     pub NumPreviousOutputFrames: u32,
@@ -35702,31 +31838,9 @@ pub struct DXVA_DeinterlaceCaps {
     pub DeinterlaceTechnology: DXVA_DeinterlaceTech,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA_DeinterlaceCaps {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA_DeinterlaceCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVA_DeinterlaceCaps {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_DeinterlaceCaps").field("Size", &self.Size).field("NumPreviousOutputFrames", &self.NumPreviousOutputFrames).field("InputPool", &self.InputPool).field("NumForwardRefSamples", &self.NumForwardRefSamples).field("NumBackwardRefSamples", &self.NumBackwardRefSamples).field("d3dOutputFormat", &self.d3dOutputFormat).field("VideoProcessingCaps", &self.VideoProcessingCaps).field("DeinterlaceTechnology", &self.DeinterlaceTechnology).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA_DeinterlaceCaps {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVA_DeinterlaceCaps {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.NumPreviousOutputFrames == other.NumPreviousOutputFrames && self.InputPool == other.InputPool && self.NumForwardRefSamples == other.NumForwardRefSamples && self.NumBackwardRefSamples == other.NumBackwardRefSamples && self.d3dOutputFormat == other.d3dOutputFormat && self.VideoProcessingCaps == other.VideoProcessingCaps && self.DeinterlaceTechnology == other.DeinterlaceTechnology
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVA_DeinterlaceCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA_DeinterlaceCaps {
     fn default() -> Self {
@@ -35734,31 +31848,15 @@ impl Default for DXVA_DeinterlaceCaps {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_DeinterlaceQueryAvailableModes {
     pub Size: u32,
     pub NumGuids: u32,
     pub Guids: [windows_core::GUID; 32],
 }
-impl Copy for DXVA_DeinterlaceQueryAvailableModes {}
-impl Clone for DXVA_DeinterlaceQueryAvailableModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_DeinterlaceQueryAvailableModes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_DeinterlaceQueryAvailableModes").field("Size", &self.Size).field("NumGuids", &self.NumGuids).field("Guids", &self.Guids).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_DeinterlaceQueryAvailableModes {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_DeinterlaceQueryAvailableModes {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.NumGuids == other.NumGuids && self.Guids == other.Guids
-    }
-}
-impl Eq for DXVA_DeinterlaceQueryAvailableModes {}
 impl Default for DXVA_DeinterlaceQueryAvailableModes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35766,37 +31864,16 @@ impl Default for DXVA_DeinterlaceQueryAvailableModes {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_DeinterlaceQueryModeCaps {
     pub Size: u32,
     pub Guid: windows_core::GUID,
     pub VideoDesc: DXVA_VideoDesc,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA_DeinterlaceQueryModeCaps {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA_DeinterlaceQueryModeCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVA_DeinterlaceQueryModeCaps {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_DeinterlaceQueryModeCaps").field("Size", &self.Size).field("Guid", &self.Guid).field("VideoDesc", &self.VideoDesc).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA_DeinterlaceQueryModeCaps {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVA_DeinterlaceQueryModeCaps {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Guid == other.Guid && self.VideoDesc == other.VideoDesc
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVA_DeinterlaceQueryModeCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA_DeinterlaceQueryModeCaps {
     fn default() -> Self {
@@ -35804,65 +31881,34 @@ impl Default for DXVA_DeinterlaceQueryModeCaps {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_ExtendedFormat {
     pub _bitfield: u32,
-}
-impl Copy for DXVA_ExtendedFormat {}
-impl Clone for DXVA_ExtendedFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_ExtendedFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_ExtendedFormat").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DXVA_ExtendedFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_ExtendedFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DXVA_ExtendedFormat {}
 impl Default for DXVA_ExtendedFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl Copy for DXVA_Frequency {}
-impl Clone for DXVA_Frequency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_Frequency {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_Frequency").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_Frequency {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_Frequency {
-    fn eq(&self, other: &Self) -> bool {
-        self.Numerator == other.Numerator && self.Denominator == other.Denominator
-    }
-}
-impl Eq for DXVA_Frequency {}
 impl Default for DXVA_Frequency {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DXVA_PictureParameters {
     pub wDecodedPictureIndex: u16,
     pub wDeblockedPictureIndex: u16,
@@ -35901,12 +31947,6 @@ pub struct DXVA_PictureParameters {
     pub bBitstreamConcealmentNeed: u8,
     pub bBitstreamConcealmentMethod: u8,
 }
-impl Copy for DXVA_PictureParameters {}
-impl Clone for DXVA_PictureParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DXVA_PictureParameters {
     type TypeKind = windows_core::CopyType;
 }
@@ -35916,6 +31956,7 @@ impl Default for DXVA_PictureParameters {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_ProcAmpControlBlt {
     pub Size: u32,
     pub DstRect: super::super::Foundation::RECT,
@@ -35926,26 +31967,9 @@ pub struct DXVA_ProcAmpControlBlt {
     pub Hue: f32,
     pub Saturation: f32,
 }
-impl Copy for DXVA_ProcAmpControlBlt {}
-impl Clone for DXVA_ProcAmpControlBlt {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_ProcAmpControlBlt {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_ProcAmpControlBlt").field("Size", &self.Size).field("DstRect", &self.DstRect).field("SrcRect", &self.SrcRect).field("Alpha", &self.Alpha).field("Brightness", &self.Brightness).field("Contrast", &self.Contrast).field("Hue", &self.Hue).field("Saturation", &self.Saturation).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_ProcAmpControlBlt {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_ProcAmpControlBlt {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.DstRect == other.DstRect && self.SrcRect == other.SrcRect && self.Alpha == other.Alpha && self.Brightness == other.Brightness && self.Contrast == other.Contrast && self.Hue == other.Hue && self.Saturation == other.Saturation
-    }
-}
-impl Eq for DXVA_ProcAmpControlBlt {}
 impl Default for DXVA_ProcAmpControlBlt {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35953,6 +31977,7 @@ impl Default for DXVA_ProcAmpControlBlt {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_ProcAmpControlCaps {
     pub Size: u32,
     pub InputPool: u32,
@@ -35961,31 +31986,9 @@ pub struct DXVA_ProcAmpControlCaps {
     pub VideoProcessingCaps: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA_ProcAmpControlCaps {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA_ProcAmpControlCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVA_ProcAmpControlCaps {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_ProcAmpControlCaps").field("Size", &self.Size).field("InputPool", &self.InputPool).field("d3dOutputFormat", &self.d3dOutputFormat).field("ProcAmpControlProps", &self.ProcAmpControlProps).field("VideoProcessingCaps", &self.VideoProcessingCaps).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA_ProcAmpControlCaps {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVA_ProcAmpControlCaps {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.InputPool == other.InputPool && self.d3dOutputFormat == other.d3dOutputFormat && self.ProcAmpControlProps == other.ProcAmpControlProps && self.VideoProcessingCaps == other.VideoProcessingCaps
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVA_ProcAmpControlCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA_ProcAmpControlCaps {
     fn default() -> Self {
@@ -35994,37 +31997,16 @@ impl Default for DXVA_ProcAmpControlCaps {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_ProcAmpControlQueryRange {
     pub Size: u32,
     pub ProcAmpControlProp: DXVA_ProcAmpControlProp,
     pub VideoDesc: DXVA_VideoDesc,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA_ProcAmpControlQueryRange {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA_ProcAmpControlQueryRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVA_ProcAmpControlQueryRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_ProcAmpControlQueryRange").field("Size", &self.Size).field("ProcAmpControlProp", &self.ProcAmpControlProp).field("VideoDesc", &self.VideoDesc).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA_ProcAmpControlQueryRange {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVA_ProcAmpControlQueryRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.ProcAmpControlProp == other.ProcAmpControlProp && self.VideoDesc == other.VideoDesc
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVA_ProcAmpControlQueryRange {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA_ProcAmpControlQueryRange {
     fn default() -> Self {
@@ -36033,6 +32015,7 @@ impl Default for DXVA_ProcAmpControlQueryRange {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_VideoDesc {
     pub Size: u32,
     pub SampleWidth: u32,
@@ -36043,31 +32026,9 @@ pub struct DXVA_VideoDesc {
     pub OutputFrameFreq: DXVA_Frequency,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DXVA_VideoDesc {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DXVA_VideoDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl core::fmt::Debug for DXVA_VideoDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_VideoDesc").field("Size", &self.Size).field("SampleWidth", &self.SampleWidth).field("SampleHeight", &self.SampleHeight).field("SampleFormat", &self.SampleFormat).field("d3dFormat", &self.d3dFormat).field("InputSampleFreq", &self.InputSampleFreq).field("OutputFrameFreq", &self.OutputFrameFreq).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for DXVA_VideoDesc {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl PartialEq for DXVA_VideoDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SampleWidth == other.SampleWidth && self.SampleHeight == other.SampleHeight && self.SampleFormat == other.SampleFormat && self.d3dFormat == other.d3dFormat && self.InputSampleFreq == other.InputSampleFreq && self.OutputFrameFreq == other.OutputFrameFreq
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Eq for DXVA_VideoDesc {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA_VideoDesc {
     fn default() -> Self {
@@ -36075,64 +32036,32 @@ impl Default for DXVA_VideoDesc {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoPropertyRange {
     pub MinValue: f32,
     pub MaxValue: f32,
     pub DefaultValue: f32,
     pub StepSize: f32,
 }
-impl Copy for DXVA_VideoPropertyRange {}
-impl Clone for DXVA_VideoPropertyRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_VideoPropertyRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_VideoPropertyRange").field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).field("DefaultValue", &self.DefaultValue).field("StepSize", &self.StepSize).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_VideoPropertyRange {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_VideoPropertyRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinValue == other.MinValue && self.MaxValue == other.MaxValue && self.DefaultValue == other.DefaultValue && self.StepSize == other.StepSize
-    }
-}
-impl Eq for DXVA_VideoPropertyRange {}
 impl Default for DXVA_VideoPropertyRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_VideoSample {
     pub rtStart: i64,
     pub rtEnd: i64,
     pub SampleFormat: DXVA_SampleFormat,
     pub lpDDSSrcSurface: *mut core::ffi::c_void,
 }
-impl Copy for DXVA_VideoSample {}
-impl Clone for DXVA_VideoSample {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXVA_VideoSample {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_VideoSample").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).finish()
-    }
-}
 impl windows_core::TypeKind for DXVA_VideoSample {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXVA_VideoSample {
-    fn eq(&self, other: &Self) -> bool {
-        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.lpDDSSrcSurface == other.lpDDSSrcSurface
-    }
-}
-impl Eq for DXVA_VideoSample {}
 impl Default for DXVA_VideoSample {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -36140,6 +32069,7 @@ impl Default for DXVA_VideoSample {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_VideoSample2 {
     pub Size: u32,
     pub Reserved: u32,
@@ -36153,31 +32083,9 @@ pub struct DXVA_VideoSample2 {
     pub Palette: [DXVA_AYUVsample2; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DXVA_VideoSample2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for DXVA_VideoSample2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_VideoSample2").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DXVA_VideoSample2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for DXVA_VideoSample2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Reserved == other.Reserved && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for DXVA_VideoSample2 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DXVA_VideoSample2 {
     fn default() -> Self {
@@ -36186,6 +32094,7 @@ impl Default for DXVA_VideoSample2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_VideoSample2 {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -36197,31 +32106,9 @@ pub struct DXVA_VideoSample2 {
     pub Palette: [DXVA_AYUVsample2; 16],
 }
 #[cfg(target_arch = "x86")]
-impl Copy for DXVA_VideoSample2 {}
-#[cfg(target_arch = "x86")]
-impl Clone for DXVA_VideoSample2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl core::fmt::Debug for DXVA_VideoSample2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_VideoSample2").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DXVA_VideoSample2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86")]
-impl PartialEq for DXVA_VideoSample2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Eq for DXVA_VideoSample2 {}
 #[cfg(target_arch = "x86")]
 impl Default for DXVA_VideoSample2 {
     fn default() -> Self {
@@ -36230,6 +32117,7 @@ impl Default for DXVA_VideoSample2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA_VideoSample32 {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -36241,31 +32129,9 @@ pub struct DXVA_VideoSample32 {
     pub Palette: [DXVA_AYUVsample2; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DXVA_VideoSample32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DXVA_VideoSample32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for DXVA_VideoSample32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXVA_VideoSample32").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DXVA_VideoSample32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for DXVA_VideoSample32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for DXVA_VideoSample32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DXVA_VideoSample32 {
     fn default() -> Self {
@@ -36273,31 +32139,15 @@ impl Default for DXVA_VideoSample32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DigitalWindowSetting {
     pub OriginX: f64,
     pub OriginY: f64,
     pub WindowSize: f64,
 }
-impl Copy for DigitalWindowSetting {}
-impl Clone for DigitalWindowSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DigitalWindowSetting {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DigitalWindowSetting").field("OriginX", &self.OriginX).field("OriginY", &self.OriginY).field("WindowSize", &self.WindowSize).finish()
-    }
-}
 impl windows_core::TypeKind for DigitalWindowSetting {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DigitalWindowSetting {
-    fn eq(&self, other: &Self) -> bool {
-        self.OriginX == other.OriginX && self.OriginY == other.OriginY && self.WindowSize == other.WindowSize
-    }
-}
-impl Eq for DigitalWindowSetting {}
 impl Default for DigitalWindowSetting {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -36305,32 +32155,16 @@ impl Default for DigitalWindowSetting {
 }
 pub const KSPROPSETID_OPMVideoOutput: windows_core::GUID = windows_core::GUID::from_u128(0x06f414bb_f43a_4fe2_a566_774b4c81f0db);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACROBLOCK_DATA {
     pub flags: u32,
     pub motionVectorX: i16,
     pub motionVectorY: i16,
     pub QPDelta: i32,
 }
-impl Copy for MACROBLOCK_DATA {}
-impl Clone for MACROBLOCK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MACROBLOCK_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MACROBLOCK_DATA").field("flags", &self.flags).field("motionVectorX", &self.motionVectorX).field("motionVectorY", &self.motionVectorY).field("QPDelta", &self.QPDelta).finish()
-    }
-}
 impl windows_core::TypeKind for MACROBLOCK_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MACROBLOCK_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.motionVectorX == other.motionVectorX && self.motionVectorY == other.motionVectorY && self.QPDelta == other.QPDelta
-    }
-}
-impl Eq for MACROBLOCK_DATA {}
 impl Default for MACROBLOCK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -36339,100 +32173,53 @@ impl Default for MACROBLOCK_DATA {
 pub const MFAMRNBByteStreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0xefe6208a_0a2c_49fa_8a01_3768b559b6da);
 pub const MFAMRNBSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFARGB {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
     pub rgbRed: u8,
     pub rgbAlpha: u8,
 }
-impl Copy for MFARGB {}
-impl Clone for MFARGB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFARGB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFARGB").field("rgbBlue", &self.rgbBlue).field("rgbGreen", &self.rgbGreen).field("rgbRed", &self.rgbRed).field("rgbAlpha", &self.rgbAlpha).finish()
-    }
-}
 impl windows_core::TypeKind for MFARGB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFARGB {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgbBlue == other.rgbBlue && self.rgbGreen == other.rgbGreen && self.rgbRed == other.rgbRed && self.rgbAlpha == other.rgbAlpha
-    }
-}
-impl Eq for MFARGB {}
 impl Default for MFARGB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFAYUVSample {
     pub bCrValue: u8,
     pub bCbValue: u8,
     pub bYValue: u8,
     pub bSampleAlpha8: u8,
 }
-impl Copy for MFAYUVSample {}
-impl Clone for MFAYUVSample {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFAYUVSample {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFAYUVSample").field("bCrValue", &self.bCrValue).field("bCbValue", &self.bCbValue).field("bYValue", &self.bYValue).field("bSampleAlpha8", &self.bSampleAlpha8).finish()
-    }
-}
 impl windows_core::TypeKind for MFAYUVSample {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFAYUVSample {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCrValue == other.bCrValue && self.bCbValue == other.bCbValue && self.bYValue == other.bYValue && self.bSampleAlpha8 == other.bSampleAlpha8
-    }
-}
-impl Eq for MFAYUVSample {}
 impl Default for MFAYUVSample {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFAudioDecoderDegradationInfo {
     pub eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
     pub eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
 }
-impl Copy for MFAudioDecoderDegradationInfo {}
-impl Clone for MFAudioDecoderDegradationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFAudioDecoderDegradationInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFAudioDecoderDegradationInfo").field("eDegradationReason", &self.eDegradationReason).field("eType", &self.eType).finish()
-    }
-}
 impl windows_core::TypeKind for MFAudioDecoderDegradationInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFAudioDecoderDegradationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.eDegradationReason == other.eDegradationReason && self.eType == other.eType
-    }
-}
-impl Eq for MFAudioDecoderDegradationInfo {}
 impl Default for MFAudioDecoderDegradationInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: u64,
     pub cbPlayableDataSize: u64,
@@ -36443,32 +32230,16 @@ pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub qwPlayDuration: u64,
     pub dRate: f32,
 }
-impl Copy for MFBYTESTREAM_BUFFERING_PARAMS {}
-impl Clone for MFBYTESTREAM_BUFFERING_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFBYTESTREAM_BUFFERING_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFBYTESTREAM_BUFFERING_PARAMS").field("cbTotalFileSize", &self.cbTotalFileSize).field("cbPlayableDataSize", &self.cbPlayableDataSize).field("prgBuckets", &self.prgBuckets).field("cBuckets", &self.cBuckets).field("qwNetBufferingTime", &self.qwNetBufferingTime).field("qwExtraBufferingTimeDuringSeek", &self.qwExtraBufferingTimeDuringSeek).field("qwPlayDuration", &self.qwPlayDuration).field("dRate", &self.dRate).finish()
-    }
-}
 impl windows_core::TypeKind for MFBYTESTREAM_BUFFERING_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFBYTESTREAM_BUFFERING_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbTotalFileSize == other.cbTotalFileSize && self.cbPlayableDataSize == other.cbPlayableDataSize && self.prgBuckets == other.prgBuckets && self.cBuckets == other.cBuckets && self.qwNetBufferingTime == other.qwNetBufferingTime && self.qwExtraBufferingTimeDuringSeek == other.qwExtraBufferingTimeDuringSeek && self.qwPlayDuration == other.qwPlayDuration && self.dRate == other.dRate
-    }
-}
-impl Eq for MFBYTESTREAM_BUFFERING_PARAMS {}
 impl Default for MFBYTESTREAM_BUFFERING_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCLOCK_PROPERTIES {
     pub qwCorrelationRate: u64,
     pub guidClockId: windows_core::GUID,
@@ -36477,32 +32248,16 @@ pub struct MFCLOCK_PROPERTIES {
     pub dwClockTolerance: u32,
     pub dwClockJitter: u32,
 }
-impl Copy for MFCLOCK_PROPERTIES {}
-impl Clone for MFCLOCK_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCLOCK_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCLOCK_PROPERTIES").field("qwCorrelationRate", &self.qwCorrelationRate).field("guidClockId", &self.guidClockId).field("dwClockFlags", &self.dwClockFlags).field("qwClockFrequency", &self.qwClockFrequency).field("dwClockTolerance", &self.dwClockTolerance).field("dwClockJitter", &self.dwClockJitter).finish()
-    }
-}
 impl windows_core::TypeKind for MFCLOCK_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCLOCK_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.qwCorrelationRate == other.qwCorrelationRate && self.guidClockId == other.guidClockId && self.dwClockFlags == other.dwClockFlags && self.qwClockFrequency == other.qwClockFrequency && self.dwClockTolerance == other.dwClockTolerance && self.dwClockJitter == other.dwClockJitter
-    }
-}
-impl Eq for MFCLOCK_PROPERTIES {}
 impl Default for MFCLOCK_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     pub HWProtectionFunctionID: u32,
     pub PrivateDataByteCount: u32,
@@ -36510,32 +32265,16 @@ pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     pub Reserved: u32,
     pub InputData: [u8; 4],
 }
-impl Copy for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {}
-impl Clone for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCONTENTPROTECTIONDEVICE_INPUT_DATA").field("HWProtectionFunctionID", &self.HWProtectionFunctionID).field("PrivateDataByteCount", &self.PrivateDataByteCount).field("HWProtectionDataByteCount", &self.HWProtectionDataByteCount).field("Reserved", &self.Reserved).field("InputData", &self.InputData).finish()
-    }
-}
 impl windows_core::TypeKind for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.HWProtectionFunctionID == other.HWProtectionFunctionID && self.PrivateDataByteCount == other.PrivateDataByteCount && self.HWProtectionDataByteCount == other.HWProtectionDataByteCount && self.Reserved == other.Reserved && self.InputData == other.InputData
-    }
-}
-impl Eq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {}
 impl Default for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     pub PrivateDataByteCount: u32,
     pub MaxHWProtectionDataByteCount: u32,
@@ -36545,164 +32284,76 @@ pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     pub ExecutionTimeInHundredsOfNanoseconds: i64,
     pub OutputData: [u8; 4],
 }
-impl Copy for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {}
-impl Clone for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA")
-            .field("PrivateDataByteCount", &self.PrivateDataByteCount)
-            .field("MaxHWProtectionDataByteCount", &self.MaxHWProtectionDataByteCount)
-            .field("HWProtectionDataByteCount", &self.HWProtectionDataByteCount)
-            .field("Status", &self.Status)
-            .field("TransportTimeInHundredsOfNanoseconds", &self.TransportTimeInHundredsOfNanoseconds)
-            .field("ExecutionTimeInHundredsOfNanoseconds", &self.ExecutionTimeInHundredsOfNanoseconds)
-            .field("OutputData", &self.OutputData)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrivateDataByteCount == other.PrivateDataByteCount && self.MaxHWProtectionDataByteCount == other.MaxHWProtectionDataByteCount && self.HWProtectionDataByteCount == other.HWProtectionDataByteCount && self.Status == other.Status && self.TransportTimeInHundredsOfNanoseconds == other.TransportTimeInHundredsOfNanoseconds && self.ExecutionTimeInHundredsOfNanoseconds == other.ExecutionTimeInHundredsOfNanoseconds && self.OutputData == other.OutputData
-    }
-}
-impl Eq for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {}
 impl Default for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     pub TaskIndex: u32,
     pub ClassName: [u16; 260],
     pub BasePriority: i32,
 }
-impl Copy for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {}
-impl Clone for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA").field("TaskIndex", &self.TaskIndex).field("ClassName", &self.ClassName).field("BasePriority", &self.BasePriority).finish()
-    }
-}
 impl windows_core::TypeKind for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.TaskIndex == other.TaskIndex && self.ClassName == other.ClassName && self.BasePriority == other.BasePriority
-    }
-}
-impl Eq for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {}
 impl Default for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraExtrinsic_CalibratedTransform {
     pub CalibrationId: windows_core::GUID,
     pub Position: MF_FLOAT3,
     pub Orientation: MF_QUATERNION,
 }
-impl Copy for MFCameraExtrinsic_CalibratedTransform {}
-impl Clone for MFCameraExtrinsic_CalibratedTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraExtrinsic_CalibratedTransform {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraExtrinsic_CalibratedTransform").field("CalibrationId", &self.CalibrationId).field("Position", &self.Position).field("Orientation", &self.Orientation).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraExtrinsic_CalibratedTransform {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraExtrinsic_CalibratedTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.CalibrationId == other.CalibrationId && self.Position == other.Position && self.Orientation == other.Orientation
-    }
-}
-impl Eq for MFCameraExtrinsic_CalibratedTransform {}
 impl Default for MFCameraExtrinsic_CalibratedTransform {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraExtrinsics {
     pub TransformCount: u32,
     pub CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
 }
-impl Copy for MFCameraExtrinsics {}
-impl Clone for MFCameraExtrinsics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraExtrinsics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraExtrinsics").field("TransformCount", &self.TransformCount).field("CalibratedTransforms", &self.CalibratedTransforms).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraExtrinsics {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraExtrinsics {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransformCount == other.TransformCount && self.CalibratedTransforms == other.CalibratedTransforms
-    }
-}
-impl Eq for MFCameraExtrinsics {}
 impl Default for MFCameraExtrinsics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_CameraModel {
     pub FocalLength_x: f32,
     pub FocalLength_y: f32,
     pub PrincipalPoint_x: f32,
     pub PrincipalPoint_y: f32,
 }
-impl Copy for MFCameraIntrinsic_CameraModel {}
-impl Clone for MFCameraIntrinsic_CameraModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraIntrinsic_CameraModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraIntrinsic_CameraModel").field("FocalLength_x", &self.FocalLength_x).field("FocalLength_y", &self.FocalLength_y).field("PrincipalPoint_x", &self.PrincipalPoint_x).field("PrincipalPoint_y", &self.PrincipalPoint_y).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraIntrinsic_CameraModel {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraIntrinsic_CameraModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.FocalLength_x == other.FocalLength_x && self.FocalLength_y == other.FocalLength_y && self.PrincipalPoint_x == other.PrincipalPoint_x && self.PrincipalPoint_y == other.PrincipalPoint_y
-    }
-}
-impl Eq for MFCameraIntrinsic_CameraModel {}
 impl Default for MFCameraIntrinsic_CameraModel {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModel {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -36710,32 +32361,16 @@ pub struct MFCameraIntrinsic_DistortionModel {
     pub Tangential_p1: f32,
     pub Tangential_p2: f32,
 }
-impl Copy for MFCameraIntrinsic_DistortionModel {}
-impl Clone for MFCameraIntrinsic_DistortionModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraIntrinsic_DistortionModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraIntrinsic_DistortionModel").field("Radial_k1", &self.Radial_k1).field("Radial_k2", &self.Radial_k2).field("Radial_k3", &self.Radial_k3).field("Tangential_p1", &self.Tangential_p1).field("Tangential_p2", &self.Tangential_p2).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModel {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraIntrinsic_DistortionModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.Radial_k1 == other.Radial_k1 && self.Radial_k2 == other.Radial_k2 && self.Radial_k3 == other.Radial_k3 && self.Tangential_p1 == other.Tangential_p1 && self.Tangential_p2 == other.Tangential_p2
-    }
-}
-impl Eq for MFCameraIntrinsic_DistortionModel {}
 impl Default for MFCameraIntrinsic_DistortionModel {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModel6KT {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -36746,32 +32381,16 @@ pub struct MFCameraIntrinsic_DistortionModel6KT {
     pub Tangential_p1: f32,
     pub Tangential_p2: f32,
 }
-impl Copy for MFCameraIntrinsic_DistortionModel6KT {}
-impl Clone for MFCameraIntrinsic_DistortionModel6KT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraIntrinsic_DistortionModel6KT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraIntrinsic_DistortionModel6KT").field("Radial_k1", &self.Radial_k1).field("Radial_k2", &self.Radial_k2).field("Radial_k3", &self.Radial_k3).field("Radial_k4", &self.Radial_k4).field("Radial_k5", &self.Radial_k5).field("Radial_k6", &self.Radial_k6).field("Tangential_p1", &self.Tangential_p1).field("Tangential_p2", &self.Tangential_p2).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModel6KT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraIntrinsic_DistortionModel6KT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Radial_k1 == other.Radial_k1 && self.Radial_k2 == other.Radial_k2 && self.Radial_k3 == other.Radial_k3 && self.Radial_k4 == other.Radial_k4 && self.Radial_k5 == other.Radial_k5 && self.Radial_k6 == other.Radial_k6 && self.Tangential_p1 == other.Tangential_p1 && self.Tangential_p2 == other.Tangential_p2
-    }
-}
-impl Eq for MFCameraIntrinsic_DistortionModel6KT {}
 impl Default for MFCameraIntrinsic_DistortionModel6KT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModelArcTan {
     pub Radial_k0: f32,
     pub DistortionCenter_x: f32,
@@ -36779,88 +32398,39 @@ pub struct MFCameraIntrinsic_DistortionModelArcTan {
     pub Tangential_x: f32,
     pub Tangential_y: f32,
 }
-impl Copy for MFCameraIntrinsic_DistortionModelArcTan {}
-impl Clone for MFCameraIntrinsic_DistortionModelArcTan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraIntrinsic_DistortionModelArcTan {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraIntrinsic_DistortionModelArcTan").field("Radial_k0", &self.Radial_k0).field("DistortionCenter_x", &self.DistortionCenter_x).field("DistortionCenter_y", &self.DistortionCenter_y).field("Tangential_x", &self.Tangential_x).field("Tangential_y", &self.Tangential_y).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModelArcTan {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraIntrinsic_DistortionModelArcTan {
-    fn eq(&self, other: &Self) -> bool {
-        self.Radial_k0 == other.Radial_k0 && self.DistortionCenter_x == other.DistortionCenter_x && self.DistortionCenter_y == other.DistortionCenter_y && self.Tangential_x == other.Tangential_x && self.Tangential_y == other.Tangential_y
-    }
-}
-impl Eq for MFCameraIntrinsic_DistortionModelArcTan {}
 impl Default for MFCameraIntrinsic_DistortionModelArcTan {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_PinholeCameraModel {
     pub FocalLength: MF_FLOAT2,
     pub PrincipalPoint: MF_FLOAT2,
 }
-impl Copy for MFCameraIntrinsic_PinholeCameraModel {}
-impl Clone for MFCameraIntrinsic_PinholeCameraModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFCameraIntrinsic_PinholeCameraModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFCameraIntrinsic_PinholeCameraModel").field("FocalLength", &self.FocalLength).field("PrincipalPoint", &self.PrincipalPoint).finish()
-    }
-}
 impl windows_core::TypeKind for MFCameraIntrinsic_PinholeCameraModel {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFCameraIntrinsic_PinholeCameraModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.FocalLength == other.FocalLength && self.PrincipalPoint == other.PrincipalPoint
-    }
-}
-impl Eq for MFCameraIntrinsic_PinholeCameraModel {}
 impl Default for MFCameraIntrinsic_PinholeCameraModel {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
     pub SplitFrameId: u32,
     pub CameraModel: MFCameraIntrinsic_CameraModel,
 }
-impl Copy for MFExtendedCameraIntrinsic_IntrinsicModel {}
-impl Clone for MFExtendedCameraIntrinsic_IntrinsicModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFExtendedCameraIntrinsic_IntrinsicModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFExtendedCameraIntrinsic_IntrinsicModel").field("Width", &self.Width).field("Height", &self.Height).field("SplitFrameId", &self.SplitFrameId).field("CameraModel", &self.CameraModel).finish()
-    }
-}
 impl windows_core::TypeKind for MFExtendedCameraIntrinsic_IntrinsicModel {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFExtendedCameraIntrinsic_IntrinsicModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.SplitFrameId == other.SplitFrameId && self.CameraModel == other.CameraModel
-    }
-}
-impl Eq for MFExtendedCameraIntrinsic_IntrinsicModel {}
 impl Default for MFExtendedCameraIntrinsic_IntrinsicModel {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -36869,6 +32439,7 @@ impl Default for MFExtendedCameraIntrinsic_IntrinsicModel {
 pub const MFFLACBytestreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
 pub const MFFLACSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFFOLDDOWN_MATRIX {
     pub cbSize: u32,
     pub cSrcChannels: u32,
@@ -36876,63 +32447,31 @@ pub struct MFFOLDDOWN_MATRIX {
     pub dwChannelMask: u32,
     pub Coeff: [i32; 64],
 }
-impl Copy for MFFOLDDOWN_MATRIX {}
-impl Clone for MFFOLDDOWN_MATRIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFFOLDDOWN_MATRIX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFFOLDDOWN_MATRIX").field("cbSize", &self.cbSize).field("cSrcChannels", &self.cSrcChannels).field("cDstChannels", &self.cDstChannels).field("dwChannelMask", &self.dwChannelMask).field("Coeff", &self.Coeff).finish()
-    }
-}
 impl windows_core::TypeKind for MFFOLDDOWN_MATRIX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFFOLDDOWN_MATRIX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cSrcChannels == other.cSrcChannels && self.cDstChannels == other.cDstChannels && self.dwChannelMask == other.dwChannelMask && self.Coeff == other.Coeff
-    }
-}
-impl Eq for MFFOLDDOWN_MATRIX {}
 impl Default for MFFOLDDOWN_MATRIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut u8,
     pub cbTicket: u32,
 }
-impl Copy for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {}
-impl Clone for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFINPUTTRUSTAUTHORITY_ACCESS_ACTION").field("Action", &self.Action).field("pbTicket", &self.pbTicket).field("cbTicket", &self.cbTicket).finish()
-    }
-}
 impl windows_core::TypeKind for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Action == other.Action && self.pbTicket == other.pbTicket && self.cbTicket == other.cbTicket
-    }
-}
-impl Eq for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {}
 impl Default for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     pub dwSize: u32,
     pub dwVer: u32,
@@ -36943,32 +32482,16 @@ pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     pub cActions: u32,
     pub rgOutputActions: [MFINPUTTRUSTAUTHORITY_ACCESS_ACTION; 1],
 }
-impl Copy for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
-impl Clone for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS").field("dwSize", &self.dwSize).field("dwVer", &self.dwVer).field("cbSignatureOffset", &self.cbSignatureOffset).field("cbSignatureSize", &self.cbSignatureSize).field("cbExtensionOffset", &self.cbExtensionOffset).field("cbExtensionSize", &self.cbExtensionSize).field("cActions", &self.cActions).field("rgOutputActions", &self.rgOutputActions).finish()
-    }
-}
 impl windows_core::TypeKind for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwVer == other.dwVer && self.cbSignatureOffset == other.cbSignatureOffset && self.cbSignatureSize == other.cbSignatureSize && self.cbExtensionOffset == other.cbExtensionOffset && self.cbExtensionSize == other.cbExtensionSize && self.cActions == other.cActions && self.rgOutputActions == other.rgOutputActions
-    }
-}
-impl Eq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
 impl Default for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFMPEG2DLNASINKSTATS {
     pub cBytesWritten: u64,
     pub fPAL: super::super::Foundation::BOOL,
@@ -36985,78 +32508,31 @@ pub struct MFMPEG2DLNASINKSTATS {
     pub cAudioBytesReceived: u64,
     pub cAudioFramesEncoded: u64,
 }
-impl Copy for MFMPEG2DLNASINKSTATS {}
-impl Clone for MFMPEG2DLNASINKSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFMPEG2DLNASINKSTATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFMPEG2DLNASINKSTATS")
-            .field("cBytesWritten", &self.cBytesWritten)
-            .field("fPAL", &self.fPAL)
-            .field("fccVideo", &self.fccVideo)
-            .field("dwVideoWidth", &self.dwVideoWidth)
-            .field("dwVideoHeight", &self.dwVideoHeight)
-            .field("cVideoFramesReceived", &self.cVideoFramesReceived)
-            .field("cVideoFramesEncoded", &self.cVideoFramesEncoded)
-            .field("cVideoFramesSkipped", &self.cVideoFramesSkipped)
-            .field("cBlackVideoFramesEncoded", &self.cBlackVideoFramesEncoded)
-            .field("cVideoFramesDuplicated", &self.cVideoFramesDuplicated)
-            .field("cAudioSamplesPerSec", &self.cAudioSamplesPerSec)
-            .field("cAudioChannels", &self.cAudioChannels)
-            .field("cAudioBytesReceived", &self.cAudioBytesReceived)
-            .field("cAudioFramesEncoded", &self.cAudioFramesEncoded)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MFMPEG2DLNASINKSTATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFMPEG2DLNASINKSTATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBytesWritten == other.cBytesWritten && self.fPAL == other.fPAL && self.fccVideo == other.fccVideo && self.dwVideoWidth == other.dwVideoWidth && self.dwVideoHeight == other.dwVideoHeight && self.cVideoFramesReceived == other.cVideoFramesReceived && self.cVideoFramesEncoded == other.cVideoFramesEncoded && self.cVideoFramesSkipped == other.cVideoFramesSkipped && self.cBlackVideoFramesEncoded == other.cBlackVideoFramesEncoded && self.cVideoFramesDuplicated == other.cVideoFramesDuplicated && self.cAudioSamplesPerSec == other.cAudioSamplesPerSec && self.cAudioChannels == other.cAudioChannels && self.cAudioBytesReceived == other.cAudioBytesReceived && self.cAudioFramesEncoded == other.cAudioFramesEncoded
-    }
-}
-impl Eq for MFMPEG2DLNASINKSTATS {}
 impl Default for MFMPEG2DLNASINKSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
     pub cbKeyId: u32,
     pub eMediaKeyStatus: MF_MEDIAKEY_STATUS,
 }
-impl Copy for MFMediaKeyStatus {}
-impl Clone for MFMediaKeyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFMediaKeyStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFMediaKeyStatus").field("pbKeyId", &self.pbKeyId).field("cbKeyId", &self.cbKeyId).field("eMediaKeyStatus", &self.eMediaKeyStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MFMediaKeyStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFMediaKeyStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbKeyId == other.pbKeyId && self.cbKeyId == other.cbKeyId && self.eMediaKeyStatus == other.eMediaKeyStatus
-    }
-}
-impl Eq for MFMediaKeyStatus {}
 impl Default for MFMediaKeyStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: windows_core::HRESULT,
     pub fAllowLoggedOnUser: super::super::Foundation::BOOL,
@@ -37067,56 +32543,23 @@ pub struct MFNetCredentialManagerGetParam {
     pub pszPackage: windows_core::PCWSTR,
     pub nRetries: i32,
 }
-impl Copy for MFNetCredentialManagerGetParam {}
-impl Clone for MFNetCredentialManagerGetParam {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFNetCredentialManagerGetParam {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFNetCredentialManagerGetParam").field("hrOp", &self.hrOp).field("fAllowLoggedOnUser", &self.fAllowLoggedOnUser).field("fClearTextPackage", &self.fClearTextPackage).field("pszUrl", &self.pszUrl).field("pszSite", &self.pszSite).field("pszRealm", &self.pszRealm).field("pszPackage", &self.pszPackage).field("nRetries", &self.nRetries).finish()
-    }
-}
 impl windows_core::TypeKind for MFNetCredentialManagerGetParam {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFNetCredentialManagerGetParam {
-    fn eq(&self, other: &Self) -> bool {
-        self.hrOp == other.hrOp && self.fAllowLoggedOnUser == other.fAllowLoggedOnUser && self.fClearTextPackage == other.fClearTextPackage && self.pszUrl == other.pszUrl && self.pszSite == other.pszSite && self.pszRealm == other.pszRealm && self.pszPackage == other.pszPackage && self.nRetries == other.nRetries
-    }
-}
-impl Eq for MFNetCredentialManagerGetParam {}
 impl Default for MFNetCredentialManagerGetParam {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFOffset {
     pub fract: u16,
     pub value: i16,
 }
-impl Copy for MFOffset {}
-impl Clone for MFOffset {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFOffset {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFOffset").field("fract", &self.fract).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for MFOffset {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFOffset {
-    fn eq(&self, other: &Self) -> bool {
-        self.fract == other.fract && self.value == other.value
-    }
-}
-impl Eq for MFOffset {}
 impl Default for MFOffset {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -37124,6 +32567,7 @@ impl Default for MFOffset {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub dwUserData: usize,
@@ -37144,35 +32588,9 @@ impl Clone for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_ACQUIRE_USER_CREDENTIAL_EVENT")
-            .field("header", &self.header)
-            .field("dwUserData", &self.dwUserData)
-            .field("fProceedWithAuthentication", &self.fProceedWithAuthentication)
-            .field("hrAuthenticationStatus", &self.hrAuthenticationStatus)
-            .field("pwszURL", &self.pwszURL)
-            .field("pwszSite", &self.pwszSite)
-            .field("pwszRealm", &self.pwszRealm)
-            .field("pwszPackage", &self.pwszPackage)
-            .field("nRetries", &self.nRetries)
-            .field("flags", &self.flags)
-            .field("pCredential", &self.pCredential)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.dwUserData == other.dwUserData && self.fProceedWithAuthentication == other.fProceedWithAuthentication && self.hrAuthenticationStatus == other.hrAuthenticationStatus && self.pwszURL == other.pwszURL && self.pwszSite == other.pwszSite && self.pwszRealm == other.pwszRealm && self.pwszPackage == other.pwszPackage && self.nRetries == other.nRetries && self.flags == other.flags && self.pCredential == other.pCredential
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     fn default() -> Self {
@@ -37181,6 +32599,7 @@ impl Default for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
 }
@@ -37191,23 +32610,9 @@ impl Clone for MFP_ERROR_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_ERROR_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_ERROR_EVENT").field("header", &self.header).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_ERROR_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_ERROR_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_ERROR_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_ERROR_EVENT {
     fn default() -> Self {
@@ -37216,6 +32621,7 @@ impl Default for MFP_ERROR_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
     pub hrEvent: windows_core::HRESULT,
@@ -37230,23 +32636,9 @@ impl Clone for MFP_EVENT_HEADER {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_EVENT_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_EVENT_HEADER").field("eEventType", &self.eEventType).field("hrEvent", &self.hrEvent).field("pMediaPlayer", &self.pMediaPlayer).field("eState", &self.eState).field("pPropertyStore", &self.pPropertyStore).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_EVENT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_EVENT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.eEventType == other.eEventType && self.hrEvent == other.hrEvent && self.pMediaPlayer == other.pMediaPlayer && self.eState == other.eState && self.pPropertyStore == other.pPropertyStore
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_EVENT_HEADER {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_EVENT_HEADER {
     fn default() -> Self {
@@ -37255,6 +32647,7 @@ impl Default for MFP_EVENT_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37266,23 +32659,9 @@ impl Clone for MFP_FRAME_STEP_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_FRAME_STEP_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_FRAME_STEP_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_FRAME_STEP_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_FRAME_STEP_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_FRAME_STEP_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_FRAME_STEP_EVENT {
     fn default() -> Self {
@@ -37291,6 +32670,7 @@ impl Default for MFP_FRAME_STEP_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37302,23 +32682,9 @@ impl Clone for MFP_MEDIAITEM_CLEARED_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_MEDIAITEM_CLEARED_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_MEDIAITEM_CLEARED_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_MEDIAITEM_CLEARED_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_MEDIAITEM_CLEARED_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_MEDIAITEM_CLEARED_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_MEDIAITEM_CLEARED_EVENT {
     fn default() -> Self {
@@ -37327,6 +32693,7 @@ impl Default for MFP_MEDIAITEM_CLEARED_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37339,23 +32706,9 @@ impl Clone for MFP_MEDIAITEM_CREATED_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_MEDIAITEM_CREATED_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_MEDIAITEM_CREATED_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).field("dwUserData", &self.dwUserData).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_MEDIAITEM_CREATED_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_MEDIAITEM_CREATED_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem && self.dwUserData == other.dwUserData
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_MEDIAITEM_CREATED_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_MEDIAITEM_CREATED_EVENT {
     fn default() -> Self {
@@ -37364,6 +32717,7 @@ impl Default for MFP_MEDIAITEM_CREATED_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37375,23 +32729,9 @@ impl Clone for MFP_MEDIAITEM_SET_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_MEDIAITEM_SET_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_MEDIAITEM_SET_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_MEDIAITEM_SET_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_MEDIAITEM_SET_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_MEDIAITEM_SET_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_MEDIAITEM_SET_EVENT {
     fn default() -> Self {
@@ -37400,6 +32740,7 @@ impl Default for MFP_MEDIAITEM_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub MFEventType: u32,
@@ -37413,23 +32754,9 @@ impl Clone for MFP_MF_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_MF_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_MF_EVENT").field("header", &self.header).field("MFEventType", &self.MFEventType).field("pMFMediaEvent", &self.pMFMediaEvent).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_MF_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_MF_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.MFEventType == other.MFEventType && self.pMFMediaEvent == other.pMFMediaEvent && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_MF_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_MF_EVENT {
     fn default() -> Self {
@@ -37438,6 +32765,7 @@ impl Default for MFP_MF_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37449,23 +32777,9 @@ impl Clone for MFP_PAUSE_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_PAUSE_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_PAUSE_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_PAUSE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_PAUSE_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_PAUSE_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_PAUSE_EVENT {
     fn default() -> Self {
@@ -37474,6 +32788,7 @@ impl Default for MFP_PAUSE_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37485,23 +32800,9 @@ impl Clone for MFP_PLAYBACK_ENDED_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_PLAYBACK_ENDED_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_PLAYBACK_ENDED_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_PLAYBACK_ENDED_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_PLAYBACK_ENDED_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_PLAYBACK_ENDED_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_PLAYBACK_ENDED_EVENT {
     fn default() -> Self {
@@ -37510,6 +32811,7 @@ impl Default for MFP_PLAYBACK_ENDED_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37521,23 +32823,9 @@ impl Clone for MFP_PLAY_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_PLAY_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_PLAY_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_PLAY_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_PLAY_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_PLAY_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_PLAY_EVENT {
     fn default() -> Self {
@@ -37546,6 +32834,7 @@ impl Default for MFP_PLAY_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37557,23 +32846,9 @@ impl Clone for MFP_POSITION_SET_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_POSITION_SET_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_POSITION_SET_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_POSITION_SET_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_POSITION_SET_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_POSITION_SET_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_POSITION_SET_EVENT {
     fn default() -> Self {
@@ -37582,6 +32857,7 @@ impl Default for MFP_POSITION_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, PartialEq)]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37594,23 +32870,9 @@ impl Clone for MFP_RATE_SET_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_RATE_SET_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_RATE_SET_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).field("flRate", &self.flRate).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_RATE_SET_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_RATE_SET_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem && self.flRate == other.flRate
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_RATE_SET_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_RATE_SET_EVENT {
     fn default() -> Self {
@@ -37619,6 +32881,7 @@ impl Default for MFP_RATE_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: std::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -37630,23 +32893,9 @@ impl Clone for MFP_STOP_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for MFP_STOP_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFP_STOP_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for MFP_STOP_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for MFP_STOP_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.pMediaItem == other.pMediaItem
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for MFP_STOP_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for MFP_STOP_EVENT {
     fn default() -> Self {
@@ -37654,15 +32903,10 @@ impl Default for MFP_STOP_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MFPaletteEntry {
     pub ARGB: MFARGB,
     pub AYCbCr: MFAYUVSample,
-}
-impl Copy for MFPaletteEntry {}
-impl Clone for MFPaletteEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MFPaletteEntry {
     type TypeKind = windows_core::CopyType;
@@ -37673,172 +32917,87 @@ impl Default for MFPaletteEntry {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
     pub CameraModel: MFCameraIntrinsic_PinholeCameraModel,
     pub DistortionModel: MFCameraIntrinsic_DistortionModel,
 }
-impl Copy for MFPinholeCameraIntrinsic_IntrinsicModel {}
-impl Clone for MFPinholeCameraIntrinsic_IntrinsicModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFPinholeCameraIntrinsic_IntrinsicModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFPinholeCameraIntrinsic_IntrinsicModel").field("Width", &self.Width).field("Height", &self.Height).field("CameraModel", &self.CameraModel).field("DistortionModel", &self.DistortionModel).finish()
-    }
-}
 impl windows_core::TypeKind for MFPinholeCameraIntrinsic_IntrinsicModel {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFPinholeCameraIntrinsic_IntrinsicModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.CameraModel == other.CameraModel && self.DistortionModel == other.DistortionModel
-    }
-}
-impl Eq for MFPinholeCameraIntrinsic_IntrinsicModel {}
 impl Default for MFPinholeCameraIntrinsic_IntrinsicModel {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFPinholeCameraIntrinsics {
     pub IntrinsicModelCount: u32,
     pub IntrinsicModels: [MFPinholeCameraIntrinsic_IntrinsicModel; 1],
 }
-impl Copy for MFPinholeCameraIntrinsics {}
-impl Clone for MFPinholeCameraIntrinsics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFPinholeCameraIntrinsics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFPinholeCameraIntrinsics").field("IntrinsicModelCount", &self.IntrinsicModelCount).field("IntrinsicModels", &self.IntrinsicModels).finish()
-    }
-}
 impl windows_core::TypeKind for MFPinholeCameraIntrinsics {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFPinholeCameraIntrinsics {
-    fn eq(&self, other: &Self) -> bool {
-        self.IntrinsicModelCount == other.IntrinsicModelCount && self.IntrinsicModels == other.IntrinsicModels
-    }
-}
-impl Eq for MFPinholeCameraIntrinsics {}
 impl Default for MFPinholeCameraIntrinsics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFRR_COMPONENTS {
     pub dwRRInfoVersion: u32,
     pub dwRRComponents: u32,
     pub pRRComponents: *mut MFRR_COMPONENT_HASH_INFO,
 }
-impl Copy for MFRR_COMPONENTS {}
-impl Clone for MFRR_COMPONENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFRR_COMPONENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFRR_COMPONENTS").field("dwRRInfoVersion", &self.dwRRInfoVersion).field("dwRRComponents", &self.dwRRComponents).field("pRRComponents", &self.pRRComponents).finish()
-    }
-}
 impl windows_core::TypeKind for MFRR_COMPONENTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFRR_COMPONENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRRInfoVersion == other.dwRRInfoVersion && self.dwRRComponents == other.dwRRComponents && self.pRRComponents == other.pRRComponents
-    }
-}
-impl Eq for MFRR_COMPONENTS {}
 impl Default for MFRR_COMPONENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFRR_COMPONENT_HASH_INFO {
     pub ulReason: u32,
     pub rgHeaderHash: [u16; 43],
     pub rgPublicKeyHash: [u16; 43],
     pub wszName: [u16; 260],
 }
-impl Copy for MFRR_COMPONENT_HASH_INFO {}
-impl Clone for MFRR_COMPONENT_HASH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFRR_COMPONENT_HASH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFRR_COMPONENT_HASH_INFO").field("ulReason", &self.ulReason).field("rgHeaderHash", &self.rgHeaderHash).field("rgPublicKeyHash", &self.rgPublicKeyHash).field("wszName", &self.wszName).finish()
-    }
-}
 impl windows_core::TypeKind for MFRR_COMPONENT_HASH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFRR_COMPONENT_HASH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReason == other.ulReason && self.rgHeaderHash == other.rgHeaderHash && self.rgPublicKeyHash == other.rgPublicKeyHash && self.wszName == other.wszName
-    }
-}
-impl Eq for MFRR_COMPONENT_HASH_INFO {}
 impl Default for MFRR_COMPONENT_HASH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFRatio {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl Copy for MFRatio {}
-impl Clone for MFRatio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFRatio {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFRatio").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
-    }
-}
 impl windows_core::TypeKind for MFRatio {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFRatio {
-    fn eq(&self, other: &Self) -> bool {
-        self.Numerator == other.Numerator && self.Denominator == other.Denominator
-    }
-}
-impl Eq for MFRatio {}
 impl Default for MFRatio {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MFTOPONODE_ATTRIBUTE_UPDATE {
     pub NodeId: u64,
     pub guidAttributeKey: windows_core::GUID,
     pub attrType: MF_ATTRIBUTE_TYPE,
     pub Anonymous: MFTOPONODE_ATTRIBUTE_UPDATE_0,
-}
-impl Copy for MFTOPONODE_ATTRIBUTE_UPDATE {}
-impl Clone for MFTOPONODE_ATTRIBUTE_UPDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MFTOPONODE_ATTRIBUTE_UPDATE {
     type TypeKind = windows_core::CopyType;
@@ -37849,16 +33008,11 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     pub u32: u32,
     pub u64: u64,
     pub d: f64,
-}
-impl Copy for MFTOPONODE_ATTRIBUTE_UPDATE_0 {}
-impl Clone for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     type TypeKind = windows_core::CopyType;
@@ -37869,6 +33023,7 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_INPUT_STREAM_INFO {
     pub hnsMaxLatency: i64,
     pub dwFlags: u32,
@@ -37876,32 +33031,16 @@ pub struct MFT_INPUT_STREAM_INFO {
     pub cbMaxLookahead: u32,
     pub cbAlignment: u32,
 }
-impl Copy for MFT_INPUT_STREAM_INFO {}
-impl Clone for MFT_INPUT_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFT_INPUT_STREAM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFT_INPUT_STREAM_INFO").field("hnsMaxLatency", &self.hnsMaxLatency).field("dwFlags", &self.dwFlags).field("cbSize", &self.cbSize).field("cbMaxLookahead", &self.cbMaxLookahead).field("cbAlignment", &self.cbAlignment).finish()
-    }
-}
 impl windows_core::TypeKind for MFT_INPUT_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFT_INPUT_STREAM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.hnsMaxLatency == other.hnsMaxLatency && self.dwFlags == other.dwFlags && self.cbSize == other.cbSize && self.cbMaxLookahead == other.cbMaxLookahead && self.cbAlignment == other.cbAlignment
-    }
-}
-impl Eq for MFT_INPUT_STREAM_INFO {}
 impl Default for MFT_INPUT_STREAM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
     pub pSample: std::mem::ManuallyDrop<Option<IMFSample>>,
@@ -37913,87 +33052,45 @@ impl Clone for MFT_OUTPUT_DATA_BUFFER {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MFT_OUTPUT_DATA_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFT_OUTPUT_DATA_BUFFER").field("dwStreamID", &self.dwStreamID).field("pSample", &self.pSample).field("dwStatus", &self.dwStatus).field("pEvents", &self.pEvents).finish()
-    }
-}
 impl windows_core::TypeKind for MFT_OUTPUT_DATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFT_OUTPUT_DATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamID == other.dwStreamID && self.pSample == other.pSample && self.dwStatus == other.dwStatus && self.pEvents == other.pEvents
-    }
-}
-impl Eq for MFT_OUTPUT_DATA_BUFFER {}
 impl Default for MFT_OUTPUT_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_OUTPUT_STREAM_INFO {
     pub dwFlags: u32,
     pub cbSize: u32,
     pub cbAlignment: u32,
 }
-impl Copy for MFT_OUTPUT_STREAM_INFO {}
-impl Clone for MFT_OUTPUT_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFT_OUTPUT_STREAM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFT_OUTPUT_STREAM_INFO").field("dwFlags", &self.dwFlags).field("cbSize", &self.cbSize).field("cbAlignment", &self.cbAlignment).finish()
-    }
-}
 impl windows_core::TypeKind for MFT_OUTPUT_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFT_OUTPUT_STREAM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.cbSize == other.cbSize && self.cbAlignment == other.cbAlignment
-    }
-}
-impl Eq for MFT_OUTPUT_STREAM_INFO {}
 impl Default for MFT_OUTPUT_STREAM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_REGISTER_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub guidSubtype: windows_core::GUID,
 }
-impl Copy for MFT_REGISTER_TYPE_INFO {}
-impl Clone for MFT_REGISTER_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFT_REGISTER_TYPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFT_REGISTER_TYPE_INFO").field("guidMajorType", &self.guidMajorType).field("guidSubtype", &self.guidSubtype).finish()
-    }
-}
 impl windows_core::TypeKind for MFT_REGISTER_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFT_REGISTER_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidMajorType == other.guidMajorType && self.guidSubtype == other.guidSubtype
-    }
-}
-impl Eq for MFT_REGISTER_TYPE_INFO {}
 impl Default for MFT_REGISTER_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: windows_core::GUID,
     pub guidCategory: windows_core::GUID,
@@ -38004,74 +33101,36 @@ pub struct MFT_REGISTRATION_INFO {
     pub cOutTypes: u32,
     pub pOutTypes: *mut MFT_REGISTER_TYPE_INFO,
 }
-impl Copy for MFT_REGISTRATION_INFO {}
-impl Clone for MFT_REGISTRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFT_REGISTRATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFT_REGISTRATION_INFO").field("clsid", &self.clsid).field("guidCategory", &self.guidCategory).field("uiFlags", &self.uiFlags).field("pszName", &self.pszName).field("cInTypes", &self.cInTypes).field("pInTypes", &self.pInTypes).field("cOutTypes", &self.cOutTypes).field("pOutTypes", &self.pOutTypes).finish()
-    }
-}
 impl windows_core::TypeKind for MFT_REGISTRATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFT_REGISTRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsid == other.clsid && self.guidCategory == other.guidCategory && self.uiFlags == other.uiFlags && self.pszName == other.pszName && self.cInTypes == other.cInTypes && self.pInTypes == other.pInTypes && self.cOutTypes == other.cOutTypes && self.pOutTypes == other.pOutTypes
-    }
-}
-impl Eq for MFT_REGISTRATION_INFO {}
 impl Default for MFT_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: MF_STREAM_STATE,
 }
-impl Copy for MFT_STREAM_STATE_PARAM {}
-impl Clone for MFT_STREAM_STATE_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFT_STREAM_STATE_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFT_STREAM_STATE_PARAM").field("StreamId", &self.StreamId).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for MFT_STREAM_STATE_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFT_STREAM_STATE_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.StreamId == other.StreamId && self.State == other.State
-    }
-}
-impl Eq for MFT_STREAM_STATE_PARAM {}
 impl Default for MFT_STREAM_STATE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MFVIDEOFORMAT {
     pub dwSize: u32,
     pub videoInfo: MFVideoInfo,
     pub guidFormat: windows_core::GUID,
     pub compressedInfo: MFVideoCompressedInfo,
     pub surfaceInfo: MFVideoSurfaceInfo,
-}
-impl Copy for MFVIDEOFORMAT {}
-impl Clone for MFVIDEOFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MFVIDEOFORMAT {
     type TypeKind = windows_core::CopyType;
@@ -38127,6 +33186,7 @@ impl Default for MFVideoAlphaBitmap_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoAlphaBitmapParams {
     pub dwFlags: u32,
     pub clrSrcKey: super::super::Foundation::COLORREF,
@@ -38135,94 +33195,46 @@ pub struct MFVideoAlphaBitmapParams {
     pub fAlpha: f32,
     pub dwFilterMode: u32,
 }
-impl Copy for MFVideoAlphaBitmapParams {}
-impl Clone for MFVideoAlphaBitmapParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFVideoAlphaBitmapParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFVideoAlphaBitmapParams").field("dwFlags", &self.dwFlags).field("clrSrcKey", &self.clrSrcKey).field("rcSrc", &self.rcSrc).field("nrcDest", &self.nrcDest).field("fAlpha", &self.fAlpha).field("dwFilterMode", &self.dwFilterMode).finish()
-    }
-}
 impl windows_core::TypeKind for MFVideoAlphaBitmapParams {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFVideoAlphaBitmapParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.clrSrcKey == other.clrSrcKey && self.rcSrc == other.rcSrc && self.nrcDest == other.nrcDest && self.fAlpha == other.fAlpha && self.dwFilterMode == other.dwFilterMode
-    }
-}
-impl Eq for MFVideoAlphaBitmapParams {}
 impl Default for MFVideoAlphaBitmapParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
     pub OffsetY: MFOffset,
     pub Area: super::super::Foundation::SIZE,
 }
-impl Copy for MFVideoArea {}
-impl Clone for MFVideoArea {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFVideoArea {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFVideoArea").field("OffsetX", &self.OffsetX).field("OffsetY", &self.OffsetY).field("Area", &self.Area).finish()
-    }
-}
 impl windows_core::TypeKind for MFVideoArea {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFVideoArea {
-    fn eq(&self, other: &Self) -> bool {
-        self.OffsetX == other.OffsetX && self.OffsetY == other.OffsetY && self.Area == other.Area
-    }
-}
-impl Eq for MFVideoArea {}
 impl Default for MFVideoArea {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFVideoCompressedInfo {
     pub AvgBitrate: i64,
     pub AvgBitErrorRate: i64,
     pub MaxKeyFrameSpacing: u32,
 }
-impl Copy for MFVideoCompressedInfo {}
-impl Clone for MFVideoCompressedInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFVideoCompressedInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFVideoCompressedInfo").field("AvgBitrate", &self.AvgBitrate).field("AvgBitErrorRate", &self.AvgBitErrorRate).field("MaxKeyFrameSpacing", &self.MaxKeyFrameSpacing).finish()
-    }
-}
 impl windows_core::TypeKind for MFVideoCompressedInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFVideoCompressedInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.AvgBitrate == other.AvgBitrate && self.AvgBitErrorRate == other.AvgBitErrorRate && self.MaxKeyFrameSpacing == other.MaxKeyFrameSpacing
-    }
-}
-impl Eq for MFVideoCompressedInfo {}
 impl Default for MFVideoCompressedInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -38240,90 +33252,36 @@ pub struct MFVideoInfo {
     pub PanScanAperture: MFVideoArea,
     pub VideoFlags: u64,
 }
-impl Copy for MFVideoInfo {}
-impl Clone for MFVideoInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFVideoInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFVideoInfo")
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("PixelAspectRatio", &self.PixelAspectRatio)
-            .field("SourceChromaSubsampling", &self.SourceChromaSubsampling)
-            .field("InterlaceMode", &self.InterlaceMode)
-            .field("TransferFunction", &self.TransferFunction)
-            .field("ColorPrimaries", &self.ColorPrimaries)
-            .field("TransferMatrix", &self.TransferMatrix)
-            .field("SourceLighting", &self.SourceLighting)
-            .field("FramesPerSecond", &self.FramesPerSecond)
-            .field("NominalRange", &self.NominalRange)
-            .field("GeometricAperture", &self.GeometricAperture)
-            .field("MinimumDisplayAperture", &self.MinimumDisplayAperture)
-            .field("PanScanAperture", &self.PanScanAperture)
-            .field("VideoFlags", &self.VideoFlags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MFVideoInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFVideoInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.PixelAspectRatio == other.PixelAspectRatio && self.SourceChromaSubsampling == other.SourceChromaSubsampling && self.InterlaceMode == other.InterlaceMode && self.TransferFunction == other.TransferFunction && self.ColorPrimaries == other.ColorPrimaries && self.TransferMatrix == other.TransferMatrix && self.SourceLighting == other.SourceLighting && self.FramesPerSecond == other.FramesPerSecond && self.NominalRange == other.NominalRange && self.GeometricAperture == other.GeometricAperture && self.MinimumDisplayAperture == other.MinimumDisplayAperture && self.PanScanAperture == other.PanScanAperture && self.VideoFlags == other.VideoFlags
-    }
-}
-impl Eq for MFVideoInfo {}
 impl Default for MFVideoInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoNormalizedRect {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
 }
-impl Copy for MFVideoNormalizedRect {}
-impl Clone for MFVideoNormalizedRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MFVideoNormalizedRect {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MFVideoNormalizedRect").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for MFVideoNormalizedRect {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MFVideoNormalizedRect {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for MFVideoNormalizedRect {}
 impl Default for MFVideoNormalizedRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MFVideoSurfaceInfo {
     pub Format: u32,
     pub PaletteEntries: u32,
     pub Palette: [MFPaletteEntry; 1],
-}
-impl Copy for MFVideoSurfaceInfo {}
-impl Clone for MFVideoSurfaceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MFVideoSurfaceInfo {
     type TypeKind = windows_core::CopyType;
@@ -38334,191 +33292,96 @@ impl Default for MFVideoSurfaceInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MF_BYTE_STREAM_CACHE_RANGE {
     pub qwStartOffset: u64,
     pub qwEndOffset: u64,
 }
-impl Copy for MF_BYTE_STREAM_CACHE_RANGE {}
-impl Clone for MF_BYTE_STREAM_CACHE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_BYTE_STREAM_CACHE_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_BYTE_STREAM_CACHE_RANGE").field("qwStartOffset", &self.qwStartOffset).field("qwEndOffset", &self.qwEndOffset).finish()
-    }
-}
 impl windows_core::TypeKind for MF_BYTE_STREAM_CACHE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_BYTE_STREAM_CACHE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.qwStartOffset == other.qwStartOffset && self.qwEndOffset == other.qwEndOffset
-    }
-}
-impl Eq for MF_BYTE_STREAM_CACHE_RANGE {}
 impl Default for MF_BYTE_STREAM_CACHE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MF_CAMERA_CONTROL_RANGE_INFO {
     pub minValue: i32,
     pub maxValue: i32,
     pub stepValue: i32,
     pub defaultValue: i32,
 }
-impl Copy for MF_CAMERA_CONTROL_RANGE_INFO {}
-impl Clone for MF_CAMERA_CONTROL_RANGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_CAMERA_CONTROL_RANGE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_CAMERA_CONTROL_RANGE_INFO").field("minValue", &self.minValue).field("maxValue", &self.maxValue).field("stepValue", &self.stepValue).field("defaultValue", &self.defaultValue).finish()
-    }
-}
 impl windows_core::TypeKind for MF_CAMERA_CONTROL_RANGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_CAMERA_CONTROL_RANGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.minValue == other.minValue && self.maxValue == other.maxValue && self.stepValue == other.stepValue && self.defaultValue == other.defaultValue
-    }
-}
-impl Eq for MF_CAMERA_CONTROL_RANGE_INFO {}
 impl Default for MF_CAMERA_CONTROL_RANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_FLOAT2 {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for MF_FLOAT2 {}
-impl Clone for MF_FLOAT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_FLOAT2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_FLOAT2").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for MF_FLOAT2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_FLOAT2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for MF_FLOAT2 {}
 impl Default for MF_FLOAT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_FLOAT3 {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
-impl Copy for MF_FLOAT3 {}
-impl Clone for MF_FLOAT3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_FLOAT3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_FLOAT3").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
-    }
-}
 impl windows_core::TypeKind for MF_FLOAT3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_FLOAT3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.z == other.z
-    }
-}
-impl Eq for MF_FLOAT3 {}
 impl Default for MF_FLOAT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MF_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
 }
-impl Copy for MF_LEAKY_BUCKET_PAIR {}
-impl Clone for MF_LEAKY_BUCKET_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_LEAKY_BUCKET_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_LEAKY_BUCKET_PAIR").field("dwBitrate", &self.dwBitrate).field("msBufferWindow", &self.msBufferWindow).finish()
-    }
-}
 impl windows_core::TypeKind for MF_LEAKY_BUCKET_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_LEAKY_BUCKET_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBitrate == other.dwBitrate && self.msBufferWindow == other.msBufferWindow
-    }
-}
-impl Eq for MF_LEAKY_BUCKET_PAIR {}
 impl Default for MF_LEAKY_BUCKET_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_QUATERNION {
     pub x: f32,
     pub y: f32,
     pub z: f32,
     pub w: f32,
 }
-impl Copy for MF_QUATERNION {}
-impl Clone for MF_QUATERNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_QUATERNION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_QUATERNION").field("x", &self.x).field("y", &self.y).field("z", &self.z).field("w", &self.w).finish()
-    }
-}
 impl windows_core::TypeKind for MF_QUATERNION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_QUATERNION {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.z == other.z && self.w == other.w
-    }
-}
-impl Eq for MF_QUATERNION {}
 impl Default for MF_QUATERNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MF_SINK_WRITER_STATISTICS {
     pub cb: u32,
     pub llLastTimestampReceived: i64,
@@ -38537,64 +33400,16 @@ pub struct MF_SINK_WRITER_STATISTICS {
     pub dwAverageSampleRateEncoded: u32,
     pub dwAverageSampleRateProcessed: u32,
 }
-impl Copy for MF_SINK_WRITER_STATISTICS {}
-impl Clone for MF_SINK_WRITER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_SINK_WRITER_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_SINK_WRITER_STATISTICS")
-            .field("cb", &self.cb)
-            .field("llLastTimestampReceived", &self.llLastTimestampReceived)
-            .field("llLastTimestampEncoded", &self.llLastTimestampEncoded)
-            .field("llLastTimestampProcessed", &self.llLastTimestampProcessed)
-            .field("llLastStreamTickReceived", &self.llLastStreamTickReceived)
-            .field("llLastSinkSampleRequest", &self.llLastSinkSampleRequest)
-            .field("qwNumSamplesReceived", &self.qwNumSamplesReceived)
-            .field("qwNumSamplesEncoded", &self.qwNumSamplesEncoded)
-            .field("qwNumSamplesProcessed", &self.qwNumSamplesProcessed)
-            .field("qwNumStreamTicksReceived", &self.qwNumStreamTicksReceived)
-            .field("dwByteCountQueued", &self.dwByteCountQueued)
-            .field("qwByteCountProcessed", &self.qwByteCountProcessed)
-            .field("dwNumOutstandingSinkSampleRequests", &self.dwNumOutstandingSinkSampleRequests)
-            .field("dwAverageSampleRateReceived", &self.dwAverageSampleRateReceived)
-            .field("dwAverageSampleRateEncoded", &self.dwAverageSampleRateEncoded)
-            .field("dwAverageSampleRateProcessed", &self.dwAverageSampleRateProcessed)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MF_SINK_WRITER_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_SINK_WRITER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.llLastTimestampReceived == other.llLastTimestampReceived
-            && self.llLastTimestampEncoded == other.llLastTimestampEncoded
-            && self.llLastTimestampProcessed == other.llLastTimestampProcessed
-            && self.llLastStreamTickReceived == other.llLastStreamTickReceived
-            && self.llLastSinkSampleRequest == other.llLastSinkSampleRequest
-            && self.qwNumSamplesReceived == other.qwNumSamplesReceived
-            && self.qwNumSamplesEncoded == other.qwNumSamplesEncoded
-            && self.qwNumSamplesProcessed == other.qwNumSamplesProcessed
-            && self.qwNumStreamTicksReceived == other.qwNumStreamTicksReceived
-            && self.dwByteCountQueued == other.dwByteCountQueued
-            && self.qwByteCountProcessed == other.qwByteCountProcessed
-            && self.dwNumOutstandingSinkSampleRequests == other.dwNumOutstandingSinkSampleRequests
-            && self.dwAverageSampleRateReceived == other.dwAverageSampleRateReceived
-            && self.dwAverageSampleRateEncoded == other.dwAverageSampleRateEncoded
-            && self.dwAverageSampleRateProcessed == other.dwAverageSampleRateProcessed
-    }
-}
-impl Eq for MF_SINK_WRITER_STATISTICS {}
 impl Default for MF_SINK_WRITER_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
     pub pVideoMediaType: std::mem::ManuallyDrop<Option<IMFMediaType>>,
@@ -38606,112 +33421,53 @@ impl Clone for MF_TRANSCODE_SINK_INFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MF_TRANSCODE_SINK_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_TRANSCODE_SINK_INFO").field("dwVideoStreamID", &self.dwVideoStreamID).field("pVideoMediaType", &self.pVideoMediaType).field("dwAudioStreamID", &self.dwAudioStreamID).field("pAudioMediaType", &self.pAudioMediaType).finish()
-    }
-}
 impl windows_core::TypeKind for MF_TRANSCODE_SINK_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_TRANSCODE_SINK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVideoStreamID == other.dwVideoStreamID && self.pVideoMediaType == other.pVideoMediaType && self.dwAudioStreamID == other.dwAudioStreamID && self.pAudioMediaType == other.pAudioMediaType
-    }
-}
-impl Eq for MF_TRANSCODE_SINK_INFO {}
 impl Default for MF_TRANSCODE_SINK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     pub iHeading: i32,
     pub iPitch: i32,
     pub iRoll: i32,
 }
-impl Copy for MF_VIDEO_SPHERICAL_VIEWDIRECTION {}
-impl Clone for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MF_VIDEO_SPHERICAL_VIEWDIRECTION").field("iHeading", &self.iHeading).field("iPitch", &self.iPitch).field("iRoll", &self.iRoll).finish()
-    }
-}
 impl windows_core::TypeKind for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.iHeading == other.iHeading && self.iPitch == other.iPitch && self.iRoll == other.iRoll
-    }
-}
-impl Eq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {}
 impl Default for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOVEREGION_INFO {
     pub FrameNumber: u32,
     pub NumMoveRegions: u32,
     pub MoveRegions: [MOVE_RECT; 1],
 }
-impl Copy for MOVEREGION_INFO {}
-impl Clone for MOVEREGION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MOVEREGION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MOVEREGION_INFO").field("FrameNumber", &self.FrameNumber).field("NumMoveRegions", &self.NumMoveRegions).field("MoveRegions", &self.MoveRegions).finish()
-    }
-}
 impl windows_core::TypeKind for MOVEREGION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MOVEREGION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameNumber == other.FrameNumber && self.NumMoveRegions == other.NumMoveRegions && self.MoveRegions == other.MoveRegions
-    }
-}
-impl Eq for MOVEREGION_INFO {}
 impl Default for MOVEREGION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
     pub DestRect: super::super::Foundation::RECT,
 }
-impl Copy for MOVE_RECT {}
-impl Clone for MOVE_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MOVE_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MOVE_RECT").field("SourcePoint", &self.SourcePoint).field("DestRect", &self.DestRect).finish()
-    }
-}
 impl windows_core::TypeKind for MOVE_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MOVE_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourcePoint == other.SourcePoint && self.DestRect == other.DestRect
-    }
-}
-impl Eq for MOVE_RECT {}
 impl Default for MOVE_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38720,6 +33476,7 @@ impl Default for MOVE_RECT {
 pub const MP3ACMCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x11103421_354c_4cca_a7a3_1aff9a5b6701);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
     pub dwStartTimeCode: u32,
@@ -38727,31 +33484,9 @@ pub struct MPEG1VIDEOINFO {
     pub bSequenceHeader: [u8; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MPEG1VIDEOINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MPEG1VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for MPEG1VIDEOINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPEG1VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("bSequenceHeader", &self.bSequenceHeader).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for MPEG1VIDEOINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for MPEG1VIDEOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.hdr == other.hdr && self.dwStartTimeCode == other.dwStartTimeCode && self.cbSequenceHeader == other.cbSequenceHeader && self.bSequenceHeader == other.bSequenceHeader
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for MPEG1VIDEOINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for MPEG1VIDEOINFO {
     fn default() -> Self {
@@ -38760,6 +33495,7 @@ impl Default for MPEG1VIDEOINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MPEG2VIDEOINFO {
     pub hdr: VIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -38768,14 +33504,6 @@ pub struct MPEG2VIDEOINFO {
     pub dwLevel: u32,
     pub dwFlags: MPEG2VIDEOINFO_FLAGS,
     pub dwSequenceHeader: [u32; 1],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MPEG2VIDEOINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MPEG2VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for MPEG2VIDEOINFO {
@@ -38790,6 +33518,7 @@ impl Default for MPEG2VIDEOINFO {
 pub const MSAMRNBDecoder: windows_core::GUID = windows_core::GUID::from_u128(0x265011ae_5481_4f77_a295_abb6ffe8d63e);
 pub const MSAMRNBEncoder: windows_core::GUID = windows_core::GUID::from_u128(0x2fae8afe_04a3_423a_a814_85db454712b0);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MT_ARBITRARY_HEADER {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -38798,32 +33527,16 @@ pub struct MT_ARBITRARY_HEADER {
     pub lSampleSize: u32,
     pub formattype: windows_core::GUID,
 }
-impl Copy for MT_ARBITRARY_HEADER {}
-impl Clone for MT_ARBITRARY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MT_ARBITRARY_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MT_ARBITRARY_HEADER").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).finish()
-    }
-}
 impl windows_core::TypeKind for MT_ARBITRARY_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MT_ARBITRARY_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype
-    }
-}
-impl Eq for MT_ARBITRARY_HEADER {}
 impl Default for MT_ARBITRARY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fRx: f32,
     pub fRy: f32,
@@ -38834,26 +33547,9 @@ pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fWx: f32,
     pub fWy: f32,
 }
-impl Copy for MT_CUSTOM_VIDEO_PRIMARIES {}
-impl Clone for MT_CUSTOM_VIDEO_PRIMARIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MT_CUSTOM_VIDEO_PRIMARIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MT_CUSTOM_VIDEO_PRIMARIES").field("fRx", &self.fRx).field("fRy", &self.fRy).field("fGx", &self.fGx).field("fGy", &self.fGy).field("fBx", &self.fBx).field("fBy", &self.fBy).field("fWx", &self.fWx).field("fWy", &self.fWy).finish()
-    }
-}
 impl windows_core::TypeKind for MT_CUSTOM_VIDEO_PRIMARIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MT_CUSTOM_VIDEO_PRIMARIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.fRx == other.fRx && self.fRy == other.fRy && self.fGx == other.fGx && self.fGy == other.fGy && self.fBx == other.fBx && self.fBy == other.fBy && self.fWx == other.fWx && self.fWy == other.fWy
-    }
-}
-impl Eq for MT_CUSTOM_VIDEO_PRIMARIES {}
 impl Default for MT_CUSTOM_VIDEO_PRIMARIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38861,6 +33557,7 @@ impl Default for MT_CUSTOM_VIDEO_PRIMARIES {
 }
 pub const MULawCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x92b66080_5e2d_449e_90c4_c41f268e5514);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -38876,12 +33573,6 @@ pub struct OPM_ACP_AND_CGMSA_SIGNALING {
     pub ulReserved2: [u32; 4],
     pub ulReserved3: [u32; 4],
 }
-impl Copy for OPM_ACP_AND_CGMSA_SIGNALING {}
-impl Clone for OPM_ACP_AND_CGMSA_SIGNALING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for OPM_ACP_AND_CGMSA_SIGNALING {
     type TypeKind = windows_core::CopyType;
 }
@@ -38892,6 +33583,7 @@ impl Default for OPM_ACP_AND_CGMSA_SIGNALING {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[derive(Clone, Copy)]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -38901,14 +33593,6 @@ pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub d3dFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
     pub ulFrequencyNumerator: u32,
     pub ulFrequencyDenominator: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for OPM_ACTUAL_OUTPUT_FORMAT {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for OPM_ACTUAL_OUTPUT_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::TypeKind for OPM_ACTUAL_OUTPUT_FORMAT {
@@ -38921,18 +33605,13 @@ impl Default for OPM_ACTUAL_OUTPUT_FORMAT {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_CONFIGURE_PARAMETERS {
     pub omac: OPM_OMAC,
     pub guidSetting: windows_core::GUID,
     pub ulSequenceNumber: u32,
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
-}
-impl Copy for OPM_CONFIGURE_PARAMETERS {}
-impl Clone for OPM_CONFIGURE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_CONFIGURE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -38943,6 +33622,7 @@ impl Default for OPM_CONFIGURE_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -38951,12 +33631,6 @@ pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub Reserved: [u8; 11],
     pub Reserved2: [u8; 16],
     pub Reserved3: [u8; 16],
-}
-impl Copy for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
-impl Clone for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -38967,18 +33641,13 @@ impl Default for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub guidInformation: windows_core::GUID,
     pub ulSequenceNumber: u32,
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
-}
-impl Copy for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
-impl Clone for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -38989,44 +33658,23 @@ impl Default for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     pub abEncryptedInitializationParameters: [u8; 256],
-}
-impl Copy for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {}
-impl Clone for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPM_ENCRYPTED_INITIALIZATION_PARAMETERS").field("abEncryptedInitializationParameters", &self.abEncryptedInitializationParameters).finish()
-    }
 }
 impl windows_core::TypeKind for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.abEncryptedInitializationParameters == other.abEncryptedInitializationParameters
-    }
-}
-impl Eq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {}
 impl Default for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_GET_CODEC_INFO_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub Merit: u32,
-}
-impl Copy for OPM_GET_CODEC_INFO_INFORMATION {}
-impl Clone for OPM_GET_CODEC_INFO_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_GET_CODEC_INFO_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -39037,15 +33685,10 @@ impl Default for OPM_GET_CODEC_INFO_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_GET_CODEC_INFO_PARAMETERS {
     pub cbVerifier: u32,
     pub Verifier: [u8; 4052],
-}
-impl Copy for OPM_GET_CODEC_INFO_PARAMETERS {}
-impl Clone for OPM_GET_CODEC_INFO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_GET_CODEC_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -39056,6 +33699,7 @@ impl Default for OPM_GET_CODEC_INFO_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_GET_INFO_PARAMETERS {
     pub omac: OPM_OMAC,
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
@@ -39063,12 +33707,6 @@ pub struct OPM_GET_INFO_PARAMETERS {
     pub ulSequenceNumber: u32,
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
-}
-impl Copy for OPM_GET_INFO_PARAMETERS {}
-impl Clone for OPM_GET_INFO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_GET_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -39079,74 +33717,37 @@ impl Default for OPM_GET_INFO_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
-}
-impl Copy for OPM_HDCP_KEY_SELECTION_VECTOR {}
-impl Clone for OPM_HDCP_KEY_SELECTION_VECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPM_HDCP_KEY_SELECTION_VECTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPM_HDCP_KEY_SELECTION_VECTOR").field("abKeySelectionVector", &self.abKeySelectionVector).finish()
-    }
 }
 impl windows_core::TypeKind for OPM_HDCP_KEY_SELECTION_VECTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPM_HDCP_KEY_SELECTION_VECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.abKeySelectionVector == other.abKeySelectionVector
-    }
-}
-impl Eq for OPM_HDCP_KEY_SELECTION_VECTOR {}
 impl Default for OPM_HDCP_KEY_SELECTION_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPM_OMAC {
     pub abOMAC: [u8; 16],
-}
-impl Copy for OPM_OMAC {}
-impl Clone for OPM_OMAC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPM_OMAC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPM_OMAC").field("abOMAC", &self.abOMAC).finish()
-    }
 }
 impl windows_core::TypeKind for OPM_OMAC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPM_OMAC {
-    fn eq(&self, other: &Self) -> bool {
-        self.abOMAC == other.abOMAC
-    }
-}
-impl Eq for OPM_OMAC {}
 impl Default for OPM_OMAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_OUTPUT_ID_DATA {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
     pub OutputId: u64,
-}
-impl Copy for OPM_OUTPUT_ID_DATA {}
-impl Clone for OPM_OUTPUT_ID_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_OUTPUT_ID_DATA {
     type TypeKind = windows_core::CopyType;
@@ -39157,45 +33758,24 @@ impl Default for OPM_OUTPUT_ID_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
-}
-impl Copy for OPM_RANDOM_NUMBER {}
-impl Clone for OPM_RANDOM_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPM_RANDOM_NUMBER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPM_RANDOM_NUMBER").field("abRandomNumber", &self.abRandomNumber).finish()
-    }
 }
 impl windows_core::TypeKind for OPM_RANDOM_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPM_RANDOM_NUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.abRandomNumber == other.abRandomNumber
-    }
-}
-impl Eq for OPM_RANDOM_NUMBER {}
 impl Default for OPM_RANDOM_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_REQUESTED_INFORMATION {
     pub omac: OPM_OMAC,
     pub cbRequestedInformationSize: u32,
     pub abRequestedInformation: [u8; 4076],
-}
-impl Copy for OPM_REQUESTED_INFORMATION {}
-impl Clone for OPM_REQUESTED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_REQUESTED_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -39206,6 +33786,7 @@ impl Default for OPM_REQUESTED_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: u32,
     pub ulAspectRatioChangeMask1: u32,
@@ -39218,12 +33799,6 @@ pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulReserved2: [u32; 4],
     pub ulReserved3: u32,
 }
-impl Copy for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
-impl Clone for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -39233,14 +33808,9 @@ impl Default for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
-}
-impl Copy for OPM_SET_HDCP_SRM_PARAMETERS {}
-impl Clone for OPM_SET_HDCP_SRM_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_SET_HDCP_SRM_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -39251,17 +33821,12 @@ impl Default for OPM_SET_HDCP_SRM_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: u32,
     pub ulProtectionLevel: u32,
     pub Reserved: u32,
     pub Reserved2: u32,
-}
-impl Copy for OPM_SET_PROTECTION_LEVEL_PARAMETERS {}
-impl Clone for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -39272,18 +33837,13 @@ impl Default for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
     pub ulInformation: u32,
     pub ulReserved: u32,
     pub ulReserved2: u32,
-}
-impl Copy for OPM_STANDARD_INFORMATION {}
-impl Clone for OPM_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OPM_STANDARD_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -39294,129 +33854,66 @@ impl Default for OPM_STANDARD_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROI_AREA {
     pub rect: super::super::Foundation::RECT,
     pub QPDelta: i32,
 }
-impl Copy for ROI_AREA {}
-impl Clone for ROI_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ROI_AREA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROI_AREA").field("rect", &self.rect).field("QPDelta", &self.QPDelta).finish()
-    }
-}
 impl windows_core::TypeKind for ROI_AREA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ROI_AREA {
-    fn eq(&self, other: &Self) -> bool {
-        self.rect == other.rect && self.QPDelta == other.QPDelta
-    }
-}
-impl Eq for ROI_AREA {}
 impl Default for ROI_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SENSORPROFILEID {
     pub Type: windows_core::GUID,
     pub Index: u32,
     pub Unused: u32,
 }
-impl Copy for SENSORPROFILEID {}
-impl Clone for SENSORPROFILEID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SENSORPROFILEID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SENSORPROFILEID").field("Type", &self.Type).field("Index", &self.Index).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for SENSORPROFILEID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SENSORPROFILEID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Index == other.Index && self.Unused == other.Unused
-    }
-}
-impl Eq for SENSORPROFILEID {}
 impl Default for SENSORPROFILEID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STREAM_MEDIUM {
     pub gidMedium: windows_core::GUID,
     pub unMediumInstance: u32,
 }
-impl Copy for STREAM_MEDIUM {}
-impl Clone for STREAM_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STREAM_MEDIUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STREAM_MEDIUM").field("gidMedium", &self.gidMedium).field("unMediumInstance", &self.unMediumInstance).finish()
-    }
-}
 impl windows_core::TypeKind for STREAM_MEDIUM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STREAM_MEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.gidMedium == other.gidMedium && self.unMediumInstance == other.unMediumInstance
-    }
-}
-impl Eq for STREAM_MEDIUM {}
 impl Default for STREAM_MEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_core::GUID,
     pub wStreamNumber: u16,
     pub guidType: windows_core::GUID,
     pub wLanguageIndex: u16,
 }
-impl Copy for TOC_DESCRIPTOR {}
-impl Clone for TOC_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOC_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOC_DESCRIPTOR").field("guidID", &self.guidID).field("wStreamNumber", &self.wStreamNumber).field("guidType", &self.guidType).field("wLanguageIndex", &self.wLanguageIndex).finish()
-    }
-}
 impl windows_core::TypeKind for TOC_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOC_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidID == other.guidID && self.wStreamNumber == other.wStreamNumber && self.guidType == other.guidType && self.wLanguageIndex == other.wLanguageIndex
-    }
-}
-impl Eq for TOC_DESCRIPTOR {}
 impl Default for TOC_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwStartTime: u64,
     pub qwEndTime: u64,
@@ -39424,26 +33921,9 @@ pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwEndPacketOffset: u64,
     pub qwRepresentativeFrameTime: u64,
 }
-impl Copy for TOC_ENTRY_DESCRIPTOR {}
-impl Clone for TOC_ENTRY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOC_ENTRY_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOC_ENTRY_DESCRIPTOR").field("qwStartTime", &self.qwStartTime).field("qwEndTime", &self.qwEndTime).field("qwStartPacketOffset", &self.qwStartPacketOffset).field("qwEndPacketOffset", &self.qwEndPacketOffset).field("qwRepresentativeFrameTime", &self.qwRepresentativeFrameTime).finish()
-    }
-}
 impl windows_core::TypeKind for TOC_ENTRY_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOC_ENTRY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.qwStartTime == other.qwStartTime && self.qwEndTime == other.qwEndTime && self.qwStartPacketOffset == other.qwStartPacketOffset && self.qwEndPacketOffset == other.qwEndPacketOffset && self.qwRepresentativeFrameTime == other.qwRepresentativeFrameTime
-    }
-}
-impl Eq for TOC_ENTRY_DESCRIPTOR {}
 impl Default for TOC_ENTRY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -39451,6 +33931,7 @@ impl Default for TOC_ENTRY_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -39460,31 +33941,9 @@ pub struct VIDEOINFOHEADER {
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VIDEOINFOHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for VIDEOINFOHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VIDEOINFOHEADER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for VIDEOINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.bmiHeader == other.bmiHeader
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for VIDEOINFOHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for VIDEOINFOHEADER {
     fn default() -> Self {
@@ -39493,6 +33952,7 @@ impl Default for VIDEOINFOHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct VIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -39508,14 +33968,6 @@ pub struct VIDEOINFOHEADER2 {
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VIDEOINFOHEADER2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VIDEOINFOHEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VIDEOINFOHEADER2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -39527,17 +33979,10 @@ impl Default for VIDEOINFOHEADER2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for VIDEOINFOHEADER2_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for VIDEOINFOHEADER2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for VIDEOINFOHEADER2_0 {

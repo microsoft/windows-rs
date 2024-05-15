@@ -728,6 +728,7 @@ impl windows_core::TypeKind for HREPORTSTORE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -741,44 +742,16 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwOtherModuleFlags: u32,
     pub wzPreferredModuleList: [u16; 256],
 }
-impl Copy for WER_DUMP_CUSTOM_OPTIONS {}
-impl Clone for WER_DUMP_CUSTOM_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_DUMP_CUSTOM_OPTIONS")
-            .field("dwSize", &self.dwSize)
-            .field("dwMask", &self.dwMask)
-            .field("dwDumpFlags", &self.dwDumpFlags)
-            .field("bOnlyThisThread", &self.bOnlyThisThread)
-            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
-            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
-            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
-            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
-            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
-            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
-            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_DUMP_CUSTOM_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_DUMP_CUSTOM_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList
-    }
-}
-impl Eq for WER_DUMP_CUSTOM_OPTIONS {}
 impl Default for WER_DUMP_CUSTOM_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -794,46 +767,16 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwPreferredModuleResetFlags: u32,
     pub dwOtherModuleResetFlags: u32,
 }
-impl Copy for WER_DUMP_CUSTOM_OPTIONS_V2 {}
-impl Clone for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_DUMP_CUSTOM_OPTIONS_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwMask", &self.dwMask)
-            .field("dwDumpFlags", &self.dwDumpFlags)
-            .field("bOnlyThisThread", &self.bOnlyThisThread)
-            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
-            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
-            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
-            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
-            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
-            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
-            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
-            .field("dwPreferredModuleResetFlags", &self.dwPreferredModuleResetFlags)
-            .field("dwOtherModuleResetFlags", &self.dwOtherModuleResetFlags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_DUMP_CUSTOM_OPTIONS_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
-    }
-}
-impl Eq for WER_DUMP_CUSTOM_OPTIONS_V2 {}
 impl Default for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -852,58 +795,9 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub dwThreadID: u32,
 }
-impl Copy for WER_DUMP_CUSTOM_OPTIONS_V3 {}
-impl Clone for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_DUMP_CUSTOM_OPTIONS_V3")
-            .field("dwSize", &self.dwSize)
-            .field("dwMask", &self.dwMask)
-            .field("dwDumpFlags", &self.dwDumpFlags)
-            .field("bOnlyThisThread", &self.bOnlyThisThread)
-            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
-            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
-            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
-            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
-            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
-            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
-            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
-            .field("dwPreferredModuleResetFlags", &self.dwPreferredModuleResetFlags)
-            .field("dwOtherModuleResetFlags", &self.dwOtherModuleResetFlags)
-            .field("pvDumpKey", &self.pvDumpKey)
-            .field("hSnapshot", &self.hSnapshot)
-            .field("dwThreadID", &self.dwThreadID)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_DUMP_CUSTOM_OPTIONS_V3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwMask == other.dwMask
-            && self.dwDumpFlags == other.dwDumpFlags
-            && self.bOnlyThisThread == other.bOnlyThisThread
-            && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags
-            && self.dwOtherThreadFlags == other.dwOtherThreadFlags
-            && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags
-            && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags
-            && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags
-            && self.dwOtherModuleFlags == other.dwOtherModuleFlags
-            && self.wzPreferredModuleList == other.wzPreferredModuleList
-            && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags
-            && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
-            && self.pvDumpKey == other.pvDumpKey
-            && self.hSnapshot == other.hSnapshot
-            && self.dwThreadID == other.dwThreadID
-    }
-}
-impl Eq for WER_DUMP_CUSTOM_OPTIONS_V3 {}
 impl Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -911,36 +805,15 @@ impl Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for WER_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for WER_EXCEPTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl core::fmt::Debug for WER_EXCEPTION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_EXCEPTION_INFORMATION").field("pExceptionPointers", &self.pExceptionPointers).field("bClientPointers", &self.bClientPointers).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for WER_EXCEPTION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl PartialEq for WER_EXCEPTION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pExceptionPointers == other.pExceptionPointers && self.bClientPointers == other.bClientPointers
-    }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Eq for WER_EXCEPTION_INFORMATION {}
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for WER_EXCEPTION_INFORMATION {
     fn default() -> Self {
@@ -948,6 +821,7 @@ impl Default for WER_EXCEPTION_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -958,32 +832,16 @@ pub struct WER_REPORT_INFORMATION {
     pub wzDescription: [u16; 512],
     pub hwndParent: super::super::Foundation::HWND,
 }
-impl Copy for WER_REPORT_INFORMATION {}
-impl Clone for WER_REPORT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_INFORMATION").field("dwSize", &self.dwSize).field("hProcess", &self.hProcess).field("wzConsentKey", &self.wzConsentKey).field("wzFriendlyEventName", &self.wzFriendlyEventName).field("wzApplicationName", &self.wzApplicationName).field("wzApplicationPath", &self.wzApplicationPath).field("wzDescription", &self.wzDescription).field("hwndParent", &self.hwndParent).finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent
-    }
-}
-impl Eq for WER_REPORT_INFORMATION {}
 impl Default for WER_REPORT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V3 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -996,43 +854,16 @@ pub struct WER_REPORT_INFORMATION_V3 {
     pub wzNamespacePartner: [u16; 64],
     pub wzNamespaceGroup: [u16; 64],
 }
-impl Copy for WER_REPORT_INFORMATION_V3 {}
-impl Clone for WER_REPORT_INFORMATION_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_INFORMATION_V3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_INFORMATION_V3")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .field("wzNamespacePartner", &self.wzNamespacePartner)
-            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_INFORMATION_V3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_INFORMATION_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup
-    }
-}
-impl Eq for WER_REPORT_INFORMATION_V3 {}
 impl Default for WER_REPORT_INFORMATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V4 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -1048,46 +879,16 @@ pub struct WER_REPORT_INFORMATION_V4 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
 }
-impl Copy for WER_REPORT_INFORMATION_V4 {}
-impl Clone for WER_REPORT_INFORMATION_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_INFORMATION_V4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_INFORMATION_V4")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .field("wzNamespacePartner", &self.wzNamespacePartner)
-            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
-            .field("rgbApplicationIdentity", &self.rgbApplicationIdentity)
-            .field("hSnapshot", &self.hSnapshot)
-            .field("hDeleteFilesImpersonationToken", &self.hDeleteFilesImpersonationToken)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_INFORMATION_V4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_INFORMATION_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken
-    }
-}
-impl Eq for WER_REPORT_INFORMATION_V4 {}
 impl Default for WER_REPORT_INFORMATION_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V5 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -1104,47 +905,16 @@ pub struct WER_REPORT_INFORMATION_V5 {
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
-impl Copy for WER_REPORT_INFORMATION_V5 {}
-impl Clone for WER_REPORT_INFORMATION_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_INFORMATION_V5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_INFORMATION_V5")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .field("wzNamespacePartner", &self.wzNamespacePartner)
-            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
-            .field("rgbApplicationIdentity", &self.rgbApplicationIdentity)
-            .field("hSnapshot", &self.hSnapshot)
-            .field("hDeleteFilesImpersonationToken", &self.hDeleteFilesImpersonationToken)
-            .field("submitResultMax", &self.submitResultMax)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_INFORMATION_V5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_INFORMATION_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken && self.submitResultMax == other.submitResultMax
-    }
-}
-impl Eq for WER_REPORT_INFORMATION_V5 {}
 impl Default for WER_REPORT_INFORMATION_V5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
@@ -1152,32 +922,16 @@ pub struct WER_REPORT_METADATA_V1 {
     pub CreationTime: super::super::Foundation::FILETIME,
     pub SizeInBytes: u64,
 }
-impl Copy for WER_REPORT_METADATA_V1 {}
-impl Clone for WER_REPORT_METADATA_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_METADATA_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_METADATA_V1").field("Signature", &self.Signature).field("BucketId", &self.BucketId).field("ReportId", &self.ReportId).field("CreationTime", &self.CreationTime).field("SizeInBytes", &self.SizeInBytes).finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_METADATA_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_METADATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes
-    }
-}
-impl Eq for WER_REPORT_METADATA_V1 {}
 impl Default for WER_REPORT_METADATA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_METADATA_V2 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
@@ -1191,44 +945,16 @@ pub struct WER_REPORT_METADATA_V2 {
     pub SizeOfFileNames: u32,
     pub FileNames: windows_core::PWSTR,
 }
-impl Copy for WER_REPORT_METADATA_V2 {}
-impl Clone for WER_REPORT_METADATA_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_METADATA_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_METADATA_V2")
-            .field("Signature", &self.Signature)
-            .field("BucketId", &self.BucketId)
-            .field("ReportId", &self.ReportId)
-            .field("CreationTime", &self.CreationTime)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .field("CabId", &self.CabId)
-            .field("ReportStatus", &self.ReportStatus)
-            .field("ReportIntegratorId", &self.ReportIntegratorId)
-            .field("NumberOfFiles", &self.NumberOfFiles)
-            .field("SizeOfFileNames", &self.SizeOfFileNames)
-            .field("FileNames", &self.FileNames)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_METADATA_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_METADATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames
-    }
-}
-impl Eq for WER_REPORT_METADATA_V2 {}
 impl Default for WER_REPORT_METADATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_METADATA_V3 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
@@ -1248,104 +974,37 @@ pub struct WER_REPORT_METADATA_V3 {
     pub BucketIdString: [u16; 260],
     pub LegacyBucketId: u64,
 }
-impl Copy for WER_REPORT_METADATA_V3 {}
-impl Clone for WER_REPORT_METADATA_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_METADATA_V3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_METADATA_V3")
-            .field("Signature", &self.Signature)
-            .field("BucketId", &self.BucketId)
-            .field("ReportId", &self.ReportId)
-            .field("CreationTime", &self.CreationTime)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .field("CabId", &self.CabId)
-            .field("ReportStatus", &self.ReportStatus)
-            .field("ReportIntegratorId", &self.ReportIntegratorId)
-            .field("NumberOfFiles", &self.NumberOfFiles)
-            .field("SizeOfFileNames", &self.SizeOfFileNames)
-            .field("FileNames", &self.FileNames)
-            .field("FriendlyEventName", &self.FriendlyEventName)
-            .field("ApplicationName", &self.ApplicationName)
-            .field("ApplicationPath", &self.ApplicationPath)
-            .field("Description", &self.Description)
-            .field("BucketIdString", &self.BucketIdString)
-            .field("LegacyBucketId", &self.LegacyBucketId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_METADATA_V3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_METADATA_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames && self.FriendlyEventName == other.FriendlyEventName && self.ApplicationName == other.ApplicationName && self.ApplicationPath == other.ApplicationPath && self.Description == other.Description && self.BucketIdString == other.BucketIdString && self.LegacyBucketId == other.LegacyBucketId
-    }
-}
-impl Eq for WER_REPORT_METADATA_V3 {}
 impl Default for WER_REPORT_METADATA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_PARAMETER {
     pub Name: [u16; 129],
     pub Value: [u16; 260],
 }
-impl Copy for WER_REPORT_PARAMETER {}
-impl Clone for WER_REPORT_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_PARAMETER").field("Name", &self.Name).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Value == other.Value
-    }
-}
-impl Eq for WER_REPORT_PARAMETER {}
 impl Default for WER_REPORT_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_SIGNATURE {
     pub EventName: [u16; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
 }
-impl Copy for WER_REPORT_SIGNATURE {}
-impl Clone for WER_REPORT_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WER_REPORT_SIGNATURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WER_REPORT_SIGNATURE").field("EventName", &self.EventName).field("Parameters", &self.Parameters).finish()
-    }
-}
 impl windows_core::TypeKind for WER_REPORT_SIGNATURE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WER_REPORT_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.EventName == other.EventName && self.Parameters == other.Parameters
-    }
-}
-impl Eq for WER_REPORT_SIGNATURE {}
 impl Default for WER_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1353,6 +1012,7 @@ impl Default for WER_REPORT_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -1362,14 +1022,6 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub pwszReportId: windows_core::PCWSTR,
     pub bIsFatal: super::super::Foundation::BOOL,
     pub dwReserved: u32,
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for WER_RUNTIME_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl windows_core::TypeKind for WER_RUNTIME_EXCEPTION_INFORMATION {

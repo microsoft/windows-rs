@@ -660,37 +660,22 @@ impl core::ops::Not for TOUCHINPUTMASKF_MASK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GESTURECONFIG {
     pub dwID: GESTURECONFIG_ID,
     pub dwWant: u32,
     pub dwBlock: u32,
 }
-impl Copy for GESTURECONFIG {}
-impl Clone for GESTURECONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GESTURECONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GESTURECONFIG").field("dwID", &self.dwID).field("dwWant", &self.dwWant).field("dwBlock", &self.dwBlock).finish()
-    }
-}
 impl windows_core::TypeKind for GESTURECONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GESTURECONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwID == other.dwID && self.dwWant == other.dwWant && self.dwBlock == other.dwBlock
-    }
-}
-impl Eq for GESTURECONFIG {}
 impl Default for GESTURECONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GESTUREINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -702,32 +687,16 @@ pub struct GESTUREINFO {
     pub ullArguments: u64,
     pub cbExtraArgs: u32,
 }
-impl Copy for GESTUREINFO {}
-impl Clone for GESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GESTUREINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GESTUREINFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwID", &self.dwID).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).field("dwSequenceID", &self.dwSequenceID).field("ullArguments", &self.ullArguments).field("cbExtraArgs", &self.cbExtraArgs).finish()
-    }
-}
 impl windows_core::TypeKind for GESTUREINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GESTUREINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwID == other.dwID && self.hwndTarget == other.hwndTarget && self.ptsLocation == other.ptsLocation && self.dwInstanceID == other.dwInstanceID && self.dwSequenceID == other.dwSequenceID && self.ullArguments == other.ullArguments && self.cbExtraArgs == other.cbExtraArgs
-    }
-}
-impl Eq for GESTUREINFO {}
 impl Default for GESTUREINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GESTURENOTIFYSTRUCT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -735,26 +704,9 @@ pub struct GESTURENOTIFYSTRUCT {
     pub ptsLocation: super::super::super::Foundation::POINTS,
     pub dwInstanceID: u32,
 }
-impl Copy for GESTURENOTIFYSTRUCT {}
-impl Clone for GESTURENOTIFYSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GESTURENOTIFYSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GESTURENOTIFYSTRUCT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).finish()
-    }
-}
 impl windows_core::TypeKind for GESTURENOTIFYSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GESTURENOTIFYSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTarget == other.hwndTarget && self.ptsLocation == other.ptsLocation && self.dwInstanceID == other.dwInstanceID
-    }
-}
-impl Eq for GESTURENOTIFYSTRUCT {}
 impl Default for GESTURENOTIFYSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -795,6 +747,7 @@ impl windows_core::TypeKind for HTOUCHINPUT {
 pub const InertiaProcessor: windows_core::GUID = windows_core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 pub const ManipulationProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOUCHINPUT {
     pub x: i32,
     pub y: i32,
@@ -807,26 +760,9 @@ pub struct TOUCHINPUT {
     pub cxContact: u32,
     pub cyContact: u32,
 }
-impl Copy for TOUCHINPUT {}
-impl Clone for TOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOUCHINPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOUCHINPUT").field("x", &self.x).field("y", &self.y).field("hSource", &self.hSource).field("dwID", &self.dwID).field("dwFlags", &self.dwFlags).field("dwMask", &self.dwMask).field("dwTime", &self.dwTime).field("dwExtraInfo", &self.dwExtraInfo).field("cxContact", &self.cxContact).field("cyContact", &self.cyContact).finish()
-    }
-}
 impl windows_core::TypeKind for TOUCHINPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOUCHINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.hSource == other.hSource && self.dwID == other.dwID && self.dwFlags == other.dwFlags && self.dwMask == other.dwMask && self.dwTime == other.dwTime && self.dwExtraInfo == other.dwExtraInfo && self.cxContact == other.cxContact && self.cyContact == other.cyContact
-    }
-}
-impl Eq for TOUCHINPUT {}
 impl Default for TOUCHINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

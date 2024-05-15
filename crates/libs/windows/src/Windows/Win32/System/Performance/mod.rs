@@ -5524,6 +5524,7 @@ pub const LegacyTraceSessionCollection: windows_core::GUID = windows_core::GUID:
 pub const LogFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
 pub const LogFiles: windows_core::GUID = windows_core::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -5536,17 +5537,6 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_core::PSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_A {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_BROWSE_DLG_CONFIG_A").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("szDataSource", &self.szDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_A {
     type TypeKind = windows_core::CopyType;
 }
@@ -5556,6 +5546,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_A {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -5568,17 +5559,6 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_core::PSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_HA {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_HA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_HA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_BROWSE_DLG_CONFIG_HA").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("hDataSource", &self.hDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HA {
     type TypeKind = windows_core::CopyType;
 }
@@ -5588,6 +5568,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_HA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -5600,17 +5581,6 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_core::PWSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_HW {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_HW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_HW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_BROWSE_DLG_CONFIG_HW").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("hDataSource", &self.hDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HW {
     type TypeKind = windows_core::CopyType;
 }
@@ -5620,6 +5590,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_HW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -5632,17 +5603,6 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_core::PWSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_W {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_BROWSE_DLG_CONFIG_W").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("szDataSource", &self.szDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_W {
     type TypeKind = windows_core::CopyType;
 }
@@ -5652,6 +5612,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_A {
     pub dwLength: u32,
     pub dwType: u32,
@@ -5666,12 +5627,6 @@ pub struct PDH_COUNTER_INFO_A {
     pub szExplainText: windows_core::PSTR,
     pub DataBuffer: [u32; 1],
 }
-impl Copy for PDH_COUNTER_INFO_A {}
-impl Clone for PDH_COUNTER_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PDH_COUNTER_INFO_A {
     type TypeKind = windows_core::CopyType;
 }
@@ -5681,16 +5636,11 @@ impl Default for PDH_COUNTER_INFO_A {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
     pub Anonymous: PDH_COUNTER_INFO_A_0_0,
-}
-impl Copy for PDH_COUNTER_INFO_A_0 {}
-impl Clone for PDH_COUNTER_INFO_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0 {
     type TypeKind = windows_core::CopyType;
@@ -5701,6 +5651,7 @@ impl Default for PDH_COUNTER_INFO_A_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: windows_core::PSTR,
     pub szObjectName: windows_core::PSTR,
@@ -5709,32 +5660,16 @@ pub struct PDH_COUNTER_INFO_A_0_0 {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_core::PSTR,
 }
-impl Copy for PDH_COUNTER_INFO_A_0_0 {}
-impl Clone for PDH_COUNTER_INFO_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_COUNTER_INFO_A_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_COUNTER_INFO_A_0_0").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_COUNTER_INFO_A_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szMachineName == other.szMachineName && self.szObjectName == other.szObjectName && self.szInstanceName == other.szInstanceName && self.szParentInstance == other.szParentInstance && self.dwInstanceIndex == other.dwInstanceIndex && self.szCounterName == other.szCounterName
-    }
-}
-impl Eq for PDH_COUNTER_INFO_A_0_0 {}
 impl Default for PDH_COUNTER_INFO_A_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_W {
     pub dwLength: u32,
     pub dwType: u32,
@@ -5749,12 +5684,6 @@ pub struct PDH_COUNTER_INFO_W {
     pub szExplainText: windows_core::PWSTR,
     pub DataBuffer: [u32; 1],
 }
-impl Copy for PDH_COUNTER_INFO_W {}
-impl Clone for PDH_COUNTER_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PDH_COUNTER_INFO_W {
     type TypeKind = windows_core::CopyType;
 }
@@ -5764,16 +5693,11 @@ impl Default for PDH_COUNTER_INFO_W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
     pub Anonymous: PDH_COUNTER_INFO_W_0_0,
-}
-impl Copy for PDH_COUNTER_INFO_W_0 {}
-impl Clone for PDH_COUNTER_INFO_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0 {
     type TypeKind = windows_core::CopyType;
@@ -5784,6 +5708,7 @@ impl Default for PDH_COUNTER_INFO_W_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: windows_core::PWSTR,
     pub szObjectName: windows_core::PWSTR,
@@ -5792,32 +5717,16 @@ pub struct PDH_COUNTER_INFO_W_0_0 {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_core::PWSTR,
 }
-impl Copy for PDH_COUNTER_INFO_W_0_0 {}
-impl Clone for PDH_COUNTER_INFO_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_COUNTER_INFO_W_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_COUNTER_INFO_W_0_0").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_COUNTER_INFO_W_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szMachineName == other.szMachineName && self.szObjectName == other.szObjectName && self.szInstanceName == other.szInstanceName && self.szParentInstance == other.szParentInstance && self.dwInstanceIndex == other.dwInstanceIndex && self.szCounterName == other.szCounterName
-    }
-}
-impl Eq for PDH_COUNTER_INFO_W_0_0 {}
 impl Default for PDH_COUNTER_INFO_W_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: windows_core::PSTR,
     pub szObjectName: windows_core::PSTR,
@@ -5826,32 +5735,16 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_core::PSTR,
 }
-impl Copy for PDH_COUNTER_PATH_ELEMENTS_A {}
-impl Clone for PDH_COUNTER_PATH_ELEMENTS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_COUNTER_PATH_ELEMENTS_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_COUNTER_PATH_ELEMENTS_A").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_COUNTER_PATH_ELEMENTS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.szMachineName == other.szMachineName && self.szObjectName == other.szObjectName && self.szInstanceName == other.szInstanceName && self.szParentInstance == other.szParentInstance && self.dwInstanceIndex == other.dwInstanceIndex && self.szCounterName == other.szCounterName
-    }
-}
-impl Eq for PDH_COUNTER_PATH_ELEMENTS_A {}
 impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: windows_core::PWSTR,
     pub szObjectName: windows_core::PWSTR,
@@ -5860,105 +5753,51 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_core::PWSTR,
 }
-impl Copy for PDH_COUNTER_PATH_ELEMENTS_W {}
-impl Clone for PDH_COUNTER_PATH_ELEMENTS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_COUNTER_PATH_ELEMENTS_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_COUNTER_PATH_ELEMENTS_W").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_COUNTER_PATH_ELEMENTS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.szMachineName == other.szMachineName && self.szObjectName == other.szObjectName && self.szInstanceName == other.szInstanceName && self.szParentInstance == other.szParentInstance && self.dwInstanceIndex == other.dwInstanceIndex && self.szCounterName == other.szCounterName
-    }
-}
-impl Eq for PDH_COUNTER_PATH_ELEMENTS_W {}
 impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: windows_core::PSTR,
     pub ObjectGUID: windows_core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_core::PSTR,
 }
-impl Copy for PDH_DATA_ITEM_PATH_ELEMENTS_A {}
-impl Clone for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_DATA_ITEM_PATH_ELEMENTS_A").field("szMachineName", &self.szMachineName).field("ObjectGUID", &self.ObjectGUID).field("dwItemId", &self.dwItemId).field("szInstanceName", &self.szInstanceName).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.szMachineName == other.szMachineName && self.ObjectGUID == other.ObjectGUID && self.dwItemId == other.dwItemId && self.szInstanceName == other.szInstanceName
-    }
-}
-impl Eq for PDH_DATA_ITEM_PATH_ELEMENTS_A {}
 impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: windows_core::PWSTR,
     pub ObjectGUID: windows_core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_core::PWSTR,
 }
-impl Copy for PDH_DATA_ITEM_PATH_ELEMENTS_W {}
-impl Clone for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_DATA_ITEM_PATH_ELEMENTS_W").field("szMachineName", &self.szMachineName).field("ObjectGUID", &self.ObjectGUID).field("dwItemId", &self.dwItemId).field("szInstanceName", &self.szInstanceName).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.szMachineName == other.szMachineName && self.ObjectGUID == other.ObjectGUID && self.dwItemId == other.dwItemId && self.szInstanceName == other.szInstanceName
-    }
-}
-impl Eq for PDH_DATA_ITEM_PATH_ELEMENTS_W {}
 impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE {
     pub CStatus: u32,
     pub Anonymous: PDH_FMT_COUNTERVALUE_0,
-}
-impl Copy for PDH_FMT_COUNTERVALUE {}
-impl Clone for PDH_FMT_COUNTERVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE {
     type TypeKind = windows_core::CopyType;
@@ -5969,18 +5808,13 @@ impl Default for PDH_FMT_COUNTERVALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_FMT_COUNTERVALUE_0 {
     pub longValue: i32,
     pub doubleValue: f64,
     pub largeValue: i64,
     pub AnsiStringValue: windows_core::PCSTR,
     pub WideStringValue: windows_core::PCWSTR,
-}
-impl Copy for PDH_FMT_COUNTERVALUE_0 {}
-impl Clone for PDH_FMT_COUNTERVALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_0 {
     type TypeKind = windows_core::CopyType;
@@ -5991,15 +5825,10 @@ impl Default for PDH_FMT_COUNTERVALUE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
     pub szName: windows_core::PSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
-}
-impl Copy for PDH_FMT_COUNTERVALUE_ITEM_A {}
-impl Clone for PDH_FMT_COUNTERVALUE_ITEM_A {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_A {
     type TypeKind = windows_core::CopyType;
@@ -6010,15 +5839,10 @@ impl Default for PDH_FMT_COUNTERVALUE_ITEM_A {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
     pub szName: windows_core::PWSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
-}
-impl Copy for PDH_FMT_COUNTERVALUE_ITEM_W {}
-impl Clone for PDH_FMT_COUNTERVALUE_ITEM_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_W {
     type TypeKind = windows_core::CopyType;
@@ -6029,6 +5853,7 @@ impl Default for PDH_FMT_COUNTERVALUE_ITEM_W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6040,12 +5865,6 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A {
     type TypeKind = windows_core::CopyType;
 }
@@ -6055,15 +5874,10 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
-}
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     type TypeKind = windows_core::CopyType;
@@ -6074,6 +5888,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -6084,32 +5899,16 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
     pub PdlLogEndTime: super::super::Foundation::FILETIME,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_LOG_SERVICE_QUERY_INFO_A_0_0").field("PdlAutoNameInterval", &self.PdlAutoNameInterval).field("PdlAutoNameUnits", &self.PdlAutoNameUnits).field("PdlCommandFilename", &self.PdlCommandFilename).field("PdlCounterList", &self.PdlCounterList).field("PdlAutoNameFormat", &self.PdlAutoNameFormat).field("PdlSampleInterval", &self.PdlSampleInterval).field("PdlLogStartTime", &self.PdlLogStartTime).field("PdlLogEndTime", &self.PdlLogEndTime).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PdlAutoNameInterval == other.PdlAutoNameInterval && self.PdlAutoNameUnits == other.PdlAutoNameUnits && self.PdlCommandFilename == other.PdlCommandFilename && self.PdlCounterList == other.PdlCounterList && self.PdlAutoNameFormat == other.PdlAutoNameFormat && self.PdlSampleInterval == other.PdlSampleInterval && self.PdlLogStartTime == other.PdlLogStartTime && self.PdlLogEndTime == other.PdlLogEndTime
-    }
-}
-impl Eq for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {}
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -6122,43 +5921,16 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_core::PSTR,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_LOG_SERVICE_QUERY_INFO_A_0_1")
-            .field("TlNumberOfBuffers", &self.TlNumberOfBuffers)
-            .field("TlMinimumBuffers", &self.TlMinimumBuffers)
-            .field("TlMaximumBuffers", &self.TlMaximumBuffers)
-            .field("TlFreeBuffers", &self.TlFreeBuffers)
-            .field("TlBufferSize", &self.TlBufferSize)
-            .field("TlEventsLost", &self.TlEventsLost)
-            .field("TlLoggerThreadId", &self.TlLoggerThreadId)
-            .field("TlBuffersWritten", &self.TlBuffersWritten)
-            .field("TlLogHandle", &self.TlLogHandle)
-            .field("TlLogFileName", &self.TlLogFileName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.TlNumberOfBuffers == other.TlNumberOfBuffers && self.TlMinimumBuffers == other.TlMinimumBuffers && self.TlMaximumBuffers == other.TlMaximumBuffers && self.TlFreeBuffers == other.TlFreeBuffers && self.TlBufferSize == other.TlBufferSize && self.TlEventsLost == other.TlEventsLost && self.TlLoggerThreadId == other.TlLoggerThreadId && self.TlBuffersWritten == other.TlBuffersWritten && self.TlLogHandle == other.TlLogHandle && self.TlLogFileName == other.TlLogFileName
-    }
-}
-impl Eq for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {}
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6170,12 +5942,6 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W {
     type TypeKind = windows_core::CopyType;
 }
@@ -6185,15 +5951,10 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
-}
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     type TypeKind = windows_core::CopyType;
@@ -6204,6 +5965,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -6214,32 +5976,16 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
     pub PdlLogEndTime: super::super::Foundation::FILETIME,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_LOG_SERVICE_QUERY_INFO_W_0_0").field("PdlAutoNameInterval", &self.PdlAutoNameInterval).field("PdlAutoNameUnits", &self.PdlAutoNameUnits).field("PdlCommandFilename", &self.PdlCommandFilename).field("PdlCounterList", &self.PdlCounterList).field("PdlAutoNameFormat", &self.PdlAutoNameFormat).field("PdlSampleInterval", &self.PdlSampleInterval).field("PdlLogStartTime", &self.PdlLogStartTime).field("PdlLogEndTime", &self.PdlLogEndTime).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PdlAutoNameInterval == other.PdlAutoNameInterval && self.PdlAutoNameUnits == other.PdlAutoNameUnits && self.PdlCommandFilename == other.PdlCommandFilename && self.PdlCounterList == other.PdlCounterList && self.PdlAutoNameFormat == other.PdlAutoNameFormat && self.PdlSampleInterval == other.PdlSampleInterval && self.PdlLogStartTime == other.PdlLogStartTime && self.PdlLogEndTime == other.PdlLogEndTime
-    }
-}
-impl Eq for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {}
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -6252,43 +5998,16 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_core::PWSTR,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_LOG_SERVICE_QUERY_INFO_W_0_1")
-            .field("TlNumberOfBuffers", &self.TlNumberOfBuffers)
-            .field("TlMinimumBuffers", &self.TlMinimumBuffers)
-            .field("TlMaximumBuffers", &self.TlMaximumBuffers)
-            .field("TlFreeBuffers", &self.TlFreeBuffers)
-            .field("TlBufferSize", &self.TlBufferSize)
-            .field("TlEventsLost", &self.TlEventsLost)
-            .field("TlLoggerThreadId", &self.TlLoggerThreadId)
-            .field("TlBuffersWritten", &self.TlBuffersWritten)
-            .field("TlLogHandle", &self.TlLogHandle)
-            .field("TlLogFileName", &self.TlLogFileName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.TlNumberOfBuffers == other.TlNumberOfBuffers && self.TlMinimumBuffers == other.TlMinimumBuffers && self.TlMaximumBuffers == other.TlMaximumBuffers && self.TlFreeBuffers == other.TlFreeBuffers && self.TlBufferSize == other.TlBufferSize && self.TlEventsLost == other.TlEventsLost && self.TlLoggerThreadId == other.TlLoggerThreadId && self.TlBuffersWritten == other.TlBuffersWritten && self.TlLogHandle == other.TlLogHandle && self.TlLogFileName == other.TlLogFileName
-    }
-}
-impl Eq for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {}
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -6296,136 +6015,66 @@ pub struct PDH_RAW_COUNTER {
     pub SecondValue: i64,
     pub MultiCount: u32,
 }
-impl Copy for PDH_RAW_COUNTER {}
-impl Clone for PDH_RAW_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_RAW_COUNTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_RAW_COUNTER").field("CStatus", &self.CStatus).field("TimeStamp", &self.TimeStamp).field("FirstValue", &self.FirstValue).field("SecondValue", &self.SecondValue).field("MultiCount", &self.MultiCount).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_RAW_COUNTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_RAW_COUNTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.CStatus == other.CStatus && self.TimeStamp == other.TimeStamp && self.FirstValue == other.FirstValue && self.SecondValue == other.SecondValue && self.MultiCount == other.MultiCount
-    }
-}
-impl Eq for PDH_RAW_COUNTER {}
 impl Default for PDH_RAW_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
-impl Copy for PDH_RAW_COUNTER_ITEM_A {}
-impl Clone for PDH_RAW_COUNTER_ITEM_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_RAW_COUNTER_ITEM_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_RAW_COUNTER_ITEM_A").field("szName", &self.szName).field("RawValue", &self.RawValue).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_RAW_COUNTER_ITEM_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.szName == other.szName && self.RawValue == other.RawValue
-    }
-}
-impl Eq for PDH_RAW_COUNTER_ITEM_A {}
 impl Default for PDH_RAW_COUNTER_ITEM_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
-impl Copy for PDH_RAW_COUNTER_ITEM_W {}
-impl Clone for PDH_RAW_COUNTER_ITEM_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_RAW_COUNTER_ITEM_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_RAW_COUNTER_ITEM_W").field("szName", &self.szName).field("RawValue", &self.RawValue).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_RAW_COUNTER_ITEM_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.szName == other.szName && self.RawValue == other.RawValue
-    }
-}
-impl Eq for PDH_RAW_COUNTER_ITEM_W {}
 impl Default for PDH_RAW_COUNTER_ITEM_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_RAW_LOG_RECORD {
     pub dwStructureSize: u32,
     pub dwRecordType: PDH_LOG_TYPE,
     pub dwItems: u32,
     pub RawBytes: [u8; 1],
 }
-impl Copy for PDH_RAW_LOG_RECORD {}
-impl Clone for PDH_RAW_LOG_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_RAW_LOG_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_RAW_LOG_RECORD").field("dwStructureSize", &self.dwStructureSize).field("dwRecordType", &self.dwRecordType).field("dwItems", &self.dwItems).field("RawBytes", &self.RawBytes).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_RAW_LOG_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_RAW_LOG_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStructureSize == other.dwStructureSize && self.dwRecordType == other.dwRecordType && self.dwItems == other.dwItems && self.RawBytes == other.RawBytes
-    }
-}
-impl Eq for PDH_RAW_LOG_RECORD {}
 impl Default for PDH_RAW_LOG_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_STATISTICS {
     pub dwFormat: u32,
     pub count: u32,
     pub min: PDH_FMT_COUNTERVALUE,
     pub max: PDH_FMT_COUNTERVALUE,
     pub mean: PDH_FMT_COUNTERVALUE,
-}
-impl Copy for PDH_STATISTICS {}
-impl Clone for PDH_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PDH_STATISTICS {
     type TypeKind = windows_core::CopyType;
@@ -6436,69 +6085,38 @@ impl Default for PDH_STATISTICS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_TIME_INFO {
     pub StartTime: i64,
     pub EndTime: i64,
     pub SampleCount: u32,
 }
-impl Copy for PDH_TIME_INFO {}
-impl Clone for PDH_TIME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PDH_TIME_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDH_TIME_INFO").field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("SampleCount", &self.SampleCount).finish()
-    }
-}
 impl windows_core::TypeKind for PDH_TIME_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PDH_TIME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.SampleCount == other.SampleCount
-    }
-}
-impl Eq for PDH_TIME_INFO {}
 impl Default for PDH_TIME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTERSET_INFO {
     pub CounterSetGuid: windows_core::GUID,
     pub ProviderGuid: windows_core::GUID,
     pub NumCounters: u32,
     pub InstanceType: u32,
 }
-impl Copy for PERF_COUNTERSET_INFO {}
-impl Clone for PERF_COUNTERSET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTERSET_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTERSET_INFO").field("CounterSetGuid", &self.CounterSetGuid).field("ProviderGuid", &self.ProviderGuid).field("NumCounters", &self.NumCounters).field("InstanceType", &self.InstanceType).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTERSET_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTERSET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterSetGuid == other.CounterSetGuid && self.ProviderGuid == other.ProviderGuid && self.NumCounters == other.NumCounters && self.InstanceType == other.InstanceType
-    }
-}
-impl Eq for PERF_COUNTERSET_INFO {}
 impl Default for PERF_COUNTERSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTERSET_INSTANCE {
     pub CounterSetGuid: windows_core::GUID,
     pub dwSize: u32,
@@ -6506,32 +6124,16 @@ pub struct PERF_COUNTERSET_INSTANCE {
     pub InstanceNameOffset: u32,
     pub InstanceNameSize: u32,
 }
-impl Copy for PERF_COUNTERSET_INSTANCE {}
-impl Clone for PERF_COUNTERSET_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTERSET_INSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTERSET_INSTANCE").field("CounterSetGuid", &self.CounterSetGuid).field("dwSize", &self.dwSize).field("InstanceId", &self.InstanceId).field("InstanceNameOffset", &self.InstanceNameOffset).field("InstanceNameSize", &self.InstanceNameSize).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTERSET_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTERSET_INSTANCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterSetGuid == other.CounterSetGuid && self.dwSize == other.dwSize && self.InstanceId == other.InstanceId && self.InstanceNameOffset == other.InstanceNameOffset && self.InstanceNameSize == other.InstanceNameSize
-    }
-}
-impl Eq for PERF_COUNTERSET_INSTANCE {}
 impl Default for PERF_COUNTERSET_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTERSET_REG_INFO {
     pub CounterSetGuid: windows_core::GUID,
     pub CounterSetType: u32,
@@ -6539,85 +6141,36 @@ pub struct PERF_COUNTERSET_REG_INFO {
     pub NumCounters: u32,
     pub InstanceType: u32,
 }
-impl Copy for PERF_COUNTERSET_REG_INFO {}
-impl Clone for PERF_COUNTERSET_REG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTERSET_REG_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTERSET_REG_INFO").field("CounterSetGuid", &self.CounterSetGuid).field("CounterSetType", &self.CounterSetType).field("DetailLevel", &self.DetailLevel).field("NumCounters", &self.NumCounters).field("InstanceType", &self.InstanceType).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTERSET_REG_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTERSET_REG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterSetGuid == other.CounterSetGuid && self.CounterSetType == other.CounterSetType && self.DetailLevel == other.DetailLevel && self.NumCounters == other.NumCounters && self.InstanceType == other.InstanceType
-    }
-}
-impl Eq for PERF_COUNTERSET_REG_INFO {}
 impl Default for PERF_COUNTERSET_REG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: u32,
-}
-impl Copy for PERF_COUNTER_BLOCK {}
-impl Clone for PERF_COUNTER_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_BLOCK").field("ByteLength", &self.ByteLength).finish()
-    }
 }
 impl windows_core::TypeKind for PERF_COUNTER_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteLength == other.ByteLength
-    }
-}
-impl Eq for PERF_COUNTER_BLOCK {}
 impl Default for PERF_COUNTER_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_DATA {
     pub dwDataSize: u32,
     pub dwSize: u32,
 }
-impl Copy for PERF_COUNTER_DATA {}
-impl Clone for PERF_COUNTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_DATA").field("dwDataSize", &self.dwDataSize).field("dwSize", &self.dwSize).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDataSize == other.dwDataSize && self.dwSize == other.dwSize
-    }
-}
-impl Eq for PERF_COUNTER_DATA {}
 impl Default for PERF_COUNTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6625,6 +6178,7 @@ impl Default for PERF_COUNTER_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -6638,42 +6192,9 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterOffset: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PERF_COUNTER_DEFINITION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PERF_COUNTER_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for PERF_COUNTER_DEFINITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_DEFINITION")
-            .field("ByteLength", &self.ByteLength)
-            .field("CounterNameTitleIndex", &self.CounterNameTitleIndex)
-            .field("CounterNameTitle", &self.CounterNameTitle)
-            .field("CounterHelpTitleIndex", &self.CounterHelpTitleIndex)
-            .field("CounterHelpTitle", &self.CounterHelpTitle)
-            .field("DefaultScale", &self.DefaultScale)
-            .field("DetailLevel", &self.DetailLevel)
-            .field("CounterType", &self.CounterType)
-            .field("CounterSize", &self.CounterSize)
-            .field("CounterOffset", &self.CounterOffset)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for PERF_COUNTER_DEFINITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for PERF_COUNTER_DEFINITION {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for PERF_COUNTER_DEFINITION {
     fn default() -> Self {
@@ -6682,6 +6203,7 @@ impl Default for PERF_COUNTER_DEFINITION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -6695,42 +6217,9 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterOffset: u32,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for PERF_COUNTER_DEFINITION {}
-#[cfg(target_arch = "x86")]
-impl Clone for PERF_COUNTER_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl core::fmt::Debug for PERF_COUNTER_DEFINITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_DEFINITION")
-            .field("ByteLength", &self.ByteLength)
-            .field("CounterNameTitleIndex", &self.CounterNameTitleIndex)
-            .field("CounterNameTitle", &self.CounterNameTitle)
-            .field("CounterHelpTitleIndex", &self.CounterHelpTitleIndex)
-            .field("CounterHelpTitle", &self.CounterHelpTitle)
-            .field("DefaultScale", &self.DefaultScale)
-            .field("DetailLevel", &self.DetailLevel)
-            .field("CounterType", &self.CounterType)
-            .field("CounterSize", &self.CounterSize)
-            .field("CounterOffset", &self.CounterOffset)
-            .finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86")]
-impl PartialEq for PERF_COUNTER_DEFINITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Eq for PERF_COUNTER_DEFINITION {}
 #[cfg(target_arch = "x86")]
 impl Default for PERF_COUNTER_DEFINITION {
     fn default() -> Self {
@@ -6738,38 +6227,23 @@ impl Default for PERF_COUNTER_DEFINITION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_HEADER {
     pub dwStatus: u32,
     pub dwType: PerfCounterDataType,
     pub dwSize: u32,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_HEADER {}
-impl Clone for PERF_COUNTER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_HEADER").field("dwStatus", &self.dwStatus).field("dwType", &self.dwType).field("dwSize", &self.dwSize).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStatus == other.dwStatus && self.dwType == other.dwType && self.dwSize == other.dwSize && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PERF_COUNTER_HEADER {}
 impl Default for PERF_COUNTER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_IDENTIFIER {
     pub CounterSetGuid: windows_core::GUID,
     pub Status: u32,
@@ -6779,32 +6253,16 @@ pub struct PERF_COUNTER_IDENTIFIER {
     pub Index: u32,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_IDENTIFIER {}
-impl Clone for PERF_COUNTER_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_IDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_IDENTIFIER").field("CounterSetGuid", &self.CounterSetGuid).field("Status", &self.Status).field("Size", &self.Size).field("CounterId", &self.CounterId).field("InstanceId", &self.InstanceId).field("Index", &self.Index).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTER_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_IDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterSetGuid == other.CounterSetGuid && self.Status == other.Status && self.Size == other.Size && self.CounterId == other.CounterId && self.InstanceId == other.InstanceId && self.Index == other.Index && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PERF_COUNTER_IDENTIFIER {}
 impl Default for PERF_COUNTER_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_IDENTITY {
     pub CounterSetGuid: windows_core::GUID,
     pub BufferSize: u32,
@@ -6814,32 +6272,16 @@ pub struct PERF_COUNTER_IDENTITY {
     pub NameOffset: u32,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_IDENTITY {}
-impl Clone for PERF_COUNTER_IDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_IDENTITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_IDENTITY").field("CounterSetGuid", &self.CounterSetGuid).field("BufferSize", &self.BufferSize).field("CounterId", &self.CounterId).field("InstanceId", &self.InstanceId).field("MachineOffset", &self.MachineOffset).field("NameOffset", &self.NameOffset).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTER_IDENTITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_IDENTITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterSetGuid == other.CounterSetGuid && self.BufferSize == other.BufferSize && self.CounterId == other.CounterId && self.InstanceId == other.InstanceId && self.MachineOffset == other.MachineOffset && self.NameOffset == other.NameOffset && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PERF_COUNTER_IDENTITY {}
 impl Default for PERF_COUNTER_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -6849,32 +6291,16 @@ pub struct PERF_COUNTER_INFO {
     pub Scale: i32,
     pub Offset: u32,
 }
-impl Copy for PERF_COUNTER_INFO {}
-impl Clone for PERF_COUNTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_INFO").field("CounterId", &self.CounterId).field("Type", &self.Type).field("Attrib", &self.Attrib).field("Size", &self.Size).field("DetailLevel", &self.DetailLevel).field("Scale", &self.Scale).field("Offset", &self.Offset).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterId == other.CounterId && self.Type == other.Type && self.Attrib == other.Attrib && self.Size == other.Size && self.DetailLevel == other.DetailLevel && self.Scale == other.Scale && self.Offset == other.Offset
-    }
-}
-impl Eq for PERF_COUNTER_INFO {}
 impl Default for PERF_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_COUNTER_REG_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -6888,32 +6314,16 @@ pub struct PERF_COUNTER_REG_INFO {
     pub AggregateFunc: PERF_COUNTER_AGGREGATE_FUNC,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_REG_INFO {}
-impl Clone for PERF_COUNTER_REG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_COUNTER_REG_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_COUNTER_REG_INFO").field("CounterId", &self.CounterId).field("Type", &self.Type).field("Attrib", &self.Attrib).field("DetailLevel", &self.DetailLevel).field("DefaultScale", &self.DefaultScale).field("BaseCounterId", &self.BaseCounterId).field("PerfTimeId", &self.PerfTimeId).field("PerfFreqId", &self.PerfFreqId).field("MultiId", &self.MultiId).field("AggregateFunc", &self.AggregateFunc).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_COUNTER_REG_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_COUNTER_REG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CounterId == other.CounterId && self.Type == other.Type && self.Attrib == other.Attrib && self.DetailLevel == other.DetailLevel && self.DefaultScale == other.DefaultScale && self.BaseCounterId == other.BaseCounterId && self.PerfTimeId == other.PerfTimeId && self.PerfFreqId == other.PerfFreqId && self.MultiId == other.MultiId && self.AggregateFunc == other.AggregateFunc && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PERF_COUNTER_REG_INFO {}
 impl Default for PERF_COUNTER_REG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
     pub LittleEndian: u32,
@@ -6930,47 +6340,16 @@ pub struct PERF_DATA_BLOCK {
     pub SystemNameLength: u32,
     pub SystemNameOffset: u32,
 }
-impl Copy for PERF_DATA_BLOCK {}
-impl Clone for PERF_DATA_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_DATA_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_DATA_BLOCK")
-            .field("Signature", &self.Signature)
-            .field("LittleEndian", &self.LittleEndian)
-            .field("Version", &self.Version)
-            .field("Revision", &self.Revision)
-            .field("TotalByteLength", &self.TotalByteLength)
-            .field("HeaderLength", &self.HeaderLength)
-            .field("NumObjectTypes", &self.NumObjectTypes)
-            .field("DefaultObject", &self.DefaultObject)
-            .field("SystemTime", &self.SystemTime)
-            .field("PerfTime", &self.PerfTime)
-            .field("PerfFreq", &self.PerfFreq)
-            .field("PerfTime100nSec", &self.PerfTime100nSec)
-            .field("SystemNameLength", &self.SystemNameLength)
-            .field("SystemNameOffset", &self.SystemNameOffset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PERF_DATA_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_DATA_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.LittleEndian == other.LittleEndian && self.Version == other.Version && self.Revision == other.Revision && self.TotalByteLength == other.TotalByteLength && self.HeaderLength == other.HeaderLength && self.NumObjectTypes == other.NumObjectTypes && self.DefaultObject == other.DefaultObject && self.SystemTime == other.SystemTime && self.PerfTime == other.PerfTime && self.PerfFreq == other.PerfFreq && self.PerfTime100nSec == other.PerfTime100nSec && self.SystemNameLength == other.SystemNameLength && self.SystemNameOffset == other.SystemNameOffset
-    }
-}
-impl Eq for PERF_DATA_BLOCK {}
 impl Default for PERF_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_DATA_HEADER {
     pub dwTotalSize: u32,
     pub dwNumCounters: u32,
@@ -6979,32 +6358,16 @@ pub struct PERF_DATA_HEADER {
     pub PerfFreq: i64,
     pub SystemTime: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for PERF_DATA_HEADER {}
-impl Clone for PERF_DATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_DATA_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_DATA_HEADER").field("dwTotalSize", &self.dwTotalSize).field("dwNumCounters", &self.dwNumCounters).field("PerfTimeStamp", &self.PerfTimeStamp).field("PerfTime100NSec", &self.PerfTime100NSec).field("PerfFreq", &self.PerfFreq).field("SystemTime", &self.SystemTime).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_DATA_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_DATA_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTotalSize == other.dwTotalSize && self.dwNumCounters == other.dwNumCounters && self.PerfTimeStamp == other.PerfTimeStamp && self.PerfTime100NSec == other.PerfTime100NSec && self.PerfFreq == other.PerfFreq && self.SystemTime == other.SystemTime
-    }
-}
-impl Eq for PERF_DATA_HEADER {}
 impl Default for PERF_DATA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: u32,
     pub ParentObjectTitleIndex: u32,
@@ -7013,116 +6376,51 @@ pub struct PERF_INSTANCE_DEFINITION {
     pub NameOffset: u32,
     pub NameLength: u32,
 }
-impl Copy for PERF_INSTANCE_DEFINITION {}
-impl Clone for PERF_INSTANCE_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_INSTANCE_DEFINITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_INSTANCE_DEFINITION").field("ByteLength", &self.ByteLength).field("ParentObjectTitleIndex", &self.ParentObjectTitleIndex).field("ParentObjectInstance", &self.ParentObjectInstance).field("UniqueID", &self.UniqueID).field("NameOffset", &self.NameOffset).field("NameLength", &self.NameLength).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_INSTANCE_DEFINITION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_INSTANCE_DEFINITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteLength == other.ByteLength && self.ParentObjectTitleIndex == other.ParentObjectTitleIndex && self.ParentObjectInstance == other.ParentObjectInstance && self.UniqueID == other.UniqueID && self.NameOffset == other.NameOffset && self.NameLength == other.NameLength
-    }
-}
-impl Eq for PERF_INSTANCE_DEFINITION {}
 impl Default for PERF_INSTANCE_DEFINITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_INSTANCE_HEADER {
     pub Size: u32,
     pub InstanceId: u32,
 }
-impl Copy for PERF_INSTANCE_HEADER {}
-impl Clone for PERF_INSTANCE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_INSTANCE_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_INSTANCE_HEADER").field("Size", &self.Size).field("InstanceId", &self.InstanceId).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_INSTANCE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_INSTANCE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.InstanceId == other.InstanceId
-    }
-}
-impl Eq for PERF_INSTANCE_HEADER {}
 impl Default for PERF_INSTANCE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_MULTI_COUNTERS {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
-impl Copy for PERF_MULTI_COUNTERS {}
-impl Clone for PERF_MULTI_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_MULTI_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_MULTI_COUNTERS").field("dwSize", &self.dwSize).field("dwCounters", &self.dwCounters).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_MULTI_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_MULTI_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCounters == other.dwCounters
-    }
-}
-impl Eq for PERF_MULTI_COUNTERS {}
 impl Default for PERF_MULTI_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_MULTI_INSTANCES {
     pub dwTotalSize: u32,
     pub dwInstances: u32,
 }
-impl Copy for PERF_MULTI_INSTANCES {}
-impl Clone for PERF_MULTI_INSTANCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_MULTI_INSTANCES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_MULTI_INSTANCES").field("dwTotalSize", &self.dwTotalSize).field("dwInstances", &self.dwInstances).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_MULTI_INSTANCES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_MULTI_INSTANCES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTotalSize == other.dwTotalSize && self.dwInstances == other.dwInstances
-    }
-}
-impl Eq for PERF_MULTI_INSTANCES {}
 impl Default for PERF_MULTI_INSTANCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7130,6 +6428,7 @@ impl Default for PERF_MULTI_INSTANCES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -7147,46 +6446,9 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PERF_OBJECT_TYPE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PERF_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for PERF_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_OBJECT_TYPE")
-            .field("TotalByteLength", &self.TotalByteLength)
-            .field("DefinitionLength", &self.DefinitionLength)
-            .field("HeaderLength", &self.HeaderLength)
-            .field("ObjectNameTitleIndex", &self.ObjectNameTitleIndex)
-            .field("ObjectNameTitle", &self.ObjectNameTitle)
-            .field("ObjectHelpTitleIndex", &self.ObjectHelpTitleIndex)
-            .field("ObjectHelpTitle", &self.ObjectHelpTitle)
-            .field("DetailLevel", &self.DetailLevel)
-            .field("NumCounters", &self.NumCounters)
-            .field("DefaultCounter", &self.DefaultCounter)
-            .field("NumInstances", &self.NumInstances)
-            .field("CodePage", &self.CodePage)
-            .field("PerfTime", &self.PerfTime)
-            .field("PerfFreq", &self.PerfFreq)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PERF_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for PERF_OBJECT_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalByteLength == other.TotalByteLength && self.DefinitionLength == other.DefinitionLength && self.HeaderLength == other.HeaderLength && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex && self.ObjectNameTitle == other.ObjectNameTitle && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex && self.ObjectHelpTitle == other.ObjectHelpTitle && self.DetailLevel == other.DetailLevel && self.NumCounters == other.NumCounters && self.DefaultCounter == other.DefaultCounter && self.NumInstances == other.NumInstances && self.CodePage == other.CodePage && self.PerfTime == other.PerfTime && self.PerfFreq == other.PerfFreq
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for PERF_OBJECT_TYPE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
@@ -7195,6 +6457,7 @@ impl Default for PERF_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -7212,46 +6475,9 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for PERF_OBJECT_TYPE {}
-#[cfg(target_arch = "x86")]
-impl Clone for PERF_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl core::fmt::Debug for PERF_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_OBJECT_TYPE")
-            .field("TotalByteLength", &self.TotalByteLength)
-            .field("DefinitionLength", &self.DefinitionLength)
-            .field("HeaderLength", &self.HeaderLength)
-            .field("ObjectNameTitleIndex", &self.ObjectNameTitleIndex)
-            .field("ObjectNameTitle", &self.ObjectNameTitle)
-            .field("ObjectHelpTitleIndex", &self.ObjectHelpTitleIndex)
-            .field("ObjectHelpTitle", &self.ObjectHelpTitle)
-            .field("DetailLevel", &self.DetailLevel)
-            .field("NumCounters", &self.NumCounters)
-            .field("DefaultCounter", &self.DefaultCounter)
-            .field("NumInstances", &self.NumInstances)
-            .field("CodePage", &self.CodePage)
-            .field("PerfTime", &self.PerfTime)
-            .field("PerfFreq", &self.PerfFreq)
-            .finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PERF_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86")]
-impl PartialEq for PERF_OBJECT_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalByteLength == other.TotalByteLength && self.DefinitionLength == other.DefinitionLength && self.HeaderLength == other.HeaderLength && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex && self.ObjectNameTitle == other.ObjectNameTitle && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex && self.ObjectHelpTitle == other.ObjectHelpTitle && self.DetailLevel == other.DetailLevel && self.NumCounters == other.NumCounters && self.DefaultCounter == other.DefaultCounter && self.NumInstances == other.NumInstances && self.CodePage == other.CodePage && self.PerfTime == other.PerfTime && self.PerfFreq == other.PerfFreq
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Eq for PERF_OBJECT_TYPE {}
 #[cfg(target_arch = "x86")]
 impl Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
@@ -7259,6 +6485,7 @@ impl Default for PERF_OBJECT_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: u32,
     pub Reserved: u32,
@@ -7266,17 +6493,6 @@ pub struct PERF_PROVIDER_CONTEXT {
     pub MemAllocRoutine: PERF_MEM_ALLOC,
     pub MemFreeRoutine: PERF_MEM_FREE,
     pub pMemContext: *mut core::ffi::c_void,
-}
-impl Copy for PERF_PROVIDER_CONTEXT {}
-impl Clone for PERF_PROVIDER_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_PROVIDER_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_PROVIDER_CONTEXT").field("ContextSize", &self.ContextSize).field("Reserved", &self.Reserved).field("pMemContext", &self.pMemContext).finish()
-    }
 }
 impl windows_core::TypeKind for PERF_PROVIDER_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -7287,60 +6503,28 @@ impl Default for PERF_PROVIDER_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_STRING_BUFFER_HEADER {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
-impl Copy for PERF_STRING_BUFFER_HEADER {}
-impl Clone for PERF_STRING_BUFFER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_STRING_BUFFER_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_STRING_BUFFER_HEADER").field("dwSize", &self.dwSize).field("dwCounters", &self.dwCounters).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_STRING_BUFFER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_STRING_BUFFER_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCounters == other.dwCounters
-    }
-}
-impl Eq for PERF_STRING_BUFFER_HEADER {}
 impl Default for PERF_STRING_BUFFER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_STRING_COUNTER_HEADER {
     pub dwCounterId: u32,
     pub dwOffset: u32,
 }
-impl Copy for PERF_STRING_COUNTER_HEADER {}
-impl Clone for PERF_STRING_COUNTER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERF_STRING_COUNTER_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERF_STRING_COUNTER_HEADER").field("dwCounterId", &self.dwCounterId).field("dwOffset", &self.dwOffset).finish()
-    }
-}
 impl windows_core::TypeKind for PERF_STRING_COUNTER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERF_STRING_COUNTER_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCounterId == other.dwCounterId && self.dwOffset == other.dwOffset
-    }
-}
-impl Eq for PERF_STRING_COUNTER_HEADER {}
 impl Default for PERF_STRING_COUNTER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

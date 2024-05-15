@@ -2923,6 +2923,7 @@ pub const VMEMHEAP_RECTANGULAR: i32 = 2i32;
 pub const _FACDD: u32 = 2166u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESSRECTLIST {
     pub lpLink: *mut ACCESSRECTLIST,
     pub rDest: super::super::Foundation::RECT,
@@ -2932,31 +2933,9 @@ pub struct ACCESSRECTLIST {
     pub lpHeapAliasInfo: *mut HEAPALIASINFO,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ACCESSRECTLIST {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ACCESSRECTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for ACCESSRECTLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESSRECTLIST").field("lpLink", &self.lpLink).field("rDest", &self.rDest).field("lpOwner", &self.lpOwner).field("lpSurfaceData", &self.lpSurfaceData).field("dwFlags", &self.dwFlags).field("lpHeapAliasInfo", &self.lpHeapAliasInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for ACCESSRECTLIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for ACCESSRECTLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpLink == other.lpLink && self.rDest == other.rDest && self.lpOwner == other.lpOwner && self.lpSurfaceData == other.lpSurfaceData && self.dwFlags == other.dwFlags && self.lpHeapAliasInfo == other.lpHeapAliasInfo
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for ACCESSRECTLIST {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ACCESSRECTLIST {
     fn default() -> Self {
@@ -2965,6 +2944,7 @@ impl Default for ACCESSRECTLIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTACHLIST {
     pub dwFlags: u32,
     pub lpLink: *mut ATTACHLIST,
@@ -2972,31 +2952,9 @@ pub struct ATTACHLIST {
     pub lpIAttached: *mut DDRAWI_DDRAWSURFACE_INT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ATTACHLIST {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ATTACHLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for ATTACHLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTACHLIST").field("dwFlags", &self.dwFlags).field("lpLink", &self.lpLink).field("lpAttached", &self.lpAttached).field("lpIAttached", &self.lpIAttached).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for ATTACHLIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for ATTACHLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.lpLink == other.lpLink && self.lpAttached == other.lpAttached && self.lpIAttached == other.lpIAttached
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for ATTACHLIST {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ATTACHLIST {
     fn default() -> Self {
@@ -3005,6 +2963,7 @@ impl Default for ATTACHLIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBLNODE {
     pub next: *mut DBLNODE,
     pub prev: *mut DBLNODE,
@@ -3012,31 +2971,9 @@ pub struct DBLNODE {
     pub object_int: *mut DDRAWI_DDRAWSURFACE_INT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DBLNODE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DBLNODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DBLNODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBLNODE").field("next", &self.next).field("prev", &self.prev).field("object", &self.object).field("object_int", &self.object_int).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DBLNODE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DBLNODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.next == other.next && self.prev == other.prev && self.object == other.object && self.object_int == other.object_int
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DBLNODE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DBLNODE {
     fn default() -> Self {
@@ -3044,69 +2981,38 @@ impl Default for DBLNODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD32BITDRIVERDATA {
     pub szName: [i8; 260],
     pub szEntryPoint: [i8; 64],
     pub dwContext: u32,
 }
-impl Copy for DD32BITDRIVERDATA {}
-impl Clone for DD32BITDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD32BITDRIVERDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD32BITDRIVERDATA").field("szName", &self.szName).field("szEntryPoint", &self.szEntryPoint).field("dwContext", &self.dwContext).finish()
-    }
-}
 impl windows_core::TypeKind for DD32BITDRIVERDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD32BITDRIVERDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szName == other.szName && self.szEntryPoint == other.szEntryPoint && self.dwContext == other.dwContext
-    }
-}
-impl Eq for DD32BITDRIVERDATA {}
 impl Default for DD32BITDRIVERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDARGB {
     pub blue: u8,
     pub green: u8,
     pub red: u8,
     pub alpha: u8,
 }
-impl Copy for DDARGB {}
-impl Clone for DDARGB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDARGB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDARGB").field("blue", &self.blue).field("green", &self.green).field("red", &self.red).field("alpha", &self.alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DDARGB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDARGB {
-    fn eq(&self, other: &Self) -> bool {
-        self.blue == other.blue && self.green == other.green && self.red == other.red && self.alpha == other.alpha
-    }
-}
-impl Eq for DDARGB {}
 impl Default for DDARGB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
     pub lpDDSSrc: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -3119,20 +3025,9 @@ impl Clone for DDBLTBATCH {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DDBLTBATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDBLTBATCH").field("lprDest", &self.lprDest).field("lpDDSSrc", &self.lpDDSSrc).field("lprSrc", &self.lprSrc).field("dwFlags", &self.dwFlags).field("lpDDBltFx", &self.lpDDBltFx).finish()
-    }
-}
 impl windows_core::TypeKind for DDBLTBATCH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDBLTBATCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.lprDest == other.lprDest && self.lpDDSSrc == other.lpDDSSrc && self.lprSrc == other.lprSrc && self.dwFlags == other.dwFlags && self.lpDDBltFx == other.lpDDBltFx
-    }
-}
-impl Eq for DDBLTBATCH {}
 impl Default for DDBLTBATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3270,35 +3165,20 @@ impl Default for DDBLTFX_4 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDBOBNEXTFIELDINFO {
     pub lpSurface: *mut DDSURFACEDATA,
-}
-impl Copy for DDBOBNEXTFIELDINFO {}
-impl Clone for DDBOBNEXTFIELDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDBOBNEXTFIELDINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDBOBNEXTFIELDINFO").field("lpSurface", &self.lpSurface).finish()
-    }
 }
 impl windows_core::TypeKind for DDBOBNEXTFIELDINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDBOBNEXTFIELDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpSurface == other.lpSurface
-    }
-}
-impl Eq for DDBOBNEXTFIELDINFO {}
 impl Default for DDBOBNEXTFIELDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCAPS_DX1 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -3337,104 +3217,16 @@ pub struct DDCAPS_DX1 {
     pub dwReserved2: u32,
     pub dwReserved3: u32,
 }
-impl Copy for DDCAPS_DX1 {}
-impl Clone for DDCAPS_DX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDCAPS_DX1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDCAPS_DX1")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwCaps2", &self.dwCaps2)
-            .field("dwCKeyCaps", &self.dwCKeyCaps)
-            .field("dwFXCaps", &self.dwFXCaps)
-            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
-            .field("dwPalCaps", &self.dwPalCaps)
-            .field("dwSVCaps", &self.dwSVCaps)
-            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
-            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
-            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
-            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
-            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
-            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
-            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
-            .field("dwVidMemTotal", &self.dwVidMemTotal)
-            .field("dwVidMemFree", &self.dwVidMemFree)
-            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
-            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
-            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
-            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
-            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
-            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
-            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
-            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
-            .field("dwRops", &self.dwRops)
-            .field("ddsCaps", &self.ddsCaps)
-            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
-            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
-            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
-            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
-            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
-            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDCAPS_DX1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDCAPS_DX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwCaps2 == other.dwCaps2
-            && self.dwCKeyCaps == other.dwCKeyCaps
-            && self.dwFXCaps == other.dwFXCaps
-            && self.dwFXAlphaCaps == other.dwFXAlphaCaps
-            && self.dwPalCaps == other.dwPalCaps
-            && self.dwSVCaps == other.dwSVCaps
-            && self.dwAlphaBltConstBitDepths == other.dwAlphaBltConstBitDepths
-            && self.dwAlphaBltPixelBitDepths == other.dwAlphaBltPixelBitDepths
-            && self.dwAlphaBltSurfaceBitDepths == other.dwAlphaBltSurfaceBitDepths
-            && self.dwAlphaOverlayConstBitDepths == other.dwAlphaOverlayConstBitDepths
-            && self.dwAlphaOverlayPixelBitDepths == other.dwAlphaOverlayPixelBitDepths
-            && self.dwAlphaOverlaySurfaceBitDepths == other.dwAlphaOverlaySurfaceBitDepths
-            && self.dwZBufferBitDepths == other.dwZBufferBitDepths
-            && self.dwVidMemTotal == other.dwVidMemTotal
-            && self.dwVidMemFree == other.dwVidMemFree
-            && self.dwMaxVisibleOverlays == other.dwMaxVisibleOverlays
-            && self.dwCurrVisibleOverlays == other.dwCurrVisibleOverlays
-            && self.dwNumFourCCCodes == other.dwNumFourCCCodes
-            && self.dwAlignBoundarySrc == other.dwAlignBoundarySrc
-            && self.dwAlignSizeSrc == other.dwAlignSizeSrc
-            && self.dwAlignBoundaryDest == other.dwAlignBoundaryDest
-            && self.dwAlignSizeDest == other.dwAlignSizeDest
-            && self.dwAlignStrideAlign == other.dwAlignStrideAlign
-            && self.dwRops == other.dwRops
-            && self.ddsCaps == other.ddsCaps
-            && self.dwMinOverlayStretch == other.dwMinOverlayStretch
-            && self.dwMaxOverlayStretch == other.dwMaxOverlayStretch
-            && self.dwMinLiveVideoStretch == other.dwMinLiveVideoStretch
-            && self.dwMaxLiveVideoStretch == other.dwMaxLiveVideoStretch
-            && self.dwMinHwCodecStretch == other.dwMinHwCodecStretch
-            && self.dwMaxHwCodecStretch == other.dwMaxHwCodecStretch
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-    }
-}
-impl Eq for DDCAPS_DX1 {}
 impl Default for DDCAPS_DX1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCAPS_DX3 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -3488,134 +3280,16 @@ pub struct DDCAPS_DX3 {
     pub dwReserved5: u32,
     pub dwReserved6: u32,
 }
-impl Copy for DDCAPS_DX3 {}
-impl Clone for DDCAPS_DX3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDCAPS_DX3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDCAPS_DX3")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwCaps2", &self.dwCaps2)
-            .field("dwCKeyCaps", &self.dwCKeyCaps)
-            .field("dwFXCaps", &self.dwFXCaps)
-            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
-            .field("dwPalCaps", &self.dwPalCaps)
-            .field("dwSVCaps", &self.dwSVCaps)
-            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
-            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
-            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
-            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
-            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
-            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
-            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
-            .field("dwVidMemTotal", &self.dwVidMemTotal)
-            .field("dwVidMemFree", &self.dwVidMemFree)
-            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
-            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
-            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
-            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
-            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
-            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
-            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
-            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
-            .field("dwRops", &self.dwRops)
-            .field("ddsCaps", &self.ddsCaps)
-            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
-            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
-            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
-            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
-            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
-            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("dwSVBCaps", &self.dwSVBCaps)
-            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
-            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
-            .field("dwSVBRops", &self.dwSVBRops)
-            .field("dwVSBCaps", &self.dwVSBCaps)
-            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
-            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
-            .field("dwVSBRops", &self.dwVSBRops)
-            .field("dwSSBCaps", &self.dwSSBCaps)
-            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
-            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
-            .field("dwSSBRops", &self.dwSSBRops)
-            .field("dwReserved4", &self.dwReserved4)
-            .field("dwReserved5", &self.dwReserved5)
-            .field("dwReserved6", &self.dwReserved6)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDCAPS_DX3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDCAPS_DX3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwCaps2 == other.dwCaps2
-            && self.dwCKeyCaps == other.dwCKeyCaps
-            && self.dwFXCaps == other.dwFXCaps
-            && self.dwFXAlphaCaps == other.dwFXAlphaCaps
-            && self.dwPalCaps == other.dwPalCaps
-            && self.dwSVCaps == other.dwSVCaps
-            && self.dwAlphaBltConstBitDepths == other.dwAlphaBltConstBitDepths
-            && self.dwAlphaBltPixelBitDepths == other.dwAlphaBltPixelBitDepths
-            && self.dwAlphaBltSurfaceBitDepths == other.dwAlphaBltSurfaceBitDepths
-            && self.dwAlphaOverlayConstBitDepths == other.dwAlphaOverlayConstBitDepths
-            && self.dwAlphaOverlayPixelBitDepths == other.dwAlphaOverlayPixelBitDepths
-            && self.dwAlphaOverlaySurfaceBitDepths == other.dwAlphaOverlaySurfaceBitDepths
-            && self.dwZBufferBitDepths == other.dwZBufferBitDepths
-            && self.dwVidMemTotal == other.dwVidMemTotal
-            && self.dwVidMemFree == other.dwVidMemFree
-            && self.dwMaxVisibleOverlays == other.dwMaxVisibleOverlays
-            && self.dwCurrVisibleOverlays == other.dwCurrVisibleOverlays
-            && self.dwNumFourCCCodes == other.dwNumFourCCCodes
-            && self.dwAlignBoundarySrc == other.dwAlignBoundarySrc
-            && self.dwAlignSizeSrc == other.dwAlignSizeSrc
-            && self.dwAlignBoundaryDest == other.dwAlignBoundaryDest
-            && self.dwAlignSizeDest == other.dwAlignSizeDest
-            && self.dwAlignStrideAlign == other.dwAlignStrideAlign
-            && self.dwRops == other.dwRops
-            && self.ddsCaps == other.ddsCaps
-            && self.dwMinOverlayStretch == other.dwMinOverlayStretch
-            && self.dwMaxOverlayStretch == other.dwMaxOverlayStretch
-            && self.dwMinLiveVideoStretch == other.dwMinLiveVideoStretch
-            && self.dwMaxLiveVideoStretch == other.dwMaxLiveVideoStretch
-            && self.dwMinHwCodecStretch == other.dwMinHwCodecStretch
-            && self.dwMaxHwCodecStretch == other.dwMaxHwCodecStretch
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-            && self.dwSVBCaps == other.dwSVBCaps
-            && self.dwSVBCKeyCaps == other.dwSVBCKeyCaps
-            && self.dwSVBFXCaps == other.dwSVBFXCaps
-            && self.dwSVBRops == other.dwSVBRops
-            && self.dwVSBCaps == other.dwVSBCaps
-            && self.dwVSBCKeyCaps == other.dwVSBCKeyCaps
-            && self.dwVSBFXCaps == other.dwVSBFXCaps
-            && self.dwVSBRops == other.dwVSBRops
-            && self.dwSSBCaps == other.dwSSBCaps
-            && self.dwSSBCKeyCaps == other.dwSSBCKeyCaps
-            && self.dwSSBFXCaps == other.dwSSBFXCaps
-            && self.dwSSBRops == other.dwSSBRops
-            && self.dwReserved4 == other.dwReserved4
-            && self.dwReserved5 == other.dwReserved5
-            && self.dwReserved6 == other.dwReserved6
-    }
-}
-impl Eq for DDCAPS_DX3 {}
 impl Default for DDCAPS_DX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCAPS_DX5 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -3674,144 +3348,16 @@ pub struct DDCAPS_DX5 {
     pub dwNLVBFXCaps: u32,
     pub dwNLVBRops: [u32; 8],
 }
-impl Copy for DDCAPS_DX5 {}
-impl Clone for DDCAPS_DX5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDCAPS_DX5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDCAPS_DX5")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwCaps2", &self.dwCaps2)
-            .field("dwCKeyCaps", &self.dwCKeyCaps)
-            .field("dwFXCaps", &self.dwFXCaps)
-            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
-            .field("dwPalCaps", &self.dwPalCaps)
-            .field("dwSVCaps", &self.dwSVCaps)
-            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
-            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
-            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
-            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
-            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
-            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
-            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
-            .field("dwVidMemTotal", &self.dwVidMemTotal)
-            .field("dwVidMemFree", &self.dwVidMemFree)
-            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
-            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
-            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
-            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
-            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
-            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
-            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
-            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
-            .field("dwRops", &self.dwRops)
-            .field("ddsCaps", &self.ddsCaps)
-            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
-            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
-            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
-            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
-            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
-            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("dwSVBCaps", &self.dwSVBCaps)
-            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
-            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
-            .field("dwSVBRops", &self.dwSVBRops)
-            .field("dwVSBCaps", &self.dwVSBCaps)
-            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
-            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
-            .field("dwVSBRops", &self.dwVSBRops)
-            .field("dwSSBCaps", &self.dwSSBCaps)
-            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
-            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
-            .field("dwSSBRops", &self.dwSSBRops)
-            .field("dwMaxVideoPorts", &self.dwMaxVideoPorts)
-            .field("dwCurrVideoPorts", &self.dwCurrVideoPorts)
-            .field("dwSVBCaps2", &self.dwSVBCaps2)
-            .field("dwNLVBCaps", &self.dwNLVBCaps)
-            .field("dwNLVBCaps2", &self.dwNLVBCaps2)
-            .field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps)
-            .field("dwNLVBFXCaps", &self.dwNLVBFXCaps)
-            .field("dwNLVBRops", &self.dwNLVBRops)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDCAPS_DX5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDCAPS_DX5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwCaps2 == other.dwCaps2
-            && self.dwCKeyCaps == other.dwCKeyCaps
-            && self.dwFXCaps == other.dwFXCaps
-            && self.dwFXAlphaCaps == other.dwFXAlphaCaps
-            && self.dwPalCaps == other.dwPalCaps
-            && self.dwSVCaps == other.dwSVCaps
-            && self.dwAlphaBltConstBitDepths == other.dwAlphaBltConstBitDepths
-            && self.dwAlphaBltPixelBitDepths == other.dwAlphaBltPixelBitDepths
-            && self.dwAlphaBltSurfaceBitDepths == other.dwAlphaBltSurfaceBitDepths
-            && self.dwAlphaOverlayConstBitDepths == other.dwAlphaOverlayConstBitDepths
-            && self.dwAlphaOverlayPixelBitDepths == other.dwAlphaOverlayPixelBitDepths
-            && self.dwAlphaOverlaySurfaceBitDepths == other.dwAlphaOverlaySurfaceBitDepths
-            && self.dwZBufferBitDepths == other.dwZBufferBitDepths
-            && self.dwVidMemTotal == other.dwVidMemTotal
-            && self.dwVidMemFree == other.dwVidMemFree
-            && self.dwMaxVisibleOverlays == other.dwMaxVisibleOverlays
-            && self.dwCurrVisibleOverlays == other.dwCurrVisibleOverlays
-            && self.dwNumFourCCCodes == other.dwNumFourCCCodes
-            && self.dwAlignBoundarySrc == other.dwAlignBoundarySrc
-            && self.dwAlignSizeSrc == other.dwAlignSizeSrc
-            && self.dwAlignBoundaryDest == other.dwAlignBoundaryDest
-            && self.dwAlignSizeDest == other.dwAlignSizeDest
-            && self.dwAlignStrideAlign == other.dwAlignStrideAlign
-            && self.dwRops == other.dwRops
-            && self.ddsCaps == other.ddsCaps
-            && self.dwMinOverlayStretch == other.dwMinOverlayStretch
-            && self.dwMaxOverlayStretch == other.dwMaxOverlayStretch
-            && self.dwMinLiveVideoStretch == other.dwMinLiveVideoStretch
-            && self.dwMaxLiveVideoStretch == other.dwMaxLiveVideoStretch
-            && self.dwMinHwCodecStretch == other.dwMinHwCodecStretch
-            && self.dwMaxHwCodecStretch == other.dwMaxHwCodecStretch
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-            && self.dwSVBCaps == other.dwSVBCaps
-            && self.dwSVBCKeyCaps == other.dwSVBCKeyCaps
-            && self.dwSVBFXCaps == other.dwSVBFXCaps
-            && self.dwSVBRops == other.dwSVBRops
-            && self.dwVSBCaps == other.dwVSBCaps
-            && self.dwVSBCKeyCaps == other.dwVSBCKeyCaps
-            && self.dwVSBFXCaps == other.dwVSBFXCaps
-            && self.dwVSBRops == other.dwVSBRops
-            && self.dwSSBCaps == other.dwSSBCaps
-            && self.dwSSBCKeyCaps == other.dwSSBCKeyCaps
-            && self.dwSSBFXCaps == other.dwSSBFXCaps
-            && self.dwSSBRops == other.dwSSBRops
-            && self.dwMaxVideoPorts == other.dwMaxVideoPorts
-            && self.dwCurrVideoPorts == other.dwCurrVideoPorts
-            && self.dwSVBCaps2 == other.dwSVBCaps2
-            && self.dwNLVBCaps == other.dwNLVBCaps
-            && self.dwNLVBCaps2 == other.dwNLVBCaps2
-            && self.dwNLVBCKeyCaps == other.dwNLVBCKeyCaps
-            && self.dwNLVBFXCaps == other.dwNLVBFXCaps
-            && self.dwNLVBRops == other.dwNLVBRops
-    }
-}
-impl Eq for DDCAPS_DX5 {}
 impl Default for DDCAPS_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDCAPS_DX6 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -3871,12 +3417,6 @@ pub struct DDCAPS_DX6 {
     pub dwNLVBRops: [u32; 8],
     pub ddsCaps: DDSCAPS2,
 }
-impl Copy for DDCAPS_DX6 {}
-impl Clone for DDCAPS_DX6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DDCAPS_DX6 {
     type TypeKind = windows_core::CopyType;
 }
@@ -3886,6 +3426,7 @@ impl Default for DDCAPS_DX6 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDCAPS_DX7 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -3945,12 +3486,6 @@ pub struct DDCAPS_DX7 {
     pub dwNLVBRops: [u32; 8],
     pub ddsCaps: DDSCAPS2,
 }
-impl Copy for DDCAPS_DX7 {}
-impl Clone for DDCAPS_DX7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DDCAPS_DX7 {
     type TypeKind = windows_core::CopyType;
 }
@@ -3960,6 +3495,7 @@ impl Default for DDCAPS_DX7 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCOLORCONTROL {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3972,62 +3508,30 @@ pub struct DDCOLORCONTROL {
     pub lColorEnable: i32,
     pub dwReserved1: u32,
 }
-impl Copy for DDCOLORCONTROL {}
-impl Clone for DDCOLORCONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDCOLORCONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDCOLORCONTROL").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lBrightness", &self.lBrightness).field("lContrast", &self.lContrast).field("lHue", &self.lHue).field("lSaturation", &self.lSaturation).field("lSharpness", &self.lSharpness).field("lGamma", &self.lGamma).field("lColorEnable", &self.lColorEnable).field("dwReserved1", &self.dwReserved1).finish()
-    }
-}
 impl windows_core::TypeKind for DDCOLORCONTROL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDCOLORCONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.lBrightness == other.lBrightness && self.lContrast == other.lContrast && self.lHue == other.lHue && self.lSaturation == other.lSaturation && self.lSharpness == other.lSharpness && self.lGamma == other.lGamma && self.lColorEnable == other.lColorEnable && self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for DDCOLORCONTROL {}
 impl Default for DDCOLORCONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCOLORKEY {
     pub dwColorSpaceLowValue: u32,
     pub dwColorSpaceHighValue: u32,
 }
-impl Copy for DDCOLORKEY {}
-impl Clone for DDCOLORKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDCOLORKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDCOLORKEY").field("dwColorSpaceLowValue", &self.dwColorSpaceLowValue).field("dwColorSpaceHighValue", &self.dwColorSpaceHighValue).finish()
-    }
-}
 impl windows_core::TypeKind for DDCOLORKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDCOLORKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwColorSpaceLowValue == other.dwColorSpaceLowValue && self.dwColorSpaceHighValue == other.dwColorSpaceHighValue
-    }
-}
-impl Eq for DDCOLORKEY {}
 impl Default for DDCOLORKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDCOMPBUFFERINFO {
     pub dwSize: u32,
     pub dwNumCompBuffers: u32,
@@ -4036,12 +3540,6 @@ pub struct DDCOMPBUFFERINFO {
     pub dwBytesToAllocate: u32,
     pub ddCompCaps: DDSCAPS2,
     pub ddPixelFormat: DDPIXELFORMAT,
-}
-impl Copy for DDCOMPBUFFERINFO {}
-impl Clone for DDCOMPBUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDCOMPBUFFERINFO {
     type TypeKind = windows_core::CopyType;
@@ -4052,6 +3550,7 @@ impl Default for DDCOMPBUFFERINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCORECAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -4105,134 +3604,16 @@ pub struct DDCORECAPS {
     pub dwCurrVideoPorts: u32,
     pub dwSVBCaps2: u32,
 }
-impl Copy for DDCORECAPS {}
-impl Clone for DDCORECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDCORECAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDCORECAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwCaps2", &self.dwCaps2)
-            .field("dwCKeyCaps", &self.dwCKeyCaps)
-            .field("dwFXCaps", &self.dwFXCaps)
-            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
-            .field("dwPalCaps", &self.dwPalCaps)
-            .field("dwSVCaps", &self.dwSVCaps)
-            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
-            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
-            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
-            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
-            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
-            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
-            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
-            .field("dwVidMemTotal", &self.dwVidMemTotal)
-            .field("dwVidMemFree", &self.dwVidMemFree)
-            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
-            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
-            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
-            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
-            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
-            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
-            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
-            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
-            .field("dwRops", &self.dwRops)
-            .field("ddsCaps", &self.ddsCaps)
-            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
-            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
-            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
-            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
-            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
-            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("dwSVBCaps", &self.dwSVBCaps)
-            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
-            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
-            .field("dwSVBRops", &self.dwSVBRops)
-            .field("dwVSBCaps", &self.dwVSBCaps)
-            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
-            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
-            .field("dwVSBRops", &self.dwVSBRops)
-            .field("dwSSBCaps", &self.dwSSBCaps)
-            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
-            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
-            .field("dwSSBRops", &self.dwSSBRops)
-            .field("dwMaxVideoPorts", &self.dwMaxVideoPorts)
-            .field("dwCurrVideoPorts", &self.dwCurrVideoPorts)
-            .field("dwSVBCaps2", &self.dwSVBCaps2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDCORECAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDCORECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwCaps2 == other.dwCaps2
-            && self.dwCKeyCaps == other.dwCKeyCaps
-            && self.dwFXCaps == other.dwFXCaps
-            && self.dwFXAlphaCaps == other.dwFXAlphaCaps
-            && self.dwPalCaps == other.dwPalCaps
-            && self.dwSVCaps == other.dwSVCaps
-            && self.dwAlphaBltConstBitDepths == other.dwAlphaBltConstBitDepths
-            && self.dwAlphaBltPixelBitDepths == other.dwAlphaBltPixelBitDepths
-            && self.dwAlphaBltSurfaceBitDepths == other.dwAlphaBltSurfaceBitDepths
-            && self.dwAlphaOverlayConstBitDepths == other.dwAlphaOverlayConstBitDepths
-            && self.dwAlphaOverlayPixelBitDepths == other.dwAlphaOverlayPixelBitDepths
-            && self.dwAlphaOverlaySurfaceBitDepths == other.dwAlphaOverlaySurfaceBitDepths
-            && self.dwZBufferBitDepths == other.dwZBufferBitDepths
-            && self.dwVidMemTotal == other.dwVidMemTotal
-            && self.dwVidMemFree == other.dwVidMemFree
-            && self.dwMaxVisibleOverlays == other.dwMaxVisibleOverlays
-            && self.dwCurrVisibleOverlays == other.dwCurrVisibleOverlays
-            && self.dwNumFourCCCodes == other.dwNumFourCCCodes
-            && self.dwAlignBoundarySrc == other.dwAlignBoundarySrc
-            && self.dwAlignSizeSrc == other.dwAlignSizeSrc
-            && self.dwAlignBoundaryDest == other.dwAlignBoundaryDest
-            && self.dwAlignSizeDest == other.dwAlignSizeDest
-            && self.dwAlignStrideAlign == other.dwAlignStrideAlign
-            && self.dwRops == other.dwRops
-            && self.ddsCaps == other.ddsCaps
-            && self.dwMinOverlayStretch == other.dwMinOverlayStretch
-            && self.dwMaxOverlayStretch == other.dwMaxOverlayStretch
-            && self.dwMinLiveVideoStretch == other.dwMinLiveVideoStretch
-            && self.dwMaxLiveVideoStretch == other.dwMaxLiveVideoStretch
-            && self.dwMinHwCodecStretch == other.dwMinHwCodecStretch
-            && self.dwMaxHwCodecStretch == other.dwMaxHwCodecStretch
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-            && self.dwSVBCaps == other.dwSVBCaps
-            && self.dwSVBCKeyCaps == other.dwSVBCKeyCaps
-            && self.dwSVBFXCaps == other.dwSVBFXCaps
-            && self.dwSVBRops == other.dwSVBRops
-            && self.dwVSBCaps == other.dwVSBCaps
-            && self.dwVSBCKeyCaps == other.dwVSBCKeyCaps
-            && self.dwVSBFXCaps == other.dwVSBFXCaps
-            && self.dwVSBRops == other.dwVSBRops
-            && self.dwSSBCaps == other.dwSSBCaps
-            && self.dwSSBCKeyCaps == other.dwSSBCKeyCaps
-            && self.dwSSBFXCaps == other.dwSSBFXCaps
-            && self.dwSSBRops == other.dwSSBRops
-            && self.dwMaxVideoPorts == other.dwMaxVideoPorts
-            && self.dwCurrVideoPorts == other.dwCurrVideoPorts
-            && self.dwSVBCaps2 == other.dwSVBCaps2
-    }
-}
-impl Eq for DDCORECAPS {}
 impl Default for DDCORECAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDDEVICEIDENTIFIER {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
@@ -4243,32 +3624,16 @@ pub struct DDDEVICEIDENTIFIER {
     pub dwRevision: u32,
     pub guidDeviceIdentifier: windows_core::GUID,
 }
-impl Copy for DDDEVICEIDENTIFIER {}
-impl Clone for DDDEVICEIDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDDEVICEIDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDDEVICEIDENTIFIER").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).finish()
-    }
-}
 impl windows_core::TypeKind for DDDEVICEIDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDDEVICEIDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDriver == other.szDriver && self.szDescription == other.szDescription && self.liDriverVersion == other.liDriverVersion && self.dwVendorId == other.dwVendorId && self.dwDeviceId == other.dwDeviceId && self.dwSubSysId == other.dwSubSysId && self.dwRevision == other.dwRevision && self.guidDeviceIdentifier == other.guidDeviceIdentifier
-    }
-}
-impl Eq for DDDEVICEIDENTIFIER {}
 impl Default for DDDEVICEIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDDEVICEIDENTIFIER2 {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
@@ -4280,48 +3645,21 @@ pub struct DDDEVICEIDENTIFIER2 {
     pub guidDeviceIdentifier: windows_core::GUID,
     pub dwWHQLLevel: u32,
 }
-impl Copy for DDDEVICEIDENTIFIER2 {}
-impl Clone for DDDEVICEIDENTIFIER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDDEVICEIDENTIFIER2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDDEVICEIDENTIFIER2").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).field("dwWHQLLevel", &self.dwWHQLLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DDDEVICEIDENTIFIER2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDDEVICEIDENTIFIER2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDriver == other.szDriver && self.szDescription == other.szDescription && self.liDriverVersion == other.liDriverVersion && self.dwVendorId == other.dwVendorId && self.dwDeviceId == other.dwDeviceId && self.dwSubSysId == other.dwSubSysId && self.dwRevision == other.dwRevision && self.guidDeviceIdentifier == other.guidDeviceIdentifier && self.dwWHQLLevel == other.dwWHQLLevel
-    }
-}
-impl Eq for DDDEVICEIDENTIFIER2 {}
 impl Default for DDDEVICEIDENTIFIER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DDENABLEIRQINFO {
     pub dwIRQSources: u32,
     pub dwLine: u32,
     pub IRQCallback: PDX_IRQCALLBACK,
     pub lpIRQData: *mut DX_IRQDATA,
-}
-impl Copy for DDENABLEIRQINFO {}
-impl Clone for DDENABLEIRQINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDENABLEIRQINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDENABLEIRQINFO").field("dwIRQSources", &self.dwIRQSources).field("dwLine", &self.dwLine).field("lpIRQData", &self.lpIRQData).finish()
-    }
 }
 impl windows_core::TypeKind for DDENABLEIRQINFO {
     type TypeKind = windows_core::CopyType;
@@ -4332,328 +3670,152 @@ impl Default for DDENABLEIRQINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDFLIPOVERLAYINFO {
     pub lpCurrentSurface: *mut DDSURFACEDATA,
     pub lpTargetSurface: *mut DDSURFACEDATA,
     pub dwFlags: u32,
 }
-impl Copy for DDFLIPOVERLAYINFO {}
-impl Clone for DDFLIPOVERLAYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDFLIPOVERLAYINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDFLIPOVERLAYINFO").field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DDFLIPOVERLAYINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDFLIPOVERLAYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpCurrentSurface == other.lpCurrentSurface && self.lpTargetSurface == other.lpTargetSurface && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DDFLIPOVERLAYINFO {}
 impl Default for DDFLIPOVERLAYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDFLIPVIDEOPORTINFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
     pub lpCurrentSurface: *mut DDSURFACEDATA,
     pub lpTargetSurface: *mut DDSURFACEDATA,
     pub dwFlipVPFlags: u32,
 }
-impl Copy for DDFLIPVIDEOPORTINFO {}
-impl Clone for DDFLIPVIDEOPORTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDFLIPVIDEOPORTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDFLIPVIDEOPORTINFO").field("lpVideoPortData", &self.lpVideoPortData).field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlipVPFlags", &self.dwFlipVPFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DDFLIPVIDEOPORTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDFLIPVIDEOPORTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVideoPortData == other.lpVideoPortData && self.lpCurrentSurface == other.lpCurrentSurface && self.lpTargetSurface == other.lpTargetSurface && self.dwFlipVPFlags == other.dwFlipVPFlags
-    }
-}
-impl Eq for DDFLIPVIDEOPORTINFO {}
 impl Default for DDFLIPVIDEOPORTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
     pub blue: [u16; 256],
 }
-impl Copy for DDGAMMARAMP {}
-impl Clone for DDGAMMARAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGAMMARAMP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGAMMARAMP").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
-    }
-}
 impl windows_core::TypeKind for DDGAMMARAMP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGAMMARAMP {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.green == other.green && self.blue == other.blue
-    }
-}
-impl Eq for DDGAMMARAMP {}
 impl Default for DDGAMMARAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETCURRENTAUTOFLIPININFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
-}
-impl Copy for DDGETCURRENTAUTOFLIPININFO {}
-impl Clone for DDGETCURRENTAUTOFLIPININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETCURRENTAUTOFLIPININFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETCURRENTAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
-    }
 }
 impl windows_core::TypeKind for DDGETCURRENTAUTOFLIPININFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETCURRENTAUTOFLIPININFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVideoPortData == other.lpVideoPortData
-    }
-}
-impl Eq for DDGETCURRENTAUTOFLIPININFO {}
 impl Default for DDGETCURRENTAUTOFLIPININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETCURRENTAUTOFLIPOUTINFO {
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
 }
-impl Copy for DDGETCURRENTAUTOFLIPOUTINFO {}
-impl Clone for DDGETCURRENTAUTOFLIPOUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETCURRENTAUTOFLIPOUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETCURRENTAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for DDGETCURRENTAUTOFLIPOUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETCURRENTAUTOFLIPOUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSurfaceIndex == other.dwSurfaceIndex && self.dwVBISurfaceIndex == other.dwVBISurfaceIndex
-    }
-}
-impl Eq for DDGETCURRENTAUTOFLIPOUTINFO {}
 impl Default for DDGETCURRENTAUTOFLIPOUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETIRQINFO {
     pub dwFlags: u32,
-}
-impl Copy for DDGETIRQINFO {}
-impl Clone for DDGETIRQINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETIRQINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETIRQINFO").field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DDGETIRQINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETIRQINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DDGETIRQINFO {}
 impl Default for DDGETIRQINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETPOLARITYININFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
-}
-impl Copy for DDGETPOLARITYININFO {}
-impl Clone for DDGETPOLARITYININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETPOLARITYININFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETPOLARITYININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
-    }
 }
 impl windows_core::TypeKind for DDGETPOLARITYININFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETPOLARITYININFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVideoPortData == other.lpVideoPortData
-    }
-}
-impl Eq for DDGETPOLARITYININFO {}
 impl Default for DDGETPOLARITYININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETPOLARITYOUTINFO {
     pub bPolarity: u32,
-}
-impl Copy for DDGETPOLARITYOUTINFO {}
-impl Clone for DDGETPOLARITYOUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETPOLARITYOUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETPOLARITYOUTINFO").field("bPolarity", &self.bPolarity).finish()
-    }
 }
 impl windows_core::TypeKind for DDGETPOLARITYOUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETPOLARITYOUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bPolarity == other.bPolarity
-    }
-}
-impl Eq for DDGETPOLARITYOUTINFO {}
 impl Default for DDGETPOLARITYOUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETPREVIOUSAUTOFLIPININFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
-}
-impl Copy for DDGETPREVIOUSAUTOFLIPININFO {}
-impl Clone for DDGETPREVIOUSAUTOFLIPININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETPREVIOUSAUTOFLIPININFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETPREVIOUSAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
-    }
 }
 impl windows_core::TypeKind for DDGETPREVIOUSAUTOFLIPININFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETPREVIOUSAUTOFLIPININFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVideoPortData == other.lpVideoPortData
-    }
-}
-impl Eq for DDGETPREVIOUSAUTOFLIPININFO {}
 impl Default for DDGETPREVIOUSAUTOFLIPININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETPREVIOUSAUTOFLIPOUTINFO {
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
 }
-impl Copy for DDGETPREVIOUSAUTOFLIPOUTINFO {}
-impl Clone for DDGETPREVIOUSAUTOFLIPOUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETPREVIOUSAUTOFLIPOUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETPREVIOUSAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for DDGETPREVIOUSAUTOFLIPOUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETPREVIOUSAUTOFLIPOUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSurfaceIndex == other.dwSurfaceIndex && self.dwVBISurfaceIndex == other.dwVBISurfaceIndex
-    }
-}
-impl Eq for DDGETPREVIOUSAUTOFLIPOUTINFO {}
 impl Default for DDGETPREVIOUSAUTOFLIPOUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGETTRANSFERSTATUSOUTINFO {
     pub dwTransferID: usize,
-}
-impl Copy for DDGETTRANSFERSTATUSOUTINFO {}
-impl Clone for DDGETTRANSFERSTATUSOUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDGETTRANSFERSTATUSOUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDGETTRANSFERSTATUSOUTINFO").field("dwTransferID", &self.dwTransferID).finish()
-    }
 }
 impl windows_core::TypeKind for DDGETTRANSFERSTATUSOUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDGETTRANSFERSTATUSOUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTransferID == other.dwTransferID
-    }
-}
-impl Eq for DDGETTRANSFERSTATUSOUTINFO {}
 impl Default for DDGETTRANSFERSTATUSOUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4661,25 +3823,12 @@ impl Default for DDGETTRANSFERSTATUSOUTINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHALDDRAWFNS {
     pub dwSize: u32,
     pub lpSetInfo: LPDDHAL_SETINFO,
     pub lpVidMemAlloc: LPDDHAL_VIDMEMALLOC,
     pub lpVidMemFree: LPDDHAL_VIDMEMFREE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHALDDRAWFNS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHALDDRAWFNS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHALDDRAWFNS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHALDDRAWFNS").field("dwSize", &self.dwSize).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHALDDRAWFNS {
@@ -4693,6 +3842,7 @@ impl Default for DDHALDDRAWFNS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDHALINFO {
     pub dwSize: u32,
     pub lpDDCallbacks: *mut DDHAL_DDCALLBACKS,
@@ -4714,14 +3864,6 @@ pub struct DDHALINFO {
     pub lpDDExeBufCallbacks: *mut DDHAL_DDEXEBUFCALLBACKS,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHALINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHALINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHALINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -4732,6 +3874,7 @@ impl Default for DDHALINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDHALMODEINFO {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -4744,26 +3887,9 @@ pub struct DDHALMODEINFO {
     pub dwBBitMask: u32,
     pub dwAlphaBitMask: u32,
 }
-impl Copy for DDHALMODEINFO {}
-impl Clone for DDHALMODEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDHALMODEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHALMODEINFO").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("lPitch", &self.lPitch).field("dwBPP", &self.dwBPP).field("wFlags", &self.wFlags).field("wRefreshRate", &self.wRefreshRate).field("dwRBitMask", &self.dwRBitMask).field("dwGBitMask", &self.dwGBitMask).field("dwBBitMask", &self.dwBBitMask).field("dwAlphaBitMask", &self.dwAlphaBitMask).finish()
-    }
-}
 impl windows_core::TypeKind for DDHALMODEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDHALMODEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.lPitch == other.lPitch && self.dwBPP == other.dwBPP && self.wFlags == other.wFlags && self.wRefreshRate == other.wRefreshRate && self.dwRBitMask == other.dwRBitMask && self.dwGBitMask == other.dwGBitMask && self.dwBBitMask == other.dwBBitMask && self.dwAlphaBitMask == other.dwAlphaBitMask
-    }
-}
-impl Eq for DDHALMODEINFO {}
 impl Default for DDHALMODEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4771,26 +3897,13 @@ impl Default for DDHALMODEINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfAttached: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub AddAttachedSurface: LPDDHALSURFCB_ADDATTACHEDSURFACE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_ADDATTACHEDSURFACEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_ADDATTACHEDSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_ADDATTACHEDSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_ADDATTACHEDSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpSurfAttached", &self.lpSurfAttached).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -4804,6 +3917,7 @@ impl Default for DDHAL_ADDATTACHEDSURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
@@ -4814,20 +3928,6 @@ pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     pub lpOutputData: *mut core::ffi::c_void,
     pub ddRVal: windows_core::HRESULT,
     pub BeginMoCompFrame: LPDDHALMOCOMPCB_BEGINFRAME,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_BEGINMOCOMPFRAMEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_BEGINMOCOMPFRAMEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_BEGINMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpDestSurface", &self.lpDestSurface).field("dwInputDataSize", &self.dwInputDataSize).field("lpInputData", &self.lpInputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("lpOutputData", &self.lpOutputData).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -4876,6 +3976,7 @@ impl Default for DDHAL_BLTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_CALLBACKS {
     pub cbDDCallbacks: DDHAL_DDCALLBACKS,
     pub cbDDSurfaceCallbacks: DDHAL_DDSURFACECALLBACKS,
@@ -4901,20 +4002,6 @@ pub struct DDHAL_CALLBACKS {
     pub HALDDMotionComp: DDHAL_DDMOTIONCOMPCALLBACKS,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CALLBACKS").finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -4926,26 +4013,13 @@ impl Default for DDHAL_CALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_CANCREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
     pub bIsDifferentPixelFormat: u32,
     pub ddRVal: windows_core::HRESULT,
     pub CanCreateSurface: LPDDHAL_CANCREATESURFACE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CANCREATESURFACEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CANCREATESURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CANCREATESURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CANCREATESURFACEDATA {
@@ -4959,25 +4033,12 @@ impl Default for DDHAL_CANCREATESURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_CANCREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub ddRVal: windows_core::HRESULT,
     pub CanCreateVideoPort: LPDDHALVPORTCB_CANCREATEVIDEOPORT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CANCREATEVPORTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CANCREATEVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CANCREATEVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CANCREATEVPORTDATA {
@@ -4991,6 +4052,7 @@ impl Default for DDHAL_CANCREATEVPORTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_COLORCONTROLDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -4998,20 +4060,6 @@ pub struct DDHAL_COLORCONTROLDATA {
     pub dwFlags: u32,
     pub ddRVal: windows_core::HRESULT,
     pub ColorControl: LPDDHALCOLORCB_COLORCONTROL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_COLORCONTROLDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_COLORCONTROLDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_COLORCONTROLDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_COLORCONTROLDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpColorData", &self.lpColorData).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_COLORCONTROLDATA {
@@ -5025,6 +4073,7 @@ impl Default for DDHAL_COLORCONTROLDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDHAL_CREATEMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
@@ -5038,14 +4087,6 @@ pub struct DDHAL_CREATEMOCOMPDATA {
     pub CreateMoComp: LPDDHALMOCOMPCB_CREATE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CREATEMOCOMPDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CREATEMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CREATEMOCOMPDATA {
     type TypeKind = windows_core::CopyType;
 }
@@ -5057,6 +4098,7 @@ impl Default for DDHAL_CREATEMOCOMPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_CREATEPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
@@ -5064,20 +4106,6 @@ pub struct DDHAL_CREATEPALETTEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub CreatePalette: LPDDHAL_CREATEPALETTE,
     pub is_excl: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CREATEPALETTEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CREATEPALETTEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CREATEPALETTEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CREATEPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("lpColorTable", &self.lpColorTable).field("ddRVal", &self.ddRVal).field("is_excl", &self.is_excl).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CREATEPALETTEDATA {
@@ -5091,6 +4119,7 @@ impl Default for DDHAL_CREATEPALETTEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_CREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
@@ -5098,20 +4127,6 @@ pub struct DDHAL_CREATESURFACEDATA {
     pub dwSCnt: u32,
     pub ddRVal: windows_core::HRESULT,
     pub CreateSurface: LPDDHAL_CREATESURFACE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CREATESURFACEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CREATESURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CREATESURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("lplpSList", &self.lplpSList).field("dwSCnt", &self.dwSCnt).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CREATESURFACEDATA {
@@ -5125,6 +4140,7 @@ impl Default for DDHAL_CREATESURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDHAL_CREATESURFACEEXDATA {
     pub dwFlags: u32,
     pub lpDDLcl: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5132,31 +4148,9 @@ pub struct DDHAL_CREATESURFACEEXDATA {
     pub ddRVal: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CREATESURFACEEXDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CREATESURFACEEXDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CREATESURFACEEXDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CREATESURFACEEXDATA").field("dwFlags", &self.dwFlags).field("lpDDLcl", &self.lpDDLcl).field("lpDDSLcl", &self.lpDDSLcl).field("ddRVal", &self.ddRVal).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CREATESURFACEEXDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDHAL_CREATESURFACEEXDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.lpDDLcl == other.lpDDLcl && self.lpDDSLcl == other.lpDDSLcl && self.ddRVal == other.ddRVal
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDHAL_CREATESURFACEEXDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_CREATESURFACEEXDATA {
     fn default() -> Self {
@@ -5165,26 +4159,13 @@ impl Default for DDHAL_CREATESURFACEEXDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_CREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub CreateVideoPort: LPDDHALVPORTCB_CREATEVIDEOPORT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_CREATEVPORTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_CREATEVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_CREATEVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_CREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_CREATEVPORTDATA {
@@ -5198,6 +4179,7 @@ impl Default for DDHAL_CREATEVPORTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5213,20 +4195,6 @@ pub struct DDHAL_DDCALLBACKS {
     pub FlipToGDISurface: LPDDHAL_FLIPTOGDISURFACE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDCALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -5238,24 +4206,11 @@ impl Default for DDHAL_DDCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub ColorControl: LPDDHALCOLORCB_COLORCONTROL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDCOLORCONTROLCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDCOLORCONTROLCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDCOLORCONTROLCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDCOLORCONTROLCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -5269,6 +4224,7 @@ impl Default for DDHAL_DDCOLORCONTROLCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5277,20 +4233,6 @@ pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub DestroyExecuteBuffer: LPDDHALEXEBUFCB_DESTROYEXEBUF,
     pub LockExecuteBuffer: LPDDHALEXEBUFCB_LOCKEXEBUF,
     pub UnlockExecuteBuffer: LPDDHALEXEBUFCB_UNLOCKEXEBUF,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDEXEBUFCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDEXEBUFCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDEXEBUFCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDEXEBUFCALLBACKS {
@@ -5304,25 +4246,12 @@ impl Default for DDHAL_DDEXEBUFCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDKERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub SyncSurfaceData: LPDDHALKERNELCB_SYNCSURFACE,
     pub SyncVideoPortData: LPDDHALKERNELCB_SYNCVIDEOPORT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDKERNELCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDKERNELCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDKERNELCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDKERNELCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDKERNELCALLBACKS {
@@ -5336,6 +4265,7 @@ impl Default for DDHAL_DDKERNELCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5343,20 +4273,6 @@ pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
     pub CreateSurfaceEx: LPDDHAL_CREATESURFACEEX,
     pub GetDriverState: LPDDHAL_GETDRIVERSTATE,
     pub DestroyDDLocal: LPDDHAL_DESTROYDDLOCAL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDMISCELLANEOUS2CALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDMISCELLANEOUS2CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDMISCELLANEOUS2CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDMISCELLANEOUS2CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("Reserved", &self.Reserved).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -5370,6 +4286,7 @@ impl Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5377,20 +4294,6 @@ pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub UpdateNonLocalHeap: LPDDHAL_UPDATENONLOCALHEAP,
     pub GetHeapAlignment: LPDDHAL_GETHEAPALIGNMENT,
     pub GetSysmemBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDMISCELLANEOUSCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDMISCELLANEOUSCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDMISCELLANEOUSCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDMISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -5404,6 +4307,7 @@ impl Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5419,20 +4323,6 @@ pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub DestroyMoComp: LPDDHALMOCOMPCB_DESTROY,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDMOTIONCOMPCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDMOTIONCOMPCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDMOTIONCOMPCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDMOTIONCOMPCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDMOTIONCOMPCALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -5444,25 +4334,12 @@ impl Default for DDHAL_DDMOTIONCOMPCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDPALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub DestroyPalette: LPDDHALPALCB_DESTROYPALETTE,
     pub SetEntries: LPDDHALPALCB_SETENTRIES,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDPALETTECALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDPALETTECALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDPALETTECALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDPALETTECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDPALETTECALLBACKS {
@@ -5476,6 +4353,7 @@ impl Default for DDHAL_DDPALETTECALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDSURFACECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5495,20 +4373,6 @@ pub struct DDHAL_DDSURFACECALLBACKS {
     pub SetPalette: LPDDHALSURFCB_SETPALETTE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDSURFACECALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDSURFACECALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDSURFACECALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDSURFACECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("reserved4", &self.reserved4).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDSURFACECALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -5520,6 +4384,7 @@ impl Default for DDHAL_DDSURFACECALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DDVIDEOPORTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5541,20 +4406,6 @@ pub struct DDHAL_DDVIDEOPORTCALLBACKS {
     pub ColorControl: LPDDHALVPORTCB_COLORCONTROL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DDVIDEOPORTCALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DDVIDEOPORTCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DDVIDEOPORTCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DDVIDEOPORTCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lpReserved1", &self.lpReserved1).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DDVIDEOPORTCALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -5566,37 +4417,16 @@ impl Default for DDHAL_DDVIDEOPORTCALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub ddRVal: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DESTROYDDLOCALDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DESTROYDDLOCALDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DESTROYDDLOCALDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDHAL_DESTROYDDLOCALDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.pDDLcl == other.pDDLcl && self.ddRVal == other.ddRVal
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDHAL_DESTROYDDLOCALDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_DESTROYDDLOCALDATA {
     fn default() -> Self {
@@ -5605,24 +4435,11 @@ impl Default for DDHAL_DESTROYDDLOCALDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DESTROYDRIVERDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroyDriver: LPDDHAL_DESTROYDRIVER,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DESTROYDRIVERDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DESTROYDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DESTROYDRIVERDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DESTROYDRIVERDATA").field("lpDD", &self.lpDD).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DESTROYDRIVERDATA {
@@ -5636,25 +4453,12 @@ impl Default for DDHAL_DESTROYDRIVERDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DESTROYMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroyMoComp: LPDDHALMOCOMPCB_DESTROY,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DESTROYMOCOMPDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DESTROYMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DESTROYMOCOMPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DESTROYMOCOMPDATA {
@@ -5668,25 +4472,12 @@ impl Default for DDHAL_DESTROYMOCOMPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DESTROYPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroyPalette: LPDDHALPALCB_DESTROYPALETTE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DESTROYPALETTEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DESTROYPALETTEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DESTROYPALETTEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DESTROYPALETTEDATA {
@@ -5700,25 +4491,12 @@ impl Default for DDHAL_DESTROYPALETTEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DESTROYSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroySurface: LPDDHALSURFCB_DESTROYSURFACE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DESTROYSURFACEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DESTROYSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DESTROYSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DESTROYSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DESTROYSURFACEDATA {
@@ -5732,25 +4510,12 @@ impl Default for DDHAL_DESTROYSURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DESTROYVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroyVideoPort: LPDDHALVPORTCB_DESTROYVPORT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DESTROYVPORTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DESTROYVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DESTROYVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DESTROYVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DESTROYVPORTDATA {
@@ -5764,26 +4529,13 @@ impl Default for DDHAL_DESTROYVPORTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
     pub ddRVal: windows_core::HRESULT,
     pub SetColorKey: LPDDHAL_SETCOLORKEY,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_DRVSETCOLORKEYDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_DRVSETCOLORKEYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_DRVSETCOLORKEYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_DRVSETCOLORKEYDATA").field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_DRVSETCOLORKEYDATA {
@@ -5797,6 +4549,7 @@ impl Default for DDHAL_DRVSETCOLORKEYDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
@@ -5804,20 +4557,6 @@ pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     pub dwInputDataSize: u32,
     pub ddRVal: windows_core::HRESULT,
     pub EndMoCompFrame: LPDDHALMOCOMPCB_ENDFRAME,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_ENDMOCOMPFRAMEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_ENDMOCOMPFRAMEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_ENDMOCOMPFRAMEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -5831,6 +4570,7 @@ impl Default for DDHAL_ENDMOCOMPFRAMEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_FLIPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpSurfCurr: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -5840,20 +4580,6 @@ pub struct DDHAL_FLIPDATA {
     pub Flip: LPDDHALSURFCB_FLIP,
     pub lpSurfCurrLeft: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfTargLeft: *mut DDRAWI_DDRAWSURFACE_LCL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_FLIPDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_FLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_FLIPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_FLIPDATA").field("lpDD", &self.lpDD).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("lpSurfCurrLeft", &self.lpSurfCurrLeft).field("lpSurfTargLeft", &self.lpSurfTargLeft).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_FLIPDATA {
@@ -5867,26 +4593,13 @@ impl Default for DDHAL_FLIPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwToGDI: u32,
     pub dwReserved: u32,
     pub ddRVal: windows_core::HRESULT,
     pub FlipToGDISurface: LPDDHAL_FLIPTOGDISURFACE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_FLIPTOGDISURFACEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_FLIPTOGDISURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_FLIPTOGDISURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_FLIPTOGDISURFACEDATA {
@@ -5900,6 +4613,7 @@ impl Default for DDHAL_FLIPTOGDISURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_FLIPVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -5907,20 +4621,6 @@ pub struct DDHAL_FLIPVPORTDATA {
     pub lpSurfTarg: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub FlipVideoPort: LPDDHALVPORTCB_FLIP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_FLIPVPORTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_FLIPVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_FLIPVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_FLIPVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_FLIPVPORTDATA {
@@ -5934,6 +4634,7 @@ impl Default for DDHAL_FLIPVPORTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub DDSCaps: DDSCAPS,
@@ -5942,14 +4643,6 @@ pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetAvailDriverMemory: LPDDHAL_GETAVAILDRIVERMEMORY,
     pub ddsCapsEx: DDSCAPSEX,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETAVAILDRIVERMEMORYDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -5963,26 +4656,13 @@ impl Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETBLTSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETBLTSTATUSDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETBLTSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETBLTSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETBLTSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETBLTSTATUSDATA {
@@ -5995,6 +4675,7 @@ impl Default for DDHAL_GETBLTSTATUSDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDHAL_GETDRIVERINFODATA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6005,44 +4686,22 @@ pub struct DDHAL_GETDRIVERINFODATA {
     pub ddRVal: windows_core::HRESULT,
     pub dwContext: usize,
 }
-impl Copy for DDHAL_GETDRIVERINFODATA {}
-impl Clone for DDHAL_GETDRIVERINFODATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDHAL_GETDRIVERINFODATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETDRIVERINFODATA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).field("dwContext", &self.dwContext).finish()
-    }
-}
 impl windows_core::TypeKind for DDHAL_GETDRIVERINFODATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDHAL_GETDRIVERINFODATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidInfo == other.guidInfo && self.dwExpectedSize == other.dwExpectedSize && self.lpvData == other.lpvData && self.dwActualSize == other.dwActualSize && self.ddRVal == other.ddRVal && self.dwContext == other.dwContext
-    }
-}
-impl Eq for DDHAL_GETDRIVERINFODATA {}
 impl Default for DDHAL_GETDRIVERINFODATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDHAL_GETDRIVERSTATEDATA {
     pub dwFlags: u32,
     pub Anonymous: DDHAL_GETDRIVERSTATEDATA_0,
     pub lpdwStates: *mut u32,
     pub dwLength: u32,
     pub ddRVal: windows_core::HRESULT,
-}
-impl Copy for DDHAL_GETDRIVERSTATEDATA {}
-impl Clone for DDHAL_GETDRIVERSTATEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDHAL_GETDRIVERSTATEDATA {
     type TypeKind = windows_core::CopyType;
@@ -6053,14 +4712,9 @@ impl Default for DDHAL_GETDRIVERSTATEDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDHAL_GETDRIVERSTATEDATA_0 {
     pub dwhContext: usize,
-}
-impl Copy for DDHAL_GETDRIVERSTATEDATA_0 {}
-impl Clone for DDHAL_GETDRIVERSTATEDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDHAL_GETDRIVERSTATEDATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -6072,26 +4726,13 @@ impl Default for DDHAL_GETDRIVERSTATEDATA_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetFlipStatus: LPDDHALSURFCB_GETFLIPSTATUS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETFLIPSTATUSDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETFLIPSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETFLIPSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETFLIPSTATUSDATA {
@@ -6104,18 +4745,13 @@ impl Default for DDHAL_GETFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDHAL_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetHeapAlignment: LPDDHAL_GETHEAPALIGNMENT,
     pub Alignment: HEAPALIGNMENT,
-}
-impl Copy for DDHAL_GETHEAPALIGNMENTDATA {}
-impl Clone for DDHAL_GETHEAPALIGNMENTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDHAL_GETHEAPALIGNMENTDATA {
     type TypeKind = windows_core::CopyType;
@@ -6127,6 +4763,7 @@ impl Default for DDHAL_GETHEAPALIGNMENTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpGuid: *mut windows_core::GUID,
@@ -6136,14 +4773,6 @@ pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub dwScratchMemAlloc: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetInternalMoCompInfo: LPDDHALMOCOMPCB_GETINTERNALINFO,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETINTERNALMOCOMPDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETINTERNALMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETINTERNALMOCOMPDATA {
@@ -6157,6 +4786,7 @@ impl Default for DDHAL_GETINTERNALMOCOMPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpGuid: *mut windows_core::GUID,
@@ -6167,14 +4797,6 @@ pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub lpCompBuffInfo: *mut DDMCCOMPBUFFERINFO,
     pub ddRVal: windows_core::HRESULT,
     pub GetMoCompBuffInfo: LPDDHALMOCOMPCB_GETCOMPBUFFINFO,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETMOCOMPCOMPBUFFDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -6188,6 +4810,7 @@ impl Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpGuid: *mut windows_core::GUID,
@@ -6195,20 +4818,6 @@ pub struct DDHAL_GETMOCOMPFORMATSDATA {
     pub lpFormats: *mut DDPIXELFORMAT,
     pub ddRVal: windows_core::HRESULT,
     pub GetMoCompFormats: LPDDHALMOCOMPCB_GETFORMATS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETMOCOMPFORMATSDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETMOCOMPFORMATSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETMOCOMPFORMATSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETMOCOMPFORMATSDATA {
@@ -6222,26 +4831,13 @@ impl Default for DDHAL_GETMOCOMPFORMATSDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwNumGuids: u32,
     pub lpGuids: *mut windows_core::GUID,
     pub ddRVal: windows_core::HRESULT,
     pub GetMoCompGuids: LPDDHALMOCOMPCB_GETGUIDS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETMOCOMPGUIDSDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETMOCOMPGUIDSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETMOCOMPGUIDSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETMOCOMPGUIDSDATA {
@@ -6255,25 +4851,12 @@ impl Default for DDHAL_GETMOCOMPGUIDSDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETSCANLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwScanLine: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetScanLine: LPDDHAL_GETSCANLINE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETSCANLINEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETSCANLINEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETSCANLINEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETSCANLINEDATA {
@@ -6287,6 +4870,7 @@ impl Default for DDHAL_GETSCANLINEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -6297,20 +4881,6 @@ pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     pub lpBandwidth: *mut DDVIDEOPORTBANDWIDTH,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortBandwidth: LPDDHALVPORTCB_GETBANDWIDTH,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTBANDWIDTHDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTBANDWIDTHDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTBANDWIDTHDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpddpfFormat", &self.lpddpfFormat).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwFlags", &self.dwFlags).field("lpBandwidth", &self.lpBandwidth).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -6324,6 +4894,7 @@ impl Default for DDHAL_GETVPORTBANDWIDTHDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTCONNECTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwPortId: u32,
@@ -6331,20 +4902,6 @@ pub struct DDHAL_GETVPORTCONNECTDATA {
     pub dwNumEntries: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortConnectInfo: LPDDHALVPORTCB_GETVPORTCONNECT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTCONNECTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTCONNECTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTCONNECTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTCONNECTDATA {
@@ -6358,26 +4915,13 @@ impl Default for DDHAL_GETVPORTCONNECTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTFIELDDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub bField: super::super::Foundation::BOOL,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortField: LPDDHALVPORTCB_GETFIELD,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTFIELDDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTFIELDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTFIELDDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTFIELDDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("bField", &self.bField).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTFIELDDATA {
@@ -6391,25 +4935,12 @@ impl Default for DDHAL_GETVPORTFIELDDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub fpSurface: usize,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortFlipStatus: LPDDHALVPORTCB_GETFLIPSTATUS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTFLIPSTATUSDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTFLIPSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTFLIPSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -6423,6 +4954,7 @@ impl Default for DDHAL_GETVPORTFLIPSTATUSDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -6431,20 +4963,6 @@ pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     pub dwNumFormats: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortInputFormats: LPDDHALVPORTCB_GETINPUTFORMATS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTINPUTFORMATDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTINPUTFORMATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTINPUTFORMATDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTINPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfFormat", &self.lpddpfFormat).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -6458,26 +4976,13 @@ impl Default for DDHAL_GETVPORTINPUTFORMATDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwLine: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortLine: LPDDHALVPORTCB_GETLINE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTLINEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTLINEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTLINEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTLINEDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwLine", &self.dwLine).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTLINEDATA {
@@ -6491,6 +4996,7 @@ impl Default for DDHAL_GETVPORTLINEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -6500,20 +5006,6 @@ pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     pub dwNumFormats: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortOutputFormats: LPDDHALVPORTCB_GETOUTPUTFORMATS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTOUTPUTFORMATDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTOUTPUTFORMATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTOUTPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfInputFormat", &self.lpddpfInputFormat).field("lpddpfOutputFormats", &self.lpddpfOutputFormats).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -6527,26 +5019,13 @@ impl Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_GETVPORTSIGNALDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwStatus: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoSignalStatus: LPDDHALVPORTCB_GETSIGNALSTATUS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_GETVPORTSIGNALDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_GETVPORTSIGNALDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_GETVPORTSIGNALDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_GETVPORTSIGNALDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwStatus", &self.dwStatus).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_GETVPORTSIGNALDATA {
@@ -6560,6 +5039,7 @@ impl Default for DDHAL_GETVPORTSIGNALDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_LOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -6569,20 +5049,6 @@ pub struct DDHAL_LOCKDATA {
     pub ddRVal: windows_core::HRESULT,
     pub Lock: LPDDHALSURFCB_LOCK,
     pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_LOCKDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_LOCKDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_LOCKDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_LOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("bHasRect", &self.bHasRect).field("rArea", &self.rArea).field("lpSurfData", &self.lpSurfData).field("ddRVal", &self.ddRVal).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_LOCKDATA {
@@ -6596,6 +5062,7 @@ impl Default for DDHAL_LOCKDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
@@ -6603,20 +5070,6 @@ pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     pub dwFlags: u32,
     pub ddRVal: windows_core::HRESULT,
     pub QueryMoCompStatus: LPDDHALMOCOMPCB_QUERYSTATUS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_QUERYMOCOMPSTATUSDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_QUERYMOCOMPSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_QUERYMOCOMPSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_QUERYMOCOMPSTATUSDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpSurface", &self.lpSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -6630,6 +5083,7 @@ impl Default for DDHAL_QUERYMOCOMPSTATUSDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_RENDERMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
@@ -6644,20 +5098,6 @@ pub struct DDHAL_RENDERMOCOMPDATA {
     pub RenderMoComp: LPDDHALMOCOMPCB_RENDER,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_RENDERMOCOMPDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_RENDERMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_RENDERMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("dwNumBuffers", &self.dwNumBuffers).field("lpBufferInfo", &self.lpBufferInfo).field("dwFunction", &self.dwFunction).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("lpOutputData", &self.lpOutputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("ddRVal", &self.ddRVal).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_RENDERMOCOMPDATA {
     type TypeKind = windows_core::CopyType;
 }
@@ -6669,25 +5109,12 @@ impl Default for DDHAL_RENDERMOCOMPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETCLIPLISTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub SetClipList: LPDDHALSURFCB_SETCLIPLIST,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETCLIPLISTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETCLIPLISTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETCLIPLISTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETCLIPLISTDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETCLIPLISTDATA {
@@ -6701,6 +5128,7 @@ impl Default for DDHAL_SETCLIPLISTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETCOLORKEYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -6708,20 +5136,6 @@ pub struct DDHAL_SETCOLORKEYDATA {
     pub ckNew: DDCOLORKEY,
     pub ddRVal: windows_core::HRESULT,
     pub SetColorKey: LPDDHALSURFCB_SETCOLORKEY,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETCOLORKEYDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETCOLORKEYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETCOLORKEYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETCOLORKEYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETCOLORKEYDATA {
@@ -6735,6 +5149,7 @@ impl Default for DDHAL_SETCOLORKEYDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETENTRIESDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
@@ -6743,20 +5158,6 @@ pub struct DDHAL_SETENTRIESDATA {
     pub lpEntries: *mut super::Gdi::PALETTEENTRY,
     pub ddRVal: windows_core::HRESULT,
     pub SetEntries: LPDDHALPALCB_SETENTRIES,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETENTRIESDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETENTRIESDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETENTRIESDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETENTRIESDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("dwBase", &self.dwBase).field("dwNumEntries", &self.dwNumEntries).field("lpEntries", &self.lpEntries).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETENTRIESDATA {
@@ -6770,26 +5171,13 @@ impl Default for DDHAL_SETENTRIESDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwEnterExcl: u32,
     pub dwReserved: u32,
     pub ddRVal: windows_core::HRESULT,
     pub SetExclusiveMode: LPDDHAL_SETEXCLUSIVEMODE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETEXCLUSIVEMODEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETEXCLUSIVEMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETEXCLUSIVEMODEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -6803,6 +5191,7 @@ impl Default for DDHAL_SETEXCLUSIVEMODEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwModeIndex: u32,
@@ -6810,20 +5199,6 @@ pub struct DDHAL_SETMODEDATA {
     pub SetMode: LPDDHAL_SETMODE,
     pub inexcl: super::super::Foundation::BOOL,
     pub useRefreshRate: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETMODEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETMODEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETMODEDATA").field("lpDD", &self.lpDD).field("dwModeIndex", &self.dwModeIndex).field("ddRVal", &self.ddRVal).field("inexcl", &self.inexcl).field("useRefreshRate", &self.useRefreshRate).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETMODEDATA {
@@ -6837,6 +5212,7 @@ impl Default for DDHAL_SETMODEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSrcSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -6845,20 +5221,6 @@ pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     pub lYPos: i32,
     pub ddRVal: windows_core::HRESULT,
     pub SetOverlayPosition: LPDDHALSURFCB_SETOVERLAYPOSITION,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETOVERLAYPOSITIONDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETOVERLAYPOSITIONDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETOVERLAYPOSITIONDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETOVERLAYPOSITIONDATA").field("lpDD", &self.lpDD).field("lpDDSrcSurface", &self.lpDDSrcSurface).field("lpDDDestSurface", &self.lpDDDestSurface).field("lXPos", &self.lXPos).field("lYPos", &self.lYPos).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -6872,6 +5234,7 @@ impl Default for DDHAL_SETOVERLAYPOSITIONDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_SETPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -6879,20 +5242,6 @@ pub struct DDHAL_SETPALETTEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub SetPalette: LPDDHALSURFCB_SETPALETTE,
     pub Attach: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SETPALETTEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SETPALETTEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SETPALETTEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SETPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("Attach", &self.Attach).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SETPALETTEDATA {
@@ -6906,6 +5255,7 @@ impl Default for DDHAL_SETPALETTEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDHAL_SYNCSURFACEDATA {
     pub dwSize: u32,
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6924,47 +5274,9 @@ pub struct DDHAL_SYNCSURFACEDATA {
     pub ddRVal: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SYNCSURFACEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SYNCSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SYNCSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SYNCSURFACEDATA")
-            .field("dwSize", &self.dwSize)
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("dwSurfaceOffset", &self.dwSurfaceOffset)
-            .field("fpLockPtr", &self.fpLockPtr)
-            .field("lPitch", &self.lPitch)
-            .field("dwOverlayOffset", &self.dwOverlayOffset)
-            .field("dwOverlaySrcWidth", &self.dwOverlaySrcWidth)
-            .field("dwOverlaySrcHeight", &self.dwOverlaySrcHeight)
-            .field("dwOverlayDestWidth", &self.dwOverlayDestWidth)
-            .field("dwOverlayDestHeight", &self.dwOverlayDestHeight)
-            .field("dwDriverReserved1", &self.dwDriverReserved1)
-            .field("dwDriverReserved2", &self.dwDriverReserved2)
-            .field("dwDriverReserved3", &self.dwDriverReserved3)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SYNCSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDHAL_SYNCSURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwSurfaceOffset == other.dwSurfaceOffset && self.fpLockPtr == other.fpLockPtr && self.lPitch == other.lPitch && self.dwOverlayOffset == other.dwOverlayOffset && self.dwOverlaySrcWidth == other.dwOverlaySrcWidth && self.dwOverlaySrcHeight == other.dwOverlaySrcHeight && self.dwOverlayDestWidth == other.dwOverlayDestWidth && self.dwOverlayDestHeight == other.dwOverlayDestHeight && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.ddRVal == other.ddRVal
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDHAL_SYNCSURFACEDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_SYNCSURFACEDATA {
     fn default() -> Self {
@@ -6973,6 +5285,7 @@ impl Default for DDHAL_SYNCSURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDHAL_SYNCVIDEOPORTDATA {
     pub dwSize: u32,
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6986,31 +5299,9 @@ pub struct DDHAL_SYNCVIDEOPORTDATA {
     pub ddRVal: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_SYNCVIDEOPORTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_SYNCVIDEOPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_SYNCVIDEOPORTDATA").field("dwSize", &self.dwSize).field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).field("ddRVal", &self.ddRVal).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_SYNCVIDEOPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDHAL_SYNCVIDEOPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwOriginOffset == other.dwOriginOffset && self.dwHeight == other.dwHeight && self.dwVBIHeight == other.dwVBIHeight && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.ddRVal == other.ddRVal
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDHAL_SYNCVIDEOPORTDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_SYNCVIDEOPORTDATA {
     fn default() -> Self {
@@ -7019,25 +5310,12 @@ impl Default for DDHAL_SYNCVIDEOPORTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_UNLOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: windows_core::HRESULT,
     pub Unlock: LPDDHALSURFCB_UNLOCK,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_UNLOCKDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_UNLOCKDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_UNLOCKDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_UNLOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_UNLOCKDATA {
@@ -7051,6 +5329,7 @@ impl Default for DDHAL_UNLOCKDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwHeap: u32,
@@ -7059,20 +5338,6 @@ pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     pub ulPolicyMaxBytes: usize,
     pub ddRVal: windows_core::HRESULT,
     pub UpdateNonLocalHeap: LPDDHAL_UPDATENONLOCALHEAP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_UPDATENONLOCALHEAPDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_UPDATENONLOCALHEAPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_UPDATENONLOCALHEAPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -7115,6 +5380,7 @@ impl Default for DDHAL_UPDATEOVERLAYDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_UPDATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -7128,20 +5394,6 @@ pub struct DDHAL_UPDATEVPORTDATA {
     pub UpdateVideoPort: LPDDHALVPORTCB_UPDATE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_UPDATEVPORTDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_UPDATEVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_UPDATEVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_UPDATEVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lplpDDSurface", &self.lplpDDSurface).field("lplpDDVBISurface", &self.lplpDDVBISurface).field("lpVideoInfo", &self.lpVideoInfo).field("dwFlags", &self.dwFlags).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("ddRVal", &self.ddRVal).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_UPDATEVPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
@@ -7153,6 +5405,7 @@ impl Default for DDHAL_UPDATEVPORTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_VPORTCOLORDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -7160,20 +5413,6 @@ pub struct DDHAL_VPORTCOLORDATA {
     pub lpColorData: *mut DDCOLORCONTROL,
     pub ddRVal: windows_core::HRESULT,
     pub ColorControl: LPDDHALVPORTCB_COLORCONTROL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_VPORTCOLORDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_VPORTCOLORDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_VPORTCOLORDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_VPORTCOLORDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpColorData", &self.lpColorData).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_VPORTCOLORDATA {
@@ -7187,6 +5426,7 @@ impl Default for DDHAL_VPORTCOLORDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwFlags: u32,
@@ -7194,20 +5434,6 @@ pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub hEvent: usize,
     pub ddRVal: windows_core::HRESULT,
     pub WaitForVerticalBlank: LPDDHAL_WAITFORVERTICALBLANK,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_WAITFORVERTICALBLANKDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_WAITFORVERTICALBLANKDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_WAITFORVERTICALBLANKDATA {
@@ -7221,6 +5447,7 @@ impl Default for DDHAL_WAITFORVERTICALBLANKDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DDHAL_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -7229,20 +5456,6 @@ pub struct DDHAL_WAITFORVPORTSYNCDATA {
     pub dwTimeOut: u32,
     pub ddRVal: windows_core::HRESULT,
     pub WaitForVideoPortSync: LPDDHALVPORTCB_WAITFORSYNC,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDHAL_WAITFORVPORTSYNCDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDHAL_WAITFORVPORTSYNCDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDHAL_WAITFORVPORTSYNCDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDHAL_WAITFORVPORTSYNCDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("dwLine", &self.dwLine).field("dwTimeOut", &self.dwTimeOut).field("ddRVal", &self.ddRVal).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDHAL_WAITFORVPORTSYNCDATA {
@@ -7255,89 +5468,41 @@ impl Default for DDHAL_WAITFORVPORTSYNCDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDKERNELCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
     pub dwIRQCaps: u32,
 }
-impl Copy for DDKERNELCAPS {}
-impl Clone for DDKERNELCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDKERNELCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDKERNELCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwIRQCaps", &self.dwIRQCaps).finish()
-    }
-}
 impl windows_core::TypeKind for DDKERNELCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDKERNELCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCaps == other.dwCaps && self.dwIRQCaps == other.dwIRQCaps
-    }
-}
-impl Eq for DDKERNELCAPS {}
 impl Default for DDKERNELCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDLOCKININFO {
     pub lpSurfaceData: *mut DDSURFACEDATA,
-}
-impl Copy for DDLOCKININFO {}
-impl Clone for DDLOCKININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDLOCKININFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDLOCKININFO").field("lpSurfaceData", &self.lpSurfaceData).finish()
-    }
 }
 impl windows_core::TypeKind for DDLOCKININFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDLOCKININFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpSurfaceData == other.lpSurfaceData
-    }
-}
-impl Eq for DDLOCKININFO {}
 impl Default for DDLOCKININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDLOCKOUTINFO {
     pub dwSurfacePtr: usize,
-}
-impl Copy for DDLOCKOUTINFO {}
-impl Clone for DDLOCKOUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDLOCKOUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDLOCKOUTINFO").field("dwSurfacePtr", &self.dwSurfacePtr).finish()
-    }
 }
 impl windows_core::TypeKind for DDLOCKOUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDLOCKOUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSurfacePtr == other.dwSurfacePtr
-    }
-}
-impl Eq for DDLOCKOUTINFO {}
 impl Default for DDLOCKOUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7345,6 +5510,7 @@ impl Default for DDLOCKOUTINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDMCBUFFERINFO {
     pub dwSize: u32,
     pub lpCompSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -7353,31 +5519,9 @@ pub struct DDMCBUFFERINFO {
     pub lpPrivate: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDMCBUFFERINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDMCBUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDMCBUFFERINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDMCBUFFERINFO").field("dwSize", &self.dwSize).field("lpCompSurface", &self.lpCompSurface).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("lpPrivate", &self.lpPrivate).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDMCBUFFERINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDMCBUFFERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpCompSurface == other.lpCompSurface && self.dwDataOffset == other.dwDataOffset && self.dwDataSize == other.dwDataSize && self.lpPrivate == other.lpPrivate
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDMCBUFFERINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDMCBUFFERINFO {
     fn default() -> Self {
@@ -7385,6 +5529,7 @@ impl Default for DDMCBUFFERINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDMCCOMPBUFFERINFO {
     pub dwSize: u32,
     pub dwNumCompBuffers: u32,
@@ -7393,12 +5538,6 @@ pub struct DDMCCOMPBUFFERINFO {
     pub dwBytesToAllocate: u32,
     pub ddCompCaps: DDSCAPS2,
     pub ddPixelFormat: DDPIXELFORMAT,
-}
-impl Copy for DDMCCOMPBUFFERINFO {}
-impl Clone for DDMCCOMPBUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDMCCOMPBUFFERINFO {
     type TypeKind = windows_core::CopyType;
@@ -7409,6 +5548,7 @@ impl Default for DDMCCOMPBUFFERINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDMDL {
     pub MdlNext: *mut DDMDL,
     pub MdlSize: i16,
@@ -7419,32 +5559,16 @@ pub struct DDMDL {
     pub ByteCount: u32,
     pub ByteOffset: u32,
 }
-impl Copy for DDMDL {}
-impl Clone for DDMDL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDMDL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDMDL").field("MdlNext", &self.MdlNext).field("MdlSize", &self.MdlSize).field("MdlFlags", &self.MdlFlags).field("Process", &self.Process).field("lpMappedSystemVa", &self.lpMappedSystemVa).field("lpStartVa", &self.lpStartVa).field("ByteCount", &self.ByteCount).field("ByteOffset", &self.ByteOffset).finish()
-    }
-}
 impl windows_core::TypeKind for DDMDL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDMDL {
-    fn eq(&self, other: &Self) -> bool {
-        self.MdlNext == other.MdlNext && self.MdlSize == other.MdlSize && self.MdlFlags == other.MdlFlags && self.Process == other.Process && self.lpMappedSystemVa == other.lpMappedSystemVa && self.lpStartVa == other.lpStartVa && self.ByteCount == other.ByteCount && self.ByteOffset == other.ByteOffset
-    }
-}
-impl Eq for DDMDL {}
 impl Default for DDMDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDMOCOMPBUFFERINFO {
     pub dwSize: u32,
     pub lpCompSurface: *mut DD_SURFACE_LOCAL,
@@ -7452,32 +5576,16 @@ pub struct DDMOCOMPBUFFERINFO {
     pub dwDataSize: u32,
     pub lpPrivate: *mut core::ffi::c_void,
 }
-impl Copy for DDMOCOMPBUFFERINFO {}
-impl Clone for DDMOCOMPBUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDMOCOMPBUFFERINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDMOCOMPBUFFERINFO").field("dwSize", &self.dwSize).field("lpCompSurface", &self.lpCompSurface).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("lpPrivate", &self.lpPrivate).finish()
-    }
-}
 impl windows_core::TypeKind for DDMOCOMPBUFFERINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDMOCOMPBUFFERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpCompSurface == other.lpCompSurface && self.dwDataOffset == other.dwDataOffset && self.dwDataSize == other.dwDataSize && self.lpPrivate == other.lpPrivate
-    }
-}
-impl Eq for DDMOCOMPBUFFERINFO {}
 impl Default for DDMOCOMPBUFFERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDMONITORINFO {
     pub Manufacturer: u16,
     pub Product: u16,
@@ -7492,55 +5600,20 @@ pub struct DDMONITORINFO {
     pub ModeReserved2: i32,
     pub ModeReserved3: i32,
 }
-impl Copy for DDMONITORINFO {}
-impl Clone for DDMONITORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDMONITORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDMONITORINFO")
-            .field("Manufacturer", &self.Manufacturer)
-            .field("Product", &self.Product)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("DeviceIdentifier", &self.DeviceIdentifier)
-            .field("Mode640x480", &self.Mode640x480)
-            .field("Mode800x600", &self.Mode800x600)
-            .field("Mode1024x768", &self.Mode1024x768)
-            .field("Mode1280x1024", &self.Mode1280x1024)
-            .field("Mode1600x1200", &self.Mode1600x1200)
-            .field("ModeReserved1", &self.ModeReserved1)
-            .field("ModeReserved2", &self.ModeReserved2)
-            .field("ModeReserved3", &self.ModeReserved3)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDMONITORINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDMONITORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Manufacturer == other.Manufacturer && self.Product == other.Product && self.SerialNumber == other.SerialNumber && self.DeviceIdentifier == other.DeviceIdentifier && self.Mode640x480 == other.Mode640x480 && self.Mode800x600 == other.Mode800x600 && self.Mode1024x768 == other.Mode1024x768 && self.Mode1280x1024 == other.Mode1280x1024 && self.Mode1600x1200 == other.Mode1600x1200 && self.ModeReserved1 == other.ModeReserved1 && self.ModeReserved2 == other.ModeReserved2 && self.ModeReserved3 == other.ModeReserved3
-    }
-}
-impl Eq for DDMONITORINFO {}
 impl Default for DDMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDMORESURFACECAPS {
     pub dwSize: u32,
     pub ddsCapsMore: DDSCAPSEX,
     pub ddsExtendedHeapRestrictions: [DDMORESURFACECAPS_0; 1],
-}
-impl Copy for DDMORESURFACECAPS {}
-impl Clone for DDMORESURFACECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDMORESURFACECAPS {
     type TypeKind = windows_core::CopyType;
@@ -7551,15 +5624,10 @@ impl Default for DDMORESURFACECAPS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDMORESURFACECAPS_0 {
     pub ddsCapsEx: DDSCAPSEX,
     pub ddsCapsExAlt: DDSCAPSEX,
-}
-impl Copy for DDMORESURFACECAPS_0 {}
-impl Clone for DDMORESURFACECAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDMORESURFACECAPS_0 {
     type TypeKind = windows_core::CopyType;
@@ -7570,6 +5638,7 @@ impl Default for DDMORESURFACECAPS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNONLOCALVIDMEMCAPS {
     pub dwSize: u32,
     pub dwNLVBCaps: u32,
@@ -7578,32 +5647,16 @@ pub struct DDNONLOCALVIDMEMCAPS {
     pub dwNLVBFXCaps: u32,
     pub dwNLVBRops: [u32; 8],
 }
-impl Copy for DDNONLOCALVIDMEMCAPS {}
-impl Clone for DDNONLOCALVIDMEMCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDNONLOCALVIDMEMCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDNONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
-    }
-}
 impl windows_core::TypeKind for DDNONLOCALVIDMEMCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDNONLOCALVIDMEMCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwNLVBCaps == other.dwNLVBCaps && self.dwNLVBCaps2 == other.dwNLVBCaps2 && self.dwNLVBCKeyCaps == other.dwNLVBCKeyCaps && self.dwNLVBFXCaps == other.dwNLVBFXCaps && self.dwNLVBRops == other.dwNLVBRops
-    }
-}
-impl Eq for DDNONLOCALVIDMEMCAPS {}
 impl Default for DDNONLOCALVIDMEMCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNTCORECAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -7657,134 +5710,16 @@ pub struct DDNTCORECAPS {
     pub dwCurrVideoPorts: u32,
     pub dwSVBCaps2: u32,
 }
-impl Copy for DDNTCORECAPS {}
-impl Clone for DDNTCORECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDNTCORECAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDNTCORECAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwCaps2", &self.dwCaps2)
-            .field("dwCKeyCaps", &self.dwCKeyCaps)
-            .field("dwFXCaps", &self.dwFXCaps)
-            .field("dwFXAlphaCaps", &self.dwFXAlphaCaps)
-            .field("dwPalCaps", &self.dwPalCaps)
-            .field("dwSVCaps", &self.dwSVCaps)
-            .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
-            .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
-            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
-            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
-            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
-            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
-            .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
-            .field("dwVidMemTotal", &self.dwVidMemTotal)
-            .field("dwVidMemFree", &self.dwVidMemFree)
-            .field("dwMaxVisibleOverlays", &self.dwMaxVisibleOverlays)
-            .field("dwCurrVisibleOverlays", &self.dwCurrVisibleOverlays)
-            .field("dwNumFourCCCodes", &self.dwNumFourCCCodes)
-            .field("dwAlignBoundarySrc", &self.dwAlignBoundarySrc)
-            .field("dwAlignSizeSrc", &self.dwAlignSizeSrc)
-            .field("dwAlignBoundaryDest", &self.dwAlignBoundaryDest)
-            .field("dwAlignSizeDest", &self.dwAlignSizeDest)
-            .field("dwAlignStrideAlign", &self.dwAlignStrideAlign)
-            .field("dwRops", &self.dwRops)
-            .field("ddsCaps", &self.ddsCaps)
-            .field("dwMinOverlayStretch", &self.dwMinOverlayStretch)
-            .field("dwMaxOverlayStretch", &self.dwMaxOverlayStretch)
-            .field("dwMinLiveVideoStretch", &self.dwMinLiveVideoStretch)
-            .field("dwMaxLiveVideoStretch", &self.dwMaxLiveVideoStretch)
-            .field("dwMinHwCodecStretch", &self.dwMinHwCodecStretch)
-            .field("dwMaxHwCodecStretch", &self.dwMaxHwCodecStretch)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("dwSVBCaps", &self.dwSVBCaps)
-            .field("dwSVBCKeyCaps", &self.dwSVBCKeyCaps)
-            .field("dwSVBFXCaps", &self.dwSVBFXCaps)
-            .field("dwSVBRops", &self.dwSVBRops)
-            .field("dwVSBCaps", &self.dwVSBCaps)
-            .field("dwVSBCKeyCaps", &self.dwVSBCKeyCaps)
-            .field("dwVSBFXCaps", &self.dwVSBFXCaps)
-            .field("dwVSBRops", &self.dwVSBRops)
-            .field("dwSSBCaps", &self.dwSSBCaps)
-            .field("dwSSBCKeyCaps", &self.dwSSBCKeyCaps)
-            .field("dwSSBFXCaps", &self.dwSSBFXCaps)
-            .field("dwSSBRops", &self.dwSSBRops)
-            .field("dwMaxVideoPorts", &self.dwMaxVideoPorts)
-            .field("dwCurrVideoPorts", &self.dwCurrVideoPorts)
-            .field("dwSVBCaps2", &self.dwSVBCaps2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDNTCORECAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDNTCORECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwCaps2 == other.dwCaps2
-            && self.dwCKeyCaps == other.dwCKeyCaps
-            && self.dwFXCaps == other.dwFXCaps
-            && self.dwFXAlphaCaps == other.dwFXAlphaCaps
-            && self.dwPalCaps == other.dwPalCaps
-            && self.dwSVCaps == other.dwSVCaps
-            && self.dwAlphaBltConstBitDepths == other.dwAlphaBltConstBitDepths
-            && self.dwAlphaBltPixelBitDepths == other.dwAlphaBltPixelBitDepths
-            && self.dwAlphaBltSurfaceBitDepths == other.dwAlphaBltSurfaceBitDepths
-            && self.dwAlphaOverlayConstBitDepths == other.dwAlphaOverlayConstBitDepths
-            && self.dwAlphaOverlayPixelBitDepths == other.dwAlphaOverlayPixelBitDepths
-            && self.dwAlphaOverlaySurfaceBitDepths == other.dwAlphaOverlaySurfaceBitDepths
-            && self.dwZBufferBitDepths == other.dwZBufferBitDepths
-            && self.dwVidMemTotal == other.dwVidMemTotal
-            && self.dwVidMemFree == other.dwVidMemFree
-            && self.dwMaxVisibleOverlays == other.dwMaxVisibleOverlays
-            && self.dwCurrVisibleOverlays == other.dwCurrVisibleOverlays
-            && self.dwNumFourCCCodes == other.dwNumFourCCCodes
-            && self.dwAlignBoundarySrc == other.dwAlignBoundarySrc
-            && self.dwAlignSizeSrc == other.dwAlignSizeSrc
-            && self.dwAlignBoundaryDest == other.dwAlignBoundaryDest
-            && self.dwAlignSizeDest == other.dwAlignSizeDest
-            && self.dwAlignStrideAlign == other.dwAlignStrideAlign
-            && self.dwRops == other.dwRops
-            && self.ddsCaps == other.ddsCaps
-            && self.dwMinOverlayStretch == other.dwMinOverlayStretch
-            && self.dwMaxOverlayStretch == other.dwMaxOverlayStretch
-            && self.dwMinLiveVideoStretch == other.dwMinLiveVideoStretch
-            && self.dwMaxLiveVideoStretch == other.dwMaxLiveVideoStretch
-            && self.dwMinHwCodecStretch == other.dwMinHwCodecStretch
-            && self.dwMaxHwCodecStretch == other.dwMaxHwCodecStretch
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-            && self.dwSVBCaps == other.dwSVBCaps
-            && self.dwSVBCKeyCaps == other.dwSVBCKeyCaps
-            && self.dwSVBFXCaps == other.dwSVBFXCaps
-            && self.dwSVBRops == other.dwSVBRops
-            && self.dwVSBCaps == other.dwVSBCaps
-            && self.dwVSBCKeyCaps == other.dwVSBCKeyCaps
-            && self.dwVSBFXCaps == other.dwVSBFXCaps
-            && self.dwVSBRops == other.dwVSBRops
-            && self.dwSSBCaps == other.dwSSBCaps
-            && self.dwSSBCKeyCaps == other.dwSSBCKeyCaps
-            && self.dwSSBFXCaps == other.dwSSBFXCaps
-            && self.dwSSBRops == other.dwSSBRops
-            && self.dwMaxVideoPorts == other.dwMaxVideoPorts
-            && self.dwCurrVideoPorts == other.dwCurrVideoPorts
-            && self.dwSVBCaps2 == other.dwSVBCaps2
-    }
-}
-impl Eq for DDNTCORECAPS {}
 impl Default for DDNTCORECAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDOPTSURFACEDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7792,12 +5727,6 @@ pub struct DDOPTSURFACEDESC {
     pub ddOSCaps: DDOSCAPS,
     pub guid: windows_core::GUID,
     pub dwCompressionRatio: u32,
-}
-impl Copy for DDOPTSURFACEDESC {}
-impl Clone for DDOPTSURFACEDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDOPTSURFACEDESC {
     type TypeKind = windows_core::CopyType;
@@ -7808,29 +5737,13 @@ impl Default for DDOPTSURFACEDESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDOSCAPS {
     pub dwCaps: u32,
-}
-impl Copy for DDOSCAPS {}
-impl Clone for DDOSCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDOSCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDOSCAPS").field("dwCaps", &self.dwCaps).finish()
-    }
 }
 impl windows_core::TypeKind for DDOSCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDOSCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCaps == other.dwCaps
-    }
-}
-impl Eq for DDOSCAPS {}
 impl Default for DDOSCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7901,6 +5814,7 @@ impl Default for DDOVERLAYFX_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDPIXELFORMAT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7911,12 +5825,6 @@ pub struct DDPIXELFORMAT {
     pub Anonymous4: DDPIXELFORMAT_3,
     pub Anonymous5: DDPIXELFORMAT_4,
 }
-impl Copy for DDPIXELFORMAT {}
-impl Clone for DDPIXELFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DDPIXELFORMAT {
     type TypeKind = windows_core::CopyType;
 }
@@ -7926,6 +5834,7 @@ impl Default for DDPIXELFORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_0 {
     pub dwRGBBitCount: u32,
     pub dwYUVBitCount: u32,
@@ -7934,12 +5843,6 @@ pub union DDPIXELFORMAT_0 {
     pub dwLuminanceBitCount: u32,
     pub dwBumpBitCount: u32,
     pub dwPrivateFormatBitCount: u32,
-}
-impl Copy for DDPIXELFORMAT_0 {}
-impl Clone for DDPIXELFORMAT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDPIXELFORMAT_0 {
     type TypeKind = windows_core::CopyType;
@@ -7950,6 +5853,7 @@ impl Default for DDPIXELFORMAT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_1 {
     pub dwRBitMask: u32,
     pub dwYBitMask: u32,
@@ -7957,12 +5861,6 @@ pub union DDPIXELFORMAT_1 {
     pub dwLuminanceBitMask: u32,
     pub dwBumpDuBitMask: u32,
     pub dwOperations: u32,
-}
-impl Copy for DDPIXELFORMAT_1 {}
-impl Clone for DDPIXELFORMAT_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDPIXELFORMAT_1 {
     type TypeKind = windows_core::CopyType;
@@ -7973,18 +5871,13 @@ impl Default for DDPIXELFORMAT_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_2 {
     pub dwGBitMask: u32,
     pub dwUBitMask: u32,
     pub dwZBitMask: u32,
     pub dwBumpDvBitMask: u32,
     pub MultiSampleCaps: DDPIXELFORMAT_2_0,
-}
-impl Copy for DDPIXELFORMAT_2 {}
-impl Clone for DDPIXELFORMAT_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDPIXELFORMAT_2 {
     type TypeKind = windows_core::CopyType;
@@ -7995,47 +5888,26 @@ impl Default for DDPIXELFORMAT_2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDPIXELFORMAT_2_0 {
     pub wFlipMSTypes: u16,
     pub wBltMSTypes: u16,
 }
-impl Copy for DDPIXELFORMAT_2_0 {}
-impl Clone for DDPIXELFORMAT_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDPIXELFORMAT_2_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDPIXELFORMAT_2_0").field("wFlipMSTypes", &self.wFlipMSTypes).field("wBltMSTypes", &self.wBltMSTypes).finish()
-    }
-}
 impl windows_core::TypeKind for DDPIXELFORMAT_2_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDPIXELFORMAT_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wFlipMSTypes == other.wFlipMSTypes && self.wBltMSTypes == other.wBltMSTypes
-    }
-}
-impl Eq for DDPIXELFORMAT_2_0 {}
 impl Default for DDPIXELFORMAT_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_3 {
     pub dwBBitMask: u32,
     pub dwVBitMask: u32,
     pub dwStencilBitMask: u32,
     pub dwBumpLuminanceBitMask: u32,
-}
-impl Copy for DDPIXELFORMAT_3 {}
-impl Clone for DDPIXELFORMAT_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDPIXELFORMAT_3 {
     type TypeKind = windows_core::CopyType;
@@ -8046,18 +5918,13 @@ impl Default for DDPIXELFORMAT_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_4 {
     pub dwRGBAlphaBitMask: u32,
     pub dwYUVAlphaBitMask: u32,
     pub dwLuminanceAlphaBitMask: u32,
     pub dwRGBZBitMask: u32,
     pub dwYUVZBitMask: u32,
-}
-impl Copy for DDPIXELFORMAT_4 {}
-impl Clone for DDPIXELFORMAT_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDPIXELFORMAT_4 {
     type TypeKind = windows_core::CopyType;
@@ -8069,6 +5936,7 @@ impl Default for DDPIXELFORMAT_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDMOTIONCOMP_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDMOTIONCOMP_LCL,
@@ -8076,31 +5944,9 @@ pub struct DDRAWI_DDMOTIONCOMP_INT {
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDMOTIONCOMP_INT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDMOTIONCOMP_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDMOTIONCOMP_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDMOTIONCOMP_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDMOTIONCOMP_INT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDMOTIONCOMP_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVtbl == other.lpVtbl && self.lpLcl == other.lpLcl && self.lpLink == other.lpLink && self.dwIntRefCnt == other.dwIntRefCnt
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDMOTIONCOMP_INT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDMOTIONCOMP_INT {
     fn default() -> Self {
@@ -8109,6 +5955,7 @@ impl Default for DDRAWI_DDMOTIONCOMP_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DDMOTIONCOMP_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub guid: windows_core::GUID,
@@ -8127,14 +5974,6 @@ pub struct DDRAWI_DDMOTIONCOMP_LCL {
     pub lpDriverReserved3: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDMOTIONCOMP_LCL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDMOTIONCOMP_LCL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDMOTIONCOMP_LCL {
     type TypeKind = windows_core::CopyType;
 }
@@ -8146,6 +5985,7 @@ impl Default for DDRAWI_DDMOTIONCOMP_LCL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDRAWCLIPPER_GBL {
     pub dwRefCnt: u32,
     pub dwFlags: u32,
@@ -8156,31 +5996,9 @@ pub struct DDRAWI_DDRAWCLIPPER_GBL {
     pub lpStaticClipList: *mut super::Gdi::RGNDATA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWCLIPPER_GBL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWCLIPPER_GBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDRAWCLIPPER_GBL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDRAWCLIPPER_GBL").field("dwRefCnt", &self.dwRefCnt).field("dwFlags", &self.dwFlags).field("lpDD", &self.lpDD).field("dwProcessId", &self.dwProcessId).field("dwReserved1", &self.dwReserved1).field("hWnd", &self.hWnd).field("lpStaticClipList", &self.lpStaticClipList).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_GBL {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDRAWCLIPPER_GBL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRefCnt == other.dwRefCnt && self.dwFlags == other.dwFlags && self.lpDD == other.lpDD && self.dwProcessId == other.dwProcessId && self.dwReserved1 == other.dwReserved1 && self.hWnd == other.hWnd && self.lpStaticClipList == other.lpStaticClipList
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDRAWCLIPPER_GBL {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDRAWCLIPPER_GBL {
     fn default() -> Self {
@@ -8189,6 +6007,7 @@ impl Default for DDRAWI_DDRAWCLIPPER_GBL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDRAWCLIPPER_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDRAWCLIPPER_LCL,
@@ -8196,31 +6015,9 @@ pub struct DDRAWI_DDRAWCLIPPER_INT {
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWCLIPPER_INT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWCLIPPER_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDRAWCLIPPER_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDRAWCLIPPER_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_INT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDRAWCLIPPER_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVtbl == other.lpVtbl && self.lpLcl == other.lpLcl && self.lpLink == other.lpLink && self.dwIntRefCnt == other.dwIntRefCnt
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDRAWCLIPPER_INT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDRAWCLIPPER_INT {
     fn default() -> Self {
@@ -8229,6 +6026,7 @@ impl Default for DDRAWI_DDRAWCLIPPER_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpClipMore: u32,
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
@@ -8246,23 +6044,9 @@ impl Clone for DDRAWI_DDRAWCLIPPER_LCL {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDRAWCLIPPER_LCL").field("lpClipMore", &self.lpClipMore).field("lpGbl", &self.lpGbl).field("lpDD_lcl", &self.lpDD_lcl).field("dwLocalRefCnt", &self.dwLocalRefCnt).field("pUnkOuter", &self.pUnkOuter).field("lpDD_int", &self.lpDD_int).field("dwReserved1", &self.dwReserved1).field("pAddrefedThisOwner", &self.pAddrefedThisOwner).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_LCL {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpClipMore == other.lpClipMore && self.lpGbl == other.lpGbl && self.lpDD_lcl == other.lpDD_lcl && self.dwLocalRefCnt == other.dwLocalRefCnt && self.pUnkOuter == other.pUnkOuter && self.lpDD_int == other.lpDD_int && self.dwReserved1 == other.dwReserved1 && self.pAddrefedThisOwner == other.pAddrefedThisOwner
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDRAWCLIPPER_LCL {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDRAWCLIPPER_LCL {
     fn default() -> Self {
@@ -8271,6 +6055,7 @@ impl Default for DDRAWI_DDRAWCLIPPER_LCL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DDRAWPALETTE_GBL {
     pub dwRefCnt: u32,
     pub dwFlags: u32,
@@ -8284,14 +6069,6 @@ pub struct DDRAWI_DDRAWPALETTE_GBL {
     pub dwHandle: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWPALETTE_GBL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWPALETTE_GBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWPALETTE_GBL {
     type TypeKind = windows_core::CopyType;
 }
@@ -8303,17 +6080,10 @@ impl Default for DDRAWI_DDRAWPALETTE_GBL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWPALETTE_GBL_0 {
     pub dwReserved1: usize,
     pub hHELGDIPalette: super::Gdi::HPALETTE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWPALETTE_GBL_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWPALETTE_GBL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWPALETTE_GBL_0 {
@@ -8327,6 +6097,7 @@ impl Default for DDRAWI_DDRAWPALETTE_GBL_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDRAWPALETTE_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDRAWPALETTE_LCL,
@@ -8334,31 +6105,9 @@ pub struct DDRAWI_DDRAWPALETTE_INT {
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWPALETTE_INT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWPALETTE_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDRAWPALETTE_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDRAWPALETTE_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWPALETTE_INT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDRAWPALETTE_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVtbl == other.lpVtbl && self.lpLcl == other.lpLcl && self.lpLink == other.lpLink && self.dwIntRefCnt == other.dwIntRefCnt
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDRAWPALETTE_INT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDRAWPALETTE_INT {
     fn default() -> Self {
@@ -8367,6 +6116,7 @@ impl Default for DDRAWI_DDRAWPALETTE_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpPalMore: u32,
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
@@ -8386,23 +6136,9 @@ impl Clone for DDRAWI_DDRAWPALETTE_LCL {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDRAWPALETTE_LCL").field("lpPalMore", &self.lpPalMore).field("lpGbl", &self.lpGbl).field("dwUnused0", &self.dwUnused0).field("dwLocalRefCnt", &self.dwLocalRefCnt).field("pUnkOuter", &self.pUnkOuter).field("lpDD_lcl", &self.lpDD_lcl).field("dwReserved1", &self.dwReserved1).field("dwDDRAWReserved1", &self.dwDDRAWReserved1).field("dwDDRAWReserved2", &self.dwDDRAWReserved2).field("dwDDRAWReserved3", &self.dwDDRAWReserved3).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWPALETTE_LCL {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDRAWPALETTE_LCL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpPalMore == other.lpPalMore && self.lpGbl == other.lpGbl && self.dwUnused0 == other.dwUnused0 && self.dwLocalRefCnt == other.dwLocalRefCnt && self.pUnkOuter == other.pUnkOuter && self.lpDD_lcl == other.lpDD_lcl && self.dwReserved1 == other.dwReserved1 && self.dwDDRAWReserved1 == other.dwDDRAWReserved1 && self.dwDDRAWReserved2 == other.dwDDRAWReserved2 && self.dwDDRAWReserved3 == other.dwDDRAWReserved3
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDRAWPALETTE_LCL {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDRAWPALETTE_LCL {
     fn default() -> Self {
@@ -8411,6 +6147,7 @@ impl Default for DDRAWI_DDRAWPALETTE_LCL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DDRAWSURFACE_GBL {
     pub dwRefCnt: u32,
     pub dwGlobalFlags: u32,
@@ -8426,14 +6163,6 @@ pub struct DDRAWI_DDRAWSURFACE_GBL {
     pub ddpfSurface: DDPIXELFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_GBL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_GBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL {
     type TypeKind = windows_core::CopyType;
 }
@@ -8445,18 +6174,11 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_GBL_0 {
     pub lpRectList: *mut ACCESSRECTLIST,
     pub dwBlockSizeY: u32,
     pub lSlicePitch: i32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_GBL_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_GBL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -8470,17 +6192,10 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_GBL_1 {
     pub lpVidMemHeap: *mut VMEMHEAP,
     pub dwBlockSizeX: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_GBL_1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_GBL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_1 {
@@ -8494,17 +6209,10 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_GBL_2 {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDHandle: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_GBL_2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_GBL_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -8518,17 +6226,10 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_GBL_3 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_GBL_3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_GBL_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_3 {
@@ -8541,6 +6242,7 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DDRAWSURFACE_GBL_MORE {
     pub dwSize: u32,
     pub Anonymous: DDRAWI_DDRAWSURFACE_GBL_MORE_0,
@@ -8562,12 +6264,6 @@ pub struct DDRAWI_DDRAWSURFACE_GBL_MORE {
     pub dwDDRAWReserved2: u32,
     pub fpAliasOfVidMem: usize,
 }
-impl Copy for DDRAWI_DDRAWSURFACE_GBL_MORE {}
-impl Clone for DDRAWI_DDRAWSURFACE_GBL_MORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE {
     type TypeKind = windows_core::CopyType;
 }
@@ -8577,15 +6273,10 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_MORE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     pub dwPhysicalPageTable: u32,
     pub fpPhysicalVidMem: usize,
-}
-impl Copy for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {}
-impl Clone for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     type TypeKind = windows_core::CopyType;
@@ -8597,6 +6288,7 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDRAWSURFACE_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -8604,31 +6296,9 @@ pub struct DDRAWI_DDRAWSURFACE_INT {
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_INT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDRAWSURFACE_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDRAWSURFACE_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_INT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDRAWSURFACE_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVtbl == other.lpVtbl && self.lpLcl == other.lpLcl && self.lpLink == other.lpLink && self.dwIntRefCnt == other.dwIntRefCnt
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDRAWSURFACE_INT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDRAWSURFACE_INT {
     fn default() -> Self {
@@ -8637,6 +6307,7 @@ impl Default for DDRAWI_DDRAWSURFACE_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DDRAWSURFACE_LCL {
     pub lpSurfMore: *mut DDRAWI_DDRAWSURFACE_MORE,
     pub lpGbl: *mut DDRAWI_DDRAWSURFACE_GBL,
@@ -8667,14 +6338,6 @@ pub struct DDRAWI_DDRAWSURFACE_LCL {
     pub lOverlayY: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_LCL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_LCL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_LCL {
     type TypeKind = windows_core::CopyType;
 }
@@ -8686,17 +6349,10 @@ impl Default for DDRAWI_DDRAWSURFACE_LCL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_LCL_0 {
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_INT,
     pub lp16DDPalette: *mut DDRAWI_DDRAWPALETTE_INT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_LCL_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_LCL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -8710,17 +6366,10 @@ impl Default for DDRAWI_DDRAWSURFACE_LCL_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union DDRAWI_DDRAWSURFACE_LCL_1 {
     pub lpDDClipper: *mut DDRAWI_DDRAWCLIPPER_LCL,
     pub lp16DDClipper: *mut DDRAWI_DDRAWCLIPPER_INT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_LCL_1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_LCL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -8734,6 +6383,7 @@ impl Default for DDRAWI_DDRAWSURFACE_LCL_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DDRAWSURFACE_MORE {
     pub dwSize: u32,
     pub lpIUnknowns: *mut IUNKNOWN_LIST,
@@ -8768,14 +6418,6 @@ pub struct DDRAWI_DDRAWSURFACE_MORE {
     pub lpVB: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDRAWSURFACE_MORE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDRAWSURFACE_MORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDRAWSURFACE_MORE {
     type TypeKind = windows_core::CopyType;
 }
@@ -8787,6 +6429,7 @@ impl Default for DDRAWI_DDRAWSURFACE_MORE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDVIDEOPORT_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDVIDEOPORT_LCL,
@@ -8795,31 +6438,9 @@ pub struct DDRAWI_DDVIDEOPORT_INT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDVIDEOPORT_INT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDVIDEOPORT_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDVIDEOPORT_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDVIDEOPORT_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDVIDEOPORT_INT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDVIDEOPORT_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVtbl == other.lpVtbl && self.lpLcl == other.lpLcl && self.lpLink == other.lpLink && self.dwIntRefCnt == other.dwIntRefCnt && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDVIDEOPORT_INT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDVIDEOPORT_INT {
     fn default() -> Self {
@@ -8828,6 +6449,7 @@ impl Default for DDRAWI_DDVIDEOPORT_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DDVIDEOPORT_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub ddvpDesc: DDVIDEOPORTDESC,
@@ -8853,75 +6475,9 @@ pub struct DDRAWI_DDVIDEOPORT_LCL {
     pub lpVPNotify: *mut DDRAWI_DDVIDEOPORT_INT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DDVIDEOPORT_LCL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DDVIDEOPORT_LCL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DDVIDEOPORT_LCL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DDVIDEOPORT_LCL")
-            .field("lpDD", &self.lpDD)
-            .field("ddvpDesc", &self.ddvpDesc)
-            .field("ddvpInfo", &self.ddvpInfo)
-            .field("lpSurface", &self.lpSurface)
-            .field("lpVBISurface", &self.lpVBISurface)
-            .field("lpFlipInts", &self.lpFlipInts)
-            .field("dwNumAutoflip", &self.dwNumAutoflip)
-            .field("dwProcessID", &self.dwProcessID)
-            .field("dwStateFlags", &self.dwStateFlags)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwRefCnt", &self.dwRefCnt)
-            .field("fpLastFlip", &self.fpLastFlip)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("hDDVideoPort", &self.hDDVideoPort)
-            .field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip)
-            .field("lpVBIDesc", &self.lpVBIDesc)
-            .field("lpVideoDesc", &self.lpVideoDesc)
-            .field("lpVBIInfo", &self.lpVBIInfo)
-            .field("lpVideoInfo", &self.lpVideoInfo)
-            .field("dwVBIProcessID", &self.dwVBIProcessID)
-            .field("lpVPNotify", &self.lpVPNotify)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DDVIDEOPORT_LCL {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DDVIDEOPORT_LCL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.ddvpDesc == other.ddvpDesc
-            && self.ddvpInfo == other.ddvpInfo
-            && self.lpSurface == other.lpSurface
-            && self.lpVBISurface == other.lpVBISurface
-            && self.lpFlipInts == other.lpFlipInts
-            && self.dwNumAutoflip == other.dwNumAutoflip
-            && self.dwProcessID == other.dwProcessID
-            && self.dwStateFlags == other.dwStateFlags
-            && self.dwFlags == other.dwFlags
-            && self.dwRefCnt == other.dwRefCnt
-            && self.fpLastFlip == other.fpLastFlip
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.hDDVideoPort == other.hDDVideoPort
-            && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip
-            && self.lpVBIDesc == other.lpVBIDesc
-            && self.lpVideoDesc == other.lpVideoDesc
-            && self.lpVBIInfo == other.lpVBIInfo
-            && self.lpVideoInfo == other.lpVideoInfo
-            && self.dwVBIProcessID == other.dwVBIProcessID
-            && self.lpVPNotify == other.lpVPNotify
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DDVIDEOPORT_LCL {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DDVIDEOPORT_LCL {
     fn default() -> Self {
@@ -8930,6 +6486,7 @@ impl Default for DDRAWI_DDVIDEOPORT_LCL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dwRefCnt: u32,
     pub dwFlags: u32,
@@ -9003,14 +6560,6 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub ddsCapsMore: DDSCAPSEX,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DIRECTDRAW_GBL {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DIRECTDRAW_GBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DIRECTDRAW_GBL {
     type TypeKind = windows_core::CopyType;
 }
@@ -9022,6 +6571,7 @@ impl Default for DDRAWI_DIRECTDRAW_GBL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRAWI_DIRECTDRAW_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -9029,31 +6579,9 @@ pub struct DDRAWI_DIRECTDRAW_INT {
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DDRAWI_DIRECTDRAW_INT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DDRAWI_DIRECTDRAW_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DIRECTDRAW_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DIRECTDRAW_INT").field("lpVtbl", &self.lpVtbl).field("lpLcl", &self.lpLcl).field("lpLink", &self.lpLink).field("dwIntRefCnt", &self.dwIntRefCnt).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DIRECTDRAW_INT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DDRAWI_DIRECTDRAW_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVtbl == other.lpVtbl && self.lpLcl == other.lpLcl && self.lpLink == other.lpLink && self.dwIntRefCnt == other.dwIntRefCnt
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DDRAWI_DIRECTDRAW_INT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDRAWI_DIRECTDRAW_INT {
     fn default() -> Self {
@@ -9062,6 +6590,7 @@ impl Default for DDRAWI_DIRECTDRAW_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Debug)]
 pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpDDMore: u32,
     pub lpGbl: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -9097,38 +6626,6 @@ impl Clone for DDRAWI_DIRECTDRAW_LCL {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRAWI_DIRECTDRAW_LCL")
-            .field("lpDDMore", &self.lpDDMore)
-            .field("lpGbl", &self.lpGbl)
-            .field("dwUnused0", &self.dwUnused0)
-            .field("dwLocalFlags", &self.dwLocalFlags)
-            .field("dwLocalRefCnt", &self.dwLocalRefCnt)
-            .field("dwProcessId", &self.dwProcessId)
-            .field("pUnkOuter", &self.pUnkOuter)
-            .field("dwObsolete1", &self.dwObsolete1)
-            .field("hWnd", &self.hWnd)
-            .field("hDC", &self.hDC)
-            .field("dwErrorMode", &self.dwErrorMode)
-            .field("lpPrimary", &self.lpPrimary)
-            .field("lpCB", &self.lpCB)
-            .field("dwPreferredMode", &self.dwPreferredMode)
-            .field("hD3DInstance", &self.hD3DInstance)
-            .field("pD3DIUnknown", &self.pD3DIUnknown)
-            .field("lpDDCB", &self.lpDDCB)
-            .field("hDDVxd", &self.hDDVxd)
-            .field("dwAppHackFlags", &self.dwAppHackFlags)
-            .field("hFocusWnd", &self.hFocusWnd)
-            .field("dwHotTracking", &self.dwHotTracking)
-            .field("dwIMEState", &self.dwIMEState)
-            .field("hWndPopup", &self.hWndPopup)
-            .field("hDD", &self.hDD)
-            .field("hGammaCalibrator", &self.hGammaCalibrator)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DDRAWI_DIRECTDRAW_LCL {
     type TypeKind = windows_core::CopyType;
 }
@@ -9139,78 +6636,41 @@ impl Default for DDRAWI_DIRECTDRAW_LCL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDRGBA {
     pub red: u8,
     pub green: u8,
     pub blue: u8,
     pub alpha: u8,
 }
-impl Copy for DDRGBA {}
-impl Clone for DDRGBA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDRGBA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDRGBA").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).field("alpha", &self.alpha).finish()
-    }
-}
 impl windows_core::TypeKind for DDRGBA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDRGBA {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.green == other.green && self.blue == other.blue && self.alpha == other.alpha
-    }
-}
-impl Eq for DDRGBA {}
 impl Default for DDRGBA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDSCAPS {
     pub dwCaps: u32,
-}
-impl Copy for DDSCAPS {}
-impl Clone for DDSCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDSCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDSCAPS").field("dwCaps", &self.dwCaps).finish()
-    }
 }
 impl windows_core::TypeKind for DDSCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDSCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCaps == other.dwCaps
-    }
-}
-impl Eq for DDSCAPS {}
 impl Default for DDSCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDSCAPS2 {
     pub dwCaps: u32,
     pub dwCaps2: u32,
     pub dwCaps3: u32,
     pub Anonymous: DDSCAPS2_0,
-}
-impl Copy for DDSCAPS2 {}
-impl Clone for DDSCAPS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSCAPS2 {
     type TypeKind = windows_core::CopyType;
@@ -9221,15 +6681,10 @@ impl Default for DDSCAPS2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSCAPS2_0 {
     pub dwCaps4: u32,
     pub dwVolumeDepth: u32,
-}
-impl Copy for DDSCAPS2_0 {}
-impl Clone for DDSCAPS2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSCAPS2_0 {
     type TypeKind = windows_core::CopyType;
@@ -9240,16 +6695,11 @@ impl Default for DDSCAPS2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDSCAPSEX {
     pub dwCaps2: u32,
     pub dwCaps3: u32,
     pub Anonymous: DDSCAPSEX_0,
-}
-impl Copy for DDSCAPSEX {}
-impl Clone for DDSCAPSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSCAPSEX {
     type TypeKind = windows_core::CopyType;
@@ -9260,15 +6710,10 @@ impl Default for DDSCAPSEX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSCAPSEX_0 {
     pub dwCaps4: u32,
     pub dwVolumeDepth: u32,
-}
-impl Copy for DDSCAPSEX_0 {}
-impl Clone for DDSCAPSEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSCAPSEX_0 {
     type TypeKind = windows_core::CopyType;
@@ -9279,97 +6724,50 @@ impl Default for DDSCAPSEX_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDSETSTATEININFO {
     pub lpSurfaceData: *mut DDSURFACEDATA,
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
 }
-impl Copy for DDSETSTATEININFO {}
-impl Clone for DDSETSTATEININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDSETSTATEININFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDSETSTATEININFO").field("lpSurfaceData", &self.lpSurfaceData).field("lpVideoPortData", &self.lpVideoPortData).finish()
-    }
-}
 impl windows_core::TypeKind for DDSETSTATEININFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDSETSTATEININFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpSurfaceData == other.lpSurfaceData && self.lpVideoPortData == other.lpVideoPortData
-    }
-}
-impl Eq for DDSETSTATEININFO {}
 impl Default for DDSETSTATEININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDSETSTATEOUTINFO {
     pub bSoftwareAutoflip: super::super::Foundation::BOOL,
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
 }
-impl Copy for DDSETSTATEOUTINFO {}
-impl Clone for DDSETSTATEOUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDSETSTATEOUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDSETSTATEOUTINFO").field("bSoftwareAutoflip", &self.bSoftwareAutoflip).field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for DDSETSTATEOUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDSETSTATEOUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bSoftwareAutoflip == other.bSoftwareAutoflip && self.dwSurfaceIndex == other.dwSurfaceIndex && self.dwVBISurfaceIndex == other.dwVBISurfaceIndex
-    }
-}
-impl Eq for DDSETSTATEOUTINFO {}
 impl Default for DDSETSTATEOUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDSKIPNEXTFIELDINFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
     pub dwSkipFlags: u32,
 }
-impl Copy for DDSKIPNEXTFIELDINFO {}
-impl Clone for DDSKIPNEXTFIELDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDSKIPNEXTFIELDINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDSKIPNEXTFIELDINFO").field("lpVideoPortData", &self.lpVideoPortData).field("dwSkipFlags", &self.dwSkipFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DDSKIPNEXTFIELDINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDSKIPNEXTFIELDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpVideoPortData == other.lpVideoPortData && self.dwSkipFlags == other.dwSkipFlags
-    }
-}
-impl Eq for DDSKIPNEXTFIELDINFO {}
 impl Default for DDSKIPNEXTFIELDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDSTEREOMODE {
     pub dwSize: u32,
     pub dwHeight: u32,
@@ -9378,32 +6776,16 @@ pub struct DDSTEREOMODE {
     pub dwRefreshRate: u32,
     pub bSupported: super::super::Foundation::BOOL,
 }
-impl Copy for DDSTEREOMODE {}
-impl Clone for DDSTEREOMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDSTEREOMODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDSTEREOMODE").field("dwSize", &self.dwSize).field("dwHeight", &self.dwHeight).field("dwWidth", &self.dwWidth).field("dwBpp", &self.dwBpp).field("dwRefreshRate", &self.dwRefreshRate).field("bSupported", &self.bSupported).finish()
-    }
-}
 impl windows_core::TypeKind for DDSTEREOMODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDSTEREOMODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwHeight == other.dwHeight && self.dwWidth == other.dwWidth && self.dwBpp == other.dwBpp && self.dwRefreshRate == other.dwRefreshRate && self.bSupported == other.bSupported
-    }
-}
-impl Eq for DDSTEREOMODE {}
 impl Default for DDSTEREOMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDSURFACEDATA {
     pub ddsCaps: u32,
     pub dwSurfaceOffset: u32,
@@ -9429,78 +6811,16 @@ pub struct DDSURFACEDATA {
     pub dwDriverReserved3: u32,
     pub dwDriverReserved4: u32,
 }
-impl Copy for DDSURFACEDATA {}
-impl Clone for DDSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDSURFACEDATA")
-            .field("ddsCaps", &self.ddsCaps)
-            .field("dwSurfaceOffset", &self.dwSurfaceOffset)
-            .field("fpLockPtr", &self.fpLockPtr)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("lPitch", &self.lPitch)
-            .field("dwOverlayFlags", &self.dwOverlayFlags)
-            .field("dwOverlayOffset", &self.dwOverlayOffset)
-            .field("dwOverlaySrcWidth", &self.dwOverlaySrcWidth)
-            .field("dwOverlaySrcHeight", &self.dwOverlaySrcHeight)
-            .field("dwOverlayDestWidth", &self.dwOverlayDestWidth)
-            .field("dwOverlayDestHeight", &self.dwOverlayDestHeight)
-            .field("dwVideoPortId", &self.dwVideoPortId)
-            .field("dwFormatFlags", &self.dwFormatFlags)
-            .field("dwFormatFourCC", &self.dwFormatFourCC)
-            .field("dwFormatBitCount", &self.dwFormatBitCount)
-            .field("dwRBitMask", &self.dwRBitMask)
-            .field("dwGBitMask", &self.dwGBitMask)
-            .field("dwBBitMask", &self.dwBBitMask)
-            .field("dwDriverReserved1", &self.dwDriverReserved1)
-            .field("dwDriverReserved2", &self.dwDriverReserved2)
-            .field("dwDriverReserved3", &self.dwDriverReserved3)
-            .field("dwDriverReserved4", &self.dwDriverReserved4)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDSURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ddsCaps == other.ddsCaps
-            && self.dwSurfaceOffset == other.dwSurfaceOffset
-            && self.fpLockPtr == other.fpLockPtr
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.lPitch == other.lPitch
-            && self.dwOverlayFlags == other.dwOverlayFlags
-            && self.dwOverlayOffset == other.dwOverlayOffset
-            && self.dwOverlaySrcWidth == other.dwOverlaySrcWidth
-            && self.dwOverlaySrcHeight == other.dwOverlaySrcHeight
-            && self.dwOverlayDestWidth == other.dwOverlayDestWidth
-            && self.dwOverlayDestHeight == other.dwOverlayDestHeight
-            && self.dwVideoPortId == other.dwVideoPortId
-            && self.dwFormatFlags == other.dwFormatFlags
-            && self.dwFormatFourCC == other.dwFormatFourCC
-            && self.dwFormatBitCount == other.dwFormatBitCount
-            && self.dwRBitMask == other.dwRBitMask
-            && self.dwGBitMask == other.dwGBitMask
-            && self.dwBBitMask == other.dwBBitMask
-            && self.dwDriverReserved1 == other.dwDriverReserved1
-            && self.dwDriverReserved2 == other.dwDriverReserved2
-            && self.dwDriverReserved3 == other.dwDriverReserved3
-            && self.dwDriverReserved4 == other.dwDriverReserved4
-    }
-}
-impl Eq for DDSURFACEDATA {}
 impl Default for DDSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDSURFACEDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9519,12 +6839,6 @@ pub struct DDSURFACEDESC {
     pub ddpfPixelFormat: DDPIXELFORMAT,
     pub ddsCaps: DDSCAPS,
 }
-impl Copy for DDSURFACEDESC {}
-impl Clone for DDSURFACEDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DDSURFACEDESC {
     type TypeKind = windows_core::CopyType;
 }
@@ -9534,15 +6848,10 @@ impl Default for DDSURFACEDESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
-}
-impl Copy for DDSURFACEDESC_0 {}
-impl Clone for DDSURFACEDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -9553,16 +6862,11 @@ impl Default for DDSURFACEDESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC_1 {
     pub dwMipMapCount: u32,
     pub dwZBufferBitDepth: u32,
     pub dwRefreshRate: u32,
-}
-impl Copy for DDSURFACEDESC_1 {}
-impl Clone for DDSURFACEDESC_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC_1 {
     type TypeKind = windows_core::CopyType;
@@ -9573,6 +6877,7 @@ impl Default for DDSURFACEDESC_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDSURFACEDESC2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9592,12 +6897,6 @@ pub struct DDSURFACEDESC2 {
     pub ddsCaps: DDSCAPS2,
     pub dwTextureStage: u32,
 }
-impl Copy for DDSURFACEDESC2 {}
-impl Clone for DDSURFACEDESC2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DDSURFACEDESC2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -9607,15 +6906,10 @@ impl Default for DDSURFACEDESC2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
-}
-impl Copy for DDSURFACEDESC2_0 {}
-impl Clone for DDSURFACEDESC2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC2_0 {
     type TypeKind = windows_core::CopyType;
@@ -9626,15 +6920,10 @@ impl Default for DDSURFACEDESC2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_1 {
     pub dwBackBufferCount: u32,
     pub dwDepth: u32,
-}
-impl Copy for DDSURFACEDESC2_1 {}
-impl Clone for DDSURFACEDESC2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC2_1 {
     type TypeKind = windows_core::CopyType;
@@ -9645,16 +6934,11 @@ impl Default for DDSURFACEDESC2_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_2 {
     pub dwMipMapCount: u32,
     pub dwRefreshRate: u32,
     pub dwSrcVBHandle: u32,
-}
-impl Copy for DDSURFACEDESC2_2 {}
-impl Clone for DDSURFACEDESC2_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC2_2 {
     type TypeKind = windows_core::CopyType;
@@ -9665,15 +6949,10 @@ impl Default for DDSURFACEDESC2_2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_3 {
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub dwEmptyFaceColor: u32,
-}
-impl Copy for DDSURFACEDESC2_3 {}
-impl Clone for DDSURFACEDESC2_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC2_3 {
     type TypeKind = windows_core::CopyType;
@@ -9684,15 +6963,10 @@ impl Default for DDSURFACEDESC2_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_4 {
     pub ddpfPixelFormat: DDPIXELFORMAT,
     pub dwFVF: u32,
-}
-impl Copy for DDSURFACEDESC2_4 {}
-impl Clone for DDSURFACEDESC2_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DDSURFACEDESC2_4 {
     type TypeKind = windows_core::CopyType;
@@ -9703,6 +6977,7 @@ impl Default for DDSURFACEDESC2_4 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDTRANSFERININFO {
     pub lpSurfaceData: *mut DDSURFACEDATA,
     pub dwStartLine: u32,
@@ -9711,92 +6986,44 @@ pub struct DDTRANSFERININFO {
     pub dwTransferFlags: u32,
     pub lpDestMDL: *mut DDMDL,
 }
-impl Copy for DDTRANSFERININFO {}
-impl Clone for DDTRANSFERININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDTRANSFERININFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDTRANSFERININFO").field("lpSurfaceData", &self.lpSurfaceData).field("dwStartLine", &self.dwStartLine).field("dwEndLine", &self.dwEndLine).field("dwTransferID", &self.dwTransferID).field("dwTransferFlags", &self.dwTransferFlags).field("lpDestMDL", &self.lpDestMDL).finish()
-    }
-}
 impl windows_core::TypeKind for DDTRANSFERININFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDTRANSFERININFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpSurfaceData == other.lpSurfaceData && self.dwStartLine == other.dwStartLine && self.dwEndLine == other.dwEndLine && self.dwTransferID == other.dwTransferID && self.dwTransferFlags == other.dwTransferFlags && self.lpDestMDL == other.lpDestMDL
-    }
-}
-impl Eq for DDTRANSFERININFO {}
 impl Default for DDTRANSFERININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDTRANSFEROUTINFO {
     pub dwBufferPolarity: u32,
-}
-impl Copy for DDTRANSFEROUTINFO {}
-impl Clone for DDTRANSFEROUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDTRANSFEROUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDTRANSFEROUTINFO").field("dwBufferPolarity", &self.dwBufferPolarity).finish()
-    }
 }
 impl windows_core::TypeKind for DDTRANSFEROUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDTRANSFEROUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBufferPolarity == other.dwBufferPolarity
-    }
-}
-impl Eq for DDTRANSFEROUTINFO {}
 impl Default for DDTRANSFEROUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVERSIONDATA {
     pub dwHALVersion: u32,
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-impl Copy for DDVERSIONDATA {}
-impl Clone for DDVERSIONDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVERSIONDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVERSIONDATA").field("dwHALVersion", &self.dwHALVersion).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for DDVERSIONDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVERSIONDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwHALVersion == other.dwHALVersion && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for DDVERSIONDATA {}
 impl Default for DDVERSIONDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTBANDWIDTH {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -9807,32 +7034,16 @@ pub struct DDVIDEOPORTBANDWIDTH {
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-impl Copy for DDVIDEOPORTBANDWIDTH {}
-impl Clone for DDVIDEOPORTBANDWIDTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTBANDWIDTH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTBANDWIDTH").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwOverlay", &self.dwOverlay).field("dwColorkey", &self.dwColorkey).field("dwYInterpolate", &self.dwYInterpolate).field("dwYInterpAndColorkey", &self.dwYInterpAndColorkey).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTBANDWIDTH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTBANDWIDTH {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCaps == other.dwCaps && self.dwOverlay == other.dwOverlay && self.dwColorkey == other.dwColorkey && self.dwYInterpolate == other.dwYInterpolate && self.dwYInterpAndColorkey == other.dwYInterpAndColorkey && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for DDVIDEOPORTBANDWIDTH {}
 impl Default for DDVIDEOPORTBANDWIDTH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9854,70 +7065,16 @@ pub struct DDVIDEOPORTCAPS {
     pub wNumFilterTapsX: u16,
     pub wNumFilterTapsY: u16,
 }
-impl Copy for DDVIDEOPORTCAPS {}
-impl Clone for DDVIDEOPORTCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwMaxWidth", &self.dwMaxWidth)
-            .field("dwMaxVBIWidth", &self.dwMaxVBIWidth)
-            .field("dwMaxHeight", &self.dwMaxHeight)
-            .field("dwVideoPortID", &self.dwVideoPortID)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwFX", &self.dwFX)
-            .field("dwNumAutoFlipSurfaces", &self.dwNumAutoFlipSurfaces)
-            .field("dwAlignVideoPortBoundary", &self.dwAlignVideoPortBoundary)
-            .field("dwAlignVideoPortPrescaleWidth", &self.dwAlignVideoPortPrescaleWidth)
-            .field("dwAlignVideoPortCropBoundary", &self.dwAlignVideoPortCropBoundary)
-            .field("dwAlignVideoPortCropWidth", &self.dwAlignVideoPortCropWidth)
-            .field("dwPreshrinkXStep", &self.dwPreshrinkXStep)
-            .field("dwPreshrinkYStep", &self.dwPreshrinkYStep)
-            .field("dwNumVBIAutoFlipSurfaces", &self.dwNumVBIAutoFlipSurfaces)
-            .field("dwNumPreferredAutoflip", &self.dwNumPreferredAutoflip)
-            .field("wNumFilterTapsX", &self.wNumFilterTapsX)
-            .field("wNumFilterTapsY", &self.wNumFilterTapsY)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwMaxWidth == other.dwMaxWidth
-            && self.dwMaxVBIWidth == other.dwMaxVBIWidth
-            && self.dwMaxHeight == other.dwMaxHeight
-            && self.dwVideoPortID == other.dwVideoPortID
-            && self.dwCaps == other.dwCaps
-            && self.dwFX == other.dwFX
-            && self.dwNumAutoFlipSurfaces == other.dwNumAutoFlipSurfaces
-            && self.dwAlignVideoPortBoundary == other.dwAlignVideoPortBoundary
-            && self.dwAlignVideoPortPrescaleWidth == other.dwAlignVideoPortPrescaleWidth
-            && self.dwAlignVideoPortCropBoundary == other.dwAlignVideoPortCropBoundary
-            && self.dwAlignVideoPortCropWidth == other.dwAlignVideoPortCropWidth
-            && self.dwPreshrinkXStep == other.dwPreshrinkXStep
-            && self.dwPreshrinkYStep == other.dwPreshrinkYStep
-            && self.dwNumVBIAutoFlipSurfaces == other.dwNumVBIAutoFlipSurfaces
-            && self.dwNumPreferredAutoflip == other.dwNumPreferredAutoflip
-            && self.wNumFilterTapsX == other.wNumFilterTapsX
-            && self.wNumFilterTapsY == other.wNumFilterTapsY
-    }
-}
-impl Eq for DDVIDEOPORTCAPS {}
 impl Default for DDVIDEOPORTCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTCONNECT {
     pub dwSize: u32,
     pub dwPortWidth: u32,
@@ -9925,32 +7082,16 @@ pub struct DDVIDEOPORTCONNECT {
     pub dwFlags: u32,
     pub dwReserved1: usize,
 }
-impl Copy for DDVIDEOPORTCONNECT {}
-impl Clone for DDVIDEOPORTCONNECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTCONNECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTCONNECT").field("dwSize", &self.dwSize).field("dwPortWidth", &self.dwPortWidth).field("guidTypeID", &self.guidTypeID).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTCONNECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTCONNECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwPortWidth == other.dwPortWidth && self.guidTypeID == other.guidTypeID && self.dwFlags == other.dwFlags && self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for DDVIDEOPORTCONNECT {}
 impl Default for DDVIDEOPORTCONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTDATA {
     pub dwVideoPortId: u32,
     pub dwVPFlags: u32,
@@ -9961,32 +7102,16 @@ pub struct DDVIDEOPORTDATA {
     pub dwDriverReserved2: u32,
     pub dwDriverReserved3: u32,
 }
-impl Copy for DDVIDEOPORTDATA {}
-impl Clone for DDVIDEOPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTDATA").field("dwVideoPortId", &self.dwVideoPortId).field("dwVPFlags", &self.dwVPFlags).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVideoPortId == other.dwVideoPortId && self.dwVPFlags == other.dwVPFlags && self.dwOriginOffset == other.dwOriginOffset && self.dwHeight == other.dwHeight && self.dwVBIHeight == other.dwVBIHeight && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3
-    }
-}
-impl Eq for DDVIDEOPORTDATA {}
 impl Default for DDVIDEOPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTDESC {
     pub dwSize: u32,
     pub dwFieldWidth: u32,
@@ -10000,44 +7125,16 @@ pub struct DDVIDEOPORTDESC {
     pub dwReserved2: usize,
     pub dwReserved3: usize,
 }
-impl Copy for DDVIDEOPORTDESC {}
-impl Clone for DDVIDEOPORTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTDESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwFieldWidth", &self.dwFieldWidth)
-            .field("dwVBIWidth", &self.dwVBIWidth)
-            .field("dwFieldHeight", &self.dwFieldHeight)
-            .field("dwMicrosecondsPerField", &self.dwMicrosecondsPerField)
-            .field("dwMaxPixelsPerSecond", &self.dwMaxPixelsPerSecond)
-            .field("dwVideoPortID", &self.dwVideoPortID)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("VideoPortType", &self.VideoPortType)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTDESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFieldWidth == other.dwFieldWidth && self.dwVBIWidth == other.dwVBIWidth && self.dwFieldHeight == other.dwFieldHeight && self.dwMicrosecondsPerField == other.dwMicrosecondsPerField && self.dwMaxPixelsPerSecond == other.dwMaxPixelsPerSecond && self.dwVideoPortID == other.dwVideoPortID && self.dwReserved1 == other.dwReserved1 && self.VideoPortType == other.VideoPortType && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3
-    }
-}
-impl Eq for DDVIDEOPORTDESC {}
 impl Default for DDVIDEOPORTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTINFO {
     pub dwSize: u32,
     pub dwOriginX: u32,
@@ -10053,78 +7150,32 @@ pub struct DDVIDEOPORTINFO {
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-impl Copy for DDVIDEOPORTINFO {}
-impl Clone for DDVIDEOPORTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTINFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwOriginX", &self.dwOriginX)
-            .field("dwOriginY", &self.dwOriginY)
-            .field("dwVPFlags", &self.dwVPFlags)
-            .field("rCrop", &self.rCrop)
-            .field("dwPrescaleWidth", &self.dwPrescaleWidth)
-            .field("dwPrescaleHeight", &self.dwPrescaleHeight)
-            .field("lpddpfInputFormat", &self.lpddpfInputFormat)
-            .field("lpddpfVBIInputFormat", &self.lpddpfVBIInputFormat)
-            .field("lpddpfVBIOutputFormat", &self.lpddpfVBIOutputFormat)
-            .field("dwVBIHeight", &self.dwVBIHeight)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwOriginX == other.dwOriginX && self.dwOriginY == other.dwOriginY && self.dwVPFlags == other.dwVPFlags && self.rCrop == other.rCrop && self.dwPrescaleWidth == other.dwPrescaleWidth && self.dwPrescaleHeight == other.dwPrescaleHeight && self.lpddpfInputFormat == other.lpddpfInputFormat && self.lpddpfVBIInputFormat == other.lpddpfVBIInputFormat && self.lpddpfVBIOutputFormat == other.lpddpfVBIOutputFormat && self.dwVBIHeight == other.dwVBIHeight && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for DDVIDEOPORTINFO {}
 impl Default for DDVIDEOPORTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTNOTIFY {
     pub ApproximateTimeStamp: i64,
     pub lField: i32,
     pub dwSurfaceIndex: u32,
     pub lDone: i32,
 }
-impl Copy for DDVIDEOPORTNOTIFY {}
-impl Clone for DDVIDEOPORTNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTNOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTNOTIFY").field("ApproximateTimeStamp", &self.ApproximateTimeStamp).field("lField", &self.lField).field("dwSurfaceIndex", &self.dwSurfaceIndex).field("lDone", &self.lDone).finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTNOTIFY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTNOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ApproximateTimeStamp == other.ApproximateTimeStamp && self.lField == other.lField && self.dwSurfaceIndex == other.dwSurfaceIndex && self.lDone == other.lDone
-    }
-}
-impl Eq for DDVIDEOPORTNOTIFY {}
 impl Default for DDVIDEOPORTNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDVIDEOPORTSTATUS {
     pub dwSize: u32,
     pub bInUse: super::super::Foundation::BOOL,
@@ -10134,32 +7185,16 @@ pub struct DDVIDEOPORTSTATUS {
     pub dwReserved2: usize,
     pub dwReserved3: usize,
 }
-impl Copy for DDVIDEOPORTSTATUS {}
-impl Clone for DDVIDEOPORTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDVIDEOPORTSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDVIDEOPORTSTATUS").field("dwSize", &self.dwSize).field("bInUse", &self.bInUse).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("VideoPortType", &self.VideoPortType).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
-    }
-}
 impl windows_core::TypeKind for DDVIDEOPORTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDVIDEOPORTSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.bInUse == other.bInUse && self.dwFlags == other.dwFlags && self.dwReserved1 == other.dwReserved1 && self.VideoPortType == other.VideoPortType && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3
-    }
-}
-impl Eq for DDVIDEOPORTSTATUS {}
 impl Default for DDVIDEOPORTSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -10167,62 +7202,30 @@ pub struct DD_ADDATTACHEDSURFACEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub AddAttachedSurface: *mut core::ffi::c_void,
 }
-impl Copy for DD_ADDATTACHEDSURFACEDATA {}
-impl Clone for DD_ADDATTACHEDSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_ADDATTACHEDSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_ADDATTACHEDSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpSurfAttached", &self.lpSurfAttached).field("ddRVal", &self.ddRVal).field("AddAttachedSurface", &self.AddAttachedSurface).finish()
-    }
-}
 impl windows_core::TypeKind for DD_ADDATTACHEDSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_ADDATTACHEDSURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.lpSurfAttached == other.lpSurfAttached && self.ddRVal == other.ddRVal && self.AddAttachedSurface == other.AddAttachedSurface
-    }
-}
-impl Eq for DD_ADDATTACHEDSURFACEDATA {}
 impl Default for DD_ADDATTACHEDSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_ATTACHLIST {
     pub lpLink: *mut DD_ATTACHLIST,
     pub lpAttached: *mut DD_SURFACE_LOCAL,
 }
-impl Copy for DD_ATTACHLIST {}
-impl Clone for DD_ATTACHLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_ATTACHLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_ATTACHLIST").field("lpLink", &self.lpLink).field("lpAttached", &self.lpAttached).finish()
-    }
-}
 impl windows_core::TypeKind for DD_ATTACHLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_ATTACHLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpLink == other.lpLink && self.lpAttached == other.lpAttached
-    }
-}
-impl Eq for DD_ATTACHLIST {}
 impl Default for DD_ATTACHLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -10233,26 +7236,9 @@ pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpOutputData: *mut core::ffi::c_void,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_BEGINMOCOMPFRAMEDATA {}
-impl Clone for DD_BEGINMOCOMPFRAMEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_BEGINMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpDestSurface", &self.lpDestSurface).field("dwInputDataSize", &self.dwInputDataSize).field("lpInputData", &self.lpInputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("lpOutputData", &self.lpOutputData).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_BEGINMOCOMPFRAMEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_BEGINMOCOMPFRAMEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.lpDestSurface == other.lpDestSurface && self.dwInputDataSize == other.dwInputDataSize && self.lpInputData == other.lpInputData && self.dwOutputDataSize == other.dwOutputDataSize && self.lpOutputData == other.lpOutputData && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_BEGINMOCOMPFRAMEDATA {}
 impl Default for DD_BEGINMOCOMPFRAMEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10293,6 +7279,7 @@ impl Default for DD_BLTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -10307,20 +7294,6 @@ pub struct DD_CALLBACKS {
     pub MapMemory: PDD_MAPMEMORY,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DD_CALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DD_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DD_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DD_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -10331,6 +7304,7 @@ impl Default for DD_CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CANCREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
@@ -10338,137 +7312,62 @@ pub struct DD_CANCREATESURFACEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub CanCreateSurface: *mut core::ffi::c_void,
 }
-impl Copy for DD_CANCREATESURFACEDATA {}
-impl Clone for DD_CANCREATESURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CANCREATESURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).field("CanCreateSurface", &self.CanCreateSurface).finish()
-    }
-}
 impl windows_core::TypeKind for DD_CANCREATESURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CANCREATESURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurfaceDesc == other.lpDDSurfaceDesc && self.bIsDifferentPixelFormat == other.bIsDifferentPixelFormat && self.ddRVal == other.ddRVal && self.CanCreateSurface == other.CanCreateSurface
-    }
-}
-impl Eq for DD_CANCREATESURFACEDATA {}
 impl Default for DD_CANCREATESURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CANCREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub ddRVal: windows_core::HRESULT,
     pub CanCreateVideoPort: *mut core::ffi::c_void,
 }
-impl Copy for DD_CANCREATEVPORTDATA {}
-impl Clone for DD_CANCREATEVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CANCREATEVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).field("CanCreateVideoPort", &self.CanCreateVideoPort).finish()
-    }
-}
 impl windows_core::TypeKind for DD_CANCREATEVPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CANCREATEVPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDVideoPortDesc == other.lpDDVideoPortDesc && self.ddRVal == other.ddRVal && self.CanCreateVideoPort == other.CanCreateVideoPort
-    }
-}
-impl Eq for DD_CANCREATEVPORTDATA {}
 impl Default for DD_CANCREATEVPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CLIPPER_GLOBAL {
     pub dwReserved1: usize,
-}
-impl Copy for DD_CLIPPER_GLOBAL {}
-impl Clone for DD_CLIPPER_GLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CLIPPER_GLOBAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CLIPPER_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
-    }
 }
 impl windows_core::TypeKind for DD_CLIPPER_GLOBAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CLIPPER_GLOBAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for DD_CLIPPER_GLOBAL {}
 impl Default for DD_CLIPPER_GLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CLIPPER_LOCAL {
     pub dwReserved1: usize,
-}
-impl Copy for DD_CLIPPER_LOCAL {}
-impl Clone for DD_CLIPPER_LOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CLIPPER_LOCAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CLIPPER_LOCAL").field("dwReserved1", &self.dwReserved1).finish()
-    }
 }
 impl windows_core::TypeKind for DD_CLIPPER_LOCAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CLIPPER_LOCAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for DD_CLIPPER_LOCAL {}
 impl Default for DD_CLIPPER_LOCAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub ColorControl: PDD_COLORCB_COLORCONTROL,
-}
-impl Copy for DD_COLORCONTROLCALLBACKS {}
-impl Clone for DD_COLORCONTROLCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_COLORCONTROLCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_COLORCONTROLCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DD_COLORCONTROLCALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -10479,6 +7378,7 @@ impl Default for DD_COLORCONTROLCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_COLORCONTROLDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -10487,32 +7387,16 @@ pub struct DD_COLORCONTROLDATA {
     pub ddRVal: windows_core::HRESULT,
     pub ColorControl: *mut core::ffi::c_void,
 }
-impl Copy for DD_COLORCONTROLDATA {}
-impl Clone for DD_COLORCONTROLDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_COLORCONTROLDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_COLORCONTROLDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpColorData", &self.lpColorData).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl).finish()
-    }
-}
 impl windows_core::TypeKind for DD_COLORCONTROLDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_COLORCONTROLDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.lpColorData == other.lpColorData && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.ColorControl == other.ColorControl
-    }
-}
-impl Eq for DD_COLORCONTROLDATA {}
 impl Default for DD_COLORCONTROLDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_CREATEMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -10524,12 +7408,6 @@ pub struct DD_CREATEMOCOMPDATA {
     pub dwDataSize: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_CREATEMOCOMPDATA {}
-impl Clone for DD_CREATEMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DD_CREATEMOCOMPDATA {
     type TypeKind = windows_core::CopyType;
 }
@@ -10540,6 +7418,7 @@ impl Default for DD_CREATEMOCOMPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CREATEPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
@@ -10549,31 +7428,9 @@ pub struct DD_CREATEPALETTEDATA {
     pub is_excl: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DD_CREATEPALETTEDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DD_CREATEPALETTEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DD_CREATEPALETTEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CREATEPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("lpColorTable", &self.lpColorTable).field("ddRVal", &self.ddRVal).field("CreatePalette", &self.CreatePalette).field("is_excl", &self.is_excl).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DD_CREATEPALETTEDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DD_CREATEPALETTEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDPalette == other.lpDDPalette && self.lpColorTable == other.lpColorTable && self.ddRVal == other.ddRVal && self.CreatePalette == other.CreatePalette && self.is_excl == other.is_excl
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DD_CREATEPALETTEDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DD_CREATEPALETTEDATA {
     fn default() -> Self {
@@ -10581,6 +7438,7 @@ impl Default for DD_CREATEPALETTEDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
@@ -10589,64 +7447,32 @@ pub struct DD_CREATESURFACEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub CreateSurface: *mut core::ffi::c_void,
 }
-impl Copy for DD_CREATESURFACEDATA {}
-impl Clone for DD_CREATESURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CREATESURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("lplpSList", &self.lplpSList).field("dwSCnt", &self.dwSCnt).field("ddRVal", &self.ddRVal).field("CreateSurface", &self.CreateSurface).finish()
-    }
-}
 impl windows_core::TypeKind for DD_CREATESURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CREATESURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurfaceDesc == other.lpDDSurfaceDesc && self.lplpSList == other.lplpSList && self.dwSCnt == other.dwSCnt && self.ddRVal == other.ddRVal && self.CreateSurface == other.CreateSurface
-    }
-}
-impl Eq for DD_CREATESURFACEDATA {}
 impl Default for DD_CREATESURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CREATESURFACEEXDATA {
     pub dwFlags: u32,
     pub lpDDLcl: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDSLcl: *mut DD_SURFACE_LOCAL,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_CREATESURFACEEXDATA {}
-impl Clone for DD_CREATESURFACEEXDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CREATESURFACEEXDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CREATESURFACEEXDATA").field("dwFlags", &self.dwFlags).field("lpDDLcl", &self.lpDDLcl).field("lpDDSLcl", &self.lpDDSLcl).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_CREATESURFACEEXDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CREATESURFACEEXDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.lpDDLcl == other.lpDDLcl && self.lpDDSLcl == other.lpDDSLcl && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_CREATESURFACEEXDATA {}
 impl Default for DD_CREATESURFACEEXDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_CREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
@@ -10654,32 +7480,16 @@ pub struct DD_CREATEVPORTDATA {
     pub ddRVal: windows_core::HRESULT,
     pub CreateVideoPort: *mut core::ffi::c_void,
 }
-impl Copy for DD_CREATEVPORTDATA {}
-impl Clone for DD_CREATEVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_CREATEVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_CREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("CreateVideoPort", &self.CreateVideoPort).finish()
-    }
-}
 impl windows_core::TypeKind for DD_CREATEVPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_CREATEVPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDVideoPortDesc == other.lpDDVideoPortDesc && self.lpVideoPort == other.lpVideoPort && self.ddRVal == other.ddRVal && self.CreateVideoPort == other.CreateVideoPort
-    }
-}
-impl Eq for DD_CREATEVPORTDATA {}
 impl Default for DD_CREATEVPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -10688,17 +7498,6 @@ pub struct DD_D3DBUFCALLBACKS {
     pub DestroyD3DBuffer: PDD_SURFCB_DESTROYSURFACE,
     pub LockD3DBuffer: PDD_SURFCB_LOCK,
     pub UnlockD3DBuffer: PDD_SURFCB_UNLOCK,
-}
-impl Copy for DD_D3DBUFCALLBACKS {}
-impl Clone for DD_D3DBUFCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_D3DBUFCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_D3DBUFCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DD_D3DBUFCALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -10709,225 +7508,114 @@ impl Default for DD_D3DBUFCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut DD_DIRECTDRAW_LOCAL,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_DESTROYDDLOCALDATA {}
-impl Clone for DD_DESTROYDDLOCALDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DESTROYDDLOCALDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DESTROYDDLOCALDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DESTROYDDLOCALDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.pDDLcl == other.pDDLcl && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_DESTROYDDLOCALDATA {}
 impl Default for DD_DESTROYDDLOCALDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DESTROYMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_DESTROYMOCOMPDATA {}
-impl Clone for DD_DESTROYMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DESTROYMOCOMPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DESTROYMOCOMPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DESTROYMOCOMPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_DESTROYMOCOMPDATA {}
 impl Default for DD_DESTROYMOCOMPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DESTROYPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroyPalette: *mut core::ffi::c_void,
 }
-impl Copy for DD_DESTROYPALETTEDATA {}
-impl Clone for DD_DESTROYPALETTEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DESTROYPALETTEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("DestroyPalette", &self.DestroyPalette).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DESTROYPALETTEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DESTROYPALETTEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDPalette == other.lpDDPalette && self.ddRVal == other.ddRVal && self.DestroyPalette == other.DestroyPalette
-    }
-}
-impl Eq for DD_DESTROYPALETTEDATA {}
 impl Default for DD_DESTROYPALETTEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DESTROYSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroySurface: *mut core::ffi::c_void,
 }
-impl Copy for DD_DESTROYSURFACEDATA {}
-impl Clone for DD_DESTROYSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DESTROYSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DESTROYSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("DestroySurface", &self.DestroySurface).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DESTROYSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DESTROYSURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.DestroySurface == other.DestroySurface
-    }
-}
-impl Eq for DD_DESTROYSURFACEDATA {}
 impl Default for DD_DESTROYSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DESTROYVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub ddRVal: windows_core::HRESULT,
     pub DestroyVideoPort: *mut core::ffi::c_void,
 }
-impl Copy for DD_DESTROYVPORTDATA {}
-impl Clone for DD_DESTROYVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DESTROYVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DESTROYVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("DestroyVideoPort", &self.DestroyVideoPort).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DESTROYVPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DESTROYVPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.ddRVal == other.ddRVal && self.DestroyVideoPort == other.DestroyVideoPort
-    }
-}
-impl Eq for DD_DESTROYVPORTDATA {}
 impl Default for DD_DESTROYVPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DIRECTDRAW_GLOBAL {
     pub dhpdev: *mut core::ffi::c_void,
     pub dwReserved1: usize,
     pub dwReserved2: usize,
     pub lpDDVideoPortCaps: *mut DDVIDEOPORTCAPS,
 }
-impl Copy for DD_DIRECTDRAW_GLOBAL {}
-impl Clone for DD_DIRECTDRAW_GLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DIRECTDRAW_GLOBAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DIRECTDRAW_GLOBAL").field("dhpdev", &self.dhpdev).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("lpDDVideoPortCaps", &self.lpDDVideoPortCaps).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DIRECTDRAW_GLOBAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DIRECTDRAW_GLOBAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dhpdev == other.dhpdev && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.lpDDVideoPortCaps == other.lpDDVideoPortCaps
-    }
-}
-impl Eq for DD_DIRECTDRAW_GLOBAL {}
 impl Default for DD_DIRECTDRAW_GLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DIRECTDRAW_LOCAL {
     pub lpGbl: *mut DD_DIRECTDRAW_GLOBAL,
-}
-impl Copy for DD_DIRECTDRAW_LOCAL {}
-impl Clone for DD_DIRECTDRAW_LOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DIRECTDRAW_LOCAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DIRECTDRAW_LOCAL").field("lpGbl", &self.lpGbl).finish()
-    }
 }
 impl windows_core::TypeKind for DD_DIRECTDRAW_LOCAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DIRECTDRAW_LOCAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpGbl == other.lpGbl
-    }
-}
-impl Eq for DD_DIRECTDRAW_LOCAL {}
 impl Default for DD_DIRECTDRAW_LOCAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
@@ -10935,32 +7623,16 @@ pub struct DD_DRVSETCOLORKEYDATA {
     pub ddRVal: windows_core::HRESULT,
     pub SetColorKey: *mut core::ffi::c_void,
 }
-impl Copy for DD_DRVSETCOLORKEYDATA {}
-impl Clone for DD_DRVSETCOLORKEYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_DRVSETCOLORKEYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_DRVSETCOLORKEYDATA").field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey).finish()
-    }
-}
 impl windows_core::TypeKind for DD_DRVSETCOLORKEYDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_DRVSETCOLORKEYDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ckNew == other.ckNew && self.ddRVal == other.ddRVal && self.SetColorKey == other.SetColorKey
-    }
-}
-impl Eq for DD_DRVSETCOLORKEYDATA {}
 impl Default for DD_DRVSETCOLORKEYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_ENDMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -10968,32 +7640,16 @@ pub struct DD_ENDMOCOMPFRAMEDATA {
     pub dwInputDataSize: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_ENDMOCOMPFRAMEDATA {}
-impl Clone for DD_ENDMOCOMPFRAMEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_ENDMOCOMPFRAMEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_ENDMOCOMPFRAMEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_ENDMOCOMPFRAMEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.lpInputData == other.lpInputData && self.dwInputDataSize == other.dwInputDataSize && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_ENDMOCOMPFRAMEDATA {}
 impl Default for DD_ENDMOCOMPFRAMEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_FLIPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpSurfCurr: *mut DD_SURFACE_LOCAL,
@@ -11004,32 +7660,16 @@ pub struct DD_FLIPDATA {
     pub lpSurfCurrLeft: *mut DD_SURFACE_LOCAL,
     pub lpSurfTargLeft: *mut DD_SURFACE_LOCAL,
 }
-impl Copy for DD_FLIPDATA {}
-impl Clone for DD_FLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_FLIPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_FLIPDATA").field("lpDD", &self.lpDD).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("Flip", &self.Flip).field("lpSurfCurrLeft", &self.lpSurfCurrLeft).field("lpSurfTargLeft", &self.lpSurfTargLeft).finish()
-    }
-}
 impl windows_core::TypeKind for DD_FLIPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_FLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpSurfCurr == other.lpSurfCurr && self.lpSurfTarg == other.lpSurfTarg && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.Flip == other.Flip && self.lpSurfCurrLeft == other.lpSurfCurrLeft && self.lpSurfTargLeft == other.lpSurfTargLeft
-    }
-}
-impl Eq for DD_FLIPDATA {}
 impl Default for DD_FLIPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwToGDI: u32,
@@ -11037,32 +7677,16 @@ pub struct DD_FLIPTOGDISURFACEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub FlipToGDISurface: *mut core::ffi::c_void,
 }
-impl Copy for DD_FLIPTOGDISURFACEDATA {}
-impl Clone for DD_FLIPTOGDISURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_FLIPTOGDISURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("FlipToGDISurface", &self.FlipToGDISurface).finish()
-    }
-}
 impl windows_core::TypeKind for DD_FLIPTOGDISURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_FLIPTOGDISURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwToGDI == other.dwToGDI && self.dwReserved == other.dwReserved && self.ddRVal == other.ddRVal && self.FlipToGDISurface == other.FlipToGDISurface
-    }
-}
-impl Eq for DD_FLIPTOGDISURFACEDATA {}
 impl Default for DD_FLIPTOGDISURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_FLIPVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11071,64 +7695,32 @@ pub struct DD_FLIPVPORTDATA {
     pub ddRVal: windows_core::HRESULT,
     pub FlipVideoPort: *mut core::ffi::c_void,
 }
-impl Copy for DD_FLIPVPORTDATA {}
-impl Clone for DD_FLIPVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_FLIPVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_FLIPVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("ddRVal", &self.ddRVal).field("FlipVideoPort", &self.FlipVideoPort).finish()
-    }
-}
 impl windows_core::TypeKind for DD_FLIPVPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_FLIPVPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.lpSurfCurr == other.lpSurfCurr && self.lpSurfTarg == other.lpSurfTarg && self.ddRVal == other.ddRVal && self.FlipVideoPort == other.FlipVideoPort
-    }
-}
-impl Eq for DD_FLIPVPORTDATA {}
 impl Default for DD_FLIPVPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_FREEDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: windows_core::HRESULT,
     pub FreeDriverMemory: *mut core::ffi::c_void,
 }
-impl Copy for DD_FREEDRIVERMEMORYDATA {}
-impl Clone for DD_FREEDRIVERMEMORYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_FREEDRIVERMEMORYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_FREEDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("FreeDriverMemory", &self.FreeDriverMemory).finish()
-    }
-}
 impl windows_core::TypeKind for DD_FREEDRIVERMEMORYDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_FREEDRIVERMEMORYDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.FreeDriverMemory == other.FreeDriverMemory
-    }
-}
-impl Eq for DD_FREEDRIVERMEMORYDATA {}
 impl Default for DD_FREEDRIVERMEMORYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETAVAILDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub DDSCaps: DDSCAPS,
@@ -11137,32 +7729,16 @@ pub struct DD_GETAVAILDRIVERMEMORYDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetAvailDriverMemory: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETAVAILDRIVERMEMORYDATA {}
-impl Clone for DD_GETAVAILDRIVERMEMORYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETAVAILDRIVERMEMORYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETAVAILDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("DDSCaps", &self.DDSCaps).field("dwTotal", &self.dwTotal).field("dwFree", &self.dwFree).field("ddRVal", &self.ddRVal).field("GetAvailDriverMemory", &self.GetAvailDriverMemory).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETAVAILDRIVERMEMORYDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETAVAILDRIVERMEMORYDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.DDSCaps == other.DDSCaps && self.dwTotal == other.dwTotal && self.dwFree == other.dwFree && self.ddRVal == other.ddRVal && self.GetAvailDriverMemory == other.GetAvailDriverMemory
-    }
-}
-impl Eq for DD_GETAVAILDRIVERMEMORYDATA {}
 impl Default for DD_GETAVAILDRIVERMEMORYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETBLTSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -11170,32 +7746,16 @@ pub struct DD_GETBLTSTATUSDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetBltStatus: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETBLTSTATUSDATA {}
-impl Clone for DD_GETBLTSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETBLTSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETBLTSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetBltStatus", &self.GetBltStatus).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETBLTSTATUSDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETBLTSTATUSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.GetBltStatus == other.GetBltStatus
-    }
-}
-impl Eq for DD_GETBLTSTATUSDATA {}
 impl Default for DD_GETBLTSTATUSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETDRIVERINFODATA {
     pub dhpdev: *mut core::ffi::c_void,
     pub dwSize: u32,
@@ -11206,44 +7766,22 @@ pub struct DD_GETDRIVERINFODATA {
     pub dwActualSize: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_GETDRIVERINFODATA {}
-impl Clone for DD_GETDRIVERINFODATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETDRIVERINFODATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETDRIVERINFODATA").field("dhpdev", &self.dhpdev).field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETDRIVERINFODATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETDRIVERINFODATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dhpdev == other.dhpdev && self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidInfo == other.guidInfo && self.dwExpectedSize == other.dwExpectedSize && self.lpvData == other.lpvData && self.dwActualSize == other.dwActualSize && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_GETDRIVERINFODATA {}
 impl Default for DD_GETDRIVERINFODATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_GETDRIVERSTATEDATA {
     pub dwFlags: u32,
     pub Anonymous: DD_GETDRIVERSTATEDATA_0,
     pub lpdwStates: *mut u32,
     pub dwLength: u32,
     pub ddRVal: windows_core::HRESULT,
-}
-impl Copy for DD_GETDRIVERSTATEDATA {}
-impl Clone for DD_GETDRIVERSTATEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_GETDRIVERSTATEDATA {
     type TypeKind = windows_core::CopyType;
@@ -11254,15 +7792,10 @@ impl Default for DD_GETDRIVERSTATEDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DD_GETDRIVERSTATEDATA_0 {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwhContext: usize,
-}
-impl Copy for DD_GETDRIVERSTATEDATA_0 {}
-impl Clone for DD_GETDRIVERSTATEDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_GETDRIVERSTATEDATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -11273,6 +7806,7 @@ impl Default for DD_GETDRIVERSTATEDATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -11280,44 +7814,22 @@ pub struct DD_GETFLIPSTATUSDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetFlipStatus: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETFLIPSTATUSDATA {}
-impl Clone for DD_GETFLIPSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETFLIPSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetFlipStatus", &self.GetFlipStatus).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETFLIPSTATUSDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETFLIPSTATUSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.GetFlipStatus == other.GetFlipStatus
-    }
-}
-impl Eq for DD_GETFLIPSTATUSDATA {}
 impl Default for DD_GETFLIPSTATUSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetHeapAlignment: *mut core::ffi::c_void,
     pub Alignment: HEAPALIGNMENT,
-}
-impl Copy for DD_GETHEAPALIGNMENTDATA {}
-impl Clone for DD_GETHEAPALIGNMENTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_GETHEAPALIGNMENTDATA {
     type TypeKind = windows_core::CopyType;
@@ -11328,6 +7840,7 @@ impl Default for DD_GETHEAPALIGNMENTDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut windows_core::GUID,
@@ -11336,12 +7849,6 @@ pub struct DD_GETINTERNALMOCOMPDATA {
     pub ddPixelFormat: DDPIXELFORMAT,
     pub dwScratchMemAlloc: u32,
     pub ddRVal: windows_core::HRESULT,
-}
-impl Copy for DD_GETINTERNALMOCOMPDATA {}
-impl Clone for DD_GETINTERNALMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_GETINTERNALMOCOMPDATA {
     type TypeKind = windows_core::CopyType;
@@ -11352,6 +7859,7 @@ impl Default for DD_GETINTERNALMOCOMPDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut windows_core::GUID,
@@ -11362,12 +7870,6 @@ pub struct DD_GETMOCOMPCOMPBUFFDATA {
     pub lpCompBuffInfo: *mut DDCOMPBUFFERINFO,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_GETMOCOMPCOMPBUFFDATA {}
-impl Clone for DD_GETMOCOMPCOMPBUFFDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DD_GETMOCOMPCOMPBUFFDATA {
     type TypeKind = windows_core::CopyType;
 }
@@ -11377,6 +7879,7 @@ impl Default for DD_GETMOCOMPCOMPBUFFDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut windows_core::GUID,
@@ -11384,96 +7887,48 @@ pub struct DD_GETMOCOMPFORMATSDATA {
     pub lpFormats: *mut DDPIXELFORMAT,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_GETMOCOMPFORMATSDATA {}
-impl Clone for DD_GETMOCOMPFORMATSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETMOCOMPFORMATSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETMOCOMPFORMATSDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETMOCOMPFORMATSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpGuid == other.lpGuid && self.dwNumFormats == other.dwNumFormats && self.lpFormats == other.lpFormats && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_GETMOCOMPFORMATSDATA {}
 impl Default for DD_GETMOCOMPFORMATSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwNumGuids: u32,
     pub lpGuids: *mut windows_core::GUID,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_GETMOCOMPGUIDSDATA {}
-impl Clone for DD_GETMOCOMPGUIDSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETMOCOMPGUIDSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETMOCOMPGUIDSDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETMOCOMPGUIDSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwNumGuids == other.dwNumGuids && self.lpGuids == other.lpGuids && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_GETMOCOMPGUIDSDATA {}
 impl Default for DD_GETMOCOMPGUIDSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETSCANLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwScanLine: u32,
     pub ddRVal: windows_core::HRESULT,
     pub GetScanLine: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETSCANLINEDATA {}
-impl Clone for DD_GETSCANLINEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETSCANLINEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).field("GetScanLine", &self.GetScanLine).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETSCANLINEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETSCANLINEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwScanLine == other.dwScanLine && self.ddRVal == other.ddRVal && self.GetScanLine == other.GetScanLine
-    }
-}
-impl Eq for DD_GETSCANLINEDATA {}
 impl Default for DD_GETSCANLINEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11485,32 +7940,16 @@ pub struct DD_GETVPORTBANDWIDTHDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortBandwidth: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTBANDWIDTHDATA {}
-impl Clone for DD_GETVPORTBANDWIDTHDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTBANDWIDTHDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpddpfFormat", &self.lpddpfFormat).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwFlags", &self.dwFlags).field("lpBandwidth", &self.lpBandwidth).field("ddRVal", &self.ddRVal).field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTBANDWIDTHDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTBANDWIDTHDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.lpddpfFormat == other.lpddpfFormat && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwFlags == other.dwFlags && self.lpBandwidth == other.lpBandwidth && self.ddRVal == other.ddRVal && self.GetVideoPortBandwidth == other.GetVideoPortBandwidth
-    }
-}
-impl Eq for DD_GETVPORTBANDWIDTHDATA {}
 impl Default for DD_GETVPORTBANDWIDTHDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTCONNECTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwPortId: u32,
@@ -11519,32 +7958,16 @@ pub struct DD_GETVPORTCONNECTDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortConnectInfo: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTCONNECTDATA {}
-impl Clone for DD_GETVPORTCONNECTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTCONNECTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTCONNECTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTCONNECTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwPortId == other.dwPortId && self.lpConnect == other.lpConnect && self.dwNumEntries == other.dwNumEntries && self.ddRVal == other.ddRVal && self.GetVideoPortConnectInfo == other.GetVideoPortConnectInfo
-    }
-}
-impl Eq for DD_GETVPORTCONNECTDATA {}
 impl Default for DD_GETVPORTCONNECTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11552,64 +7975,32 @@ pub struct DD_GETVPORTFIELDDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortField: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTFIELDDATA {}
-impl Clone for DD_GETVPORTFIELDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTFIELDDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTFIELDDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("bField", &self.bField).field("ddRVal", &self.ddRVal).field("GetVideoPortField", &self.GetVideoPortField).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTFIELDDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTFIELDDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.bField == other.bField && self.ddRVal == other.ddRVal && self.GetVideoPortField == other.GetVideoPortField
-    }
-}
-impl Eq for DD_GETVPORTFIELDDATA {}
 impl Default for DD_GETVPORTFIELDDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub fpSurface: usize,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortFlipStatus: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTFLIPSTATUSDATA {}
-impl Clone for DD_GETVPORTFLIPSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTFLIPSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTFLIPSTATUSDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTFLIPSTATUSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.fpSurface == other.fpSurface && self.ddRVal == other.ddRVal && self.GetVideoPortFlipStatus == other.GetVideoPortFlipStatus
-    }
-}
-impl Eq for DD_GETVPORTFLIPSTATUSDATA {}
 impl Default for DD_GETVPORTFLIPSTATUSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11619,32 +8010,16 @@ pub struct DD_GETVPORTINPUTFORMATDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortInputFormats: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTINPUTFORMATDATA {}
-impl Clone for DD_GETVPORTINPUTFORMATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTINPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfFormat", &self.lpddpfFormat).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTINPUTFORMATDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTINPUTFORMATDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.lpddpfFormat == other.lpddpfFormat && self.dwNumFormats == other.dwNumFormats && self.ddRVal == other.ddRVal && self.GetVideoPortInputFormats == other.GetVideoPortInputFormats
-    }
-}
-impl Eq for DD_GETVPORTINPUTFORMATDATA {}
 impl Default for DD_GETVPORTINPUTFORMATDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11652,32 +8027,16 @@ pub struct DD_GETVPORTLINEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortLine: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTLINEDATA {}
-impl Clone for DD_GETVPORTLINEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTLINEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTLINEDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwLine", &self.dwLine).field("ddRVal", &self.ddRVal).field("GetVideoPortLine", &self.GetVideoPortLine).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTLINEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTLINEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwLine == other.dwLine && self.ddRVal == other.ddRVal && self.GetVideoPortLine == other.GetVideoPortLine
-    }
-}
-impl Eq for DD_GETVPORTLINEDATA {}
 impl Default for DD_GETVPORTLINEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11688,32 +8047,16 @@ pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortInputFormats: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTOUTPUTFORMATDATA {}
-impl Clone for DD_GETVPORTOUTPUTFORMATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTOUTPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfInputFormat", &self.lpddpfInputFormat).field("lpddpfOutputFormats", &self.lpddpfOutputFormats).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTOUTPUTFORMATDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTOUTPUTFORMATDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.lpddpfInputFormat == other.lpddpfInputFormat && self.lpddpfOutputFormats == other.lpddpfOutputFormats && self.dwNumFormats == other.dwNumFormats && self.ddRVal == other.ddRVal && self.GetVideoPortInputFormats == other.GetVideoPortInputFormats
-    }
-}
-impl Eq for DD_GETVPORTOUTPUTFORMATDATA {}
 impl Default for DD_GETVPORTOUTPUTFORMATDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETVPORTSIGNALDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -11721,32 +8064,16 @@ pub struct DD_GETVPORTSIGNALDATA {
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoSignalStatus: *mut core::ffi::c_void,
 }
-impl Copy for DD_GETVPORTSIGNALDATA {}
-impl Clone for DD_GETVPORTSIGNALDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_GETVPORTSIGNALDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_GETVPORTSIGNALDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwStatus", &self.dwStatus).field("ddRVal", &self.ddRVal).field("GetVideoSignalStatus", &self.GetVideoSignalStatus).finish()
-    }
-}
 impl windows_core::TypeKind for DD_GETVPORTSIGNALDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_GETVPORTSIGNALDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwStatus == other.dwStatus && self.ddRVal == other.ddRVal && self.GetVideoSignalStatus == other.GetVideoSignalStatus
-    }
-}
-impl Eq for DD_GETVPORTSIGNALDATA {}
 impl Default for DD_GETVPORTSIGNALDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_HALINFO {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
@@ -11757,12 +8084,6 @@ pub struct DD_HALINFO {
     pub lpD3DHALCallbacks: *mut core::ffi::c_void,
     pub lpD3DBufCallbacks: *mut DD_D3DBUFCALLBACKS,
 }
-impl Copy for DD_HALINFO {}
-impl Clone for DD_HALINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DD_HALINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -11772,18 +8093,13 @@ impl Default for DD_HALINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_HALINFO_V4 {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
     pub ddCaps: DDNTCORECAPS,
     pub GetDriverInfo: PDD_GETDRIVERINFO,
     pub dwFlags: u32,
-}
-impl Copy for DD_HALINFO_V4 {}
-impl Clone for DD_HALINFO_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_HALINFO_V4 {
     type TypeKind = windows_core::CopyType;
@@ -11794,22 +8110,12 @@ impl Default for DD_HALINFO_V4 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub SyncSurfaceData: PDD_KERNELCB_SYNCSURFACE,
     pub SyncVideoPortData: PDD_KERNELCB_SYNCVIDEOPORT,
-}
-impl Copy for DD_KERNELCALLBACKS {}
-impl Clone for DD_KERNELCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_KERNELCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_KERNELCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DD_KERNELCALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -11820,6 +8126,7 @@ impl Default for DD_KERNELCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_LOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -11831,32 +8138,16 @@ pub struct DD_LOCKDATA {
     pub dwFlags: u32,
     pub fpProcess: usize,
 }
-impl Copy for DD_LOCKDATA {}
-impl Clone for DD_LOCKDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_LOCKDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_LOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("bHasRect", &self.bHasRect).field("rArea", &self.rArea).field("lpSurfData", &self.lpSurfData).field("ddRVal", &self.ddRVal).field("Lock", &self.Lock).field("dwFlags", &self.dwFlags).field("fpProcess", &self.fpProcess).finish()
-    }
-}
 impl windows_core::TypeKind for DD_LOCKDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_LOCKDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.bHasRect == other.bHasRect && self.rArea == other.rArea && self.lpSurfData == other.lpSurfData && self.ddRVal == other.ddRVal && self.Lock == other.Lock && self.dwFlags == other.dwFlags && self.fpProcess == other.fpProcess
-    }
-}
-impl Eq for DD_LOCKDATA {}
 impl Default for DD_LOCKDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_MAPMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub bMap: super::super::Foundation::BOOL,
@@ -11864,32 +8155,16 @@ pub struct DD_MAPMEMORYDATA {
     pub fpProcess: usize,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_MAPMEMORYDATA {}
-impl Clone for DD_MAPMEMORYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_MAPMEMORYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_MAPMEMORYDATA").field("lpDD", &self.lpDD).field("bMap", &self.bMap).field("hProcess", &self.hProcess).field("fpProcess", &self.fpProcess).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_MAPMEMORYDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_MAPMEMORYDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.bMap == other.bMap && self.hProcess == other.hProcess && self.fpProcess == other.fpProcess && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_MAPMEMORYDATA {}
 impl Default for DD_MAPMEMORYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -11897,17 +8172,6 @@ pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub CreateSurfaceEx: PDD_CREATESURFACEEX,
     pub GetDriverState: PDD_GETDRIVERSTATE,
     pub DestroyDDLocal: PDD_DESTROYDDLOCAL,
-}
-impl Copy for DD_MISCELLANEOUS2CALLBACKS {}
-impl Clone for DD_MISCELLANEOUS2CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_MISCELLANEOUS2CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_MISCELLANEOUS2CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DD_MISCELLANEOUS2CALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -11918,21 +8182,11 @@ impl Default for DD_MISCELLANEOUS2CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_MISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub GetAvailDriverMemory: PDD_GETAVAILDRIVERMEMORY,
-}
-impl Copy for DD_MISCELLANEOUSCALLBACKS {}
-impl Clone for DD_MISCELLANEOUSCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_MISCELLANEOUSCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_MISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DD_MISCELLANEOUSCALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -11943,6 +8197,7 @@ impl Default for DD_MISCELLANEOUSCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_MORECAPS {
     pub dwSize: u32,
     pub dwAlphaCaps: u32,
@@ -11954,42 +8209,20 @@ pub struct DD_MORECAPS {
     pub dwVSBFilterCaps: u32,
     pub dwSSBFilterCaps: u32,
 }
-impl Copy for DD_MORECAPS {}
-impl Clone for DD_MORECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_MORECAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_MORECAPS").field("dwSize", &self.dwSize).field("dwAlphaCaps", &self.dwAlphaCaps).field("dwSVBAlphaCaps", &self.dwSVBAlphaCaps).field("dwVSBAlphaCaps", &self.dwVSBAlphaCaps).field("dwSSBAlphaCaps", &self.dwSSBAlphaCaps).field("dwFilterCaps", &self.dwFilterCaps).field("dwSVBFilterCaps", &self.dwSVBFilterCaps).field("dwVSBFilterCaps", &self.dwVSBFilterCaps).field("dwSSBFilterCaps", &self.dwSSBFilterCaps).finish()
-    }
-}
 impl windows_core::TypeKind for DD_MORECAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_MORECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwAlphaCaps == other.dwAlphaCaps && self.dwSVBAlphaCaps == other.dwSVBAlphaCaps && self.dwVSBAlphaCaps == other.dwVSBAlphaCaps && self.dwSSBAlphaCaps == other.dwSSBAlphaCaps && self.dwFilterCaps == other.dwFilterCaps && self.dwSVBFilterCaps == other.dwSVBFilterCaps && self.dwVSBFilterCaps == other.dwVSBFilterCaps && self.dwSSBFilterCaps == other.dwSSBFilterCaps
-    }
-}
-impl Eq for DD_MORECAPS {}
 impl Default for DD_MORECAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_MORESURFACECAPS {
     pub dwSize: u32,
     pub ddsCapsMore: DDSCAPSEX,
     pub ddsExtendedHeapRestrictions: [DD_MORESURFACECAPS_0; 1],
-}
-impl Copy for DD_MORESURFACECAPS {}
-impl Clone for DD_MORESURFACECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_MORESURFACECAPS {
     type TypeKind = windows_core::CopyType;
@@ -12000,15 +8233,10 @@ impl Default for DD_MORESURFACECAPS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_MORESURFACECAPS_0 {
     pub ddsCapsEx: DDSCAPSEX,
     pub ddsCapsExAlt: DDSCAPSEX,
-}
-impl Copy for DD_MORESURFACECAPS_0 {}
-impl Clone for DD_MORESURFACECAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_MORESURFACECAPS_0 {
     type TypeKind = windows_core::CopyType;
@@ -12019,6 +8247,7 @@ impl Default for DD_MORESURFACECAPS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -12033,17 +8262,6 @@ pub struct DD_MOTIONCOMPCALLBACKS {
     pub QueryMoCompStatus: PDD_MOCOMPCB_QUERYSTATUS,
     pub DestroyMoComp: PDD_MOCOMPCB_DESTROY,
 }
-impl Copy for DD_MOTIONCOMPCALLBACKS {}
-impl Clone for DD_MOTIONCOMPCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_MOTIONCOMPCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_MOTIONCOMPCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DD_MOTIONCOMPCALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -12053,6 +8271,7 @@ impl Default for DD_MOTIONCOMPCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_MOTIONCOMP_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub guid: windows_core::GUID,
@@ -12066,12 +8285,6 @@ pub struct DD_MOTIONCOMP_LOCAL {
     pub lpDriverReserved2: *mut core::ffi::c_void,
     pub lpDriverReserved3: *mut core::ffi::c_void,
 }
-impl Copy for DD_MOTIONCOMP_LOCAL {}
-impl Clone for DD_MOTIONCOMP_LOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DD_MOTIONCOMP_LOCAL {
     type TypeKind = windows_core::CopyType;
 }
@@ -12081,6 +8294,7 @@ impl Default for DD_MOTIONCOMP_LOCAL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_NONLOCALVIDMEMCAPS {
     pub dwSize: u32,
     pub dwNLVBCaps: u32,
@@ -12089,49 +8303,22 @@ pub struct DD_NONLOCALVIDMEMCAPS {
     pub dwNLVBFXCaps: u32,
     pub dwNLVBRops: [u32; 8],
 }
-impl Copy for DD_NONLOCALVIDMEMCAPS {}
-impl Clone for DD_NONLOCALVIDMEMCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_NONLOCALVIDMEMCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_NONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
-    }
-}
 impl windows_core::TypeKind for DD_NONLOCALVIDMEMCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_NONLOCALVIDMEMCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwNLVBCaps == other.dwNLVBCaps && self.dwNLVBCaps2 == other.dwNLVBCaps2 && self.dwNLVBCKeyCaps == other.dwNLVBCKeyCaps && self.dwNLVBFXCaps == other.dwNLVBFXCaps && self.dwNLVBRops == other.dwNLVBRops
-    }
-}
-impl Eq for DD_NONLOCALVIDMEMCAPS {}
 impl Default for DD_NONLOCALVIDMEMCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub FreeDriverMemory: PDD_FREEDRIVERMEMORY,
     pub SetExclusiveMode: PDD_SETEXCLUSIVEMODE,
     pub FlipToGDISurface: PDD_FLIPTOGDISURFACE,
-}
-impl Copy for DD_NTCALLBACKS {}
-impl Clone for DD_NTCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_NTCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_NTCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DD_NTCALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -12142,30 +8329,14 @@ impl Default for DD_NTCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_NTPRIVATEDRIVERCAPS {
     pub dwSize: u32,
     pub dwPrivateCaps: u32,
 }
-impl Copy for DD_NTPRIVATEDRIVERCAPS {}
-impl Clone for DD_NTPRIVATEDRIVERCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_NTPRIVATEDRIVERCAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_NTPRIVATEDRIVERCAPS").field("dwSize", &self.dwSize).field("dwPrivateCaps", &self.dwPrivateCaps).finish()
-    }
-}
 impl windows_core::TypeKind for DD_NTPRIVATEDRIVERCAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_NTPRIVATEDRIVERCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwPrivateCaps == other.dwPrivateCaps
-    }
-}
-impl Eq for DD_NTPRIVATEDRIVERCAPS {}
 impl Default for DD_NTPRIVATEDRIVERCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12173,25 +8344,12 @@ impl Default for DD_NTPRIVATEDRIVERCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_PALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub DestroyPalette: PDD_PALCB_DESTROYPALETTE,
     pub SetEntries: PDD_PALCB_SETENTRIES,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DD_PALETTECALLBACKS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DD_PALETTECALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DD_PALETTECALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_PALETTECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DD_PALETTECALLBACKS {
@@ -12204,65 +8362,34 @@ impl Default for DD_PALETTECALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_PALETTE_GLOBAL {
     pub dwReserved1: usize,
-}
-impl Copy for DD_PALETTE_GLOBAL {}
-impl Clone for DD_PALETTE_GLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_PALETTE_GLOBAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_PALETTE_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
-    }
 }
 impl windows_core::TypeKind for DD_PALETTE_GLOBAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_PALETTE_GLOBAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for DD_PALETTE_GLOBAL {}
 impl Default for DD_PALETTE_GLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_PALETTE_LOCAL {
     pub dwReserved0: u32,
     pub dwReserved1: usize,
 }
-impl Copy for DD_PALETTE_LOCAL {}
-impl Clone for DD_PALETTE_LOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_PALETTE_LOCAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_PALETTE_LOCAL").field("dwReserved0", &self.dwReserved0).field("dwReserved1", &self.dwReserved1).finish()
-    }
-}
 impl windows_core::TypeKind for DD_PALETTE_LOCAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_PALETTE_LOCAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReserved0 == other.dwReserved0 && self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for DD_PALETTE_LOCAL {}
 impl Default for DD_PALETTE_LOCAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -12270,32 +8397,16 @@ pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub dwFlags: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_QUERYMOCOMPSTATUSDATA {}
-impl Clone for DD_QUERYMOCOMPSTATUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_QUERYMOCOMPSTATUSDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_QUERYMOCOMPSTATUSDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpSurface", &self.lpSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_QUERYMOCOMPSTATUSDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_QUERYMOCOMPSTATUSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.lpSurface == other.lpSurface && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_QUERYMOCOMPSTATUSDATA {}
 impl Default for DD_QUERYMOCOMPSTATUSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_RENDERMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -12308,64 +8419,32 @@ pub struct DD_RENDERMOCOMPDATA {
     pub dwOutputDataSize: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_RENDERMOCOMPDATA {}
-impl Clone for DD_RENDERMOCOMPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_RENDERMOCOMPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_RENDERMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("dwNumBuffers", &self.dwNumBuffers).field("lpBufferInfo", &self.lpBufferInfo).field("dwFunction", &self.dwFunction).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("lpOutputData", &self.lpOutputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_RENDERMOCOMPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_RENDERMOCOMPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.dwNumBuffers == other.dwNumBuffers && self.lpBufferInfo == other.lpBufferInfo && self.dwFunction == other.dwFunction && self.lpInputData == other.lpInputData && self.dwInputDataSize == other.dwInputDataSize && self.lpOutputData == other.lpOutputData && self.dwOutputDataSize == other.dwOutputDataSize && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_RENDERMOCOMPDATA {}
 impl Default for DD_RENDERMOCOMPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SETCLIPLISTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: windows_core::HRESULT,
     pub SetClipList: *mut core::ffi::c_void,
 }
-impl Copy for DD_SETCLIPLISTDATA {}
-impl Clone for DD_SETCLIPLISTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SETCLIPLISTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SETCLIPLISTDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("SetClipList", &self.SetClipList).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SETCLIPLISTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SETCLIPLISTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.SetClipList == other.SetClipList
-    }
-}
-impl Eq for DD_SETCLIPLISTDATA {}
 impl Default for DD_SETCLIPLISTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SETCOLORKEYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -12374,26 +8453,9 @@ pub struct DD_SETCOLORKEYDATA {
     pub ddRVal: windows_core::HRESULT,
     pub SetColorKey: *mut core::ffi::c_void,
 }
-impl Copy for DD_SETCOLORKEYDATA {}
-impl Clone for DD_SETCOLORKEYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SETCOLORKEYDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SETCOLORKEYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SETCOLORKEYDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SETCOLORKEYDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ckNew == other.ckNew && self.ddRVal == other.ddRVal && self.SetColorKey == other.SetColorKey
-    }
-}
-impl Eq for DD_SETCOLORKEYDATA {}
 impl Default for DD_SETCOLORKEYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12401,6 +8463,7 @@ impl Default for DD_SETCOLORKEYDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SETENTRIESDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
@@ -12411,31 +8474,9 @@ pub struct DD_SETENTRIESDATA {
     pub SetEntries: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DD_SETENTRIESDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DD_SETENTRIESDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DD_SETENTRIESDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SETENTRIESDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("dwBase", &self.dwBase).field("dwNumEntries", &self.dwNumEntries).field("lpEntries", &self.lpEntries).field("ddRVal", &self.ddRVal).field("SetEntries", &self.SetEntries).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DD_SETENTRIESDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DD_SETENTRIESDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDPalette == other.lpDDPalette && self.dwBase == other.dwBase && self.dwNumEntries == other.dwNumEntries && self.lpEntries == other.lpEntries && self.ddRVal == other.ddRVal && self.SetEntries == other.SetEntries
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DD_SETENTRIESDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DD_SETENTRIESDATA {
     fn default() -> Self {
@@ -12443,6 +8484,7 @@ impl Default for DD_SETENTRIESDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwEnterExcl: u32,
@@ -12450,32 +8492,16 @@ pub struct DD_SETEXCLUSIVEMODEDATA {
     pub ddRVal: windows_core::HRESULT,
     pub SetExclusiveMode: *mut core::ffi::c_void,
 }
-impl Copy for DD_SETEXCLUSIVEMODEDATA {}
-impl Clone for DD_SETEXCLUSIVEMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SETEXCLUSIVEMODEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("SetExclusiveMode", &self.SetExclusiveMode).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SETEXCLUSIVEMODEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SETEXCLUSIVEMODEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwEnterExcl == other.dwEnterExcl && self.dwReserved == other.dwReserved && self.ddRVal == other.ddRVal && self.SetExclusiveMode == other.SetExclusiveMode
-    }
-}
-impl Eq for DD_SETEXCLUSIVEMODEDATA {}
 impl Default for DD_SETEXCLUSIVEMODEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSrcSurface: *mut DD_SURFACE_LOCAL,
@@ -12485,32 +8511,16 @@ pub struct DD_SETOVERLAYPOSITIONDATA {
     pub ddRVal: windows_core::HRESULT,
     pub SetOverlayPosition: *mut core::ffi::c_void,
 }
-impl Copy for DD_SETOVERLAYPOSITIONDATA {}
-impl Clone for DD_SETOVERLAYPOSITIONDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SETOVERLAYPOSITIONDATA").field("lpDD", &self.lpDD).field("lpDDSrcSurface", &self.lpDDSrcSurface).field("lpDDDestSurface", &self.lpDDDestSurface).field("lXPos", &self.lXPos).field("lYPos", &self.lYPos).field("ddRVal", &self.ddRVal).field("SetOverlayPosition", &self.SetOverlayPosition).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SETOVERLAYPOSITIONDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SETOVERLAYPOSITIONDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSrcSurface == other.lpDDSrcSurface && self.lpDDDestSurface == other.lpDDDestSurface && self.lXPos == other.lXPos && self.lYPos == other.lYPos && self.ddRVal == other.ddRVal && self.SetOverlayPosition == other.SetOverlayPosition
-    }
-}
-impl Eq for DD_SETOVERLAYPOSITIONDATA {}
 impl Default for DD_SETOVERLAYPOSITIONDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SETPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -12519,32 +8529,16 @@ pub struct DD_SETPALETTEDATA {
     pub SetPalette: *mut core::ffi::c_void,
     pub Attach: super::super::Foundation::BOOL,
 }
-impl Copy for DD_SETPALETTEDATA {}
-impl Clone for DD_SETPALETTEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SETPALETTEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SETPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("SetPalette", &self.SetPalette).field("Attach", &self.Attach).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SETPALETTEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SETPALETTEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.lpDDPalette == other.lpDDPalette && self.ddRVal == other.ddRVal && self.SetPalette == other.SetPalette && self.Attach == other.Attach
-    }
-}
-impl Eq for DD_SETPALETTEDATA {}
 impl Default for DD_SETPALETTEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_STEREOMODE {
     pub dwSize: u32,
     pub dwHeight: u32,
@@ -12553,32 +8547,16 @@ pub struct DD_STEREOMODE {
     pub dwRefreshRate: u32,
     pub bSupported: super::super::Foundation::BOOL,
 }
-impl Copy for DD_STEREOMODE {}
-impl Clone for DD_STEREOMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_STEREOMODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_STEREOMODE").field("dwSize", &self.dwSize).field("dwHeight", &self.dwHeight).field("dwWidth", &self.dwWidth).field("dwBpp", &self.dwBpp).field("dwRefreshRate", &self.dwRefreshRate).field("bSupported", &self.bSupported).finish()
-    }
-}
 impl windows_core::TypeKind for DD_STEREOMODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_STEREOMODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwHeight == other.dwHeight && self.dwWidth == other.dwWidth && self.dwBpp == other.dwBpp && self.dwRefreshRate == other.dwRefreshRate && self.bSupported == other.bSupported
-    }
-}
-impl Eq for DD_STEREOMODE {}
 impl Default for DD_STEREOMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_SURFACECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -12597,17 +8575,6 @@ pub struct DD_SURFACECALLBACKS {
     pub reserved4: *mut core::ffi::c_void,
     pub SetPalette: PDD_SURFCB_SETPALETTE,
 }
-impl Copy for DD_SURFACECALLBACKS {}
-impl Clone for DD_SURFACECALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SURFACECALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SURFACECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("reserved4", &self.reserved4).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SURFACECALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -12617,6 +8584,7 @@ impl Default for DD_SURFACECALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_SURFACE_GLOBAL {
     pub Anonymous1: DD_SURFACE_GLOBAL_0,
     pub Anonymous2: DD_SURFACE_GLOBAL_1,
@@ -12631,12 +8599,6 @@ pub struct DD_SURFACE_GLOBAL {
     pub fpHeapOffset: usize,
     pub hCreatorProcess: super::super::Foundation::HANDLE,
 }
-impl Copy for DD_SURFACE_GLOBAL {}
-impl Clone for DD_SURFACE_GLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DD_SURFACE_GLOBAL {
     type TypeKind = windows_core::CopyType;
 }
@@ -12646,15 +8608,10 @@ impl Default for DD_SURFACE_GLOBAL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DD_SURFACE_GLOBAL_0 {
     pub dwBlockSizeY: u32,
     pub lSlicePitch: i32,
-}
-impl Copy for DD_SURFACE_GLOBAL_0 {}
-impl Clone for DD_SURFACE_GLOBAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_GLOBAL_0 {
     type TypeKind = windows_core::CopyType;
@@ -12665,16 +8622,11 @@ impl Default for DD_SURFACE_GLOBAL_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DD_SURFACE_GLOBAL_1 {
     pub lpVidMemHeap: *mut VIDEOMEMORY,
     pub dwBlockSizeX: u32,
     pub dwUserMemSize: u32,
-}
-impl Copy for DD_SURFACE_GLOBAL_1 {}
-impl Clone for DD_SURFACE_GLOBAL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_GLOBAL_1 {
     type TypeKind = windows_core::CopyType;
@@ -12685,15 +8637,10 @@ impl Default for DD_SURFACE_GLOBAL_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DD_SURFACE_GLOBAL_2 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
-}
-impl Copy for DD_SURFACE_GLOBAL_2 {}
-impl Clone for DD_SURFACE_GLOBAL_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_GLOBAL_2 {
     type TypeKind = windows_core::CopyType;
@@ -12704,35 +8651,20 @@ impl Default for DD_SURFACE_GLOBAL_2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SURFACE_INT {
     pub lpLcl: *mut DD_SURFACE_LOCAL,
-}
-impl Copy for DD_SURFACE_INT {}
-impl Clone for DD_SURFACE_INT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SURFACE_INT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SURFACE_INT").field("lpLcl", &self.lpLcl).finish()
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_INT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SURFACE_INT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpLcl == other.lpLcl
-    }
-}
-impl Eq for DD_SURFACE_INT {}
 impl Default for DD_SURFACE_INT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_SURFACE_LOCAL {
     pub lpGbl: *mut DD_SURFACE_GLOBAL,
     pub dwFlags: u32,
@@ -12745,12 +8677,6 @@ pub struct DD_SURFACE_LOCAL {
     pub lpAttachListFrom: *mut DD_ATTACHLIST,
     pub rcOverlaySrc: super::super::Foundation::RECT,
 }
-impl Copy for DD_SURFACE_LOCAL {}
-impl Clone for DD_SURFACE_LOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DD_SURFACE_LOCAL {
     type TypeKind = windows_core::CopyType;
 }
@@ -12760,15 +8686,10 @@ impl Default for DD_SURFACE_LOCAL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DD_SURFACE_LOCAL_0 {
     pub ddckCKSrcOverlay: DDCOLORKEY,
     pub ddckCKSrcBlt: DDCOLORKEY,
-}
-impl Copy for DD_SURFACE_LOCAL_0 {}
-impl Clone for DD_SURFACE_LOCAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_LOCAL_0 {
     type TypeKind = windows_core::CopyType;
@@ -12779,15 +8700,10 @@ impl Default for DD_SURFACE_LOCAL_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DD_SURFACE_LOCAL_1 {
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub ddckCKDestBlt: DDCOLORKEY,
-}
-impl Copy for DD_SURFACE_LOCAL_1 {}
-impl Clone for DD_SURFACE_LOCAL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_LOCAL_1 {
     type TypeKind = windows_core::CopyType;
@@ -12798,18 +8714,13 @@ impl Default for DD_SURFACE_LOCAL_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DD_SURFACE_MORE {
     pub dwMipMapCount: u32,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub dwOverlayFlags: u32,
     pub ddsCapsEx: DDSCAPSEX,
     pub dwSurfaceHandle: u32,
-}
-impl Copy for DD_SURFACE_MORE {}
-impl Clone for DD_SURFACE_MORE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DD_SURFACE_MORE {
     type TypeKind = windows_core::CopyType;
@@ -12820,6 +8731,7 @@ impl Default for DD_SURFACE_MORE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SYNCSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -12833,44 +8745,16 @@ pub struct DD_SYNCSURFACEDATA {
     pub dwDriverReserved4: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_SYNCSURFACEDATA {}
-impl Clone for DD_SYNCSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SYNCSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SYNCSURFACEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("dwSurfaceOffset", &self.dwSurfaceOffset)
-            .field("fpLockPtr", &self.fpLockPtr)
-            .field("lPitch", &self.lPitch)
-            .field("dwOverlayOffset", &self.dwOverlayOffset)
-            .field("dwDriverReserved1", &self.dwDriverReserved1)
-            .field("dwDriverReserved2", &self.dwDriverReserved2)
-            .field("dwDriverReserved3", &self.dwDriverReserved3)
-            .field("dwDriverReserved4", &self.dwDriverReserved4)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DD_SYNCSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SYNCSURFACEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwSurfaceOffset == other.dwSurfaceOffset && self.fpLockPtr == other.fpLockPtr && self.lPitch == other.lPitch && self.dwOverlayOffset == other.dwOverlayOffset && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.dwDriverReserved4 == other.dwDriverReserved4 && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_SYNCSURFACEDATA {}
 impl Default for DD_SYNCSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_SYNCVIDEOPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -12882,64 +8766,32 @@ pub struct DD_SYNCVIDEOPORTDATA {
     pub dwDriverReserved3: u32,
     pub ddRVal: windows_core::HRESULT,
 }
-impl Copy for DD_SYNCVIDEOPORTDATA {}
-impl Clone for DD_SYNCVIDEOPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_SYNCVIDEOPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_SYNCVIDEOPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).field("ddRVal", &self.ddRVal).finish()
-    }
-}
 impl windows_core::TypeKind for DD_SYNCVIDEOPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_SYNCVIDEOPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwOriginOffset == other.dwOriginOffset && self.dwHeight == other.dwHeight && self.dwVBIHeight == other.dwVBIHeight && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.ddRVal == other.ddRVal
-    }
-}
-impl Eq for DD_SYNCVIDEOPORTDATA {}
 impl Default for DD_SYNCVIDEOPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_UNLOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: windows_core::HRESULT,
     pub Unlock: *mut core::ffi::c_void,
 }
-impl Copy for DD_UNLOCKDATA {}
-impl Clone for DD_UNLOCKDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_UNLOCKDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_UNLOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("Unlock", &self.Unlock).finish()
-    }
-}
 impl windows_core::TypeKind for DD_UNLOCKDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_UNLOCKDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.Unlock == other.Unlock
-    }
-}
-impl Eq for DD_UNLOCKDATA {}
 impl Default for DD_UNLOCKDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_UPDATENONLOCALHEAPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwHeap: u32,
@@ -12949,26 +8801,9 @@ pub struct DD_UPDATENONLOCALHEAPDATA {
     pub ddRVal: windows_core::HRESULT,
     pub UpdateNonLocalHeap: *mut core::ffi::c_void,
 }
-impl Copy for DD_UPDATENONLOCALHEAPDATA {}
-impl Clone for DD_UPDATENONLOCALHEAPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_UPDATENONLOCALHEAPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap).finish()
-    }
-}
 impl windows_core::TypeKind for DD_UPDATENONLOCALHEAPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_UPDATENONLOCALHEAPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwHeap == other.dwHeap && self.fpGARTLin == other.fpGARTLin && self.fpGARTDev == other.fpGARTDev && self.ulPolicyMaxBytes == other.ulPolicyMaxBytes && self.ddRVal == other.ddRVal && self.UpdateNonLocalHeap == other.UpdateNonLocalHeap
-    }
-}
-impl Eq for DD_UPDATENONLOCALHEAPDATA {}
 impl Default for DD_UPDATENONLOCALHEAPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13000,6 +8835,7 @@ impl Default for DD_UPDATEOVERLAYDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_UPDATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -13012,32 +8848,16 @@ pub struct DD_UPDATEVPORTDATA {
     pub ddRVal: windows_core::HRESULT,
     pub UpdateVideoPort: *mut core::ffi::c_void,
 }
-impl Copy for DD_UPDATEVPORTDATA {}
-impl Clone for DD_UPDATEVPORTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_UPDATEVPORTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_UPDATEVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lplpDDSurface", &self.lplpDDSurface).field("lplpDDVBISurface", &self.lplpDDVBISurface).field("lpVideoInfo", &self.lpVideoInfo).field("dwFlags", &self.dwFlags).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort).finish()
-    }
-}
 impl windows_core::TypeKind for DD_UPDATEVPORTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_UPDATEVPORTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.lplpDDSurface == other.lplpDDSurface && self.lplpDDVBISurface == other.lplpDDVBISurface && self.lpVideoInfo == other.lpVideoInfo && self.dwFlags == other.dwFlags && self.dwNumAutoflip == other.dwNumAutoflip && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip && self.ddRVal == other.ddRVal && self.UpdateVideoPort == other.UpdateVideoPort
-    }
-}
-impl Eq for DD_UPDATEVPORTDATA {}
 impl Default for DD_UPDATEVPORTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DD_VIDEOPORTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -13058,17 +8878,6 @@ pub struct DD_VIDEOPORTCALLBACKS {
     pub GetVideoSignalStatus: PDD_VPORTCB_GETSIGNALSTATUS,
     pub ColorControl: PDD_VPORTCB_COLORCONTROL,
 }
-impl Copy for DD_VIDEOPORTCALLBACKS {}
-impl Clone for DD_VIDEOPORTCALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_VIDEOPORTCALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_VIDEOPORTCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lpReserved1", &self.lpReserved1).finish()
-    }
-}
 impl windows_core::TypeKind for DD_VIDEOPORTCALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -13078,6 +8887,7 @@ impl Default for DD_VIDEOPORTCALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_VIDEOPORT_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub ddvpDesc: DDVIDEOPORTDESC,
@@ -13090,32 +8900,16 @@ pub struct DD_VIDEOPORT_LOCAL {
     pub dwReserved2: usize,
     pub dwReserved3: usize,
 }
-impl Copy for DD_VIDEOPORT_LOCAL {}
-impl Clone for DD_VIDEOPORT_LOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_VIDEOPORT_LOCAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_VIDEOPORT_LOCAL").field("lpDD", &self.lpDD).field("ddvpDesc", &self.ddvpDesc).field("ddvpInfo", &self.ddvpInfo).field("lpSurface", &self.lpSurface).field("lpVBISurface", &self.lpVBISurface).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
-    }
-}
 impl windows_core::TypeKind for DD_VIDEOPORT_LOCAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_VIDEOPORT_LOCAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.ddvpDesc == other.ddvpDesc && self.ddvpInfo == other.ddvpInfo && self.lpSurface == other.lpSurface && self.lpVBISurface == other.lpVBISurface && self.dwNumAutoflip == other.dwNumAutoflip && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3
-    }
-}
-impl Eq for DD_VIDEOPORT_LOCAL {}
 impl Default for DD_VIDEOPORT_LOCAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_VPORTCOLORDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -13124,32 +8918,16 @@ pub struct DD_VPORTCOLORDATA {
     pub ddRVal: windows_core::HRESULT,
     pub ColorControl: *mut core::ffi::c_void,
 }
-impl Copy for DD_VPORTCOLORDATA {}
-impl Clone for DD_VPORTCOLORDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_VPORTCOLORDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_VPORTCOLORDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpColorData", &self.lpColorData).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl).finish()
-    }
-}
 impl windows_core::TypeKind for DD_VPORTCOLORDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_VPORTCOLORDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.lpColorData == other.lpColorData && self.ddRVal == other.ddRVal && self.ColorControl == other.ColorControl
-    }
-}
-impl Eq for DD_VPORTCOLORDATA {}
 impl Default for DD_VPORTCOLORDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwFlags: u32,
@@ -13158,32 +8936,16 @@ pub struct DD_WAITFORVERTICALBLANKDATA {
     pub ddRVal: windows_core::HRESULT,
     pub WaitForVerticalBlank: *mut core::ffi::c_void,
 }
-impl Copy for DD_WAITFORVERTICALBLANKDATA {}
-impl Clone for DD_WAITFORVERTICALBLANKDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_WAITFORVERTICALBLANKDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).field("WaitForVerticalBlank", &self.WaitForVerticalBlank).finish()
-    }
-}
 impl windows_core::TypeKind for DD_WAITFORVERTICALBLANKDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_WAITFORVERTICALBLANKDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.dwFlags == other.dwFlags && self.bIsInVB == other.bIsInVB && self.hEvent == other.hEvent && self.ddRVal == other.ddRVal && self.WaitForVerticalBlank == other.WaitForVerticalBlank
-    }
-}
-impl Eq for DD_WAITFORVERTICALBLANKDATA {}
 impl Default for DD_WAITFORVERTICALBLANKDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -13193,32 +8955,16 @@ pub struct DD_WAITFORVPORTSYNCDATA {
     pub ddRVal: windows_core::HRESULT,
     pub UpdateVideoPort: *mut core::ffi::c_void,
 }
-impl Copy for DD_WAITFORVPORTSYNCDATA {}
-impl Clone for DD_WAITFORVPORTSYNCDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DD_WAITFORVPORTSYNCDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DD_WAITFORVPORTSYNCDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("dwLine", &self.dwLine).field("dwTimeOut", &self.dwTimeOut).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort).finish()
-    }
-}
 impl windows_core::TypeKind for DD_WAITFORVPORTSYNCDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DD_WAITFORVPORTSYNCDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.dwLine == other.dwLine && self.dwTimeOut == other.dwTimeOut && self.ddRVal == other.ddRVal && self.UpdateVideoPort == other.UpdateVideoPort
-    }
-}
-impl Eq for DD_WAITFORVPORTSYNCDATA {}
 impl Default for DD_WAITFORVPORTSYNCDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DXAPI_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -13239,17 +8985,6 @@ pub struct DXAPI_INTERFACE {
     pub DxTransfer: PDX_TRANSFER,
     pub DxGetTransferStatus: PDX_GETTRANSFERSTATUS,
 }
-impl Copy for DXAPI_INTERFACE {}
-impl Clone for DXAPI_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXAPI_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXAPI_INTERFACE").field("Size", &self.Size).field("Version", &self.Version).field("Context", &self.Context).field("InterfaceReference", &self.InterfaceReference).field("InterfaceDereference", &self.InterfaceDereference).finish()
-    }
-}
 impl windows_core::TypeKind for DXAPI_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -13259,98 +8994,51 @@ impl Default for DXAPI_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DX_IRQDATA {
     pub dwIrqFlags: u32,
-}
-impl Copy for DX_IRQDATA {}
-impl Clone for DX_IRQDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DX_IRQDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DX_IRQDATA").field("dwIrqFlags", &self.dwIrqFlags).finish()
-    }
 }
 impl windows_core::TypeKind for DX_IRQDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DX_IRQDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIrqFlags == other.dwIrqFlags
-    }
-}
-impl Eq for DX_IRQDATA {}
 impl Default for DX_IRQDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAPALIAS {
     pub fpVidMem: usize,
     pub lpAlias: *mut core::ffi::c_void,
     pub dwAliasSize: u32,
 }
-impl Copy for HEAPALIAS {}
-impl Clone for HEAPALIAS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HEAPALIAS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HEAPALIAS").field("fpVidMem", &self.fpVidMem).field("lpAlias", &self.lpAlias).field("dwAliasSize", &self.dwAliasSize).finish()
-    }
-}
 impl windows_core::TypeKind for HEAPALIAS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HEAPALIAS {
-    fn eq(&self, other: &Self) -> bool {
-        self.fpVidMem == other.fpVidMem && self.lpAlias == other.lpAlias && self.dwAliasSize == other.dwAliasSize
-    }
-}
-impl Eq for HEAPALIAS {}
 impl Default for HEAPALIAS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAPALIASINFO {
     pub dwRefCnt: u32,
     pub dwFlags: u32,
     pub dwNumHeaps: u32,
     pub lpAliases: *mut HEAPALIAS,
 }
-impl Copy for HEAPALIASINFO {}
-impl Clone for HEAPALIASINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HEAPALIASINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HEAPALIASINFO").field("dwRefCnt", &self.dwRefCnt).field("dwFlags", &self.dwFlags).field("dwNumHeaps", &self.dwNumHeaps).field("lpAliases", &self.lpAliases).finish()
-    }
-}
 impl windows_core::TypeKind for HEAPALIASINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HEAPALIASINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRefCnt == other.dwRefCnt && self.dwFlags == other.dwFlags && self.dwNumHeaps == other.dwNumHeaps && self.lpAliases == other.lpAliases
-    }
-}
-impl Eq for HEAPALIASINFO {}
 impl Default for HEAPALIASINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HEAPALIGNMENT {
     pub dwSize: u32,
     pub ddsCaps: DDSCAPS,
@@ -13363,12 +9051,6 @@ pub struct HEAPALIGNMENT {
     pub Offscreen: SURFACEALIGNMENT,
     pub FlipTarget: SURFACEALIGNMENT,
 }
-impl Copy for HEAPALIGNMENT {}
-impl Clone for HEAPALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for HEAPALIGNMENT {
     type TypeKind = windows_core::CopyType;
 }
@@ -13378,6 +9060,7 @@ impl Default for HEAPALIGNMENT {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut windows_core::GUID,
@@ -13388,20 +9071,9 @@ impl Clone for IUNKNOWN_LIST {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for IUNKNOWN_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IUNKNOWN_LIST").field("lpLink", &self.lpLink).field("lpGuid", &self.lpGuid).field("lpIUnknown", &self.lpIUnknown).finish()
-    }
-}
 impl windows_core::TypeKind for IUNKNOWN_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IUNKNOWN_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpLink == other.lpLink && self.lpGuid == other.lpGuid && self.lpIUnknown == other.lpIUnknown
-    }
-}
-impl Eq for IUNKNOWN_LIST {}
 impl Default for IUNKNOWN_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13452,6 +9124,7 @@ impl windows_core::TypeKind for PDD_SETMODEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_LIST {
     pub lpLink: *mut PROCESS_LIST,
     pub dwProcessId: u32,
@@ -13459,40 +9132,18 @@ pub struct PROCESS_LIST {
     pub dwAlphaDepth: u32,
     pub dwZDepth: u32,
 }
-impl Copy for PROCESS_LIST {}
-impl Clone for PROCESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_LIST").field("lpLink", &self.lpLink).field("dwProcessId", &self.dwProcessId).field("dwRefCnt", &self.dwRefCnt).field("dwAlphaDepth", &self.dwAlphaDepth).field("dwZDepth", &self.dwZDepth).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpLink == other.lpLink && self.dwProcessId == other.dwProcessId && self.dwRefCnt == other.dwRefCnt && self.dwAlphaDepth == other.dwAlphaDepth && self.dwZDepth == other.dwZDepth
-    }
-}
-impl Eq for PROCESS_LIST {}
 impl Default for PROCESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SURFACEALIGNMENT {
     pub Anonymous: SURFACEALIGNMENT_0,
-}
-impl Copy for SURFACEALIGNMENT {}
-impl Clone for SURFACEALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SURFACEALIGNMENT {
     type TypeKind = windows_core::CopyType;
@@ -13503,15 +9154,10 @@ impl Default for SURFACEALIGNMENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SURFACEALIGNMENT_0 {
     pub Linear: SURFACEALIGNMENT_0_0,
     pub Rectangular: SURFACEALIGNMENT_0_1,
-}
-impl Copy for SURFACEALIGNMENT_0 {}
-impl Clone for SURFACEALIGNMENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SURFACEALIGNMENT_0 {
     type TypeKind = windows_core::CopyType;
@@ -13522,70 +9168,39 @@ impl Default for SURFACEALIGNMENT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SURFACEALIGNMENT_0_0 {
     pub dwStartAlignment: u32,
     pub dwPitchAlignment: u32,
     pub dwFlags: u32,
     pub dwReserved2: u32,
 }
-impl Copy for SURFACEALIGNMENT_0_0 {}
-impl Clone for SURFACEALIGNMENT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SURFACEALIGNMENT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SURFACEALIGNMENT_0_0").field("dwStartAlignment", &self.dwStartAlignment).field("dwPitchAlignment", &self.dwPitchAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for SURFACEALIGNMENT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SURFACEALIGNMENT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStartAlignment == other.dwStartAlignment && self.dwPitchAlignment == other.dwPitchAlignment && self.dwFlags == other.dwFlags && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for SURFACEALIGNMENT_0_0 {}
 impl Default for SURFACEALIGNMENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SURFACEALIGNMENT_0_1 {
     pub dwXAlignment: u32,
     pub dwYAlignment: u32,
     pub dwFlags: u32,
     pub dwReserved2: u32,
 }
-impl Copy for SURFACEALIGNMENT_0_1 {}
-impl Clone for SURFACEALIGNMENT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SURFACEALIGNMENT_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SURFACEALIGNMENT_0_1").field("dwXAlignment", &self.dwXAlignment).field("dwYAlignment", &self.dwYAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for SURFACEALIGNMENT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SURFACEALIGNMENT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwXAlignment == other.dwXAlignment && self.dwYAlignment == other.dwYAlignment && self.dwFlags == other.dwFlags && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for SURFACEALIGNMENT_0_1 {}
 impl Default for SURFACEALIGNMENT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIDEOMEMORY {
     pub dwFlags: u32,
     pub fpStart: usize,
@@ -13593,12 +9208,6 @@ pub struct VIDEOMEMORY {
     pub ddsCaps: DDSCAPS,
     pub ddsCapsAlt: DDSCAPS,
     pub Anonymous2: VIDEOMEMORY_1,
-}
-impl Copy for VIDEOMEMORY {}
-impl Clone for VIDEOMEMORY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIDEOMEMORY {
     type TypeKind = windows_core::CopyType;
@@ -13609,15 +9218,10 @@ impl Default for VIDEOMEMORY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIDEOMEMORY_0 {
     pub fpEnd: usize,
     pub dwWidth: u32,
-}
-impl Copy for VIDEOMEMORY_0 {}
-impl Clone for VIDEOMEMORY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIDEOMEMORY_0 {
     type TypeKind = windows_core::CopyType;
@@ -13628,15 +9232,10 @@ impl Default for VIDEOMEMORY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIDEOMEMORY_1 {
     pub lpHeap: *mut VMEMHEAP,
     pub dwHeight: u32,
-}
-impl Copy for VIDEOMEMORY_1 {}
-impl Clone for VIDEOMEMORY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIDEOMEMORY_1 {
     type TypeKind = windows_core::CopyType;
@@ -13647,6 +9246,7 @@ impl Default for VIDEOMEMORY_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIDEOMEMORYINFO {
     pub fpPrimary: usize,
     pub dwFlags: u32,
@@ -13661,12 +9261,6 @@ pub struct VIDEOMEMORYINFO {
     pub dwAlphaAlign: u32,
     pub pvPrimary: *mut core::ffi::c_void,
 }
-impl Copy for VIDEOMEMORYINFO {}
-impl Clone for VIDEOMEMORYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VIDEOMEMORYINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -13676,6 +9270,7 @@ impl Default for VIDEOMEMORYINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIDMEM {
     pub dwFlags: u32,
     pub fpStart: usize,
@@ -13683,12 +9278,6 @@ pub struct VIDMEM {
     pub ddsCaps: DDSCAPS,
     pub ddsCapsAlt: DDSCAPS,
     pub Anonymous2: VIDMEM_1,
-}
-impl Copy for VIDMEM {}
-impl Clone for VIDMEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIDMEM {
     type TypeKind = windows_core::CopyType;
@@ -13699,15 +9288,10 @@ impl Default for VIDMEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIDMEM_0 {
     pub fpEnd: usize,
     pub dwWidth: u32,
-}
-impl Copy for VIDMEM_0 {}
-impl Clone for VIDMEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIDMEM_0 {
     type TypeKind = windows_core::CopyType;
@@ -13718,15 +9302,10 @@ impl Default for VIDMEM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIDMEM_1 {
     pub lpHeap: *mut VMEMHEAP,
     pub dwHeight: u32,
-}
-impl Copy for VIDMEM_1 {}
-impl Clone for VIDMEM_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIDMEM_1 {
     type TypeKind = windows_core::CopyType;
@@ -13737,6 +9316,7 @@ impl Default for VIDMEM_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIDMEMINFO {
     pub fpPrimary: usize,
     pub dwFlags: u32,
@@ -13752,12 +9332,6 @@ pub struct VIDMEMINFO {
     pub dwNumHeaps: u32,
     pub pvmList: *mut VIDMEM,
 }
-impl Copy for VIDMEMINFO {}
-impl Clone for VIDMEMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VIDMEMINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -13767,6 +9341,7 @@ impl Default for VIDMEMINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VMEMHEAP {
     pub dwFlags: u32,
     pub stride: u32,
@@ -13786,12 +9361,6 @@ pub struct VMEMHEAP {
     pub pAgpCommitMask: *mut u8,
     pub dwAgpCommitMaskSize: u32,
 }
-impl Copy for VMEMHEAP {}
-impl Clone for VMEMHEAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VMEMHEAP {
     type TypeKind = windows_core::CopyType;
 }
@@ -13801,38 +9370,23 @@ impl Default for VMEMHEAP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMEML {
     pub next: *mut VMEML,
     pub ptr: usize,
     pub size: u32,
     pub bDiscardable: super::super::Foundation::BOOL,
 }
-impl Copy for VMEML {}
-impl Clone for VMEML {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMEML {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMEML").field("next", &self.next).field("ptr", &self.ptr).field("size", &self.size).field("bDiscardable", &self.bDiscardable).finish()
-    }
-}
 impl windows_core::TypeKind for VMEML {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMEML {
-    fn eq(&self, other: &Self) -> bool {
-        self.next == other.next && self.ptr == other.ptr && self.size == other.size && self.bDiscardable == other.bDiscardable
-    }
-}
-impl Eq for VMEML {}
 impl Default for VMEML {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMEMR {
     pub next: *mut VMEMR,
     pub prev: *mut VMEMR,
@@ -13850,26 +9404,9 @@ pub struct VMEMR {
     pub pBits: usize,
     pub bDiscardable: super::super::Foundation::BOOL,
 }
-impl Copy for VMEMR {}
-impl Clone for VMEMR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VMEMR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VMEMR").field("next", &self.next).field("prev", &self.prev).field("pUp", &self.pUp).field("pDown", &self.pDown).field("pLeft", &self.pLeft).field("pRight", &self.pRight).field("ptr", &self.ptr).field("size", &self.size).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("flags", &self.flags).field("pBits", &self.pBits).field("bDiscardable", &self.bDiscardable).finish()
-    }
-}
 impl windows_core::TypeKind for VMEMR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VMEMR {
-    fn eq(&self, other: &Self) -> bool {
-        self.next == other.next && self.prev == other.prev && self.pUp == other.pUp && self.pDown == other.pDown && self.pLeft == other.pLeft && self.pRight == other.pRight && self.ptr == other.ptr && self.size == other.size && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.flags == other.flags && self.pBits == other.pBits && self.bDiscardable == other.bDiscardable
-    }
-}
-impl Eq for VMEMR {}
 impl Default for VMEMR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

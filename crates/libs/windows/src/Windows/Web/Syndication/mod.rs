@@ -2732,20 +2732,10 @@ impl windows_core::RuntimeType for SyndicationTextType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RetrievalProgress {
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
-}
-impl Copy for RetrievalProgress {}
-impl Clone for RetrievalProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RetrievalProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RetrievalProgress").field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
-    }
 }
 impl windows_core::TypeKind for RetrievalProgress {
     type TypeKind = windows_core::CopyType;
@@ -2753,34 +2743,18 @@ impl windows_core::TypeKind for RetrievalProgress {
 impl windows_core::RuntimeType for RetrievalProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
 }
-impl PartialEq for RetrievalProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesRetrieved == other.BytesRetrieved && self.TotalBytesToRetrieve == other.TotalBytesToRetrieve
-    }
-}
-impl Eq for RetrievalProgress {}
 impl Default for RetrievalProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TransferProgress {
     pub BytesSent: u32,
     pub TotalBytesToSend: u32,
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
-}
-impl Copy for TransferProgress {}
-impl Clone for TransferProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TransferProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TransferProgress").field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
-    }
 }
 impl windows_core::TypeKind for TransferProgress {
     type TypeKind = windows_core::CopyType;
@@ -2788,12 +2762,6 @@ impl windows_core::TypeKind for TransferProgress {
 impl windows_core::RuntimeType for TransferProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.TransferProgress;u4;u4;u4;u4)");
 }
-impl PartialEq for TransferProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesRetrieved == other.BytesRetrieved && self.TotalBytesToRetrieve == other.TotalBytesToRetrieve
-    }
-}
-impl Eq for TransferProgress {}
 impl Default for TransferProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

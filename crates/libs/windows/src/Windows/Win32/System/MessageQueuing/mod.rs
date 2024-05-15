@@ -5974,132 +5974,69 @@ impl core::fmt::Debug for XACT_STATUS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQCOLUMNSET {
     pub cCol: u32,
     pub aCol: *mut u32,
 }
-impl Copy for MQCOLUMNSET {}
-impl Clone for MQCOLUMNSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQCOLUMNSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQCOLUMNSET").field("cCol", &self.cCol).field("aCol", &self.aCol).finish()
-    }
-}
 impl windows_core::TypeKind for MQCOLUMNSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQCOLUMNSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCol == other.cCol && self.aCol == other.aCol
-    }
-}
-impl Eq for MQCOLUMNSET {}
 impl Default for MQCOLUMNSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQMGMTPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut windows_core::PROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-impl Copy for MQMGMTPROPS {}
-impl Clone for MQMGMTPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQMGMTPROPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQMGMTPROPS").field("cProp", &self.cProp).field("aPropID", &self.aPropID).field("aPropVar", &self.aPropVar).field("aStatus", &self.aStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MQMGMTPROPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQMGMTPROPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProp == other.cProp && self.aPropID == other.aPropID && self.aPropVar == other.aPropVar && self.aStatus == other.aStatus
-    }
-}
-impl Eq for MQMGMTPROPS {}
 impl Default for MQMGMTPROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQMSGPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut windows_core::PROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-impl Copy for MQMSGPROPS {}
-impl Clone for MQMSGPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQMSGPROPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQMSGPROPS").field("cProp", &self.cProp).field("aPropID", &self.aPropID).field("aPropVar", &self.aPropVar).field("aStatus", &self.aStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MQMSGPROPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQMSGPROPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProp == other.cProp && self.aPropID == other.aPropID && self.aPropVar == other.aPropVar && self.aStatus == other.aStatus
-    }
-}
-impl Eq for MQMSGPROPS {}
 impl Default for MQMSGPROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQPRIVATEPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut windows_core::PROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-impl Copy for MQPRIVATEPROPS {}
-impl Clone for MQPRIVATEPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQPRIVATEPROPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQPRIVATEPROPS").field("cProp", &self.cProp).field("aPropID", &self.aPropID).field("aPropVar", &self.aPropVar).field("aStatus", &self.aStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MQPRIVATEPROPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQPRIVATEPROPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProp == other.cProp && self.aPropID == other.aPropID && self.aPropVar == other.aPropVar && self.aStatus == other.aStatus
-    }
-}
-impl Eq for MQPRIVATEPROPS {}
 impl Default for MQPRIVATEPROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MQPROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: u32,
@@ -6110,174 +6047,83 @@ impl Clone for MQPROPERTYRESTRICTION {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MQPROPERTYRESTRICTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQPROPERTYRESTRICTION").field("rel", &self.rel).field("prop", &self.prop).field("prval", &self.prval).finish()
-    }
-}
 impl windows_core::TypeKind for MQPROPERTYRESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQPROPERTYRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.rel == other.rel && self.prop == other.prop && self.prval == other.prval
-    }
-}
-impl Eq for MQPROPERTYRESTRICTION {}
 impl Default for MQPROPERTYRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQQMPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut windows_core::PROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-impl Copy for MQQMPROPS {}
-impl Clone for MQQMPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQQMPROPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQQMPROPS").field("cProp", &self.cProp).field("aPropID", &self.aPropID).field("aPropVar", &self.aPropVar).field("aStatus", &self.aStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MQQMPROPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQQMPROPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProp == other.cProp && self.aPropID == other.aPropID && self.aPropVar == other.aPropVar && self.aStatus == other.aStatus
-    }
-}
-impl Eq for MQQMPROPS {}
 impl Default for MQQMPROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQQUEUEPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut windows_core::PROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-impl Copy for MQQUEUEPROPS {}
-impl Clone for MQQUEUEPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQQUEUEPROPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQQUEUEPROPS").field("cProp", &self.cProp).field("aPropID", &self.aPropID).field("aPropVar", &self.aPropVar).field("aStatus", &self.aStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MQQUEUEPROPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQQUEUEPROPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProp == other.cProp && self.aPropID == other.aPropID && self.aPropVar == other.aPropVar && self.aStatus == other.aStatus
-    }
-}
-impl Eq for MQQUEUEPROPS {}
 impl Default for MQQUEUEPROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQRESTRICTION {
     pub cRes: u32,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
 }
-impl Copy for MQRESTRICTION {}
-impl Clone for MQRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQRESTRICTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQRESTRICTION").field("cRes", &self.cRes).field("paPropRes", &self.paPropRes).finish()
-    }
-}
 impl windows_core::TypeKind for MQRESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cRes == other.cRes && self.paPropRes == other.paPropRes
-    }
-}
-impl Eq for MQRESTRICTION {}
 impl Default for MQRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQSORTKEY {
     pub propColumn: u32,
     pub dwOrder: u32,
 }
-impl Copy for MQSORTKEY {}
-impl Clone for MQSORTKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQSORTKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQSORTKEY").field("propColumn", &self.propColumn).field("dwOrder", &self.dwOrder).finish()
-    }
-}
 impl windows_core::TypeKind for MQSORTKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQSORTKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.propColumn == other.propColumn && self.dwOrder == other.dwOrder
-    }
-}
-impl Eq for MQSORTKEY {}
 impl Default for MQSORTKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQSORTSET {
     pub cCol: u32,
     pub aCol: *mut MQSORTKEY,
 }
-impl Copy for MQSORTSET {}
-impl Clone for MQSORTSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MQSORTSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MQSORTSET").field("cCol", &self.cCol).field("aCol", &self.aCol).finish()
-    }
-}
 impl windows_core::TypeKind for MQSORTSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MQSORTSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCol == other.cCol && self.aCol == other.aCol
-    }
-}
-impl Eq for MQSORTSET {}
 impl Default for MQSORTSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6299,31 +6145,15 @@ pub const MSMQQueueManagement: windows_core::GUID = windows_core::GUID::from_u12
 pub const MSMQTransaction: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
 pub const MSMQTransactionDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEQUENCE_INFO {
     pub SeqID: i64,
     pub SeqNo: u32,
     pub PrevNo: u32,
 }
-impl Copy for SEQUENCE_INFO {}
-impl Clone for SEQUENCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SEQUENCE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SEQUENCE_INFO").field("SeqID", &self.SeqID).field("SeqNo", &self.SeqNo).field("PrevNo", &self.PrevNo).finish()
-    }
-}
 impl windows_core::TypeKind for SEQUENCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SEQUENCE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SeqID == other.SeqID && self.SeqNo == other.SeqNo && self.PrevNo == other.PrevNo
-    }
-}
-impl Eq for SEQUENCE_INFO {}
 impl Default for SEQUENCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

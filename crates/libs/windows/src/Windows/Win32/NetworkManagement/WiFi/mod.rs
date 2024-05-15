@@ -3184,6 +3184,7 @@ impl core::fmt::Debug for WL_DISPLAY_PAGES {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+#[derive(Clone, Copy, Debug)]
 pub struct DOT11EXT_APIS {
     pub Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER,
     pub Dot11ExtFreeBuffer: DOT11EXT_FREE_BUFFER,
@@ -3209,20 +3210,6 @@ pub struct DOT11EXT_APIS {
     pub Dot11ExtProcessSecurityPacket: DOT11EXT_PROCESS_ONEX_PACKET,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl Copy for DOT11EXT_APIS {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl Clone for DOT11EXT_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl core::fmt::Debug for DOT11EXT_APIS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_APIS").finish()
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl windows_core::TypeKind for DOT11EXT_APIS {
     type TypeKind = windows_core::CopyType;
 }
@@ -3233,89 +3220,41 @@ impl Default for DOT11EXT_APIS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     pub pszXmlFragmentIhvConnectivity: windows_core::PWSTR,
-}
-impl Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
-impl Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_CONNECTIVITY_PROFILE").field("pszXmlFragmentIhvConnectivity", &self.pszXmlFragmentIhvConnectivity).finish()
-    }
 }
 impl windows_core::TypeKind for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszXmlFragmentIhvConnectivity == other.pszXmlFragmentIhvConnectivity
-    }
-}
-impl Eq for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
 impl Default for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
     pub IhvConnectivityProfile: DOT11EXT_IHV_CONNECTIVITY_PROFILE,
     pub IhvSecurityProfile: DOT11EXT_IHV_SECURITY_PROFILE,
 }
-impl Copy for DOT11EXT_IHV_DISCOVERY_PROFILE {}
-impl Clone for DOT11EXT_IHV_DISCOVERY_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_IHV_DISCOVERY_PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_DISCOVERY_PROFILE").field("IhvConnectivityProfile", &self.IhvConnectivityProfile).field("IhvSecurityProfile", &self.IhvSecurityProfile).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11EXT_IHV_DISCOVERY_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_IHV_DISCOVERY_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.IhvConnectivityProfile == other.IhvConnectivityProfile && self.IhvSecurityProfile == other.IhvSecurityProfile
-    }
-}
-impl Eq for DOT11EXT_IHV_DISCOVERY_PROFILE {}
 impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     pub dwCount: u32,
     pub pIhvDiscoveryProfiles: *mut DOT11EXT_IHV_DISCOVERY_PROFILE,
 }
-impl Copy for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
-impl Clone for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_DISCOVERY_PROFILE_LIST").field("dwCount", &self.dwCount).field("pIhvDiscoveryProfiles", &self.pIhvDiscoveryProfiles).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCount == other.dwCount && self.pIhvDiscoveryProfiles == other.pIhvDiscoveryProfiles
-    }
-}
-impl Eq for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
 impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3323,6 +3262,7 @@ impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
+#[derive(Clone, Copy, Debug)]
 pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvDeinitService: DOT11EXTIHV_DEINIT_SERVICE,
     pub Dot11ExtIhvInitAdapter: DOT11EXTIHV_INIT_ADAPTER,
@@ -3345,20 +3285,6 @@ pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvControl: DOT11EXTIHV_CONTROL,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl Copy for DOT11EXT_IHV_HANDLERS {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl Clone for DOT11EXT_IHV_HANDLERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl core::fmt::Debug for DOT11EXT_IHV_HANDLERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_HANDLERS").finish()
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl windows_core::TypeKind for DOT11EXT_IHV_HANDLERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -3370,6 +3296,7 @@ impl Default for DOT11EXT_IHV_HANDLERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_PARAMS {
     pub dot11ExtIhvProfileParams: DOT11EXT_IHV_PROFILE_PARAMS,
     pub wstrProfileName: [u16; 256],
@@ -3377,31 +3304,9 @@ pub struct DOT11EXT_IHV_PARAMS {
     pub interfaceGuid: windows_core::GUID,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Copy for DOT11EXT_IHV_PARAMS {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Clone for DOT11EXT_IHV_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl core::fmt::Debug for DOT11EXT_IHV_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_PARAMS").field("dot11ExtIhvProfileParams", &self.dot11ExtIhvProfileParams).field("wstrProfileName", &self.wstrProfileName).field("dwProfileTypeFlags", &self.dwProfileTypeFlags).field("interfaceGuid", &self.interfaceGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl windows_core::TypeKind for DOT11EXT_IHV_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl PartialEq for DOT11EXT_IHV_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11ExtIhvProfileParams == other.dot11ExtIhvProfileParams && self.wstrProfileName == other.wstrProfileName && self.dwProfileTypeFlags == other.dwProfileTypeFlags && self.interfaceGuid == other.interfaceGuid
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Eq for DOT11EXT_IHV_PARAMS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl Default for DOT11EXT_IHV_PARAMS {
     fn default() -> Self {
@@ -3410,37 +3315,16 @@ impl Default for DOT11EXT_IHV_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_PROFILE_PARAMS {
     pub pSsidList: *mut DOT11EXT_IHV_SSID_LIST,
     pub BssType: DOT11_BSS_TYPE,
     pub pMSSecuritySettings: *mut DOT11_MSSECURITY_SETTINGS,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Copy for DOT11EXT_IHV_PROFILE_PARAMS {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Clone for DOT11EXT_IHV_PROFILE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl core::fmt::Debug for DOT11EXT_IHV_PROFILE_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_PROFILE_PARAMS").field("pSsidList", &self.pSsidList).field("BssType", &self.BssType).field("pMSSecuritySettings", &self.pMSSecuritySettings).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl windows_core::TypeKind for DOT11EXT_IHV_PROFILE_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl PartialEq for DOT11EXT_IHV_PROFILE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSsidList == other.pSsidList && self.BssType == other.BssType && self.pMSSecuritySettings == other.pMSSecuritySettings
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Eq for DOT11EXT_IHV_PROFILE_PARAMS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl Default for DOT11EXT_IHV_PROFILE_PARAMS {
     fn default() -> Self {
@@ -3448,66 +3332,35 @@ impl Default for DOT11EXT_IHV_PROFILE_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
     pub pszXmlFragmentIhvSecurity: windows_core::PWSTR,
     pub bUseMSOnex: super::super::Foundation::BOOL,
 }
-impl Copy for DOT11EXT_IHV_SECURITY_PROFILE {}
-impl Clone for DOT11EXT_IHV_SECURITY_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_IHV_SECURITY_PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_SECURITY_PROFILE").field("pszXmlFragmentIhvSecurity", &self.pszXmlFragmentIhvSecurity).field("bUseMSOnex", &self.bUseMSOnex).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11EXT_IHV_SECURITY_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_IHV_SECURITY_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszXmlFragmentIhvSecurity == other.pszXmlFragmentIhvSecurity && self.bUseMSOnex == other.bUseMSOnex
-    }
-}
-impl Eq for DOT11EXT_IHV_SECURITY_PROFILE {}
 impl Default for DOT11EXT_IHV_SECURITY_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_SSID_LIST {
     pub ulCount: u32,
     pub SSIDs: [DOT11_SSID; 1],
 }
-impl Copy for DOT11EXT_IHV_SSID_LIST {}
-impl Clone for DOT11EXT_IHV_SSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_IHV_SSID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_SSID_LIST").field("ulCount", &self.ulCount).field("SSIDs", &self.SSIDs).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11EXT_IHV_SSID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_IHV_SSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCount == other.ulCount && self.SSIDs == other.SSIDs
-    }
-}
-impl Eq for DOT11EXT_IHV_SSID_LIST {}
 impl Default for DOT11EXT_IHV_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_UI_REQUEST {
     pub dwSessionId: u32,
     pub guidUIRequest: windows_core::GUID,
@@ -3515,48 +3368,21 @@ pub struct DOT11EXT_IHV_UI_REQUEST {
     pub dwByteCount: u32,
     pub pvUIRequest: *mut u8,
 }
-impl Copy for DOT11EXT_IHV_UI_REQUEST {}
-impl Clone for DOT11EXT_IHV_UI_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_IHV_UI_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_IHV_UI_REQUEST").field("dwSessionId", &self.dwSessionId).field("guidUIRequest", &self.guidUIRequest).field("UIPageClsid", &self.UIPageClsid).field("dwByteCount", &self.dwByteCount).field("pvUIRequest", &self.pvUIRequest).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11EXT_IHV_UI_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_IHV_UI_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSessionId == other.dwSessionId && self.guidUIRequest == other.guidUIRequest && self.UIPageClsid == other.UIPageClsid && self.dwByteCount == other.dwByteCount && self.pvUIRequest == other.pvUIRequest
-    }
-}
-impl Eq for DOT11EXT_IHV_UI_REQUEST {}
 impl Default for DOT11EXT_IHV_UI_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS {
     pub Dot11ExtRequestVirtualStation: DOT11EXT_REQUEST_VIRTUAL_STATION,
     pub Dot11ExtReleaseVirtualStation: DOT11EXT_RELEASE_VIRTUAL_STATION,
     pub Dot11ExtQueryVirtualStationProperties: DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES,
     pub Dot11ExtSetVirtualStationAPProperties: DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES,
-}
-impl Copy for DOT11EXT_VIRTUAL_STATION_APIS {}
-impl Clone for DOT11EXT_VIRTUAL_STATION_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_VIRTUAL_STATION_APIS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_VIRTUAL_STATION_APIS").finish()
-    }
 }
 impl windows_core::TypeKind for DOT11EXT_VIRTUAL_STATION_APIS {
     type TypeKind = windows_core::CopyType;
@@ -3567,6 +3393,7 @@ impl Default for DOT11EXT_VIRTUAL_STATION_APIS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     pub dot11SSID: DOT11_SSID,
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
@@ -3575,32 +3402,16 @@ pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     pub dwKeyLength: u32,
     pub ucKeyData: [u8; 64],
 }
-impl Copy for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
-impl Clone for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11EXT_VIRTUAL_STATION_AP_PROPERTY").field("dot11SSID", &self.dot11SSID).field("dot11AuthAlgo", &self.dot11AuthAlgo).field("dot11CipherAlgo", &self.dot11CipherAlgo).field("bIsPassPhrase", &self.bIsPassPhrase).field("dwKeyLength", &self.dwKeyLength).field("ucKeyData", &self.ucKeyData).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11SSID == other.dot11SSID && self.dot11AuthAlgo == other.dot11AuthAlgo && self.dot11CipherAlgo == other.dot11CipherAlgo && self.bIsPassPhrase == other.bIsPassPhrase && self.dwKeyLength == other.dwKeyLength && self.ucKeyData == other.ucKeyData
-    }
-}
-impl Eq for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
 impl Default for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub AccessNetworkType: u8,
     pub Internet: u8,
@@ -3608,57 +3419,24 @@ pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub ESR: u8,
     pub UESA: u8,
 }
-impl Copy for DOT11_ACCESSNETWORKOPTIONS {}
-impl Clone for DOT11_ACCESSNETWORKOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_ACCESSNETWORKOPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ACCESSNETWORKOPTIONS").field("AccessNetworkType", &self.AccessNetworkType).field("Internet", &self.Internet).field("ASRA", &self.ASRA).field("ESR", &self.ESR).field("UESA", &self.UESA).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_ACCESSNETWORKOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_ACCESSNETWORKOPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AccessNetworkType == other.AccessNetworkType && self.Internet == other.Internet && self.ASRA == other.ASRA && self.ESR == other.ESR && self.UESA == other.UESA
-    }
-}
-impl Eq for DOT11_ACCESSNETWORKOPTIONS {}
 impl Default for DOT11_ACCESSNETWORKOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ADAPTER {
     pub gAdapterId: windows_core::GUID,
     pub pszDescription: windows_core::PWSTR,
     pub Dot11CurrentOpMode: DOT11_CURRENT_OPERATION_MODE,
 }
-impl Copy for DOT11_ADAPTER {}
-impl Clone for DOT11_ADAPTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_ADAPTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ADAPTER").field("gAdapterId", &self.gAdapterId).field("pszDescription", &self.pszDescription).field("Dot11CurrentOpMode", &self.Dot11CurrentOpMode).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_ADAPTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_ADAPTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.gAdapterId == other.gAdapterId && self.pszDescription == other.pszDescription && self.Dot11CurrentOpMode == other.Dot11CurrentOpMode
-    }
-}
-impl Eq for DOT11_ADAPTER {}
 impl Default for DOT11_ADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3666,6 +3444,7 @@ impl Default for DOT11_ADAPTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uBeaconIEsOffset: u32,
@@ -3674,31 +3453,9 @@ pub struct DOT11_ADDITIONAL_IE {
     pub uResponseIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ADDITIONAL_IE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ADDITIONAL_IE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ADDITIONAL_IE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ADDITIONAL_IE").field("Header", &self.Header).field("uBeaconIEsOffset", &self.uBeaconIEsOffset).field("uBeaconIEsLength", &self.uBeaconIEsLength).field("uResponseIEsOffset", &self.uResponseIEsOffset).field("uResponseIEsLength", &self.uResponseIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ADDITIONAL_IE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ADDITIONAL_IE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uBeaconIEsOffset == other.uBeaconIEsOffset && self.uBeaconIEsLength == other.uBeaconIEsLength && self.uResponseIEsOffset == other.uResponseIEsOffset && self.uResponseIEsLength == other.uResponseIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ADDITIONAL_IE {
     fn default() -> Self {
@@ -3707,6 +3464,7 @@ impl Default for DOT11_ADDITIONAL_IE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub Status: DOT11_ANQP_QUERY_RESULT,
@@ -3714,31 +3472,9 @@ pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub uResponseLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ANQP_QUERY_COMPLETE_PARAMETERS").field("Header", &self.Header).field("Status", &self.Status).field("hContext", &self.hContext).field("uResponseLength", &self.uResponseLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Status == other.Status && self.hContext == other.hContext && self.uResponseLength == other.uResponseLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -3746,32 +3482,16 @@ impl Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
-impl Copy for DOT11_AP_JOIN_REQUEST {}
-impl Clone for DOT11_AP_JOIN_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_AP_JOIN_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_AP_JOIN_REQUEST").field("uJoinFailureTimeout", &self.uJoinFailureTimeout).field("OperationalRateSet", &self.OperationalRateSet).field("uChCenterFrequency", &self.uChCenterFrequency).field("dot11BSSDescription", &self.dot11BSSDescription).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_AP_JOIN_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_AP_JOIN_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uJoinFailureTimeout == other.uJoinFailureTimeout && self.OperationalRateSet == other.OperationalRateSet && self.uChCenterFrequency == other.uChCenterFrequency && self.dot11BSSDescription == other.dot11BSSDescription
-    }
-}
-impl Eq for DOT11_AP_JOIN_REQUEST {}
 impl Default for DOT11_AP_JOIN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3779,6 +3499,7 @@ impl Default for DOT11_AP_JOIN_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub MacAddr: [u8; 6],
@@ -3808,83 +3529,9 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub uAssocComebackTime: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ASSOCIATION_COMPLETION_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("MacAddr", &self.MacAddr)
-            .field("uStatus", &self.uStatus)
-            .field("bReAssocReq", &self.bReAssocReq)
-            .field("bReAssocResp", &self.bReAssocResp)
-            .field("uAssocReqOffset", &self.uAssocReqOffset)
-            .field("uAssocReqSize", &self.uAssocReqSize)
-            .field("uAssocRespOffset", &self.uAssocRespOffset)
-            .field("uAssocRespSize", &self.uAssocRespSize)
-            .field("uBeaconOffset", &self.uBeaconOffset)
-            .field("uBeaconSize", &self.uBeaconSize)
-            .field("uIHVDataOffset", &self.uIHVDataOffset)
-            .field("uIHVDataSize", &self.uIHVDataSize)
-            .field("AuthAlgo", &self.AuthAlgo)
-            .field("UnicastCipher", &self.UnicastCipher)
-            .field("MulticastCipher", &self.MulticastCipher)
-            .field("uActivePhyListOffset", &self.uActivePhyListOffset)
-            .field("uActivePhyListSize", &self.uActivePhyListSize)
-            .field("bFourAddressSupported", &self.bFourAddressSupported)
-            .field("bPortAuthorized", &self.bPortAuthorized)
-            .field("ucActiveQoSProtocol", &self.ucActiveQoSProtocol)
-            .field("DSInfo", &self.DSInfo)
-            .field("uEncapTableOffset", &self.uEncapTableOffset)
-            .field("uEncapTableSize", &self.uEncapTableSize)
-            .field("MulticastMgmtCipher", &self.MulticastMgmtCipher)
-            .field("uAssocComebackTime", &self.uAssocComebackTime)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.MacAddr == other.MacAddr
-            && self.uStatus == other.uStatus
-            && self.bReAssocReq == other.bReAssocReq
-            && self.bReAssocResp == other.bReAssocResp
-            && self.uAssocReqOffset == other.uAssocReqOffset
-            && self.uAssocReqSize == other.uAssocReqSize
-            && self.uAssocRespOffset == other.uAssocRespOffset
-            && self.uAssocRespSize == other.uAssocRespSize
-            && self.uBeaconOffset == other.uBeaconOffset
-            && self.uBeaconSize == other.uBeaconSize
-            && self.uIHVDataOffset == other.uIHVDataOffset
-            && self.uIHVDataSize == other.uIHVDataSize
-            && self.AuthAlgo == other.AuthAlgo
-            && self.UnicastCipher == other.UnicastCipher
-            && self.MulticastCipher == other.MulticastCipher
-            && self.uActivePhyListOffset == other.uActivePhyListOffset
-            && self.uActivePhyListSize == other.uActivePhyListSize
-            && self.bFourAddressSupported == other.bFourAddressSupported
-            && self.bPortAuthorized == other.bPortAuthorized
-            && self.ucActiveQoSProtocol == other.ucActiveQoSProtocol
-            && self.DSInfo == other.DSInfo
-            && self.uEncapTableOffset == other.uEncapTableOffset
-            && self.uEncapTableSize == other.uEncapTableSize
-            && self.MulticastMgmtCipher == other.MulticastMgmtCipher
-            && self.uAssocComebackTime == other.uAssocComebackTime
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn default() -> Self {
@@ -3892,6 +3539,7 @@ impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_INFO_EX {
     pub PeerMacAddress: [u8; 6],
     pub BSSID: [u8; 6],
@@ -3907,40 +3555,9 @@ pub struct DOT11_ASSOCIATION_INFO_EX {
     pub ullNumOfRxPacketSuccesses: u64,
     pub ullNumOfRxPacketFailures: u64,
 }
-impl Copy for DOT11_ASSOCIATION_INFO_EX {}
-impl Clone for DOT11_ASSOCIATION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_ASSOCIATION_INFO_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ASSOCIATION_INFO_EX")
-            .field("PeerMacAddress", &self.PeerMacAddress)
-            .field("BSSID", &self.BSSID)
-            .field("usCapabilityInformation", &self.usCapabilityInformation)
-            .field("usListenInterval", &self.usListenInterval)
-            .field("ucPeerSupportedRates", &self.ucPeerSupportedRates)
-            .field("usAssociationID", &self.usAssociationID)
-            .field("dot11AssociationState", &self.dot11AssociationState)
-            .field("dot11PowerMode", &self.dot11PowerMode)
-            .field("liAssociationUpTime", &self.liAssociationUpTime)
-            .field("ullNumOfTxPacketSuccesses", &self.ullNumOfTxPacketSuccesses)
-            .field("ullNumOfTxPacketFailures", &self.ullNumOfTxPacketFailures)
-            .field("ullNumOfRxPacketSuccesses", &self.ullNumOfRxPacketSuccesses)
-            .field("ullNumOfRxPacketFailures", &self.ullNumOfRxPacketFailures)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_ASSOCIATION_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_ASSOCIATION_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddress == other.PeerMacAddress && self.BSSID == other.BSSID && self.usCapabilityInformation == other.usCapabilityInformation && self.usListenInterval == other.usListenInterval && self.ucPeerSupportedRates == other.ucPeerSupportedRates && self.usAssociationID == other.usAssociationID && self.dot11AssociationState == other.dot11AssociationState && self.dot11PowerMode == other.dot11PowerMode && self.liAssociationUpTime == other.liAssociationUpTime && self.ullNumOfTxPacketSuccesses == other.ullNumOfTxPacketSuccesses && self.ullNumOfTxPacketFailures == other.ullNumOfTxPacketFailures && self.ullNumOfRxPacketSuccesses == other.ullNumOfRxPacketSuccesses && self.ullNumOfRxPacketFailures == other.ullNumOfRxPacketFailures
-    }
-}
-impl Eq for DOT11_ASSOCIATION_INFO_EX {}
 impl Default for DOT11_ASSOCIATION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3948,6 +3565,7 @@ impl Default for DOT11_ASSOCIATION_INFO_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -3955,31 +3573,9 @@ pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ASSOCIATION_INFO_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ASSOCIATION_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ASSOCIATION_INFO_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ASSOCIATION_INFO_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11AssocInfo", &self.dot11AssocInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ASSOCIATION_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ASSOCIATION_INFO_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11AssocInfo == other.dot11AssocInfo
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ASSOCIATION_INFO_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ASSOCIATION_INFO_LIST {
     fn default() -> Self {
@@ -3988,6 +3584,7 @@ impl Default for DOT11_ASSOCIATION_INFO_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub BSSID: [u8; 6],
@@ -3995,31 +3592,9 @@ pub struct DOT11_ASSOCIATION_PARAMS {
     pub uAssocRequestIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ASSOCIATION_PARAMS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ASSOCIATION_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ASSOCIATION_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ASSOCIATION_PARAMS").field("Header", &self.Header).field("BSSID", &self.BSSID).field("uAssocRequestIEsOffset", &self.uAssocRequestIEsOffset).field("uAssocRequestIEsLength", &self.uAssocRequestIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ASSOCIATION_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ASSOCIATION_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.BSSID == other.BSSID && self.uAssocRequestIEsOffset == other.uAssocRequestIEsOffset && self.uAssocRequestIEsLength == other.uAssocRequestIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ASSOCIATION_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ASSOCIATION_PARAMS {
     fn default() -> Self {
@@ -4028,6 +3603,7 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub MacAddr: [u8; 6],
@@ -4036,31 +3612,9 @@ pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub uIHVDataSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ASSOCIATION_START_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ASSOCIATION_START_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ASSOCIATION_START_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ASSOCIATION_START_PARAMETERS").field("Header", &self.Header).field("MacAddr", &self.MacAddr).field("SSID", &self.SSID).field("uIHVDataOffset", &self.uIHVDataOffset).field("uIHVDataSize", &self.uIHVDataSize).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ASSOCIATION_START_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ASSOCIATION_START_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.MacAddr == other.MacAddr && self.SSID == other.SSID && self.uIHVDataOffset == other.uIHVDataOffset && self.uIHVDataSize == other.uIHVDataSize
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ASSOCIATION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
     fn default() -> Self {
@@ -4069,6 +3623,7 @@ impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4076,31 +3631,9 @@ pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub AlgorithmIds: [DOT11_AUTH_ALGORITHM; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_AUTH_ALGORITHM_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_AUTH_ALGORITHM_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_AUTH_ALGORITHM_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_AUTH_ALGORITHM_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("AlgorithmIds", &self.AlgorithmIds).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_AUTH_ALGORITHM_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_AUTH_ALGORITHM_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.AlgorithmIds == other.AlgorithmIds
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_AUTH_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_AUTH_ALGORITHM_LIST {
     fn default() -> Self {
@@ -4108,30 +3641,14 @@ impl Default for DOT11_AUTH_ALGORITHM_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR {
     pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
     pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
 }
-impl Copy for DOT11_AUTH_CIPHER_PAIR {}
-impl Clone for DOT11_AUTH_CIPHER_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_AUTH_CIPHER_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_AUTH_CIPHER_PAIR").field("AuthAlgoId", &self.AuthAlgoId).field("CipherAlgoId", &self.CipherAlgoId).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_AUTH_CIPHER_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_AUTH_CIPHER_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.AuthAlgoId == other.AuthAlgoId && self.CipherAlgoId == other.CipherAlgoId
-    }
-}
-impl Eq for DOT11_AUTH_CIPHER_PAIR {}
 impl Default for DOT11_AUTH_CIPHER_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4139,6 +3656,7 @@ impl Default for DOT11_AUTH_CIPHER_PAIR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4146,31 +3664,9 @@ pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub AuthCipherPairs: [DOT11_AUTH_CIPHER_PAIR; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_AUTH_CIPHER_PAIR_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_AUTH_CIPHER_PAIR_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_AUTH_CIPHER_PAIR_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_AUTH_CIPHER_PAIR_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("AuthCipherPairs", &self.AuthCipherPairs).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_AUTH_CIPHER_PAIR_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_AUTH_CIPHER_PAIR_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.AuthCipherPairs == other.AuthCipherPairs
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_AUTH_CIPHER_PAIR_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
@@ -4179,6 +3675,7 @@ impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4186,31 +3683,9 @@ pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub uChannelNumber: [u32; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_AVAILABLE_CHANNEL_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_AVAILABLE_CHANNEL_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_AVAILABLE_CHANNEL_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_AVAILABLE_CHANNEL_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("uChannelNumber", &self.uChannelNumber).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_AVAILABLE_CHANNEL_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_AVAILABLE_CHANNEL_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.uChannelNumber == other.uChannelNumber
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_AVAILABLE_CHANNEL_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
     fn default() -> Self {
@@ -4219,6 +3694,7 @@ impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4226,31 +3702,9 @@ pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub uFrequencyValue: [u32; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_AVAILABLE_FREQUENCY_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_AVAILABLE_FREQUENCY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_AVAILABLE_FREQUENCY_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_AVAILABLE_FREQUENCY_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("uFrequencyValue", &self.uFrequencyValue).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_AVAILABLE_FREQUENCY_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_AVAILABLE_FREQUENCY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.uFrequencyValue == other.uFrequencyValue
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_AVAILABLE_FREQUENCY_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
     fn default() -> Self {
@@ -4258,30 +3712,14 @@ impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub uFlags: u32,
 }
-impl Copy for DOT11_BSSID_CANDIDATE {}
-impl Clone for DOT11_BSSID_CANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_BSSID_CANDIDATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_BSSID_CANDIDATE").field("BSSID", &self.BSSID).field("uFlags", &self.uFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_BSSID_CANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_BSSID_CANDIDATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BSSID == other.BSSID && self.uFlags == other.uFlags
-    }
-}
-impl Eq for DOT11_BSSID_CANDIDATE {}
 impl Default for DOT11_BSSID_CANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4289,6 +3727,7 @@ impl Default for DOT11_BSSID_CANDIDATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSSID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4296,31 +3735,9 @@ pub struct DOT11_BSSID_LIST {
     pub BSSIDs: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_BSSID_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_BSSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_BSSID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_BSSID_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("BSSIDs", &self.BSSIDs).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_BSSID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_BSSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.BSSIDs == other.BSSIDs
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_BSSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_BSSID_LIST {
     fn default() -> Self {
@@ -4328,6 +3745,7 @@ impl Default for DOT11_BSSID_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSS_DESCRIPTION {
     pub uReserved: u32,
     pub dot11BSSID: [u8; 6],
@@ -4338,32 +3756,16 @@ pub struct DOT11_BSS_DESCRIPTION {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_BSS_DESCRIPTION {}
-impl Clone for DOT11_BSS_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_BSS_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_BSS_DESCRIPTION").field("uReserved", &self.uReserved).field("dot11BSSID", &self.dot11BSSID).field("dot11BSSType", &self.dot11BSSType).field("usBeaconPeriod", &self.usBeaconPeriod).field("ullTimestamp", &self.ullTimestamp).field("usCapabilityInformation", &self.usCapabilityInformation).field("uBufferLength", &self.uBufferLength).field("ucBuffer", &self.ucBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_BSS_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_BSS_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.dot11BSSID == other.dot11BSSID && self.dot11BSSType == other.dot11BSSType && self.usBeaconPeriod == other.usBeaconPeriod && self.ullTimestamp == other.ullTimestamp && self.usCapabilityInformation == other.usCapabilityInformation && self.uBufferLength == other.uBufferLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_BSS_DESCRIPTION {}
 impl Default for DOT11_BSS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOT11_BSS_ENTRY {
     pub uPhyId: u32,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
@@ -4379,12 +3781,6 @@ pub struct DOT11_BSS_ENTRY {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_BSS_ENTRY {}
-impl Clone for DOT11_BSS_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DOT11_BSS_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -4394,15 +3790,10 @@ impl Default for DOT11_BSS_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     pub uChCenterFrequency: u32,
     pub FHSS: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0,
-}
-impl Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {}
-impl Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     type TypeKind = windows_core::CopyType;
@@ -4413,61 +3804,29 @@ impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     pub uHopPattern: u32,
     pub uHopSet: u32,
     pub uDwellTime: u32,
 }
-impl Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
-impl Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0").field("uHopPattern", &self.uHopPattern).field("uHopSet", &self.uHopSet).field("uDwellTime", &self.uDwellTime).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.uHopPattern == other.uHopPattern && self.uHopSet == other.uHopSet && self.uDwellTime == other.uDwellTime
-    }
-}
-impl Eq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
 impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSS_LIST {
     pub uNumOfBytes: u32,
     pub pucBuffer: *mut u8,
 }
-impl Copy for DOT11_BSS_LIST {}
-impl Clone for DOT11_BSS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_BSS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_BSS_LIST").field("uNumOfBytes", &self.uNumOfBytes).field("pucBuffer", &self.pucBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_BSS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_BSS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfBytes == other.uNumOfBytes && self.pucBuffer == other.pucBuffer
-    }
-}
-impl Eq for DOT11_BSS_LIST {}
 impl Default for DOT11_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4475,6 +3834,7 @@ impl Default for DOT11_BSS_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BYTE_ARRAY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfBytes: u32,
@@ -4482,31 +3842,9 @@ pub struct DOT11_BYTE_ARRAY {
     pub ucBuffer: [u8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_BYTE_ARRAY {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_BYTE_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_BYTE_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_BYTE_ARRAY").field("Header", &self.Header).field("uNumOfBytes", &self.uNumOfBytes).field("uTotalNumOfBytes", &self.uTotalNumOfBytes).field("ucBuffer", &self.ucBuffer).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_BYTE_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_BYTE_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfBytes == other.uNumOfBytes && self.uTotalNumOfBytes == other.uTotalNumOfBytes && self.ucBuffer == other.ucBuffer
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_BYTE_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_BYTE_ARRAY {
     fn default() -> Self {
@@ -4515,36 +3853,15 @@ impl Default for DOT11_BYTE_ARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CAN_SUSTAIN_AP_PARAMETERS").field("Header", &self.Header).field("ulReason", &self.ulReason).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ulReason == other.ulReason
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     fn default() -> Self {
@@ -4552,30 +3869,14 @@ impl Default for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CHANNEL_HINT {
     pub Dot11PhyType: DOT11_PHY_TYPE,
     pub uChannelNumber: u32,
 }
-impl Copy for DOT11_CHANNEL_HINT {}
-impl Clone for DOT11_CHANNEL_HINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_CHANNEL_HINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CHANNEL_HINT").field("Dot11PhyType", &self.Dot11PhyType).field("uChannelNumber", &self.uChannelNumber).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_CHANNEL_HINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_CHANNEL_HINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dot11PhyType == other.Dot11PhyType && self.uChannelNumber == other.uChannelNumber
-    }
-}
-impl Eq for DOT11_CHANNEL_HINT {}
 impl Default for DOT11_CHANNEL_HINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4583,6 +3884,7 @@ impl Default for DOT11_CHANNEL_HINT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4590,31 +3892,9 @@ pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub AlgorithmIds: [DOT11_CIPHER_ALGORITHM; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_CIPHER_ALGORITHM_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_CIPHER_ALGORITHM_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_CIPHER_ALGORITHM_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CIPHER_ALGORITHM_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("AlgorithmIds", &self.AlgorithmIds).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_CIPHER_ALGORITHM_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_CIPHER_ALGORITHM_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.AlgorithmIds == other.AlgorithmIds
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_CIPHER_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_CIPHER_ALGORITHM_LIST {
     fn default() -> Self {
@@ -4623,6 +3903,7 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uKeyIndex: u32,
@@ -4634,31 +3915,9 @@ pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub ucKey: [u8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_CIPHER_DEFAULT_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_CIPHER_DEFAULT_KEY_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CIPHER_DEFAULT_KEY_VALUE").field("Header", &self.Header).field("uKeyIndex", &self.uKeyIndex).field("AlgorithmId", &self.AlgorithmId).field("MacAddr", &self.MacAddr).field("bDelete", &self.bDelete).field("bStatic", &self.bStatic).field("usKeyLength", &self.usKeyLength).field("ucKey", &self.ucKey).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_CIPHER_DEFAULT_KEY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uKeyIndex == other.uKeyIndex && self.AlgorithmId == other.AlgorithmId && self.MacAddr == other.MacAddr && self.bDelete == other.bDelete && self.bStatic == other.bStatic && self.usKeyLength == other.usKeyLength && self.ucKey == other.ucKey
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn default() -> Self {
@@ -4666,6 +3925,7 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: [u8; 6],
     pub AlgorithmId: DOT11_CIPHER_ALGORITHM,
@@ -4675,26 +3935,9 @@ pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-impl Copy for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
-impl Clone for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CIPHER_KEY_MAPPING_KEY_VALUE").field("PeerMacAddr", &self.PeerMacAddr).field("AlgorithmId", &self.AlgorithmId).field("Direction", &self.Direction).field("bDelete", &self.bDelete).field("bStatic", &self.bStatic).field("usKeyLength", &self.usKeyLength).field("ucKey", &self.ucKey).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddr == other.PeerMacAddr && self.AlgorithmId == other.AlgorithmId && self.Direction == other.Direction && self.bDelete == other.bDelete && self.bStatic == other.bStatic && self.usKeyLength == other.usKeyLength && self.ucKey == other.ucKey
-    }
-}
-impl Eq for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
 impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4702,36 +3945,15 @@ impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uStatus: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_CONNECTION_COMPLETION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_CONNECTION_COMPLETION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CONNECTION_COMPLETION_PARAMETERS").field("Header", &self.Header).field("uStatus", &self.uStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_CONNECTION_COMPLETION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_CONNECTION_COMPLETION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uStatus == other.uStatus
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_CONNECTION_COMPLETION_PARAMETERS {
     fn default() -> Self {
@@ -4740,6 +3962,7 @@ impl Default for DOT11_CONNECTION_COMPLETION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub BSSType: DOT11_BSS_TYPE,
@@ -4747,31 +3970,9 @@ pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub AdhocSSID: DOT11_SSID,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_CONNECTION_START_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_CONNECTION_START_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_CONNECTION_START_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CONNECTION_START_PARAMETERS").field("Header", &self.Header).field("BSSType", &self.BSSType).field("AdhocBSSID", &self.AdhocBSSID).field("AdhocSSID", &self.AdhocSSID).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_CONNECTION_START_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_CONNECTION_START_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.BSSType == other.BSSType && self.AdhocBSSID == other.AdhocBSSID && self.AdhocSSID == other.AdhocSSID
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_CONNECTION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_CONNECTION_START_PARAMETERS {
     fn default() -> Self {
@@ -4779,6 +3980,7 @@ impl Default for DOT11_CONNECTION_START_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_COUNTERS_ENTRY {
     pub uTransmittedFragmentCount: u32,
     pub uMulticastTransmittedFrameCount: u32,
@@ -4794,40 +3996,9 @@ pub struct DOT11_COUNTERS_ENTRY {
     pub uFCSErrorCount: u32,
     pub uTransmittedFrameCount: u32,
 }
-impl Copy for DOT11_COUNTERS_ENTRY {}
-impl Clone for DOT11_COUNTERS_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_COUNTERS_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_COUNTERS_ENTRY")
-            .field("uTransmittedFragmentCount", &self.uTransmittedFragmentCount)
-            .field("uMulticastTransmittedFrameCount", &self.uMulticastTransmittedFrameCount)
-            .field("uFailedCount", &self.uFailedCount)
-            .field("uRetryCount", &self.uRetryCount)
-            .field("uMultipleRetryCount", &self.uMultipleRetryCount)
-            .field("uFrameDuplicateCount", &self.uFrameDuplicateCount)
-            .field("uRTSSuccessCount", &self.uRTSSuccessCount)
-            .field("uRTSFailureCount", &self.uRTSFailureCount)
-            .field("uACKFailureCount", &self.uACKFailureCount)
-            .field("uReceivedFragmentCount", &self.uReceivedFragmentCount)
-            .field("uMulticastReceivedFrameCount", &self.uMulticastReceivedFrameCount)
-            .field("uFCSErrorCount", &self.uFCSErrorCount)
-            .field("uTransmittedFrameCount", &self.uTransmittedFrameCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_COUNTERS_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_COUNTERS_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uTransmittedFragmentCount == other.uTransmittedFragmentCount && self.uMulticastTransmittedFrameCount == other.uMulticastTransmittedFrameCount && self.uFailedCount == other.uFailedCount && self.uRetryCount == other.uRetryCount && self.uMultipleRetryCount == other.uMultipleRetryCount && self.uFrameDuplicateCount == other.uFrameDuplicateCount && self.uRTSSuccessCount == other.uRTSSuccessCount && self.uRTSFailureCount == other.uRTSFailureCount && self.uACKFailureCount == other.uACKFailureCount && self.uReceivedFragmentCount == other.uReceivedFragmentCount && self.uMulticastReceivedFrameCount == other.uMulticastReceivedFrameCount && self.uFCSErrorCount == other.uFCSErrorCount && self.uTransmittedFrameCount == other.uTransmittedFrameCount
-    }
-}
-impl Eq for DOT11_COUNTERS_ENTRY {}
 impl Default for DOT11_COUNTERS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4835,6 +4006,7 @@ impl Default for DOT11_COUNTERS_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -4842,31 +4014,9 @@ pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub CountryOrRegionStrings: [u8; 3],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_COUNTRY_OR_REGION_STRING_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_COUNTRY_OR_REGION_STRING_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_COUNTRY_OR_REGION_STRING_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("CountryOrRegionStrings", &self.CountryOrRegionStrings).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_COUNTRY_OR_REGION_STRING_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.CountryOrRegionStrings == other.CountryOrRegionStrings
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
@@ -4874,66 +4024,35 @@ impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
 }
-impl Copy for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
-impl Clone for DOT11_CURRENT_OFFLOAD_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_CURRENT_OFFLOAD_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CURRENT_OFFLOAD_CAPABILITY").field("uReserved", &self.uReserved).field("uFlags", &self.uFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_CURRENT_OFFLOAD_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.uFlags == other.uFlags
-    }
-}
-impl Eq for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
 impl Default for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPERATION_MODE {
     pub uReserved: u32,
     pub uCurrentOpMode: u32,
 }
-impl Copy for DOT11_CURRENT_OPERATION_MODE {}
-impl Clone for DOT11_CURRENT_OPERATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_CURRENT_OPERATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CURRENT_OPERATION_MODE").field("uReserved", &self.uReserved).field("uCurrentOpMode", &self.uCurrentOpMode).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_CURRENT_OPERATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_CURRENT_OPERATION_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.uCurrentOpMode == other.uCurrentOpMode
-    }
-}
-impl Eq for DOT11_CURRENT_OPERATION_MODE {}
 impl Default for DOT11_CURRENT_OPERATION_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
     pub bDot11CFPollable: super::super::Foundation::BOOLEAN,
@@ -4941,57 +4060,24 @@ pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub bDot11PCFMPDUTransferToPC: super::super::Foundation::BOOLEAN,
     pub bStrictlyOrderedServiceClass: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
-impl Clone for DOT11_CURRENT_OPTIONAL_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_CURRENT_OPTIONAL_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_CURRENT_OPTIONAL_CAPABILITY").field("uReserved", &self.uReserved).field("bDot11CFPollable", &self.bDot11CFPollable).field("bDot11PCF", &self.bDot11PCF).field("bDot11PCFMPDUTransferToPC", &self.bDot11PCFMPDUTransferToPC).field("bStrictlyOrderedServiceClass", &self.bStrictlyOrderedServiceClass).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_CURRENT_OPTIONAL_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.bDot11CFPollable == other.bDot11CFPollable && self.bDot11PCF == other.bDot11PCF && self.bDot11PCFMPDUTransferToPC == other.bDot11PCFMPDUTransferToPC && self.bStrictlyOrderedServiceClass == other.bStrictlyOrderedServiceClass
-    }
-}
-impl Eq for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
 impl Default for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
     pub ucDataRateIndex: u8,
     pub ucDataRateFlag: u8,
     pub usDataRateValue: u16,
 }
-impl Copy for DOT11_DATA_RATE_MAPPING_ENTRY {}
-impl Clone for DOT11_DATA_RATE_MAPPING_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_DATA_RATE_MAPPING_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DATA_RATE_MAPPING_ENTRY").field("ucDataRateIndex", &self.ucDataRateIndex).field("ucDataRateFlag", &self.ucDataRateFlag).field("usDataRateValue", &self.usDataRateValue).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_DATA_RATE_MAPPING_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_DATA_RATE_MAPPING_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucDataRateIndex == other.ucDataRateIndex && self.ucDataRateFlag == other.ucDataRateFlag && self.usDataRateValue == other.usDataRateValue
-    }
-}
-impl Eq for DOT11_DATA_RATE_MAPPING_ENTRY {}
 impl Default for DOT11_DATA_RATE_MAPPING_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4999,37 +4085,16 @@ impl Default for DOT11_DATA_RATE_MAPPING_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uDataRateMappingLength: u32,
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_DATA_RATE_MAPPING_TABLE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_DATA_RATE_MAPPING_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_DATA_RATE_MAPPING_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DATA_RATE_MAPPING_TABLE").field("Header", &self.Header).field("uDataRateMappingLength", &self.uDataRateMappingLength).field("DataRateMappingEntries", &self.DataRateMappingEntries).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_DATA_RATE_MAPPING_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_DATA_RATE_MAPPING_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uDataRateMappingLength == other.uDataRateMappingLength && self.DataRateMappingEntries == other.DataRateMappingEntries
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_DATA_RATE_MAPPING_TABLE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
     fn default() -> Self {
@@ -5037,6 +4102,7 @@ impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub uReserved: u32,
     pub hOffloadContext: super::super::Foundation::HANDLE,
@@ -5053,47 +4119,16 @@ pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-impl Copy for DOT11_DEFAULT_WEP_OFFLOAD {}
-impl Clone for DOT11_DEFAULT_WEP_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_DEFAULT_WEP_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DEFAULT_WEP_OFFLOAD")
-            .field("uReserved", &self.uReserved)
-            .field("hOffloadContext", &self.hOffloadContext)
-            .field("hOffload", &self.hOffload)
-            .field("dwIndex", &self.dwIndex)
-            .field("dot11OffloadType", &self.dot11OffloadType)
-            .field("dwAlgorithm", &self.dwAlgorithm)
-            .field("uFlags", &self.uFlags)
-            .field("dot11KeyDirection", &self.dot11KeyDirection)
-            .field("ucMacAddress", &self.ucMacAddress)
-            .field("uNumOfRWsOnMe", &self.uNumOfRWsOnMe)
-            .field("dot11IV48Counters", &self.dot11IV48Counters)
-            .field("usDot11RWBitMaps", &self.usDot11RWBitMaps)
-            .field("usKeyLength", &self.usKeyLength)
-            .field("ucKey", &self.ucKey)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_DEFAULT_WEP_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_DEFAULT_WEP_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.hOffloadContext == other.hOffloadContext && self.hOffload == other.hOffload && self.dwIndex == other.dwIndex && self.dot11OffloadType == other.dot11OffloadType && self.dwAlgorithm == other.dwAlgorithm && self.uFlags == other.uFlags && self.dot11KeyDirection == other.dot11KeyDirection && self.ucMacAddress == other.ucMacAddress && self.uNumOfRWsOnMe == other.uNumOfRWsOnMe && self.dot11IV48Counters == other.dot11IV48Counters && self.usDot11RWBitMaps == other.usDot11RWBitMaps && self.usKeyLength == other.usKeyLength && self.ucKey == other.ucKey
-    }
-}
-impl Eq for DOT11_DEFAULT_WEP_OFFLOAD {}
 impl Default for DOT11_DEFAULT_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
@@ -5102,26 +4137,9 @@ pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
     pub usDot11RWBitMaps: [u16; 16],
 }
-impl Copy for DOT11_DEFAULT_WEP_UPLOAD {}
-impl Clone for DOT11_DEFAULT_WEP_UPLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_DEFAULT_WEP_UPLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DEFAULT_WEP_UPLOAD").field("uReserved", &self.uReserved).field("dot11OffloadType", &self.dot11OffloadType).field("hOffload", &self.hOffload).field("uNumOfRWsUsed", &self.uNumOfRWsUsed).field("dot11IV48Counters", &self.dot11IV48Counters).field("usDot11RWBitMaps", &self.usDot11RWBitMaps).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_DEFAULT_WEP_UPLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_DEFAULT_WEP_UPLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.dot11OffloadType == other.dot11OffloadType && self.hOffload == other.hOffload && self.uNumOfRWsUsed == other.uNumOfRWsUsed && self.dot11IV48Counters == other.dot11IV48Counters && self.usDot11RWBitMaps == other.usDot11RWBitMaps
-    }
-}
-impl Eq for DOT11_DEFAULT_WEP_UPLOAD {}
 impl Default for DOT11_DEFAULT_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5129,37 +4147,16 @@ impl Default for DOT11_DEFAULT_WEP_UPLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
     pub usReason: u16,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_DISASSOCIATE_PEER_REQUEST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_DISASSOCIATE_PEER_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_DISASSOCIATE_PEER_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DISASSOCIATE_PEER_REQUEST").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).field("usReason", &self.usReason).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_DISASSOCIATE_PEER_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_DISASSOCIATE_PEER_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr && self.usReason == other.usReason
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_DISASSOCIATE_PEER_REQUEST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
     fn default() -> Self {
@@ -5168,6 +4165,7 @@ impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub MacAddr: [u8; 6],
@@ -5176,31 +4174,9 @@ pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub uIHVDataSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_DISASSOCIATION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_DISASSOCIATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_DISASSOCIATION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DISASSOCIATION_PARAMETERS").field("Header", &self.Header).field("MacAddr", &self.MacAddr).field("uReason", &self.uReason).field("uIHVDataOffset", &self.uIHVDataOffset).field("uIHVDataSize", &self.uIHVDataSize).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_DISASSOCIATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_DISASSOCIATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.MacAddr == other.MacAddr && self.uReason == other.uReason && self.uIHVDataOffset == other.uIHVDataOffset && self.uIHVDataSize == other.uIHVDataSize
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_DISASSOCIATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_DISASSOCIATION_PARAMETERS {
     fn default() -> Self {
@@ -5208,61 +4184,29 @@ impl Default for DOT11_DISASSOCIATION_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
     pub bDiversitySelectionRX: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_DIVERSITY_SELECTION_RX {}
-impl Clone for DOT11_DIVERSITY_SELECTION_RX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_DIVERSITY_SELECTION_RX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DIVERSITY_SELECTION_RX").field("uAntennaListIndex", &self.uAntennaListIndex).field("bDiversitySelectionRX", &self.bDiversitySelectionRX).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_DIVERSITY_SELECTION_RX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_DIVERSITY_SELECTION_RX {
-    fn eq(&self, other: &Self) -> bool {
-        self.uAntennaListIndex == other.uAntennaListIndex && self.bDiversitySelectionRX == other.bDiversitySelectionRX
-    }
-}
-impl Eq for DOT11_DIVERSITY_SELECTION_RX {}
 impl Default for DOT11_DIVERSITY_SELECTION_RX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
 }
-impl Copy for DOT11_DIVERSITY_SELECTION_RX_LIST {}
-impl Clone for DOT11_DIVERSITY_SELECTION_RX_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_DIVERSITY_SELECTION_RX_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_DIVERSITY_SELECTION_RX_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11DiversitySelectionRx", &self.dot11DiversitySelectionRx).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_DIVERSITY_SELECTION_RX_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_DIVERSITY_SELECTION_RX_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11DiversitySelectionRx == other.dot11DiversitySelectionRx
-    }
-}
-impl Eq for DOT11_DIVERSITY_SELECTION_RX_LIST {}
 impl Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5270,36 +4214,15 @@ impl Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EAP_RESULT {
     pub dwFailureReasonCode: u32,
     pub pAttribArray: *mut super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Copy for DOT11_EAP_RESULT {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Clone for DOT11_EAP_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl core::fmt::Debug for DOT11_EAP_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_EAP_RESULT").field("dwFailureReasonCode", &self.dwFailureReasonCode).field("pAttribArray", &self.pAttribArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl windows_core::TypeKind for DOT11_EAP_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl PartialEq for DOT11_EAP_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFailureReasonCode == other.dwFailureReasonCode && self.pAttribArray == other.pAttribArray
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Eq for DOT11_EAP_RESULT {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl Default for DOT11_EAP_RESULT {
     fn default() -> Self {
@@ -5307,62 +4230,30 @@ impl Default for DOT11_EAP_RESULT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ENCAP_ENTRY {
     pub usEtherType: u16,
     pub usEncapType: u16,
 }
-impl Copy for DOT11_ENCAP_ENTRY {}
-impl Clone for DOT11_ENCAP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_ENCAP_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ENCAP_ENTRY").field("usEtherType", &self.usEtherType).field("usEncapType", &self.usEncapType).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_ENCAP_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_ENCAP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.usEtherType == other.usEtherType && self.usEncapType == other.usEncapType
-    }
-}
-impl Eq for DOT11_ENCAP_ENTRY {}
 impl Default for DOT11_ENCAP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub bERPPBCCOptionImplemented: super::super::Foundation::BOOLEAN,
     pub bDSSSOFDMOptionImplemented: super::super::Foundation::BOOLEAN,
     pub bShortSlotTimeOptionImplemented: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_ERP_PHY_ATTRIBUTES {}
-impl Clone for DOT11_ERP_PHY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_ERP_PHY_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ERP_PHY_ATTRIBUTES").field("HRDSSSAttributes", &self.HRDSSSAttributes).field("bERPPBCCOptionImplemented", &self.bERPPBCCOptionImplemented).field("bDSSSOFDMOptionImplemented", &self.bDSSSOFDMOptionImplemented).field("bShortSlotTimeOptionImplemented", &self.bShortSlotTimeOptionImplemented).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_ERP_PHY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_ERP_PHY_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.HRDSSSAttributes == other.HRDSSSAttributes && self.bERPPBCCOptionImplemented == other.bERPPBCCOptionImplemented && self.bDSSSOFDMOptionImplemented == other.bDSSSOFDMOptionImplemented && self.bShortSlotTimeOptionImplemented == other.bShortSlotTimeOptionImplemented
-    }
-}
-impl Eq for DOT11_ERP_PHY_ATTRIBUTES {}
 impl Default for DOT11_ERP_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5370,6 +4261,7 @@ impl Default for DOT11_ERP_PHY_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -5387,59 +4279,9 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub pInfraSupportedMcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_EXTAP_ATTRIBUTES {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_EXTAP_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_EXTAP_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_EXTAP_ATTRIBUTES")
-            .field("Header", &self.Header)
-            .field("uScanSSIDListSize", &self.uScanSSIDListSize)
-            .field("uDesiredSSIDListSize", &self.uDesiredSSIDListSize)
-            .field("uPrivacyExemptionListSize", &self.uPrivacyExemptionListSize)
-            .field("uAssociationTableSize", &self.uAssociationTableSize)
-            .field("uDefaultKeyTableSize", &self.uDefaultKeyTableSize)
-            .field("uWEPKeyValueMaxLength", &self.uWEPKeyValueMaxLength)
-            .field("bStrictlyOrderedServiceClassImplemented", &self.bStrictlyOrderedServiceClassImplemented)
-            .field("uNumSupportedCountryOrRegionStrings", &self.uNumSupportedCountryOrRegionStrings)
-            .field("pSupportedCountryOrRegionStrings", &self.pSupportedCountryOrRegionStrings)
-            .field("uInfraNumSupportedUcastAlgoPairs", &self.uInfraNumSupportedUcastAlgoPairs)
-            .field("pInfraSupportedUcastAlgoPairs", &self.pInfraSupportedUcastAlgoPairs)
-            .field("uInfraNumSupportedMcastAlgoPairs", &self.uInfraNumSupportedMcastAlgoPairs)
-            .field("pInfraSupportedMcastAlgoPairs", &self.pInfraSupportedMcastAlgoPairs)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_EXTAP_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_EXTAP_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.uScanSSIDListSize == other.uScanSSIDListSize
-            && self.uDesiredSSIDListSize == other.uDesiredSSIDListSize
-            && self.uPrivacyExemptionListSize == other.uPrivacyExemptionListSize
-            && self.uAssociationTableSize == other.uAssociationTableSize
-            && self.uDefaultKeyTableSize == other.uDefaultKeyTableSize
-            && self.uWEPKeyValueMaxLength == other.uWEPKeyValueMaxLength
-            && self.bStrictlyOrderedServiceClassImplemented == other.bStrictlyOrderedServiceClassImplemented
-            && self.uNumSupportedCountryOrRegionStrings == other.uNumSupportedCountryOrRegionStrings
-            && self.pSupportedCountryOrRegionStrings == other.pSupportedCountryOrRegionStrings
-            && self.uInfraNumSupportedUcastAlgoPairs == other.uInfraNumSupportedUcastAlgoPairs
-            && self.pInfraSupportedUcastAlgoPairs == other.pInfraSupportedUcastAlgoPairs
-            && self.uInfraNumSupportedMcastAlgoPairs == other.uInfraNumSupportedMcastAlgoPairs
-            && self.pInfraSupportedMcastAlgoPairs == other.pInfraSupportedMcastAlgoPairs
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_EXTAP_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_EXTAP_ATTRIBUTES {
     fn default() -> Self {
@@ -5448,6 +4290,7 @@ impl Default for DOT11_EXTAP_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -5485,99 +4328,9 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub bHESSIDConnectionSupported: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_EXTSTA_ATTRIBUTES {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_EXTSTA_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_EXTSTA_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_EXTSTA_ATTRIBUTES")
-            .field("Header", &self.Header)
-            .field("uScanSSIDListSize", &self.uScanSSIDListSize)
-            .field("uDesiredBSSIDListSize", &self.uDesiredBSSIDListSize)
-            .field("uDesiredSSIDListSize", &self.uDesiredSSIDListSize)
-            .field("uExcludedMacAddressListSize", &self.uExcludedMacAddressListSize)
-            .field("uPrivacyExemptionListSize", &self.uPrivacyExemptionListSize)
-            .field("uKeyMappingTableSize", &self.uKeyMappingTableSize)
-            .field("uDefaultKeyTableSize", &self.uDefaultKeyTableSize)
-            .field("uWEPKeyValueMaxLength", &self.uWEPKeyValueMaxLength)
-            .field("uPMKIDCacheSize", &self.uPMKIDCacheSize)
-            .field("uMaxNumPerSTADefaultKeyTables", &self.uMaxNumPerSTADefaultKeyTables)
-            .field("bStrictlyOrderedServiceClassImplemented", &self.bStrictlyOrderedServiceClassImplemented)
-            .field("ucSupportedQoSProtocolFlags", &self.ucSupportedQoSProtocolFlags)
-            .field("bSafeModeImplemented", &self.bSafeModeImplemented)
-            .field("uNumSupportedCountryOrRegionStrings", &self.uNumSupportedCountryOrRegionStrings)
-            .field("pSupportedCountryOrRegionStrings", &self.pSupportedCountryOrRegionStrings)
-            .field("uInfraNumSupportedUcastAlgoPairs", &self.uInfraNumSupportedUcastAlgoPairs)
-            .field("pInfraSupportedUcastAlgoPairs", &self.pInfraSupportedUcastAlgoPairs)
-            .field("uInfraNumSupportedMcastAlgoPairs", &self.uInfraNumSupportedMcastAlgoPairs)
-            .field("pInfraSupportedMcastAlgoPairs", &self.pInfraSupportedMcastAlgoPairs)
-            .field("uAdhocNumSupportedUcastAlgoPairs", &self.uAdhocNumSupportedUcastAlgoPairs)
-            .field("pAdhocSupportedUcastAlgoPairs", &self.pAdhocSupportedUcastAlgoPairs)
-            .field("uAdhocNumSupportedMcastAlgoPairs", &self.uAdhocNumSupportedMcastAlgoPairs)
-            .field("pAdhocSupportedMcastAlgoPairs", &self.pAdhocSupportedMcastAlgoPairs)
-            .field("bAutoPowerSaveMode", &self.bAutoPowerSaveMode)
-            .field("uMaxNetworkOffloadListSize", &self.uMaxNetworkOffloadListSize)
-            .field("bMFPCapable", &self.bMFPCapable)
-            .field("uInfraNumSupportedMcastMgmtAlgoPairs", &self.uInfraNumSupportedMcastMgmtAlgoPairs)
-            .field("pInfraSupportedMcastMgmtAlgoPairs", &self.pInfraSupportedMcastMgmtAlgoPairs)
-            .field("bNeighborReportSupported", &self.bNeighborReportSupported)
-            .field("bAPChannelReportSupported", &self.bAPChannelReportSupported)
-            .field("bActionFramesSupported", &self.bActionFramesSupported)
-            .field("bANQPQueryOffloadSupported", &self.bANQPQueryOffloadSupported)
-            .field("bHESSIDConnectionSupported", &self.bHESSIDConnectionSupported)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_EXTSTA_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_EXTSTA_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.uScanSSIDListSize == other.uScanSSIDListSize
-            && self.uDesiredBSSIDListSize == other.uDesiredBSSIDListSize
-            && self.uDesiredSSIDListSize == other.uDesiredSSIDListSize
-            && self.uExcludedMacAddressListSize == other.uExcludedMacAddressListSize
-            && self.uPrivacyExemptionListSize == other.uPrivacyExemptionListSize
-            && self.uKeyMappingTableSize == other.uKeyMappingTableSize
-            && self.uDefaultKeyTableSize == other.uDefaultKeyTableSize
-            && self.uWEPKeyValueMaxLength == other.uWEPKeyValueMaxLength
-            && self.uPMKIDCacheSize == other.uPMKIDCacheSize
-            && self.uMaxNumPerSTADefaultKeyTables == other.uMaxNumPerSTADefaultKeyTables
-            && self.bStrictlyOrderedServiceClassImplemented == other.bStrictlyOrderedServiceClassImplemented
-            && self.ucSupportedQoSProtocolFlags == other.ucSupportedQoSProtocolFlags
-            && self.bSafeModeImplemented == other.bSafeModeImplemented
-            && self.uNumSupportedCountryOrRegionStrings == other.uNumSupportedCountryOrRegionStrings
-            && self.pSupportedCountryOrRegionStrings == other.pSupportedCountryOrRegionStrings
-            && self.uInfraNumSupportedUcastAlgoPairs == other.uInfraNumSupportedUcastAlgoPairs
-            && self.pInfraSupportedUcastAlgoPairs == other.pInfraSupportedUcastAlgoPairs
-            && self.uInfraNumSupportedMcastAlgoPairs == other.uInfraNumSupportedMcastAlgoPairs
-            && self.pInfraSupportedMcastAlgoPairs == other.pInfraSupportedMcastAlgoPairs
-            && self.uAdhocNumSupportedUcastAlgoPairs == other.uAdhocNumSupportedUcastAlgoPairs
-            && self.pAdhocSupportedUcastAlgoPairs == other.pAdhocSupportedUcastAlgoPairs
-            && self.uAdhocNumSupportedMcastAlgoPairs == other.uAdhocNumSupportedMcastAlgoPairs
-            && self.pAdhocSupportedMcastAlgoPairs == other.pAdhocSupportedMcastAlgoPairs
-            && self.bAutoPowerSaveMode == other.bAutoPowerSaveMode
-            && self.uMaxNetworkOffloadListSize == other.uMaxNetworkOffloadListSize
-            && self.bMFPCapable == other.bMFPCapable
-            && self.uInfraNumSupportedMcastMgmtAlgoPairs == other.uInfraNumSupportedMcastMgmtAlgoPairs
-            && self.pInfraSupportedMcastMgmtAlgoPairs == other.pInfraSupportedMcastMgmtAlgoPairs
-            && self.bNeighborReportSupported == other.bNeighborReportSupported
-            && self.bAPChannelReportSupported == other.bAPChannelReportSupported
-            && self.bActionFramesSupported == other.bActionFramesSupported
-            && self.bANQPQueryOffloadSupported == other.bANQPQueryOffloadSupported
-            && self.bHESSIDConnectionSupported == other.bHESSIDConnectionSupported
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_EXTSTA_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_EXTSTA_ATTRIBUTES {
     fn default() -> Self {
@@ -5586,6 +4339,7 @@ impl Default for DOT11_EXTSTA_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -5600,43 +4354,9 @@ pub struct DOT11_EXTSTA_CAPABILITY {
     pub uMaxNumPerSTADefaultKeyTables: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_EXTSTA_CAPABILITY {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_EXTSTA_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_EXTSTA_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_EXTSTA_CAPABILITY")
-            .field("Header", &self.Header)
-            .field("uScanSSIDListSize", &self.uScanSSIDListSize)
-            .field("uDesiredBSSIDListSize", &self.uDesiredBSSIDListSize)
-            .field("uDesiredSSIDListSize", &self.uDesiredSSIDListSize)
-            .field("uExcludedMacAddressListSize", &self.uExcludedMacAddressListSize)
-            .field("uPrivacyExemptionListSize", &self.uPrivacyExemptionListSize)
-            .field("uKeyMappingTableSize", &self.uKeyMappingTableSize)
-            .field("uDefaultKeyTableSize", &self.uDefaultKeyTableSize)
-            .field("uWEPKeyValueMaxLength", &self.uWEPKeyValueMaxLength)
-            .field("uPMKIDCacheSize", &self.uPMKIDCacheSize)
-            .field("uMaxNumPerSTADefaultKeyTables", &self.uMaxNumPerSTADefaultKeyTables)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_EXTSTA_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_EXTSTA_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uScanSSIDListSize == other.uScanSSIDListSize && self.uDesiredBSSIDListSize == other.uDesiredBSSIDListSize && self.uDesiredSSIDListSize == other.uDesiredSSIDListSize && self.uExcludedMacAddressListSize == other.uExcludedMacAddressListSize && self.uPrivacyExemptionListSize == other.uPrivacyExemptionListSize && self.uKeyMappingTableSize == other.uKeyMappingTableSize && self.uDefaultKeyTableSize == other.uDefaultKeyTableSize && self.uWEPKeyValueMaxLength == other.uWEPKeyValueMaxLength && self.uPMKIDCacheSize == other.uPMKIDCacheSize && self.uMaxNumPerSTADefaultKeyTables == other.uMaxNumPerSTADefaultKeyTables
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_EXTSTA_CAPABILITY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_EXTSTA_CAPABILITY {
     fn default() -> Self {
@@ -5645,6 +4365,7 @@ impl Default for DOT11_EXTSTA_CAPABILITY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uReceiveFlags: u32,
@@ -5658,42 +4379,9 @@ pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub ullTimestamp: u64,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_EXTSTA_RECV_CONTEXT {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_EXTSTA_RECV_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_EXTSTA_RECV_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_EXTSTA_RECV_CONTEXT")
-            .field("Header", &self.Header)
-            .field("uReceiveFlags", &self.uReceiveFlags)
-            .field("uPhyId", &self.uPhyId)
-            .field("uChCenterFrequency", &self.uChCenterFrequency)
-            .field("usNumberOfMPDUsReceived", &self.usNumberOfMPDUsReceived)
-            .field("lRSSI", &self.lRSSI)
-            .field("ucDataRate", &self.ucDataRate)
-            .field("uSizeMediaSpecificInfo", &self.uSizeMediaSpecificInfo)
-            .field("pvMediaSpecificInfo", &self.pvMediaSpecificInfo)
-            .field("ullTimestamp", &self.ullTimestamp)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_EXTSTA_RECV_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_EXTSTA_RECV_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uReceiveFlags == other.uReceiveFlags && self.uPhyId == other.uPhyId && self.uChCenterFrequency == other.uChCenterFrequency && self.usNumberOfMPDUsReceived == other.usNumberOfMPDUsReceived && self.lRSSI == other.lRSSI && self.ucDataRate == other.ucDataRate && self.uSizeMediaSpecificInfo == other.uSizeMediaSpecificInfo && self.pvMediaSpecificInfo == other.pvMediaSpecificInfo && self.ullTimestamp == other.ullTimestamp
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_EXTSTA_RECV_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_EXTSTA_RECV_CONTEXT {
     fn default() -> Self {
@@ -5702,6 +4390,7 @@ impl Default for DOT11_EXTSTA_RECV_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub usExemptionActionType: u16,
@@ -5711,31 +4400,9 @@ pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub uSendFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_EXTSTA_SEND_CONTEXT {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_EXTSTA_SEND_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_EXTSTA_SEND_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_EXTSTA_SEND_CONTEXT").field("Header", &self.Header).field("usExemptionActionType", &self.usExemptionActionType).field("uPhyId", &self.uPhyId).field("uDelayedSleepValue", &self.uDelayedSleepValue).field("pvMediaSpecificInfo", &self.pvMediaSpecificInfo).field("uSendFlags", &self.uSendFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_EXTSTA_SEND_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_EXTSTA_SEND_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.usExemptionActionType == other.usExemptionActionType && self.uPhyId == other.uPhyId && self.uDelayedSleepValue == other.uDelayedSleepValue && self.pvMediaSpecificInfo == other.pvMediaSpecificInfo && self.uSendFlags == other.uSendFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_EXTSTA_SEND_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_EXTSTA_SEND_CONTEXT {
     fn default() -> Self {
@@ -5743,30 +4410,14 @@ impl Default for DOT11_EXTSTA_SEND_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_FRAGMENT_DESCRIPTOR {
     pub uOffset: u32,
     pub uLength: u32,
 }
-impl Copy for DOT11_FRAGMENT_DESCRIPTOR {}
-impl Clone for DOT11_FRAGMENT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_FRAGMENT_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_FRAGMENT_DESCRIPTOR").field("uOffset", &self.uOffset).field("uLength", &self.uLength).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_FRAGMENT_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_FRAGMENT_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.uOffset == other.uOffset && self.uLength == other.uLength
-    }
-}
-impl Eq for DOT11_FRAGMENT_DESCRIPTOR {}
 impl Default for DOT11_FRAGMENT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5774,6 +4425,7 @@ impl Default for DOT11_FRAGMENT_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -5783,31 +4435,9 @@ pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -5816,6 +4446,7 @@ impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -5825,31 +4456,9 @@ pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -5858,6 +4467,7 @@ impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -5867,31 +4477,9 @@ pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -5899,93 +4487,45 @@ impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY {
     pub uHoppingPatternIndex: u32,
     pub uRandomTableFieldNumber: u32,
 }
-impl Copy for DOT11_HOPPING_PATTERN_ENTRY {}
-impl Clone for DOT11_HOPPING_PATTERN_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_HOPPING_PATTERN_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_HOPPING_PATTERN_ENTRY").field("uHoppingPatternIndex", &self.uHoppingPatternIndex).field("uRandomTableFieldNumber", &self.uRandomTableFieldNumber).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_HOPPING_PATTERN_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_HOPPING_PATTERN_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uHoppingPatternIndex == other.uHoppingPatternIndex && self.uRandomTableFieldNumber == other.uRandomTableFieldNumber
-    }
-}
-impl Eq for DOT11_HOPPING_PATTERN_ENTRY {}
 impl Default for DOT11_HOPPING_PATTERN_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11HoppingPatternEntry: [DOT11_HOPPING_PATTERN_ENTRY; 1],
 }
-impl Copy for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
-impl Clone for DOT11_HOPPING_PATTERN_ENTRY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_HOPPING_PATTERN_ENTRY_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_HOPPING_PATTERN_ENTRY_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11HoppingPatternEntry", &self.dot11HoppingPatternEntry).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_HOPPING_PATTERN_ENTRY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11HoppingPatternEntry == other.dot11HoppingPatternEntry
-    }
-}
-impl Eq for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
 impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bShortPreambleOptionImplemented: super::super::Foundation::BOOLEAN,
     pub bPBCCOptionImplemented: super::super::Foundation::BOOLEAN,
     pub bChannelAgilityPresent: super::super::Foundation::BOOLEAN,
     pub uHRCCAModeSupported: u32,
 }
-impl Copy for DOT11_HRDSSS_PHY_ATTRIBUTES {}
-impl Clone for DOT11_HRDSSS_PHY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_HRDSSS_PHY_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_HRDSSS_PHY_ATTRIBUTES").field("bShortPreambleOptionImplemented", &self.bShortPreambleOptionImplemented).field("bPBCCOptionImplemented", &self.bPBCCOptionImplemented).field("bChannelAgilityPresent", &self.bChannelAgilityPresent).field("uHRCCAModeSupported", &self.uHRCCAModeSupported).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_HRDSSS_PHY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_HRDSSS_PHY_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.bShortPreambleOptionImplemented == other.bShortPreambleOptionImplemented && self.bPBCCOptionImplemented == other.bPBCCOptionImplemented && self.bChannelAgilityPresent == other.bChannelAgilityPresent && self.uHRCCAModeSupported == other.uHRCCAModeSupported
-    }
-}
-impl Eq for DOT11_HRDSSS_PHY_ATTRIBUTES {}
 impl Default for DOT11_HRDSSS_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5993,6 +4533,7 @@ impl Default for DOT11_HRDSSS_PHY_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bJoinOnly: super::super::Foundation::BOOLEAN,
@@ -6000,31 +4541,9 @@ pub struct DOT11_IBSS_PARAMS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_IBSS_PARAMS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_IBSS_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_IBSS_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_IBSS_PARAMS").field("Header", &self.Header).field("bJoinOnly", &self.bJoinOnly).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_IBSS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_IBSS_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.bJoinOnly == other.bJoinOnly && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_IBSS_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_IBSS_PARAMS {
     fn default() -> Self {
@@ -6032,30 +4551,14 @@ impl Default for DOT11_IBSS_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_IHV_VERSION_INFO {
     pub dwVerMin: u32,
     pub dwVerMax: u32,
 }
-impl Copy for DOT11_IHV_VERSION_INFO {}
-impl Clone for DOT11_IHV_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_IHV_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_IHV_VERSION_INFO").field("dwVerMin", &self.dwVerMin).field("dwVerMax", &self.dwVerMax).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_IHV_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_IHV_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVerMin == other.dwVerMin && self.dwVerMax == other.dwVerMax
-    }
-}
-impl Eq for DOT11_IHV_VERSION_INFO {}
 impl Default for DOT11_IHV_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6063,6 +4566,7 @@ impl Default for DOT11_IHV_VERSION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
@@ -6083,49 +4587,9 @@ pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub uBeaconSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerMacAddr", &self.PeerMacAddr)
-            .field("uStatus", &self.uStatus)
-            .field("ucErrorSource", &self.ucErrorSource)
-            .field("bReAssocReq", &self.bReAssocReq)
-            .field("bReAssocResp", &self.bReAssocResp)
-            .field("uAssocReqOffset", &self.uAssocReqOffset)
-            .field("uAssocReqSize", &self.uAssocReqSize)
-            .field("uAssocRespOffset", &self.uAssocRespOffset)
-            .field("uAssocRespSize", &self.uAssocRespSize)
-            .field("AuthAlgo", &self.AuthAlgo)
-            .field("UnicastCipher", &self.UnicastCipher)
-            .field("MulticastCipher", &self.MulticastCipher)
-            .field("uActivePhyListOffset", &self.uActivePhyListOffset)
-            .field("uActivePhyListSize", &self.uActivePhyListSize)
-            .field("uBeaconOffset", &self.uBeaconOffset)
-            .field("uBeaconSize", &self.uBeaconSize)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr && self.uStatus == other.uStatus && self.ucErrorSource == other.ucErrorSource && self.bReAssocReq == other.bReAssocReq && self.bReAssocResp == other.bReAssocResp && self.uAssocReqOffset == other.uAssocReqOffset && self.uAssocReqSize == other.uAssocReqSize && self.uAssocRespOffset == other.uAssocRespOffset && self.uAssocRespSize == other.uAssocRespSize && self.AuthAlgo == other.AuthAlgo && self.UnicastCipher == other.UnicastCipher && self.MulticastCipher == other.MulticastCipher && self.uActivePhyListOffset == other.uActivePhyListOffset && self.uActivePhyListSize == other.uActivePhyListSize && self.uBeaconOffset == other.uBeaconOffset && self.uBeaconSize == other.uBeaconSize
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn default() -> Self {
@@ -6134,6 +4598,7 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
@@ -6143,31 +4608,9 @@ pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub uAssocResponseIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INCOMING_ASSOC_DECISION {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INCOMING_ASSOC_DECISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INCOMING_ASSOC_DECISION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INCOMING_ASSOC_DECISION").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).field("bAccept", &self.bAccept).field("usReasonCode", &self.usReasonCode).field("uAssocResponseIEsOffset", &self.uAssocResponseIEsOffset).field("uAssocResponseIEsLength", &self.uAssocResponseIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_DECISION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INCOMING_ASSOC_DECISION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr && self.bAccept == other.bAccept && self.usReasonCode == other.usReasonCode && self.uAssocResponseIEsOffset == other.uAssocResponseIEsOffset && self.uAssocResponseIEsLength == other.uAssocResponseIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INCOMING_ASSOC_DECISION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INCOMING_ASSOC_DECISION {
     fn default() -> Self {
@@ -6176,6 +4619,7 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
@@ -6186,31 +4630,9 @@ pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub WFDStatus: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INCOMING_ASSOC_DECISION_V2 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INCOMING_ASSOC_DECISION_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INCOMING_ASSOC_DECISION_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INCOMING_ASSOC_DECISION_V2").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).field("bAccept", &self.bAccept).field("usReasonCode", &self.usReasonCode).field("uAssocResponseIEsOffset", &self.uAssocResponseIEsOffset).field("uAssocResponseIEsLength", &self.uAssocResponseIEsLength).field("WFDStatus", &self.WFDStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_DECISION_V2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INCOMING_ASSOC_DECISION_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr && self.bAccept == other.bAccept && self.usReasonCode == other.usReasonCode && self.uAssocResponseIEsOffset == other.uAssocResponseIEsOffset && self.uAssocResponseIEsLength == other.uAssocResponseIEsLength && self.WFDStatus == other.WFDStatus
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INCOMING_ASSOC_DECISION_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
     fn default() -> Self {
@@ -6219,6 +4641,7 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
@@ -6227,31 +4650,9 @@ pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub uAssocReqSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).field("bReAssocReq", &self.bReAssocReq).field("uAssocReqOffset", &self.uAssocReqOffset).field("uAssocReqSize", &self.uAssocReqSize).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr && self.bReAssocReq == other.bReAssocReq && self.uAssocReqOffset == other.uAssocReqOffset && self.uAssocReqSize == other.uAssocReqSize
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     fn default() -> Self {
@@ -6260,36 +4661,15 @@ impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INCOMING_ASSOC_STARTED_PARAMETERS").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     fn default() -> Self {
@@ -6298,6 +4678,7 @@ impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -6308,31 +4689,9 @@ pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("ReceiverAddress", &self.ReceiverAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.ReceiverAddress == other.ReceiverAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -6341,6 +4700,7 @@ impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: [u8; 6],
@@ -6350,31 +4710,9 @@ pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ReceiverDeviceAddress == other.ReceiverDeviceAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -6382,279 +4720,135 @@ impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_IV48_COUNTER {
     pub uIV32Counter: u32,
     pub usIV16Counter: u16,
 }
-impl Copy for DOT11_IV48_COUNTER {}
-impl Clone for DOT11_IV48_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_IV48_COUNTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_IV48_COUNTER").field("uIV32Counter", &self.uIV32Counter).field("usIV16Counter", &self.usIV16Counter).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_IV48_COUNTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_IV48_COUNTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.uIV32Counter == other.uIV32Counter && self.usIV16Counter == other.usIV16Counter
-    }
-}
-impl Eq for DOT11_IV48_COUNTER {}
 impl Default for DOT11_IV48_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
-impl Copy for DOT11_JOIN_REQUEST {}
-impl Clone for DOT11_JOIN_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_JOIN_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_JOIN_REQUEST").field("uJoinFailureTimeout", &self.uJoinFailureTimeout).field("OperationalRateSet", &self.OperationalRateSet).field("uChCenterFrequency", &self.uChCenterFrequency).field("dot11BSSDescription", &self.dot11BSSDescription).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_JOIN_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_JOIN_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uJoinFailureTimeout == other.uJoinFailureTimeout && self.OperationalRateSet == other.OperationalRateSet && self.uChCenterFrequency == other.uChCenterFrequency && self.dot11BSSDescription == other.dot11BSSDescription
-    }
-}
-impl Eq for DOT11_JOIN_REQUEST {}
 impl Default for DOT11_JOIN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP {
     pub ucIPN: [u8; 6],
     pub ulBIPKeyLength: u32,
     pub ucBIPKey: [u8; 1],
 }
-impl Copy for DOT11_KEY_ALGO_BIP {}
-impl Clone for DOT11_KEY_ALGO_BIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_KEY_ALGO_BIP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_KEY_ALGO_BIP").field("ucIPN", &self.ucIPN).field("ulBIPKeyLength", &self.ulBIPKeyLength).field("ucBIPKey", &self.ucBIPKey).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_KEY_ALGO_BIP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_KEY_ALGO_BIP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucIPN == other.ucIPN && self.ulBIPKeyLength == other.ulBIPKeyLength && self.ucBIPKey == other.ucBIPKey
-    }
-}
-impl Eq for DOT11_KEY_ALGO_BIP {}
 impl Default for DOT11_KEY_ALGO_BIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP_GMAC_256 {
     pub ucIPN: [u8; 6],
     pub ulBIPGmac256KeyLength: u32,
     pub ucBIPGmac256Key: [u8; 1],
 }
-impl Copy for DOT11_KEY_ALGO_BIP_GMAC_256 {}
-impl Clone for DOT11_KEY_ALGO_BIP_GMAC_256 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_KEY_ALGO_BIP_GMAC_256 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_KEY_ALGO_BIP_GMAC_256").field("ucIPN", &self.ucIPN).field("ulBIPGmac256KeyLength", &self.ulBIPGmac256KeyLength).field("ucBIPGmac256Key", &self.ucBIPGmac256Key).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_KEY_ALGO_BIP_GMAC_256 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_KEY_ALGO_BIP_GMAC_256 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucIPN == other.ucIPN && self.ulBIPGmac256KeyLength == other.ulBIPGmac256KeyLength && self.ucBIPGmac256Key == other.ucBIPGmac256Key
-    }
-}
-impl Eq for DOT11_KEY_ALGO_BIP_GMAC_256 {}
 impl Default for DOT11_KEY_ALGO_BIP_GMAC_256 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_CCMP {
     pub ucIV48Counter: [u8; 6],
     pub ulCCMPKeyLength: u32,
     pub ucCCMPKey: [u8; 1],
 }
-impl Copy for DOT11_KEY_ALGO_CCMP {}
-impl Clone for DOT11_KEY_ALGO_CCMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_KEY_ALGO_CCMP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_KEY_ALGO_CCMP").field("ucIV48Counter", &self.ucIV48Counter).field("ulCCMPKeyLength", &self.ulCCMPKeyLength).field("ucCCMPKey", &self.ucCCMPKey).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_KEY_ALGO_CCMP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_KEY_ALGO_CCMP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucIV48Counter == other.ucIV48Counter && self.ulCCMPKeyLength == other.ulCCMPKeyLength && self.ucCCMPKey == other.ucCCMPKey
-    }
-}
-impl Eq for DOT11_KEY_ALGO_CCMP {}
 impl Default for DOT11_KEY_ALGO_CCMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP {
     pub ucIV48Counter: [u8; 6],
     pub ulGCMPKeyLength: u32,
     pub ucGCMPKey: [u8; 1],
 }
-impl Copy for DOT11_KEY_ALGO_GCMP {}
-impl Clone for DOT11_KEY_ALGO_GCMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_KEY_ALGO_GCMP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_KEY_ALGO_GCMP").field("ucIV48Counter", &self.ucIV48Counter).field("ulGCMPKeyLength", &self.ulGCMPKeyLength).field("ucGCMPKey", &self.ucGCMPKey).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_KEY_ALGO_GCMP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_KEY_ALGO_GCMP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucIV48Counter == other.ucIV48Counter && self.ulGCMPKeyLength == other.ulGCMPKeyLength && self.ucGCMPKey == other.ucGCMPKey
-    }
-}
-impl Eq for DOT11_KEY_ALGO_GCMP {}
 impl Default for DOT11_KEY_ALGO_GCMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP_256 {
     pub ucIV48Counter: [u8; 6],
     pub ulGCMP256KeyLength: u32,
     pub ucGCMP256Key: [u8; 1],
 }
-impl Copy for DOT11_KEY_ALGO_GCMP_256 {}
-impl Clone for DOT11_KEY_ALGO_GCMP_256 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_KEY_ALGO_GCMP_256 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_KEY_ALGO_GCMP_256").field("ucIV48Counter", &self.ucIV48Counter).field("ulGCMP256KeyLength", &self.ulGCMP256KeyLength).field("ucGCMP256Key", &self.ucGCMP256Key).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_KEY_ALGO_GCMP_256 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_KEY_ALGO_GCMP_256 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucIV48Counter == other.ucIV48Counter && self.ulGCMP256KeyLength == other.ulGCMP256KeyLength && self.ucGCMP256Key == other.ucGCMP256Key
-    }
-}
-impl Eq for DOT11_KEY_ALGO_GCMP_256 {}
 impl Default for DOT11_KEY_ALGO_GCMP_256 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_TKIP_MIC {
     pub ucIV48Counter: [u8; 6],
     pub ulTKIPKeyLength: u32,
     pub ulMICKeyLength: u32,
     pub ucTKIPMICKeys: [u8; 1],
 }
-impl Copy for DOT11_KEY_ALGO_TKIP_MIC {}
-impl Clone for DOT11_KEY_ALGO_TKIP_MIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_KEY_ALGO_TKIP_MIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_KEY_ALGO_TKIP_MIC").field("ucIV48Counter", &self.ucIV48Counter).field("ulTKIPKeyLength", &self.ulTKIPKeyLength).field("ulMICKeyLength", &self.ulMICKeyLength).field("ucTKIPMICKeys", &self.ucTKIPMICKeys).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_KEY_ALGO_TKIP_MIC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_KEY_ALGO_TKIP_MIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucIV48Counter == other.ucIV48Counter && self.ulTKIPKeyLength == other.ulTKIPKeyLength && self.ulMICKeyLength == other.ulMICKeyLength && self.ucTKIPMICKeys == other.ucTKIPMICKeys
-    }
-}
-impl Eq for DOT11_KEY_ALGO_TKIP_MIC {}
 impl Default for DOT11_KEY_ALGO_TKIP_MIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: [u8; 6],
     pub ucLinkQuality: u8,
 }
-impl Copy for DOT11_LINK_QUALITY_ENTRY {}
-impl Clone for DOT11_LINK_QUALITY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_LINK_QUALITY_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_LINK_QUALITY_ENTRY").field("PeerMacAddr", &self.PeerMacAddr).field("ucLinkQuality", &self.ucLinkQuality).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_LINK_QUALITY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_LINK_QUALITY_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddr == other.PeerMacAddr && self.ucLinkQuality == other.ucLinkQuality
-    }
-}
-impl Eq for DOT11_LINK_QUALITY_ENTRY {}
 impl Default for DOT11_LINK_QUALITY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6662,37 +4856,16 @@ impl Default for DOT11_LINK_QUALITY_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uLinkQualityListSize: u32,
     pub uLinkQualityListOffset: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_LINK_QUALITY_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_LINK_QUALITY_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_LINK_QUALITY_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_LINK_QUALITY_PARAMETERS").field("Header", &self.Header).field("uLinkQualityListSize", &self.uLinkQualityListSize).field("uLinkQualityListOffset", &self.uLinkQualityListOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_LINK_QUALITY_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_LINK_QUALITY_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uLinkQualityListSize == other.uLinkQualityListSize && self.uLinkQualityListOffset == other.uLinkQualityListOffset
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_LINK_QUALITY_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_LINK_QUALITY_PARAMETERS {
     fn default() -> Self {
@@ -6701,6 +4874,7 @@ impl Default for DOT11_LINK_QUALITY_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_ADDRESS_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -6708,31 +4882,9 @@ pub struct DOT11_MAC_ADDRESS_LIST {
     pub MacAddrs: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_MAC_ADDRESS_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_MAC_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_MAC_ADDRESS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MAC_ADDRESS_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("MacAddrs", &self.MacAddrs).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_MAC_ADDRESS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_MAC_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.MacAddrs == other.MacAddrs
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_MAC_ADDRESS_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_MAC_ADDRESS_LIST {
     fn default() -> Self {
@@ -6740,6 +4892,7 @@ impl Default for DOT11_MAC_ADDRESS_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -6756,85 +4909,24 @@ pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
 }
-impl Copy for DOT11_MAC_FRAME_STATISTICS {}
-impl Clone for DOT11_MAC_FRAME_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MAC_FRAME_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MAC_FRAME_STATISTICS")
-            .field("ullTransmittedFrameCount", &self.ullTransmittedFrameCount)
-            .field("ullReceivedFrameCount", &self.ullReceivedFrameCount)
-            .field("ullTransmittedFailureFrameCount", &self.ullTransmittedFailureFrameCount)
-            .field("ullReceivedFailureFrameCount", &self.ullReceivedFailureFrameCount)
-            .field("ullWEPExcludedCount", &self.ullWEPExcludedCount)
-            .field("ullTKIPLocalMICFailures", &self.ullTKIPLocalMICFailures)
-            .field("ullTKIPReplays", &self.ullTKIPReplays)
-            .field("ullTKIPICVErrorCount", &self.ullTKIPICVErrorCount)
-            .field("ullCCMPReplays", &self.ullCCMPReplays)
-            .field("ullCCMPDecryptErrors", &self.ullCCMPDecryptErrors)
-            .field("ullWEPUndecryptableCount", &self.ullWEPUndecryptableCount)
-            .field("ullWEPICVErrorCount", &self.ullWEPICVErrorCount)
-            .field("ullDecryptSuccessCount", &self.ullDecryptSuccessCount)
-            .field("ullDecryptFailureCount", &self.ullDecryptFailureCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MAC_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MAC_FRAME_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullTransmittedFrameCount == other.ullTransmittedFrameCount
-            && self.ullReceivedFrameCount == other.ullReceivedFrameCount
-            && self.ullTransmittedFailureFrameCount == other.ullTransmittedFailureFrameCount
-            && self.ullReceivedFailureFrameCount == other.ullReceivedFailureFrameCount
-            && self.ullWEPExcludedCount == other.ullWEPExcludedCount
-            && self.ullTKIPLocalMICFailures == other.ullTKIPLocalMICFailures
-            && self.ullTKIPReplays == other.ullTKIPReplays
-            && self.ullTKIPICVErrorCount == other.ullTKIPICVErrorCount
-            && self.ullCCMPReplays == other.ullCCMPReplays
-            && self.ullCCMPDecryptErrors == other.ullCCMPDecryptErrors
-            && self.ullWEPUndecryptableCount == other.ullWEPUndecryptableCount
-            && self.ullWEPICVErrorCount == other.ullWEPICVErrorCount
-            && self.ullDecryptSuccessCount == other.ullDecryptSuccessCount
-            && self.ullDecryptFailureCount == other.ullDecryptFailureCount
-    }
-}
-impl Eq for DOT11_MAC_FRAME_STATISTICS {}
 impl Default for DOT11_MAC_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_INFO {
     pub uReserved: u32,
     pub uNdisPortNumber: u32,
     pub MacAddr: [u8; 6],
 }
-impl Copy for DOT11_MAC_INFO {}
-impl Clone for DOT11_MAC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MAC_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MAC_INFO").field("uReserved", &self.uReserved).field("uNdisPortNumber", &self.uNdisPortNumber).field("MacAddr", &self.MacAddr).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MAC_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MAC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.uNdisPortNumber == other.uNdisPortNumber && self.MacAddr == other.MacAddr
-    }
-}
-impl Eq for DOT11_MAC_INFO {}
 impl Default for DOT11_MAC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6842,36 +4934,15 @@ impl Default for DOT11_MAC_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uOpmodeMask: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_MAC_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_MAC_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_MAC_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MAC_PARAMETERS").field("Header", &self.Header).field("uOpmodeMask", &self.uOpmodeMask).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_MAC_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_MAC_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uOpmodeMask == other.uOpmodeMask
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_MAC_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_MAC_PARAMETERS {
     fn default() -> Self {
@@ -6880,6 +4951,7 @@ impl Default for DOT11_MAC_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
@@ -6887,31 +4959,9 @@ pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub pvContext: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_CALLBACK_PARAMETERS").field("Header", &self.Header).field("dot11ManufacturingCallbackType", &self.dot11ManufacturingCallbackType).field("uStatus", &self.uStatus).field("pvContext", &self.pvContext).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dot11ManufacturingCallbackType == other.dot11ManufacturingCallbackType && self.uStatus == other.uStatus && self.pvContext == other.pvContext
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     fn default() -> Self {
@@ -6919,69 +4969,38 @@ impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub ADCPowerLevel: i32,
 }
-impl Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
-impl Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC").field("Dot11Band", &self.Dot11Band).field("uChannel", &self.uChannel).field("ADCPowerLevel", &self.ADCPowerLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dot11Band == other.Dot11Band && self.uChannel == other.uChannel && self.ADCPowerLevel == other.ADCPowerLevel
-    }
-}
-impl Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
 impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub bEnabled: super::super::Foundation::BOOLEAN,
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub PowerLevel: i32,
 }
-impl Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
-impl Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX").field("bEnabled", &self.bEnabled).field("Dot11Band", &self.Dot11Band).field("uChannel", &self.uChannel).field("PowerLevel", &self.PowerLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    fn eq(&self, other: &Self) -> bool {
-        self.bEnabled == other.bEnabled && self.Dot11Band == other.Dot11Band && self.uChannel == other.uChannel && self.PowerLevel == other.PowerLevel
-    }
-}
-impl Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
 impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub bEnable: super::super::Foundation::BOOLEAN,
     pub bOpenLoop: super::super::Foundation::BOOLEAN,
@@ -6990,32 +5009,16 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub uSetPowerLevel: u32,
     pub ADCPowerLevel: i32,
 }
-impl Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
-impl Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX").field("bEnable", &self.bEnable).field("bOpenLoop", &self.bOpenLoop).field("Dot11Band", &self.Dot11Band).field("uChannel", &self.uChannel).field("uSetPowerLevel", &self.uSetPowerLevel).field("ADCPowerLevel", &self.ADCPowerLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    fn eq(&self, other: &Self) -> bool {
-        self.bEnable == other.bEnable && self.bOpenLoop == other.bOpenLoop && self.Dot11Band == other.Dot11Band && self.uChannel == other.uChannel && self.uSetPowerLevel == other.uSetPowerLevel && self.ADCPowerLevel == other.ADCPowerLevel
-    }
-}
-impl Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
 impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
@@ -7025,32 +5028,16 @@ pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub uBytesWrittenOut: u32,
     pub ucBufferOut: [u8; 1],
 }
-impl Copy for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
-impl Clone for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS").field("SelfTestType", &self.SelfTestType).field("uTestID", &self.uTestID).field("bResult", &self.bResult).field("uPinFailedBitMask", &self.uPinFailedBitMask).field("pvContext", &self.pvContext).field("uBytesWrittenOut", &self.uBytesWrittenOut).field("ucBufferOut", &self.ucBufferOut).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SelfTestType == other.SelfTestType && self.uTestID == other.uTestID && self.bResult == other.bResult && self.uPinFailedBitMask == other.uPinFailedBitMask && self.pvContext == other.pvContext && self.uBytesWrittenOut == other.uBytesWrittenOut && self.ucBufferOut == other.ucBufferOut
-    }
-}
-impl Eq for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
 impl Default for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
@@ -7059,63 +5046,31 @@ pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     pub uBufferLength: u32,
     pub ucBufferIn: [u8; 1],
 }
-impl Copy for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
-impl Clone for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS").field("SelfTestType", &self.SelfTestType).field("uTestID", &self.uTestID).field("uPinBitMask", &self.uPinBitMask).field("pvContext", &self.pvContext).field("uBufferLength", &self.uBufferLength).field("ucBufferIn", &self.ucBufferIn).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SelfTestType == other.SelfTestType && self.uTestID == other.uTestID && self.uPinBitMask == other.uPinBitMask && self.pvContext == other.pvContext && self.uBufferLength == other.uBufferLength && self.ucBufferIn == other.ucBufferIn
-    }
-}
-impl Eq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
 impl Default for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST {
     pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_MANUFACTURING_TEST {}
-impl Clone for DOT11_MANUFACTURING_TEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_TEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_TEST").field("dot11ManufacturingTestType", &self.dot11ManufacturingTestType).field("uBufferLength", &self.uBufferLength).field("ucBuffer", &self.ucBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_TEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11ManufacturingTestType == other.dot11ManufacturingTestType && self.uBufferLength == other.uBufferLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_MANUFACTURING_TEST {}
 impl Default for DOT11_MANUFACTURING_TEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
     pub uKey: u32,
     pub uOffset: u32,
@@ -7123,119 +5078,54 @@ pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
     pub uBytesRead: u32,
     pub ucBufferOut: [u8; 1],
 }
-impl Copy for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
-impl Clone for DOT11_MANUFACTURING_TEST_QUERY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_TEST_QUERY_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_TEST_QUERY_DATA").field("uKey", &self.uKey).field("uOffset", &self.uOffset).field("uBufferLength", &self.uBufferLength).field("uBytesRead", &self.uBytesRead).field("ucBufferOut", &self.ucBufferOut).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_TEST_QUERY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.uKey == other.uKey && self.uOffset == other.uOffset && self.uBufferLength == other.uBufferLength && self.uBytesRead == other.uBytesRead && self.ucBufferOut == other.ucBufferOut
-    }
-}
-impl Eq for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
 impl Default for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
     pub uKey: u32,
     pub uOffset: u32,
     pub uBufferLength: u32,
     pub ucBufferIn: [u8; 1],
 }
-impl Copy for DOT11_MANUFACTURING_TEST_SET_DATA {}
-impl Clone for DOT11_MANUFACTURING_TEST_SET_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_TEST_SET_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_TEST_SET_DATA").field("uKey", &self.uKey).field("uOffset", &self.uOffset).field("uBufferLength", &self.uBufferLength).field("ucBufferIn", &self.ucBufferIn).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_SET_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_TEST_SET_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.uKey == other.uKey && self.uOffset == other.uOffset && self.uBufferLength == other.uBufferLength && self.ucBufferIn == other.ucBufferIn
-    }
-}
-impl Eq for DOT11_MANUFACTURING_TEST_SET_DATA {}
 impl Default for DOT11_MANUFACTURING_TEST_SET_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
     pub uSleepTime: u32,
     pub pvContext: *mut core::ffi::c_void,
 }
-impl Copy for DOT11_MANUFACTURING_TEST_SLEEP {}
-impl Clone for DOT11_MANUFACTURING_TEST_SLEEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MANUFACTURING_TEST_SLEEP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MANUFACTURING_TEST_SLEEP").field("uSleepTime", &self.uSleepTime).field("pvContext", &self.pvContext).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_SLEEP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MANUFACTURING_TEST_SLEEP {
-    fn eq(&self, other: &Self) -> bool {
-        self.uSleepTime == other.uSleepTime && self.pvContext == other.pvContext
-    }
-}
-impl Eq for DOT11_MANUFACTURING_TEST_SLEEP {}
 impl Default for DOT11_MANUFACTURING_TEST_SLEEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11MDCapabilityEntry: [DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY; 1],
 }
-impl Copy for DOT11_MD_CAPABILITY_ENTRY_LIST {}
-impl Clone for DOT11_MD_CAPABILITY_ENTRY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MD_CAPABILITY_ENTRY_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MD_CAPABILITY_ENTRY_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11MDCapabilityEntry", &self.dot11MDCapabilityEntry).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MD_CAPABILITY_ENTRY_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MD_CAPABILITY_ENTRY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11MDCapabilityEntry == other.dot11MDCapabilityEntry
-    }
-}
-impl Eq for DOT11_MD_CAPABILITY_ENTRY_LIST {}
 impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7243,37 +5133,16 @@ impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
     pub uMPDUMaxLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_MPDU_MAX_LENGTH_INDICATION {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_MPDU_MAX_LENGTH_INDICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_MPDU_MAX_LENGTH_INDICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MPDU_MAX_LENGTH_INDICATION").field("Header", &self.Header).field("uPhyId", &self.uPhyId).field("uMPDUMaxLength", &self.uMPDUMaxLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_MPDU_MAX_LENGTH_INDICATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_MPDU_MAX_LENGTH_INDICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uPhyId == other.uPhyId && self.uMPDUMaxLength == other.uMPDUMaxLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_MPDU_MAX_LENGTH_INDICATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_MPDU_MAX_LENGTH_INDICATION {
     fn default() -> Self {
@@ -7282,6 +5151,7 @@ impl Default for DOT11_MPDU_MAX_LENGTH_INDICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MSONEX_RESULT_PARAMS {
     pub Dot11OnexAuthStatus: ONEX_AUTH_STATUS,
     pub Dot11OneXReasonCode: ONEX_REASON_CODE,
@@ -7292,31 +5162,9 @@ pub struct DOT11_MSONEX_RESULT_PARAMS {
     pub pDot11EapResult: *mut DOT11_EAP_RESULT,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Copy for DOT11_MSONEX_RESULT_PARAMS {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Clone for DOT11_MSONEX_RESULT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl core::fmt::Debug for DOT11_MSONEX_RESULT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MSONEX_RESULT_PARAMS").field("Dot11OnexAuthStatus", &self.Dot11OnexAuthStatus).field("Dot11OneXReasonCode", &self.Dot11OneXReasonCode).field("pbMPPESendKey", &self.pbMPPESendKey).field("dwMPPESendKeyLen", &self.dwMPPESendKeyLen).field("pbMPPERecvKey", &self.pbMPPERecvKey).field("dwMPPERecvKeyLen", &self.dwMPPERecvKeyLen).field("pDot11EapResult", &self.pDot11EapResult).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl windows_core::TypeKind for DOT11_MSONEX_RESULT_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl PartialEq for DOT11_MSONEX_RESULT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dot11OnexAuthStatus == other.Dot11OnexAuthStatus && self.Dot11OneXReasonCode == other.Dot11OneXReasonCode && self.pbMPPESendKey == other.pbMPPESendKey && self.dwMPPESendKeyLen == other.dwMPPESendKeyLen && self.pbMPPERecvKey == other.pbMPPERecvKey && self.dwMPPERecvKeyLen == other.dwMPPERecvKeyLen && self.pDot11EapResult == other.pDot11EapResult
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Eq for DOT11_MSONEX_RESULT_PARAMS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl Default for DOT11_MSONEX_RESULT_PARAMS {
     fn default() -> Self {
@@ -7325,6 +5173,7 @@ impl Default for DOT11_MSONEX_RESULT_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MSSECURITY_SETTINGS {
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
@@ -7334,31 +5183,9 @@ pub struct DOT11_MSSECURITY_SETTINGS {
     pub pEapConnectionData: *mut u8,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Copy for DOT11_MSSECURITY_SETTINGS {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Clone for DOT11_MSSECURITY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl core::fmt::Debug for DOT11_MSSECURITY_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MSSECURITY_SETTINGS").field("dot11AuthAlgorithm", &self.dot11AuthAlgorithm).field("dot11CipherAlgorithm", &self.dot11CipherAlgorithm).field("fOneXEnabled", &self.fOneXEnabled).field("eapMethodType", &self.eapMethodType).field("dwEapConnectionDataLen", &self.dwEapConnectionDataLen).field("pEapConnectionData", &self.pEapConnectionData).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl windows_core::TypeKind for DOT11_MSSECURITY_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl PartialEq for DOT11_MSSECURITY_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11AuthAlgorithm == other.dot11AuthAlgorithm && self.dot11CipherAlgorithm == other.dot11CipherAlgorithm && self.fOneXEnabled == other.fOneXEnabled && self.eapMethodType == other.eapMethodType && self.dwEapConnectionDataLen == other.dwEapConnectionDataLen && self.pEapConnectionData == other.pEapConnectionData
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Eq for DOT11_MSSECURITY_SETTINGS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl Default for DOT11_MSSECURITY_SETTINGS {
     fn default() -> Self {
@@ -7366,159 +5193,80 @@ impl Default for DOT11_MSSECURITY_SETTINGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     pub uMultiDomainCapabilityIndex: u32,
     pub uFirstChannelNumber: u32,
     pub uNumberOfChannels: u32,
     pub lMaximumTransmitPowerLevel: i32,
 }
-impl Copy for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
-impl Clone for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY").field("uMultiDomainCapabilityIndex", &self.uMultiDomainCapabilityIndex).field("uFirstChannelNumber", &self.uFirstChannelNumber).field("uNumberOfChannels", &self.uNumberOfChannels).field("lMaximumTransmitPowerLevel", &self.lMaximumTransmitPowerLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uMultiDomainCapabilityIndex == other.uMultiDomainCapabilityIndex && self.uFirstChannelNumber == other.uFirstChannelNumber && self.uNumberOfChannels == other.uNumberOfChannels && self.lMaximumTransmitPowerLevel == other.lMaximumTransmitPowerLevel
-    }
-}
-impl Eq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
 impl Default for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_NETWORK {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
 }
-impl Copy for DOT11_NETWORK {}
-impl Clone for DOT11_NETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_NETWORK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_NETWORK").field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_NETWORK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_NETWORK {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11Ssid == other.dot11Ssid && self.dot11BssType == other.dot11BssType
-    }
-}
-impl Eq for DOT11_NETWORK {}
 impl Default for DOT11_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_NETWORK_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub Network: [DOT11_NETWORK; 1],
 }
-impl Copy for DOT11_NETWORK_LIST {}
-impl Clone for DOT11_NETWORK_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_NETWORK_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_NETWORK_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("dwIndex", &self.dwIndex).field("Network", &self.Network).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_NETWORK_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_NETWORK_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.dwIndex == other.dwIndex && self.Network == other.Network
-    }
-}
-impl Eq for DOT11_NETWORK_LIST {}
 impl Default for DOT11_NETWORK_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_NIC_SPECIFIC_EXTENSION {
     pub uBufferLength: u32,
     pub uTotalBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_NIC_SPECIFIC_EXTENSION {}
-impl Clone for DOT11_NIC_SPECIFIC_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_NIC_SPECIFIC_EXTENSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_NIC_SPECIFIC_EXTENSION").field("uBufferLength", &self.uBufferLength).field("uTotalBufferLength", &self.uTotalBufferLength).field("ucBuffer", &self.ucBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_NIC_SPECIFIC_EXTENSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_NIC_SPECIFIC_EXTENSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.uBufferLength == other.uBufferLength && self.uTotalBufferLength == other.uTotalBufferLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_NIC_SPECIFIC_EXTENSION {}
 impl Default for DOT11_NIC_SPECIFIC_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
     pub uFrequencyBandsSupported: u32,
-}
-impl Copy for DOT11_OFDM_PHY_ATTRIBUTES {}
-impl Clone for DOT11_OFDM_PHY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_OFDM_PHY_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OFDM_PHY_ATTRIBUTES").field("uFrequencyBandsSupported", &self.uFrequencyBandsSupported).finish()
-    }
 }
 impl windows_core::TypeKind for DOT11_OFDM_PHY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_OFDM_PHY_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.uFrequencyBandsSupported == other.uFrequencyBandsSupported
-    }
-}
-impl Eq for DOT11_OFDM_PHY_ATTRIBUTES {}
 impl Default for DOT11_OFDM_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
@@ -7528,58 +5276,25 @@ pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uSupportedAuthAlgorithms: u32,
     pub uMaxAuthKeyMappingLength: u32,
 }
-impl Copy for DOT11_OFFLOAD_CAPABILITY {}
-impl Clone for DOT11_OFFLOAD_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_OFFLOAD_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OFFLOAD_CAPABILITY").field("uReserved", &self.uReserved).field("uFlags", &self.uFlags).field("uSupportedWEPAlgorithms", &self.uSupportedWEPAlgorithms).field("uNumOfReplayWindows", &self.uNumOfReplayWindows).field("uMaxWEPKeyMappingLength", &self.uMaxWEPKeyMappingLength).field("uSupportedAuthAlgorithms", &self.uSupportedAuthAlgorithms).field("uMaxAuthKeyMappingLength", &self.uMaxAuthKeyMappingLength).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_OFFLOAD_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_OFFLOAD_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.uFlags == other.uFlags && self.uSupportedWEPAlgorithms == other.uSupportedWEPAlgorithms && self.uNumOfReplayWindows == other.uNumOfReplayWindows && self.uMaxWEPKeyMappingLength == other.uMaxWEPKeyMappingLength && self.uSupportedAuthAlgorithms == other.uSupportedAuthAlgorithms && self.uMaxAuthKeyMappingLength == other.uMaxAuthKeyMappingLength
-    }
-}
-impl Eq for DOT11_OFFLOAD_CAPABILITY {}
 impl Default for DOT11_OFFLOAD_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK {
     pub Ssid: DOT11_SSID,
     pub UnicastCipher: DOT11_CIPHER_ALGORITHM,
     pub AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
 }
-impl Copy for DOT11_OFFLOAD_NETWORK {}
-impl Clone for DOT11_OFFLOAD_NETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_OFFLOAD_NETWORK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OFFLOAD_NETWORK").field("Ssid", &self.Ssid).field("UnicastCipher", &self.UnicastCipher).field("AuthAlgo", &self.AuthAlgo).field("Dot11ChannelHints", &self.Dot11ChannelHints).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_OFFLOAD_NETWORK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_OFFLOAD_NETWORK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ssid == other.Ssid && self.UnicastCipher == other.UnicastCipher && self.AuthAlgo == other.AuthAlgo && self.Dot11ChannelHints == other.Dot11ChannelHints
-    }
-}
-impl Eq for DOT11_OFFLOAD_NETWORK {}
 impl Default for DOT11_OFFLOAD_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7587,6 +5302,7 @@ impl Default for DOT11_OFFLOAD_NETWORK {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ulFlags: u32,
@@ -7597,31 +5313,9 @@ pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_OFFLOAD_NETWORK_LIST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_OFFLOAD_NETWORK_LIST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OFFLOAD_NETWORK_LIST_INFO").field("Header", &self.Header).field("ulFlags", &self.ulFlags).field("FastScanPeriod", &self.FastScanPeriod).field("FastScanIterations", &self.FastScanIterations).field("SlowScanPeriod", &self.SlowScanPeriod).field("uNumOfEntries", &self.uNumOfEntries).field("offloadNetworkList", &self.offloadNetworkList).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_OFFLOAD_NETWORK_LIST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ulFlags == other.ulFlags && self.FastScanPeriod == other.FastScanPeriod && self.FastScanIterations == other.FastScanIterations && self.SlowScanPeriod == other.SlowScanPeriod && self.uNumOfEntries == other.uNumOfEntries && self.offloadNetworkList == other.offloadNetworkList
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn default() -> Self {
@@ -7630,36 +5324,15 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub Status: i32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS").field("Header", &self.Header).field("Status", &self.Status).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Status == other.Status
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     fn default() -> Self {
@@ -7667,36 +5340,21 @@ impl Default for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OI {
     pub OILength: u16,
     pub OI: [u8; 5],
 }
-impl Copy for DOT11_OI {}
-impl Clone for DOT11_OI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_OI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OI").field("OILength", &self.OILength).field("OI", &self.OI).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_OI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_OI {
-    fn eq(&self, other: &Self) -> bool {
-        self.OILength == other.OILength && self.OI == other.OI
-    }
-}
-impl Eq for DOT11_OI {}
 impl Default for DOT11_OI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uReserved: u32,
     pub uMajorVersion: u32,
@@ -7705,64 +5363,32 @@ pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uNumOfRXBuffers: u32,
     pub uOpModeCapability: u32,
 }
-impl Copy for DOT11_OPERATION_MODE_CAPABILITY {}
-impl Clone for DOT11_OPERATION_MODE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_OPERATION_MODE_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OPERATION_MODE_CAPABILITY").field("uReserved", &self.uReserved).field("uMajorVersion", &self.uMajorVersion).field("uMinorVersion", &self.uMinorVersion).field("uNumOfTXBuffers", &self.uNumOfTXBuffers).field("uNumOfRXBuffers", &self.uNumOfRXBuffers).field("uOpModeCapability", &self.uOpModeCapability).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_OPERATION_MODE_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_OPERATION_MODE_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.uMajorVersion == other.uMajorVersion && self.uMinorVersion == other.uMinorVersion && self.uNumOfTXBuffers == other.uNumOfTXBuffers && self.uNumOfRXBuffers == other.uNumOfRXBuffers && self.uOpModeCapability == other.uOpModeCapability
-    }
-}
-impl Eq for DOT11_OPERATION_MODE_CAPABILITY {}
 impl Default for DOT11_OPERATION_MODE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
     pub bDot11PCF: super::super::Foundation::BOOLEAN,
     pub bDot11PCFMPDUTransferToPC: super::super::Foundation::BOOLEAN,
     pub bStrictlyOrderedServiceClass: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_OPTIONAL_CAPABILITY {}
-impl Clone for DOT11_OPTIONAL_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_OPTIONAL_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_OPTIONAL_CAPABILITY").field("uReserved", &self.uReserved).field("bDot11PCF", &self.bDot11PCF).field("bDot11PCFMPDUTransferToPC", &self.bDot11PCFMPDUTransferToPC).field("bStrictlyOrderedServiceClass", &self.bStrictlyOrderedServiceClass).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_OPTIONAL_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_OPTIONAL_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.bDot11PCF == other.bDot11PCF && self.bDot11PCFMPDUTransferToPC == other.bDot11PCFMPDUTransferToPC && self.bStrictlyOrderedServiceClass == other.bStrictlyOrderedServiceClass
-    }
-}
-impl Eq for DOT11_OPTIONAL_CAPABILITY {}
 impl Default for DOT11_OPTIONAL_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: [u8; 6],
     pub usCapabilityInformation: u16,
@@ -7778,40 +5404,9 @@ pub struct DOT11_PEER_INFO {
     pub liAssociationUpTime: i64,
     pub Statistics: DOT11_PEER_STATISTICS,
 }
-impl Copy for DOT11_PEER_INFO {}
-impl Clone for DOT11_PEER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PEER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PEER_INFO")
-            .field("MacAddress", &self.MacAddress)
-            .field("usCapabilityInformation", &self.usCapabilityInformation)
-            .field("AuthAlgo", &self.AuthAlgo)
-            .field("UnicastCipherAlgo", &self.UnicastCipherAlgo)
-            .field("MulticastCipherAlgo", &self.MulticastCipherAlgo)
-            .field("bWpsEnabled", &self.bWpsEnabled)
-            .field("usListenInterval", &self.usListenInterval)
-            .field("ucSupportedRates", &self.ucSupportedRates)
-            .field("usAssociationID", &self.usAssociationID)
-            .field("AssociationState", &self.AssociationState)
-            .field("PowerMode", &self.PowerMode)
-            .field("liAssociationUpTime", &self.liAssociationUpTime)
-            .field("Statistics", &self.Statistics)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PEER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PEER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.MacAddress == other.MacAddress && self.usCapabilityInformation == other.usCapabilityInformation && self.AuthAlgo == other.AuthAlgo && self.UnicastCipherAlgo == other.UnicastCipherAlgo && self.MulticastCipherAlgo == other.MulticastCipherAlgo && self.bWpsEnabled == other.bWpsEnabled && self.usListenInterval == other.usListenInterval && self.ucSupportedRates == other.ucSupportedRates && self.usAssociationID == other.usAssociationID && self.AssociationState == other.AssociationState && self.PowerMode == other.PowerMode && self.liAssociationUpTime == other.liAssociationUpTime && self.Statistics == other.Statistics
-    }
-}
-impl Eq for DOT11_PEER_INFO {}
 impl Default for DOT11_PEER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7819,6 +5414,7 @@ impl Default for DOT11_PEER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -7826,31 +5422,9 @@ pub struct DOT11_PEER_INFO_LIST {
     pub PeerInfo: [DOT11_PEER_INFO; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PEER_INFO_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PEER_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PEER_INFO_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PEER_INFO_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("PeerInfo", &self.PeerInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PEER_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PEER_INFO_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.PeerInfo == other.PeerInfo
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PEER_INFO_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PEER_INFO_LIST {
     fn default() -> Self {
@@ -7858,6 +5432,7 @@ impl Default for DOT11_PEER_INFO_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PEER_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
@@ -7866,32 +5441,16 @@ pub struct DOT11_PEER_STATISTICS {
     pub ullRxPacketSuccessCount: u64,
     pub ullRxPacketFailureCount: u64,
 }
-impl Copy for DOT11_PEER_STATISTICS {}
-impl Clone for DOT11_PEER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PEER_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PEER_STATISTICS").field("ullDecryptSuccessCount", &self.ullDecryptSuccessCount).field("ullDecryptFailureCount", &self.ullDecryptFailureCount).field("ullTxPacketSuccessCount", &self.ullTxPacketSuccessCount).field("ullTxPacketFailureCount", &self.ullTxPacketFailureCount).field("ullRxPacketSuccessCount", &self.ullRxPacketSuccessCount).field("ullRxPacketFailureCount", &self.ullRxPacketFailureCount).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PEER_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PEER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullDecryptSuccessCount == other.ullDecryptSuccessCount && self.ullDecryptFailureCount == other.ullDecryptFailureCount && self.ullTxPacketSuccessCount == other.ullTxPacketSuccessCount && self.ullTxPacketFailureCount == other.ullTxPacketFailureCount && self.ullRxPacketSuccessCount == other.ullRxPacketSuccessCount && self.ullRxPacketFailureCount == other.ullRxPacketFailureCount
-    }
-}
-impl Eq for DOT11_PEER_STATISTICS {}
 impl Default for DOT11_PEER_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PER_MSDU_COUNTERS {
     pub uTransmittedFragmentCount: u32,
     pub uRetryCount: u32,
@@ -7899,26 +5458,9 @@ pub struct DOT11_PER_MSDU_COUNTERS {
     pub uRTSFailureCount: u32,
     pub uACKFailureCount: u32,
 }
-impl Copy for DOT11_PER_MSDU_COUNTERS {}
-impl Clone for DOT11_PER_MSDU_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PER_MSDU_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PER_MSDU_COUNTERS").field("uTransmittedFragmentCount", &self.uTransmittedFragmentCount).field("uRetryCount", &self.uRetryCount).field("uRTSSuccessCount", &self.uRTSSuccessCount).field("uRTSFailureCount", &self.uRTSFailureCount).field("uACKFailureCount", &self.uACKFailureCount).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PER_MSDU_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PER_MSDU_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.uTransmittedFragmentCount == other.uTransmittedFragmentCount && self.uRetryCount == other.uRetryCount && self.uRTSSuccessCount == other.uRTSSuccessCount && self.uRTSFailureCount == other.uRTSFailureCount && self.uACKFailureCount == other.uACKFailureCount
-    }
-}
-impl Eq for DOT11_PER_MSDU_COUNTERS {}
 impl Default for DOT11_PER_MSDU_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7926,6 +5468,7 @@ impl Default for DOT11_PER_MSDU_COUNTERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PhyType: DOT11_PHY_TYPE,
@@ -7943,14 +5486,6 @@ pub struct DOT11_PHY_ATTRIBUTES {
     pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_ATTRIBUTES {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
@@ -7962,18 +5497,11 @@ impl Default for DOT11_PHY_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_ATTRIBUTES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_ATTRIBUTES_0 {
@@ -7986,6 +5514,7 @@ impl Default for DOT11_PHY_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -8006,62 +5535,9 @@ pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullPromiscuousReceivedFragmentCount: u64,
     pub ullFCSErrorCount: u64,
 }
-impl Copy for DOT11_PHY_FRAME_STATISTICS {}
-impl Clone for DOT11_PHY_FRAME_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PHY_FRAME_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PHY_FRAME_STATISTICS")
-            .field("ullTransmittedFrameCount", &self.ullTransmittedFrameCount)
-            .field("ullMulticastTransmittedFrameCount", &self.ullMulticastTransmittedFrameCount)
-            .field("ullFailedCount", &self.ullFailedCount)
-            .field("ullRetryCount", &self.ullRetryCount)
-            .field("ullMultipleRetryCount", &self.ullMultipleRetryCount)
-            .field("ullMaxTXLifetimeExceededCount", &self.ullMaxTXLifetimeExceededCount)
-            .field("ullTransmittedFragmentCount", &self.ullTransmittedFragmentCount)
-            .field("ullRTSSuccessCount", &self.ullRTSSuccessCount)
-            .field("ullRTSFailureCount", &self.ullRTSFailureCount)
-            .field("ullACKFailureCount", &self.ullACKFailureCount)
-            .field("ullReceivedFrameCount", &self.ullReceivedFrameCount)
-            .field("ullMulticastReceivedFrameCount", &self.ullMulticastReceivedFrameCount)
-            .field("ullPromiscuousReceivedFrameCount", &self.ullPromiscuousReceivedFrameCount)
-            .field("ullMaxRXLifetimeExceededCount", &self.ullMaxRXLifetimeExceededCount)
-            .field("ullFrameDuplicateCount", &self.ullFrameDuplicateCount)
-            .field("ullReceivedFragmentCount", &self.ullReceivedFragmentCount)
-            .field("ullPromiscuousReceivedFragmentCount", &self.ullPromiscuousReceivedFragmentCount)
-            .field("ullFCSErrorCount", &self.ullFCSErrorCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PHY_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PHY_FRAME_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullTransmittedFrameCount == other.ullTransmittedFrameCount
-            && self.ullMulticastTransmittedFrameCount == other.ullMulticastTransmittedFrameCount
-            && self.ullFailedCount == other.ullFailedCount
-            && self.ullRetryCount == other.ullRetryCount
-            && self.ullMultipleRetryCount == other.ullMultipleRetryCount
-            && self.ullMaxTXLifetimeExceededCount == other.ullMaxTXLifetimeExceededCount
-            && self.ullTransmittedFragmentCount == other.ullTransmittedFragmentCount
-            && self.ullRTSSuccessCount == other.ullRTSSuccessCount
-            && self.ullRTSFailureCount == other.ullRTSFailureCount
-            && self.ullACKFailureCount == other.ullACKFailureCount
-            && self.ullReceivedFrameCount == other.ullReceivedFrameCount
-            && self.ullMulticastReceivedFrameCount == other.ullMulticastReceivedFrameCount
-            && self.ullPromiscuousReceivedFrameCount == other.ullPromiscuousReceivedFrameCount
-            && self.ullMaxRXLifetimeExceededCount == other.ullMaxRXLifetimeExceededCount
-            && self.ullFrameDuplicateCount == other.ullFrameDuplicateCount
-            && self.ullReceivedFragmentCount == other.ullReceivedFragmentCount
-            && self.ullPromiscuousReceivedFragmentCount == other.ullPromiscuousReceivedFragmentCount
-            && self.ullFCSErrorCount == other.ullFCSErrorCount
-    }
-}
-impl Eq for DOT11_PHY_FRAME_STATISTICS {}
 impl Default for DOT11_PHY_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8069,18 +5545,11 @@ impl Default for DOT11_PHY_FRAME_STATISTICS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ulPhyId: u32,
     pub Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
@@ -8094,17 +5563,10 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
     pub ulFrequency: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
@@ -8118,6 +5580,7 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_ID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -8125,31 +5588,9 @@ pub struct DOT11_PHY_ID_LIST {
     pub dot11PhyId: [u32; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_ID_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_ID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PHY_ID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PHY_ID_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11PhyId", &self.dot11PhyId).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_ID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PHY_ID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11PhyId == other.dot11PhyId
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PHY_ID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PHY_ID_LIST {
     fn default() -> Self {
@@ -8158,6 +5599,7 @@ impl Default for DOT11_PHY_ID_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
@@ -8165,31 +5607,9 @@ pub struct DOT11_PHY_STATE_PARAMETERS {
     pub bSoftwarePhyState: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_STATE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_STATE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PHY_STATE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PHY_STATE_PARAMETERS").field("Header", &self.Header).field("uPhyId", &self.uPhyId).field("bHardwarePhyState", &self.bHardwarePhyState).field("bSoftwarePhyState", &self.bSoftwarePhyState).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_STATE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PHY_STATE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uPhyId == other.uPhyId && self.bHardwarePhyState == other.bHardwarePhyState && self.bSoftwarePhyState == other.bSoftwarePhyState
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PHY_STATE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PHY_STATE_PARAMETERS {
     fn default() -> Self {
@@ -8197,6 +5617,7 @@ impl Default for DOT11_PHY_STATE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub bUseParameters: super::super::Foundation::BOOLEAN,
@@ -8207,26 +5628,9 @@ pub struct DOT11_PHY_TYPE_INFO {
     pub uChannelListSize: u32,
     pub ucChannelListBuffer: [u8; 1],
 }
-impl Copy for DOT11_PHY_TYPE_INFO {}
-impl Clone for DOT11_PHY_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PHY_TYPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PHY_TYPE_INFO").field("dot11PhyType", &self.dot11PhyType).field("bUseParameters", &self.bUseParameters).field("uProbeDelay", &self.uProbeDelay).field("uMinChannelTime", &self.uMinChannelTime).field("uMaxChannelTime", &self.uMaxChannelTime).field("ChDescriptionType", &self.ChDescriptionType).field("uChannelListSize", &self.uChannelListSize).field("ucChannelListBuffer", &self.ucChannelListBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PHY_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PHY_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11PhyType == other.dot11PhyType && self.bUseParameters == other.bUseParameters && self.uProbeDelay == other.uProbeDelay && self.uMinChannelTime == other.uMinChannelTime && self.uMaxChannelTime == other.uMaxChannelTime && self.ChDescriptionType == other.ChDescriptionType && self.uChannelListSize == other.uChannelListSize && self.ucChannelListBuffer == other.ucChannelListBuffer
-    }
-}
-impl Eq for DOT11_PHY_TYPE_INFO {}
 impl Default for DOT11_PHY_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8234,6 +5638,7 @@ impl Default for DOT11_PHY_TYPE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -8241,31 +5646,9 @@ pub struct DOT11_PHY_TYPE_LIST {
     pub dot11PhyType: [DOT11_PHY_TYPE; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PHY_TYPE_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PHY_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PHY_TYPE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PHY_TYPE_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11PhyType", &self.dot11PhyType).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PHY_TYPE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PHY_TYPE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11PhyType == other.dot11PhyType
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PHY_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PHY_TYPE_LIST {
     fn default() -> Self {
@@ -8274,37 +5657,16 @@ impl Default for DOT11_PHY_TYPE_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uCandidateListSize: u32,
     pub uCandidateListOffset: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PMKID_CANDIDATE_LIST_PARAMETERS").field("Header", &self.Header).field("uCandidateListSize", &self.uCandidateListSize).field("uCandidateListOffset", &self.uCandidateListOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uCandidateListSize == other.uCandidateListSize && self.uCandidateListOffset == other.uCandidateListOffset
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     fn default() -> Self {
@@ -8312,31 +5674,15 @@ impl Default for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_ENTRY {
     pub BSSID: [u8; 6],
     pub PMKID: [u8; 16],
     pub uFlags: u32,
 }
-impl Copy for DOT11_PMKID_ENTRY {}
-impl Clone for DOT11_PMKID_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PMKID_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PMKID_ENTRY").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).field("uFlags", &self.uFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PMKID_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PMKID_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.BSSID == other.BSSID && self.PMKID == other.PMKID && self.uFlags == other.uFlags
-    }
-}
-impl Eq for DOT11_PMKID_ENTRY {}
 impl Default for DOT11_PMKID_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8344,6 +5690,7 @@ impl Default for DOT11_PMKID_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -8351,31 +5698,9 @@ pub struct DOT11_PMKID_LIST {
     pub PMKIDs: [DOT11_PMKID_ENTRY; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PMKID_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PMKID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PMKID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PMKID_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("PMKIDs", &self.PMKIDs).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PMKID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PMKID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.PMKIDs == other.PMKIDs
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PMKID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PMKID_LIST {
     fn default() -> Self {
@@ -8383,32 +5708,16 @@ impl Default for DOT11_PMKID_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PORT_STATE {
     pub PeerMacAddress: [u8; 6],
     pub uSessionId: u32,
     pub bPortControlled: super::super::Foundation::BOOL,
     pub bPortAuthorized: super::super::Foundation::BOOL,
 }
-impl Copy for DOT11_PORT_STATE {}
-impl Clone for DOT11_PORT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PORT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PORT_STATE").field("PeerMacAddress", &self.PeerMacAddress).field("uSessionId", &self.uSessionId).field("bPortControlled", &self.bPortControlled).field("bPortAuthorized", &self.bPortAuthorized).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PORT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PORT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddress == other.PeerMacAddress && self.uSessionId == other.uSessionId && self.bPortControlled == other.bPortControlled && self.bPortAuthorized == other.bPortAuthorized
-    }
-}
-impl Eq for DOT11_PORT_STATE {}
 impl Default for DOT11_PORT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8416,37 +5725,16 @@ impl Default for DOT11_PORT_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMac: [u8; 6],
     pub bOpen: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PORT_STATE_NOTIFICATION {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PORT_STATE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PORT_STATE_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PORT_STATE_NOTIFICATION").field("Header", &self.Header).field("PeerMac", &self.PeerMac).field("bOpen", &self.bOpen).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PORT_STATE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PORT_STATE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerMac == other.PeerMac && self.bOpen == other.bOpen
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PORT_STATE_NOTIFICATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PORT_STATE_NOTIFICATION {
     fn default() -> Self {
@@ -8455,36 +5743,15 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bEnabled: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO").field("Header", &self.Header).field("bEnabled", &self.bEnabled).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.bEnabled == other.bEnabled
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     fn default() -> Self {
@@ -8492,6 +5759,7 @@ impl Default for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
     pub uPowerSaveLevel: u32,
@@ -8499,26 +5767,9 @@ pub struct DOT11_POWER_MGMT_MODE {
     pub usAID: u16,
     pub bReceiveDTIMs: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_POWER_MGMT_MODE {}
-impl Clone for DOT11_POWER_MGMT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_POWER_MGMT_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_POWER_MGMT_MODE").field("dot11PowerMode", &self.dot11PowerMode).field("uPowerSaveLevel", &self.uPowerSaveLevel).field("usListenInterval", &self.usListenInterval).field("usAID", &self.usAID).field("bReceiveDTIMs", &self.bReceiveDTIMs).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_POWER_MGMT_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_POWER_MGMT_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11PowerMode == other.dot11PowerMode && self.uPowerSaveLevel == other.uPowerSaveLevel && self.usListenInterval == other.usListenInterval && self.usAID == other.usAID && self.bReceiveDTIMs == other.bReceiveDTIMs
-    }
-}
-impl Eq for DOT11_POWER_MGMT_MODE {}
 impl Default for DOT11_POWER_MGMT_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8526,6 +5777,7 @@ impl Default for DOT11_POWER_MGMT_MODE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PowerSaveMode: DOT11_POWER_MODE,
@@ -8533,31 +5785,9 @@ pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Reason: DOT11_POWER_MODE_REASON,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_POWER_MGMT_MODE_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_POWER_MGMT_MODE_STATUS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_POWER_MGMT_MODE_STATUS_INFO").field("Header", &self.Header).field("PowerSaveMode", &self.PowerSaveMode).field("uPowerSaveLevel", &self.uPowerSaveLevel).field("Reason", &self.Reason).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_POWER_MGMT_MODE_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PowerSaveMode == other.PowerSaveMode && self.uPowerSaveLevel == other.uPowerSaveLevel && self.Reason == other.Reason
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     fn default() -> Self {
@@ -8565,31 +5795,15 @@ impl Default for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION {
     pub usEtherType: u16,
     pub usExemptionActionType: u16,
     pub usExemptionPacketType: u16,
 }
-impl Copy for DOT11_PRIVACY_EXEMPTION {}
-impl Clone for DOT11_PRIVACY_EXEMPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_PRIVACY_EXEMPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PRIVACY_EXEMPTION").field("usEtherType", &self.usEtherType).field("usExemptionActionType", &self.usExemptionActionType).field("usExemptionPacketType", &self.usExemptionPacketType).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_PRIVACY_EXEMPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_PRIVACY_EXEMPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.usEtherType == other.usEtherType && self.usExemptionActionType == other.usExemptionActionType && self.usExemptionPacketType == other.usExemptionPacketType
-    }
-}
-impl Eq for DOT11_PRIVACY_EXEMPTION {}
 impl Default for DOT11_PRIVACY_EXEMPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8597,6 +5811,7 @@ impl Default for DOT11_PRIVACY_EXEMPTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -8604,31 +5819,9 @@ pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PRIVACY_EXEMPTION_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PRIVACY_EXEMPTION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PRIVACY_EXEMPTION_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PRIVACY_EXEMPTION_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("PrivacyExemptionEntries", &self.PrivacyExemptionEntries).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PRIVACY_EXEMPTION_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PRIVACY_EXEMPTION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.PrivacyExemptionEntries == other.PrivacyExemptionEntries
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PRIVACY_EXEMPTION_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
     fn default() -> Self {
@@ -8637,6 +5830,7 @@ impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -8647,31 +5841,9 @@ pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("ReceiverAddress", &self.ReceiverAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.ReceiverAddress == other.ReceiverAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -8680,6 +5852,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: [u8; 6],
@@ -8689,31 +5862,9 @@ pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ReceiverDeviceAddress == other.ReceiverDeviceAddress && self.DialogToken == other.DialogToken && self.Status == other.Status && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -8722,36 +5873,15 @@ impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ucEnabledQoSProtocolFlags: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_QOS_PARAMS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_QOS_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_QOS_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_QOS_PARAMS").field("Header", &self.Header).field("ucEnabledQoSProtocolFlags", &self.ucEnabledQoSProtocolFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_QOS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_QOS_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ucEnabledQoSProtocolFlags == other.ucEnabledQoSProtocolFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_QOS_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_QOS_PARAMS {
     fn default() -> Self {
@@ -8759,92 +5889,44 @@ impl Default for DOT11_QOS_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_QOS_TX_DURATION {
     pub uNominalMSDUSize: u32,
     pub uMinPHYRate: u32,
     pub uDuration: u32,
 }
-impl Copy for DOT11_QOS_TX_DURATION {}
-impl Clone for DOT11_QOS_TX_DURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_QOS_TX_DURATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_QOS_TX_DURATION").field("uNominalMSDUSize", &self.uNominalMSDUSize).field("uMinPHYRate", &self.uMinPHYRate).field("uDuration", &self.uDuration).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_QOS_TX_DURATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_QOS_TX_DURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNominalMSDUSize == other.uNominalMSDUSize && self.uMinPHYRate == other.uMinPHYRate && self.uDuration == other.uDuration
-    }
-}
-impl Eq for DOT11_QOS_TX_DURATION {}
 impl Default for DOT11_QOS_TX_DURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_QOS_TX_MEDIUM_TIME {
     pub dot11PeerAddress: [u8; 6],
     pub ucQoSPriority: u8,
     pub uMediumTimeAdmited: u32,
 }
-impl Copy for DOT11_QOS_TX_MEDIUM_TIME {}
-impl Clone for DOT11_QOS_TX_MEDIUM_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_QOS_TX_MEDIUM_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_QOS_TX_MEDIUM_TIME").field("dot11PeerAddress", &self.dot11PeerAddress).field("ucQoSPriority", &self.ucQoSPriority).field("uMediumTimeAdmited", &self.uMediumTimeAdmited).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_QOS_TX_MEDIUM_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_QOS_TX_MEDIUM_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11PeerAddress == other.dot11PeerAddress && self.ucQoSPriority == other.ucQoSPriority && self.uMediumTimeAdmited == other.uMediumTimeAdmited
-    }
-}
-impl Eq for DOT11_QOS_TX_MEDIUM_TIME {}
 impl Default for DOT11_QOS_TX_MEDIUM_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RATE_SET {
     pub uRateSetLength: u32,
     pub ucRateSet: [u8; 126],
 }
-impl Copy for DOT11_RATE_SET {}
-impl Clone for DOT11_RATE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_RATE_SET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RATE_SET").field("uRateSetLength", &self.uRateSetLength).field("ucRateSet", &self.ucRateSet).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_RATE_SET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_RATE_SET {
-    fn eq(&self, other: &Self) -> bool {
-        self.uRateSetLength == other.uRateSetLength && self.ucRateSet == other.ucRateSet
-    }
-}
-impl Eq for DOT11_RATE_SET {}
 impl Default for DOT11_RATE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8852,6 +5934,7 @@ impl Default for DOT11_RATE_SET {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -8860,31 +5943,9 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
@@ -8893,6 +5954,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -8902,31 +5964,9 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
@@ -8935,6 +5975,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -8944,31 +5985,9 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("ResponseContext", &self.ResponseContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.ResponseContext == other.ResponseContext && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
@@ -8977,6 +5996,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: [u8; 6],
@@ -8987,31 +6007,9 @@ pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.TransmitterDeviceAddress == other.TransmitterDeviceAddress && self.BSSID == other.BSSID && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
@@ -9020,6 +6018,7 @@ impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: [u8; 6],
@@ -9029,31 +6028,9 @@ pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.TransmitterDeviceAddress == other.TransmitterDeviceAddress && self.BSSID == other.BSSID && self.DialogToken == other.DialogToken && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
@@ -9062,6 +6039,7 @@ impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: [u8; 6],
@@ -9072,31 +6050,9 @@ pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.TransmitterDeviceAddress == other.TransmitterDeviceAddress && self.BSSID == other.BSSID && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
@@ -9105,6 +6061,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: [u8; 6],
@@ -9114,31 +6071,9 @@ pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.TransmitterDeviceAddress == other.TransmitterDeviceAddress && self.BSSID == other.BSSID && self.DialogToken == other.DialogToken && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
@@ -9146,6 +6081,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO {
     pub uVersion: u32,
     pub pvReserved: *mut core::ffi::c_void,
@@ -9171,78 +6107,16 @@ pub struct DOT11_RECV_EXTENSION_INFO {
     pub usNumberOfFragments: u16,
     pub pNdisPackets: [*mut core::ffi::c_void; 1],
 }
-impl Copy for DOT11_RECV_EXTENSION_INFO {}
-impl Clone for DOT11_RECV_EXTENSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_RECV_EXTENSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECV_EXTENSION_INFO")
-            .field("uVersion", &self.uVersion)
-            .field("pvReserved", &self.pvReserved)
-            .field("dot11PhyType", &self.dot11PhyType)
-            .field("uChCenterFrequency", &self.uChCenterFrequency)
-            .field("lRSSI", &self.lRSSI)
-            .field("lRSSIMin", &self.lRSSIMin)
-            .field("lRSSIMax", &self.lRSSIMax)
-            .field("uRSSI", &self.uRSSI)
-            .field("ucPriority", &self.ucPriority)
-            .field("ucDataRate", &self.ucDataRate)
-            .field("ucPeerMacAddress", &self.ucPeerMacAddress)
-            .field("dwExtendedStatus", &self.dwExtendedStatus)
-            .field("hWEPOffloadContext", &self.hWEPOffloadContext)
-            .field("hAuthOffloadContext", &self.hAuthOffloadContext)
-            .field("usWEPAppliedMask", &self.usWEPAppliedMask)
-            .field("usWPAMSDUPriority", &self.usWPAMSDUPriority)
-            .field("dot11LowestIV48Counter", &self.dot11LowestIV48Counter)
-            .field("usDot11LeftRWBitMap", &self.usDot11LeftRWBitMap)
-            .field("dot11HighestIV48Counter", &self.dot11HighestIV48Counter)
-            .field("usDot11RightRWBitMap", &self.usDot11RightRWBitMap)
-            .field("usNumberOfMPDUsReceived", &self.usNumberOfMPDUsReceived)
-            .field("usNumberOfFragments", &self.usNumberOfFragments)
-            .field("pNdisPackets", &self.pNdisPackets)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_RECV_EXTENSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_RECV_EXTENSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion
-            && self.pvReserved == other.pvReserved
-            && self.dot11PhyType == other.dot11PhyType
-            && self.uChCenterFrequency == other.uChCenterFrequency
-            && self.lRSSI == other.lRSSI
-            && self.lRSSIMin == other.lRSSIMin
-            && self.lRSSIMax == other.lRSSIMax
-            && self.uRSSI == other.uRSSI
-            && self.ucPriority == other.ucPriority
-            && self.ucDataRate == other.ucDataRate
-            && self.ucPeerMacAddress == other.ucPeerMacAddress
-            && self.dwExtendedStatus == other.dwExtendedStatus
-            && self.hWEPOffloadContext == other.hWEPOffloadContext
-            && self.hAuthOffloadContext == other.hAuthOffloadContext
-            && self.usWEPAppliedMask == other.usWEPAppliedMask
-            && self.usWPAMSDUPriority == other.usWPAMSDUPriority
-            && self.dot11LowestIV48Counter == other.dot11LowestIV48Counter
-            && self.usDot11LeftRWBitMap == other.usDot11LeftRWBitMap
-            && self.dot11HighestIV48Counter == other.dot11HighestIV48Counter
-            && self.usDot11RightRWBitMap == other.usDot11RightRWBitMap
-            && self.usNumberOfMPDUsReceived == other.usNumberOfMPDUsReceived
-            && self.usNumberOfFragments == other.usNumberOfFragments
-            && self.pNdisPackets == other.pNdisPackets
-    }
-}
-impl Eq for DOT11_RECV_EXTENSION_INFO {}
 impl Default for DOT11_RECV_EXTENSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub uVersion: u32,
     pub pvReserved: *mut core::ffi::c_void,
@@ -9266,116 +6140,36 @@ pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub usNumberOfFragments: u16,
     pub pNdisPackets: [*mut core::ffi::c_void; 1],
 }
-impl Copy for DOT11_RECV_EXTENSION_INFO_V2 {}
-impl Clone for DOT11_RECV_EXTENSION_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_RECV_EXTENSION_INFO_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECV_EXTENSION_INFO_V2")
-            .field("uVersion", &self.uVersion)
-            .field("pvReserved", &self.pvReserved)
-            .field("dot11PhyType", &self.dot11PhyType)
-            .field("uChCenterFrequency", &self.uChCenterFrequency)
-            .field("lRSSI", &self.lRSSI)
-            .field("uRSSI", &self.uRSSI)
-            .field("ucPriority", &self.ucPriority)
-            .field("ucDataRate", &self.ucDataRate)
-            .field("ucPeerMacAddress", &self.ucPeerMacAddress)
-            .field("dwExtendedStatus", &self.dwExtendedStatus)
-            .field("hWEPOffloadContext", &self.hWEPOffloadContext)
-            .field("hAuthOffloadContext", &self.hAuthOffloadContext)
-            .field("usWEPAppliedMask", &self.usWEPAppliedMask)
-            .field("usWPAMSDUPriority", &self.usWPAMSDUPriority)
-            .field("dot11LowestIV48Counter", &self.dot11LowestIV48Counter)
-            .field("usDot11LeftRWBitMap", &self.usDot11LeftRWBitMap)
-            .field("dot11HighestIV48Counter", &self.dot11HighestIV48Counter)
-            .field("usDot11RightRWBitMap", &self.usDot11RightRWBitMap)
-            .field("usNumberOfMPDUsReceived", &self.usNumberOfMPDUsReceived)
-            .field("usNumberOfFragments", &self.usNumberOfFragments)
-            .field("pNdisPackets", &self.pNdisPackets)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_RECV_EXTENSION_INFO_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_RECV_EXTENSION_INFO_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion
-            && self.pvReserved == other.pvReserved
-            && self.dot11PhyType == other.dot11PhyType
-            && self.uChCenterFrequency == other.uChCenterFrequency
-            && self.lRSSI == other.lRSSI
-            && self.uRSSI == other.uRSSI
-            && self.ucPriority == other.ucPriority
-            && self.ucDataRate == other.ucDataRate
-            && self.ucPeerMacAddress == other.ucPeerMacAddress
-            && self.dwExtendedStatus == other.dwExtendedStatus
-            && self.hWEPOffloadContext == other.hWEPOffloadContext
-            && self.hAuthOffloadContext == other.hAuthOffloadContext
-            && self.usWEPAppliedMask == other.usWEPAppliedMask
-            && self.usWPAMSDUPriority == other.usWPAMSDUPriority
-            && self.dot11LowestIV48Counter == other.dot11LowestIV48Counter
-            && self.usDot11LeftRWBitMap == other.usDot11LeftRWBitMap
-            && self.dot11HighestIV48Counter == other.dot11HighestIV48Counter
-            && self.usDot11RightRWBitMap == other.usDot11RightRWBitMap
-            && self.usNumberOfMPDUsReceived == other.usNumberOfMPDUsReceived
-            && self.usNumberOfFragments == other.usNumberOfFragments
-            && self.pNdisPackets == other.pNdisPackets
-    }
-}
-impl Eq for DOT11_RECV_EXTENSION_INFO_V2 {}
 impl Default for DOT11_RECV_EXTENSION_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_SENSITIVITY {
     pub ucDataRate: u8,
     pub lRSSIMin: i32,
     pub lRSSIMax: i32,
 }
-impl Copy for DOT11_RECV_SENSITIVITY {}
-impl Clone for DOT11_RECV_SENSITIVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_RECV_SENSITIVITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RECV_SENSITIVITY").field("ucDataRate", &self.ucDataRate).field("lRSSIMin", &self.lRSSIMin).field("lRSSIMax", &self.lRSSIMax).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_RECV_SENSITIVITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_RECV_SENSITIVITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucDataRate == other.ucDataRate && self.lRSSIMin == other.lRSSIMin && self.lRSSIMax == other.lRSSIMax
-    }
-}
-impl Eq for DOT11_RECV_SENSITIVITY {}
 impl Default for DOT11_RECV_SENSITIVITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOT11_RECV_SENSITIVITY_LIST {
     pub Anonymous: DOT11_RECV_SENSITIVITY_LIST_0,
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
-}
-impl Copy for DOT11_RECV_SENSITIVITY_LIST {}
-impl Clone for DOT11_RECV_SENSITIVITY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DOT11_RECV_SENSITIVITY_LIST {
     type TypeKind = windows_core::CopyType;
@@ -9386,15 +6180,10 @@ impl Default for DOT11_RECV_SENSITIVITY_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DOT11_RECV_SENSITIVITY_LIST_0 {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uPhyId: u32,
-}
-impl Copy for DOT11_RECV_SENSITIVITY_LIST_0 {}
-impl Clone for DOT11_RECV_SENSITIVITY_LIST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DOT11_RECV_SENSITIVITY_LIST_0 {
     type TypeKind = windows_core::CopyType;
@@ -9405,92 +6194,44 @@ impl Default for DOT11_RECV_SENSITIVITY_LIST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11RegDomainValue: [DOT11_REG_DOMAIN_VALUE; 1],
 }
-impl Copy for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
-impl Clone for DOT11_REG_DOMAINS_SUPPORT_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_REG_DOMAINS_SUPPORT_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_REG_DOMAINS_SUPPORT_VALUE").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11RegDomainValue", &self.dot11RegDomainValue).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_REG_DOMAINS_SUPPORT_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11RegDomainValue == other.dot11RegDomainValue
-    }
-}
-impl Eq for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
 impl Default for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAIN_VALUE {
     pub uRegDomainsSupportIndex: u32,
     pub uRegDomainsSupportValue: u32,
 }
-impl Copy for DOT11_REG_DOMAIN_VALUE {}
-impl Clone for DOT11_REG_DOMAIN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_REG_DOMAIN_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_REG_DOMAIN_VALUE").field("uRegDomainsSupportIndex", &self.uRegDomainsSupportIndex).field("uRegDomainsSupportValue", &self.uRegDomainsSupportValue).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_REG_DOMAIN_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_REG_DOMAIN_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.uRegDomainsSupportIndex == other.uRegDomainsSupportIndex && self.uRegDomainsSupportValue == other.uRegDomainsSupportValue
-    }
-}
-impl Eq for DOT11_REG_DOMAIN_VALUE {}
 impl Default for DOT11_REG_DOMAIN_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
     pub dot11MacAddress: [u8; 6],
     pub bSetDefaultMIB: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_RESET_REQUEST {}
-impl Clone for DOT11_RESET_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_RESET_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RESET_REQUEST").field("dot11ResetType", &self.dot11ResetType).field("dot11MacAddress", &self.dot11MacAddress).field("bSetDefaultMIB", &self.bSetDefaultMIB).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_RESET_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_RESET_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11ResetType == other.dot11ResetType && self.dot11MacAddress == other.dot11MacAddress && self.bSetDefaultMIB == other.bSetDefaultMIB
-    }
-}
-impl Eq for DOT11_RESET_REQUEST {}
 impl Default for DOT11_RESET_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9498,36 +6239,15 @@ impl Default for DOT11_RESET_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uStatus: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ROAMING_COMPLETION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ROAMING_COMPLETION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ROAMING_COMPLETION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ROAMING_COMPLETION_PARAMETERS").field("Header", &self.Header).field("uStatus", &self.uStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ROAMING_COMPLETION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ROAMING_COMPLETION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uStatus == other.uStatus
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ROAMING_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ROAMING_COMPLETION_PARAMETERS {
     fn default() -> Self {
@@ -9536,6 +6256,7 @@ impl Default for DOT11_ROAMING_COMPLETION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub AdhocBSSID: [u8; 6],
@@ -9543,31 +6264,9 @@ pub struct DOT11_ROAMING_START_PARAMETERS {
     pub uRoamingReason: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_ROAMING_START_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_ROAMING_START_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_ROAMING_START_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_ROAMING_START_PARAMETERS").field("Header", &self.Header).field("AdhocBSSID", &self.AdhocBSSID).field("AdhocSSID", &self.AdhocSSID).field("uRoamingReason", &self.uRoamingReason).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_ROAMING_START_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_ROAMING_START_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.AdhocBSSID == other.AdhocBSSID && self.AdhocSSID == other.AdhocSSID && self.uRoamingReason == other.uRoamingReason
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_ROAMING_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_ROAMING_START_PARAMETERS {
     fn default() -> Self {
@@ -9575,37 +6274,22 @@ impl Default for DOT11_ROAMING_START_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RSSI_RANGE {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uRSSIMin: u32,
     pub uRSSIMax: u32,
 }
-impl Copy for DOT11_RSSI_RANGE {}
-impl Clone for DOT11_RSSI_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_RSSI_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_RSSI_RANGE").field("dot11PhyType", &self.dot11PhyType).field("uRSSIMin", &self.uRSSIMin).field("uRSSIMax", &self.uRSSIMax).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_RSSI_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_RSSI_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11PhyType == other.dot11PhyType && self.uRSSIMin == other.uRSSIMin && self.uRSSIMax == other.uRSSIMax
-    }
-}
-impl Eq for DOT11_RSSI_RANGE {}
 impl Default for DOT11_RSSI_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: DOT11_BSS_TYPE,
     pub dot11BSSID: [u8; 6],
@@ -9621,46 +6305,16 @@ pub struct DOT11_SCAN_REQUEST {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_SCAN_REQUEST {}
-impl Clone for DOT11_SCAN_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SCAN_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SCAN_REQUEST")
-            .field("dot11BSSType", &self.dot11BSSType)
-            .field("dot11BSSID", &self.dot11BSSID)
-            .field("dot11SSID", &self.dot11SSID)
-            .field("dot11ScanType", &self.dot11ScanType)
-            .field("bRestrictedScan", &self.bRestrictedScan)
-            .field("bUseRequestIE", &self.bUseRequestIE)
-            .field("uRequestIDsOffset", &self.uRequestIDsOffset)
-            .field("uNumOfRequestIDs", &self.uNumOfRequestIDs)
-            .field("uPhyTypesOffset", &self.uPhyTypesOffset)
-            .field("uNumOfPhyTypes", &self.uNumOfPhyTypes)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .field("ucBuffer", &self.ucBuffer)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SCAN_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SCAN_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11BSSType == other.dot11BSSType && self.dot11BSSID == other.dot11BSSID && self.dot11SSID == other.dot11SSID && self.dot11ScanType == other.dot11ScanType && self.bRestrictedScan == other.bRestrictedScan && self.bUseRequestIE == other.bUseRequestIE && self.uRequestIDsOffset == other.uRequestIDsOffset && self.uNumOfRequestIDs == other.uNumOfRequestIDs && self.uPhyTypesOffset == other.uPhyTypesOffset && self.uNumOfPhyTypes == other.uNumOfPhyTypes && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_SCAN_REQUEST {}
 impl Default for DOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: DOT11_BSS_TYPE,
     pub dot11BSSID: [u8; 6],
@@ -9677,57 +6331,20 @@ pub struct DOT11_SCAN_REQUEST_V2 {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_SCAN_REQUEST_V2 {}
-impl Clone for DOT11_SCAN_REQUEST_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SCAN_REQUEST_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SCAN_REQUEST_V2")
-            .field("dot11BSSType", &self.dot11BSSType)
-            .field("dot11BSSID", &self.dot11BSSID)
-            .field("dot11ScanType", &self.dot11ScanType)
-            .field("bRestrictedScan", &self.bRestrictedScan)
-            .field("udot11SSIDsOffset", &self.udot11SSIDsOffset)
-            .field("uNumOfdot11SSIDs", &self.uNumOfdot11SSIDs)
-            .field("bUseRequestIE", &self.bUseRequestIE)
-            .field("uRequestIDsOffset", &self.uRequestIDsOffset)
-            .field("uNumOfRequestIDs", &self.uNumOfRequestIDs)
-            .field("uPhyTypeInfosOffset", &self.uPhyTypeInfosOffset)
-            .field("uNumOfPhyTypeInfos", &self.uNumOfPhyTypeInfos)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .field("ucBuffer", &self.ucBuffer)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SCAN_REQUEST_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SCAN_REQUEST_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11BSSType == other.dot11BSSType && self.dot11BSSID == other.dot11BSSID && self.dot11ScanType == other.dot11ScanType && self.bRestrictedScan == other.bRestrictedScan && self.udot11SSIDsOffset == other.udot11SSIDsOffset && self.uNumOfdot11SSIDs == other.uNumOfdot11SSIDs && self.bUseRequestIE == other.bUseRequestIE && self.uRequestIDsOffset == other.uRequestIDsOffset && self.uNumOfRequestIDs == other.uNumOfRequestIDs && self.uPhyTypeInfosOffset == other.uPhyTypeInfosOffset && self.uNumOfPhyTypeInfos == other.uNumOfPhyTypeInfos && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_SCAN_REQUEST_V2 {}
 impl Default for DOT11_SCAN_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DOT11_SECURITY_PACKET_HEADER {
     pub PeerMac: [u8; 6],
     pub usEtherType: u16,
     pub Data: [u8; 1],
-}
-impl Copy for DOT11_SECURITY_PACKET_HEADER {}
-impl Clone for DOT11_SECURITY_PACKET_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DOT11_SECURITY_PACKET_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -9739,6 +6356,7 @@ impl Default for DOT11_SECURITY_PACKET_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -9753,43 +6371,9 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("ResponseContext", &self.ResponseContext)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("Status", &self.Status)
-            .field("GroupCapability", &self.GroupCapability)
-            .field("GroupID", &self.GroupID)
-            .field("bUseGroupID", &self.bUseGroupID)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.ResponseContext == other.ResponseContext && self.uSendTimeout == other.uSendTimeout && self.Status == other.Status && self.GroupCapability == other.GroupCapability && self.GroupID == other.GroupID && self.bUseGroupID == other.bUseGroupID && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
@@ -9798,6 +6382,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -9811,42 +6396,9 @@ pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("GroupOwnerIntent", &self.GroupOwnerIntent)
-            .field("MinimumConfigTimeout", &self.MinimumConfigTimeout)
-            .field("IntendedInterfaceAddress", &self.IntendedInterfaceAddress)
-            .field("GroupCapability", &self.GroupCapability)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.uSendTimeout == other.uSendTimeout && self.GroupOwnerIntent == other.GroupOwnerIntent && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.IntendedInterfaceAddress == other.IntendedInterfaceAddress && self.GroupCapability == other.GroupCapability && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
@@ -9855,6 +6407,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
@@ -9872,46 +6425,9 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("RequestContext", &self.RequestContext)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("Status", &self.Status)
-            .field("GroupOwnerIntent", &self.GroupOwnerIntent)
-            .field("MinimumConfigTimeout", &self.MinimumConfigTimeout)
-            .field("IntendedInterfaceAddress", &self.IntendedInterfaceAddress)
-            .field("GroupCapability", &self.GroupCapability)
-            .field("GroupID", &self.GroupID)
-            .field("bUseGroupID", &self.bUseGroupID)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uSendTimeout == other.uSendTimeout && self.Status == other.Status && self.GroupOwnerIntent == other.GroupOwnerIntent && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.IntendedInterfaceAddress == other.IntendedInterfaceAddress && self.GroupCapability == other.GroupCapability && self.GroupID == other.GroupID && self.bUseGroupID == other.bUseGroupID && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
@@ -9920,6 +6436,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub DialogToken: u8,
@@ -9937,46 +6454,9 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_INVITATION_REQUEST_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("DialogToken", &self.DialogToken)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("MinimumConfigTimeout", &self.MinimumConfigTimeout)
-            .field("InvitationFlags", &self.InvitationFlags)
-            .field("GroupBSSID", &self.GroupBSSID)
-            .field("bUseGroupBSSID", &self.bUseGroupBSSID)
-            .field("OperatingChannel", &self.OperatingChannel)
-            .field("bUseSpecifiedOperatingChannel", &self.bUseSpecifiedOperatingChannel)
-            .field("GroupID", &self.GroupID)
-            .field("bLocalGO", &self.bLocalGO)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.DialogToken == other.DialogToken && self.PeerDeviceAddress == other.PeerDeviceAddress && self.uSendTimeout == other.uSendTimeout && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.InvitationFlags == other.InvitationFlags && self.GroupBSSID == other.GroupBSSID && self.bUseGroupBSSID == other.bUseGroupBSSID && self.OperatingChannel == other.OperatingChannel && self.bUseSpecifiedOperatingChannel == other.bUseSpecifiedOperatingChannel && self.GroupID == other.GroupID && self.bLocalGO == other.bLocalGO && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
@@ -9985,6 +6465,7 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: [u8; 6],
@@ -10001,45 +6482,9 @@ pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_INVITATION_RESPONSE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("RequestContext", &self.RequestContext)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("Status", &self.Status)
-            .field("MinimumConfigTimeout", &self.MinimumConfigTimeout)
-            .field("GroupBSSID", &self.GroupBSSID)
-            .field("bUseGroupBSSID", &self.bUseGroupBSSID)
-            .field("OperatingChannel", &self.OperatingChannel)
-            .field("bUseSpecifiedOperatingChannel", &self.bUseSpecifiedOperatingChannel)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ReceiverDeviceAddress == other.ReceiverDeviceAddress && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uSendTimeout == other.uSendTimeout && self.Status == other.Status && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.GroupBSSID == other.GroupBSSID && self.bUseGroupBSSID == other.bUseGroupBSSID && self.OperatingChannel == other.OperatingChannel && self.bUseSpecifiedOperatingChannel == other.bUseSpecifiedOperatingChannel && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
@@ -10048,6 +6493,7 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub DialogToken: u8,
@@ -10060,31 +6506,9 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS").field("Header", &self.Header).field("DialogToken", &self.DialogToken).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("uSendTimeout", &self.uSendTimeout).field("GroupCapability", &self.GroupCapability).field("GroupID", &self.GroupID).field("bUseGroupID", &self.bUseGroupID).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.DialogToken == other.DialogToken && self.PeerDeviceAddress == other.PeerDeviceAddress && self.uSendTimeout == other.uSendTimeout && self.GroupCapability == other.GroupCapability && self.GroupID == other.GroupID && self.bUseGroupID == other.bUseGroupID && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
@@ -10093,6 +6517,7 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: [u8; 6],
@@ -10103,31 +6528,9 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS").field("Header", &self.Header).field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uSendTimeout", &self.uSendTimeout).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ReceiverDeviceAddress == other.ReceiverDeviceAddress && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uSendTimeout == other.uSendTimeout && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
@@ -10135,30 +6538,14 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SSID {
     pub uSSIDLength: u32,
     pub ucSSID: [u8; 32],
 }
-impl Copy for DOT11_SSID {}
-impl Clone for DOT11_SSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SSID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SSID").field("uSSIDLength", &self.uSSIDLength).field("ucSSID", &self.ucSSID).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SSID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.uSSIDLength == other.uSSIDLength && self.ucSSID == other.ucSSID
-    }
-}
-impl Eq for DOT11_SSID {}
 impl Default for DOT11_SSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10166,6 +6553,7 @@ impl Default for DOT11_SSID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SSID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -10173,31 +6561,9 @@ pub struct DOT11_SSID_LIST {
     pub SSIDs: [DOT11_SSID; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_SSID_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_SSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_SSID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SSID_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("SSIDs", &self.SSIDs).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_SSID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_SSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.SSIDs == other.SSIDs
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_SSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_SSID_LIST {
     fn default() -> Self {
@@ -10205,32 +6571,16 @@ impl Default for DOT11_SSID_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_START_REQUEST {
     pub uStartFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
-impl Copy for DOT11_START_REQUEST {}
-impl Clone for DOT11_START_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_START_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_START_REQUEST").field("uStartFailureTimeout", &self.uStartFailureTimeout).field("OperationalRateSet", &self.OperationalRateSet).field("uChCenterFrequency", &self.uChCenterFrequency).field("dot11BSSDescription", &self.dot11BSSDescription).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_START_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_START_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uStartFailureTimeout == other.uStartFailureTimeout && self.OperationalRateSet == other.OperationalRateSet && self.uChCenterFrequency == other.uChCenterFrequency && self.dot11BSSDescription == other.dot11BSSDescription
-    }
-}
-impl Eq for DOT11_START_REQUEST {}
 impl Default for DOT11_START_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10238,6 +6588,7 @@ impl Default for DOT11_START_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_STATISTICS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ullFourWayHandshakeFailures: u64,
@@ -10248,31 +6599,9 @@ pub struct DOT11_STATISTICS {
     pub PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_STATISTICS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_STATISTICS").field("Header", &self.Header).field("ullFourWayHandshakeFailures", &self.ullFourWayHandshakeFailures).field("ullTKIPCounterMeasuresInvoked", &self.ullTKIPCounterMeasuresInvoked).field("ullReserved", &self.ullReserved).field("MacUcastCounters", &self.MacUcastCounters).field("MacMcastCounters", &self.MacMcastCounters).field("PhyCounters", &self.PhyCounters).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ullFourWayHandshakeFailures == other.ullFourWayHandshakeFailures && self.ullTKIPCounterMeasuresInvoked == other.ullTKIPCounterMeasuresInvoked && self.ullReserved == other.ullReserved && self.MacUcastCounters == other.MacUcastCounters && self.MacMcastCounters == other.MacMcastCounters && self.PhyCounters == other.PhyCounters
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_STATISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_STATISTICS {
     fn default() -> Self {
@@ -10280,30 +6609,14 @@ impl Default for DOT11_STATISTICS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
     pub ndisStatus: i32,
 }
-impl Copy for DOT11_STATUS_INDICATION {}
-impl Clone for DOT11_STATUS_INDICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_STATUS_INDICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_STATUS_INDICATION").field("uStatusType", &self.uStatusType).field("ndisStatus", &self.ndisStatus).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_STATUS_INDICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_STATUS_INDICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.uStatusType == other.uStatusType && self.ndisStatus == other.ndisStatus
-    }
-}
-impl Eq for DOT11_STATUS_INDICATION {}
 impl Default for DOT11_STATUS_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10311,36 +6624,15 @@ impl Default for DOT11_STATUS_INDICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_STOP_AP_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_STOP_AP_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_STOP_AP_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_STOP_AP_PARAMETERS").field("Header", &self.Header).field("ulReason", &self.ulReason).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_STOP_AP_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_STOP_AP_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ulReason == other.ulReason
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_STOP_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_STOP_AP_PARAMETERS {
     fn default() -> Self {
@@ -10348,302 +6640,142 @@ impl Default for DOT11_STOP_AP_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
     pub bSupportedAntenna: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DOT11_SUPPORTED_ANTENNA {}
-impl Clone for DOT11_SUPPORTED_ANTENNA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_ANTENNA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_ANTENNA").field("uAntennaListIndex", &self.uAntennaListIndex).field("bSupportedAntenna", &self.bSupportedAntenna).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_ANTENNA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_ANTENNA {
-    fn eq(&self, other: &Self) -> bool {
-        self.uAntennaListIndex == other.uAntennaListIndex && self.bSupportedAntenna == other.bSupportedAntenna
-    }
-}
-impl Eq for DOT11_SUPPORTED_ANTENNA {}
 impl Default for DOT11_SUPPORTED_ANTENNA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
 }
-impl Copy for DOT11_SUPPORTED_ANTENNA_LIST {}
-impl Clone for DOT11_SUPPORTED_ANTENNA_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_ANTENNA_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_ANTENNA_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11SupportedAntenna", &self.dot11SupportedAntenna).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_ANTENNA_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_ANTENNA_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11SupportedAntenna == other.dot11SupportedAntenna
-    }
-}
-impl Eq for DOT11_SUPPORTED_ANTENNA_LIST {}
 impl Default for DOT11_SUPPORTED_ANTENNA_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
     pub ucSupportedTxDataRatesValue: [u8; 8],
     pub ucSupportedRxDataRatesValue: [u8; 8],
 }
-impl Copy for DOT11_SUPPORTED_DATA_RATES_VALUE {}
-impl Clone for DOT11_SUPPORTED_DATA_RATES_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_DATA_RATES_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_DATA_RATES_VALUE").field("ucSupportedTxDataRatesValue", &self.ucSupportedTxDataRatesValue).field("ucSupportedRxDataRatesValue", &self.ucSupportedRxDataRatesValue).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_DATA_RATES_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_DATA_RATES_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucSupportedTxDataRatesValue == other.ucSupportedTxDataRatesValue && self.ucSupportedRxDataRatesValue == other.ucSupportedRxDataRatesValue
-    }
-}
-impl Eq for DOT11_SUPPORTED_DATA_RATES_VALUE {}
 impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     pub ucSupportedTxDataRatesValue: [u8; 255],
     pub ucSupportedRxDataRatesValue: [u8; 255],
 }
-impl Copy for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
-impl Clone for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_DATA_RATES_VALUE_V2").field("ucSupportedTxDataRatesValue", &self.ucSupportedTxDataRatesValue).field("ucSupportedRxDataRatesValue", &self.ucSupportedRxDataRatesValue).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucSupportedTxDataRatesValue == other.ucSupportedTxDataRatesValue && self.ucSupportedRxDataRatesValue == other.ucSupportedRxDataRatesValue
-    }
-}
-impl Eq for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
 impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
     pub uChannel: u32,
-}
-impl Copy for DOT11_SUPPORTED_DSSS_CHANNEL {}
-impl Clone for DOT11_SUPPORTED_DSSS_CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_DSSS_CHANNEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_DSSS_CHANNEL").field("uChannel", &self.uChannel).finish()
-    }
 }
 impl windows_core::TypeKind for DOT11_SUPPORTED_DSSS_CHANNEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_DSSS_CHANNEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.uChannel == other.uChannel
-    }
-}
-impl Eq for DOT11_SUPPORTED_DSSS_CHANNEL {}
 impl Default for DOT11_SUPPORTED_DSSS_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedDSSSChannel: [DOT11_SUPPORTED_DSSS_CHANNEL; 1],
 }
-impl Copy for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
-impl Clone for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_DSSS_CHANNEL_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11SupportedDSSSChannel", &self.dot11SupportedDSSSChannel).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11SupportedDSSSChannel == other.dot11SupportedDSSSChannel
-    }
-}
-impl Eq for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
 impl Default for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
     pub uCenterFrequency: u32,
-}
-impl Copy for DOT11_SUPPORTED_OFDM_FREQUENCY {}
-impl Clone for DOT11_SUPPORTED_OFDM_FREQUENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_OFDM_FREQUENCY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_OFDM_FREQUENCY").field("uCenterFrequency", &self.uCenterFrequency).finish()
-    }
 }
 impl windows_core::TypeKind for DOT11_SUPPORTED_OFDM_FREQUENCY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_OFDM_FREQUENCY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uCenterFrequency == other.uCenterFrequency
-    }
-}
-impl Eq for DOT11_SUPPORTED_OFDM_FREQUENCY {}
 impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedOFDMFrequency: [DOT11_SUPPORTED_OFDM_FREQUENCY; 1],
 }
-impl Copy for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
-impl Clone for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_OFDM_FREQUENCY_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11SupportedOFDMFrequency", &self.dot11SupportedOFDMFrequency).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11SupportedOFDMFrequency == other.dot11SupportedOFDMFrequency
-    }
-}
-impl Eq for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
 impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_PHY_TYPES {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11PHYType: [DOT11_PHY_TYPE; 1],
 }
-impl Copy for DOT11_SUPPORTED_PHY_TYPES {}
-impl Clone for DOT11_SUPPORTED_PHY_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_PHY_TYPES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_PHY_TYPES").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11PHYType", &self.dot11PHYType).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_PHY_TYPES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_PHY_TYPES {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11PHYType == other.dot11PHYType
-    }
-}
-impl Eq for DOT11_SUPPORTED_PHY_TYPES {}
 impl Default for DOT11_SUPPORTED_PHY_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_POWER_LEVELS {
     pub uNumOfSupportedPowerLevels: u32,
     pub uTxPowerLevelValues: [u32; 8],
 }
-impl Copy for DOT11_SUPPORTED_POWER_LEVELS {}
-impl Clone for DOT11_SUPPORTED_POWER_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_SUPPORTED_POWER_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_SUPPORTED_POWER_LEVELS").field("uNumOfSupportedPowerLevels", &self.uNumOfSupportedPowerLevels).field("uTxPowerLevelValues", &self.uTxPowerLevelValues).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_SUPPORTED_POWER_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_SUPPORTED_POWER_LEVELS {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfSupportedPowerLevels == other.uNumOfSupportedPowerLevels && self.uTxPowerLevelValues == other.uTxPowerLevelValues
-    }
-}
-impl Eq for DOT11_SUPPORTED_POWER_LEVELS {}
 impl Default for DOT11_SUPPORTED_POWER_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10651,6 +6783,7 @@ impl Default for DOT11_SUPPORTED_POWER_LEVELS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bDefaultKeyFailure: super::super::Foundation::BOOLEAN,
@@ -10658,31 +6791,9 @@ pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub PeerMac: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_TKIPMIC_FAILURE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_TKIPMIC_FAILURE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_TKIPMIC_FAILURE_PARAMETERS").field("Header", &self.Header).field("bDefaultKeyFailure", &self.bDefaultKeyFailure).field("uKeyIndex", &self.uKeyIndex).field("PeerMac", &self.PeerMac).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_TKIPMIC_FAILURE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.bDefaultKeyFailure == other.bDefaultKeyFailure && self.uKeyIndex == other.uKeyIndex && self.PeerMac == other.PeerMac
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     fn default() -> Self {
@@ -10690,61 +6801,29 @@ impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_UPDATE_IE {
     pub dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_UPDATE_IE {}
-impl Clone for DOT11_UPDATE_IE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_UPDATE_IE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_UPDATE_IE").field("dot11UpdateIEOp", &self.dot11UpdateIEOp).field("uBufferLength", &self.uBufferLength).field("ucBuffer", &self.ucBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_UPDATE_IE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_UPDATE_IE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11UpdateIEOp == other.dot11UpdateIEOp && self.uBufferLength == other.uBufferLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_UPDATE_IE {}
 impl Default for DOT11_UPDATE_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
     pub VenueType: u8,
 }
-impl Copy for DOT11_VENUEINFO {}
-impl Clone for DOT11_VENUEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_VENUEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_VENUEINFO").field("VenueGroup", &self.VenueGroup).field("VenueType", &self.VenueType).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_VENUEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_VENUEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.VenueGroup == other.VenueGroup && self.VenueType == other.VenueType
-    }
-}
-impl Eq for DOT11_VENUEINFO {}
 impl Default for DOT11_VENUEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10752,37 +6831,16 @@ impl Default for DOT11_VENUEINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uTotalNumOfEntries: u32,
     pub Combinations: [DOT11_VWIFI_COMBINATION; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_VWIFI_ATTRIBUTES {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_VWIFI_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_VWIFI_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_VWIFI_ATTRIBUTES").field("Header", &self.Header).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("Combinations", &self.Combinations).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_VWIFI_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_VWIFI_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.Combinations == other.Combinations
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_VWIFI_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_VWIFI_ATTRIBUTES {
     fn default() -> Self {
@@ -10791,6 +6849,7 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -10798,31 +6857,9 @@ pub struct DOT11_VWIFI_COMBINATION {
     pub uNumSoftAP: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_VWIFI_COMBINATION {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_VWIFI_COMBINATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_VWIFI_COMBINATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_VWIFI_COMBINATION").field("Header", &self.Header).field("uNumInfrastructure", &self.uNumInfrastructure).field("uNumAdhoc", &self.uNumAdhoc).field("uNumSoftAP", &self.uNumSoftAP).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_VWIFI_COMBINATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_VWIFI_COMBINATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumInfrastructure == other.uNumInfrastructure && self.uNumAdhoc == other.uNumAdhoc && self.uNumSoftAP == other.uNumSoftAP
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_VWIFI_COMBINATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_VWIFI_COMBINATION {
     fn default() -> Self {
@@ -10831,6 +6868,7 @@ impl Default for DOT11_VWIFI_COMBINATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -10839,31 +6877,9 @@ pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub uNumVirtualStation: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_VWIFI_COMBINATION_V2 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_VWIFI_COMBINATION_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_VWIFI_COMBINATION_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_VWIFI_COMBINATION_V2").field("Header", &self.Header).field("uNumInfrastructure", &self.uNumInfrastructure).field("uNumAdhoc", &self.uNumAdhoc).field("uNumSoftAP", &self.uNumSoftAP).field("uNumVirtualStation", &self.uNumVirtualStation).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_VWIFI_COMBINATION_V2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_VWIFI_COMBINATION_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumInfrastructure == other.uNumInfrastructure && self.uNumAdhoc == other.uNumAdhoc && self.uNumSoftAP == other.uNumSoftAP && self.uNumVirtualStation == other.uNumVirtualStation
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_VWIFI_COMBINATION_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_VWIFI_COMBINATION_V2 {
     fn default() -> Self {
@@ -10872,6 +6888,7 @@ impl Default for DOT11_VWIFI_COMBINATION_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -10881,31 +6898,9 @@ pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub uNumWFDGroup: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_VWIFI_COMBINATION_V3 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_VWIFI_COMBINATION_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_VWIFI_COMBINATION_V3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_VWIFI_COMBINATION_V3").field("Header", &self.Header).field("uNumInfrastructure", &self.uNumInfrastructure).field("uNumAdhoc", &self.uNumAdhoc).field("uNumSoftAP", &self.uNumSoftAP).field("uNumVirtualStation", &self.uNumVirtualStation).field("uNumWFDGroup", &self.uNumWFDGroup).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_VWIFI_COMBINATION_V3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_VWIFI_COMBINATION_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumInfrastructure == other.uNumInfrastructure && self.uNumAdhoc == other.uNumAdhoc && self.uNumSoftAP == other.uNumSoftAP && self.uNumVirtualStation == other.uNumVirtualStation && self.uNumWFDGroup == other.uNumWFDGroup
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_VWIFI_COMBINATION_V3 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_VWIFI_COMBINATION_V3 {
     fn default() -> Self {
@@ -10913,6 +6908,7 @@ impl Default for DOT11_VWIFI_COMBINATION_V3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WEP_OFFLOAD {
     pub uReserved: u32,
     pub hOffloadContext: super::super::Foundation::HANDLE,
@@ -10930,48 +6926,16 @@ pub struct DOT11_WEP_OFFLOAD {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-impl Copy for DOT11_WEP_OFFLOAD {}
-impl Clone for DOT11_WEP_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WEP_OFFLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WEP_OFFLOAD")
-            .field("uReserved", &self.uReserved)
-            .field("hOffloadContext", &self.hOffloadContext)
-            .field("hOffload", &self.hOffload)
-            .field("dot11OffloadType", &self.dot11OffloadType)
-            .field("dwAlgorithm", &self.dwAlgorithm)
-            .field("bRowIsOutbound", &self.bRowIsOutbound)
-            .field("bUseDefault", &self.bUseDefault)
-            .field("uFlags", &self.uFlags)
-            .field("ucMacAddress", &self.ucMacAddress)
-            .field("uNumOfRWsOnPeer", &self.uNumOfRWsOnPeer)
-            .field("uNumOfRWsOnMe", &self.uNumOfRWsOnMe)
-            .field("dot11IV48Counters", &self.dot11IV48Counters)
-            .field("usDot11RWBitMaps", &self.usDot11RWBitMaps)
-            .field("usKeyLength", &self.usKeyLength)
-            .field("ucKey", &self.ucKey)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WEP_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WEP_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.hOffloadContext == other.hOffloadContext && self.hOffload == other.hOffload && self.dot11OffloadType == other.dot11OffloadType && self.dwAlgorithm == other.dwAlgorithm && self.bRowIsOutbound == other.bRowIsOutbound && self.bUseDefault == other.bUseDefault && self.uFlags == other.uFlags && self.ucMacAddress == other.ucMacAddress && self.uNumOfRWsOnPeer == other.uNumOfRWsOnPeer && self.uNumOfRWsOnMe == other.uNumOfRWsOnMe && self.dot11IV48Counters == other.dot11IV48Counters && self.usDot11RWBitMaps == other.usDot11RWBitMaps && self.usKeyLength == other.usKeyLength && self.ucKey == other.ucKey
-    }
-}
-impl Eq for DOT11_WEP_OFFLOAD {}
 impl Default for DOT11_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WEP_UPLOAD {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
@@ -10980,26 +6944,9 @@ pub struct DOT11_WEP_UPLOAD {
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
     pub usDot11RWBitMaps: [u16; 16],
 }
-impl Copy for DOT11_WEP_UPLOAD {}
-impl Clone for DOT11_WEP_UPLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WEP_UPLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WEP_UPLOAD").field("uReserved", &self.uReserved).field("dot11OffloadType", &self.dot11OffloadType).field("hOffload", &self.hOffload).field("uNumOfRWsUsed", &self.uNumOfRWsUsed).field("dot11IV48Counters", &self.dot11IV48Counters).field("usDot11RWBitMaps", &self.usDot11RWBitMaps).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WEP_UPLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WEP_UPLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.dot11OffloadType == other.dot11OffloadType && self.hOffload == other.hOffload && self.uNumOfRWsUsed == other.uNumOfRWsUsed && self.dot11IV48Counters == other.dot11IV48Counters && self.usDot11RWBitMaps == other.usDot11RWBitMaps
-    }
-}
-impl Eq for DOT11_WEP_UPLOAD {}
 impl Default for DOT11_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11007,6 +6954,7 @@ impl Default for DOT11_WEP_UPLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uBeaconIEsOffset: u32,
@@ -11017,31 +6965,9 @@ pub struct DOT11_WFD_ADDITIONAL_IE {
     pub uDefaultRequestIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_ADDITIONAL_IE {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_ADDITIONAL_IE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_ADDITIONAL_IE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_ADDITIONAL_IE").field("Header", &self.Header).field("uBeaconIEsOffset", &self.uBeaconIEsOffset).field("uBeaconIEsLength", &self.uBeaconIEsLength).field("uProbeResponseIEsOffset", &self.uProbeResponseIEsOffset).field("uProbeResponseIEsLength", &self.uProbeResponseIEsLength).field("uDefaultRequestIEsOffset", &self.uDefaultRequestIEsOffset).field("uDefaultRequestIEsLength", &self.uDefaultRequestIEsLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_ADDITIONAL_IE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_ADDITIONAL_IE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uBeaconIEsOffset == other.uBeaconIEsOffset && self.uBeaconIEsLength == other.uBeaconIEsLength && self.uProbeResponseIEsOffset == other.uProbeResponseIEsOffset && self.uProbeResponseIEsLength == other.uProbeResponseIEsLength && self.uDefaultRequestIEsOffset == other.uDefaultRequestIEsOffset && self.uDefaultRequestIEsLength == other.uDefaultRequestIEsLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_ADDITIONAL_IE {
     fn default() -> Self {
@@ -11049,92 +6975,44 @@ impl Default for DOT11_WFD_ADDITIONAL_IE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     pub AdvertisementID: u32,
     pub ConfigMethods: u16,
     pub ServiceNameLength: u8,
     pub ServiceName: [u8; 255],
 }
-impl Copy for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
-impl Clone for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR").field("AdvertisementID", &self.AdvertisementID).field("ConfigMethods", &self.ConfigMethods).field("ServiceNameLength", &self.ServiceNameLength).field("ServiceName", &self.ServiceName).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.AdvertisementID == other.AdvertisementID && self.ConfigMethods == other.ConfigMethods && self.ServiceNameLength == other.ServiceNameLength && self.ServiceName == other.ServiceName
-    }
-}
-impl Eq for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
 impl Default for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
     pub ServiceCount: u16,
     pub AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
 }
-impl Copy for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
-impl Clone for DOT11_WFD_ADVERTISED_SERVICE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_ADVERTISED_SERVICE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_ADVERTISED_SERVICE_LIST").field("ServiceCount", &self.ServiceCount).field("AdvertisedService", &self.AdvertisedService).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_ADVERTISED_SERVICE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ServiceCount == other.ServiceCount && self.AdvertisedService == other.AdvertisedService
-    }
-}
-impl Eq for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
 impl Default for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISEMENT_ID {
     pub AdvertisementID: u32,
     pub ServiceAddress: [u8; 6],
 }
-impl Copy for DOT11_WFD_ADVERTISEMENT_ID {}
-impl Clone for DOT11_WFD_ADVERTISEMENT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_ADVERTISEMENT_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_ADVERTISEMENT_ID").field("AdvertisementID", &self.AdvertisementID).field("ServiceAddress", &self.ServiceAddress).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_ADVERTISEMENT_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_ADVERTISEMENT_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.AdvertisementID == other.AdvertisementID && self.ServiceAddress == other.ServiceAddress
-    }
-}
-impl Eq for DOT11_WFD_ADVERTISEMENT_ID {}
 impl Default for DOT11_WFD_ADVERTISEMENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11142,6 +7020,7 @@ impl Default for DOT11_WFD_ADVERTISEMENT_ID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumConcurrentGORole: u32,
@@ -11160,61 +7039,9 @@ pub struct DOT11_WFD_ATTRIBUTES {
     pub uGORoleClientTableSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_ATTRIBUTES {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_ATTRIBUTES")
-            .field("Header", &self.Header)
-            .field("uNumConcurrentGORole", &self.uNumConcurrentGORole)
-            .field("uNumConcurrentClientRole", &self.uNumConcurrentClientRole)
-            .field("WPSVersionsSupported", &self.WPSVersionsSupported)
-            .field("bServiceDiscoverySupported", &self.bServiceDiscoverySupported)
-            .field("bClientDiscoverabilitySupported", &self.bClientDiscoverabilitySupported)
-            .field("bInfrastructureManagementSupported", &self.bInfrastructureManagementSupported)
-            .field("uMaxSecondaryDeviceTypeListSize", &self.uMaxSecondaryDeviceTypeListSize)
-            .field("DeviceAddress", &self.DeviceAddress)
-            .field("uInterfaceAddressListCount", &self.uInterfaceAddressListCount)
-            .field("pInterfaceAddressList", &self.pInterfaceAddressList)
-            .field("uNumSupportedCountryOrRegionStrings", &self.uNumSupportedCountryOrRegionStrings)
-            .field("pSupportedCountryOrRegionStrings", &self.pSupportedCountryOrRegionStrings)
-            .field("uDiscoveryFilterListSize", &self.uDiscoveryFilterListSize)
-            .field("uGORoleClientTableSize", &self.uGORoleClientTableSize)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.uNumConcurrentGORole == other.uNumConcurrentGORole
-            && self.uNumConcurrentClientRole == other.uNumConcurrentClientRole
-            && self.WPSVersionsSupported == other.WPSVersionsSupported
-            && self.bServiceDiscoverySupported == other.bServiceDiscoverySupported
-            && self.bClientDiscoverabilitySupported == other.bClientDiscoverabilitySupported
-            && self.bInfrastructureManagementSupported == other.bInfrastructureManagementSupported
-            && self.uMaxSecondaryDeviceTypeListSize == other.uMaxSecondaryDeviceTypeListSize
-            && self.DeviceAddress == other.DeviceAddress
-            && self.uInterfaceAddressListCount == other.uInterfaceAddressListCount
-            && self.pInterfaceAddressList == other.pInterfaceAddressList
-            && self.uNumSupportedCountryOrRegionStrings == other.uNumSupportedCountryOrRegionStrings
-            && self.pSupportedCountryOrRegionStrings == other.pSupportedCountryOrRegionStrings
-            && self.uDiscoveryFilterListSize == other.uDiscoveryFilterListSize
-            && self.uGORoleClientTableSize == other.uGORoleClientTableSize
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_ATTRIBUTES {
     fn default() -> Self {
@@ -11222,61 +7049,29 @@ impl Default for DOT11_WFD_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_CHANNEL {
     pub CountryRegionString: [u8; 3],
     pub OperatingClass: u8,
     pub ChannelNumber: u8,
 }
-impl Copy for DOT11_WFD_CHANNEL {}
-impl Clone for DOT11_WFD_CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_CHANNEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_CHANNEL").field("CountryRegionString", &self.CountryRegionString).field("OperatingClass", &self.OperatingClass).field("ChannelNumber", &self.ChannelNumber).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_CHANNEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_CHANNEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.CountryRegionString == other.CountryRegionString && self.OperatingClass == other.OperatingClass && self.ChannelNumber == other.ChannelNumber
-    }
-}
-impl Eq for DOT11_WFD_CHANNEL {}
 impl Default for DOT11_WFD_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
     pub GOTimeout: u8,
     pub ClientTimeout: u8,
 }
-impl Copy for DOT11_WFD_CONFIGURATION_TIMEOUT {}
-impl Clone for DOT11_WFD_CONFIGURATION_TIMEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_CONFIGURATION_TIMEOUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_CONFIGURATION_TIMEOUT").field("GOTimeout", &self.GOTimeout).field("ClientTimeout", &self.ClientTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_CONFIGURATION_TIMEOUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_CONFIGURATION_TIMEOUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GOTimeout == other.GOTimeout && self.ClientTimeout == other.ClientTimeout
-    }
-}
-impl Eq for DOT11_WFD_CONFIGURATION_TIMEOUT {}
 impl Default for DOT11_WFD_CONFIGURATION_TIMEOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11284,6 +7079,7 @@ impl Default for DOT11_WFD_CONFIGURATION_TIMEOUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bServiceDiscoveryEnabled: super::super::Foundation::BOOLEAN,
@@ -11295,40 +7091,9 @@ pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub WPSVersionsEnabled: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DEVICE_CAPABILITY_CONFIG")
-            .field("Header", &self.Header)
-            .field("bServiceDiscoveryEnabled", &self.bServiceDiscoveryEnabled)
-            .field("bClientDiscoverabilityEnabled", &self.bClientDiscoverabilityEnabled)
-            .field("bConcurrentOperationSupported", &self.bConcurrentOperationSupported)
-            .field("bInfrastructureManagementEnabled", &self.bInfrastructureManagementEnabled)
-            .field("bDeviceLimitReached", &self.bDeviceLimitReached)
-            .field("bInvitationProcedureEnabled", &self.bInvitationProcedureEnabled)
-            .field("WPSVersionsEnabled", &self.WPSVersionsEnabled)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.bServiceDiscoveryEnabled == other.bServiceDiscoveryEnabled && self.bClientDiscoverabilityEnabled == other.bClientDiscoverabilityEnabled && self.bConcurrentOperationSupported == other.bConcurrentOperationSupported && self.bInfrastructureManagementEnabled == other.bInfrastructureManagementEnabled && self.bDeviceLimitReached == other.bDeviceLimitReached && self.bInvitationProcedureEnabled == other.bInvitationProcedureEnabled && self.WPSVersionsEnabled == other.WPSVersionsEnabled
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     fn default() -> Self {
@@ -11336,6 +7101,7 @@ impl Default for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uPhyId: u32,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
@@ -11354,12 +7120,6 @@ pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uProbeResponseIEsOffset: u32,
     pub uProbeResponseIEsLength: u32,
 }
-impl Copy for DOT11_WFD_DEVICE_ENTRY {}
-impl Clone for DOT11_WFD_DEVICE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_DEVICE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -11370,6 +7130,7 @@ impl Default for DOT11_WFD_DEVICE_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub DeviceAddress: [u8; 6],
@@ -11378,31 +7139,9 @@ pub struct DOT11_WFD_DEVICE_INFO {
     pub DeviceName: DOT11_WPS_DEVICE_NAME,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_DEVICE_INFO {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_DEVICE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DEVICE_INFO").field("Header", &self.Header).field("DeviceAddress", &self.DeviceAddress).field("ConfigMethods", &self.ConfigMethods).field("PrimaryDeviceType", &self.PrimaryDeviceType).field("DeviceName", &self.DeviceName).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_DEVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.DeviceAddress == other.DeviceAddress && self.ConfigMethods == other.ConfigMethods && self.PrimaryDeviceType == other.PrimaryDeviceType && self.DeviceName == other.DeviceName
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_DEVICE_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_DEVICE_INFO {
     fn default() -> Self {
@@ -11411,36 +7150,15 @@ impl Default for DOT11_WFD_DEVICE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ChannelNumber: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DEVICE_LISTEN_CHANNEL").field("Header", &self.Header).field("ChannelNumber", &self.ChannelNumber).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.ChannelNumber == other.ChannelNumber
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     fn default() -> Self {
@@ -11448,31 +7166,15 @@ impl Default for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_TYPE {
     pub CategoryID: u16,
     pub SubCategoryID: u16,
     pub OUI: [u8; 4],
 }
-impl Copy for DOT11_WFD_DEVICE_TYPE {}
-impl Clone for DOT11_WFD_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_DEVICE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DEVICE_TYPE").field("CategoryID", &self.CategoryID).field("SubCategoryID", &self.SubCategoryID).field("OUI", &self.OUI).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_DEVICE_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.CategoryID == other.CategoryID && self.SubCategoryID == other.SubCategoryID && self.OUI == other.OUI
-    }
-}
-impl Eq for DOT11_WFD_DEVICE_TYPE {}
 impl Default for DOT11_WFD_DEVICE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11480,6 +7182,7 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub Status: i32,
@@ -11489,31 +7192,9 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub uListLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS").field("Header", &self.Header).field("Status", &self.Status).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("uListOffset", &self.uListOffset).field("uListLength", &self.uListLength).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Status == other.Status && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.uListOffset == other.uListOffset && self.uListLength == other.uListLength
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     fn default() -> Self {
@@ -11521,31 +7202,15 @@ impl Default for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub DeviceID: [u8; 6],
     pub ucBitmask: u8,
     pub GroupSSID: DOT11_SSID,
 }
-impl Copy for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
-impl Clone for DOT11_WFD_DISCOVER_DEVICE_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_DISCOVER_DEVICE_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DISCOVER_DEVICE_FILTER").field("DeviceID", &self.DeviceID).field("ucBitmask", &self.ucBitmask).field("GroupSSID", &self.GroupSSID).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_DISCOVER_DEVICE_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceID == other.DeviceID && self.ucBitmask == other.ucBitmask && self.GroupSSID == other.GroupSSID
-    }
-}
-impl Eq for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
 impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11553,6 +7218,7 @@ impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub DiscoverType: DOT11_WFD_DISCOVER_TYPE,
@@ -11565,31 +7231,9 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub bForceScanLegacyNetworks: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_DISCOVER_REQUEST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_DISCOVER_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_DISCOVER_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DISCOVER_REQUEST").field("Header", &self.Header).field("DiscoverType", &self.DiscoverType).field("ScanType", &self.ScanType).field("uDiscoverTimeout", &self.uDiscoverTimeout).field("uDeviceFilterListOffset", &self.uDeviceFilterListOffset).field("uNumDeviceFilters", &self.uNumDeviceFilters).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).field("bForceScanLegacyNetworks", &self.bForceScanLegacyNetworks).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_DISCOVER_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_DISCOVER_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.DiscoverType == other.DiscoverType && self.ScanType == other.ScanType && self.uDiscoverTimeout == other.uDiscoverTimeout && self.uDeviceFilterListOffset == other.uDeviceFilterListOffset && self.uNumDeviceFilters == other.uNumDeviceFilters && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength && self.bForceScanLegacyNetworks == other.bForceScanLegacyNetworks
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_DISCOVER_REQUEST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_DISCOVER_REQUEST {
     fn default() -> Self {
@@ -11597,59 +7241,27 @@ impl Default for DOT11_WFD_DISCOVER_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
-}
-impl Copy for DOT11_WFD_GO_INTENT {}
-impl Clone for DOT11_WFD_GO_INTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_GO_INTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_GO_INTENT").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DOT11_WFD_GO_INTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_GO_INTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DOT11_WFD_GO_INTENT {}
 impl Default for DOT11_WFD_GO_INTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: [u8; 6],
     pub SSID: DOT11_SSID,
 }
-impl Copy for DOT11_WFD_GROUP_ID {}
-impl Clone for DOT11_WFD_GROUP_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_GROUP_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_GROUP_ID").field("DeviceAddress", &self.DeviceAddress).field("SSID", &self.SSID).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_GROUP_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_GROUP_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceAddress == other.DeviceAddress && self.SSID == other.SSID
-    }
-}
-impl Eq for DOT11_WFD_GROUP_ID {}
 impl Default for DOT11_WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11657,6 +7269,7 @@ impl Default for DOT11_WFD_GROUP_ID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub GOOperatingChannel: DOT11_WFD_CHANNEL,
@@ -11665,31 +7278,9 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub bWaitForWPSReady: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_GROUP_JOIN_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_GROUP_JOIN_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_GROUP_JOIN_PARAMETERS").field("Header", &self.Header).field("GOOperatingChannel", &self.GOOperatingChannel).field("GOConfigTime", &self.GOConfigTime).field("bInGroupFormation", &self.bInGroupFormation).field("bWaitForWPSReady", &self.bWaitForWPSReady).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_GROUP_JOIN_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.GOOperatingChannel == other.GOOperatingChannel && self.GOConfigTime == other.GOConfigTime && self.bInGroupFormation == other.bInGroupFormation && self.bWaitForWPSReady == other.bWaitForWPSReady
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     fn default() -> Self {
@@ -11698,6 +7289,7 @@ impl Default for DOT11_WFD_GROUP_JOIN_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bPersistentGroupEnabled: super::super::Foundation::BOOLEAN,
@@ -11708,39 +7300,9 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub uMaximumGroupLimit: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG")
-            .field("Header", &self.Header)
-            .field("bPersistentGroupEnabled", &self.bPersistentGroupEnabled)
-            .field("bIntraBSSDistributionSupported", &self.bIntraBSSDistributionSupported)
-            .field("bCrossConnectionSupported", &self.bCrossConnectionSupported)
-            .field("bPersistentReconnectSupported", &self.bPersistentReconnectSupported)
-            .field("bGroupFormationEnabled", &self.bGroupFormationEnabled)
-            .field("uMaximumGroupLimit", &self.uMaximumGroupLimit)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.bPersistentGroupEnabled == other.bPersistentGroupEnabled && self.bIntraBSSDistributionSupported == other.bIntraBSSDistributionSupported && self.bCrossConnectionSupported == other.bCrossConnectionSupported && self.bPersistentReconnectSupported == other.bPersistentReconnectSupported && self.bGroupFormationEnabled == other.bGroupFormationEnabled && self.uMaximumGroupLimit == other.uMaximumGroupLimit
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     fn default() -> Self {
@@ -11749,6 +7311,7 @@ impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bPersistentGroupEnabled: super::super::Foundation::BOOLEAN,
@@ -11760,40 +7323,9 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub bEapolKeyIpAddressAllocationSupported: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2")
-            .field("Header", &self.Header)
-            .field("bPersistentGroupEnabled", &self.bPersistentGroupEnabled)
-            .field("bIntraBSSDistributionSupported", &self.bIntraBSSDistributionSupported)
-            .field("bCrossConnectionSupported", &self.bCrossConnectionSupported)
-            .field("bPersistentReconnectSupported", &self.bPersistentReconnectSupported)
-            .field("bGroupFormationEnabled", &self.bGroupFormationEnabled)
-            .field("uMaximumGroupLimit", &self.uMaximumGroupLimit)
-            .field("bEapolKeyIpAddressAllocationSupported", &self.bEapolKeyIpAddressAllocationSupported)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.bPersistentGroupEnabled == other.bPersistentGroupEnabled && self.bIntraBSSDistributionSupported == other.bIntraBSSDistributionSupported && self.bCrossConnectionSupported == other.bCrossConnectionSupported && self.bPersistentReconnectSupported == other.bPersistentReconnectSupported && self.bGroupFormationEnabled == other.bGroupFormationEnabled && self.uMaximumGroupLimit == other.uMaximumGroupLimit && self.bEapolKeyIpAddressAllocationSupported == other.bEapolKeyIpAddressAllocationSupported
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     fn default() -> Self {
@@ -11802,36 +7334,15 @@ impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_GROUP_START_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_GROUP_START_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_GROUP_START_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_GROUP_START_PARAMETERS").field("Header", &self.Header).field("AdvertisedOperatingChannel", &self.AdvertisedOperatingChannel).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_GROUP_START_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_GROUP_START_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.AdvertisedOperatingChannel == other.AdvertisedOperatingChannel
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_GROUP_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_GROUP_START_PARAMETERS {
     fn default() -> Self {
@@ -11839,29 +7350,13 @@ impl Default for DOT11_WFD_GROUP_START_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
-}
-impl Copy for DOT11_WFD_INVITATION_FLAGS {}
-impl Clone for DOT11_WFD_INVITATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_INVITATION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_INVITATION_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DOT11_WFD_INVITATION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_INVITATION_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DOT11_WFD_INVITATION_FLAGS {}
 impl Default for DOT11_WFD_INVITATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11869,6 +7364,7 @@ impl Default for DOT11_WFD_INVITATION_FLAGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -11876,31 +7372,9 @@ pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST").field("Header", &self.Header).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("SecondaryDeviceTypes", &self.SecondaryDeviceTypes).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.SecondaryDeviceTypes == other.SecondaryDeviceTypes
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     fn default() -> Self {
@@ -11908,96 +7382,49 @@ impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SERVICE_HASH_LIST {
     pub ServiceHashCount: u16,
     pub ServiceHash: [u8; 6],
 }
-impl Copy for DOT11_WFD_SERVICE_HASH_LIST {}
-impl Clone for DOT11_WFD_SERVICE_HASH_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_SERVICE_HASH_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_SERVICE_HASH_LIST").field("ServiceHashCount", &self.ServiceHashCount).field("ServiceHash", &self.ServiceHash).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_SERVICE_HASH_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_SERVICE_HASH_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ServiceHashCount == other.ServiceHashCount && self.ServiceHash == other.ServiceHash
-    }
-}
-impl Eq for DOT11_WFD_SERVICE_HASH_LIST {}
 impl Default for DOT11_WFD_SERVICE_HASH_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_ID {
     pub SessionID: u32,
     pub SessionAddress: [u8; 6],
 }
-impl Copy for DOT11_WFD_SESSION_ID {}
-impl Clone for DOT11_WFD_SESSION_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_SESSION_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_SESSION_ID").field("SessionID", &self.SessionID).field("SessionAddress", &self.SessionAddress).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_SESSION_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_SESSION_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionID == other.SessionID && self.SessionAddress == other.SessionAddress
-    }
-}
-impl Eq for DOT11_WFD_SESSION_ID {}
 impl Default for DOT11_WFD_SESSION_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_INFO {
     pub uSessionInfoLength: u16,
     pub ucSessionInfo: [u8; 144],
 }
-impl Copy for DOT11_WFD_SESSION_INFO {}
-impl Clone for DOT11_WFD_SESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WFD_SESSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WFD_SESSION_INFO").field("uSessionInfoLength", &self.uSessionInfoLength).field("ucSessionInfo", &self.ucSessionInfo).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WFD_SESSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WFD_SESSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uSessionInfoLength == other.uSessionInfoLength && self.ucSessionInfo == other.ucSessionInfo
-    }
-}
-impl Eq for DOT11_WFD_SESSION_INFO {}
 impl Default for DOT11_WFD_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS {
     pub ucAccessCategoryIndex: u8,
     pub ucAIFSN: u8,
@@ -12005,63 +7432,31 @@ pub struct DOT11_WME_AC_PARAMETERS {
     pub ucECWmax: u8,
     pub usTXOPLimit: u16,
 }
-impl Copy for DOT11_WME_AC_PARAMETERS {}
-impl Clone for DOT11_WME_AC_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WME_AC_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WME_AC_PARAMETERS").field("ucAccessCategoryIndex", &self.ucAccessCategoryIndex).field("ucAIFSN", &self.ucAIFSN).field("ucECWmin", &self.ucECWmin).field("ucECWmax", &self.ucECWmax).field("usTXOPLimit", &self.usTXOPLimit).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WME_AC_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WME_AC_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucAccessCategoryIndex == other.ucAccessCategoryIndex && self.ucAIFSN == other.ucAIFSN && self.ucECWmin == other.ucECWmin && self.ucECWmax == other.ucECWmax && self.usTXOPLimit == other.usTXOPLimit
-    }
-}
-impl Eq for DOT11_WME_AC_PARAMETERS {}
 impl Default for DOT11_WME_AC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
 }
-impl Copy for DOT11_WME_AC_PARAMETERS_LIST {}
-impl Clone for DOT11_WME_AC_PARAMETERS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WME_AC_PARAMETERS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WME_AC_PARAMETERS_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11WMEACParameters", &self.dot11WMEACParameters).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WME_AC_PARAMETERS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WME_AC_PARAMETERS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uNumOfEntries == other.uNumOfEntries && self.uTotalNumOfEntries == other.uTotalNumOfEntries && self.dot11WMEACParameters == other.dot11WMEACParameters
-    }
-}
-impl Eq for DOT11_WME_AC_PARAMETERS_LIST {}
 impl Default for DOT11_WME_AC_PARAMETERS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_UPDATE_IE {
     pub uParamElemMinBeaconIntervals: u32,
     pub uWMEInfoElemOffset: u32,
@@ -12070,88 +7465,39 @@ pub struct DOT11_WME_UPDATE_IE {
     pub uWMEParamElemLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl Copy for DOT11_WME_UPDATE_IE {}
-impl Clone for DOT11_WME_UPDATE_IE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WME_UPDATE_IE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WME_UPDATE_IE").field("uParamElemMinBeaconIntervals", &self.uParamElemMinBeaconIntervals).field("uWMEInfoElemOffset", &self.uWMEInfoElemOffset).field("uWMEInfoElemLength", &self.uWMEInfoElemLength).field("uWMEParamElemOffset", &self.uWMEParamElemOffset).field("uWMEParamElemLength", &self.uWMEParamElemLength).field("ucBuffer", &self.ucBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WME_UPDATE_IE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WME_UPDATE_IE {
-    fn eq(&self, other: &Self) -> bool {
-        self.uParamElemMinBeaconIntervals == other.uParamElemMinBeaconIntervals && self.uWMEInfoElemOffset == other.uWMEInfoElemOffset && self.uWMEInfoElemLength == other.uWMEInfoElemLength && self.uWMEParamElemOffset == other.uWMEParamElemOffset && self.uWMEParamElemLength == other.uWMEParamElemLength && self.ucBuffer == other.ucBuffer
-    }
-}
-impl Eq for DOT11_WME_UPDATE_IE {}
 impl Default for DOT11_WME_UPDATE_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub hOffload: super::super::Foundation::HANDLE,
     pub dot11IV48Counter: DOT11_IV48_COUNTER,
 }
-impl Copy for DOT11_WPA_TSC {}
-impl Clone for DOT11_WPA_TSC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WPA_TSC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WPA_TSC").field("uReserved", &self.uReserved).field("dot11OffloadType", &self.dot11OffloadType).field("hOffload", &self.hOffload).field("dot11IV48Counter", &self.dot11IV48Counter).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WPA_TSC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WPA_TSC {
-    fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved && self.dot11OffloadType == other.dot11OffloadType && self.hOffload == other.hOffload && self.dot11IV48Counter == other.dot11IV48Counter
-    }
-}
-impl Eq for DOT11_WPA_TSC {}
 impl Default for DOT11_WPA_TSC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WPS_DEVICE_NAME {
     pub uDeviceNameLength: u32,
     pub ucDeviceName: [u8; 32],
 }
-impl Copy for DOT11_WPS_DEVICE_NAME {}
-impl Clone for DOT11_WPS_DEVICE_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOT11_WPS_DEVICE_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOT11_WPS_DEVICE_NAME").field("uDeviceNameLength", &self.uDeviceNameLength).field("ucDeviceName", &self.ucDeviceName).finish()
-    }
-}
 impl windows_core::TypeKind for DOT11_WPS_DEVICE_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOT11_WPS_DEVICE_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.uDeviceNameLength == other.uDeviceNameLength && self.ucDeviceName == other.ucDeviceName
-    }
-}
-impl Eq for DOT11_WPS_DEVICE_NAME {}
 impl Default for DOT11_WPS_DEVICE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12159,6 +7505,7 @@ impl Default for DOT11_WPS_DEVICE_NAME {
 }
 pub const Dot11AdHocManager: windows_core::GUID = windows_core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: WLAN_NOTIFICATION_SOURCES,
     pub NotificationCode: u32,
@@ -12166,32 +7513,16 @@ pub struct L2_NOTIFICATION_DATA {
     pub dwDataSize: u32,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for L2_NOTIFICATION_DATA {}
-impl Clone for L2_NOTIFICATION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for L2_NOTIFICATION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("L2_NOTIFICATION_DATA").field("NotificationSource", &self.NotificationSource).field("NotificationCode", &self.NotificationCode).field("InterfaceGuid", &self.InterfaceGuid).field("dwDataSize", &self.dwDataSize).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for L2_NOTIFICATION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for L2_NOTIFICATION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotificationSource == other.NotificationSource && self.NotificationCode == other.NotificationCode && self.InterfaceGuid == other.InterfaceGuid && self.dwDataSize == other.dwDataSize && self.pData == other.pData
-    }
-}
-impl Eq for L2_NOTIFICATION_DATA {}
 impl Default for L2_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ONEX_AUTH_PARAMS {
     pub fUpdatePending: super::super::Foundation::BOOL,
     pub oneXConnProfile: ONEX_VARIABLE_BLOB,
@@ -12205,38 +7536,9 @@ pub struct ONEX_AUTH_PARAMS {
     pub UserName: ONEX_VARIABLE_BLOB,
     pub Domain: ONEX_VARIABLE_BLOB,
 }
-impl Copy for ONEX_AUTH_PARAMS {}
-impl Clone for ONEX_AUTH_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ONEX_AUTH_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ONEX_AUTH_PARAMS")
-            .field("fUpdatePending", &self.fUpdatePending)
-            .field("oneXConnProfile", &self.oneXConnProfile)
-            .field("authIdentity", &self.authIdentity)
-            .field("dwQuarantineState", &self.dwQuarantineState)
-            .field("_bitfield", &self._bitfield)
-            .field("dwSessionId", &self.dwSessionId)
-            .field("hUserToken", &self.hUserToken)
-            .field("OneXUserProfile", &self.OneXUserProfile)
-            .field("Identity", &self.Identity)
-            .field("UserName", &self.UserName)
-            .field("Domain", &self.Domain)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ONEX_AUTH_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ONEX_AUTH_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.fUpdatePending == other.fUpdatePending && self.oneXConnProfile == other.oneXConnProfile && self.authIdentity == other.authIdentity && self.dwQuarantineState == other.dwQuarantineState && self._bitfield == other._bitfield && self.dwSessionId == other.dwSessionId && self.hUserToken == other.hUserToken && self.OneXUserProfile == other.OneXUserProfile && self.Identity == other.Identity && self.UserName == other.UserName && self.Domain == other.Domain
-    }
-}
-impl Eq for ONEX_AUTH_PARAMS {}
 impl Default for ONEX_AUTH_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12244,6 +7546,7 @@ impl Default for ONEX_AUTH_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ONEX_EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
@@ -12256,31 +7559,9 @@ pub struct ONEX_EAP_ERROR {
     pub RepairString: ONEX_VARIABLE_BLOB,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Copy for ONEX_EAP_ERROR {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Clone for ONEX_EAP_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl core::fmt::Debug for ONEX_EAP_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ONEX_EAP_ERROR").field("dwWinError", &self.dwWinError).field("type", &self.r#type).field("dwReasonCode", &self.dwReasonCode).field("rootCauseGuid", &self.rootCauseGuid).field("repairGuid", &self.repairGuid).field("helpLinkGuid", &self.helpLinkGuid).field("_bitfield", &self._bitfield).field("RootCauseString", &self.RootCauseString).field("RepairString", &self.RepairString).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl windows_core::TypeKind for ONEX_EAP_ERROR {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl PartialEq for ONEX_EAP_ERROR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwWinError == other.dwWinError && self.r#type == other.r#type && self.dwReasonCode == other.dwReasonCode && self.rootCauseGuid == other.rootCauseGuid && self.repairGuid == other.repairGuid && self.helpLinkGuid == other.helpLinkGuid && self._bitfield == other._bitfield && self.RootCauseString == other.RootCauseString && self.RepairString == other.RepairString
-    }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Eq for ONEX_EAP_ERROR {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl Default for ONEX_EAP_ERROR {
     fn default() -> Self {
@@ -12288,6 +7569,7 @@ impl Default for ONEX_EAP_ERROR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ONEX_RESULT_UPDATE_DATA {
     pub oneXStatus: ONEX_STATUS,
     pub BackendSupport: ONEX_EAP_METHOD_BACKEND_SUPPORT,
@@ -12296,125 +7578,61 @@ pub struct ONEX_RESULT_UPDATE_DATA {
     pub authParams: ONEX_VARIABLE_BLOB,
     pub eapError: ONEX_VARIABLE_BLOB,
 }
-impl Copy for ONEX_RESULT_UPDATE_DATA {}
-impl Clone for ONEX_RESULT_UPDATE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ONEX_RESULT_UPDATE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ONEX_RESULT_UPDATE_DATA").field("oneXStatus", &self.oneXStatus).field("BackendSupport", &self.BackendSupport).field("fBackendEngaged", &self.fBackendEngaged).field("_bitfield", &self._bitfield).field("authParams", &self.authParams).field("eapError", &self.eapError).finish()
-    }
-}
 impl windows_core::TypeKind for ONEX_RESULT_UPDATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ONEX_RESULT_UPDATE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.oneXStatus == other.oneXStatus && self.BackendSupport == other.BackendSupport && self.fBackendEngaged == other.fBackendEngaged && self._bitfield == other._bitfield && self.authParams == other.authParams && self.eapError == other.eapError
-    }
-}
-impl Eq for ONEX_RESULT_UPDATE_DATA {}
 impl Default for ONEX_RESULT_UPDATE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ONEX_STATUS {
     pub authStatus: ONEX_AUTH_STATUS,
     pub dwReason: u32,
     pub dwError: u32,
 }
-impl Copy for ONEX_STATUS {}
-impl Clone for ONEX_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ONEX_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ONEX_STATUS").field("authStatus", &self.authStatus).field("dwReason", &self.dwReason).field("dwError", &self.dwError).finish()
-    }
-}
 impl windows_core::TypeKind for ONEX_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ONEX_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.authStatus == other.authStatus && self.dwReason == other.dwReason && self.dwError == other.dwError
-    }
-}
-impl Eq for ONEX_STATUS {}
 impl Default for ONEX_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ONEX_USER_INFO {
     pub authIdentity: ONEX_AUTH_IDENTITY,
     pub _bitfield: u32,
     pub UserName: ONEX_VARIABLE_BLOB,
     pub DomainName: ONEX_VARIABLE_BLOB,
 }
-impl Copy for ONEX_USER_INFO {}
-impl Clone for ONEX_USER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ONEX_USER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ONEX_USER_INFO").field("authIdentity", &self.authIdentity).field("_bitfield", &self._bitfield).field("UserName", &self.UserName).field("DomainName", &self.DomainName).finish()
-    }
-}
 impl windows_core::TypeKind for ONEX_USER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ONEX_USER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.authIdentity == other.authIdentity && self._bitfield == other._bitfield && self.UserName == other.UserName && self.DomainName == other.DomainName
-    }
-}
-impl Eq for ONEX_USER_INFO {}
 impl Default for ONEX_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ONEX_VARIABLE_BLOB {
     pub dwSize: u32,
     pub dwOffset: u32,
 }
-impl Copy for ONEX_VARIABLE_BLOB {}
-impl Clone for ONEX_VARIABLE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ONEX_VARIABLE_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ONEX_VARIABLE_BLOB").field("dwSize", &self.dwSize).field("dwOffset", &self.dwOffset).finish()
-    }
-}
 impl windows_core::TypeKind for ONEX_VARIABLE_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ONEX_VARIABLE_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwOffset == other.dwOffset
-    }
-}
-impl Eq for ONEX_VARIABLE_BLOB {}
 impl Default for ONEX_VARIABLE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDIAG_IHV_WLAN_ID {
     pub strProfileName: [u16; 256],
     pub Ssid: DOT11_SSID,
@@ -12422,93 +7640,45 @@ pub struct WDIAG_IHV_WLAN_ID {
     pub dwFlags: u32,
     pub dwReasonCode: u32,
 }
-impl Copy for WDIAG_IHV_WLAN_ID {}
-impl Clone for WDIAG_IHV_WLAN_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WDIAG_IHV_WLAN_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WDIAG_IHV_WLAN_ID").field("strProfileName", &self.strProfileName).field("Ssid", &self.Ssid).field("BssType", &self.BssType).field("dwFlags", &self.dwFlags).field("dwReasonCode", &self.dwReasonCode).finish()
-    }
-}
 impl windows_core::TypeKind for WDIAG_IHV_WLAN_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WDIAG_IHV_WLAN_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName && self.Ssid == other.Ssid && self.BssType == other.BssType && self.dwFlags == other.dwFlags && self.dwReasonCode == other.dwReasonCode
-    }
-}
-impl Eq for WDIAG_IHV_WLAN_ID {}
 impl Default for WDIAG_IHV_WLAN_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bNew: super::super::Foundation::BOOLEAN,
     pub bClient: super::super::Foundation::BOOLEAN,
     pub bGO: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WFDSVC_CONNECTION_CAPABILITY {}
-impl Clone for WFDSVC_CONNECTION_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WFDSVC_CONNECTION_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WFDSVC_CONNECTION_CAPABILITY").field("bNew", &self.bNew).field("bClient", &self.bClient).field("bGO", &self.bGO).finish()
-    }
-}
 impl windows_core::TypeKind for WFDSVC_CONNECTION_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WFDSVC_CONNECTION_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.bNew == other.bNew && self.bClient == other.bClient && self.bGO == other.bGO
-    }
-}
-impl Eq for WFDSVC_CONNECTION_CAPABILITY {}
 impl Default for WFDSVC_CONNECTION_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WFD_GROUP_ID {
     pub DeviceAddress: [u8; 6],
     pub GroupSSID: DOT11_SSID,
 }
-impl Copy for WFD_GROUP_ID {}
-impl Clone for WFD_GROUP_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WFD_GROUP_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WFD_GROUP_ID").field("DeviceAddress", &self.DeviceAddress).field("GroupSSID", &self.GroupSSID).finish()
-    }
-}
 impl windows_core::TypeKind for WFD_GROUP_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WFD_GROUP_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceAddress == other.DeviceAddress && self.GroupSSID == other.GroupSSID
-    }
-}
-impl Eq for WFD_GROUP_ID {}
 impl Default for WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
@@ -12519,62 +7689,30 @@ pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub ulRxRate: u32,
     pub ulTxRate: u32,
 }
-impl Copy for WLAN_ASSOCIATION_ATTRIBUTES {}
-impl Clone for WLAN_ASSOCIATION_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_ASSOCIATION_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_ASSOCIATION_ATTRIBUTES").field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).field("dot11Bssid", &self.dot11Bssid).field("dot11PhyType", &self.dot11PhyType).field("uDot11PhyIndex", &self.uDot11PhyIndex).field("wlanSignalQuality", &self.wlanSignalQuality).field("ulRxRate", &self.ulRxRate).field("ulTxRate", &self.ulTxRate).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_ASSOCIATION_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_ASSOCIATION_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11Ssid == other.dot11Ssid && self.dot11BssType == other.dot11BssType && self.dot11Bssid == other.dot11Bssid && self.dot11PhyType == other.dot11PhyType && self.uDot11PhyIndex == other.uDot11PhyIndex && self.wlanSignalQuality == other.wlanSignalQuality && self.ulRxRate == other.ulRxRate && self.ulTxRate == other.ulTxRate
-    }
-}
-impl Eq for WLAN_ASSOCIATION_ATTRIBUTES {}
 impl Default for WLAN_ASSOCIATION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AUTH_CIPHER_PAIR_LIST {
     pub dwNumberOfItems: u32,
     pub pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
 }
-impl Copy for WLAN_AUTH_CIPHER_PAIR_LIST {}
-impl Clone for WLAN_AUTH_CIPHER_PAIR_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_AUTH_CIPHER_PAIR_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_AUTH_CIPHER_PAIR_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("pAuthCipherPairList", &self.pAuthCipherPairList).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_AUTH_CIPHER_PAIR_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_AUTH_CIPHER_PAIR_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.pAuthCipherPairList == other.pAuthCipherPairList
-    }
-}
-impl Eq for WLAN_AUTH_CIPHER_PAIR_LIST {}
 impl Default for WLAN_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK {
     pub strProfileName: [u16; 256],
     pub dot11Ssid: DOT11_SSID,
@@ -12592,110 +7730,46 @@ pub struct WLAN_AVAILABLE_NETWORK {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for WLAN_AVAILABLE_NETWORK {}
-impl Clone for WLAN_AVAILABLE_NETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_AVAILABLE_NETWORK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_AVAILABLE_NETWORK")
-            .field("strProfileName", &self.strProfileName)
-            .field("dot11Ssid", &self.dot11Ssid)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("uNumberOfBssids", &self.uNumberOfBssids)
-            .field("bNetworkConnectable", &self.bNetworkConnectable)
-            .field("wlanNotConnectableReason", &self.wlanNotConnectableReason)
-            .field("uNumberOfPhyTypes", &self.uNumberOfPhyTypes)
-            .field("dot11PhyTypes", &self.dot11PhyTypes)
-            .field("bMorePhyTypes", &self.bMorePhyTypes)
-            .field("wlanSignalQuality", &self.wlanSignalQuality)
-            .field("bSecurityEnabled", &self.bSecurityEnabled)
-            .field("dot11DefaultAuthAlgorithm", &self.dot11DefaultAuthAlgorithm)
-            .field("dot11DefaultCipherAlgorithm", &self.dot11DefaultCipherAlgorithm)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_AVAILABLE_NETWORK {
-    fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName && self.dot11Ssid == other.dot11Ssid && self.dot11BssType == other.dot11BssType && self.uNumberOfBssids == other.uNumberOfBssids && self.bNetworkConnectable == other.bNetworkConnectable && self.wlanNotConnectableReason == other.wlanNotConnectableReason && self.uNumberOfPhyTypes == other.uNumberOfPhyTypes && self.dot11PhyTypes == other.dot11PhyTypes && self.bMorePhyTypes == other.bMorePhyTypes && self.wlanSignalQuality == other.wlanSignalQuality && self.bSecurityEnabled == other.bSecurityEnabled && self.dot11DefaultAuthAlgorithm == other.dot11DefaultAuthAlgorithm && self.dot11DefaultCipherAlgorithm == other.dot11DefaultCipherAlgorithm && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for WLAN_AVAILABLE_NETWORK {}
 impl Default for WLAN_AVAILABLE_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub Network: [WLAN_AVAILABLE_NETWORK; 1],
 }
-impl Copy for WLAN_AVAILABLE_NETWORK_LIST {}
-impl Clone for WLAN_AVAILABLE_NETWORK_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_AVAILABLE_NETWORK_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_AVAILABLE_NETWORK_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("dwIndex", &self.dwIndex).field("Network", &self.Network).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_AVAILABLE_NETWORK_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.dwIndex == other.dwIndex && self.Network == other.Network
-    }
-}
-impl Eq for WLAN_AVAILABLE_NETWORK_LIST {}
 impl Default for WLAN_AVAILABLE_NETWORK_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub Network: [WLAN_AVAILABLE_NETWORK_V2; 1],
 }
-impl Copy for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
-impl Clone for WLAN_AVAILABLE_NETWORK_LIST_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_AVAILABLE_NETWORK_LIST_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_AVAILABLE_NETWORK_LIST_V2").field("dwNumberOfItems", &self.dwNumberOfItems).field("dwIndex", &self.dwIndex).field("Network", &self.Network).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_AVAILABLE_NETWORK_LIST_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.dwIndex == other.dwIndex && self.Network == other.Network
-    }
-}
-impl Eq for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
 impl Default for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub strProfileName: [u16; 256],
     pub dot11Ssid: DOT11_SSID,
@@ -12716,68 +7790,16 @@ pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub VenueInfo: DOT11_VENUEINFO,
     pub dwReserved: u32,
 }
-impl Copy for WLAN_AVAILABLE_NETWORK_V2 {}
-impl Clone for WLAN_AVAILABLE_NETWORK_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_AVAILABLE_NETWORK_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_AVAILABLE_NETWORK_V2")
-            .field("strProfileName", &self.strProfileName)
-            .field("dot11Ssid", &self.dot11Ssid)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("uNumberOfBssids", &self.uNumberOfBssids)
-            .field("bNetworkConnectable", &self.bNetworkConnectable)
-            .field("wlanNotConnectableReason", &self.wlanNotConnectableReason)
-            .field("uNumberOfPhyTypes", &self.uNumberOfPhyTypes)
-            .field("dot11PhyTypes", &self.dot11PhyTypes)
-            .field("bMorePhyTypes", &self.bMorePhyTypes)
-            .field("wlanSignalQuality", &self.wlanSignalQuality)
-            .field("bSecurityEnabled", &self.bSecurityEnabled)
-            .field("dot11DefaultAuthAlgorithm", &self.dot11DefaultAuthAlgorithm)
-            .field("dot11DefaultCipherAlgorithm", &self.dot11DefaultCipherAlgorithm)
-            .field("dwFlags", &self.dwFlags)
-            .field("AccessNetworkOptions", &self.AccessNetworkOptions)
-            .field("dot11HESSID", &self.dot11HESSID)
-            .field("VenueInfo", &self.VenueInfo)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_AVAILABLE_NETWORK_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName
-            && self.dot11Ssid == other.dot11Ssid
-            && self.dot11BssType == other.dot11BssType
-            && self.uNumberOfBssids == other.uNumberOfBssids
-            && self.bNetworkConnectable == other.bNetworkConnectable
-            && self.wlanNotConnectableReason == other.wlanNotConnectableReason
-            && self.uNumberOfPhyTypes == other.uNumberOfPhyTypes
-            && self.dot11PhyTypes == other.dot11PhyTypes
-            && self.bMorePhyTypes == other.bMorePhyTypes
-            && self.wlanSignalQuality == other.wlanSignalQuality
-            && self.bSecurityEnabled == other.bSecurityEnabled
-            && self.dot11DefaultAuthAlgorithm == other.dot11DefaultAuthAlgorithm
-            && self.dot11DefaultCipherAlgorithm == other.dot11DefaultCipherAlgorithm
-            && self.dwFlags == other.dwFlags
-            && self.AccessNetworkOptions == other.AccessNetworkOptions
-            && self.dot11HESSID == other.dot11HESSID
-            && self.VenueInfo == other.VenueInfo
-            && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for WLAN_AVAILABLE_NETWORK_V2 {}
 impl Default for WLAN_AVAILABLE_NETWORK_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_BSS_ENTRY {
     pub dot11Ssid: DOT11_SSID,
     pub uPhyId: u32,
@@ -12796,80 +7818,31 @@ pub struct WLAN_BSS_ENTRY {
     pub ulIeOffset: u32,
     pub ulIeSize: u32,
 }
-impl Copy for WLAN_BSS_ENTRY {}
-impl Clone for WLAN_BSS_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_BSS_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_BSS_ENTRY")
-            .field("dot11Ssid", &self.dot11Ssid)
-            .field("uPhyId", &self.uPhyId)
-            .field("dot11Bssid", &self.dot11Bssid)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("dot11BssPhyType", &self.dot11BssPhyType)
-            .field("lRssi", &self.lRssi)
-            .field("uLinkQuality", &self.uLinkQuality)
-            .field("bInRegDomain", &self.bInRegDomain)
-            .field("usBeaconPeriod", &self.usBeaconPeriod)
-            .field("ullTimestamp", &self.ullTimestamp)
-            .field("ullHostTimestamp", &self.ullHostTimestamp)
-            .field("usCapabilityInformation", &self.usCapabilityInformation)
-            .field("ulChCenterFrequency", &self.ulChCenterFrequency)
-            .field("wlanRateSet", &self.wlanRateSet)
-            .field("ulIeOffset", &self.ulIeOffset)
-            .field("ulIeSize", &self.ulIeSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_BSS_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_BSS_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11Ssid == other.dot11Ssid && self.uPhyId == other.uPhyId && self.dot11Bssid == other.dot11Bssid && self.dot11BssType == other.dot11BssType && self.dot11BssPhyType == other.dot11BssPhyType && self.lRssi == other.lRssi && self.uLinkQuality == other.uLinkQuality && self.bInRegDomain == other.bInRegDomain && self.usBeaconPeriod == other.usBeaconPeriod && self.ullTimestamp == other.ullTimestamp && self.ullHostTimestamp == other.ullHostTimestamp && self.usCapabilityInformation == other.usCapabilityInformation && self.ulChCenterFrequency == other.ulChCenterFrequency && self.wlanRateSet == other.wlanRateSet && self.ulIeOffset == other.ulIeOffset && self.ulIeSize == other.ulIeSize
-    }
-}
-impl Eq for WLAN_BSS_ENTRY {}
 impl Default for WLAN_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_BSS_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
     pub wlanBssEntries: [WLAN_BSS_ENTRY; 1],
 }
-impl Copy for WLAN_BSS_LIST {}
-impl Clone for WLAN_BSS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_BSS_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_BSS_LIST").field("dwTotalSize", &self.dwTotalSize).field("dwNumberOfItems", &self.dwNumberOfItems).field("wlanBssEntries", &self.wlanBssEntries).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_BSS_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_BSS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTotalSize == other.dwTotalSize && self.dwNumberOfItems == other.dwNumberOfItems && self.wlanBssEntries == other.wlanBssEntries
-    }
-}
-impl Eq for WLAN_BSS_LIST {}
 impl Default for WLAN_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub isState: WLAN_INTERFACE_STATE,
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -12877,32 +7850,16 @@ pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES,
     pub wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES,
 }
-impl Copy for WLAN_CONNECTION_ATTRIBUTES {}
-impl Clone for WLAN_CONNECTION_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_CONNECTION_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_CONNECTION_ATTRIBUTES").field("isState", &self.isState).field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfileName", &self.strProfileName).field("wlanAssociationAttributes", &self.wlanAssociationAttributes).field("wlanSecurityAttributes", &self.wlanSecurityAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_CONNECTION_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_CONNECTION_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.isState == other.isState && self.wlanConnectionMode == other.wlanConnectionMode && self.strProfileName == other.strProfileName && self.wlanAssociationAttributes == other.wlanAssociationAttributes && self.wlanSecurityAttributes == other.wlanSecurityAttributes
-    }
-}
-impl Eq for WLAN_CONNECTION_ATTRIBUTES {}
 impl Default for WLAN_CONNECTION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfileName: [u16; 256],
@@ -12913,26 +7870,9 @@ pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub dwFlags: WLAN_CONNECTION_NOTIFICATION_FLAGS,
     pub strProfileXml: [u16; 1],
 }
-impl Copy for WLAN_CONNECTION_NOTIFICATION_DATA {}
-impl Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_CONNECTION_NOTIFICATION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_CONNECTION_NOTIFICATION_DATA").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfileName", &self.strProfileName).field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).field("bSecurityEnabled", &self.bSecurityEnabled).field("wlanReasonCode", &self.wlanReasonCode).field("dwFlags", &self.dwFlags).field("strProfileXml", &self.strProfileXml).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_CONNECTION_NOTIFICATION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_CONNECTION_NOTIFICATION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wlanConnectionMode == other.wlanConnectionMode && self.strProfileName == other.strProfileName && self.dot11Ssid == other.dot11Ssid && self.dot11BssType == other.dot11BssType && self.bSecurityEnabled == other.bSecurityEnabled && self.wlanReasonCode == other.wlanReasonCode && self.dwFlags == other.dwFlags && self.strProfileXml == other.strProfileXml
-    }
-}
-impl Eq for WLAN_CONNECTION_NOTIFICATION_DATA {}
 impl Default for WLAN_CONNECTION_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12940,6 +7880,7 @@ impl Default for WLAN_CONNECTION_NOTIFICATION_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfile: windows_core::PCWSTR,
@@ -12949,31 +7890,9 @@ pub struct WLAN_CONNECTION_PARAMETERS {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for WLAN_CONNECTION_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for WLAN_CONNECTION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for WLAN_CONNECTION_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_CONNECTION_PARAMETERS").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfile", &self.strProfile).field("pDot11Ssid", &self.pDot11Ssid).field("pDesiredBssidList", &self.pDesiredBssidList).field("dot11BssType", &self.dot11BssType).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for WLAN_CONNECTION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for WLAN_CONNECTION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.wlanConnectionMode == other.wlanConnectionMode && self.strProfile == other.strProfile && self.pDot11Ssid == other.pDot11Ssid && self.pDesiredBssidList == other.pDesiredBssidList && self.dot11BssType == other.dot11BssType && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for WLAN_CONNECTION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for WLAN_CONNECTION_PARAMETERS {
     fn default() -> Self {
@@ -12982,6 +7901,7 @@ impl Default for WLAN_CONNECTION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfile: windows_core::PCWSTR,
@@ -12993,31 +7913,9 @@ pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub pDot11AccessNetworkOptions: *mut DOT11_ACCESSNETWORKOPTIONS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for WLAN_CONNECTION_PARAMETERS_V2 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for WLAN_CONNECTION_PARAMETERS_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for WLAN_CONNECTION_PARAMETERS_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_CONNECTION_PARAMETERS_V2").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfile", &self.strProfile).field("pDot11Ssid", &self.pDot11Ssid).field("pDot11Hessid", &self.pDot11Hessid).field("pDesiredBssidList", &self.pDesiredBssidList).field("dot11BssType", &self.dot11BssType).field("dwFlags", &self.dwFlags).field("pDot11AccessNetworkOptions", &self.pDot11AccessNetworkOptions).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for WLAN_CONNECTION_PARAMETERS_V2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for WLAN_CONNECTION_PARAMETERS_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wlanConnectionMode == other.wlanConnectionMode && self.strProfile == other.strProfile && self.pDot11Ssid == other.pDot11Ssid && self.pDot11Hessid == other.pDot11Hessid && self.pDesiredBssidList == other.pDesiredBssidList && self.dot11BssType == other.dot11BssType && self.dwFlags == other.dwFlags && self.pDot11AccessNetworkOptions == other.pDot11AccessNetworkOptions
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for WLAN_CONNECTION_PARAMETERS_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for WLAN_CONNECTION_PARAMETERS_V2 {
     fn default() -> Self {
@@ -13025,281 +7923,138 @@ impl Default for WLAN_CONNECTION_PARAMETERS_V2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub dwNumberOfItems: u32,
     pub pCountryOrRegionStringList: [u8; 3],
 }
-impl Copy for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
-impl Clone for WLAN_COUNTRY_OR_REGION_STRING_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_COUNTRY_OR_REGION_STRING_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_COUNTRY_OR_REGION_STRING_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("pCountryOrRegionStringList", &self.pCountryOrRegionStringList).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_COUNTRY_OR_REGION_STRING_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.pCountryOrRegionStringList == other.pCountryOrRegionStringList
-    }
-}
-impl Eq for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
 impl Default for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub DeviceService: [windows_core::GUID; 1],
 }
-impl Copy for WLAN_DEVICE_SERVICE_GUID_LIST {}
-impl Clone for WLAN_DEVICE_SERVICE_GUID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_DEVICE_SERVICE_GUID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_DEVICE_SERVICE_GUID_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("dwIndex", &self.dwIndex).field("DeviceService", &self.DeviceService).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_DEVICE_SERVICE_GUID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_DEVICE_SERVICE_GUID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.dwIndex == other.dwIndex && self.DeviceService == other.DeviceService
-    }
-}
-impl Eq for WLAN_DEVICE_SERVICE_GUID_LIST {}
 impl Default for WLAN_DEVICE_SERVICE_GUID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     pub DeviceService: windows_core::GUID,
     pub dwOpCode: u32,
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
 }
-impl Copy for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
-impl Clone for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_DEVICE_SERVICE_NOTIFICATION_DATA").field("DeviceService", &self.DeviceService).field("dwOpCode", &self.dwOpCode).field("dwDataSize", &self.dwDataSize).field("DataBlob", &self.DataBlob).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceService == other.DeviceService && self.dwOpCode == other.dwOpCode && self.dwDataSize == other.dwDataSize && self.DataBlob == other.DataBlob
-    }
-}
-impl Eq for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
 impl Default for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
     pub dwMaxNumberOfPeers: u32,
 }
-impl Copy for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
-impl Clone for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS").field("hostedNetworkSSID", &self.hostedNetworkSSID).field("dwMaxNumberOfPeers", &self.dwMaxNumberOfPeers).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.hostedNetworkSSID == other.hostedNetworkSSID && self.dwMaxNumberOfPeers == other.dwMaxNumberOfPeers
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
 impl Default for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub PeerStateChangeReason: WLAN_HOSTED_NETWORK_REASON,
 }
-impl Copy for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
-impl Clone for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE").field("OldState", &self.OldState).field("NewState", &self.NewState).field("PeerStateChangeReason", &self.PeerStateChangeReason).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.OldState == other.OldState && self.NewState == other.NewState && self.PeerStateChangeReason == other.PeerStateChangeReason
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
 impl Default for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: [u8; 6],
     pub PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
 }
-impl Copy for WLAN_HOSTED_NETWORK_PEER_STATE {}
-impl Clone for WLAN_HOSTED_NETWORK_PEER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_PEER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_PEER_STATE").field("PeerMacAddress", &self.PeerMacAddress).field("PeerAuthState", &self.PeerAuthState).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_PEER_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_PEER_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddress == other.PeerMacAddress && self.PeerAuthState == other.PeerAuthState
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_PEER_STATE {}
 impl Default for WLAN_HOSTED_NETWORK_PEER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
 }
-impl Copy for WLAN_HOSTED_NETWORK_RADIO_STATE {}
-impl Clone for WLAN_HOSTED_NETWORK_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_RADIO_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_RADIO_STATE").field("dot11SoftwareRadioState", &self.dot11SoftwareRadioState).field("dot11HardwareRadioState", &self.dot11HardwareRadioState).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_RADIO_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_RADIO_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11SoftwareRadioState == other.dot11SoftwareRadioState && self.dot11HardwareRadioState == other.dot11HardwareRadioState
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_RADIO_STATE {}
 impl Default for WLAN_HOSTED_NETWORK_RADIO_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
 }
-impl Copy for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
-impl Clone for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_SECURITY_SETTINGS").field("dot11AuthAlgo", &self.dot11AuthAlgo).field("dot11CipherAlgo", &self.dot11CipherAlgo).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dot11AuthAlgo == other.dot11AuthAlgo && self.dot11CipherAlgo == other.dot11CipherAlgo
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
 impl Default for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_STATE,
     pub StateChangeReason: WLAN_HOSTED_NETWORK_REASON,
 }
-impl Copy for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
-impl Clone for WLAN_HOSTED_NETWORK_STATE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_STATE_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_STATE_CHANGE").field("OldState", &self.OldState).field("NewState", &self.NewState).field("StateChangeReason", &self.StateChangeReason).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_STATE_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.OldState == other.OldState && self.NewState == other.NewState && self.StateChangeReason == other.StateChangeReason
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
 impl Default for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
     pub IPDeviceID: windows_core::GUID,
@@ -13309,32 +8064,16 @@ pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub dwNumberOfPeers: u32,
     pub PeerList: [WLAN_HOSTED_NETWORK_PEER_STATE; 1],
 }
-impl Copy for WLAN_HOSTED_NETWORK_STATUS {}
-impl Clone for WLAN_HOSTED_NETWORK_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_HOSTED_NETWORK_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_HOSTED_NETWORK_STATUS").field("HostedNetworkState", &self.HostedNetworkState).field("IPDeviceID", &self.IPDeviceID).field("wlanHostedNetworkBSSID", &self.wlanHostedNetworkBSSID).field("dot11PhyType", &self.dot11PhyType).field("ulChannelFrequency", &self.ulChannelFrequency).field("dwNumberOfPeers", &self.dwNumberOfPeers).field("PeerList", &self.PeerList).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_HOSTED_NETWORK_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.HostedNetworkState == other.HostedNetworkState && self.IPDeviceID == other.IPDeviceID && self.wlanHostedNetworkBSSID == other.wlanHostedNetworkBSSID && self.dot11PhyType == other.dot11PhyType && self.ulChannelFrequency == other.ulChannelFrequency && self.dwNumberOfPeers == other.dwNumberOfPeers && self.PeerList == other.PeerList
-    }
-}
-impl Eq for WLAN_HOSTED_NETWORK_STATUS {}
 impl Default for WLAN_HOSTED_NETWORK_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_CAPABILITY {
     pub interfaceType: WLAN_INTERFACE_TYPE,
     pub bDot11DSupported: super::super::Foundation::BOOL,
@@ -13343,94 +8082,46 @@ pub struct WLAN_INTERFACE_CAPABILITY {
     pub dwNumberOfSupportedPhys: u32,
     pub dot11PhyTypes: [DOT11_PHY_TYPE; 64],
 }
-impl Copy for WLAN_INTERFACE_CAPABILITY {}
-impl Clone for WLAN_INTERFACE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_INTERFACE_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_INTERFACE_CAPABILITY").field("interfaceType", &self.interfaceType).field("bDot11DSupported", &self.bDot11DSupported).field("dwMaxDesiredSsidListSize", &self.dwMaxDesiredSsidListSize).field("dwMaxDesiredBssidListSize", &self.dwMaxDesiredBssidListSize).field("dwNumberOfSupportedPhys", &self.dwNumberOfSupportedPhys).field("dot11PhyTypes", &self.dot11PhyTypes).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_INTERFACE_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_INTERFACE_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.interfaceType == other.interfaceType && self.bDot11DSupported == other.bDot11DSupported && self.dwMaxDesiredSsidListSize == other.dwMaxDesiredSsidListSize && self.dwMaxDesiredBssidListSize == other.dwMaxDesiredBssidListSize && self.dwNumberOfSupportedPhys == other.dwNumberOfSupportedPhys && self.dot11PhyTypes == other.dot11PhyTypes
-    }
-}
-impl Eq for WLAN_INTERFACE_CAPABILITY {}
 impl Default for WLAN_INTERFACE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_INFO {
     pub InterfaceGuid: windows_core::GUID,
     pub strInterfaceDescription: [u16; 256],
     pub isState: WLAN_INTERFACE_STATE,
 }
-impl Copy for WLAN_INTERFACE_INFO {}
-impl Clone for WLAN_INTERFACE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_INTERFACE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_INTERFACE_INFO").field("InterfaceGuid", &self.InterfaceGuid).field("strInterfaceDescription", &self.strInterfaceDescription).field("isState", &self.isState).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_INTERFACE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_INTERFACE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.InterfaceGuid == other.InterfaceGuid && self.strInterfaceDescription == other.strInterfaceDescription && self.isState == other.isState
-    }
-}
-impl Eq for WLAN_INTERFACE_INFO {}
 impl Default for WLAN_INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub InterfaceInfo: [WLAN_INTERFACE_INFO; 1],
 }
-impl Copy for WLAN_INTERFACE_INFO_LIST {}
-impl Clone for WLAN_INTERFACE_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_INTERFACE_INFO_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_INTERFACE_INFO_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("dwIndex", &self.dwIndex).field("InterfaceInfo", &self.InterfaceInfo).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_INTERFACE_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_INTERFACE_INFO_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.dwIndex == other.dwIndex && self.InterfaceInfo == other.InterfaceInfo
-    }
-}
-impl Eq for WLAN_INTERFACE_INFO_LIST {}
 impl Default for WLAN_INTERFACE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -13445,45 +8136,16 @@ pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
 }
-impl Copy for WLAN_MAC_FRAME_STATISTICS {}
-impl Clone for WLAN_MAC_FRAME_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_MAC_FRAME_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_MAC_FRAME_STATISTICS")
-            .field("ullTransmittedFrameCount", &self.ullTransmittedFrameCount)
-            .field("ullReceivedFrameCount", &self.ullReceivedFrameCount)
-            .field("ullWEPExcludedCount", &self.ullWEPExcludedCount)
-            .field("ullTKIPLocalMICFailures", &self.ullTKIPLocalMICFailures)
-            .field("ullTKIPReplays", &self.ullTKIPReplays)
-            .field("ullTKIPICVErrorCount", &self.ullTKIPICVErrorCount)
-            .field("ullCCMPReplays", &self.ullCCMPReplays)
-            .field("ullCCMPDecryptErrors", &self.ullCCMPDecryptErrors)
-            .field("ullWEPUndecryptableCount", &self.ullWEPUndecryptableCount)
-            .field("ullWEPICVErrorCount", &self.ullWEPICVErrorCount)
-            .field("ullDecryptSuccessCount", &self.ullDecryptSuccessCount)
-            .field("ullDecryptFailureCount", &self.ullDecryptFailureCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_MAC_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_MAC_FRAME_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullTransmittedFrameCount == other.ullTransmittedFrameCount && self.ullReceivedFrameCount == other.ullReceivedFrameCount && self.ullWEPExcludedCount == other.ullWEPExcludedCount && self.ullTKIPLocalMICFailures == other.ullTKIPLocalMICFailures && self.ullTKIPReplays == other.ullTKIPReplays && self.ullTKIPICVErrorCount == other.ullTKIPICVErrorCount && self.ullCCMPReplays == other.ullCCMPReplays && self.ullCCMPDecryptErrors == other.ullCCMPDecryptErrors && self.ullWEPUndecryptableCount == other.ullWEPUndecryptableCount && self.ullWEPICVErrorCount == other.ullWEPICVErrorCount && self.ullDecryptSuccessCount == other.ullDecryptSuccessCount && self.ullDecryptFailureCount == other.ullDecryptFailureCount
-    }
-}
-impl Eq for WLAN_MAC_FRAME_STATISTICS {}
 impl Default for WLAN_MAC_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfileName: [u16; 256],
@@ -13495,32 +8157,16 @@ pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub bLastPeer: super::super::Foundation::BOOL,
     pub wlanReasonCode: u32,
 }
-impl Copy for WLAN_MSM_NOTIFICATION_DATA {}
-impl Clone for WLAN_MSM_NOTIFICATION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_MSM_NOTIFICATION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_MSM_NOTIFICATION_DATA").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfileName", &self.strProfileName).field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).field("dot11MacAddr", &self.dot11MacAddr).field("bSecurityEnabled", &self.bSecurityEnabled).field("bFirstPeer", &self.bFirstPeer).field("bLastPeer", &self.bLastPeer).field("wlanReasonCode", &self.wlanReasonCode).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_MSM_NOTIFICATION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_MSM_NOTIFICATION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wlanConnectionMode == other.wlanConnectionMode && self.strProfileName == other.strProfileName && self.dot11Ssid == other.dot11Ssid && self.dot11BssType == other.dot11BssType && self.dot11MacAddr == other.dot11MacAddr && self.bSecurityEnabled == other.bSecurityEnabled && self.bFirstPeer == other.bFirstPeer && self.bLastPeer == other.bLastPeer && self.wlanReasonCode == other.wlanReasonCode
-    }
-}
-impl Eq for WLAN_MSM_NOTIFICATION_DATA {}
 impl Default for WLAN_MSM_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -13541,343 +8187,147 @@ pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullPromiscuousReceivedFragmentCount: u64,
     pub ullFCSErrorCount: u64,
 }
-impl Copy for WLAN_PHY_FRAME_STATISTICS {}
-impl Clone for WLAN_PHY_FRAME_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_PHY_FRAME_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_PHY_FRAME_STATISTICS")
-            .field("ullTransmittedFrameCount", &self.ullTransmittedFrameCount)
-            .field("ullMulticastTransmittedFrameCount", &self.ullMulticastTransmittedFrameCount)
-            .field("ullFailedCount", &self.ullFailedCount)
-            .field("ullRetryCount", &self.ullRetryCount)
-            .field("ullMultipleRetryCount", &self.ullMultipleRetryCount)
-            .field("ullMaxTXLifetimeExceededCount", &self.ullMaxTXLifetimeExceededCount)
-            .field("ullTransmittedFragmentCount", &self.ullTransmittedFragmentCount)
-            .field("ullRTSSuccessCount", &self.ullRTSSuccessCount)
-            .field("ullRTSFailureCount", &self.ullRTSFailureCount)
-            .field("ullACKFailureCount", &self.ullACKFailureCount)
-            .field("ullReceivedFrameCount", &self.ullReceivedFrameCount)
-            .field("ullMulticastReceivedFrameCount", &self.ullMulticastReceivedFrameCount)
-            .field("ullPromiscuousReceivedFrameCount", &self.ullPromiscuousReceivedFrameCount)
-            .field("ullMaxRXLifetimeExceededCount", &self.ullMaxRXLifetimeExceededCount)
-            .field("ullFrameDuplicateCount", &self.ullFrameDuplicateCount)
-            .field("ullReceivedFragmentCount", &self.ullReceivedFragmentCount)
-            .field("ullPromiscuousReceivedFragmentCount", &self.ullPromiscuousReceivedFragmentCount)
-            .field("ullFCSErrorCount", &self.ullFCSErrorCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_PHY_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_PHY_FRAME_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullTransmittedFrameCount == other.ullTransmittedFrameCount
-            && self.ullMulticastTransmittedFrameCount == other.ullMulticastTransmittedFrameCount
-            && self.ullFailedCount == other.ullFailedCount
-            && self.ullRetryCount == other.ullRetryCount
-            && self.ullMultipleRetryCount == other.ullMultipleRetryCount
-            && self.ullMaxTXLifetimeExceededCount == other.ullMaxTXLifetimeExceededCount
-            && self.ullTransmittedFragmentCount == other.ullTransmittedFragmentCount
-            && self.ullRTSSuccessCount == other.ullRTSSuccessCount
-            && self.ullRTSFailureCount == other.ullRTSFailureCount
-            && self.ullACKFailureCount == other.ullACKFailureCount
-            && self.ullReceivedFrameCount == other.ullReceivedFrameCount
-            && self.ullMulticastReceivedFrameCount == other.ullMulticastReceivedFrameCount
-            && self.ullPromiscuousReceivedFrameCount == other.ullPromiscuousReceivedFrameCount
-            && self.ullMaxRXLifetimeExceededCount == other.ullMaxRXLifetimeExceededCount
-            && self.ullFrameDuplicateCount == other.ullFrameDuplicateCount
-            && self.ullReceivedFragmentCount == other.ullReceivedFragmentCount
-            && self.ullPromiscuousReceivedFragmentCount == other.ullPromiscuousReceivedFragmentCount
-            && self.ullFCSErrorCount == other.ullFCSErrorCount
-    }
-}
-impl Eq for WLAN_PHY_FRAME_STATISTICS {}
 impl Default for WLAN_PHY_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_PHY_RADIO_STATE {
     pub dwPhyIndex: u32,
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
 }
-impl Copy for WLAN_PHY_RADIO_STATE {}
-impl Clone for WLAN_PHY_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_PHY_RADIO_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_PHY_RADIO_STATE").field("dwPhyIndex", &self.dwPhyIndex).field("dot11SoftwareRadioState", &self.dot11SoftwareRadioState).field("dot11HardwareRadioState", &self.dot11HardwareRadioState).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_PHY_RADIO_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_PHY_RADIO_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPhyIndex == other.dwPhyIndex && self.dot11SoftwareRadioState == other.dot11SoftwareRadioState && self.dot11HardwareRadioState == other.dot11HardwareRadioState
-    }
-}
-impl Eq for WLAN_PHY_RADIO_STATE {}
 impl Default for WLAN_PHY_RADIO_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub dwFlags: u32,
 }
-impl Copy for WLAN_PROFILE_INFO {}
-impl Clone for WLAN_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_PROFILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_PROFILE_INFO").field("strProfileName", &self.strProfileName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_PROFILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_PROFILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for WLAN_PROFILE_INFO {}
 impl Default for WLAN_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub ProfileInfo: [WLAN_PROFILE_INFO; 1],
 }
-impl Copy for WLAN_PROFILE_INFO_LIST {}
-impl Clone for WLAN_PROFILE_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_PROFILE_INFO_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_PROFILE_INFO_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("dwIndex", &self.dwIndex).field("ProfileInfo", &self.ProfileInfo).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_PROFILE_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_PROFILE_INFO_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.dwIndex == other.dwIndex && self.ProfileInfo == other.ProfileInfo
-    }
-}
-impl Eq for WLAN_PROFILE_INFO_LIST {}
 impl Default for WLAN_PROFILE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RADIO_STATE {
     pub dwNumberOfPhys: u32,
     pub PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
 }
-impl Copy for WLAN_RADIO_STATE {}
-impl Clone for WLAN_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_RADIO_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_RADIO_STATE").field("dwNumberOfPhys", &self.dwNumberOfPhys).field("PhyRadioState", &self.PhyRadioState).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_RADIO_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_RADIO_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfPhys == other.dwNumberOfPhys && self.PhyRadioState == other.PhyRadioState
-    }
-}
-impl Eq for WLAN_RADIO_STATE {}
 impl Default for WLAN_RADIO_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RATE_SET {
     pub uRateSetLength: u32,
     pub usRateSet: [u16; 126],
 }
-impl Copy for WLAN_RATE_SET {}
-impl Clone for WLAN_RATE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_RATE_SET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_RATE_SET").field("uRateSetLength", &self.uRateSetLength).field("usRateSet", &self.usRateSet).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_RATE_SET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_RATE_SET {
-    fn eq(&self, other: &Self) -> bool {
-        self.uRateSetLength == other.uRateSetLength && self.usRateSet == other.usRateSet
-    }
-}
-impl Eq for WLAN_RATE_SET {}
 impl Default for WLAN_RATE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RAW_DATA {
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
 }
-impl Copy for WLAN_RAW_DATA {}
-impl Clone for WLAN_RAW_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_RAW_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_RAW_DATA").field("dwDataSize", &self.dwDataSize).field("DataBlob", &self.DataBlob).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_RAW_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_RAW_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDataSize == other.dwDataSize && self.DataBlob == other.DataBlob
-    }
-}
-impl Eq for WLAN_RAW_DATA {}
 impl Default for WLAN_RAW_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RAW_DATA_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
     pub DataList: [WLAN_RAW_DATA_LIST_0; 1],
 }
-impl Copy for WLAN_RAW_DATA_LIST {}
-impl Clone for WLAN_RAW_DATA_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_RAW_DATA_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_RAW_DATA_LIST").field("dwTotalSize", &self.dwTotalSize).field("dwNumberOfItems", &self.dwNumberOfItems).field("DataList", &self.DataList).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_RAW_DATA_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_RAW_DATA_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTotalSize == other.dwTotalSize && self.dwNumberOfItems == other.dwNumberOfItems && self.DataList == other.DataList
-    }
-}
-impl Eq for WLAN_RAW_DATA_LIST {}
 impl Default for WLAN_RAW_DATA_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RAW_DATA_LIST_0 {
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
 }
-impl Copy for WLAN_RAW_DATA_LIST_0 {}
-impl Clone for WLAN_RAW_DATA_LIST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_RAW_DATA_LIST_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_RAW_DATA_LIST_0").field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_RAW_DATA_LIST_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_RAW_DATA_LIST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDataOffset == other.dwDataOffset && self.dwDataSize == other.dwDataSize
-    }
-}
-impl Eq for WLAN_RAW_DATA_LIST_0 {}
 impl Default for WLAN_RAW_DATA_LIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_SECURITY_ATTRIBUTES {
     pub bSecurityEnabled: super::super::Foundation::BOOL,
     pub bOneXEnabled: super::super::Foundation::BOOL,
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
 }
-impl Copy for WLAN_SECURITY_ATTRIBUTES {}
-impl Clone for WLAN_SECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_SECURITY_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_SECURITY_ATTRIBUTES").field("bSecurityEnabled", &self.bSecurityEnabled).field("bOneXEnabled", &self.bOneXEnabled).field("dot11AuthAlgorithm", &self.dot11AuthAlgorithm).field("dot11CipherAlgorithm", &self.dot11CipherAlgorithm).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_SECURITY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_SECURITY_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.bSecurityEnabled == other.bSecurityEnabled && self.bOneXEnabled == other.bOneXEnabled && self.dot11AuthAlgorithm == other.dot11AuthAlgorithm && self.dot11CipherAlgorithm == other.dot11CipherAlgorithm
-    }
-}
-impl Eq for WLAN_SECURITY_ATTRIBUTES {}
 impl Default for WLAN_SECURITY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_STATISTICS {
     pub ullFourWayHandshakeFailures: u64,
     pub ullTKIPCounterMeasuresInvoked: u64,
@@ -13887,26 +8337,9 @@ pub struct WLAN_STATISTICS {
     pub dwNumberOfPhys: u32,
     pub PhyCounters: [WLAN_PHY_FRAME_STATISTICS; 1],
 }
-impl Copy for WLAN_STATISTICS {}
-impl Clone for WLAN_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WLAN_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WLAN_STATISTICS").field("ullFourWayHandshakeFailures", &self.ullFourWayHandshakeFailures).field("ullTKIPCounterMeasuresInvoked", &self.ullTKIPCounterMeasuresInvoked).field("ullReserved", &self.ullReserved).field("MacUcastCounters", &self.MacUcastCounters).field("MacMcastCounters", &self.MacMcastCounters).field("dwNumberOfPhys", &self.dwNumberOfPhys).field("PhyCounters", &self.PhyCounters).finish()
-    }
-}
 impl windows_core::TypeKind for WLAN_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WLAN_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullFourWayHandshakeFailures == other.ullFourWayHandshakeFailures && self.ullTKIPCounterMeasuresInvoked == other.ullTKIPCounterMeasuresInvoked && self.ullReserved == other.ullReserved && self.MacUcastCounters == other.MacUcastCounters && self.MacMcastCounters == other.MacMcastCounters && self.dwNumberOfPhys == other.dwNumberOfPhys && self.PhyCounters == other.PhyCounters
-    }
-}
-impl Eq for WLAN_STATISTICS {}
 impl Default for WLAN_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

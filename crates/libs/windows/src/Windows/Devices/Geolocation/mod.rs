@@ -1617,21 +1617,11 @@ impl windows_core::RuntimeType for VisitStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BasicGeoposition {
     pub Latitude: f64,
     pub Longitude: f64,
     pub Altitude: f64,
-}
-impl Copy for BasicGeoposition {}
-impl Clone for BasicGeoposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BasicGeoposition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BasicGeoposition").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).finish()
-    }
 }
 impl windows_core::TypeKind for BasicGeoposition {
     type TypeKind = windows_core::CopyType;
@@ -1639,12 +1629,6 @@ impl windows_core::TypeKind for BasicGeoposition {
 impl windows_core::RuntimeType for BasicGeoposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
 }
-impl PartialEq for BasicGeoposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude
-    }
-}
-impl Eq for BasicGeoposition {}
 impl Default for BasicGeoposition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

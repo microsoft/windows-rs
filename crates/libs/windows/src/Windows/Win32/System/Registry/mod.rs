@@ -1953,6 +1953,7 @@ impl core::fmt::Debug for REG_VALUE_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1964,26 +1965,9 @@ pub struct DSKTLSYSTEMTIME {
     pub wMilliseconds: u16,
     pub wResult: u16,
 }
-impl Copy for DSKTLSYSTEMTIME {}
-impl Clone for DSKTLSYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSKTLSYSTEMTIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSKTLSYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).field("wResult", &self.wResult).finish()
-    }
-}
 impl windows_core::TypeKind for DSKTLSYSTEMTIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSKTLSYSTEMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds && self.wResult == other.wResult
-    }
-}
-impl Eq for DSKTLSYSTEMTIME {}
 impl Default for DSKTLSYSTEMTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2013,70 +1997,39 @@ impl windows_core::TypeKind for HKEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PVALUEA {
     pub pv_valuename: windows_core::PSTR,
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
-impl Copy for PVALUEA {}
-impl Clone for PVALUEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PVALUEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PVALUEA").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
-    }
-}
 impl windows_core::TypeKind for PVALUEA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PVALUEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pv_valuename == other.pv_valuename && self.pv_valuelen == other.pv_valuelen && self.pv_value_context == other.pv_value_context && self.pv_type == other.pv_type
-    }
-}
-impl Eq for PVALUEA {}
 impl Default for PVALUEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PVALUEW {
     pub pv_valuename: windows_core::PWSTR,
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
-impl Copy for PVALUEW {}
-impl Clone for PVALUEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PVALUEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PVALUEW").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
-    }
-}
 impl windows_core::TypeKind for PVALUEW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PVALUEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pv_valuename == other.pv_valuename && self.pv_valuelen == other.pv_valuelen && self.pv_value_context == other.pv_value_context && self.pv_type == other.pv_type
-    }
-}
-impl Eq for PVALUEW {}
 impl Default for PVALUEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,
@@ -2084,17 +2037,6 @@ pub struct REG_PROVIDER {
     pub pi_R3_allvals: PQUERYHANDLER,
     pub pi_flags: u32,
     pub pi_key_context: *mut core::ffi::c_void,
-}
-impl Copy for REG_PROVIDER {}
-impl Clone for REG_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REG_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REG_PROVIDER").field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
-    }
 }
 impl windows_core::TypeKind for REG_PROVIDER {
     type TypeKind = windows_core::CopyType;
@@ -2105,95 +2047,47 @@ impl Default for REG_PROVIDER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VALENTA {
     pub ve_valuename: windows_core::PSTR,
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
 }
-impl Copy for VALENTA {}
-impl Clone for VALENTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VALENTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VALENTA").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
-    }
-}
 impl windows_core::TypeKind for VALENTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VALENTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ve_valuename == other.ve_valuename && self.ve_valuelen == other.ve_valuelen && self.ve_valueptr == other.ve_valueptr && self.ve_type == other.ve_type
-    }
-}
-impl Eq for VALENTA {}
 impl Default for VALENTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VALENTW {
     pub ve_valuename: windows_core::PWSTR,
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
 }
-impl Copy for VALENTW {}
-impl Clone for VALENTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VALENTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VALENTW").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
-    }
-}
 impl windows_core::TypeKind for VALENTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VALENTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ve_valuename == other.ve_valuename && self.ve_valuelen == other.ve_valuelen && self.ve_valueptr == other.ve_valueptr && self.ve_type == other.ve_type
-    }
-}
-impl Eq for VALENTW {}
 impl Default for VALENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,
     pub val_buff_ptr: *mut core::ffi::c_void,
 }
-impl Copy for val_context {}
-impl Clone for val_context {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for val_context {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("val_context").field("valuelen", &self.valuelen).field("value_context", &self.value_context).field("val_buff_ptr", &self.val_buff_ptr).finish()
-    }
-}
 impl windows_core::TypeKind for val_context {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for val_context {
-    fn eq(&self, other: &Self) -> bool {
-        self.valuelen == other.valuelen && self.value_context == other.value_context && self.val_buff_ptr == other.val_buff_ptr
-    }
-}
-impl Eq for val_context {}
 impl Default for val_context {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

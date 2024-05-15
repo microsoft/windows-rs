@@ -5718,131 +5718,68 @@ impl core::fmt::Debug for DWRITE_WORD_WRAPPING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_BITMAP_DATA_BGRA32 {
     pub width: u32,
     pub height: u32,
     pub pixels: *mut u32,
 }
-impl Copy for DWRITE_BITMAP_DATA_BGRA32 {}
-impl Clone for DWRITE_BITMAP_DATA_BGRA32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_BITMAP_DATA_BGRA32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_BITMAP_DATA_BGRA32").field("width", &self.width).field("height", &self.height).field("pixels", &self.pixels).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_BITMAP_DATA_BGRA32 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_BITMAP_DATA_BGRA32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height && self.pixels == other.pixels
-    }
-}
-impl Eq for DWRITE_BITMAP_DATA_BGRA32 {}
 impl Default for DWRITE_BITMAP_DATA_BGRA32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_CARET_METRICS {
     pub slopeRise: i16,
     pub slopeRun: i16,
     pub offset: i16,
 }
-impl Copy for DWRITE_CARET_METRICS {}
-impl Clone for DWRITE_CARET_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_CARET_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_CARET_METRICS").field("slopeRise", &self.slopeRise).field("slopeRun", &self.slopeRun).field("offset", &self.offset).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_CARET_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_CARET_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.slopeRise == other.slopeRise && self.slopeRun == other.slopeRun && self.offset == other.offset
-    }
-}
-impl Eq for DWRITE_CARET_METRICS {}
 impl Default for DWRITE_CARET_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_CLUSTER_METRICS {
     pub width: f32,
     pub length: u16,
     pub _bitfield: u16,
 }
-impl Copy for DWRITE_CLUSTER_METRICS {}
-impl Clone for DWRITE_CLUSTER_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_CLUSTER_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_CLUSTER_METRICS").field("width", &self.width).field("length", &self.length).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_CLUSTER_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_CLUSTER_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.length == other.length && self._bitfield == other._bitfield
-    }
-}
-impl Eq for DWRITE_CLUSTER_METRICS {}
 impl Default for DWRITE_CLUSTER_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_COLOR_F {
     pub r: f32,
     pub g: f32,
     pub b: f32,
     pub a: f32,
 }
-impl Copy for DWRITE_COLOR_F {}
-impl Clone for DWRITE_COLOR_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_COLOR_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_COLOR_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_COLOR_F {
-    fn eq(&self, other: &Self) -> bool {
-        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
-    }
-}
-impl Eq for DWRITE_COLOR_F {}
 impl Default for DWRITE_COLOR_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
@@ -5856,26 +5793,16 @@ impl Clone for DWRITE_COLOR_GLYPH_RUN {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_COLOR_GLYPH_RUN").field("glyphRun", &self.glyphRun).field("glyphRunDescription", &self.glyphRunDescription).field("baselineOriginX", &self.baselineOriginX).field("baselineOriginY", &self.baselineOriginY).field("runColor", &self.runColor).field("paletteIndex", &self.paletteIndex).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_COLOR_GLYPH_RUN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_COLOR_GLYPH_RUN {
-    fn eq(&self, other: &Self) -> bool {
-        self.glyphRun == other.glyphRun && self.glyphRunDescription == other.glyphRunDescription && self.baselineOriginX == other.baselineOriginX && self.baselineOriginY == other.baselineOriginY && self.runColor == other.runColor && self.paletteIndex == other.paletteIndex
-    }
-}
-impl Eq for DWRITE_COLOR_GLYPH_RUN {}
 impl Default for DWRITE_COLOR_GLYPH_RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
     pub Base: DWRITE_COLOR_GLYPH_RUN,
     pub glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS,
@@ -5886,147 +5813,73 @@ impl Clone for DWRITE_COLOR_GLYPH_RUN1 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_COLOR_GLYPH_RUN1").field("Base", &self.Base).field("glyphImageFormat", &self.glyphImageFormat).field("measuringMode", &self.measuringMode).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_COLOR_GLYPH_RUN1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_COLOR_GLYPH_RUN1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base && self.glyphImageFormat == other.glyphImageFormat && self.measuringMode == other.measuringMode
-    }
-}
-impl Eq for DWRITE_COLOR_GLYPH_RUN1 {}
 impl Default for DWRITE_COLOR_GLYPH_RUN1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_FILE_FRAGMENT {
     pub fileOffset: u64,
     pub fragmentSize: u64,
 }
-impl Copy for DWRITE_FILE_FRAGMENT {}
-impl Clone for DWRITE_FILE_FRAGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FILE_FRAGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FILE_FRAGMENT").field("fileOffset", &self.fileOffset).field("fragmentSize", &self.fragmentSize).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FILE_FRAGMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FILE_FRAGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.fileOffset == other.fileOffset && self.fragmentSize == other.fragmentSize
-    }
-}
-impl Eq for DWRITE_FILE_FRAGMENT {}
 impl Default for DWRITE_FILE_FRAGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_FONT_AXIS_RANGE {
     pub axisTag: DWRITE_FONT_AXIS_TAG,
     pub minValue: f32,
     pub maxValue: f32,
 }
-impl Copy for DWRITE_FONT_AXIS_RANGE {}
-impl Clone for DWRITE_FONT_AXIS_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FONT_AXIS_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FONT_AXIS_RANGE").field("axisTag", &self.axisTag).field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FONT_AXIS_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FONT_AXIS_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.axisTag == other.axisTag && self.minValue == other.minValue && self.maxValue == other.maxValue
-    }
-}
-impl Eq for DWRITE_FONT_AXIS_RANGE {}
 impl Default for DWRITE_FONT_AXIS_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_FONT_AXIS_VALUE {
     pub axisTag: DWRITE_FONT_AXIS_TAG,
     pub value: f32,
 }
-impl Copy for DWRITE_FONT_AXIS_VALUE {}
-impl Clone for DWRITE_FONT_AXIS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FONT_AXIS_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FONT_AXIS_VALUE").field("axisTag", &self.axisTag).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FONT_AXIS_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FONT_AXIS_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.axisTag == other.axisTag && self.value == other.value
-    }
-}
-impl Eq for DWRITE_FONT_AXIS_VALUE {}
 impl Default for DWRITE_FONT_AXIS_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_FONT_FEATURE {
     pub nameTag: DWRITE_FONT_FEATURE_TAG,
     pub parameter: u32,
 }
-impl Copy for DWRITE_FONT_FEATURE {}
-impl Clone for DWRITE_FONT_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FONT_FEATURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FONT_FEATURE").field("nameTag", &self.nameTag).field("parameter", &self.parameter).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FONT_FEATURE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FONT_FEATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.nameTag == other.nameTag && self.parameter == other.parameter
-    }
-}
-impl Eq for DWRITE_FONT_FEATURE {}
 impl Default for DWRITE_FONT_FEATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_FONT_METRICS {
     pub designUnitsPerEm: u16,
     pub ascent: u16,
@@ -6039,43 +5892,16 @@ pub struct DWRITE_FONT_METRICS {
     pub strikethroughPosition: i16,
     pub strikethroughThickness: u16,
 }
-impl Copy for DWRITE_FONT_METRICS {}
-impl Clone for DWRITE_FONT_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FONT_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FONT_METRICS")
-            .field("designUnitsPerEm", &self.designUnitsPerEm)
-            .field("ascent", &self.ascent)
-            .field("descent", &self.descent)
-            .field("lineGap", &self.lineGap)
-            .field("capHeight", &self.capHeight)
-            .field("xHeight", &self.xHeight)
-            .field("underlinePosition", &self.underlinePosition)
-            .field("underlineThickness", &self.underlineThickness)
-            .field("strikethroughPosition", &self.strikethroughPosition)
-            .field("strikethroughThickness", &self.strikethroughThickness)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FONT_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FONT_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.designUnitsPerEm == other.designUnitsPerEm && self.ascent == other.ascent && self.descent == other.descent && self.lineGap == other.lineGap && self.capHeight == other.capHeight && self.xHeight == other.xHeight && self.underlinePosition == other.underlinePosition && self.underlineThickness == other.underlineThickness && self.strikethroughPosition == other.strikethroughPosition && self.strikethroughThickness == other.strikethroughThickness
-    }
-}
-impl Eq for DWRITE_FONT_METRICS {}
 impl Default for DWRITE_FONT_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_FONT_METRICS1 {
     pub Base: DWRITE_FONT_METRICS,
     pub glyphBoxLeft: i16,
@@ -6092,72 +5918,24 @@ pub struct DWRITE_FONT_METRICS1 {
     pub superscriptSizeY: i16,
     pub hasTypographicMetrics: super::super::Foundation::BOOL,
 }
-impl Copy for DWRITE_FONT_METRICS1 {}
-impl Clone for DWRITE_FONT_METRICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FONT_METRICS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FONT_METRICS1")
-            .field("Base", &self.Base)
-            .field("glyphBoxLeft", &self.glyphBoxLeft)
-            .field("glyphBoxTop", &self.glyphBoxTop)
-            .field("glyphBoxRight", &self.glyphBoxRight)
-            .field("glyphBoxBottom", &self.glyphBoxBottom)
-            .field("subscriptPositionX", &self.subscriptPositionX)
-            .field("subscriptPositionY", &self.subscriptPositionY)
-            .field("subscriptSizeX", &self.subscriptSizeX)
-            .field("subscriptSizeY", &self.subscriptSizeY)
-            .field("superscriptPositionX", &self.superscriptPositionX)
-            .field("superscriptPositionY", &self.superscriptPositionY)
-            .field("superscriptSizeX", &self.superscriptSizeX)
-            .field("superscriptSizeY", &self.superscriptSizeY)
-            .field("hasTypographicMetrics", &self.hasTypographicMetrics)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FONT_METRICS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FONT_METRICS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base && self.glyphBoxLeft == other.glyphBoxLeft && self.glyphBoxTop == other.glyphBoxTop && self.glyphBoxRight == other.glyphBoxRight && self.glyphBoxBottom == other.glyphBoxBottom && self.subscriptPositionX == other.subscriptPositionX && self.subscriptPositionY == other.subscriptPositionY && self.subscriptSizeX == other.subscriptSizeX && self.subscriptSizeY == other.subscriptSizeY && self.superscriptPositionX == other.superscriptPositionX && self.superscriptPositionY == other.superscriptPositionY && self.superscriptSizeX == other.superscriptSizeX && self.superscriptSizeY == other.superscriptSizeY && self.hasTypographicMetrics == other.hasTypographicMetrics
-    }
-}
-impl Eq for DWRITE_FONT_METRICS1 {}
 impl Default for DWRITE_FONT_METRICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_FONT_PROPERTY {
     pub propertyId: DWRITE_FONT_PROPERTY_ID,
     pub propertyValue: windows_core::PCWSTR,
     pub localeName: windows_core::PCWSTR,
 }
-impl Copy for DWRITE_FONT_PROPERTY {}
-impl Clone for DWRITE_FONT_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_FONT_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_FONT_PROPERTY").field("propertyId", &self.propertyId).field("propertyValue", &self.propertyValue).field("localeName", &self.localeName).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_FONT_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_FONT_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.propertyId == other.propertyId && self.propertyValue == other.propertyValue && self.localeName == other.localeName
-    }
-}
-impl Eq for DWRITE_FONT_PROPERTY {}
 impl Default for DWRITE_FONT_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6165,6 +5943,7 @@ impl Default for DWRITE_FONT_PROPERTY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageData: *const core::ffi::c_void,
     pub imageDataSize: u32,
@@ -6177,31 +5956,9 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub verticalBottomOrigin: super::super::Foundation::POINT,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_GLYPH_IMAGE_DATA {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_GLYPH_IMAGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_GLYPH_IMAGE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_GLYPH_IMAGE_DATA").field("imageData", &self.imageData).field("imageDataSize", &self.imageDataSize).field("uniqueDataId", &self.uniqueDataId).field("pixelsPerEm", &self.pixelsPerEm).field("pixelSize", &self.pixelSize).field("horizontalLeftOrigin", &self.horizontalLeftOrigin).field("horizontalRightOrigin", &self.horizontalRightOrigin).field("verticalTopOrigin", &self.verticalTopOrigin).field("verticalBottomOrigin", &self.verticalBottomOrigin).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_GLYPH_IMAGE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_GLYPH_IMAGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.imageData == other.imageData && self.imageDataSize == other.imageDataSize && self.uniqueDataId == other.uniqueDataId && self.pixelsPerEm == other.pixelsPerEm && self.pixelSize == other.pixelSize && self.horizontalLeftOrigin == other.horizontalLeftOrigin && self.horizontalRightOrigin == other.horizontalRightOrigin && self.verticalTopOrigin == other.verticalTopOrigin && self.verticalBottomOrigin == other.verticalBottomOrigin
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_GLYPH_IMAGE_DATA {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_GLYPH_IMAGE_DATA {
     fn default() -> Self {
@@ -6209,6 +5966,7 @@ impl Default for DWRITE_GLYPH_IMAGE_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_METRICS {
     pub leftSideBearing: i32,
     pub advanceWidth: u32,
@@ -6218,62 +5976,30 @@ pub struct DWRITE_GLYPH_METRICS {
     pub bottomSideBearing: i32,
     pub verticalOriginY: i32,
 }
-impl Copy for DWRITE_GLYPH_METRICS {}
-impl Clone for DWRITE_GLYPH_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_GLYPH_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_GLYPH_METRICS").field("leftSideBearing", &self.leftSideBearing).field("advanceWidth", &self.advanceWidth).field("rightSideBearing", &self.rightSideBearing).field("topSideBearing", &self.topSideBearing).field("advanceHeight", &self.advanceHeight).field("bottomSideBearing", &self.bottomSideBearing).field("verticalOriginY", &self.verticalOriginY).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_GLYPH_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_GLYPH_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.leftSideBearing == other.leftSideBearing && self.advanceWidth == other.advanceWidth && self.rightSideBearing == other.rightSideBearing && self.topSideBearing == other.topSideBearing && self.advanceHeight == other.advanceHeight && self.bottomSideBearing == other.bottomSideBearing && self.verticalOriginY == other.verticalOriginY
-    }
-}
-impl Eq for DWRITE_GLYPH_METRICS {}
 impl Default for DWRITE_GLYPH_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_GLYPH_OFFSET {
     pub advanceOffset: f32,
     pub ascenderOffset: f32,
 }
-impl Copy for DWRITE_GLYPH_OFFSET {}
-impl Clone for DWRITE_GLYPH_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_GLYPH_OFFSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_GLYPH_OFFSET").field("advanceOffset", &self.advanceOffset).field("ascenderOffset", &self.ascenderOffset).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_GLYPH_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_GLYPH_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.advanceOffset == other.advanceOffset && self.ascenderOffset == other.ascenderOffset
-    }
-}
-impl Eq for DWRITE_GLYPH_OFFSET {}
 impl Default for DWRITE_GLYPH_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, PartialEq)]
 pub struct DWRITE_GLYPH_RUN {
     pub fontFace: std::mem::ManuallyDrop<Option<IDWriteFontFace>>,
     pub fontEmSize: f32,
@@ -6289,26 +6015,16 @@ impl Clone for DWRITE_GLYPH_RUN {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DWRITE_GLYPH_RUN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_GLYPH_RUN").field("fontFace", &self.fontFace).field("fontEmSize", &self.fontEmSize).field("glyphCount", &self.glyphCount).field("glyphIndices", &self.glyphIndices).field("glyphAdvances", &self.glyphAdvances).field("glyphOffsets", &self.glyphOffsets).field("isSideways", &self.isSideways).field("bidiLevel", &self.bidiLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_GLYPH_RUN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_GLYPH_RUN {
-    fn eq(&self, other: &Self) -> bool {
-        self.fontFace == other.fontFace && self.fontEmSize == other.fontEmSize && self.glyphCount == other.glyphCount && self.glyphIndices == other.glyphIndices && self.glyphAdvances == other.glyphAdvances && self.glyphOffsets == other.glyphOffsets && self.isSideways == other.isSideways && self.bidiLevel == other.bidiLevel
-    }
-}
-impl Eq for DWRITE_GLYPH_RUN {}
 impl Default for DWRITE_GLYPH_RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub localeName: windows_core::PCWSTR,
     pub string: windows_core::PCWSTR,
@@ -6316,32 +6032,16 @@ pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub clusterMap: *const u16,
     pub textPosition: u32,
 }
-impl Copy for DWRITE_GLYPH_RUN_DESCRIPTION {}
-impl Clone for DWRITE_GLYPH_RUN_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_GLYPH_RUN_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_GLYPH_RUN_DESCRIPTION").field("localeName", &self.localeName).field("string", &self.string).field("stringLength", &self.stringLength).field("clusterMap", &self.clusterMap).field("textPosition", &self.textPosition).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_GLYPH_RUN_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_GLYPH_RUN_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.localeName == other.localeName && self.string == other.string && self.stringLength == other.stringLength && self.clusterMap == other.clusterMap && self.textPosition == other.textPosition
-    }
-}
-impl Eq for DWRITE_GLYPH_RUN_DESCRIPTION {}
 impl Default for DWRITE_GLYPH_RUN_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_HIT_TEST_METRICS {
     pub textPosition: u32,
     pub length: u32,
@@ -6353,125 +6053,61 @@ pub struct DWRITE_HIT_TEST_METRICS {
     pub isText: super::super::Foundation::BOOL,
     pub isTrimmed: super::super::Foundation::BOOL,
 }
-impl Copy for DWRITE_HIT_TEST_METRICS {}
-impl Clone for DWRITE_HIT_TEST_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_HIT_TEST_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_HIT_TEST_METRICS").field("textPosition", &self.textPosition).field("length", &self.length).field("left", &self.left).field("top", &self.top).field("width", &self.width).field("height", &self.height).field("bidiLevel", &self.bidiLevel).field("isText", &self.isText).field("isTrimmed", &self.isTrimmed).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_HIT_TEST_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_HIT_TEST_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.textPosition == other.textPosition && self.length == other.length && self.left == other.left && self.top == other.top && self.width == other.width && self.height == other.height && self.bidiLevel == other.bidiLevel && self.isText == other.isText && self.isTrimmed == other.isTrimmed
-    }
-}
-impl Eq for DWRITE_HIT_TEST_METRICS {}
 impl Default for DWRITE_HIT_TEST_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_INLINE_OBJECT_METRICS {
     pub width: f32,
     pub height: f32,
     pub baseline: f32,
     pub supportsSideways: super::super::Foundation::BOOL,
 }
-impl Copy for DWRITE_INLINE_OBJECT_METRICS {}
-impl Clone for DWRITE_INLINE_OBJECT_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_INLINE_OBJECT_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_INLINE_OBJECT_METRICS").field("width", &self.width).field("height", &self.height).field("baseline", &self.baseline).field("supportsSideways", &self.supportsSideways).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_INLINE_OBJECT_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_INLINE_OBJECT_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height && self.baseline == other.baseline && self.supportsSideways == other.supportsSideways
-    }
-}
-impl Eq for DWRITE_INLINE_OBJECT_METRICS {}
 impl Default for DWRITE_INLINE_OBJECT_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
     pub expansionMinimum: f32,
     pub expansionMaximum: f32,
     pub compressionMaximum: f32,
     pub _bitfield: u32,
 }
-impl Copy for DWRITE_JUSTIFICATION_OPPORTUNITY {}
-impl Clone for DWRITE_JUSTIFICATION_OPPORTUNITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_JUSTIFICATION_OPPORTUNITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_JUSTIFICATION_OPPORTUNITY").field("expansionMinimum", &self.expansionMinimum).field("expansionMaximum", &self.expansionMaximum).field("compressionMaximum", &self.compressionMaximum).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_JUSTIFICATION_OPPORTUNITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_JUSTIFICATION_OPPORTUNITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.expansionMinimum == other.expansionMinimum && self.expansionMaximum == other.expansionMaximum && self.compressionMaximum == other.compressionMaximum && self._bitfield == other._bitfield
-    }
-}
-impl Eq for DWRITE_JUSTIFICATION_OPPORTUNITY {}
 impl Default for DWRITE_JUSTIFICATION_OPPORTUNITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_LINE_BREAKPOINT {
     pub _bitfield: u8,
-}
-impl Copy for DWRITE_LINE_BREAKPOINT {}
-impl Clone for DWRITE_LINE_BREAKPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_LINE_BREAKPOINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_LINE_BREAKPOINT").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DWRITE_LINE_BREAKPOINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_LINE_BREAKPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DWRITE_LINE_BREAKPOINT {}
 impl Default for DWRITE_LINE_BREAKPOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_LINE_METRICS {
     pub length: u32,
     pub trailingWhitespaceLength: u32,
@@ -6480,63 +6116,31 @@ pub struct DWRITE_LINE_METRICS {
     pub baseline: f32,
     pub isTrimmed: super::super::Foundation::BOOL,
 }
-impl Copy for DWRITE_LINE_METRICS {}
-impl Clone for DWRITE_LINE_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_LINE_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_LINE_METRICS").field("length", &self.length).field("trailingWhitespaceLength", &self.trailingWhitespaceLength).field("newlineLength", &self.newlineLength).field("height", &self.height).field("baseline", &self.baseline).field("isTrimmed", &self.isTrimmed).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_LINE_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_LINE_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.trailingWhitespaceLength == other.trailingWhitespaceLength && self.newlineLength == other.newlineLength && self.height == other.height && self.baseline == other.baseline && self.isTrimmed == other.isTrimmed
-    }
-}
-impl Eq for DWRITE_LINE_METRICS {}
 impl Default for DWRITE_LINE_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_LINE_METRICS1 {
     pub Base: DWRITE_LINE_METRICS,
     pub leadingBefore: f32,
     pub leadingAfter: f32,
 }
-impl Copy for DWRITE_LINE_METRICS1 {}
-impl Clone for DWRITE_LINE_METRICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_LINE_METRICS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_LINE_METRICS1").field("Base", &self.Base).field("leadingBefore", &self.leadingBefore).field("leadingAfter", &self.leadingAfter).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_LINE_METRICS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_LINE_METRICS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base && self.leadingBefore == other.leadingBefore && self.leadingAfter == other.leadingAfter
-    }
-}
-impl Eq for DWRITE_LINE_METRICS1 {}
 impl Default for DWRITE_LINE_METRICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_LINE_SPACING {
     pub method: DWRITE_LINE_SPACING_METHOD,
     pub height: f32,
@@ -6544,32 +6148,16 @@ pub struct DWRITE_LINE_SPACING {
     pub leadingBefore: f32,
     pub fontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE,
 }
-impl Copy for DWRITE_LINE_SPACING {}
-impl Clone for DWRITE_LINE_SPACING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_LINE_SPACING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_LINE_SPACING").field("method", &self.method).field("height", &self.height).field("baseline", &self.baseline).field("leadingBefore", &self.leadingBefore).field("fontLineGapUsage", &self.fontLineGapUsage).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_LINE_SPACING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_LINE_SPACING {
-    fn eq(&self, other: &Self) -> bool {
-        self.method == other.method && self.height == other.height && self.baseline == other.baseline && self.leadingBefore == other.leadingBefore && self.fontLineGapUsage == other.fontLineGapUsage
-    }
-}
-impl Eq for DWRITE_LINE_SPACING {}
 impl Default for DWRITE_LINE_SPACING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -6578,90 +6166,41 @@ pub struct DWRITE_MATRIX {
     pub dx: f32,
     pub dy: f32,
 }
-impl Copy for DWRITE_MATRIX {}
-impl Clone for DWRITE_MATRIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_MATRIX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_MATRIX").field("m11", &self.m11).field("m12", &self.m12).field("m21", &self.m21).field("m22", &self.m22).field("dx", &self.dx).field("dy", &self.dy).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_MATRIX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_MATRIX {
-    fn eq(&self, other: &Self) -> bool {
-        self.m11 == other.m11 && self.m12 == other.m12 && self.m21 == other.m21 && self.m22 == other.m22 && self.dx == other.dx && self.dy == other.dy
-    }
-}
-impl Eq for DWRITE_MATRIX {}
 impl Default for DWRITE_MATRIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_OVERHANG_METRICS {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
 }
-impl Copy for DWRITE_OVERHANG_METRICS {}
-impl Clone for DWRITE_OVERHANG_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_OVERHANG_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_OVERHANG_METRICS").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_OVERHANG_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_OVERHANG_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for DWRITE_OVERHANG_METRICS {}
 impl Default for DWRITE_OVERHANG_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_COLOR {
     pub value: DWRITE_COLOR_F,
     pub paletteEntryIndex: u16,
     pub alphaMultiplier: f32,
     pub colorAttributes: DWRITE_PAINT_ATTRIBUTES,
 }
-impl Copy for DWRITE_PAINT_COLOR {}
-impl Clone for DWRITE_PAINT_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_PAINT_COLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_COLOR").field("value", &self.value).field("paletteEntryIndex", &self.paletteEntryIndex).field("alphaMultiplier", &self.alphaMultiplier).field("colorAttributes", &self.colorAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_PAINT_COLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_PAINT_COLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.paletteEntryIndex == other.paletteEntryIndex && self.alphaMultiplier == other.alphaMultiplier && self.colorAttributes == other.colorAttributes
-    }
-}
-impl Eq for DWRITE_PAINT_COLOR {}
 impl Default for DWRITE_PAINT_COLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6669,17 +6208,10 @@ impl Default for DWRITE_PAINT_COLOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy)]
 pub struct DWRITE_PAINT_ELEMENT {
     pub paintType: DWRITE_PAINT_TYPE,
     pub paint: DWRITE_PAINT_ELEMENT_0,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT {
@@ -6693,6 +6225,7 @@ impl Default for DWRITE_PAINT_ELEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy)]
 pub union DWRITE_PAINT_ELEMENT_0 {
     pub layers: DWRITE_PAINT_ELEMENT_0_3,
     pub solidGlyph: DWRITE_PAINT_ELEMENT_0_6,
@@ -6706,14 +6239,6 @@ pub union DWRITE_PAINT_ELEMENT_0 {
     pub composite: DWRITE_PAINT_ELEMENT_0_1,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -6725,36 +6250,15 @@ impl Default for DWRITE_PAINT_ELEMENT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_0 {
     pub glyphIndex: u32,
     pub clipBox: super::Direct2D::Common::D2D_RECT_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_0 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_0").field("glyphIndex", &self.glyphIndex).field("clipBox", &self.clipBox).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.glyphIndex == other.glyphIndex && self.clipBox == other.clipBox
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_0 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_0 {
     fn default() -> Self {
@@ -6763,35 +6267,14 @@ impl Default for DWRITE_PAINT_ELEMENT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_1 {
     pub mode: DWRITE_COLOR_COMPOSITE_MODE,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_1").field("mode", &self.mode).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.mode == other.mode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_1 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_1 {
     fn default() -> Self {
@@ -6800,35 +6283,14 @@ impl Default for DWRITE_PAINT_ELEMENT_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_2 {
     pub glyphIndex: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_2 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_2").field("glyphIndex", &self.glyphIndex).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.glyphIndex == other.glyphIndex
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_2 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_2 {
     fn default() -> Self {
@@ -6837,35 +6299,14 @@ impl Default for DWRITE_PAINT_ELEMENT_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_3 {
     pub childCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_3 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_3").field("childCount", &self.childCount).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.childCount == other.childCount
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_3 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_3 {
     fn default() -> Self {
@@ -6874,6 +6315,7 @@ impl Default for DWRITE_PAINT_ELEMENT_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_4 {
     pub extendMode: u32,
     pub gradientStopCount: u32,
@@ -6885,31 +6327,9 @@ pub struct DWRITE_PAINT_ELEMENT_0_4 {
     pub y2: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_4 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_4").field("extendMode", &self.extendMode).field("gradientStopCount", &self.gradientStopCount).field("x0", &self.x0).field("y0", &self.y0).field("x1", &self.x1).field("y1", &self.y1).field("x2", &self.x2).field("y2", &self.y2).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.extendMode == other.extendMode && self.gradientStopCount == other.gradientStopCount && self.x0 == other.x0 && self.y0 == other.y0 && self.x1 == other.x1 && self.y1 == other.y1 && self.x2 == other.x2 && self.y2 == other.y2
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_4 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_4 {
     fn default() -> Self {
@@ -6918,6 +6338,7 @@ impl Default for DWRITE_PAINT_ELEMENT_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_5 {
     pub extendMode: u32,
     pub gradientStopCount: u32,
@@ -6929,31 +6350,9 @@ pub struct DWRITE_PAINT_ELEMENT_0_5 {
     pub radius1: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_5 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_5").field("extendMode", &self.extendMode).field("gradientStopCount", &self.gradientStopCount).field("x0", &self.x0).field("y0", &self.y0).field("radius0", &self.radius0).field("x1", &self.x1).field("y1", &self.y1).field("radius1", &self.radius1).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.extendMode == other.extendMode && self.gradientStopCount == other.gradientStopCount && self.x0 == other.x0 && self.y0 == other.y0 && self.radius0 == other.radius0 && self.x1 == other.x1 && self.y1 == other.y1 && self.radius1 == other.radius1
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_5 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_5 {
     fn default() -> Self {
@@ -6962,36 +6361,15 @@ impl Default for DWRITE_PAINT_ELEMENT_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_6 {
     pub glyphIndex: u32,
     pub color: DWRITE_PAINT_COLOR,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_6 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_6").field("glyphIndex", &self.glyphIndex).field("color", &self.color).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.glyphIndex == other.glyphIndex && self.color == other.color
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_6 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_6 {
     fn default() -> Self {
@@ -7000,6 +6378,7 @@ impl Default for DWRITE_PAINT_ELEMENT_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_7 {
     pub extendMode: u32,
     pub gradientStopCount: u32,
@@ -7009,31 +6388,9 @@ pub struct DWRITE_PAINT_ELEMENT_0_7 {
     pub endAngle: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for DWRITE_PAINT_ELEMENT_0_7 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for DWRITE_PAINT_ELEMENT_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for DWRITE_PAINT_ELEMENT_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PAINT_ELEMENT_0_7").field("extendMode", &self.extendMode).field("gradientStopCount", &self.gradientStopCount).field("centerX", &self.centerX).field("centerY", &self.centerY).field("startAngle", &self.startAngle).field("endAngle", &self.endAngle).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for DWRITE_PAINT_ELEMENT_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.extendMode == other.extendMode && self.gradientStopCount == other.gradientStopCount && self.centerX == other.centerX && self.centerY == other.centerY && self.startAngle == other.startAngle && self.endAngle == other.endAngle
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for DWRITE_PAINT_ELEMENT_0_7 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for DWRITE_PAINT_ELEMENT_0_7 {
     fn default() -> Self {
@@ -7041,6 +6398,7 @@ impl Default for DWRITE_PAINT_ELEMENT_0_7 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DWRITE_PANOSE {
     pub values: [u8; 10],
     pub familyKind: u8,
@@ -7048,12 +6406,6 @@ pub union DWRITE_PANOSE {
     pub script: DWRITE_PANOSE_1,
     pub decorative: DWRITE_PANOSE_0,
     pub symbol: DWRITE_PANOSE_2,
-}
-impl Copy for DWRITE_PANOSE {}
-impl Clone for DWRITE_PANOSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DWRITE_PANOSE {
     type TypeKind = windows_core::CopyType;
@@ -7064,6 +6416,7 @@ impl Default for DWRITE_PANOSE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_0 {
     pub familyKind: u8,
     pub decorativeClass: u8,
@@ -7076,32 +6429,16 @@ pub struct DWRITE_PANOSE_0 {
     pub decorativeTopology: u8,
     pub characterRange: u8,
 }
-impl Copy for DWRITE_PANOSE_0 {}
-impl Clone for DWRITE_PANOSE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_PANOSE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PANOSE_0").field("familyKind", &self.familyKind).field("decorativeClass", &self.decorativeClass).field("weight", &self.weight).field("aspect", &self.aspect).field("contrast", &self.contrast).field("serifVariant", &self.serifVariant).field("fill", &self.fill).field("lining", &self.lining).field("decorativeTopology", &self.decorativeTopology).field("characterRange", &self.characterRange).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_PANOSE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_PANOSE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.familyKind == other.familyKind && self.decorativeClass == other.decorativeClass && self.weight == other.weight && self.aspect == other.aspect && self.contrast == other.contrast && self.serifVariant == other.serifVariant && self.fill == other.fill && self.lining == other.lining && self.decorativeTopology == other.decorativeTopology && self.characterRange == other.characterRange
-    }
-}
-impl Eq for DWRITE_PANOSE_0 {}
 impl Default for DWRITE_PANOSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_1 {
     pub familyKind: u8,
     pub toolKind: u8,
@@ -7114,32 +6451,16 @@ pub struct DWRITE_PANOSE_1 {
     pub finials: u8,
     pub xAscent: u8,
 }
-impl Copy for DWRITE_PANOSE_1 {}
-impl Clone for DWRITE_PANOSE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_PANOSE_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PANOSE_1").field("familyKind", &self.familyKind).field("toolKind", &self.toolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatio", &self.aspectRatio).field("contrast", &self.contrast).field("scriptTopology", &self.scriptTopology).field("scriptForm", &self.scriptForm).field("finials", &self.finials).field("xAscent", &self.xAscent).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_PANOSE_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_PANOSE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.familyKind == other.familyKind && self.toolKind == other.toolKind && self.weight == other.weight && self.spacing == other.spacing && self.aspectRatio == other.aspectRatio && self.contrast == other.contrast && self.scriptTopology == other.scriptTopology && self.scriptForm == other.scriptForm && self.finials == other.finials && self.xAscent == other.xAscent
-    }
-}
-impl Eq for DWRITE_PANOSE_1 {}
 impl Default for DWRITE_PANOSE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_2 {
     pub familyKind: u8,
     pub symbolKind: u8,
@@ -7152,32 +6473,16 @@ pub struct DWRITE_PANOSE_2 {
     pub aspectRatio163: u8,
     pub aspectRatio211: u8,
 }
-impl Copy for DWRITE_PANOSE_2 {}
-impl Clone for DWRITE_PANOSE_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_PANOSE_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PANOSE_2").field("familyKind", &self.familyKind).field("symbolKind", &self.symbolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatioAndContrast", &self.aspectRatioAndContrast).field("aspectRatio94", &self.aspectRatio94).field("aspectRatio119", &self.aspectRatio119).field("aspectRatio157", &self.aspectRatio157).field("aspectRatio163", &self.aspectRatio163).field("aspectRatio211", &self.aspectRatio211).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_PANOSE_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_PANOSE_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.familyKind == other.familyKind && self.symbolKind == other.symbolKind && self.weight == other.weight && self.spacing == other.spacing && self.aspectRatioAndContrast == other.aspectRatioAndContrast && self.aspectRatio94 == other.aspectRatio94 && self.aspectRatio119 == other.aspectRatio119 && self.aspectRatio157 == other.aspectRatio157 && self.aspectRatio163 == other.aspectRatio163 && self.aspectRatio211 == other.aspectRatio211
-    }
-}
-impl Eq for DWRITE_PANOSE_2 {}
 impl Default for DWRITE_PANOSE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_3 {
     pub familyKind: u8,
     pub serifStyle: u8,
@@ -7190,62 +6495,30 @@ pub struct DWRITE_PANOSE_3 {
     pub midline: u8,
     pub xHeight: u8,
 }
-impl Copy for DWRITE_PANOSE_3 {}
-impl Clone for DWRITE_PANOSE_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_PANOSE_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_PANOSE_3").field("familyKind", &self.familyKind).field("serifStyle", &self.serifStyle).field("weight", &self.weight).field("proportion", &self.proportion).field("contrast", &self.contrast).field("strokeVariation", &self.strokeVariation).field("armStyle", &self.armStyle).field("letterform", &self.letterform).field("midline", &self.midline).field("xHeight", &self.xHeight).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_PANOSE_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_PANOSE_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.familyKind == other.familyKind && self.serifStyle == other.serifStyle && self.weight == other.weight && self.proportion == other.proportion && self.contrast == other.contrast && self.strokeVariation == other.strokeVariation && self.armStyle == other.armStyle && self.letterform == other.letterform && self.midline == other.midline && self.xHeight == other.xHeight
-    }
-}
-impl Eq for DWRITE_PANOSE_3 {}
 impl Default for DWRITE_PANOSE_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_SCRIPT_ANALYSIS {
     pub script: u16,
     pub shapes: DWRITE_SCRIPT_SHAPES,
 }
-impl Copy for DWRITE_SCRIPT_ANALYSIS {}
-impl Clone for DWRITE_SCRIPT_ANALYSIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_SCRIPT_ANALYSIS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_SCRIPT_ANALYSIS").field("script", &self.script).field("shapes", &self.shapes).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_SCRIPT_ANALYSIS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_SCRIPT_ANALYSIS {
-    fn eq(&self, other: &Self) -> bool {
-        self.script == other.script && self.shapes == other.shapes
-    }
-}
-impl Eq for DWRITE_SCRIPT_ANALYSIS {}
 impl Default for DWRITE_SCRIPT_ANALYSIS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_SCRIPT_PROPERTIES {
     pub isoScriptCode: u32,
     pub isoScriptNumber: u32,
@@ -7253,90 +6526,42 @@ pub struct DWRITE_SCRIPT_PROPERTIES {
     pub justificationCharacter: u32,
     pub _bitfield: u32,
 }
-impl Copy for DWRITE_SCRIPT_PROPERTIES {}
-impl Clone for DWRITE_SCRIPT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_SCRIPT_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_SCRIPT_PROPERTIES").field("isoScriptCode", &self.isoScriptCode).field("isoScriptNumber", &self.isoScriptNumber).field("clusterLookahead", &self.clusterLookahead).field("justificationCharacter", &self.justificationCharacter).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_SCRIPT_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_SCRIPT_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.isoScriptCode == other.isoScriptCode && self.isoScriptNumber == other.isoScriptNumber && self.clusterLookahead == other.clusterLookahead && self.justificationCharacter == other.justificationCharacter && self._bitfield == other._bitfield
-    }
-}
-impl Eq for DWRITE_SCRIPT_PROPERTIES {}
 impl Default for DWRITE_SCRIPT_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_SHAPING_GLYPH_PROPERTIES {
     pub _bitfield: u16,
-}
-impl Copy for DWRITE_SHAPING_GLYPH_PROPERTIES {}
-impl Clone for DWRITE_SHAPING_GLYPH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_SHAPING_GLYPH_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_SHAPING_GLYPH_PROPERTIES").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DWRITE_SHAPING_GLYPH_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_SHAPING_GLYPH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DWRITE_SHAPING_GLYPH_PROPERTIES {}
 impl Default for DWRITE_SHAPING_GLYPH_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
     pub _bitfield: u16,
-}
-impl Copy for DWRITE_SHAPING_TEXT_PROPERTIES {}
-impl Clone for DWRITE_SHAPING_TEXT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_SHAPING_TEXT_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_SHAPING_TEXT_PROPERTIES").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DWRITE_SHAPING_TEXT_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_SHAPING_TEXT_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DWRITE_SHAPING_TEXT_PROPERTIES {}
 impl Default for DWRITE_SHAPING_TEXT_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_STRIKETHROUGH {
     pub width: f32,
     pub thickness: f32,
@@ -7346,32 +6571,16 @@ pub struct DWRITE_STRIKETHROUGH {
     pub localeName: windows_core::PCWSTR,
     pub measuringMode: DWRITE_MEASURING_MODE,
 }
-impl Copy for DWRITE_STRIKETHROUGH {}
-impl Clone for DWRITE_STRIKETHROUGH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_STRIKETHROUGH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_STRIKETHROUGH").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_STRIKETHROUGH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_STRIKETHROUGH {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.thickness == other.thickness && self.offset == other.offset && self.readingDirection == other.readingDirection && self.flowDirection == other.flowDirection && self.localeName == other.localeName && self.measuringMode == other.measuringMode
-    }
-}
-impl Eq for DWRITE_STRIKETHROUGH {}
 impl Default for DWRITE_STRIKETHROUGH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_TEXT_METRICS {
     pub left: f32,
     pub top: f32,
@@ -7383,153 +6592,73 @@ pub struct DWRITE_TEXT_METRICS {
     pub maxBidiReorderingDepth: u32,
     pub lineCount: u32,
 }
-impl Copy for DWRITE_TEXT_METRICS {}
-impl Clone for DWRITE_TEXT_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_TEXT_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_TEXT_METRICS").field("left", &self.left).field("top", &self.top).field("width", &self.width).field("widthIncludingTrailingWhitespace", &self.widthIncludingTrailingWhitespace).field("height", &self.height).field("layoutWidth", &self.layoutWidth).field("layoutHeight", &self.layoutHeight).field("maxBidiReorderingDepth", &self.maxBidiReorderingDepth).field("lineCount", &self.lineCount).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_TEXT_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_TEXT_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.width == other.width && self.widthIncludingTrailingWhitespace == other.widthIncludingTrailingWhitespace && self.height == other.height && self.layoutWidth == other.layoutWidth && self.layoutHeight == other.layoutHeight && self.maxBidiReorderingDepth == other.maxBidiReorderingDepth && self.lineCount == other.lineCount
-    }
-}
-impl Eq for DWRITE_TEXT_METRICS {}
 impl Default for DWRITE_TEXT_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_TEXT_METRICS1 {
     pub Base: DWRITE_TEXT_METRICS,
     pub heightIncludingTrailingWhitespace: f32,
 }
-impl Copy for DWRITE_TEXT_METRICS1 {}
-impl Clone for DWRITE_TEXT_METRICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_TEXT_METRICS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_TEXT_METRICS1").field("Base", &self.Base).field("heightIncludingTrailingWhitespace", &self.heightIncludingTrailingWhitespace).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_TEXT_METRICS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_TEXT_METRICS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base && self.heightIncludingTrailingWhitespace == other.heightIncludingTrailingWhitespace
-    }
-}
-impl Eq for DWRITE_TEXT_METRICS1 {}
 impl Default for DWRITE_TEXT_METRICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_TEXT_RANGE {
     pub startPosition: u32,
     pub length: u32,
 }
-impl Copy for DWRITE_TEXT_RANGE {}
-impl Clone for DWRITE_TEXT_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_TEXT_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_TEXT_RANGE").field("startPosition", &self.startPosition).field("length", &self.length).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_TEXT_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_TEXT_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.startPosition == other.startPosition && self.length == other.length
-    }
-}
-impl Eq for DWRITE_TEXT_RANGE {}
 impl Default for DWRITE_TEXT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_TRIMMING {
     pub granularity: DWRITE_TRIMMING_GRANULARITY,
     pub delimiter: u32,
     pub delimiterCount: u32,
 }
-impl Copy for DWRITE_TRIMMING {}
-impl Clone for DWRITE_TRIMMING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_TRIMMING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_TRIMMING").field("granularity", &self.granularity).field("delimiter", &self.delimiter).field("delimiterCount", &self.delimiterCount).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_TRIMMING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_TRIMMING {
-    fn eq(&self, other: &Self) -> bool {
-        self.granularity == other.granularity && self.delimiter == other.delimiter && self.delimiterCount == other.delimiterCount
-    }
-}
-impl Eq for DWRITE_TRIMMING {}
 impl Default for DWRITE_TRIMMING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_TYPOGRAPHIC_FEATURES {
     pub features: *mut DWRITE_FONT_FEATURE,
     pub featureCount: u32,
 }
-impl Copy for DWRITE_TYPOGRAPHIC_FEATURES {}
-impl Clone for DWRITE_TYPOGRAPHIC_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_TYPOGRAPHIC_FEATURES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_TYPOGRAPHIC_FEATURES").field("features", &self.features).field("featureCount", &self.featureCount).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_TYPOGRAPHIC_FEATURES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_TYPOGRAPHIC_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        self.features == other.features && self.featureCount == other.featureCount
-    }
-}
-impl Eq for DWRITE_TYPOGRAPHIC_FEATURES {}
 impl Default for DWRITE_TYPOGRAPHIC_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_UNDERLINE {
     pub width: f32,
     pub thickness: f32,
@@ -7540,56 +6669,23 @@ pub struct DWRITE_UNDERLINE {
     pub localeName: windows_core::PCWSTR,
     pub measuringMode: DWRITE_MEASURING_MODE,
 }
-impl Copy for DWRITE_UNDERLINE {}
-impl Clone for DWRITE_UNDERLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_UNDERLINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_UNDERLINE").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("runHeight", &self.runHeight).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_UNDERLINE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_UNDERLINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.thickness == other.thickness && self.offset == other.offset && self.runHeight == other.runHeight && self.readingDirection == other.readingDirection && self.flowDirection == other.flowDirection && self.localeName == other.localeName && self.measuringMode == other.measuringMode
-    }
-}
-impl Eq for DWRITE_UNDERLINE {}
 impl Default for DWRITE_UNDERLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_UNICODE_RANGE {
     pub first: u32,
     pub last: u32,
 }
-impl Copy for DWRITE_UNICODE_RANGE {}
-impl Clone for DWRITE_UNICODE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DWRITE_UNICODE_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DWRITE_UNICODE_RANGE").field("first", &self.first).field("last", &self.last).finish()
-    }
-}
 impl windows_core::TypeKind for DWRITE_UNICODE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DWRITE_UNICODE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.first == other.first && self.last == other.last
-    }
-}
-impl Eq for DWRITE_UNICODE_RANGE {}
 impl Default for DWRITE_UNICODE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -211,6 +211,7 @@ impl core::fmt::Debug for XPS_JOB_COMPLETION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
     pub CurrentDocument: i32,
@@ -219,26 +220,9 @@ pub struct PrintDocumentPackageStatus {
     pub Completion: PrintDocumentPackageCompletion,
     pub PackageStatus: windows_core::HRESULT,
 }
-impl Copy for PrintDocumentPackageStatus {}
-impl Clone for PrintDocumentPackageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PrintDocumentPackageStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PrintDocumentPackageStatus").field("JobId", &self.JobId).field("CurrentDocument", &self.CurrentDocument).field("CurrentPage", &self.CurrentPage).field("CurrentPageTotal", &self.CurrentPageTotal).field("Completion", &self.Completion).field("PackageStatus", &self.PackageStatus).finish()
-    }
-}
 impl windows_core::TypeKind for PrintDocumentPackageStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PrintDocumentPackageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId && self.CurrentDocument == other.CurrentDocument && self.CurrentPage == other.CurrentPage && self.CurrentPageTotal == other.CurrentPageTotal && self.Completion == other.Completion && self.PackageStatus == other.PackageStatus
-    }
-}
-impl Eq for PrintDocumentPackageStatus {}
 impl Default for PrintDocumentPackageStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -247,6 +231,7 @@ impl Default for PrintDocumentPackageStatus {
 pub const PrintDocumentPackageTarget: windows_core::GUID = windows_core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 pub const PrintDocumentPackageTargetFactory: windows_core::GUID = windows_core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,
     pub currentDocument: i32,
@@ -255,26 +240,9 @@ pub struct XPS_JOB_STATUS {
     pub completion: XPS_JOB_COMPLETION,
     pub jobStatus: windows_core::HRESULT,
 }
-impl Copy for XPS_JOB_STATUS {}
-impl Clone for XPS_JOB_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_JOB_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_JOB_STATUS").field("jobId", &self.jobId).field("currentDocument", &self.currentDocument).field("currentPage", &self.currentPage).field("currentPageTotal", &self.currentPageTotal).field("completion", &self.completion).field("jobStatus", &self.jobStatus).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_JOB_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_JOB_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.jobId == other.jobId && self.currentDocument == other.currentDocument && self.currentPage == other.currentPage && self.currentPageTotal == other.currentPageTotal && self.completion == other.completion && self.jobStatus == other.jobStatus
-    }
-}
-impl Eq for XPS_JOB_STATUS {}
 impl Default for XPS_JOB_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

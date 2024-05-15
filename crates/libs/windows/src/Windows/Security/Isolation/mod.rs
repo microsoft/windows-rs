@@ -1801,20 +1801,10 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentCreateProgress {
     pub State: IsolatedWindowsEnvironmentProgressState,
     pub PercentComplete: u32,
-}
-impl Copy for IsolatedWindowsEnvironmentCreateProgress {}
-impl Clone for IsolatedWindowsEnvironmentCreateProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IsolatedWindowsEnvironmentCreateProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IsolatedWindowsEnvironmentCreateProgress").field("State", &self.State).field("PercentComplete", &self.PercentComplete).finish()
-    }
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateProgress {
     type TypeKind = windows_core::CopyType;
@@ -1822,12 +1812,6 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateProgress {
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
 }
-impl PartialEq for IsolatedWindowsEnvironmentCreateProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.PercentComplete == other.PercentComplete
-    }
-}
-impl Eq for IsolatedWindowsEnvironmentCreateProgress {}
 impl Default for IsolatedWindowsEnvironmentCreateProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

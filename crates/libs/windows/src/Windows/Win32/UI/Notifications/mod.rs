@@ -21,30 +21,14 @@ pub struct INotificationActivationCallback_Vtbl {
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const NOTIFICATION_USER_INPUT_DATA, u32) -> windows_core::HRESULT,
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,
 }
-impl Copy for NOTIFICATION_USER_INPUT_DATA {}
-impl Clone for NOTIFICATION_USER_INPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFICATION_USER_INPUT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFICATION_USER_INPUT_DATA").field("Key", &self.Key).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for NOTIFICATION_USER_INPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NOTIFICATION_USER_INPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value
-    }
-}
-impl Eq for NOTIFICATION_USER_INPUT_DATA {}
 impl Default for NOTIFICATION_USER_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

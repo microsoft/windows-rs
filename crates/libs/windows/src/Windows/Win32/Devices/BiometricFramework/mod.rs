@@ -547,15 +547,10 @@ impl core::fmt::Debug for WINBIO_SETTING_SOURCE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
-}
-impl Copy for WINBIO_ACCOUNT_POLICY {}
-impl Clone for WINBIO_ACCOUNT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ACCOUNT_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -566,66 +561,35 @@ impl Default for WINBIO_ACCOUNT_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Copy for WINBIO_ADAPTER_INTERFACE_VERSION {}
-impl Clone for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ADAPTER_INTERFACE_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ADAPTER_INTERFACE_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
 impl Default for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
 }
-impl Copy for WINBIO_ANTI_SPOOF_POLICY {}
-impl Clone for WINBIO_ANTI_SPOOF_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ANTI_SPOOF_POLICY").field("Action", &self.Action).field("Source", &self.Source).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ANTI_SPOOF_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Action == other.Action && self.Source == other.Source
-    }
-}
-impl Eq for WINBIO_ANTI_SPOOF_POLICY {}
 impl Default for WINBIO_ANTI_SPOOF_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT {
     pub SessionHandle: u32,
     pub Operation: u32,
@@ -636,12 +600,6 @@ pub struct WINBIO_ASYNC_RESULT {
     pub UserData: *mut core::ffi::c_void,
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
-impl Copy for WINBIO_ASYNC_RESULT {}
-impl Clone for WINBIO_ASYNC_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT {
     type TypeKind = windows_core::CopyType;
 }
@@ -651,6 +609,7 @@ impl Default for WINBIO_ASYNC_RESULT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_ASYNC_RESULT_0 {
     pub Verify: WINBIO_ASYNC_RESULT_0_20,
     pub Identify: WINBIO_ASYNC_RESULT_0_15,
@@ -674,12 +633,6 @@ pub union WINBIO_ASYNC_RESULT_0 {
     pub GetProtectionPolicy: WINBIO_ASYNC_RESULT_0_13,
     pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_17,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0 {}
-impl Clone for WINBIO_ASYNC_RESULT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -689,37 +642,22 @@ impl Default for WINBIO_ASYNC_RESULT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Sample: *mut WINBIO_BIR,
     pub SampleSize: usize,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_0 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_0").field("Sample", &self.Sample).field("SampleSize", &self.SampleSize).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sample == other.Sample && self.SampleSize == other.SampleSize && self.RejectDetail == other.RejectDetail
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_0 {}
 impl Default for WINBIO_ASYNC_RESULT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -730,41 +668,19 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub ReceiveBufferSize: usize,
     pub ReceiveDataSize: usize,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_1 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_1").field("Component", &self.Component).field("ControlCode", &self.ControlCode).field("OperationStatus", &self.OperationStatus).field("SendBuffer", &self.SendBuffer).field("SendBufferSize", &self.SendBufferSize).field("ReceiveBuffer", &self.ReceiveBuffer).field("ReceiveBufferSize", &self.ReceiveBufferSize).field("ReceiveDataSize", &self.ReceiveDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Component == other.Component && self.ControlCode == other.ControlCode && self.OperationStatus == other.OperationStatus && self.SendBuffer == other.SendBuffer && self.SendBufferSize == other.SendBufferSize && self.ReceiveBuffer == other.ReceiveBuffer && self.ReceiveBufferSize == other.ReceiveBufferSize && self.ReceiveDataSize == other.ReceiveDataSize
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_1 {}
 impl Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_2 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_2 {
     type TypeKind = windows_core::CopyType;
@@ -775,73 +691,36 @@ impl Default for WINBIO_ASYNC_RESULT_0_2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub SubFactor: u8,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_3 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_3").field("SubFactor", &self.SubFactor).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubFactor == other.SubFactor
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_3 {}
 impl Default for WINBIO_ASYNC_RESULT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub RejectDetail: u32,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_4 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_4").field("RejectDetail", &self.RejectDetail).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RejectDetail == other.RejectDetail
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_4 {}
 impl Default for WINBIO_ASYNC_RESULT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
     pub IsNewTemplate: super::super::Foundation::BOOLEAN,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_5 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_5 {
     type TypeKind = windows_core::CopyType;
@@ -852,105 +731,52 @@ impl Default for WINBIO_ASYNC_RESULT_0_5 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub SelectorValue: u64,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_6 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_6").field("SelectorValue", &self.SelectorValue).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SelectorValue == other.SelectorValue
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_6 {}
 impl Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_7 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_7").field("UnitCount", &self.UnitCount).field("UnitSchemaArray", &self.UnitSchemaArray).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitCount == other.UnitCount && self.UnitSchemaArray == other.UnitSchemaArray
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_7 {}
 impl Default for WINBIO_ASYNC_RESULT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_8 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_8").field("StorageCount", &self.StorageCount).field("StorageSchemaArray", &self.StorageSchemaArray).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StorageCount == other.StorageCount && self.StorageSchemaArray == other.StorageSchemaArray
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_8 {}
 impl Default for WINBIO_ASYNC_RESULT_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactorCount: usize,
     pub SubFactorArray: *mut u8,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_9 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_9 {
     type TypeKind = windows_core::CopyType;
@@ -961,44 +787,23 @@ impl Default for WINBIO_ASYNC_RESULT_0_9 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_10 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_10 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_10").field("BspCount", &self.BspCount).field("BspSchemaArray", &self.BspSchemaArray).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_10 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BspCount == other.BspCount && self.BspSchemaArray == other.BspSchemaArray
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_10 {}
 impl Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Event: WINBIO_EVENT,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_11 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_11 {
     type TypeKind = windows_core::CopyType;
@@ -1009,6 +814,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_11 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -1016,12 +822,6 @@ pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub SubFactor: u8,
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut core::ffi::c_void,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_12 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_12 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_12 {
     type TypeKind = windows_core::CopyType;
@@ -1032,15 +832,10 @@ impl Default for WINBIO_ASYNC_RESULT_0_12 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_13 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_13 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_13 {
     type TypeKind = windows_core::CopyType;
@@ -1051,17 +846,12 @@ impl Default for WINBIO_ASYNC_RESULT_0_13 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
     pub Ticket: u64,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_14 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_14 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_14 {
     type TypeKind = windows_core::CopyType;
@@ -1072,16 +862,11 @@ impl Default for WINBIO_ASYNC_RESULT_0_14 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_15 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_15 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_15 {
     type TypeKind = windows_core::CopyType;
@@ -1092,66 +877,35 @@ impl Default for WINBIO_ASYNC_RESULT_0_15 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub ChangeType: u32,
     pub PresenceCount: usize,
     pub PresenceArray: *mut WINBIO_PRESENCE,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_16 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_16 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_16").field("ChangeType", &self.ChangeType).field("PresenceCount", &self.PresenceCount).field("PresenceArray", &self.PresenceArray).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_16 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChangeType == other.ChangeType && self.PresenceCount == other.PresenceCount && self.PresenceArray == other.PresenceArray
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_16 {}
 impl Default for WINBIO_ASYNC_RESULT_0_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_17 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_17 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_17 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_17").field("ExtendedStatus", &self.ExtendedStatus).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_17 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_17 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtendedStatus == other.ExtendedStatus
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_17 {}
 impl Default for WINBIO_ASYNC_RESULT_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -1159,12 +913,6 @@ pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub SubFactor: u8,
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut core::ffi::c_void,
-}
-impl Copy for WINBIO_ASYNC_RESULT_0_18 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_18 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_18 {
     type TypeKind = windows_core::CopyType;
@@ -1175,67 +923,36 @@ impl Default for WINBIO_ASYNC_RESULT_0_18 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
     pub Ticket: u64,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_19 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_19 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_19 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_19").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).field("Ticket", &self.Ticket).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_19 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_19 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Match == other.Match && self.RejectDetail == other.RejectDetail && self.Ticket == other.Ticket
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_19 {}
 impl Default for WINBIO_ASYNC_RESULT_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_20 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ASYNC_RESULT_0_20 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_20").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_20 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ASYNC_RESULT_0_20 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Match == other.Match && self.RejectDetail == other.RejectDetail
-    }
-}
-impl Eq for WINBIO_ASYNC_RESULT_0_20 {}
 impl Default for WINBIO_ASYNC_RESULT_0_20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub RecordLength: u64,
     pub FormatIdentifier: u32,
@@ -1253,48 +970,16 @@ pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub ImageCompressionAlg: u8,
     pub Reserved: u16,
 }
-impl Copy for WINBIO_BDB_ANSI_381_HEADER {}
-impl Clone for WINBIO_BDB_ANSI_381_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BDB_ANSI_381_HEADER")
-            .field("RecordLength", &self.RecordLength)
-            .field("FormatIdentifier", &self.FormatIdentifier)
-            .field("VersionNumber", &self.VersionNumber)
-            .field("ProductId", &self.ProductId)
-            .field("CaptureDeviceId", &self.CaptureDeviceId)
-            .field("ImageAcquisitionLevel", &self.ImageAcquisitionLevel)
-            .field("HorizontalScanResolution", &self.HorizontalScanResolution)
-            .field("VerticalScanResolution", &self.VerticalScanResolution)
-            .field("HorizontalImageResolution", &self.HorizontalImageResolution)
-            .field("VerticalImageResolution", &self.VerticalImageResolution)
-            .field("ElementCount", &self.ElementCount)
-            .field("ScaleUnits", &self.ScaleUnits)
-            .field("PixelDepth", &self.PixelDepth)
-            .field("ImageCompressionAlg", &self.ImageCompressionAlg)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BDB_ANSI_381_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength && self.FormatIdentifier == other.FormatIdentifier && self.VersionNumber == other.VersionNumber && self.ProductId == other.ProductId && self.CaptureDeviceId == other.CaptureDeviceId && self.ImageAcquisitionLevel == other.ImageAcquisitionLevel && self.HorizontalScanResolution == other.HorizontalScanResolution && self.VerticalScanResolution == other.VerticalScanResolution && self.HorizontalImageResolution == other.HorizontalImageResolution && self.VerticalImageResolution == other.VerticalImageResolution && self.ElementCount == other.ElementCount && self.ScaleUnits == other.ScaleUnits && self.PixelDepth == other.PixelDepth && self.ImageCompressionAlg == other.ImageCompressionAlg && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WINBIO_BDB_ANSI_381_HEADER {}
 impl Default for WINBIO_BDB_ANSI_381_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub BlockLength: u32,
     pub HorizontalLineLength: u16,
@@ -1306,94 +991,46 @@ pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub ImpressionType: u8,
     pub Reserved: u8,
 }
-impl Copy for WINBIO_BDB_ANSI_381_RECORD {}
-impl Clone for WINBIO_BDB_ANSI_381_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BDB_ANSI_381_RECORD").field("BlockLength", &self.BlockLength).field("HorizontalLineLength", &self.HorizontalLineLength).field("VerticalLineLength", &self.VerticalLineLength).field("Position", &self.Position).field("CountOfViews", &self.CountOfViews).field("ViewNumber", &self.ViewNumber).field("ImageQuality", &self.ImageQuality).field("ImpressionType", &self.ImpressionType).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BDB_ANSI_381_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.BlockLength == other.BlockLength && self.HorizontalLineLength == other.HorizontalLineLength && self.VerticalLineLength == other.VerticalLineLength && self.Position == other.Position && self.CountOfViews == other.CountOfViews && self.ViewNumber == other.ViewNumber && self.ImageQuality == other.ImageQuality && self.ImpressionType == other.ImpressionType && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WINBIO_BDB_ANSI_381_RECORD {}
 impl Default for WINBIO_BDB_ANSI_381_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
     pub StandardDataBlock: WINBIO_BIR_DATA,
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
-impl Copy for WINBIO_BIR {}
-impl Clone for WINBIO_BIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BIR").field("HeaderBlock", &self.HeaderBlock).field("StandardDataBlock", &self.StandardDataBlock).field("VendorDataBlock", &self.VendorDataBlock).field("SignatureBlock", &self.SignatureBlock).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.HeaderBlock == other.HeaderBlock && self.StandardDataBlock == other.StandardDataBlock && self.VendorDataBlock == other.VendorDataBlock && self.SignatureBlock == other.SignatureBlock
-    }
-}
-impl Eq for WINBIO_BIR {}
 impl Default for WINBIO_BIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR_DATA {
     pub Size: u32,
     pub Offset: u32,
 }
-impl Copy for WINBIO_BIR_DATA {}
-impl Clone for WINBIO_BIR_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BIR_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BIR_DATA").field("Size", &self.Size).field("Offset", &self.Offset).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BIR_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BIR_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Offset == other.Offset
-    }
-}
-impl Eq for WINBIO_BIR_DATA {}
 impl Default for WINBIO_BIR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR_HEADER {
     pub ValidFields: u16,
     pub HeaderVersion: u8,
@@ -1408,105 +1045,44 @@ pub struct WINBIO_BIR_HEADER {
     pub BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
-impl Copy for WINBIO_BIR_HEADER {}
-impl Clone for WINBIO_BIR_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BIR_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BIR_HEADER")
-            .field("ValidFields", &self.ValidFields)
-            .field("HeaderVersion", &self.HeaderVersion)
-            .field("PatronHeaderVersion", &self.PatronHeaderVersion)
-            .field("DataFlags", &self.DataFlags)
-            .field("Type", &self.Type)
-            .field("Subtype", &self.Subtype)
-            .field("Purpose", &self.Purpose)
-            .field("DataQuality", &self.DataQuality)
-            .field("CreationDate", &self.CreationDate)
-            .field("ValidityPeriod", &self.ValidityPeriod)
-            .field("BiometricDataFormat", &self.BiometricDataFormat)
-            .field("ProductId", &self.ProductId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BIR_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BIR_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ValidFields == other.ValidFields && self.HeaderVersion == other.HeaderVersion && self.PatronHeaderVersion == other.PatronHeaderVersion && self.DataFlags == other.DataFlags && self.Type == other.Type && self.Subtype == other.Subtype && self.Purpose == other.Purpose && self.DataQuality == other.DataQuality && self.CreationDate == other.CreationDate && self.ValidityPeriod == other.ValidityPeriod && self.BiometricDataFormat == other.BiometricDataFormat && self.ProductId == other.ProductId
-    }
-}
-impl Eq for WINBIO_BIR_HEADER {}
 impl Default for WINBIO_BIR_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: i64,
     pub EndDate: i64,
 }
-impl Copy for WINBIO_BIR_HEADER_0 {}
-impl Clone for WINBIO_BIR_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BIR_HEADER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BIR_HEADER_0").field("BeginDate", &self.BeginDate).field("EndDate", &self.EndDate).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BIR_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BIR_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BeginDate == other.BeginDate && self.EndDate == other.EndDate
-    }
-}
-impl Eq for WINBIO_BIR_HEADER_0 {}
 impl Default for WINBIO_BIR_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BLANK_PAYLOAD {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
 }
-impl Copy for WINBIO_BLANK_PAYLOAD {}
-impl Clone for WINBIO_BLANK_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BLANK_PAYLOAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BLANK_PAYLOAD").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BLANK_PAYLOAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BLANK_PAYLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult
-    }
-}
-impl Eq for WINBIO_BLANK_PAYLOAD {}
 impl Default for WINBIO_BLANK_PAYLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: u32,
     pub BspId: windows_core::GUID,
@@ -1514,63 +1090,31 @@ pub struct WINBIO_BSP_SCHEMA {
     pub Vendor: [u16; 256],
     pub Version: WINBIO_VERSION,
 }
-impl Copy for WINBIO_BSP_SCHEMA {}
-impl Clone for WINBIO_BSP_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_BSP_SCHEMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_BSP_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("BspId", &self.BspId).field("Description", &self.Description).field("Vendor", &self.Vendor).field("Version", &self.Version).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_BSP_SCHEMA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_BSP_SCHEMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.BiometricFactor == other.BiometricFactor && self.BspId == other.BspId && self.Description == other.Description && self.Vendor == other.Vendor && self.Version == other.Version
-    }
-}
-impl Eq for WINBIO_BSP_SCHEMA {}
 impl Default for WINBIO_BSP_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_CALIBRATION_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub CalibrationData: WINBIO_DATA,
 }
-impl Copy for WINBIO_CALIBRATION_INFO {}
-impl Clone for WINBIO_CALIBRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_CALIBRATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_CALIBRATION_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("CalibrationData", &self.CalibrationData).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_CALIBRATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_CALIBRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.CalibrationData == other.CalibrationData
-    }
-}
-impl Eq for WINBIO_CALIBRATION_INFO {}
 impl Default for WINBIO_CALIBRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_CAPTURE_DATA {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
@@ -1578,32 +1122,16 @@ pub struct WINBIO_CAPTURE_DATA {
     pub RejectDetail: u32,
     pub CaptureData: WINBIO_DATA,
 }
-impl Copy for WINBIO_CAPTURE_DATA {}
-impl Clone for WINBIO_CAPTURE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_CAPTURE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_CAPTURE_DATA").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("RejectDetail", &self.RejectDetail).field("CaptureData", &self.CaptureData).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_CAPTURE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_CAPTURE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.RejectDetail == other.RejectDetail && self.CaptureData == other.CaptureData
-    }
-}
-impl Eq for WINBIO_CAPTURE_DATA {}
 impl Default for WINBIO_CAPTURE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_CAPTURE_PARAMETERS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -1611,94 +1139,46 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub VendorFormat: windows_core::GUID,
     pub Flags: u8,
 }
-impl Copy for WINBIO_CAPTURE_PARAMETERS {}
-impl Clone for WINBIO_CAPTURE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_CAPTURE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_CAPTURE_PARAMETERS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_CAPTURE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_CAPTURE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags
-    }
-}
-impl Eq for WINBIO_CAPTURE_PARAMETERS {}
 impl Default for WINBIO_CAPTURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
 }
-impl Copy for WINBIO_DATA {}
-impl Clone for WINBIO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_DATA").field("Size", &self.Size).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Data == other.Data
-    }
-}
-impl Eq for WINBIO_DATA {}
 impl Default for WINBIO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_DIAGNOSTICS {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub SensorStatus: u32,
     pub VendorDiagnostics: WINBIO_DATA,
 }
-impl Copy for WINBIO_DIAGNOSTICS {}
-impl Clone for WINBIO_DIAGNOSTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_DIAGNOSTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_DIAGNOSTICS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("VendorDiagnostics", &self.VendorDiagnostics).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_DIAGNOSTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_DIAGNOSTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.VendorDiagnostics == other.VendorDiagnostics
-    }
-}
-impl Eq for WINBIO_DIAGNOSTICS {}
 impl Default for WINBIO_DIAGNOSTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -1707,26 +1187,9 @@ pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub Flags: u8,
     pub NonceSize: u32,
 }
-impl Copy for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
-impl Clone for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ENCRYPTED_CAPTURE_PARAMS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).field("NonceSize", &self.NonceSize).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags && self.NonceSize == other.NonceSize
-    }
-}
-impl Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
 impl Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1734,6 +1197,7 @@ impl Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug)]
 pub struct WINBIO_ENGINE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1782,20 +1246,6 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_ENGINE_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_ENGINE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl core::fmt::Debug for WINBIO_ENGINE_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_ENGINE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WINBIO_ENGINE_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -1806,15 +1256,10 @@ impl Default for WINBIO_ENGINE_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EVENT {
     pub Type: u32,
     pub Parameters: WINBIO_EVENT_0,
-}
-impl Copy for WINBIO_EVENT {}
-impl Clone for WINBIO_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EVENT {
     type TypeKind = windows_core::CopyType;
@@ -1825,16 +1270,11 @@ impl Default for WINBIO_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EVENT_0 {
     pub Unclaimed: WINBIO_EVENT_0_2,
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
     pub Error: WINBIO_EVENT_0_0,
-}
-impl Copy for WINBIO_EVENT_0 {}
-impl Clone for WINBIO_EVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EVENT_0 {
     type TypeKind = windows_core::CopyType;
@@ -1845,46 +1285,25 @@ impl Default for WINBIO_EVENT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EVENT_0_0 {
     pub ErrorCode: windows_core::HRESULT,
-}
-impl Copy for WINBIO_EVENT_0_0 {}
-impl Clone for WINBIO_EVENT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EVENT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EVENT_0_0").field("ErrorCode", &self.ErrorCode).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EVENT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EVENT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ErrorCode == other.ErrorCode
-    }
-}
-impl Eq for WINBIO_EVENT_0_0 {}
 impl Default for WINBIO_EVENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EVENT_0_1 {
     pub UnitId: u32,
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
-}
-impl Copy for WINBIO_EVENT_0_1 {}
-impl Clone for WINBIO_EVENT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EVENT_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -1895,46 +1314,25 @@ impl Default for WINBIO_EVENT_0_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EVENT_0_2 {
     pub UnitId: u32,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_EVENT_0_2 {}
-impl Clone for WINBIO_EVENT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EVENT_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EVENT_0_2").field("UnitId", &self.UnitId).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EVENT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EVENT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.RejectDetail == other.RejectDetail
-    }
-}
-impl Eq for WINBIO_EVENT_0_2 {}
 impl Default for WINBIO_EVENT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub GenericEngineCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
-}
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -1945,18 +1343,13 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_ENGINE_INFO_0_0,
     pub Fingerprint: WINBIO_EXTENDED_ENGINE_INFO_0_1,
     pub Iris: WINBIO_EXTENDED_ENGINE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_ENGINE_INFO_0_3,
-}
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -1967,95 +1360,48 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_0").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
-}
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_0_0").field("Null", &self.Null).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Null == other.Null
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_1").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -2064,180 +1410,84 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_1_0").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_2").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
-}
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_2_0").field("Null", &self.Null).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Null == other.Null
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_3").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
-}
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO_0_3_0").field("Null", &self.Null).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Null == other.Null
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub Size: usize,
     pub SubFactor: u8,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_PARAMETERS").field("Size", &self.Size).field("SubFactor", &self.SubFactor).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SubFactor == other.SubFactor
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub TemplateStatus: windows_core::HRESULT,
     pub RejectDetail: u32,
@@ -2245,12 +1495,6 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub Factor: u32,
     pub SubFactor: u8,
     pub Specific: WINBIO_EXTENDED_ENROLLMENT_STATUS_0,
-}
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -2261,18 +1505,13 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0,
     pub Fingerprint: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1,
     pub Iris: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2,
     pub Voice: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3,
-}
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2283,67 +1522,36 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
     pub OpaqueEngineData: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: windows_core::GUID,
     pub Data: [u32; 78],
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AdapterId == other.AdapterId && self.Data == other.Data
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -2352,32 +1560,16 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -2389,112 +1581,48 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub Point3D: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0,
     pub StopCaptureAndShowCriticalFeedback: super::super::Foundation::BOOL,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2")
-            .field("EyeBoundingBox_1", &self.EyeBoundingBox_1)
-            .field("EyeBoundingBox_2", &self.EyeBoundingBox_2)
-            .field("PupilCenter_1", &self.PupilCenter_1)
-            .field("PupilCenter_2", &self.PupilCenter_2)
-            .field("Distance", &self.Distance)
-            .field("GridPointCompletionPercent", &self.GridPointCompletionPercent)
-            .field("GridPointIndex", &self.GridPointIndex)
-            .field("Point3D", &self.Point3D)
-            .field("StopCaptureAndShowCriticalFeedback", &self.StopCaptureAndShowCriticalFeedback)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance && self.GridPointCompletionPercent == other.GridPointCompletionPercent && self.GridPointIndex == other.GridPointIndex && self.Point3D == other.Point3D && self.StopCaptureAndShowCriticalFeedback == other.StopCaptureAndShowCriticalFeedback
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub X: f64,
     pub Y: f64,
     pub Z: f64,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
-}
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3").field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub GenericSensorCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_SENSOR_INFO_0,
-}
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO {
     type TypeKind = windows_core::CopyType;
@@ -2505,18 +1633,13 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_SENSOR_INFO_0_0,
     pub Fingerprint: WINBIO_EXTENDED_SENSOR_INFO_0_1,
     pub Iris: WINBIO_EXTENDED_SENSOR_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_SENSOR_INFO_0_3,
-}
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -2527,168 +1650,83 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
     pub MandatoryOrientation: u32,
     pub HardwareInfo: WINBIO_EXTENDED_SENSOR_INFO_0_0_0,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_0").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).field("HardwareInfo", &self.HardwareInfo).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation && self.HardwareInfo == other.HardwareInfo
-    }
-}
-impl Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub ColorSensorId: [u16; 260],
     pub InfraredSensorId: [u16; 260],
     pub InfraredSensorRotationAngle: u32,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_0_0").field("ColorSensorId", &self.ColorSensorId).field("InfraredSensorId", &self.InfraredSensorId).field("InfraredSensorRotationAngle", &self.InfraredSensorRotationAngle).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ColorSensorId == other.ColorSensorId && self.InfraredSensorId == other.InfraredSensorId && self.InfraredSensorRotationAngle == other.InfraredSensorRotationAngle
-    }
-}
-impl Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
-}
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_1").field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl Eq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
     pub MandatoryOrientation: u32,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_2").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation
-    }
-}
-impl Eq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
-}
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO_0_3").field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl Eq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub GenericStorageCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
-}
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -2699,18 +1737,13 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_STORAGE_INFO_0_0,
     pub Fingerprint: WINBIO_EXTENDED_STORAGE_INFO_0_1,
     pub Iris: WINBIO_EXTENDED_STORAGE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_STORAGE_INFO_0_3,
-}
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -2721,176 +1754,80 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: u32,
-}
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_0").field("Capabilities", &self.Capabilities).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: u32,
-}
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_1").field("Capabilities", &self.Capabilities).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: u32,
-}
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_2").field("Capabilities", &self.Capabilities).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: u32,
-}
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO_0_3").field("Capabilities", &self.Capabilities).finish()
-    }
 }
 impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
 }
-impl Copy for WINBIO_EXTENDED_UNIT_STATUS {}
-impl Clone for WINBIO_EXTENDED_UNIT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_EXTENDED_UNIT_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_UNIT_STATUS").field("Availability", &self.Availability).field("ReasonCode", &self.ReasonCode).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_EXTENDED_UNIT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Availability == other.Availability && self.ReasonCode == other.ReasonCode
-    }
-}
-impl Eq for WINBIO_EXTENDED_UNIT_STATUS {}
 impl Default for WINBIO_EXTENDED_UNIT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_FP_BU_STATE {
     pub SensorAttached: super::super::Foundation::BOOL,
     pub CreationResult: windows_core::HRESULT,
 }
-impl Copy for WINBIO_FP_BU_STATE {}
-impl Clone for WINBIO_FP_BU_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_FP_BU_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_FP_BU_STATE").field("SensorAttached", &self.SensorAttached).field("CreationResult", &self.CreationResult).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_FP_BU_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_FP_BU_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SensorAttached == other.SensorAttached && self.CreationResult == other.CreationResult
-    }
-}
-impl Eq for WINBIO_FP_BU_STATE {}
 impl Default for WINBIO_FP_BU_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2898,6 +1835,7 @@ impl Default for WINBIO_FP_BU_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug)]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -2949,20 +1887,6 @@ pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub DecryptSample: PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_FRAMEWORK_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_FRAMEWORK_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl core::fmt::Debug for WINBIO_FRAMEWORK_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_FRAMEWORK_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WINBIO_FRAMEWORK_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -2973,78 +1897,41 @@ impl Default for WINBIO_FRAMEWORK_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_GESTURE_METADATA {
     pub Size: usize,
     pub BiometricType: u32,
     pub MatchType: u32,
     pub ProtectionType: u32,
 }
-impl Copy for WINBIO_GESTURE_METADATA {}
-impl Clone for WINBIO_GESTURE_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_GESTURE_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_GESTURE_METADATA").field("Size", &self.Size).field("BiometricType", &self.BiometricType).field("MatchType", &self.MatchType).field("ProtectionType", &self.ProtectionType).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_GESTURE_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_GESTURE_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.BiometricType == other.BiometricType && self.MatchType == other.MatchType && self.ProtectionType == other.ProtectionType
-    }
-}
-impl Eq for WINBIO_GESTURE_METADATA {}
 impl Default for WINBIO_GESTURE_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_GET_INDICATOR {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub IndicatorStatus: u32,
 }
-impl Copy for WINBIO_GET_INDICATOR {}
-impl Clone for WINBIO_GET_INDICATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_GET_INDICATOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_GET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("IndicatorStatus", &self.IndicatorStatus).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_GET_INDICATOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_GET_INDICATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.IndicatorStatus == other.IndicatorStatus
-    }
-}
-impl Eq for WINBIO_GET_INDICATOR {}
 impl Default for WINBIO_GET_INDICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_IDENTITY {
     pub Type: u32,
     pub Value: WINBIO_IDENTITY_0,
-}
-impl Copy for WINBIO_IDENTITY {}
-impl Clone for WINBIO_IDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_IDENTITY {
     type TypeKind = windows_core::CopyType;
@@ -3055,18 +1942,13 @@ impl Default for WINBIO_IDENTITY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_IDENTITY_0 {
     pub Null: u32,
     pub Wildcard: u32,
     pub TemplateGuid: windows_core::GUID,
     pub AccountSid: WINBIO_IDENTITY_0_0,
     pub SecureId: [u8; 32],
-}
-impl Copy for WINBIO_IDENTITY_0 {}
-impl Clone for WINBIO_IDENTITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_IDENTITY_0 {
     type TypeKind = windows_core::CopyType;
@@ -3077,61 +1959,29 @@ impl Default for WINBIO_IDENTITY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
 }
-impl Copy for WINBIO_IDENTITY_0_0 {}
-impl Clone for WINBIO_IDENTITY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_IDENTITY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_IDENTITY_0_0").field("Size", &self.Size).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_IDENTITY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_IDENTITY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Data == other.Data
-    }
-}
-impl Eq for WINBIO_IDENTITY_0_0 {}
 impl Default for WINBIO_IDENTITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_NOTIFY_WAKE {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub Reason: u32,
 }
-impl Copy for WINBIO_NOTIFY_WAKE {}
-impl Clone for WINBIO_NOTIFY_WAKE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_NOTIFY_WAKE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_NOTIFY_WAKE").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("Reason", &self.Reason).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_NOTIFY_WAKE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_NOTIFY_WAKE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.Reason == other.Reason
-    }
-}
-impl Eq for WINBIO_NOTIFY_WAKE {}
 impl Default for WINBIO_NOTIFY_WAKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3139,6 +1989,7 @@ impl Default for WINBIO_NOTIFY_WAKE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PIPELINE {
     pub SensorHandle: super::super::Foundation::HANDLE,
     pub EngineHandle: super::super::Foundation::HANDLE,
@@ -3152,42 +2003,9 @@ pub struct WINBIO_PIPELINE {
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_PIPELINE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_PIPELINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl core::fmt::Debug for WINBIO_PIPELINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_PIPELINE")
-            .field("SensorHandle", &self.SensorHandle)
-            .field("EngineHandle", &self.EngineHandle)
-            .field("StorageHandle", &self.StorageHandle)
-            .field("SensorInterface", &self.SensorInterface)
-            .field("EngineInterface", &self.EngineInterface)
-            .field("StorageInterface", &self.StorageInterface)
-            .field("SensorContext", &self.SensorContext)
-            .field("EngineContext", &self.EngineContext)
-            .field("StorageContext", &self.StorageContext)
-            .field("FrameworkInterface", &self.FrameworkInterface)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WINBIO_PIPELINE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_IO")]
-impl PartialEq for WINBIO_PIPELINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SensorHandle == other.SensorHandle && self.EngineHandle == other.EngineHandle && self.StorageHandle == other.StorageHandle && self.SensorInterface == other.SensorInterface && self.EngineInterface == other.EngineInterface && self.StorageInterface == other.StorageInterface && self.SensorContext == other.SensorContext && self.EngineContext == other.EngineContext && self.StorageContext == other.StorageContext && self.FrameworkInterface == other.FrameworkInterface
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl Eq for WINBIO_PIPELINE {}
 #[cfg(feature = "Win32_System_IO")]
 impl Default for WINBIO_PIPELINE {
     fn default() -> Self {
@@ -3195,6 +2013,7 @@ impl Default for WINBIO_PIPELINE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE {
     pub Factor: u32,
     pub SubFactor: u8,
@@ -3206,12 +2025,6 @@ pub struct WINBIO_PRESENCE {
     pub Properties: WINBIO_PRESENCE_PROPERTIES,
     pub Authorization: WINBIO_PRESENCE_0,
 }
-impl Copy for WINBIO_PRESENCE {}
-impl Clone for WINBIO_PRESENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WINBIO_PRESENCE {
     type TypeKind = windows_core::CopyType;
 }
@@ -3221,45 +2034,24 @@ impl Default for WINBIO_PRESENCE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_0 {
     pub Size: u32,
     pub Data: [u8; 32],
 }
-impl Copy for WINBIO_PRESENCE_0 {}
-impl Clone for WINBIO_PRESENCE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_PRESENCE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_PRESENCE_0").field("Size", &self.Size).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_PRESENCE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_PRESENCE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Data == other.Data
-    }
-}
-impl Eq for WINBIO_PRESENCE_0 {}
 impl Default for WINBIO_PRESENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_PRESENCE_PROPERTIES {
     pub FacialFeatures: WINBIO_PRESENCE_PROPERTIES_0,
     pub Iris: WINBIO_PRESENCE_PROPERTIES_1,
-}
-impl Copy for WINBIO_PRESENCE_PROPERTIES {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
@@ -3270,67 +2062,36 @@ impl Default for WINBIO_PRESENCE_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
     pub OpaqueEngineData: WINBIO_PRESENCE_PROPERTIES_0_0,
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES_0 {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_PRESENCE_PROPERTIES_0").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
-    }
-}
-impl Eq for WINBIO_PRESENCE_PROPERTIES_0 {}
 impl Default for WINBIO_PRESENCE_PROPERTIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: windows_core::GUID,
     pub Data: [u32; 78],
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES_0_0 {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_PRESENCE_PROPERTIES_0_0").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AdapterId == other.AdapterId && self.Data == other.Data
-    }
-}
-impl Eq for WINBIO_PRESENCE_PROPERTIES_0_0 {}
 impl Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -3338,63 +2099,31 @@ pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub PupilCenter_2: super::super::Foundation::POINT,
     pub Distance: i32,
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES_1 {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_PRESENCE_PROPERTIES_1").field("EyeBoundingBox_1", &self.EyeBoundingBox_1).field("EyeBoundingBox_2", &self.EyeBoundingBox_2).field("PupilCenter_1", &self.PupilCenter_1).field("PupilCenter_2", &self.PupilCenter_2).field("Distance", &self.Distance).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance
-    }
-}
-impl Eq for WINBIO_PRESENCE_PROPERTIES_1 {}
 impl Default for WINBIO_PRESENCE_PROPERTIES_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub PrivateSensorTypeInfo: WINBIO_DATA,
 }
-impl Copy for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
-impl Clone for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_PRIVATE_SENSOR_TYPE_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("PrivateSensorTypeInfo", &self.PrivateSensorTypeInfo).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.PrivateSensorTypeInfo == other.PrivateSensorTypeInfo
-    }
-}
-impl Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
 impl Default for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PROTECTION_POLICY {
     pub Version: u32,
     pub Identity: WINBIO_IDENTITY,
@@ -3402,12 +2131,6 @@ pub struct WINBIO_PROTECTION_POLICY {
     pub UserState: u64,
     pub PolicySize: usize,
     pub Policy: [u8; 128],
-}
-impl Copy for WINBIO_PROTECTION_POLICY {}
-impl Clone for WINBIO_PROTECTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINBIO_PROTECTION_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -3418,68 +2141,37 @@ impl Default for WINBIO_PROTECTION_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
 }
-impl Copy for WINBIO_REGISTERED_FORMAT {}
-impl Clone for WINBIO_REGISTERED_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_REGISTERED_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_REGISTERED_FORMAT").field("Owner", &self.Owner).field("Type", &self.Type).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_REGISTERED_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_REGISTERED_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Owner == other.Owner && self.Type == other.Type
-    }
-}
-impl Eq for WINBIO_REGISTERED_FORMAT {}
 impl Default for WINBIO_REGISTERED_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Type: u32,
     pub Size: u32,
     pub Flags: u32,
     pub ValidationTag: u64,
 }
-impl Copy for WINBIO_SECURE_BUFFER_HEADER_V1 {}
-impl Clone for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SECURE_BUFFER_HEADER_V1").field("Type", &self.Type).field("Size", &self.Size).field("Flags", &self.Flags).field("ValidationTag", &self.ValidationTag).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_SECURE_BUFFER_HEADER_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Size == other.Size && self.Flags == other.Flags && self.ValidationTag == other.ValidationTag
-    }
-}
-impl Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
 impl Default for WINBIO_SECURE_BUFFER_HEADER_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub Size: u32,
     pub Version: u16,
@@ -3488,63 +2180,31 @@ pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub IntermediateCA1Size: u32,
     pub IntermediateCA2Size: u32,
 }
-impl Copy for WINBIO_SECURE_CONNECTION_DATA {}
-impl Clone for WINBIO_SECURE_CONNECTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SECURE_CONNECTION_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Flags", &self.Flags).field("ModelCertificateSize", &self.ModelCertificateSize).field("IntermediateCA1Size", &self.IntermediateCA1Size).field("IntermediateCA2Size", &self.IntermediateCA2Size).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_SECURE_CONNECTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Flags == other.Flags && self.ModelCertificateSize == other.ModelCertificateSize && self.IntermediateCA1Size == other.IntermediateCA1Size && self.IntermediateCA2Size == other.IntermediateCA2Size
-    }
-}
-impl Eq for WINBIO_SECURE_CONNECTION_DATA {}
 impl Default for WINBIO_SECURE_CONNECTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub PayloadSize: u32,
     pub Version: u16,
     pub Flags: u16,
 }
-impl Copy for WINBIO_SECURE_CONNECTION_PARAMS {}
-impl Clone for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SECURE_CONNECTION_PARAMS").field("PayloadSize", &self.PayloadSize).field("Version", &self.Version).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.Version == other.Version && self.Flags == other.Flags
-    }
-}
-impl Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
 impl Default for WINBIO_SECURE_CONNECTION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
@@ -3559,39 +2219,9 @@ pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub SupportedFormatEntries: u32,
     pub SupportedFormat: [WINBIO_REGISTERED_FORMAT; 1],
 }
-impl Copy for WINBIO_SENSOR_ATTRIBUTES {}
-impl Clone for WINBIO_SENSOR_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SENSOR_ATTRIBUTES")
-            .field("PayloadSize", &self.PayloadSize)
-            .field("WinBioHresult", &self.WinBioHresult)
-            .field("WinBioVersion", &self.WinBioVersion)
-            .field("SensorType", &self.SensorType)
-            .field("SensorSubType", &self.SensorSubType)
-            .field("Capabilities", &self.Capabilities)
-            .field("ManufacturerName", &self.ManufacturerName)
-            .field("ModelName", &self.ModelName)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("FirmwareVersion", &self.FirmwareVersion)
-            .field("SupportedFormatEntries", &self.SupportedFormatEntries)
-            .field("SupportedFormat", &self.SupportedFormat)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_SENSOR_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_SENSOR_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.WinBioVersion == other.WinBioVersion && self.SensorType == other.SensorType && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.ManufacturerName == other.ManufacturerName && self.ModelName == other.ModelName && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion && self.SupportedFormatEntries == other.SupportedFormatEntries && self.SupportedFormat == other.SupportedFormat
-    }
-}
-impl Eq for WINBIO_SENSOR_ATTRIBUTES {}
 impl Default for WINBIO_SENSOR_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3599,6 +2229,7 @@ impl Default for WINBIO_SENSOR_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug)]
 pub struct WINBIO_SENSOR_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -3637,20 +2268,6 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_SENSOR_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_SENSOR_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl core::fmt::Debug for WINBIO_SENSOR_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SENSOR_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WINBIO_SENSOR_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -3661,30 +2278,14 @@ impl Default for WINBIO_SENSOR_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SET_INDICATOR {
     pub PayloadSize: u32,
     pub IndicatorStatus: u32,
 }
-impl Copy for WINBIO_SET_INDICATOR {}
-impl Clone for WINBIO_SET_INDICATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_SET_INDICATOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("IndicatorStatus", &self.IndicatorStatus).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_SET_INDICATOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_SET_INDICATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.IndicatorStatus == other.IndicatorStatus
-    }
-}
-impl Eq for WINBIO_SET_INDICATOR {}
 impl Default for WINBIO_SET_INDICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3692,6 +2293,7 @@ impl Default for WINBIO_SET_INDICATOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug)]
 pub struct WINBIO_STORAGE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -3729,20 +2331,6 @@ pub struct WINBIO_STORAGE_INTERFACE {
     pub UpdateRecordCommit: PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_STORAGE_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_STORAGE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl core::fmt::Debug for WINBIO_STORAGE_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_STORAGE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WINBIO_STORAGE_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -3753,6 +2341,7 @@ impl Default for WINBIO_STORAGE_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_STORAGE_RECORD {
     pub Identity: *mut WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -3763,32 +2352,16 @@ pub struct WINBIO_STORAGE_RECORD {
     pub PayloadBlob: *mut u8,
     pub PayloadBlobSize: usize,
 }
-impl Copy for WINBIO_STORAGE_RECORD {}
-impl Clone for WINBIO_STORAGE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_STORAGE_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_STORAGE_RECORD").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("IndexVector", &self.IndexVector).field("IndexElementCount", &self.IndexElementCount).field("TemplateBlob", &self.TemplateBlob).field("TemplateBlobSize", &self.TemplateBlobSize).field("PayloadBlob", &self.PayloadBlob).field("PayloadBlobSize", &self.PayloadBlobSize).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_STORAGE_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_STORAGE_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Identity == other.Identity && self.SubFactor == other.SubFactor && self.IndexVector == other.IndexVector && self.IndexElementCount == other.IndexElementCount && self.TemplateBlob == other.TemplateBlob && self.TemplateBlobSize == other.TemplateBlobSize && self.PayloadBlob == other.PayloadBlob && self.PayloadBlobSize == other.PayloadBlobSize
-    }
-}
-impl Eq for WINBIO_STORAGE_RECORD {}
 impl Default for WINBIO_STORAGE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: u32,
     pub DatabaseId: windows_core::GUID,
@@ -3797,64 +2370,32 @@ pub struct WINBIO_STORAGE_SCHEMA {
     pub FilePath: [u16; 256],
     pub ConnectionString: [u16; 256],
 }
-impl Copy for WINBIO_STORAGE_SCHEMA {}
-impl Clone for WINBIO_STORAGE_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_STORAGE_SCHEMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_STORAGE_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("DatabaseId", &self.DatabaseId).field("DataFormat", &self.DataFormat).field("Attributes", &self.Attributes).field("FilePath", &self.FilePath).field("ConnectionString", &self.ConnectionString).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_STORAGE_SCHEMA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_STORAGE_SCHEMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.BiometricFactor == other.BiometricFactor && self.DatabaseId == other.DatabaseId && self.DataFormat == other.DataFormat && self.Attributes == other.Attributes && self.FilePath == other.FilePath && self.ConnectionString == other.ConnectionString
-    }
-}
-impl Eq for WINBIO_STORAGE_SCHEMA {}
 impl Default for WINBIO_STORAGE_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub NumberOfAlgorithms: u32,
     pub AlgorithmData: WINBIO_DATA,
 }
-impl Copy for WINBIO_SUPPORTED_ALGORITHMS {}
-impl Clone for WINBIO_SUPPORTED_ALGORITHMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_SUPPORTED_ALGORITHMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_SUPPORTED_ALGORITHMS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("NumberOfAlgorithms", &self.NumberOfAlgorithms).field("AlgorithmData", &self.AlgorithmData).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_SUPPORTED_ALGORITHMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.NumberOfAlgorithms == other.NumberOfAlgorithms && self.AlgorithmData == other.AlgorithmData
-    }
-}
-impl Eq for WINBIO_SUPPORTED_ALGORITHMS {}
 impl Default for WINBIO_SUPPORTED_ALGORITHMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: u32,
     pub PoolType: u32,
@@ -3868,98 +2409,37 @@ pub struct WINBIO_UNIT_SCHEMA {
     pub SerialNumber: [u16; 256],
     pub FirmwareVersion: WINBIO_VERSION,
 }
-impl Copy for WINBIO_UNIT_SCHEMA {}
-impl Clone for WINBIO_UNIT_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_UNIT_SCHEMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_UNIT_SCHEMA")
-            .field("UnitId", &self.UnitId)
-            .field("PoolType", &self.PoolType)
-            .field("BiometricFactor", &self.BiometricFactor)
-            .field("SensorSubType", &self.SensorSubType)
-            .field("Capabilities", &self.Capabilities)
-            .field("DeviceInstanceId", &self.DeviceInstanceId)
-            .field("Description", &self.Description)
-            .field("Manufacturer", &self.Manufacturer)
-            .field("Model", &self.Model)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("FirmwareVersion", &self.FirmwareVersion)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_UNIT_SCHEMA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_UNIT_SCHEMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.PoolType == other.PoolType && self.BiometricFactor == other.BiometricFactor && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.DeviceInstanceId == other.DeviceInstanceId && self.Description == other.Description && self.Manufacturer == other.Manufacturer && self.Model == other.Model && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion
-    }
-}
-impl Eq for WINBIO_UNIT_SCHEMA {}
 impl Default for WINBIO_UNIT_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_UPDATE_FIRMWARE {
     pub PayloadSize: u32,
     pub FirmwareData: WINBIO_DATA,
 }
-impl Copy for WINBIO_UPDATE_FIRMWARE {}
-impl Clone for WINBIO_UPDATE_FIRMWARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_UPDATE_FIRMWARE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_UPDATE_FIRMWARE").field("PayloadSize", &self.PayloadSize).field("FirmwareData", &self.FirmwareData).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_UPDATE_FIRMWARE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_UPDATE_FIRMWARE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.FirmwareData == other.FirmwareData
-    }
-}
-impl Eq for WINBIO_UPDATE_FIRMWARE {}
 impl Default for WINBIO_UPDATE_FIRMWARE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl Copy for WINBIO_VERSION {}
-impl Clone for WINBIO_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINBIO_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINBIO_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for WINBIO_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINBIO_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl Eq for WINBIO_VERSION {}
 impl Default for WINBIO_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

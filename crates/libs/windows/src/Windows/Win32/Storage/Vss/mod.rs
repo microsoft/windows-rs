@@ -1821,6 +1821,7 @@ impl core::fmt::Debug for VSS_WRITER_STATE {
 }
 pub const VSSCoordinator: windows_core::GUID = windows_core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSS_DIFF_AREA_PROP {
     pub m_pwszVolumeName: *mut u16,
     pub m_pwszDiffAreaVolumeName: *mut u16,
@@ -1828,73 +1829,35 @@ pub struct VSS_DIFF_AREA_PROP {
     pub m_llAllocatedDiffSpace: i64,
     pub m_llUsedDiffSpace: i64,
 }
-impl Copy for VSS_DIFF_AREA_PROP {}
-impl Clone for VSS_DIFF_AREA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSS_DIFF_AREA_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSS_DIFF_AREA_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName).field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace).field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace).field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace).finish()
-    }
-}
 impl windows_core::TypeKind for VSS_DIFF_AREA_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSS_DIFF_AREA_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_pwszVolumeName == other.m_pwszVolumeName && self.m_pwszDiffAreaVolumeName == other.m_pwszDiffAreaVolumeName && self.m_llMaximumDiffSpace == other.m_llMaximumDiffSpace && self.m_llAllocatedDiffSpace == other.m_llAllocatedDiffSpace && self.m_llUsedDiffSpace == other.m_llUsedDiffSpace
-    }
-}
-impl Eq for VSS_DIFF_AREA_PROP {}
 impl Default for VSS_DIFF_AREA_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSS_DIFF_VOLUME_PROP {
     pub m_pwszVolumeName: *mut u16,
     pub m_pwszVolumeDisplayName: *mut u16,
     pub m_llVolumeFreeSpace: i64,
     pub m_llVolumeTotalSpace: i64,
 }
-impl Copy for VSS_DIFF_VOLUME_PROP {}
-impl Clone for VSS_DIFF_VOLUME_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSS_DIFF_VOLUME_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSS_DIFF_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).field("m_llVolumeFreeSpace", &self.m_llVolumeFreeSpace).field("m_llVolumeTotalSpace", &self.m_llVolumeTotalSpace).finish()
-    }
-}
 impl windows_core::TypeKind for VSS_DIFF_VOLUME_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSS_DIFF_VOLUME_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_pwszVolumeName == other.m_pwszVolumeName && self.m_pwszVolumeDisplayName == other.m_pwszVolumeDisplayName && self.m_llVolumeFreeSpace == other.m_llVolumeFreeSpace && self.m_llVolumeTotalSpace == other.m_llVolumeTotalSpace
-    }
-}
-impl Eq for VSS_DIFF_VOLUME_PROP {}
 impl Default for VSS_DIFF_VOLUME_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VSS_MGMT_OBJECT_PROP {
     pub Type: VSS_MGMT_OBJECT_TYPE,
     pub Obj: VSS_MGMT_OBJECT_UNION,
-}
-impl Copy for VSS_MGMT_OBJECT_PROP {}
-impl Clone for VSS_MGMT_OBJECT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VSS_MGMT_OBJECT_PROP {
     type TypeKind = windows_core::CopyType;
@@ -1905,16 +1868,11 @@ impl Default for VSS_MGMT_OBJECT_PROP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VSS_MGMT_OBJECT_UNION {
     pub Vol: VSS_VOLUME_PROP,
     pub DiffVol: VSS_DIFF_VOLUME_PROP,
     pub DiffArea: VSS_DIFF_AREA_PROP,
-}
-impl Copy for VSS_MGMT_OBJECT_UNION {}
-impl Clone for VSS_MGMT_OBJECT_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VSS_MGMT_OBJECT_UNION {
     type TypeKind = windows_core::CopyType;
@@ -1925,15 +1883,10 @@ impl Default for VSS_MGMT_OBJECT_UNION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VSS_OBJECT_PROP {
     pub Type: VSS_OBJECT_TYPE,
     pub Obj: VSS_OBJECT_UNION,
-}
-impl Copy for VSS_OBJECT_PROP {}
-impl Clone for VSS_OBJECT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VSS_OBJECT_PROP {
     type TypeKind = windows_core::CopyType;
@@ -1944,15 +1897,10 @@ impl Default for VSS_OBJECT_PROP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VSS_OBJECT_UNION {
     pub Snap: VSS_SNAPSHOT_PROP,
     pub Prov: VSS_PROVIDER_PROP,
-}
-impl Copy for VSS_OBJECT_UNION {}
-impl Clone for VSS_OBJECT_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VSS_OBJECT_UNION {
     type TypeKind = windows_core::CopyType;
@@ -1963,6 +1911,7 @@ impl Default for VSS_OBJECT_UNION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSS_PROVIDER_PROP {
     pub m_ProviderId: windows_core::GUID,
     pub m_pwszProviderName: *mut u16,
@@ -1971,32 +1920,16 @@ pub struct VSS_PROVIDER_PROP {
     pub m_ProviderVersionId: windows_core::GUID,
     pub m_ClassId: windows_core::GUID,
 }
-impl Copy for VSS_PROVIDER_PROP {}
-impl Clone for VSS_PROVIDER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSS_PROVIDER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSS_PROVIDER_PROP").field("m_ProviderId", &self.m_ProviderId).field("m_pwszProviderName", &self.m_pwszProviderName).field("m_eProviderType", &self.m_eProviderType).field("m_pwszProviderVersion", &self.m_pwszProviderVersion).field("m_ProviderVersionId", &self.m_ProviderVersionId).field("m_ClassId", &self.m_ClassId).finish()
-    }
-}
 impl windows_core::TypeKind for VSS_PROVIDER_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSS_PROVIDER_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_ProviderId == other.m_ProviderId && self.m_pwszProviderName == other.m_pwszProviderName && self.m_eProviderType == other.m_eProviderType && self.m_pwszProviderVersion == other.m_pwszProviderVersion && self.m_ProviderVersionId == other.m_ProviderVersionId && self.m_ClassId == other.m_ClassId
-    }
-}
-impl Eq for VSS_PROVIDER_PROP {}
 impl Default for VSS_PROVIDER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_PROP {
     pub m_SnapshotId: windows_core::GUID,
     pub m_SnapshotSetId: windows_core::GUID,
@@ -2012,76 +1945,30 @@ pub struct VSS_SNAPSHOT_PROP {
     pub m_tsCreationTimestamp: i64,
     pub m_eStatus: VSS_SNAPSHOT_STATE,
 }
-impl Copy for VSS_SNAPSHOT_PROP {}
-impl Clone for VSS_SNAPSHOT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSS_SNAPSHOT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSS_SNAPSHOT_PROP")
-            .field("m_SnapshotId", &self.m_SnapshotId)
-            .field("m_SnapshotSetId", &self.m_SnapshotSetId)
-            .field("m_lSnapshotsCount", &self.m_lSnapshotsCount)
-            .field("m_pwszSnapshotDeviceObject", &self.m_pwszSnapshotDeviceObject)
-            .field("m_pwszOriginalVolumeName", &self.m_pwszOriginalVolumeName)
-            .field("m_pwszOriginatingMachine", &self.m_pwszOriginatingMachine)
-            .field("m_pwszServiceMachine", &self.m_pwszServiceMachine)
-            .field("m_pwszExposedName", &self.m_pwszExposedName)
-            .field("m_pwszExposedPath", &self.m_pwszExposedPath)
-            .field("m_ProviderId", &self.m_ProviderId)
-            .field("m_lSnapshotAttributes", &self.m_lSnapshotAttributes)
-            .field("m_tsCreationTimestamp", &self.m_tsCreationTimestamp)
-            .field("m_eStatus", &self.m_eStatus)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VSS_SNAPSHOT_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSS_SNAPSHOT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_SnapshotId == other.m_SnapshotId && self.m_SnapshotSetId == other.m_SnapshotSetId && self.m_lSnapshotsCount == other.m_lSnapshotsCount && self.m_pwszSnapshotDeviceObject == other.m_pwszSnapshotDeviceObject && self.m_pwszOriginalVolumeName == other.m_pwszOriginalVolumeName && self.m_pwszOriginatingMachine == other.m_pwszOriginatingMachine && self.m_pwszServiceMachine == other.m_pwszServiceMachine && self.m_pwszExposedName == other.m_pwszExposedName && self.m_pwszExposedPath == other.m_pwszExposedPath && self.m_ProviderId == other.m_ProviderId && self.m_lSnapshotAttributes == other.m_lSnapshotAttributes && self.m_tsCreationTimestamp == other.m_tsCreationTimestamp && self.m_eStatus == other.m_eStatus
-    }
-}
-impl Eq for VSS_SNAPSHOT_PROP {}
 impl Default for VSS_SNAPSHOT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSS_VOLUME_PROP {
     pub m_pwszVolumeName: *mut u16,
     pub m_pwszVolumeDisplayName: *mut u16,
 }
-impl Copy for VSS_VOLUME_PROP {}
-impl Clone for VSS_VOLUME_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSS_VOLUME_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSS_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).finish()
-    }
-}
 impl windows_core::TypeKind for VSS_VOLUME_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSS_VOLUME_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_pwszVolumeName == other.m_pwszVolumeName && self.m_pwszVolumeDisplayName == other.m_pwszVolumeDisplayName
-    }
-}
-impl Eq for VSS_VOLUME_PROP {}
 impl Default for VSS_VOLUME_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_protectionLevel: VSS_PROTECTION_LEVEL,
     pub m_volumeIsOfflineForProtection: super::super::Foundation::BOOL,
@@ -2090,26 +1977,9 @@ pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_volumeHasUnusedDiffArea: super::super::Foundation::BOOL,
     pub m_reserved: u32,
 }
-impl Copy for VSS_VOLUME_PROTECTION_INFO {}
-impl Clone for VSS_VOLUME_PROTECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSS_VOLUME_PROTECTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSS_VOLUME_PROTECTION_INFO").field("m_protectionLevel", &self.m_protectionLevel).field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection).field("m_protectionFault", &self.m_protectionFault).field("m_failureStatus", &self.m_failureStatus).field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea).field("m_reserved", &self.m_reserved).finish()
-    }
-}
 impl windows_core::TypeKind for VSS_VOLUME_PROTECTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSS_VOLUME_PROTECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_protectionLevel == other.m_protectionLevel && self.m_volumeIsOfflineForProtection == other.m_volumeIsOfflineForProtection && self.m_protectionFault == other.m_protectionFault && self.m_failureStatus == other.m_failureStatus && self.m_volumeHasUnusedDiffArea == other.m_volumeHasUnusedDiffArea && self.m_reserved == other.m_reserved
-    }
-}
-impl Eq for VSS_VOLUME_PROTECTION_INFO {}
 impl Default for VSS_VOLUME_PROTECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

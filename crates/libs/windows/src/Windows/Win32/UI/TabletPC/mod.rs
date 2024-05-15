@@ -8406,36 +8406,21 @@ impl core::fmt::Debug for VisualState {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHARACTER_RANGE {
     pub wcLow: u16,
     pub cChars: u16,
 }
-impl Copy for CHARACTER_RANGE {}
-impl Clone for CHARACTER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHARACTER_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHARACTER_RANGE").field("wcLow", &self.wcLow).field("cChars", &self.cChars).finish()
-    }
-}
 impl windows_core::TypeKind for CHARACTER_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHARACTER_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.wcLow == other.wcLow && self.cChars == other.cChars
-    }
-}
-impl Eq for CHARACTER_RANGE {}
 impl Default for CHARACTER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
     pub dynamicRenderer: std::mem::ManuallyDrop<Option<IDynamicRenderer>>,
@@ -8445,20 +8430,9 @@ impl Clone for DYNAMIC_RENDERER_CACHED_DATA {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DYNAMIC_RENDERER_CACHED_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DYNAMIC_RENDERER_CACHED_DATA").field("strokeId", &self.strokeId).field("dynamicRenderer", &self.dynamicRenderer).finish()
-    }
-}
 impl windows_core::TypeKind for DYNAMIC_RENDERER_CACHED_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DYNAMIC_RENDERER_CACHED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.strokeId == other.strokeId && self.dynamicRenderer == other.dynamicRenderer
-    }
-}
-impl Eq for DYNAMIC_RENDERER_CACHED_DATA {}
 impl Default for DYNAMIC_RENDERER_CACHED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8466,89 +8440,41 @@ impl Default for DYNAMIC_RENDERER_CACHED_DATA {
 }
 pub const DynamicRenderer: windows_core::GUID = windows_core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
-}
-impl Copy for FLICK_DATA {}
-impl Clone for FLICK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FLICK_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FLICK_DATA").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for FLICK_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FLICK_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for FLICK_DATA {}
 impl Default for FLICK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLICK_POINT {
     pub _bitfield: i32,
-}
-impl Copy for FLICK_POINT {}
-impl Clone for FLICK_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FLICK_POINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FLICK_POINT").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for FLICK_POINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FLICK_POINT {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for FLICK_POINT {}
 impl Default for FLICK_POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GESTURE_DATA {
     pub gestureId: i32,
     pub recoConfidence: i32,
     pub strokeCount: i32,
 }
-impl Copy for GESTURE_DATA {}
-impl Clone for GESTURE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GESTURE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GESTURE_DATA").field("gestureId", &self.gestureId).field("recoConfidence", &self.recoConfidence).field("strokeCount", &self.strokeCount).finish()
-    }
-}
 impl windows_core::TypeKind for GESTURE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GESTURE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.gestureId == other.gestureId && self.recoConfidence == other.recoConfidence && self.strokeCount == other.strokeCount
-    }
-}
-impl Eq for GESTURE_DATA {}
 impl Default for GESTURE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8638,6 +8564,7 @@ impl windows_core::TypeKind for HRECOWORDLIST {
 pub const HandwrittenTextInsertion: windows_core::GUID = windows_core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: std::mem::ManuallyDrop<Option<IInkCursor>>,
@@ -8651,23 +8578,9 @@ impl Clone for IEC_GESTUREINFO {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl core::fmt::Debug for IEC_GESTUREINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IEC_GESTUREINFO").field("nmhdr", &self.nmhdr).field("Cursor", &self.Cursor).field("Strokes", &self.Strokes).field("Gestures", &self.Gestures).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl windows_core::TypeKind for IEC_GESTUREINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl PartialEq for IEC_GESTUREINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nmhdr == other.nmhdr && self.Cursor == other.Cursor && self.Strokes == other.Strokes && self.Gestures == other.Gestures
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Eq for IEC_GESTUREINFO {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl Default for IEC_GESTUREINFO {
     fn default() -> Self {
@@ -8676,6 +8589,7 @@ impl Default for IEC_GESTUREINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: std::mem::ManuallyDrop<Option<IInkRecognitionResult>>,
@@ -8687,23 +8601,9 @@ impl Clone for IEC_RECOGNITIONRESULTINFO {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl core::fmt::Debug for IEC_RECOGNITIONRESULTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IEC_RECOGNITIONRESULTINFO").field("nmhdr", &self.nmhdr).field("RecognitionResult", &self.RecognitionResult).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl windows_core::TypeKind for IEC_RECOGNITIONRESULTINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl PartialEq for IEC_RECOGNITIONRESULTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nmhdr == other.nmhdr && self.RecognitionResult == other.RecognitionResult
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Eq for IEC_RECOGNITIONRESULTINFO {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl Default for IEC_RECOGNITIONRESULTINFO {
     fn default() -> Self {
@@ -8712,6 +8612,7 @@ impl Default for IEC_RECOGNITIONRESULTINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: std::mem::ManuallyDrop<Option<IInkCursor>>,
@@ -8724,23 +8625,9 @@ impl Clone for IEC_STROKEINFO {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl core::fmt::Debug for IEC_STROKEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IEC_STROKEINFO").field("nmhdr", &self.nmhdr).field("Cursor", &self.Cursor).field("Stroke", &self.Stroke).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl windows_core::TypeKind for IEC_STROKEINFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl PartialEq for IEC_STROKEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nmhdr == other.nmhdr && self.Cursor == other.Cursor && self.Stroke == other.Stroke
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Eq for IEC_STROKEINFO {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl Default for IEC_STROKEINFO {
     fn default() -> Self {
@@ -8748,6 +8635,7 @@ impl Default for IEC_STROKEINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
@@ -8755,26 +8643,9 @@ pub struct INKMETRIC {
     pub dwFlags: u32,
     pub color: super::super::Foundation::COLORREF,
 }
-impl Copy for INKMETRIC {}
-impl Clone for INKMETRIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INKMETRIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INKMETRIC").field("iHeight", &self.iHeight).field("iFontAscent", &self.iFontAscent).field("iFontDescent", &self.iFontDescent).field("dwFlags", &self.dwFlags).field("color", &self.color).finish()
-    }
-}
 impl windows_core::TypeKind for INKMETRIC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INKMETRIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.iHeight == other.iHeight && self.iFontAscent == other.iFontAscent && self.iFontDescent == other.iFontDescent && self.dwFlags == other.dwFlags && self.color == other.color
-    }
-}
-impl Eq for INKMETRIC {}
 impl Default for INKMETRIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8789,6 +8660,7 @@ pub const InkEdit: windows_core::GUID = windows_core::GUID::from_u128(0xe5ca59f5
 pub const InkOverlay: windows_core::GUID = windows_core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
 pub const InkPicture: windows_core::GUID = windows_core::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
     pub rectDrawnBox: super::super::Foundation::RECT,
@@ -8796,26 +8668,9 @@ pub struct InkRecoGuide {
     pub cColumns: i32,
     pub midline: i32,
 }
-impl Copy for InkRecoGuide {}
-impl Clone for InkRecoGuide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for InkRecoGuide {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("InkRecoGuide").field("rectWritingBox", &self.rectWritingBox).field("rectDrawnBox", &self.rectDrawnBox).field("cRows", &self.cRows).field("cColumns", &self.cColumns).field("midline", &self.midline).finish()
-    }
-}
 impl windows_core::TypeKind for InkRecoGuide {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for InkRecoGuide {
-    fn eq(&self, other: &Self) -> bool {
-        self.rectWritingBox == other.rectWritingBox && self.rectDrawnBox == other.rectDrawnBox && self.cRows == other.cRows && self.cColumns == other.cColumns && self.midline == other.midline
-    }
-}
-impl Eq for InkRecoGuide {}
 impl Default for InkRecoGuide {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8831,60 +8686,28 @@ pub const InkTablets: windows_core::GUID = windows_core::GUID::from_u128(0x6e4fc
 pub const InkTransform: windows_core::GUID = windows_core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: windows_core::GUID = windows_core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
     pub iMidlineOffset: i16,
 }
-impl Copy for LATTICE_METRICS {}
-impl Clone for LATTICE_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LATTICE_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LATTICE_METRICS").field("lsBaseline", &self.lsBaseline).field("iMidlineOffset", &self.iMidlineOffset).finish()
-    }
-}
 impl windows_core::TypeKind for LATTICE_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LATTICE_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lsBaseline == other.lsBaseline && self.iMidlineOffset == other.iMidlineOffset
-    }
-}
-impl Eq for LATTICE_METRICS {}
 impl Default for LATTICE_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
     pub PtB: super::super::Foundation::POINT,
 }
-impl Copy for LINE_SEGMENT {}
-impl Clone for LINE_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LINE_SEGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LINE_SEGMENT").field("PtA", &self.PtA).field("PtB", &self.PtB).finish()
-    }
-}
 impl windows_core::TypeKind for LINE_SEGMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LINE_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PtA == other.PtA && self.PtB == other.PtB
-    }
-}
-impl Eq for LINE_SEGMENT {}
 impl Default for LINE_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8892,6 +8715,7 @@ impl Default for LINE_SEGMENT {
 }
 pub const MathInputControl: windows_core::GUID = windows_core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
     pub cPacketProperties: u32,
@@ -8899,88 +8723,39 @@ pub struct PACKET_DESCRIPTION {
     pub cButtons: u32,
     pub pguidButtons: *mut windows_core::GUID,
 }
-impl Copy for PACKET_DESCRIPTION {}
-impl Clone for PACKET_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PACKET_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PACKET_DESCRIPTION").field("cbPacketSize", &self.cbPacketSize).field("cPacketProperties", &self.cPacketProperties).field("pPacketProperties", &self.pPacketProperties).field("cButtons", &self.cButtons).field("pguidButtons", &self.pguidButtons).finish()
-    }
-}
 impl windows_core::TypeKind for PACKET_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PACKET_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbPacketSize == other.cbPacketSize && self.cPacketProperties == other.cPacketProperties && self.pPacketProperties == other.pPacketProperties && self.cButtons == other.cButtons && self.pguidButtons == other.pguidButtons
-    }
-}
-impl Eq for PACKET_DESCRIPTION {}
 impl Default for PACKET_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
-impl Copy for PACKET_PROPERTY {}
-impl Clone for PACKET_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PACKET_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PACKET_PROPERTY").field("guid", &self.guid).field("PropertyMetrics", &self.PropertyMetrics).finish()
-    }
-}
 impl windows_core::TypeKind for PACKET_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PACKET_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.PropertyMetrics == other.PropertyMetrics
-    }
-}
-impl Eq for PACKET_PROPERTY {}
 impl Default for PACKET_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
     pub Units: PROPERTY_UNITS,
     pub fResolution: f32,
 }
-impl Copy for PROPERTY_METRICS {}
-impl Clone for PROPERTY_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROPERTY_METRICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROPERTY_METRICS").field("nLogicalMin", &self.nLogicalMin).field("nLogicalMax", &self.nLogicalMax).field("Units", &self.Units).field("fResolution", &self.fResolution).finish()
-    }
-}
 impl windows_core::TypeKind for PROPERTY_METRICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROPERTY_METRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.nLogicalMin == other.nLogicalMin && self.nLogicalMax == other.nLogicalMax && self.Units == other.Units && self.fResolution == other.fResolution
-    }
-}
-impl Eq for PROPERTY_METRICS {}
 impl Default for PROPERTY_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8989,38 +8764,23 @@ impl Default for PROPERTY_METRICS {
 pub const PenInputPanel: windows_core::GUID = windows_core::GUID::from_u128(0xf744e496_1b5a_489e_81dc_fbd7ac6298a8);
 pub const PenInputPanel_Internal: windows_core::GUID = windows_core::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_ATTRS {
     pub dwRecoCapabilityFlags: u32,
     pub awcVendorName: [u16; 32],
     pub awcFriendlyName: [u16; 64],
     pub awLanguageId: [u16; 64],
 }
-impl Copy for RECO_ATTRS {}
-impl Clone for RECO_ATTRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_ATTRS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_ATTRS").field("dwRecoCapabilityFlags", &self.dwRecoCapabilityFlags).field("awcVendorName", &self.awcVendorName).field("awcFriendlyName", &self.awcFriendlyName).field("awLanguageId", &self.awLanguageId).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_ATTRS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_ATTRS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRecoCapabilityFlags == other.dwRecoCapabilityFlags && self.awcVendorName == other.awcVendorName && self.awcFriendlyName == other.awcFriendlyName && self.awLanguageId == other.awLanguageId
-    }
-}
-impl Eq for RECO_ATTRS {}
 impl Default for RECO_ATTRS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_GUIDE {
     pub xOrigin: i32,
     pub yOrigin: i32,
@@ -9032,32 +8792,16 @@ pub struct RECO_GUIDE {
     pub cVertBox: i32,
     pub cyMid: i32,
 }
-impl Copy for RECO_GUIDE {}
-impl Clone for RECO_GUIDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_GUIDE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_GUIDE").field("xOrigin", &self.xOrigin).field("yOrigin", &self.yOrigin).field("cxBox", &self.cxBox).field("cyBox", &self.cyBox).field("cxBase", &self.cxBase).field("cyBase", &self.cyBase).field("cHorzBox", &self.cHorzBox).field("cVertBox", &self.cVertBox).field("cyMid", &self.cyMid).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_GUIDE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_GUIDE {
-    fn eq(&self, other: &Self) -> bool {
-        self.xOrigin == other.xOrigin && self.yOrigin == other.yOrigin && self.cxBox == other.cxBox && self.cyBox == other.cyBox && self.cxBase == other.cxBase && self.cyBase == other.cyBase && self.cHorzBox == other.cHorzBox && self.cVertBox == other.cVertBox && self.cyMid == other.cyMid
-    }
-}
-impl Eq for RECO_GUIDE {}
 impl Default for RECO_GUIDE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_LATTICE {
     pub ulColumnCount: u32,
     pub pLatticeColumns: *mut RECO_LATTICE_COLUMN,
@@ -9067,32 +8811,16 @@ pub struct RECO_LATTICE {
     pub pulBestResultColumns: *mut u32,
     pub pulBestResultIndexes: *mut u32,
 }
-impl Copy for RECO_LATTICE {}
-impl Clone for RECO_LATTICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_LATTICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_LATTICE").field("ulColumnCount", &self.ulColumnCount).field("pLatticeColumns", &self.pLatticeColumns).field("ulPropertyCount", &self.ulPropertyCount).field("pGuidProperties", &self.pGuidProperties).field("ulBestResultColumnCount", &self.ulBestResultColumnCount).field("pulBestResultColumns", &self.pulBestResultColumns).field("pulBestResultIndexes", &self.pulBestResultIndexes).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_LATTICE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_LATTICE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulColumnCount == other.ulColumnCount && self.pLatticeColumns == other.pLatticeColumns && self.ulPropertyCount == other.ulPropertyCount && self.pGuidProperties == other.pGuidProperties && self.ulBestResultColumnCount == other.ulBestResultColumnCount && self.pulBestResultColumns == other.pulBestResultColumns && self.pulBestResultIndexes == other.pulBestResultIndexes
-    }
-}
-impl Eq for RECO_LATTICE {}
 impl Default for RECO_LATTICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_LATTICE_COLUMN {
     pub key: u32,
     pub cpProp: RECO_LATTICE_PROPERTIES,
@@ -9101,32 +8829,16 @@ pub struct RECO_LATTICE_COLUMN {
     pub cLatticeElements: u32,
     pub pLatticeElements: *mut RECO_LATTICE_ELEMENT,
 }
-impl Copy for RECO_LATTICE_COLUMN {}
-impl Clone for RECO_LATTICE_COLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_LATTICE_COLUMN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_LATTICE_COLUMN").field("key", &self.key).field("cpProp", &self.cpProp).field("cStrokes", &self.cStrokes).field("pStrokes", &self.pStrokes).field("cLatticeElements", &self.cLatticeElements).field("pLatticeElements", &self.pLatticeElements).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_LATTICE_COLUMN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_LATTICE_COLUMN {
-    fn eq(&self, other: &Self) -> bool {
-        self.key == other.key && self.cpProp == other.cpProp && self.cStrokes == other.cStrokes && self.pStrokes == other.pStrokes && self.cLatticeElements == other.cLatticeElements && self.pLatticeElements == other.pLatticeElements
-    }
-}
-impl Eq for RECO_LATTICE_COLUMN {}
 impl Default for RECO_LATTICE_COLUMN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_LATTICE_ELEMENT {
     pub score: i32,
     pub r#type: u16,
@@ -9135,117 +8847,52 @@ pub struct RECO_LATTICE_ELEMENT {
     pub ulStrokeNumber: u32,
     pub epProp: RECO_LATTICE_PROPERTIES,
 }
-impl Copy for RECO_LATTICE_ELEMENT {}
-impl Clone for RECO_LATTICE_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_LATTICE_ELEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_LATTICE_ELEMENT").field("score", &self.score).field("type", &self.r#type).field("pData", &self.pData).field("ulNextColumn", &self.ulNextColumn).field("ulStrokeNumber", &self.ulStrokeNumber).field("epProp", &self.epProp).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_LATTICE_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_LATTICE_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.score == other.score && self.r#type == other.r#type && self.pData == other.pData && self.ulNextColumn == other.ulNextColumn && self.ulStrokeNumber == other.ulStrokeNumber && self.epProp == other.epProp
-    }
-}
-impl Eq for RECO_LATTICE_ELEMENT {}
 impl Default for RECO_LATTICE_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_LATTICE_PROPERTIES {
     pub cProperties: u32,
     pub apProps: *mut *mut RECO_LATTICE_PROPERTY,
 }
-impl Copy for RECO_LATTICE_PROPERTIES {}
-impl Clone for RECO_LATTICE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_LATTICE_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_LATTICE_PROPERTIES").field("cProperties", &self.cProperties).field("apProps", &self.apProps).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_LATTICE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_LATTICE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProperties == other.cProperties && self.apProps == other.apProps
-    }
-}
-impl Eq for RECO_LATTICE_PROPERTIES {}
 impl Default for RECO_LATTICE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_LATTICE_PROPERTY {
     pub guidProperty: windows_core::GUID,
     pub cbPropertyValue: u16,
     pub pPropertyValue: *mut u8,
 }
-impl Copy for RECO_LATTICE_PROPERTY {}
-impl Clone for RECO_LATTICE_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_LATTICE_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_LATTICE_PROPERTY").field("guidProperty", &self.guidProperty).field("cbPropertyValue", &self.cbPropertyValue).field("pPropertyValue", &self.pPropertyValue).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_LATTICE_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_LATTICE_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidProperty == other.guidProperty && self.cbPropertyValue == other.cbPropertyValue && self.pPropertyValue == other.pPropertyValue
-    }
-}
-impl Eq for RECO_LATTICE_PROPERTY {}
 impl Default for RECO_LATTICE_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECO_RANGE {
     pub iwcBegin: u32,
     pub cCount: u32,
 }
-impl Copy for RECO_RANGE {}
-impl Clone for RECO_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECO_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECO_RANGE").field("iwcBegin", &self.iwcBegin).field("cCount", &self.cCount).finish()
-    }
-}
 impl windows_core::TypeKind for RECO_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECO_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.iwcBegin == other.iwcBegin && self.cCount == other.cCount
-    }
-}
-impl Eq for RECO_RANGE {}
 impl Default for RECO_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9253,36 +8900,21 @@ impl Default for RECO_RANGE {
 }
 pub const RealTimeStylus: windows_core::GUID = windows_core::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
 }
-impl Copy for STROKE_RANGE {}
-impl Clone for STROKE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STROKE_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STROKE_RANGE").field("iStrokeBegin", &self.iStrokeBegin).field("iStrokeEnd", &self.iStrokeEnd).finish()
-    }
-}
 impl windows_core::TypeKind for STROKE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STROKE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.iStrokeBegin == other.iStrokeBegin && self.iStrokeEnd == other.iStrokeEnd
-    }
-}
-impl Eq for STROKE_RANGE {}
 impl Default for STROKE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,
@@ -9291,26 +8923,9 @@ pub struct SYSTEM_EVENT_DATA {
     pub bCursorMode: u8,
     pub dwButtonState: u32,
 }
-impl Copy for SYSTEM_EVENT_DATA {}
-impl Clone for SYSTEM_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_EVENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_EVENT_DATA").field("bModifier", &self.bModifier).field("wKey", &self.wKey).field("xPos", &self.xPos).field("yPos", &self.yPos).field("bCursorMode", &self.bCursorMode).field("dwButtonState", &self.dwButtonState).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.bModifier == other.bModifier && self.wKey == other.wKey && self.xPos == other.xPos && self.yPos == other.yPos && self.bCursorMode == other.bCursorMode && self.dwButtonState == other.dwButtonState
-    }
-}
-impl Eq for SYSTEM_EVENT_DATA {}
 impl Default for SYSTEM_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9319,31 +8934,15 @@ impl Default for SYSTEM_EVENT_DATA {
 pub const SketchInk: windows_core::GUID = windows_core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: windows_core::GUID = windows_core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct StylusInfo {
     pub tcid: u32,
     pub cid: u32,
     pub bIsInvertedCursor: super::super::Foundation::BOOL,
 }
-impl Copy for StylusInfo {}
-impl Clone for StylusInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for StylusInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("StylusInfo").field("tcid", &self.tcid).field("cid", &self.cid).field("bIsInvertedCursor", &self.bIsInvertedCursor).finish()
-    }
-}
 impl windows_core::TypeKind for StylusInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for StylusInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.tcid == other.tcid && self.cid == other.cid && self.bIsInvertedCursor == other.bIsInvertedCursor
-    }
-}
-impl Eq for StylusInfo {}
 impl Default for StylusInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

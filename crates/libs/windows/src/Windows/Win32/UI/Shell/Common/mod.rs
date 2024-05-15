@@ -169,44 +169,23 @@ impl core::fmt::Debug for STRRET_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_core::PCWSTR,
     pub pszSpec: windows_core::PCWSTR,
 }
-impl Copy for COMDLG_FILTERSPEC {}
-impl Clone for COMDLG_FILTERSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMDLG_FILTERSPEC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMDLG_FILTERSPEC").field("pszName", &self.pszName).field("pszSpec", &self.pszSpec).finish()
-    }
-}
 impl windows_core::TypeKind for COMDLG_FILTERSPEC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMDLG_FILTERSPEC {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.pszSpec == other.pszSpec
-    }
-}
-impl Eq for COMDLG_FILTERSPEC {}
 impl Default for COMDLG_FILTERSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
-}
-impl Copy for ITEMIDLIST {}
-impl Clone for ITEMIDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ITEMIDLIST {
     type TypeKind = windows_core::CopyType;
@@ -217,16 +196,11 @@ impl Default for ITEMIDLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
     pub str: STRRET,
-}
-impl Copy for SHELLDETAILS {}
-impl Clone for SHELLDETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SHELLDETAILS {
     type TypeKind = windows_core::CopyType;
@@ -237,15 +211,10 @@ impl Default for SHELLDETAILS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
-}
-impl Copy for SHITEMID {}
-impl Clone for SHITEMID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SHITEMID {
     type TypeKind = windows_core::CopyType;
@@ -256,15 +225,10 @@ impl Default for SHITEMID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
-}
-impl Copy for STRRET {}
-impl Clone for STRRET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for STRRET {
     type TypeKind = windows_core::CopyType;
@@ -275,16 +239,11 @@ impl Default for STRRET {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union STRRET_0 {
     pub pOleStr: windows_core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
-}
-impl Copy for STRRET_0 {}
-impl Clone for STRRET_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for STRRET_0 {
     type TypeKind = windows_core::CopyType;

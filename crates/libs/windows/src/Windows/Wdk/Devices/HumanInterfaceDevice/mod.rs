@@ -30,37 +30,22 @@ pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> super::super::sup
     VhfStart(vhfhandle)
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
     pub reportBufferLen: u32,
     pub reportId: u8,
 }
-impl Copy for HID_XFER_PACKET {}
-impl Clone for HID_XFER_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HID_XFER_PACKET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HID_XFER_PACKET").field("reportBuffer", &self.reportBuffer).field("reportBufferLen", &self.reportBufferLen).field("reportId", &self.reportId).finish()
-    }
-}
 impl windows_core::TypeKind for HID_XFER_PACKET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HID_XFER_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        self.reportBuffer == other.reportBuffer && self.reportBufferLen == other.reportBufferLen && self.reportId == other.reportId
-    }
-}
-impl Eq for HID_XFER_PACKET {}
 impl Default for HID_XFER_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct VHF_CONFIG {
     pub Size: u32,
     pub VhfClientContext: *mut core::ffi::c_void,
@@ -82,32 +67,6 @@ pub struct VHF_CONFIG {
     pub EvtVhfCleanup: PEVT_VHF_CLEANUP,
     pub HardwareIDsLength: u16,
     pub HardwareIDs: windows_core::PWSTR,
-}
-impl Copy for VHF_CONFIG {}
-impl Clone for VHF_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VHF_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VHF_CONFIG")
-            .field("Size", &self.Size)
-            .field("VhfClientContext", &self.VhfClientContext)
-            .field("OperationContextSize", &self.OperationContextSize)
-            .field("FileHandle", &self.FileHandle)
-            .field("VendorID", &self.VendorID)
-            .field("ProductID", &self.ProductID)
-            .field("VersionNumber", &self.VersionNumber)
-            .field("ContainerID", &self.ContainerID)
-            .field("InstanceIDLength", &self.InstanceIDLength)
-            .field("InstanceID", &self.InstanceID)
-            .field("ReportDescriptorLength", &self.ReportDescriptorLength)
-            .field("ReportDescriptor", &self.ReportDescriptor)
-            .field("HardwareIDsLength", &self.HardwareIDsLength)
-            .field("HardwareIDs", &self.HardwareIDs)
-            .finish()
-    }
 }
 impl windows_core::TypeKind for VHF_CONFIG {
     type TypeKind = windows_core::CopyType;

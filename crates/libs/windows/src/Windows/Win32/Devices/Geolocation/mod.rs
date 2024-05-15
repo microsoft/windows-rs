@@ -789,6 +789,7 @@ pub const DefaultLocation: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const DispCivicAddressReport: windows_core::GUID = windows_core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
 pub const DispLatLongReport: windows_core::GUID = windows_core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_AGNSS_INJECT {
     pub Size: u32,
     pub Version: u32,
@@ -797,12 +798,6 @@ pub struct GNSS_AGNSS_INJECT {
     pub InjectionDataSize: u32,
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_AGNSS_INJECT_0,
-}
-impl Copy for GNSS_AGNSS_INJECT {}
-impl Clone for GNSS_AGNSS_INJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_AGNSS_INJECT {
     type TypeKind = windows_core::CopyType;
@@ -813,16 +808,11 @@ impl Default for GNSS_AGNSS_INJECT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_AGNSS_INJECT_0 {
     pub Time: GNSS_AGNSS_INJECTTIME,
     pub Position: GNSS_AGNSS_INJECTPOSITION,
     pub BlobData: GNSS_AGNSS_INJECTBLOB,
-}
-impl Copy for GNSS_AGNSS_INJECT_0 {}
-impl Clone for GNSS_AGNSS_INJECT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_AGNSS_INJECT_0 {
     type TypeKind = windows_core::CopyType;
@@ -833,6 +823,7 @@ impl Default for GNSS_AGNSS_INJECT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_AGNSS_INJECTBLOB {
     pub Size: u32,
     pub Version: u32,
@@ -842,32 +833,16 @@ pub struct GNSS_AGNSS_INJECTBLOB {
     pub BlobSize: u32,
     pub BlobData: [u8; 1],
 }
-impl Copy for GNSS_AGNSS_INJECTBLOB {}
-impl Clone for GNSS_AGNSS_INJECTBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_AGNSS_INJECTBLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_AGNSS_INJECTBLOB").field("Size", &self.Size).field("Version", &self.Version).field("BlobOui", &self.BlobOui).field("BlobVersion", &self.BlobVersion).field("AgnssFormat", &self.AgnssFormat).field("BlobSize", &self.BlobSize).field("BlobData", &self.BlobData).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_AGNSS_INJECTBLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_AGNSS_INJECTBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.BlobOui == other.BlobOui && self.BlobVersion == other.BlobVersion && self.AgnssFormat == other.AgnssFormat && self.BlobSize == other.BlobSize && self.BlobData == other.BlobData
-    }
-}
-impl Eq for GNSS_AGNSS_INJECTBLOB {}
 impl Default for GNSS_AGNSS_INJECTBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTPOSITION {
     pub Size: u32,
     pub Version: u32,
@@ -875,127 +850,63 @@ pub struct GNSS_AGNSS_INJECTPOSITION {
     pub BasicData: GNSS_FIXDATA_BASIC,
     pub AccuracyData: GNSS_FIXDATA_ACCURACY,
 }
-impl Copy for GNSS_AGNSS_INJECTPOSITION {}
-impl Clone for GNSS_AGNSS_INJECTPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_AGNSS_INJECTPOSITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_AGNSS_INJECTPOSITION").field("Size", &self.Size).field("Version", &self.Version).field("Age", &self.Age).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_AGNSS_INJECTPOSITION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_AGNSS_INJECTPOSITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Age == other.Age && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData
-    }
-}
-impl Eq for GNSS_AGNSS_INJECTPOSITION {}
 impl Default for GNSS_AGNSS_INJECTPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_AGNSS_INJECTTIME {
     pub Size: u32,
     pub Version: u32,
     pub UtcTime: super::super::Foundation::FILETIME,
     pub TimeUncertainty: u32,
 }
-impl Copy for GNSS_AGNSS_INJECTTIME {}
-impl Clone for GNSS_AGNSS_INJECTTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_AGNSS_INJECTTIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_AGNSS_INJECTTIME").field("Size", &self.Size).field("Version", &self.Version).field("UtcTime", &self.UtcTime).field("TimeUncertainty", &self.TimeUncertainty).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_AGNSS_INJECTTIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_AGNSS_INJECTTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.UtcTime == other.UtcTime && self.TimeUncertainty == other.TimeUncertainty
-    }
-}
-impl Eq for GNSS_AGNSS_INJECTTIME {}
 impl Default for GNSS_AGNSS_INJECTTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_AGNSS_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub RequestType: GNSS_AGNSS_REQUEST_TYPE,
     pub BlobFormat: u32,
 }
-impl Copy for GNSS_AGNSS_REQUEST_PARAM {}
-impl Clone for GNSS_AGNSS_REQUEST_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_AGNSS_REQUEST_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_AGNSS_REQUEST_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("RequestType", &self.RequestType).field("BlobFormat", &self.BlobFormat).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_AGNSS_REQUEST_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_AGNSS_REQUEST_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.RequestType == other.RequestType && self.BlobFormat == other.BlobFormat
-    }
-}
-impl Eq for GNSS_AGNSS_REQUEST_PARAM {}
 impl Default for GNSS_AGNSS_REQUEST_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_BREADCRUMBING_ALERT_DATA {
     pub Size: u32,
     pub Version: u32,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_BREADCRUMBING_ALERT_DATA {}
-impl Clone for GNSS_BREADCRUMBING_ALERT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_BREADCRUMBING_ALERT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_BREADCRUMBING_ALERT_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_BREADCRUMBING_ALERT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_BREADCRUMBING_ALERT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_BREADCRUMBING_ALERT_DATA {}
 impl Default for GNSS_BREADCRUMBING_ALERT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_BREADCRUMBING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1004,43 +915,21 @@ pub struct GNSS_BREADCRUMBING_PARAM {
     pub MaximumErrorTimeoutMs: u32,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_BREADCRUMBING_PARAM {}
-impl Clone for GNSS_BREADCRUMBING_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_BREADCRUMBING_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_BREADCRUMBING_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("MaximumHorizontalUncertainty", &self.MaximumHorizontalUncertainty).field("MinDistanceBetweenFixes", &self.MinDistanceBetweenFixes).field("MaximumErrorTimeoutMs", &self.MaximumErrorTimeoutMs).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_BREADCRUMBING_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_BREADCRUMBING_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.MaximumHorizontalUncertainty == other.MaximumHorizontalUncertainty && self.MinDistanceBetweenFixes == other.MinDistanceBetweenFixes && self.MaximumErrorTimeoutMs == other.MaximumErrorTimeoutMs && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_BREADCRUMBING_PARAM {}
 impl Default for GNSS_BREADCRUMBING_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_BREADCRUMB_LIST {
     pub Size: u32,
     pub Version: u32,
     pub NumCrumbs: u32,
     pub Anonymous: GNSS_BREADCRUMB_LIST_0,
-}
-impl Copy for GNSS_BREADCRUMB_LIST {}
-impl Clone for GNSS_BREADCRUMB_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_BREADCRUMB_LIST {
     type TypeKind = windows_core::CopyType;
@@ -1051,14 +940,9 @@ impl Default for GNSS_BREADCRUMB_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_BREADCRUMB_LIST_0 {
     pub v1: [GNSS_BREADCRUMB_V1; 50],
-}
-impl Copy for GNSS_BREADCRUMB_LIST_0 {}
-impl Clone for GNSS_BREADCRUMB_LIST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_BREADCRUMB_LIST_0 {
     type TypeKind = windows_core::CopyType;
@@ -1069,6 +953,7 @@ impl Default for GNSS_BREADCRUMB_LIST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_BREADCRUMB_V1 {
     pub FixTimeStamp: super::super::Foundation::FILETIME,
     pub Latitude: f64,
@@ -1082,44 +967,16 @@ pub struct GNSS_BREADCRUMB_V1 {
     pub HeadingAccuracy: u8,
     pub FixSuccess: u8,
 }
-impl Copy for GNSS_BREADCRUMB_V1 {}
-impl Clone for GNSS_BREADCRUMB_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_BREADCRUMB_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_BREADCRUMB_V1")
-            .field("FixTimeStamp", &self.FixTimeStamp)
-            .field("Latitude", &self.Latitude)
-            .field("Longitude", &self.Longitude)
-            .field("HorizontalAccuracy", &self.HorizontalAccuracy)
-            .field("Speed", &self.Speed)
-            .field("SpeedAccuracy", &self.SpeedAccuracy)
-            .field("Altitude", &self.Altitude)
-            .field("AltitudeAccuracy", &self.AltitudeAccuracy)
-            .field("Heading", &self.Heading)
-            .field("HeadingAccuracy", &self.HeadingAccuracy)
-            .field("FixSuccess", &self.FixSuccess)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_BREADCRUMB_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_BREADCRUMB_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FixTimeStamp == other.FixTimeStamp && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.HorizontalAccuracy == other.HorizontalAccuracy && self.Speed == other.Speed && self.SpeedAccuracy == other.SpeedAccuracy && self.Altitude == other.Altitude && self.AltitudeAccuracy == other.AltitudeAccuracy && self.Heading == other.Heading && self.HeadingAccuracy == other.HeadingAccuracy && self.FixSuccess == other.FixSuccess
-    }
-}
-impl Eq for GNSS_BREADCRUMB_V1 {}
 impl Default for GNSS_BREADCRUMB_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_CHIPSETINFO {
     pub Size: u32,
     pub Version: u32,
@@ -1128,95 +985,47 @@ pub struct GNSS_CHIPSETINFO {
     pub FirmwareVersion: [u16; 20],
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_CHIPSETINFO {}
-impl Clone for GNSS_CHIPSETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_CHIPSETINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_CHIPSETINFO").field("Size", &self.Size).field("Version", &self.Version).field("ManufacturerID", &self.ManufacturerID).field("HardwareID", &self.HardwareID).field("FirmwareVersion", &self.FirmwareVersion).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_CHIPSETINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_CHIPSETINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.ManufacturerID == other.ManufacturerID && self.HardwareID == other.HardwareID && self.FirmwareVersion == other.FirmwareVersion && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_CHIPSETINFO {}
 impl Default for GNSS_CHIPSETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_CONTINUOUSTRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub PreferredInterval: u32,
 }
-impl Copy for GNSS_CONTINUOUSTRACKING_PARAM {}
-impl Clone for GNSS_CONTINUOUSTRACKING_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_CONTINUOUSTRACKING_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_CONTINUOUSTRACKING_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("PreferredInterval", &self.PreferredInterval).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_CONTINUOUSTRACKING_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_CONTINUOUSTRACKING_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.PreferredInterval == other.PreferredInterval
-    }
-}
-impl Eq for GNSS_CONTINUOUSTRACKING_PARAM {}
 impl Default for GNSS_CONTINUOUSTRACKING_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_CP_NI_INFO {
     pub Size: u32,
     pub Version: u32,
     pub RequestorId: [u16; 260],
     pub NotificationText: [u16; 260],
 }
-impl Copy for GNSS_CP_NI_INFO {}
-impl Clone for GNSS_CP_NI_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_CP_NI_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_CP_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).field("NotificationText", &self.NotificationText).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_CP_NI_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_CP_NI_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId && self.NotificationText == other.NotificationText
-    }
-}
-impl Eq for GNSS_CP_NI_INFO {}
 impl Default for GNSS_CP_NI_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CWTESTDATA {
     pub Size: u32,
     pub Version: u32,
@@ -1225,32 +1034,16 @@ pub struct GNSS_CWTESTDATA {
     pub Frequency: f64,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_CWTESTDATA {}
-impl Clone for GNSS_CWTESTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_CWTESTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_CWTESTDATA").field("Size", &self.Size).field("Version", &self.Version).field("TestResultStatus", &self.TestResultStatus).field("SignalToNoiseRatio", &self.SignalToNoiseRatio).field("Frequency", &self.Frequency).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_CWTESTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_CWTESTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.TestResultStatus == other.TestResultStatus && self.SignalToNoiseRatio == other.SignalToNoiseRatio && self.Frequency == other.Frequency && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_CWTESTDATA {}
 impl Default for GNSS_CWTESTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_DEVICE_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
@@ -1280,117 +1073,31 @@ pub struct GNSS_DEVICE_CAPABILITY {
     pub MaxGnssBreadCrumbFixes: u32,
     pub Unused: [u8; 496],
 }
-impl Copy for GNSS_DEVICE_CAPABILITY {}
-impl Clone for GNSS_DEVICE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_DEVICE_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_DEVICE_CAPABILITY")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("SupportMultipleFixSessions", &self.SupportMultipleFixSessions)
-            .field("SupportMultipleAppSessions", &self.SupportMultipleAppSessions)
-            .field("RequireAGnssInjection", &self.RequireAGnssInjection)
-            .field("AgnssFormatSupported", &self.AgnssFormatSupported)
-            .field("AgnssFormatPreferred", &self.AgnssFormatPreferred)
-            .field("SupportDistanceTracking", &self.SupportDistanceTracking)
-            .field("SupportContinuousTracking", &self.SupportContinuousTracking)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .field("Reserved5", &self.Reserved5)
-            .field("GeofencingSupport", &self.GeofencingSupport)
-            .field("Reserved6", &self.Reserved6)
-            .field("Reserved7", &self.Reserved7)
-            .field("SupportCpLocation", &self.SupportCpLocation)
-            .field("SupportUplV2", &self.SupportUplV2)
-            .field("SupportSuplV1", &self.SupportSuplV1)
-            .field("SupportSuplV2", &self.SupportSuplV2)
-            .field("SupportedSuplVersion", &self.SupportedSuplVersion)
-            .field("MaxGeofencesSupported", &self.MaxGeofencesSupported)
-            .field("SupportMultipleSuplRootCert", &self.SupportMultipleSuplRootCert)
-            .field("GnssBreadCrumbPayloadVersion", &self.GnssBreadCrumbPayloadVersion)
-            .field("MaxGnssBreadCrumbFixes", &self.MaxGnssBreadCrumbFixes)
-            .field("Unused", &self.Unused)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_DEVICE_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_DEVICE_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.SupportMultipleFixSessions == other.SupportMultipleFixSessions
-            && self.SupportMultipleAppSessions == other.SupportMultipleAppSessions
-            && self.RequireAGnssInjection == other.RequireAGnssInjection
-            && self.AgnssFormatSupported == other.AgnssFormatSupported
-            && self.AgnssFormatPreferred == other.AgnssFormatPreferred
-            && self.SupportDistanceTracking == other.SupportDistanceTracking
-            && self.SupportContinuousTracking == other.SupportContinuousTracking
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.Reserved4 == other.Reserved4
-            && self.Reserved5 == other.Reserved5
-            && self.GeofencingSupport == other.GeofencingSupport
-            && self.Reserved6 == other.Reserved6
-            && self.Reserved7 == other.Reserved7
-            && self.SupportCpLocation == other.SupportCpLocation
-            && self.SupportUplV2 == other.SupportUplV2
-            && self.SupportSuplV1 == other.SupportSuplV1
-            && self.SupportSuplV2 == other.SupportSuplV2
-            && self.SupportedSuplVersion == other.SupportedSuplVersion
-            && self.MaxGeofencesSupported == other.MaxGeofencesSupported
-            && self.SupportMultipleSuplRootCert == other.SupportMultipleSuplRootCert
-            && self.GnssBreadCrumbPayloadVersion == other.GnssBreadCrumbPayloadVersion
-            && self.MaxGnssBreadCrumbFixes == other.MaxGnssBreadCrumbFixes
-            && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_DEVICE_CAPABILITY {}
 impl Default for GNSS_DEVICE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_DISTANCETRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub MovementThreshold: u32,
 }
-impl Copy for GNSS_DISTANCETRACKING_PARAM {}
-impl Clone for GNSS_DISTANCETRACKING_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_DISTANCETRACKING_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_DISTANCETRACKING_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("MovementThreshold", &self.MovementThreshold).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_DISTANCETRACKING_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_DISTANCETRACKING_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.MovementThreshold == other.MovementThreshold
-    }
-}
-impl Eq for GNSS_DISTANCETRACKING_PARAM {}
 impl Default for GNSS_DISTANCETRACKING_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_DRIVERCOMMAND_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1400,64 +1107,32 @@ pub struct GNSS_DRIVERCOMMAND_PARAM {
     pub Unused: [u8; 512],
     pub CommandData: [u8; 1],
 }
-impl Copy for GNSS_DRIVERCOMMAND_PARAM {}
-impl Clone for GNSS_DRIVERCOMMAND_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_DRIVERCOMMAND_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_DRIVERCOMMAND_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("CommandType", &self.CommandType).field("Reserved", &self.Reserved).field("CommandDataSize", &self.CommandDataSize).field("Unused", &self.Unused).field("CommandData", &self.CommandData).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_DRIVERCOMMAND_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_DRIVERCOMMAND_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.CommandType == other.CommandType && self.Reserved == other.Reserved && self.CommandDataSize == other.CommandDataSize && self.Unused == other.Unused && self.CommandData == other.CommandData
-    }
-}
-impl Eq for GNSS_DRIVERCOMMAND_PARAM {}
 impl Default for GNSS_DRIVERCOMMAND_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_DRIVER_REQUEST_DATA {
     pub Size: u32,
     pub Version: u32,
     pub Request: GNSS_DRIVER_REQUEST,
     pub RequestFlag: u32,
 }
-impl Copy for GNSS_DRIVER_REQUEST_DATA {}
-impl Clone for GNSS_DRIVER_REQUEST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_DRIVER_REQUEST_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_DRIVER_REQUEST_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Request", &self.Request).field("RequestFlag", &self.RequestFlag).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_DRIVER_REQUEST_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_DRIVER_REQUEST_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Request == other.Request && self.RequestFlag == other.RequestFlag
-    }
-}
-impl Eq for GNSS_DRIVER_REQUEST_DATA {}
 impl Default for GNSS_DRIVER_REQUEST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_ERRORINFO {
     pub Size: u32,
     pub Version: u32,
@@ -1466,32 +1141,16 @@ pub struct GNSS_ERRORINFO {
     pub ErrorDescription: [u16; 256],
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_ERRORINFO {}
-impl Clone for GNSS_ERRORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_ERRORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_ERRORINFO").field("Size", &self.Size).field("Version", &self.Version).field("ErrorCode", &self.ErrorCode).field("IsRecoverable", &self.IsRecoverable).field("ErrorDescription", &self.ErrorDescription).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_ERRORINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_ERRORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.ErrorCode == other.ErrorCode && self.IsRecoverable == other.IsRecoverable && self.ErrorDescription == other.ErrorDescription && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_ERRORINFO {}
 impl Default for GNSS_ERRORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_EVENT {
     pub Size: u32,
     pub Version: u32,
@@ -1499,12 +1158,6 @@ pub struct GNSS_EVENT {
     pub EventDataSize: u32,
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_EVENT_0,
-}
-impl Copy for GNSS_EVENT {}
-impl Clone for GNSS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_EVENT {
     type TypeKind = windows_core::CopyType;
@@ -1515,6 +1168,7 @@ impl Default for GNSS_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_EVENT_0 {
     pub FixData: GNSS_FIXDATA,
     pub AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
@@ -1527,12 +1181,6 @@ pub union GNSS_EVENT_0 {
     pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
     pub CustomData: [u8; 1],
 }
-impl Copy for GNSS_EVENT_0 {}
-impl Clone for GNSS_EVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for GNSS_EVENT_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -1542,6 +1190,7 @@ impl Default for GNSS_EVENT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_EVENT_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1549,12 +1198,6 @@ pub struct GNSS_EVENT_2 {
     pub EventDataSize: u32,
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_EVENT_2_0,
-}
-impl Copy for GNSS_EVENT_2 {}
-impl Clone for GNSS_EVENT_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_EVENT_2 {
     type TypeKind = windows_core::CopyType;
@@ -1565,6 +1208,7 @@ impl Default for GNSS_EVENT_2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_EVENT_2_0 {
     pub FixData: GNSS_FIXDATA,
     pub FixData2: GNSS_FIXDATA_2,
@@ -1578,12 +1222,6 @@ pub union GNSS_EVENT_2_0 {
     pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
     pub CustomData: [u8; 1],
 }
-impl Copy for GNSS_EVENT_2_0 {}
-impl Clone for GNSS_EVENT_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for GNSS_EVENT_2_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -1593,6 +1231,7 @@ impl Default for GNSS_EVENT_2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA {
     pub Size: u32,
     pub Version: u32,
@@ -1605,32 +1244,16 @@ pub struct GNSS_FIXDATA {
     pub AccuracyData: GNSS_FIXDATA_ACCURACY,
     pub SatelliteData: GNSS_FIXDATA_SATELLITE,
 }
-impl Copy for GNSS_FIXDATA {}
-impl Clone for GNSS_FIXDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("FixTimeStamp", &self.FixTimeStamp).field("IsFinalFix", &self.IsFinalFix).field("FixStatus", &self.FixStatus).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).field("SatelliteData", &self.SatelliteData).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.FixTimeStamp == other.FixTimeStamp && self.IsFinalFix == other.IsFinalFix && self.FixStatus == other.FixStatus && self.FixLevelOfDetails == other.FixLevelOfDetails && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData && self.SatelliteData == other.SatelliteData
-    }
-}
-impl Eq for GNSS_FIXDATA {}
 impl Default for GNSS_FIXDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1643,32 +1266,16 @@ pub struct GNSS_FIXDATA_2 {
     pub AccuracyData: GNSS_FIXDATA_ACCURACY_2,
     pub SatelliteData: GNSS_FIXDATA_SATELLITE,
 }
-impl Copy for GNSS_FIXDATA_2 {}
-impl Clone for GNSS_FIXDATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA_2").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("FixTimeStamp", &self.FixTimeStamp).field("IsFinalFix", &self.IsFinalFix).field("FixStatus", &self.FixStatus).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).field("SatelliteData", &self.SatelliteData).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.FixTimeStamp == other.FixTimeStamp && self.IsFinalFix == other.IsFinalFix && self.FixStatus == other.FixStatus && self.FixLevelOfDetails == other.FixLevelOfDetails && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData && self.SatelliteData == other.SatelliteData
-    }
-}
-impl Eq for GNSS_FIXDATA_2 {}
 impl Default for GNSS_FIXDATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_ACCURACY {
     pub Size: u32,
     pub Version: u32,
@@ -1687,64 +1294,16 @@ pub struct GNSS_FIXDATA_ACCURACY {
     pub HorizontalDilutionOfPrecision: f32,
     pub VerticalDilutionOfPrecision: f32,
 }
-impl Copy for GNSS_FIXDATA_ACCURACY {}
-impl Clone for GNSS_FIXDATA_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA_ACCURACY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA_ACCURACY")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("HorizontalAccuracy", &self.HorizontalAccuracy)
-            .field("HorizontalErrorMajorAxis", &self.HorizontalErrorMajorAxis)
-            .field("HorizontalErrorMinorAxis", &self.HorizontalErrorMinorAxis)
-            .field("HorizontalErrorAngle", &self.HorizontalErrorAngle)
-            .field("HeadingAccuracy", &self.HeadingAccuracy)
-            .field("AltitudeAccuracy", &self.AltitudeAccuracy)
-            .field("SpeedAccuracy", &self.SpeedAccuracy)
-            .field("HorizontalConfidence", &self.HorizontalConfidence)
-            .field("HeadingConfidence", &self.HeadingConfidence)
-            .field("AltitudeConfidence", &self.AltitudeConfidence)
-            .field("SpeedConfidence", &self.SpeedConfidence)
-            .field("PositionDilutionOfPrecision", &self.PositionDilutionOfPrecision)
-            .field("HorizontalDilutionOfPrecision", &self.HorizontalDilutionOfPrecision)
-            .field("VerticalDilutionOfPrecision", &self.VerticalDilutionOfPrecision)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA_ACCURACY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA_ACCURACY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.HorizontalAccuracy == other.HorizontalAccuracy
-            && self.HorizontalErrorMajorAxis == other.HorizontalErrorMajorAxis
-            && self.HorizontalErrorMinorAxis == other.HorizontalErrorMinorAxis
-            && self.HorizontalErrorAngle == other.HorizontalErrorAngle
-            && self.HeadingAccuracy == other.HeadingAccuracy
-            && self.AltitudeAccuracy == other.AltitudeAccuracy
-            && self.SpeedAccuracy == other.SpeedAccuracy
-            && self.HorizontalConfidence == other.HorizontalConfidence
-            && self.HeadingConfidence == other.HeadingConfidence
-            && self.AltitudeConfidence == other.AltitudeConfidence
-            && self.SpeedConfidence == other.SpeedConfidence
-            && self.PositionDilutionOfPrecision == other.PositionDilutionOfPrecision
-            && self.HorizontalDilutionOfPrecision == other.HorizontalDilutionOfPrecision
-            && self.VerticalDilutionOfPrecision == other.VerticalDilutionOfPrecision
-    }
-}
-impl Eq for GNSS_FIXDATA_ACCURACY {}
 impl Default for GNSS_FIXDATA_ACCURACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_ACCURACY_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1765,68 +1324,16 @@ pub struct GNSS_FIXDATA_ACCURACY_2 {
     pub GeometricDilutionOfPrecision: f64,
     pub TimeDilutionOfPrecision: f64,
 }
-impl Copy for GNSS_FIXDATA_ACCURACY_2 {}
-impl Clone for GNSS_FIXDATA_ACCURACY_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA_ACCURACY_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA_ACCURACY_2")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("HorizontalAccuracy", &self.HorizontalAccuracy)
-            .field("HorizontalErrorMajorAxis", &self.HorizontalErrorMajorAxis)
-            .field("HorizontalErrorMinorAxis", &self.HorizontalErrorMinorAxis)
-            .field("HorizontalErrorAngle", &self.HorizontalErrorAngle)
-            .field("HeadingAccuracy", &self.HeadingAccuracy)
-            .field("AltitudeAccuracy", &self.AltitudeAccuracy)
-            .field("SpeedAccuracy", &self.SpeedAccuracy)
-            .field("HorizontalConfidence", &self.HorizontalConfidence)
-            .field("HeadingConfidence", &self.HeadingConfidence)
-            .field("AltitudeConfidence", &self.AltitudeConfidence)
-            .field("SpeedConfidence", &self.SpeedConfidence)
-            .field("PositionDilutionOfPrecision", &self.PositionDilutionOfPrecision)
-            .field("HorizontalDilutionOfPrecision", &self.HorizontalDilutionOfPrecision)
-            .field("VerticalDilutionOfPrecision", &self.VerticalDilutionOfPrecision)
-            .field("GeometricDilutionOfPrecision", &self.GeometricDilutionOfPrecision)
-            .field("TimeDilutionOfPrecision", &self.TimeDilutionOfPrecision)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA_ACCURACY_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA_ACCURACY_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.HorizontalAccuracy == other.HorizontalAccuracy
-            && self.HorizontalErrorMajorAxis == other.HorizontalErrorMajorAxis
-            && self.HorizontalErrorMinorAxis == other.HorizontalErrorMinorAxis
-            && self.HorizontalErrorAngle == other.HorizontalErrorAngle
-            && self.HeadingAccuracy == other.HeadingAccuracy
-            && self.AltitudeAccuracy == other.AltitudeAccuracy
-            && self.SpeedAccuracy == other.SpeedAccuracy
-            && self.HorizontalConfidence == other.HorizontalConfidence
-            && self.HeadingConfidence == other.HeadingConfidence
-            && self.AltitudeConfidence == other.AltitudeConfidence
-            && self.SpeedConfidence == other.SpeedConfidence
-            && self.PositionDilutionOfPrecision == other.PositionDilutionOfPrecision
-            && self.HorizontalDilutionOfPrecision == other.HorizontalDilutionOfPrecision
-            && self.VerticalDilutionOfPrecision == other.VerticalDilutionOfPrecision
-            && self.GeometricDilutionOfPrecision == other.GeometricDilutionOfPrecision
-            && self.TimeDilutionOfPrecision == other.TimeDilutionOfPrecision
-    }
-}
-impl Eq for GNSS_FIXDATA_ACCURACY_2 {}
 impl Default for GNSS_FIXDATA_ACCURACY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC {
     pub Size: u32,
     pub Version: u32,
@@ -1836,32 +1343,16 @@ pub struct GNSS_FIXDATA_BASIC {
     pub Speed: f64,
     pub Heading: f64,
 }
-impl Copy for GNSS_FIXDATA_BASIC {}
-impl Clone for GNSS_FIXDATA_BASIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA_BASIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA_BASIC").field("Size", &self.Size).field("Version", &self.Version).field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).field("Speed", &self.Speed).field("Heading", &self.Heading).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA_BASIC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA_BASIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude && self.Speed == other.Speed && self.Heading == other.Heading
-    }
-}
-impl Eq for GNSS_FIXDATA_BASIC {}
 impl Default for GNSS_FIXDATA_BASIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1872,64 +1363,32 @@ pub struct GNSS_FIXDATA_BASIC_2 {
     pub Heading: f64,
     pub AltitudeEllipsoid: f64,
 }
-impl Copy for GNSS_FIXDATA_BASIC_2 {}
-impl Clone for GNSS_FIXDATA_BASIC_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA_BASIC_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA_BASIC_2").field("Size", &self.Size).field("Version", &self.Version).field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).field("Speed", &self.Speed).field("Heading", &self.Heading).field("AltitudeEllipsoid", &self.AltitudeEllipsoid).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA_BASIC_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA_BASIC_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude && self.Speed == other.Speed && self.Heading == other.Heading && self.AltitudeEllipsoid == other.AltitudeEllipsoid
-    }
-}
-impl Eq for GNSS_FIXDATA_BASIC_2 {}
 impl Default for GNSS_FIXDATA_BASIC_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_SATELLITE {
     pub Size: u32,
     pub Version: u32,
     pub SatelliteCount: u32,
     pub SatelliteArray: [GNSS_SATELLITEINFO; 64],
 }
-impl Copy for GNSS_FIXDATA_SATELLITE {}
-impl Clone for GNSS_FIXDATA_SATELLITE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_FIXDATA_SATELLITE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_FIXDATA_SATELLITE").field("Size", &self.Size).field("Version", &self.Version).field("SatelliteCount", &self.SatelliteCount).field("SatelliteArray", &self.SatelliteArray).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXDATA_SATELLITE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_FIXDATA_SATELLITE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.SatelliteCount == other.SatelliteCount && self.SatelliteArray == other.SatelliteArray
-    }
-}
-impl Eq for GNSS_FIXDATA_SATELLITE {}
 impl Default for GNSS_FIXDATA_SATELLITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_FIXSESSION_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1942,12 +1401,6 @@ pub struct GNSS_FIXSESSION_PARAM {
     pub Anonymous: GNSS_FIXSESSION_PARAM_0,
     pub Unused: [u8; 256],
 }
-impl Copy for GNSS_FIXSESSION_PARAM {}
-impl Clone for GNSS_FIXSESSION_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for GNSS_FIXSESSION_PARAM {
     type TypeKind = windows_core::CopyType;
 }
@@ -1957,18 +1410,13 @@ impl Default for GNSS_FIXSESSION_PARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_FIXSESSION_PARAM_0 {
     pub SingleShotParam: GNSS_SINGLESHOT_PARAM,
     pub DistanceParam: GNSS_DISTANCETRACKING_PARAM,
     pub ContinuousParam: GNSS_CONTINUOUSTRACKING_PARAM,
     pub LkgFixParam: GNSS_LKGFIX_PARAM,
     pub UnusedParam: [u8; 268],
-}
-impl Copy for GNSS_FIXSESSION_PARAM_0 {}
-impl Clone for GNSS_FIXSESSION_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_FIXSESSION_PARAM_0 {
     type TypeKind = windows_core::CopyType;
@@ -1979,6 +1427,7 @@ impl Default for GNSS_FIXSESSION_PARAM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -1986,32 +1435,16 @@ pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub StatusTimeStamp: super::super::Foundation::FILETIME,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
-impl Clone for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_GEOFENCES_TRACKINGSTATUS_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Status", &self.Status).field("StatusTimeStamp", &self.StatusTimeStamp).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Status == other.Status && self.StatusTimeStamp == other.StatusTimeStamp && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
 impl Default for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_ALERT_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -2021,32 +1454,16 @@ pub struct GNSS_GEOFENCE_ALERT_DATA {
     pub FixAccuracyData: GNSS_FIXDATA_ACCURACY,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_GEOFENCE_ALERT_DATA {}
-impl Clone for GNSS_GEOFENCE_ALERT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_GEOFENCE_ALERT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_GEOFENCE_ALERT_DATA").field("Size", &self.Size).field("Version", &self.Version).field("GeofenceID", &self.GeofenceID).field("GeofenceState", &self.GeofenceState).field("FixBasicData", &self.FixBasicData).field("FixAccuracyData", &self.FixAccuracyData).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_GEOFENCE_ALERT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_GEOFENCE_ALERT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.GeofenceID == other.GeofenceID && self.GeofenceState == other.GeofenceState && self.FixBasicData == other.FixBasicData && self.FixAccuracyData == other.FixAccuracyData && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_GEOFENCE_ALERT_DATA {}
 impl Default for GNSS_GEOFENCE_ALERT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_GEOFENCE_CREATE_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2054,12 +1471,6 @@ pub struct GNSS_GEOFENCE_CREATE_PARAM {
     pub InitialState: GNSS_GEOFENCE_STATE,
     pub Boundary: GNSS_GEOREGION,
     pub Unused: [u8; 512],
-}
-impl Copy for GNSS_GEOFENCE_CREATE_PARAM {}
-impl Clone for GNSS_GEOFENCE_CREATE_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_GEOFENCE_CREATE_PARAM {
     type TypeKind = windows_core::CopyType;
@@ -2070,6 +1481,7 @@ impl Default for GNSS_GEOFENCE_CREATE_PARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub Size: u32,
     pub Version: u32,
@@ -2077,75 +1489,37 @@ pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub GeofenceID: u32,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_GEOFENCE_CREATE_RESPONSE {}
-impl Clone for GNSS_GEOFENCE_CREATE_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_GEOFENCE_CREATE_RESPONSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_GEOFENCE_CREATE_RESPONSE").field("Size", &self.Size).field("Version", &self.Version).field("CreationStatus", &self.CreationStatus).field("GeofenceID", &self.GeofenceID).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_GEOFENCE_CREATE_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_GEOFENCE_CREATE_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.CreationStatus == other.CreationStatus && self.GeofenceID == other.GeofenceID && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_GEOFENCE_CREATE_RESPONSE {}
 impl Default for GNSS_GEOFENCE_CREATE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_GEOFENCE_DELETE_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub GeofenceID: u32,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_GEOFENCE_DELETE_PARAM {}
-impl Clone for GNSS_GEOFENCE_DELETE_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_GEOFENCE_DELETE_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_GEOFENCE_DELETE_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("GeofenceID", &self.GeofenceID).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_GEOFENCE_DELETE_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_GEOFENCE_DELETE_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.GeofenceID == other.GeofenceID && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_GEOFENCE_DELETE_PARAM {}
 impl Default for GNSS_GEOFENCE_DELETE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_GEOREGION {
     pub Size: u32,
     pub Version: u32,
     pub GeoRegionType: GNSS_GEOREGIONTYPE,
     pub Anonymous: GNSS_GEOREGION_0,
-}
-impl Copy for GNSS_GEOREGION {}
-impl Clone for GNSS_GEOREGION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_GEOREGION {
     type TypeKind = windows_core::CopyType;
@@ -2156,15 +1530,10 @@ impl Default for GNSS_GEOREGION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_GEOREGION_0 {
     pub Circle: GNSS_GEOREGION_CIRCLE,
     pub Unused: [u8; 512],
-}
-impl Copy for GNSS_GEOREGION_0 {}
-impl Clone for GNSS_GEOREGION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_GEOREGION_0 {
     type TypeKind = windows_core::CopyType;
@@ -2175,67 +1544,36 @@ impl Default for GNSS_GEOREGION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOREGION_CIRCLE {
     pub Latitude: f64,
     pub Longitude: f64,
     pub RadiusInMeters: f64,
 }
-impl Copy for GNSS_GEOREGION_CIRCLE {}
-impl Clone for GNSS_GEOREGION_CIRCLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_GEOREGION_CIRCLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_GEOREGION_CIRCLE").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("RadiusInMeters", &self.RadiusInMeters).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_GEOREGION_CIRCLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_GEOREGION_CIRCLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.RadiusInMeters == other.RadiusInMeters
-    }
-}
-impl Eq for GNSS_GEOREGION_CIRCLE {}
 impl Default for GNSS_GEOREGION_CIRCLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_LKGFIX_PARAM {
     pub Size: u32,
     pub Version: u32,
 }
-impl Copy for GNSS_LKGFIX_PARAM {}
-impl Clone for GNSS_LKGFIX_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_LKGFIX_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_LKGFIX_PARAM").field("Size", &self.Size).field("Version", &self.Version).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_LKGFIX_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_LKGFIX_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version
-    }
-}
-impl Eq for GNSS_LKGFIX_PARAM {}
 impl Default for GNSS_LKGFIX_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GNSS_NI_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2247,12 +1585,6 @@ pub struct GNSS_NI_REQUEST_PARAM {
     pub ResponseTimeInSec: u32,
     pub EmergencyLocation: super::super::Foundation::BOOL,
 }
-impl Copy for GNSS_NI_REQUEST_PARAM {}
-impl Clone for GNSS_NI_REQUEST_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for GNSS_NI_REQUEST_PARAM {
     type TypeKind = windows_core::CopyType;
 }
@@ -2262,16 +1594,11 @@ impl Default for GNSS_NI_REQUEST_PARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GNSS_NI_REQUEST_PARAM_0 {
     pub SuplNiInfo: GNSS_SUPL_NI_INFO,
     pub CpNiInfo: GNSS_CP_NI_INFO,
     pub V2UplNiInfo: GNSS_V2UPL_NI_INFO,
-}
-impl Copy for GNSS_NI_REQUEST_PARAM_0 {}
-impl Clone for GNSS_NI_REQUEST_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GNSS_NI_REQUEST_PARAM_0 {
     type TypeKind = windows_core::CopyType;
@@ -2282,69 +1609,38 @@ impl Default for GNSS_NI_REQUEST_PARAM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_NI_RESPONSE {
     pub Size: u32,
     pub Version: u32,
     pub RequestId: u32,
     pub UserResponse: GNSS_NI_USER_RESPONSE,
 }
-impl Copy for GNSS_NI_RESPONSE {}
-impl Clone for GNSS_NI_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_NI_RESPONSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_NI_RESPONSE").field("Size", &self.Size).field("Version", &self.Version).field("RequestId", &self.RequestId).field("UserResponse", &self.UserResponse).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_NI_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_NI_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.RequestId == other.RequestId && self.UserResponse == other.UserResponse
-    }
-}
-impl Eq for GNSS_NI_RESPONSE {}
 impl Default for GNSS_NI_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_NMEA_DATA {
     pub Size: u32,
     pub Version: u32,
     pub NmeaSentences: [i8; 256],
 }
-impl Copy for GNSS_NMEA_DATA {}
-impl Clone for GNSS_NMEA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_NMEA_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_NMEA_DATA").field("Size", &self.Size).field("Version", &self.Version).field("NmeaSentences", &self.NmeaSentences).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_NMEA_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_NMEA_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.NmeaSentences == other.NmeaSentences
-    }
-}
-impl Eq for GNSS_NMEA_DATA {}
 impl Default for GNSS_NMEA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_PLATFORM_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
@@ -2352,32 +1648,16 @@ pub struct GNSS_PLATFORM_CAPABILITY {
     pub AgnssFormatSupported: u32,
     pub Unused: [u8; 516],
 }
-impl Copy for GNSS_PLATFORM_CAPABILITY {}
-impl Clone for GNSS_PLATFORM_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_PLATFORM_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_PLATFORM_CAPABILITY").field("Size", &self.Size).field("Version", &self.Version).field("SupportAgnssInjection", &self.SupportAgnssInjection).field("AgnssFormatSupported", &self.AgnssFormatSupported).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_PLATFORM_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_PLATFORM_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.SupportAgnssInjection == other.SupportAgnssInjection && self.AgnssFormatSupported == other.AgnssFormatSupported && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_PLATFORM_CAPABILITY {}
 impl Default for GNSS_PLATFORM_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SATELLITEINFO {
     pub SatelliteId: u32,
     pub UsedInPositiong: super::super::Foundation::BOOL,
@@ -2385,32 +1665,16 @@ pub struct GNSS_SATELLITEINFO {
     pub Azimuth: f64,
     pub SignalToNoiseRatio: f64,
 }
-impl Copy for GNSS_SATELLITEINFO {}
-impl Clone for GNSS_SATELLITEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SATELLITEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SATELLITEINFO").field("SatelliteId", &self.SatelliteId).field("UsedInPositiong", &self.UsedInPositiong).field("Elevation", &self.Elevation).field("Azimuth", &self.Azimuth).field("SignalToNoiseRatio", &self.SignalToNoiseRatio).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SATELLITEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SATELLITEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SatelliteId == other.SatelliteId && self.UsedInPositiong == other.UsedInPositiong && self.Elevation == other.Elevation && self.Azimuth == other.Azimuth && self.SignalToNoiseRatio == other.SignalToNoiseRatio
-    }
-}
-impl Eq for GNSS_SATELLITEINFO {}
 impl Default for GNSS_SATELLITEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SELFTESTCONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2419,32 +1683,16 @@ pub struct GNSS_SELFTESTCONFIG {
     pub InBufLen: u32,
     pub InBuffer: [u8; 1],
 }
-impl Copy for GNSS_SELFTESTCONFIG {}
-impl Clone for GNSS_SELFTESTCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SELFTESTCONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SELFTESTCONFIG").field("Size", &self.Size).field("Version", &self.Version).field("TestType", &self.TestType).field("Unused", &self.Unused).field("InBufLen", &self.InBufLen).field("InBuffer", &self.InBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SELFTESTCONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SELFTESTCONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.TestType == other.TestType && self.Unused == other.Unused && self.InBufLen == other.InBufLen && self.InBuffer == other.InBuffer
-    }
-}
-impl Eq for GNSS_SELFTESTCONFIG {}
 impl Default for GNSS_SELFTESTCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SELFTESTRESULT {
     pub Size: u32,
     pub Version: u32,
@@ -2455,95 +1703,47 @@ pub struct GNSS_SELFTESTRESULT {
     pub OutBufLen: u32,
     pub OutBuffer: [u8; 1],
 }
-impl Copy for GNSS_SELFTESTRESULT {}
-impl Clone for GNSS_SELFTESTRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SELFTESTRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SELFTESTRESULT").field("Size", &self.Size).field("Version", &self.Version).field("TestResultStatus", &self.TestResultStatus).field("Result", &self.Result).field("PinFailedBitMask", &self.PinFailedBitMask).field("Unused", &self.Unused).field("OutBufLen", &self.OutBufLen).field("OutBuffer", &self.OutBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SELFTESTRESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SELFTESTRESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.TestResultStatus == other.TestResultStatus && self.Result == other.Result && self.PinFailedBitMask == other.PinFailedBitMask && self.Unused == other.Unused && self.OutBufLen == other.OutBufLen && self.OutBuffer == other.OutBuffer
-    }
-}
-impl Eq for GNSS_SELFTESTRESULT {}
 impl Default for GNSS_SELFTESTRESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SINGLESHOT_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub ResponseTime: u32,
 }
-impl Copy for GNSS_SINGLESHOT_PARAM {}
-impl Clone for GNSS_SINGLESHOT_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SINGLESHOT_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SINGLESHOT_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("ResponseTime", &self.ResponseTime).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SINGLESHOT_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SINGLESHOT_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.ResponseTime == other.ResponseTime
-    }
-}
-impl Eq for GNSS_SINGLESHOT_PARAM {}
 impl Default for GNSS_SINGLESHOT_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_STOPFIXSESSION_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub FixSessionID: u32,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_STOPFIXSESSION_PARAM {}
-impl Clone for GNSS_STOPFIXSESSION_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_STOPFIXSESSION_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_STOPFIXSESSION_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_STOPFIXSESSION_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_STOPFIXSESSION_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_STOPFIXSESSION_PARAM {}
 impl Default for GNSS_STOPFIXSESSION_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SUPL_CERT_CONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2553,32 +1753,16 @@ pub struct GNSS_SUPL_CERT_CONFIG {
     pub Unused: [u8; 512],
     pub CertData: [u8; 1],
 }
-impl Copy for GNSS_SUPL_CERT_CONFIG {}
-impl Clone for GNSS_SUPL_CERT_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SUPL_CERT_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SUPL_CERT_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("CertAction", &self.CertAction).field("SuplCertName", &self.SuplCertName).field("CertSize", &self.CertSize).field("Unused", &self.Unused).field("CertData", &self.CertData).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SUPL_CERT_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SUPL_CERT_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.CertAction == other.CertAction && self.SuplCertName == other.SuplCertName && self.CertSize == other.CertSize && self.Unused == other.Unused && self.CertData == other.CertData
-    }
-}
-impl Eq for GNSS_SUPL_CERT_CONFIG {}
 impl Default for GNSS_SUPL_CERT_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2587,32 +1771,16 @@ pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Reserved: u32,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_SUPL_HSLP_CONFIG {}
-impl Clone for GNSS_SUPL_HSLP_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SUPL_HSLP_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SUPL_HSLP_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("SuplHslp", &self.SuplHslp).field("SuplHslpFromImsi", &self.SuplHslpFromImsi).field("Reserved", &self.Reserved).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SUPL_HSLP_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SUPL_HSLP_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.SuplHslp == other.SuplHslp && self.SuplHslpFromImsi == other.SuplHslpFromImsi && self.Reserved == other.Reserved && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_SUPL_HSLP_CONFIG {}
 impl Default for GNSS_SUPL_HSLP_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SUPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,
@@ -2620,93 +1788,45 @@ pub struct GNSS_SUPL_NI_INFO {
     pub ClientName: [u16; 260],
     pub SuplNiUrl: [i8; 260],
 }
-impl Copy for GNSS_SUPL_NI_INFO {}
-impl Clone for GNSS_SUPL_NI_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SUPL_NI_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SUPL_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).field("ClientName", &self.ClientName).field("SuplNiUrl", &self.SuplNiUrl).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SUPL_NI_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SUPL_NI_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId && self.ClientName == other.ClientName && self.SuplNiUrl == other.SuplNiUrl
-    }
-}
-impl Eq for GNSS_SUPL_NI_INFO {}
 impl Default for GNSS_SUPL_NI_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SUPL_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl Copy for GNSS_SUPL_VERSION {}
-impl Clone for GNSS_SUPL_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SUPL_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SUPL_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SUPL_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SUPL_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl Eq for GNSS_SUPL_VERSION {}
 impl Default for GNSS_SUPL_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_SUPL_VERSION_2 {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
     pub ServiceIndicator: u32,
 }
-impl Copy for GNSS_SUPL_VERSION_2 {}
-impl Clone for GNSS_SUPL_VERSION_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_SUPL_VERSION_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_SUPL_VERSION_2").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ServiceIndicator", &self.ServiceIndicator).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_SUPL_VERSION_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_SUPL_VERSION_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ServiceIndicator == other.ServiceIndicator
-    }
-}
-impl Eq for GNSS_SUPL_VERSION_2 {}
 impl Default for GNSS_SUPL_VERSION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_V2UPL_CONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2715,57 +1835,24 @@ pub struct GNSS_V2UPL_CONFIG {
     pub ApplicationTypeIndicator_MR: u8,
     pub Unused: [u8; 512],
 }
-impl Copy for GNSS_V2UPL_CONFIG {}
-impl Clone for GNSS_V2UPL_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_V2UPL_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_V2UPL_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("MPC", &self.MPC).field("PDE", &self.PDE).field("ApplicationTypeIndicator_MR", &self.ApplicationTypeIndicator_MR).field("Unused", &self.Unused).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_V2UPL_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_V2UPL_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.MPC == other.MPC && self.PDE == other.PDE && self.ApplicationTypeIndicator_MR == other.ApplicationTypeIndicator_MR && self.Unused == other.Unused
-    }
-}
-impl Eq for GNSS_V2UPL_CONFIG {}
 impl Default for GNSS_V2UPL_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GNSS_V2UPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,
     pub RequestorId: [u16; 260],
 }
-impl Copy for GNSS_V2UPL_NI_INFO {}
-impl Clone for GNSS_V2UPL_NI_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GNSS_V2UPL_NI_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GNSS_V2UPL_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).finish()
-    }
-}
 impl windows_core::TypeKind for GNSS_V2UPL_NI_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GNSS_V2UPL_NI_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId
-    }
-}
-impl Eq for GNSS_V2UPL_NI_INFO {}
 impl Default for GNSS_V2UPL_NI_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

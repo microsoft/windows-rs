@@ -1031,20 +1031,10 @@ impl windows_core::RuntimeType for UnicodeNumericType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,
-}
-impl Copy for TextSegment {}
-impl Clone for TextSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TextSegment {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TextSegment").field("StartPosition", &self.StartPosition).field("Length", &self.Length).finish()
-    }
 }
 impl windows_core::TypeKind for TextSegment {
     type TypeKind = windows_core::CopyType;
@@ -1052,12 +1042,6 @@ impl windows_core::TypeKind for TextSegment {
 impl windows_core::RuntimeType for TextSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Data.Text.TextSegment;u4;u4)");
 }
-impl PartialEq for TextSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartPosition == other.StartPosition && self.Length == other.Length
-    }
-}
-impl Eq for TextSegment {}
 impl Default for TextSegment {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1101,20 +1101,10 @@ impl windows_core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
-}
-impl Copy for InjectedInputPoint {}
-impl Clone for InjectedInputPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for InjectedInputPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("InjectedInputPoint").field("PositionX", &self.PositionX).field("PositionY", &self.PositionY).finish()
-    }
 }
 impl windows_core::TypeKind for InjectedInputPoint {
     type TypeKind = windows_core::CopyType;
@@ -1122,18 +1112,13 @@ impl windows_core::TypeKind for InjectedInputPoint {
 impl windows_core::RuntimeType for InjectedInputPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
 }
-impl PartialEq for InjectedInputPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.PositionX == other.PositionX && self.PositionY == other.PositionY
-    }
-}
-impl Eq for InjectedInputPoint {}
 impl Default for InjectedInputPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -1141,51 +1126,24 @@ pub struct InjectedInputPointerInfo {
     pub TimeOffsetInMilliseconds: u32,
     pub PerformanceCount: u64,
 }
-impl Copy for InjectedInputPointerInfo {}
-impl Clone for InjectedInputPointerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for InjectedInputPointerInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("InjectedInputPointerInfo").field("PointerId", &self.PointerId).field("PointerOptions", &self.PointerOptions).field("PixelLocation", &self.PixelLocation).field("TimeOffsetInMilliseconds", &self.TimeOffsetInMilliseconds).field("PerformanceCount", &self.PerformanceCount).finish()
-    }
-}
 impl windows_core::TypeKind for InjectedInputPointerInfo {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
 }
-impl PartialEq for InjectedInputPointerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.PointerId == other.PointerId && self.PointerOptions == other.PointerOptions && self.PixelLocation == other.PixelLocation && self.TimeOffsetInMilliseconds == other.TimeOffsetInMilliseconds && self.PerformanceCount == other.PerformanceCount
-    }
-}
-impl Eq for InjectedInputPointerInfo {}
 impl Default for InjectedInputPointerInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
     pub Bottom: i32,
     pub Right: i32,
-}
-impl Copy for InjectedInputRectangle {}
-impl Clone for InjectedInputRectangle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for InjectedInputRectangle {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("InjectedInputRectangle").field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).field("Right", &self.Right).finish()
-    }
 }
 impl windows_core::TypeKind for InjectedInputRectangle {
     type TypeKind = windows_core::CopyType;
@@ -1193,12 +1151,6 @@ impl windows_core::TypeKind for InjectedInputRectangle {
 impl windows_core::RuntimeType for InjectedInputRectangle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
 }
-impl PartialEq for InjectedInputRectangle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Left == other.Left && self.Top == other.Top && self.Bottom == other.Bottom && self.Right == other.Right
-    }
-}
-impl Eq for InjectedInputRectangle {}
 impl Default for InjectedInputRectangle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

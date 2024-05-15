@@ -124,37 +124,22 @@ impl core::fmt::Debug for eUserAllocationState {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVRF_BACKTRACE_INFORMATION {
     pub Depth: u32,
     pub Index: u32,
     pub ReturnAddresses: [u64; 32],
 }
-impl Copy for AVRF_BACKTRACE_INFORMATION {}
-impl Clone for AVRF_BACKTRACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AVRF_BACKTRACE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVRF_BACKTRACE_INFORMATION").field("Depth", &self.Depth).field("Index", &self.Index).field("ReturnAddresses", &self.ReturnAddresses).finish()
-    }
-}
 impl windows_core::TypeKind for AVRF_BACKTRACE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AVRF_BACKTRACE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Depth == other.Depth && self.Index == other.Index && self.ReturnAddresses == other.ReturnAddresses
-    }
-}
-impl Eq for AVRF_BACKTRACE_INFORMATION {}
 impl Default for AVRF_BACKTRACE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVRF_HANDLE_OPERATION {
     pub Handle: u64,
     pub ProcessId: u32,
@@ -163,32 +148,16 @@ pub struct AVRF_HANDLE_OPERATION {
     pub Spare0: u32,
     pub BackTraceInformation: AVRF_BACKTRACE_INFORMATION,
 }
-impl Copy for AVRF_HANDLE_OPERATION {}
-impl Clone for AVRF_HANDLE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AVRF_HANDLE_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVRF_HANDLE_OPERATION").field("Handle", &self.Handle).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("OperationType", &self.OperationType).field("Spare0", &self.Spare0).field("BackTraceInformation", &self.BackTraceInformation).finish()
-    }
-}
 impl windows_core::TypeKind for AVRF_HANDLE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AVRF_HANDLE_OPERATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Handle == other.Handle && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.OperationType == other.OperationType && self.Spare0 == other.Spare0 && self.BackTraceInformation == other.BackTraceInformation
-    }
-}
-impl Eq for AVRF_HANDLE_OPERATION {}
 impl Default for AVRF_HANDLE_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVRF_HEAP_ALLOCATION {
     pub HeapHandle: u64,
     pub UserAllocation: u64,
@@ -200,26 +169,9 @@ pub struct AVRF_HEAP_ALLOCATION {
     pub HeapContext: u64,
     pub BackTraceInformation: *mut AVRF_BACKTRACE_INFORMATION,
 }
-impl Copy for AVRF_HEAP_ALLOCATION {}
-impl Clone for AVRF_HEAP_ALLOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AVRF_HEAP_ALLOCATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
-    }
-}
 impl windows_core::TypeKind for AVRF_HEAP_ALLOCATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AVRF_HEAP_ALLOCATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.HeapHandle == other.HeapHandle && self.UserAllocation == other.UserAllocation && self.UserAllocationSize == other.UserAllocationSize && self.Allocation == other.Allocation && self.AllocationSize == other.AllocationSize && self.UserAllocationState == other.UserAllocationState && self.HeapState == other.HeapState && self.HeapContext == other.HeapContext && self.BackTraceInformation == other.BackTraceInformation
-    }
-}
-impl Eq for AVRF_HEAP_ALLOCATION {}
 impl Default for AVRF_HEAP_ALLOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

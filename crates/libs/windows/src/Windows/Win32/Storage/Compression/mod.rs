@@ -123,21 +123,11 @@ impl windows_core::TypeKind for COMPRESSOR_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut core::ffi::c_void,
-}
-impl Copy for COMPRESS_ALLOCATION_ROUTINES {}
-impl Clone for COMPRESS_ALLOCATION_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("UserContext", &self.UserContext).finish()
-    }
 }
 impl windows_core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
     type TypeKind = windows_core::CopyType;

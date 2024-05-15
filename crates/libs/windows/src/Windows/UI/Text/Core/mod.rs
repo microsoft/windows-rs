@@ -1307,20 +1307,10 @@ impl windows_core::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
     pub EndCaretPosition: i32,
-}
-impl Copy for CoreTextRange {}
-impl Clone for CoreTextRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CoreTextRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CoreTextRange").field("StartCaretPosition", &self.StartCaretPosition).field("EndCaretPosition", &self.EndCaretPosition).finish()
-    }
 }
 impl windows_core::TypeKind for CoreTextRange {
     type TypeKind = windows_core::CopyType;
@@ -1328,12 +1318,6 @@ impl windows_core::TypeKind for CoreTextRange {
 impl windows_core::RuntimeType for CoreTextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
 }
-impl PartialEq for CoreTextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartCaretPosition == other.StartCaretPosition && self.EndCaretPosition == other.EndCaretPosition
-    }
-}
-impl Eq for CoreTextRange {}
 impl Default for CoreTextRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

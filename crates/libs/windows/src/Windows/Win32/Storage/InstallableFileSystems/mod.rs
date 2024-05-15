@@ -401,16 +401,11 @@ impl core::fmt::Debug for INSTANCE_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
-}
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -421,15 +416,10 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
-}
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -440,36 +430,21 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION_0_0").field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-    }
-}
-impl Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -478,42 +453,20 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION_0_1").field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
-    }
-}
-impl Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
-}
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -524,15 +477,10 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
-}
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -543,6 +491,7 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FilterNameLength: u16,
@@ -550,32 +499,16 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION_0_0").field("Flags", &self.Flags).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
-    }
-}
-impl Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -585,32 +518,16 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION_0_1").field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
-    }
-}
-impl Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub FrameID: u32,
@@ -618,122 +535,58 @@ pub struct FILTER_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBuffer: [u16; 1],
 }
-impl Copy for FILTER_FULL_INFORMATION {}
-impl Clone for FILTER_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_FULL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_FULL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBuffer", &self.FilterNameBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_FULL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_FULL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBuffer == other.FilterNameBuffer
-    }
-}
-impl Eq for FILTER_FULL_INFORMATION {}
 impl Default for FILTER_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
     pub MessageId: u64,
 }
-impl Copy for FILTER_MESSAGE_HEADER {}
-impl Clone for FILTER_MESSAGE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_MESSAGE_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_MESSAGE_HEADER").field("ReplyLength", &self.ReplyLength).field("MessageId", &self.MessageId).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_MESSAGE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_MESSAGE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReplyLength == other.ReplyLength && self.MessageId == other.MessageId
-    }
-}
-impl Eq for FILTER_MESSAGE_HEADER {}
 impl Default for FILTER_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_REPLY_HEADER {
     pub Status: super::super::Foundation::NTSTATUS,
     pub MessageId: u64,
 }
-impl Copy for FILTER_REPLY_HEADER {}
-impl Clone for FILTER_REPLY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_REPLY_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_REPLY_HEADER").field("Status", &self.Status).field("MessageId", &self.MessageId).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_REPLY_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_REPLY_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.MessageId == other.MessageId
-    }
-}
-impl Eq for FILTER_REPLY_HEADER {}
 impl Default for FILTER_REPLY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl Copy for FILTER_VOLUME_BASIC_INFORMATION {}
-impl Clone for FILTER_VOLUME_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_VOLUME_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_VOLUME_BASIC_INFORMATION").field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_VOLUME_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
-    }
-}
-impl Eq for FILTER_VOLUME_BASIC_INFORMATION {}
 impl Default for FILTER_VOLUME_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
@@ -742,26 +595,9 @@ pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl Copy for FILTER_VOLUME_STANDARD_INFORMATION {}
-impl Clone for FILTER_VOLUME_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTER_VOLUME_STANDARD_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTER_VOLUME_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("FileSystemType", &self.FileSystemType).field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
-    }
-}
 impl windows_core::TypeKind for FILTER_VOLUME_STANDARD_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.Flags == other.Flags && self.FrameID == other.FrameID && self.FileSystemType == other.FileSystemType && self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
-    }
-}
-impl Eq for FILTER_VOLUME_STANDARD_INFORMATION {}
 impl Default for FILTER_VOLUME_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -814,16 +650,11 @@ impl windows_core::TypeKind for HFILTER_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
-}
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -834,15 +665,10 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
-}
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -853,6 +679,7 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub AltitudeLength: u16,
@@ -863,32 +690,16 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0").field("Flags", &self.Flags).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).field("VolumeNameLength", &self.VolumeNameLength).field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("SupportedFeatures", &self.SupportedFeatures).finish()
-    }
-}
 impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
-    }
-}
-impl Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -903,76 +714,31 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1")
-            .field("Flags", &self.Flags)
-            .field("FrameID", &self.FrameID)
-            .field("VolumeFileSystemType", &self.VolumeFileSystemType)
-            .field("InstanceNameLength", &self.InstanceNameLength)
-            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
-            .field("VolumeNameLength", &self.VolumeNameLength)
-            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .field("SupportedFeatures", &self.SupportedFeatures)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FrameID == other.FrameID && self.VolumeFileSystemType == other.VolumeFileSystemType && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
-    }
-}
-impl Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTANCE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
     pub InstanceNameBufferOffset: u16,
 }
-impl Copy for INSTANCE_BASIC_INFORMATION {}
-impl Clone for INSTANCE_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTANCE_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTANCE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for INSTANCE_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTANCE_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
-    }
-}
-impl Eq for INSTANCE_BASIC_INFORMATION {}
 impl Default for INSTANCE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTANCE_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
@@ -984,42 +750,16 @@ pub struct INSTANCE_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl Copy for INSTANCE_FULL_INFORMATION {}
-impl Clone for INSTANCE_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTANCE_FULL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTANCE_FULL_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("InstanceNameLength", &self.InstanceNameLength)
-            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
-            .field("VolumeNameLength", &self.VolumeNameLength)
-            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for INSTANCE_FULL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTANCE_FULL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-    }
-}
-impl Eq for INSTANCE_FULL_INFORMATION {}
 impl Default for INSTANCE_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTANCE_PARTIAL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
@@ -1027,26 +767,9 @@ pub struct INSTANCE_PARTIAL_INFORMATION {
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
 }
-impl Copy for INSTANCE_PARTIAL_INFORMATION {}
-impl Clone for INSTANCE_PARTIAL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTANCE_PARTIAL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTANCE_PARTIAL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for INSTANCE_PARTIAL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTANCE_PARTIAL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset
-    }
-}
-impl Eq for INSTANCE_PARTIAL_INFORMATION {}
 impl Default for INSTANCE_PARTIAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

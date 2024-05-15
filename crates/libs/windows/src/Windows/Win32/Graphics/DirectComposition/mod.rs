@@ -2637,69 +2637,38 @@ impl core::fmt::Debug for DCOMPOSITION_OPACITY_MODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITION_FRAME_STATS {
     pub startTime: u64,
     pub targetTime: u64,
     pub framePeriod: u64,
 }
-impl Copy for COMPOSITION_FRAME_STATS {}
-impl Clone for COMPOSITION_FRAME_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPOSITION_FRAME_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPOSITION_FRAME_STATS").field("startTime", &self.startTime).field("targetTime", &self.targetTime).field("framePeriod", &self.framePeriod).finish()
-    }
-}
 impl windows_core::TypeKind for COMPOSITION_FRAME_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPOSITION_FRAME_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.startTime == other.startTime && self.targetTime == other.targetTime && self.framePeriod == other.framePeriod
-    }
-}
-impl Eq for COMPOSITION_FRAME_STATS {}
 impl Default for COMPOSITION_FRAME_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITION_STATS {
     pub presentCount: u32,
     pub refreshCount: u32,
     pub virtualRefreshCount: u32,
     pub time: u64,
 }
-impl Copy for COMPOSITION_STATS {}
-impl Clone for COMPOSITION_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPOSITION_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPOSITION_STATS").field("presentCount", &self.presentCount).field("refreshCount", &self.refreshCount).field("virtualRefreshCount", &self.virtualRefreshCount).field("time", &self.time).finish()
-    }
-}
 impl windows_core::TypeKind for COMPOSITION_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPOSITION_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.presentCount == other.presentCount && self.refreshCount == other.refreshCount && self.virtualRefreshCount == other.virtualRefreshCount && self.time == other.time
-    }
-}
-impl Eq for COMPOSITION_STATS {}
 impl Default for COMPOSITION_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITION_TARGET_ID {
     pub displayAdapterLuid: super::super::Foundation::LUID,
     pub renderAdapterLuid: super::super::Foundation::LUID,
@@ -2707,32 +2676,16 @@ pub struct COMPOSITION_TARGET_ID {
     pub vidPnTargetId: u32,
     pub uniqueId: u32,
 }
-impl Copy for COMPOSITION_TARGET_ID {}
-impl Clone for COMPOSITION_TARGET_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPOSITION_TARGET_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPOSITION_TARGET_ID").field("displayAdapterLuid", &self.displayAdapterLuid).field("renderAdapterLuid", &self.renderAdapterLuid).field("vidPnSourceId", &self.vidPnSourceId).field("vidPnTargetId", &self.vidPnTargetId).field("uniqueId", &self.uniqueId).finish()
-    }
-}
 impl windows_core::TypeKind for COMPOSITION_TARGET_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPOSITION_TARGET_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.displayAdapterLuid == other.displayAdapterLuid && self.renderAdapterLuid == other.renderAdapterLuid && self.vidPnSourceId == other.vidPnSourceId && self.vidPnTargetId == other.vidPnTargetId && self.uniqueId == other.uniqueId
-    }
-}
-impl Eq for COMPOSITION_TARGET_ID {}
 impl Default for COMPOSITION_TARGET_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITION_TARGET_STATS {
     pub outstandingPresents: u32,
     pub presentTime: u64,
@@ -2740,26 +2693,9 @@ pub struct COMPOSITION_TARGET_STATS {
     pub presentedStats: COMPOSITION_STATS,
     pub completedStats: COMPOSITION_STATS,
 }
-impl Copy for COMPOSITION_TARGET_STATS {}
-impl Clone for COMPOSITION_TARGET_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPOSITION_TARGET_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPOSITION_TARGET_STATS").field("outstandingPresents", &self.outstandingPresents).field("presentTime", &self.presentTime).field("vblankDuration", &self.vblankDuration).field("presentedStats", &self.presentedStats).field("completedStats", &self.completedStats).finish()
-    }
-}
 impl windows_core::TypeKind for COMPOSITION_TARGET_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPOSITION_TARGET_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.outstandingPresents == other.outstandingPresents && self.presentTime == other.presentTime && self.vblankDuration == other.vblankDuration && self.presentedStats == other.presentedStats && self.completedStats == other.completedStats
-    }
-}
-impl Eq for COMPOSITION_TARGET_STATS {}
 impl Default for COMPOSITION_TARGET_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2767,6 +2703,7 @@ impl Default for COMPOSITION_TARGET_STATS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub lastFrameTime: i64,
     pub currentCompositionRate: super::Dxgi::Common::DXGI_RATIONAL,
@@ -2775,31 +2712,9 @@ pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub nextEstimatedFrameTime: i64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DCOMPOSITION_FRAME_STATISTICS {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DCOMPOSITION_FRAME_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DCOMPOSITION_FRAME_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DCOMPOSITION_FRAME_STATISTICS").field("lastFrameTime", &self.lastFrameTime).field("currentCompositionRate", &self.currentCompositionRate).field("currentTime", &self.currentTime).field("timeFrequency", &self.timeFrequency).field("nextEstimatedFrameTime", &self.nextEstimatedFrameTime).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DCOMPOSITION_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DCOMPOSITION_FRAME_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lastFrameTime == other.lastFrameTime && self.currentCompositionRate == other.currentCompositionRate && self.currentTime == other.currentTime && self.timeFrequency == other.timeFrequency && self.nextEstimatedFrameTime == other.nextEstimatedFrameTime
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DCOMPOSITION_FRAME_STATISTICS {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DCOMPOSITION_FRAME_STATISTICS {
     fn default() -> Self {
@@ -2807,31 +2722,15 @@ impl Default for DCOMPOSITION_FRAME_STATISTICS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DCompositionInkTrailPoint {
     pub x: f32,
     pub y: f32,
     pub radius: f32,
 }
-impl Copy for DCompositionInkTrailPoint {}
-impl Clone for DCompositionInkTrailPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DCompositionInkTrailPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DCompositionInkTrailPoint").field("x", &self.x).field("y", &self.y).field("radius", &self.radius).finish()
-    }
-}
 impl windows_core::TypeKind for DCompositionInkTrailPoint {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DCompositionInkTrailPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.radius == other.radius
-    }
-}
-impl Eq for DCompositionInkTrailPoint {}
 impl Default for DCompositionInkTrailPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

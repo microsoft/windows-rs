@@ -1718,6 +1718,7 @@ impl windows_core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,
@@ -1725,29 +1726,12 @@ pub struct PhotoImportProgress {
     pub TotalBytesToImport: u64,
     pub ImportProgress: f64,
 }
-impl Copy for PhotoImportProgress {}
-impl Clone for PhotoImportProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PhotoImportProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PhotoImportProgress").field("ItemsImported", &self.ItemsImported).field("TotalItemsToImport", &self.TotalItemsToImport).field("BytesImported", &self.BytesImported).field("TotalBytesToImport", &self.TotalBytesToImport).field("ImportProgress", &self.ImportProgress).finish()
-    }
-}
 impl windows_core::TypeKind for PhotoImportProgress {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for PhotoImportProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
 }
-impl PartialEq for PhotoImportProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.ItemsImported == other.ItemsImported && self.TotalItemsToImport == other.TotalItemsToImport && self.BytesImported == other.BytesImported && self.TotalBytesToImport == other.TotalBytesToImport && self.ImportProgress == other.ImportProgress
-    }
-}
-impl Eq for PhotoImportProgress {}
 impl Default for PhotoImportProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

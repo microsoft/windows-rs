@@ -272,30 +272,14 @@ impl core::fmt::Debug for D3D_BLOB_PART {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: *const core::ffi::c_void,
     pub BytecodeLength: usize,
 }
-impl Copy for D3D_SHADER_DATA {}
-impl Clone for D3D_SHADER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D_SHADER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D_SHADER_DATA").field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).finish()
-    }
-}
 impl windows_core::TypeKind for D3D_SHADER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D_SHADER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBytecode == other.pBytecode && self.BytecodeLength == other.BytecodeLength
-    }
-}
-impl Eq for D3D_SHADER_DATA {}
 impl Default for D3D_SHADER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

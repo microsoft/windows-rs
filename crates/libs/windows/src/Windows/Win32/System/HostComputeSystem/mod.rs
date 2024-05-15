@@ -809,6 +809,7 @@ impl core::fmt::Debug for HCS_RESOURCE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -816,20 +817,6 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub CallbackOptions: HCS_EVENT_OPTIONS,
     pub CallbackContext: *mut core::ffi::c_void,
     pub Callback: HCS_EVENT_CALLBACK,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for HCS_CREATE_OPTIONS_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for HCS_CREATE_OPTIONS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for HCS_CREATE_OPTIONS_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HCS_CREATE_OPTIONS_1").field("Version", &self.Version).field("UserToken", &self.UserToken).field("SecurityDescriptor", &self.SecurityDescriptor).field("CallbackOptions", &self.CallbackOptions).field("CallbackContext", &self.CallbackContext).finish()
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for HCS_CREATE_OPTIONS_1 {
@@ -842,31 +829,15 @@ impl Default for HCS_CREATE_OPTIONS_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCS_EVENT {
     pub Type: HCS_EVENT_TYPE,
     pub EventData: windows_core::PCWSTR,
     pub Operation: HCS_OPERATION,
 }
-impl Copy for HCS_EVENT {}
-impl Clone for HCS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HCS_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HCS_EVENT").field("Type", &self.Type).field("EventData", &self.EventData).field("Operation", &self.Operation).finish()
-    }
-}
 impl windows_core::TypeKind for HCS_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HCS_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventData == other.EventData && self.Operation == other.Operation
-    }
-}
-impl Eq for HCS_EVENT {}
 impl Default for HCS_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -919,6 +890,7 @@ impl windows_core::TypeKind for HCS_PROCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCS_PROCESS_INFORMATION {
     pub ProcessId: u32,
     pub Reserved: u32,
@@ -926,26 +898,9 @@ pub struct HCS_PROCESS_INFORMATION {
     pub StdOutput: super::super::Foundation::HANDLE,
     pub StdError: super::super::Foundation::HANDLE,
 }
-impl Copy for HCS_PROCESS_INFORMATION {}
-impl Clone for HCS_PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HCS_PROCESS_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HCS_PROCESS_INFORMATION").field("ProcessId", &self.ProcessId).field("Reserved", &self.Reserved).field("StdInput", &self.StdInput).field("StdOutput", &self.StdOutput).field("StdError", &self.StdError).finish()
-    }
-}
 impl windows_core::TypeKind for HCS_PROCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HCS_PROCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessId == other.ProcessId && self.Reserved == other.Reserved && self.StdInput == other.StdInput && self.StdOutput == other.StdOutput && self.StdError == other.StdError
-    }
-}
-impl Eq for HCS_PROCESS_INFORMATION {}
 impl Default for HCS_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

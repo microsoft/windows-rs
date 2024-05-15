@@ -3408,6 +3408,7 @@ impl core::fmt::Debug for WICWebpAnmfProperties {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPattern {
     pub Position: u64,
     pub Length: u32,
@@ -3415,89 +3416,40 @@ pub struct WICBitmapPattern {
     pub Mask: *mut u8,
     pub EndOfStream: super::super::Foundation::BOOL,
 }
-impl Copy for WICBitmapPattern {}
-impl Clone for WICBitmapPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICBitmapPattern {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICBitmapPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("EndOfStream", &self.EndOfStream).finish()
-    }
-}
 impl windows_core::TypeKind for WICBitmapPattern {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICBitmapPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position && self.Length == other.Length && self.Pattern == other.Pattern && self.Mask == other.Mask && self.EndOfStream == other.EndOfStream
-    }
-}
-impl Eq for WICBitmapPattern {}
 impl Default for WICBitmapPattern {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPlane {
     pub Format: windows_core::GUID,
     pub pbBuffer: *mut u8,
     pub cbStride: u32,
     pub cbBufferSize: u32,
 }
-impl Copy for WICBitmapPlane {}
-impl Clone for WICBitmapPlane {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICBitmapPlane {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICBitmapPlane").field("Format", &self.Format).field("pbBuffer", &self.pbBuffer).field("cbStride", &self.cbStride).field("cbBufferSize", &self.cbBufferSize).finish()
-    }
-}
 impl windows_core::TypeKind for WICBitmapPlane {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICBitmapPlane {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format && self.pbBuffer == other.pbBuffer && self.cbStride == other.cbStride && self.cbBufferSize == other.cbBufferSize
-    }
-}
-impl Eq for WICBitmapPlane {}
 impl Default for WICBitmapPlane {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPlaneDescription {
     pub Format: windows_core::GUID,
     pub Width: u32,
     pub Height: u32,
 }
-impl Copy for WICBitmapPlaneDescription {}
-impl Clone for WICBitmapPlaneDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICBitmapPlaneDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICBitmapPlaneDescription").field("Format", &self.Format).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 impl windows_core::TypeKind for WICBitmapPlaneDescription {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICBitmapPlaneDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for WICBitmapPlaneDescription {}
 impl Default for WICBitmapPlaneDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3505,6 +3457,7 @@ impl Default for WICBitmapPlaneDescription {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::Dxgi::Common::DXGI_FORMAT,
     pub BytesPerBlock: u32,
@@ -3512,31 +3465,9 @@ pub struct WICDdsFormatInfo {
     pub BlockHeight: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for WICDdsFormatInfo {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for WICDdsFormatInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for WICDdsFormatInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICDdsFormatInfo").field("DxgiFormat", &self.DxgiFormat).field("BytesPerBlock", &self.BytesPerBlock).field("BlockWidth", &self.BlockWidth).field("BlockHeight", &self.BlockHeight).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for WICDdsFormatInfo {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for WICDdsFormatInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.DxgiFormat == other.DxgiFormat && self.BytesPerBlock == other.BytesPerBlock && self.BlockWidth == other.BlockWidth && self.BlockHeight == other.BlockHeight
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for WICDdsFormatInfo {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for WICDdsFormatInfo {
     fn default() -> Self {
@@ -3545,6 +3476,7 @@ impl Default for WICDdsFormatInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICDdsParameters {
     pub Width: u32,
     pub Height: u32,
@@ -3556,31 +3488,9 @@ pub struct WICDdsParameters {
     pub AlphaMode: WICDdsAlphaMode,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for WICDdsParameters {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for WICDdsParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for WICDdsParameters {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICDdsParameters").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("DxgiFormat", &self.DxgiFormat).field("Dimension", &self.Dimension).field("AlphaMode", &self.AlphaMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for WICDdsParameters {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for WICDdsParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.DxgiFormat == other.DxgiFormat && self.Dimension == other.Dimension && self.AlphaMode == other.AlphaMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for WICDdsParameters {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for WICDdsParameters {
     fn default() -> Self {
@@ -3589,6 +3499,7 @@ impl Default for WICDdsParameters {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICImageParameters {
     pub PixelFormat: super::Direct2D::Common::D2D1_PIXEL_FORMAT,
     pub DpiX: f32,
@@ -3599,31 +3510,9 @@ pub struct WICImageParameters {
     pub PixelHeight: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for WICImageParameters {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for WICImageParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for WICImageParameters {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICImageParameters").field("PixelFormat", &self.PixelFormat).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).field("Top", &self.Top).field("Left", &self.Left).field("PixelWidth", &self.PixelWidth).field("PixelHeight", &self.PixelHeight).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for WICImageParameters {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for WICImageParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.PixelFormat == other.PixelFormat && self.DpiX == other.DpiX && self.DpiY == other.DpiY && self.Top == other.Top && self.Left == other.Left && self.PixelWidth == other.PixelWidth && self.PixelHeight == other.PixelHeight
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for WICImageParameters {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for WICImageParameters {
     fn default() -> Self {
@@ -3631,6 +3520,7 @@ impl Default for WICImageParameters {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICJpegFrameHeader {
     pub Width: u32,
     pub Height: u32,
@@ -3641,32 +3531,16 @@ pub struct WICJpegFrameHeader {
     pub SampleFactors: u32,
     pub QuantizationTableIndices: u32,
 }
-impl Copy for WICJpegFrameHeader {}
-impl Clone for WICJpegFrameHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICJpegFrameHeader {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICJpegFrameHeader").field("Width", &self.Width).field("Height", &self.Height).field("TransferMatrix", &self.TransferMatrix).field("ScanType", &self.ScanType).field("cComponents", &self.cComponents).field("ComponentIdentifiers", &self.ComponentIdentifiers).field("SampleFactors", &self.SampleFactors).field("QuantizationTableIndices", &self.QuantizationTableIndices).finish()
-    }
-}
 impl windows_core::TypeKind for WICJpegFrameHeader {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICJpegFrameHeader {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.TransferMatrix == other.TransferMatrix && self.ScanType == other.ScanType && self.cComponents == other.cComponents && self.ComponentIdentifiers == other.ComponentIdentifiers && self.SampleFactors == other.SampleFactors && self.QuantizationTableIndices == other.QuantizationTableIndices
-    }
-}
-impl Eq for WICJpegFrameHeader {}
 impl Default for WICJpegFrameHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICJpegScanHeader {
     pub cComponents: u32,
     pub RestartInterval: u32,
@@ -3677,73 +3551,32 @@ pub struct WICJpegScanHeader {
     pub SuccessiveApproximationHigh: u8,
     pub SuccessiveApproximationLow: u8,
 }
-impl Copy for WICJpegScanHeader {}
-impl Clone for WICJpegScanHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICJpegScanHeader {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICJpegScanHeader")
-            .field("cComponents", &self.cComponents)
-            .field("RestartInterval", &self.RestartInterval)
-            .field("ComponentSelectors", &self.ComponentSelectors)
-            .field("HuffmanTableIndices", &self.HuffmanTableIndices)
-            .field("StartSpectralSelection", &self.StartSpectralSelection)
-            .field("EndSpectralSelection", &self.EndSpectralSelection)
-            .field("SuccessiveApproximationHigh", &self.SuccessiveApproximationHigh)
-            .field("SuccessiveApproximationLow", &self.SuccessiveApproximationLow)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WICJpegScanHeader {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICJpegScanHeader {
-    fn eq(&self, other: &Self) -> bool {
-        self.cComponents == other.cComponents && self.RestartInterval == other.RestartInterval && self.ComponentSelectors == other.ComponentSelectors && self.HuffmanTableIndices == other.HuffmanTableIndices && self.StartSpectralSelection == other.StartSpectralSelection && self.EndSpectralSelection == other.EndSpectralSelection && self.SuccessiveApproximationHigh == other.SuccessiveApproximationHigh && self.SuccessiveApproximationLow == other.SuccessiveApproximationLow
-    }
-}
-impl Eq for WICJpegScanHeader {}
 impl Default for WICJpegScanHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICMetadataHeader {
     pub Position: u64,
     pub Length: u32,
     pub Header: *mut u8,
     pub DataOffset: u64,
 }
-impl Copy for WICMetadataHeader {}
-impl Clone for WICMetadataHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICMetadataHeader {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICMetadataHeader").field("Position", &self.Position).field("Length", &self.Length).field("Header", &self.Header).field("DataOffset", &self.DataOffset).finish()
-    }
-}
 impl windows_core::TypeKind for WICMetadataHeader {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICMetadataHeader {
-    fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position && self.Length == other.Length && self.Header == other.Header && self.DataOffset == other.DataOffset
-    }
-}
-impl Eq for WICMetadataHeader {}
 impl Default for WICMetadataHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICMetadataPattern {
     pub Position: u64,
     pub Length: u32,
@@ -3751,32 +3584,16 @@ pub struct WICMetadataPattern {
     pub Mask: *mut u8,
     pub DataOffset: u64,
 }
-impl Copy for WICMetadataPattern {}
-impl Clone for WICMetadataPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICMetadataPattern {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICMetadataPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("DataOffset", &self.DataOffset).finish()
-    }
-}
 impl windows_core::TypeKind for WICMetadataPattern {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICMetadataPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position && self.Length == other.Length && self.Pattern == other.Pattern && self.Mask == other.Mask && self.DataOffset == other.DataOffset
-    }
-}
-impl Eq for WICMetadataPattern {}
 impl Default for WICMetadataPattern {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICRawCapabilitiesInfo {
     pub cbSize: u32,
     pub CodecMajorVersion: u32,
@@ -3797,154 +3614,53 @@ pub struct WICRawCapabilitiesInfo {
     pub RotationSupport: WICRawRotationCapabilities,
     pub RenderModeSupport: WICRawCapabilities,
 }
-impl Copy for WICRawCapabilitiesInfo {}
-impl Clone for WICRawCapabilitiesInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICRawCapabilitiesInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICRawCapabilitiesInfo")
-            .field("cbSize", &self.cbSize)
-            .field("CodecMajorVersion", &self.CodecMajorVersion)
-            .field("CodecMinorVersion", &self.CodecMinorVersion)
-            .field("ExposureCompensationSupport", &self.ExposureCompensationSupport)
-            .field("ContrastSupport", &self.ContrastSupport)
-            .field("RGBWhitePointSupport", &self.RGBWhitePointSupport)
-            .field("NamedWhitePointSupport", &self.NamedWhitePointSupport)
-            .field("NamedWhitePointSupportMask", &self.NamedWhitePointSupportMask)
-            .field("KelvinWhitePointSupport", &self.KelvinWhitePointSupport)
-            .field("GammaSupport", &self.GammaSupport)
-            .field("TintSupport", &self.TintSupport)
-            .field("SaturationSupport", &self.SaturationSupport)
-            .field("SharpnessSupport", &self.SharpnessSupport)
-            .field("NoiseReductionSupport", &self.NoiseReductionSupport)
-            .field("DestinationColorProfileSupport", &self.DestinationColorProfileSupport)
-            .field("ToneCurveSupport", &self.ToneCurveSupport)
-            .field("RotationSupport", &self.RotationSupport)
-            .field("RenderModeSupport", &self.RenderModeSupport)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WICRawCapabilitiesInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICRawCapabilitiesInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.CodecMajorVersion == other.CodecMajorVersion
-            && self.CodecMinorVersion == other.CodecMinorVersion
-            && self.ExposureCompensationSupport == other.ExposureCompensationSupport
-            && self.ContrastSupport == other.ContrastSupport
-            && self.RGBWhitePointSupport == other.RGBWhitePointSupport
-            && self.NamedWhitePointSupport == other.NamedWhitePointSupport
-            && self.NamedWhitePointSupportMask == other.NamedWhitePointSupportMask
-            && self.KelvinWhitePointSupport == other.KelvinWhitePointSupport
-            && self.GammaSupport == other.GammaSupport
-            && self.TintSupport == other.TintSupport
-            && self.SaturationSupport == other.SaturationSupport
-            && self.SharpnessSupport == other.SharpnessSupport
-            && self.NoiseReductionSupport == other.NoiseReductionSupport
-            && self.DestinationColorProfileSupport == other.DestinationColorProfileSupport
-            && self.ToneCurveSupport == other.ToneCurveSupport
-            && self.RotationSupport == other.RotationSupport
-            && self.RenderModeSupport == other.RenderModeSupport
-    }
-}
-impl Eq for WICRawCapabilitiesInfo {}
 impl Default for WICRawCapabilitiesInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICRawToneCurve {
     pub cPoints: u32,
     pub aPoints: [WICRawToneCurvePoint; 1],
 }
-impl Copy for WICRawToneCurve {}
-impl Clone for WICRawToneCurve {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICRawToneCurve {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICRawToneCurve").field("cPoints", &self.cPoints).field("aPoints", &self.aPoints).finish()
-    }
-}
 impl windows_core::TypeKind for WICRawToneCurve {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICRawToneCurve {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPoints == other.cPoints && self.aPoints == other.aPoints
-    }
-}
-impl Eq for WICRawToneCurve {}
 impl Default for WICRawToneCurve {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICRawToneCurvePoint {
     pub Input: f64,
     pub Output: f64,
 }
-impl Copy for WICRawToneCurvePoint {}
-impl Clone for WICRawToneCurvePoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICRawToneCurvePoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICRawToneCurvePoint").field("Input", &self.Input).field("Output", &self.Output).finish()
-    }
-}
 impl windows_core::TypeKind for WICRawToneCurvePoint {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICRawToneCurvePoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.Input == other.Input && self.Output == other.Output
-    }
-}
-impl Eq for WICRawToneCurvePoint {}
 impl Default for WICRawToneCurvePoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICRect {
     pub X: i32,
     pub Y: i32,
     pub Width: i32,
     pub Height: i32,
 }
-impl Copy for WICRect {}
-impl Clone for WICRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WICRect {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WICRect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 impl windows_core::TypeKind for WICRect {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WICRect {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for WICRect {}
 impl Default for WICRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

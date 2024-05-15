@@ -1186,6 +1186,7 @@ impl windows_core::TypeKind for HSWDEVICE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SW_DEVICE_CREATE_INFO {
     pub cbSize: u32,
     pub pszInstanceId: windows_core::PCWSTR,
@@ -1198,31 +1199,9 @@ pub struct SW_DEVICE_CREATE_INFO {
     pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for SW_DEVICE_CREATE_INFO {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SW_DEVICE_CREATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for SW_DEVICE_CREATE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SW_DEVICE_CREATE_INFO").field("cbSize", &self.cbSize).field("pszInstanceId", &self.pszInstanceId).field("pszzHardwareIds", &self.pszzHardwareIds).field("pszzCompatibleIds", &self.pszzCompatibleIds).field("pContainerId", &self.pContainerId).field("CapabilityFlags", &self.CapabilityFlags).field("pszDeviceDescription", &self.pszDeviceDescription).field("pszDeviceLocation", &self.pszDeviceLocation).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for SW_DEVICE_CREATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for SW_DEVICE_CREATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pszInstanceId == other.pszInstanceId && self.pszzHardwareIds == other.pszzHardwareIds && self.pszzCompatibleIds == other.pszzCompatibleIds && self.pContainerId == other.pContainerId && self.CapabilityFlags == other.CapabilityFlags && self.pszDeviceDescription == other.pszDeviceDescription && self.pszDeviceLocation == other.pszDeviceLocation && self.pSecurityDescriptor == other.pSecurityDescriptor
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for SW_DEVICE_CREATE_INFO {}
 #[cfg(feature = "Win32_Security")]
 impl Default for SW_DEVICE_CREATE_INFO {
     fn default() -> Self {

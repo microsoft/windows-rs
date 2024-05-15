@@ -10503,29 +10503,13 @@ impl core::fmt::Debug for WIN32_ERROR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
-}
-impl Copy for APP_LOCAL_DEVICE_ID {}
-impl Clone for APP_LOCAL_DEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APP_LOCAL_DEVICE_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
-    }
 }
 impl windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APP_LOCAL_DEVICE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
-    }
-}
-impl Eq for APP_LOCAL_DEVICE_ID {}
 impl Default for APP_LOCAL_DEVICE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10566,17 +10550,12 @@ impl windows_core::TypeKind for COLORREF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL {
     pub wReserved: u16,
     pub Anonymous1: DECIMAL_0,
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
-}
-impl Copy for DECIMAL {}
-impl Clone for DECIMAL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DECIMAL {
     type TypeKind = windows_core::CopyType;
@@ -10587,15 +10566,10 @@ impl Default for DECIMAL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
-}
-impl Copy for DECIMAL_0 {}
-impl Clone for DECIMAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DECIMAL_0 {
     type TypeKind = windows_core::CopyType;
@@ -10606,45 +10580,24 @@ impl Default for DECIMAL_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
-impl Copy for DECIMAL_0_0 {}
-impl Clone for DECIMAL_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DECIMAL_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
-    }
-}
 impl windows_core::TypeKind for DECIMAL_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DECIMAL_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.scale == other.scale && self.sign == other.sign
-    }
-}
-impl Eq for DECIMAL_0_0 {}
 impl Default for DECIMAL_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
-}
-impl Copy for DECIMAL_1 {}
-impl Clone for DECIMAL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DECIMAL_1 {
     type TypeKind = windows_core::CopyType;
@@ -10655,90 +10608,42 @@ impl Default for DECIMAL_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-impl Copy for DECIMAL_1_0 {}
-impl Clone for DECIMAL_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DECIMAL_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
-    }
-}
 impl windows_core::TypeKind for DECIMAL_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DECIMAL_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Lo32 == other.Lo32 && self.Mid32 == other.Mid32
-    }
-}
-impl Eq for DECIMAL_1_0 {}
 impl Default for DECIMAL_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl Copy for FILETIME {}
-impl Clone for FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILETIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
-    }
-}
 impl windows_core::TypeKind for FILETIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
-    }
-}
-impl Eq for FILETIME {}
 impl Default for FILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
-impl Copy for FLOAT128 {}
-impl Clone for FLOAT128 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FLOAT128 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 impl windows_core::TypeKind for FLOAT128 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FLOAT128 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for FLOAT128 {}
 impl Default for FLOAT128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10982,30 +10887,14 @@ impl windows_core::TypeKind for LRESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
-impl Copy for LUID {}
-impl Clone for LUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LUID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 impl windows_core::TypeKind for LUID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LUID {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for LUID {}
 impl Default for LUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11024,90 +10913,42 @@ impl windows_core::TypeKind for NTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
-impl Copy for POINT {}
-impl Clone for POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for POINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for POINT {}
 impl Default for POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-impl Copy for POINTL {}
-impl Clone for POINTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POINTL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for POINTL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POINTL {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for POINTL {}
 impl Default for POINTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
 }
-impl Copy for POINTS {}
-impl Clone for POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POINTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for POINTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POINTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for POINTS {}
 impl Default for POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11130,64 +10971,32 @@ impl windows_core::TypeKind for PSID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
-impl Copy for RECT {}
-impl Clone for RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for RECT {}
 impl Default for RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
-impl Copy for RECTL {}
-impl Clone for RECTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECTL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for RECTL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECTL {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for RECTL {}
 impl Default for RECTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11205,36 +11014,21 @@ impl windows_core::TypeKind for SHANDLE_PTR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
 }
-impl Copy for SIZE {}
-impl Clone for SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
-    }
-}
 impl windows_core::TypeKind for SIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cx == other.cx && self.cy == other.cy
-    }
-}
-impl Eq for SIZE {}
 impl Default for SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -11245,57 +11039,24 @@ pub struct SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl Copy for SYSTEMTIME {}
-impl Clone for SYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEMTIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEMTIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
-    }
-}
-impl Eq for SYSTEMTIME {}
 impl Default for SYSTEMTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PWSTR,
 }
-impl Copy for UNICODE_STRING {}
-impl Clone for UNICODE_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNICODE_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
-    }
-}
 impl windows_core::TypeKind for UNICODE_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNICODE_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
-    }
-}
-impl Eq for UNICODE_STRING {}
 impl Default for UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

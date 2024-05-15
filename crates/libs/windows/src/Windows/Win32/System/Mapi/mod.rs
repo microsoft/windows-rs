@@ -59,6 +59,7 @@ pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 pub const MAPI_USER_ABORT: u32 = 1u32;
 pub const SUCCESS_SUCCESS: u32 = 0u32;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -67,32 +68,16 @@ pub struct MapiFileDesc {
     pub lpszFileName: windows_core::PSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
-impl Copy for MapiFileDesc {}
-impl Clone for MapiFileDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiFileDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiFileDesc").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
-    }
-}
 impl windows_core::TypeKind for MapiFileDesc {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiFileDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
-    }
-}
-impl Eq for MapiFileDesc {}
 impl Default for MapiFileDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -101,32 +86,16 @@ pub struct MapiFileDescW {
     pub lpszFileName: windows_core::PWSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
-impl Copy for MapiFileDescW {}
-impl Clone for MapiFileDescW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiFileDescW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiFileDescW").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
-    }
-}
 impl windows_core::TypeKind for MapiFileDescW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiFileDescW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
-    }
-}
-impl Eq for MapiFileDescW {}
 impl Default for MapiFileDescW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiFileTagExt {
     pub ulReserved: u32,
     pub cbTag: u32,
@@ -134,32 +103,16 @@ pub struct MapiFileTagExt {
     pub cbEncoding: u32,
     pub lpEncoding: *mut u8,
 }
-impl Copy for MapiFileTagExt {}
-impl Clone for MapiFileTagExt {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiFileTagExt {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiFileTagExt").field("ulReserved", &self.ulReserved).field("cbTag", &self.cbTag).field("lpTag", &self.lpTag).field("cbEncoding", &self.cbEncoding).field("lpEncoding", &self.lpEncoding).finish()
-    }
-}
 impl windows_core::TypeKind for MapiFileTagExt {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiFileTagExt {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.cbTag == other.cbTag && self.lpTag == other.lpTag && self.cbEncoding == other.cbEncoding && self.lpEncoding == other.lpEncoding
-    }
-}
-impl Eq for MapiFileTagExt {}
 impl Default for MapiFileTagExt {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiMessage {
     pub ulReserved: u32,
     pub lpszSubject: windows_core::PSTR,
@@ -174,45 +127,16 @@ pub struct MapiMessage {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDesc,
 }
-impl Copy for MapiMessage {}
-impl Clone for MapiMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiMessage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiMessage")
-            .field("ulReserved", &self.ulReserved)
-            .field("lpszSubject", &self.lpszSubject)
-            .field("lpszNoteText", &self.lpszNoteText)
-            .field("lpszMessageType", &self.lpszMessageType)
-            .field("lpszDateReceived", &self.lpszDateReceived)
-            .field("lpszConversationID", &self.lpszConversationID)
-            .field("flFlags", &self.flFlags)
-            .field("lpOriginator", &self.lpOriginator)
-            .field("nRecipCount", &self.nRecipCount)
-            .field("lpRecips", &self.lpRecips)
-            .field("nFileCount", &self.nFileCount)
-            .field("lpFiles", &self.lpFiles)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MapiMessage {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
-    }
-}
-impl Eq for MapiMessage {}
 impl Default for MapiMessage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiMessageW {
     pub ulReserved: u32,
     pub lpszSubject: windows_core::PWSTR,
@@ -227,45 +151,16 @@ pub struct MapiMessageW {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDescW,
 }
-impl Copy for MapiMessageW {}
-impl Clone for MapiMessageW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiMessageW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiMessageW")
-            .field("ulReserved", &self.ulReserved)
-            .field("lpszSubject", &self.lpszSubject)
-            .field("lpszNoteText", &self.lpszNoteText)
-            .field("lpszMessageType", &self.lpszMessageType)
-            .field("lpszDateReceived", &self.lpszDateReceived)
-            .field("lpszConversationID", &self.lpszConversationID)
-            .field("flFlags", &self.flFlags)
-            .field("lpOriginator", &self.lpOriginator)
-            .field("nRecipCount", &self.nRecipCount)
-            .field("lpRecips", &self.lpRecips)
-            .field("nFileCount", &self.nFileCount)
-            .field("lpFiles", &self.lpFiles)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MapiMessageW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiMessageW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
-    }
-}
-impl Eq for MapiMessageW {}
 impl Default for MapiMessageW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -274,32 +169,16 @@ pub struct MapiRecipDesc {
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
 }
-impl Copy for MapiRecipDesc {}
-impl Clone for MapiRecipDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiRecipDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiRecipDesc").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
-    }
-}
 impl windows_core::TypeKind for MapiRecipDesc {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiRecipDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
-    }
-}
-impl Eq for MapiRecipDesc {}
 impl Default for MapiRecipDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -308,26 +187,9 @@ pub struct MapiRecipDescW {
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
 }
-impl Copy for MapiRecipDescW {}
-impl Clone for MapiRecipDescW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MapiRecipDescW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MapiRecipDescW").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
-    }
-}
 impl windows_core::TypeKind for MapiRecipDescW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MapiRecipDescW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
-    }
-}
-impl Eq for MapiRecipDescW {}
 impl Default for MapiRecipDescW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

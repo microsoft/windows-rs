@@ -41,30 +41,14 @@ pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdes
     RtlWriteNonVolatileMemory(nvtoken, nvdestination, source, size, flags)
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut core::ffi::c_void,
     pub Length: usize,
 }
-impl Copy for NV_MEMORY_RANGE {}
-impl Clone for NV_MEMORY_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NV_MEMORY_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NV_MEMORY_RANGE").field("BaseAddress", &self.BaseAddress).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for NV_MEMORY_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NV_MEMORY_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.Length == other.Length
-    }
-}
-impl Eq for NV_MEMORY_RANGE {}
 impl Default for NV_MEMORY_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -433,23 +433,10 @@ impl windows_core::RuntimeType for JointPoseAccuracy {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HandMeshVertex {
     pub Position: super::super::Foundation::Numerics::Vector3,
     pub Normal: super::super::Foundation::Numerics::Vector3,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for HandMeshVertex {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for HandMeshVertex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for HandMeshVertex {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for HandMeshVertex {
@@ -460,14 +447,6 @@ impl windows_core::RuntimeType for HandMeshVertex {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for HandMeshVertex {
-    fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position && self.Normal == other.Normal
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for HandMeshVertex {}
-#[cfg(feature = "Foundation_Numerics")]
 impl Default for HandMeshVertex {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -475,25 +454,12 @@ impl Default for HandMeshVertex {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
     pub Position: super::super::Foundation::Numerics::Vector3,
     pub Radius: f32,
     pub Accuracy: JointPoseAccuracy,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for JointPose {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for JointPose {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for JointPose {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JointPose").field("Orientation", &self.Orientation).field("Position", &self.Position).field("Radius", &self.Radius).field("Accuracy", &self.Accuracy).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for JointPose {
@@ -503,14 +469,6 @@ impl windows_core::TypeKind for JointPose {
 impl windows_core::RuntimeType for JointPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for JointPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.Orientation == other.Orientation && self.Position == other.Position && self.Radius == other.Radius && self.Accuracy == other.Accuracy
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for JointPose {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for JointPose {
     fn default() -> Self {

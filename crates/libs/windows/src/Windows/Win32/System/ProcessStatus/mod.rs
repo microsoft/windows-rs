@@ -403,6 +403,7 @@ impl core::fmt::Debug for ENUM_PROCESS_MODULES_EX_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
@@ -410,63 +411,31 @@ pub struct ENUM_PAGE_FILE_INFORMATION {
     pub TotalInUse: usize,
     pub PeakUsage: usize,
 }
-impl Copy for ENUM_PAGE_FILE_INFORMATION {}
-impl Clone for ENUM_PAGE_FILE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUM_PAGE_FILE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUM_PAGE_FILE_INFORMATION").field("cb", &self.cb).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("TotalInUse", &self.TotalInUse).field("PeakUsage", &self.PeakUsage).finish()
-    }
-}
 impl windows_core::TypeKind for ENUM_PAGE_FILE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUM_PAGE_FILE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize && self.TotalInUse == other.TotalInUse && self.PeakUsage == other.PeakUsage
-    }
-}
-impl Eq for ENUM_PAGE_FILE_INFORMATION {}
 impl Default for ENUM_PAGE_FILE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
     pub SizeOfImage: u32,
     pub EntryPoint: *mut core::ffi::c_void,
 }
-impl Copy for MODULEINFO {}
-impl Clone for MODULEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MODULEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MODULEINFO").field("lpBaseOfDll", &self.lpBaseOfDll).field("SizeOfImage", &self.SizeOfImage).field("EntryPoint", &self.EntryPoint).finish()
-    }
-}
 impl windows_core::TypeKind for MODULEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MODULEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpBaseOfDll == other.lpBaseOfDll && self.SizeOfImage == other.SizeOfImage && self.EntryPoint == other.EntryPoint
-    }
-}
-impl Eq for MODULEINFO {}
 impl Default for MODULEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -483,47 +452,16 @@ pub struct PERFORMANCE_INFORMATION {
     pub ProcessCount: u32,
     pub ThreadCount: u32,
 }
-impl Copy for PERFORMANCE_INFORMATION {}
-impl Clone for PERFORMANCE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PERFORMANCE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PERFORMANCE_INFORMATION")
-            .field("cb", &self.cb)
-            .field("CommitTotal", &self.CommitTotal)
-            .field("CommitLimit", &self.CommitLimit)
-            .field("CommitPeak", &self.CommitPeak)
-            .field("PhysicalTotal", &self.PhysicalTotal)
-            .field("PhysicalAvailable", &self.PhysicalAvailable)
-            .field("SystemCache", &self.SystemCache)
-            .field("KernelTotal", &self.KernelTotal)
-            .field("KernelPaged", &self.KernelPaged)
-            .field("KernelNonpaged", &self.KernelNonpaged)
-            .field("PageSize", &self.PageSize)
-            .field("HandleCount", &self.HandleCount)
-            .field("ProcessCount", &self.ProcessCount)
-            .field("ThreadCount", &self.ThreadCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PERFORMANCE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PERFORMANCE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.CommitTotal == other.CommitTotal && self.CommitLimit == other.CommitLimit && self.CommitPeak == other.CommitPeak && self.PhysicalTotal == other.PhysicalTotal && self.PhysicalAvailable == other.PhysicalAvailable && self.SystemCache == other.SystemCache && self.KernelTotal == other.KernelTotal && self.KernelPaged == other.KernelPaged && self.KernelNonpaged == other.KernelNonpaged && self.PageSize == other.PageSize && self.HandleCount == other.HandleCount && self.ProcessCount == other.ProcessCount && self.ThreadCount == other.ThreadCount
-    }
-}
-impl Eq for PERFORMANCE_INFORMATION {}
 impl Default for PERFORMANCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -536,43 +474,16 @@ pub struct PROCESS_MEMORY_COUNTERS {
     pub PagefileUsage: usize,
     pub PeakPagefileUsage: usize,
 }
-impl Copy for PROCESS_MEMORY_COUNTERS {}
-impl Clone for PROCESS_MEMORY_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MEMORY_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MEMORY_COUNTERS")
-            .field("cb", &self.cb)
-            .field("PageFaultCount", &self.PageFaultCount)
-            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
-            .field("WorkingSetSize", &self.WorkingSetSize)
-            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
-            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
-            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
-            .field("PagefileUsage", &self.PagefileUsage)
-            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MEMORY_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage
-    }
-}
-impl Eq for PROCESS_MEMORY_COUNTERS {}
 impl Default for PROCESS_MEMORY_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -586,44 +497,16 @@ pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub PeakPagefileUsage: usize,
     pub PrivateUsage: usize,
 }
-impl Copy for PROCESS_MEMORY_COUNTERS_EX {}
-impl Clone for PROCESS_MEMORY_COUNTERS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MEMORY_COUNTERS_EX")
-            .field("cb", &self.cb)
-            .field("PageFaultCount", &self.PageFaultCount)
-            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
-            .field("WorkingSetSize", &self.WorkingSetSize)
-            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
-            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
-            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
-            .field("PagefileUsage", &self.PagefileUsage)
-            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
-            .field("PrivateUsage", &self.PrivateUsage)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MEMORY_COUNTERS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.PrivateUsage == other.PrivateUsage
-    }
-}
-impl Eq for PROCESS_MEMORY_COUNTERS_EX {}
 impl Default for PROCESS_MEMORY_COUNTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -639,55 +522,19 @@ pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
-impl Copy for PROCESS_MEMORY_COUNTERS_EX2 {}
-impl Clone for PROCESS_MEMORY_COUNTERS_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MEMORY_COUNTERS_EX2")
-            .field("cb", &self.cb)
-            .field("PageFaultCount", &self.PageFaultCount)
-            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
-            .field("WorkingSetSize", &self.WorkingSetSize)
-            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
-            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
-            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
-            .field("PagefileUsage", &self.PagefileUsage)
-            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
-            .field("PrivateUsage", &self.PrivateUsage)
-            .field("PrivateWorkingSetSize", &self.PrivateWorkingSetSize)
-            .field("SharedCommitUsage", &self.SharedCommitUsage)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS_EX2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MEMORY_COUNTERS_EX2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.PrivateUsage == other.PrivateUsage && self.PrivateWorkingSetSize == other.PrivateWorkingSetSize && self.SharedCommitUsage == other.SharedCommitUsage
-    }
-}
-impl Eq for PROCESS_MEMORY_COUNTERS_EX2 {}
 impl Default for PROCESS_MEMORY_COUNTERS_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,
-}
-impl Copy for PSAPI_WORKING_SET_BLOCK {}
-impl Clone for PSAPI_WORKING_SET_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_BLOCK {
     type TypeKind = windows_core::CopyType;
@@ -698,44 +545,23 @@ impl Default for PSAPI_WORKING_SET_BLOCK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
-}
-impl Copy for PSAPI_WORKING_SET_BLOCK_0 {}
-impl Clone for PSAPI_WORKING_SET_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSAPI_WORKING_SET_BLOCK_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSAPI_WORKING_SET_BLOCK_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_BLOCK_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSAPI_WORKING_SET_BLOCK_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PSAPI_WORKING_SET_BLOCK_0 {}
 impl Default for PSAPI_WORKING_SET_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_EX_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0,
-}
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK {
     type TypeKind = windows_core::CopyType;
@@ -746,15 +572,10 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0,
     pub Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1,
-}
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK_0 {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0 {
     type TypeKind = windows_core::CopyType;
@@ -765,73 +586,36 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
-}
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK_0_0 {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSAPI_WORKING_SET_EX_BLOCK_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {}
 impl Default for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
-}
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSAPI_WORKING_SET_EX_BLOCK_0_1").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
 impl Default for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_EX_INFORMATION {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
-}
-impl Copy for PSAPI_WORKING_SET_EX_INFORMATION {}
-impl Clone for PSAPI_WORKING_SET_EX_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -842,15 +626,10 @@ impl Default for PSAPI_WORKING_SET_EX_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_INFORMATION {
     pub NumberOfEntries: usize,
     pub WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
-}
-impl Copy for PSAPI_WORKING_SET_INFORMATION {}
-impl Clone for PSAPI_WORKING_SET_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PSAPI_WORKING_SET_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -861,61 +640,29 @@ impl Default for PSAPI_WORKING_SET_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
 }
-impl Copy for PSAPI_WS_WATCH_INFORMATION {}
-impl Clone for PSAPI_WS_WATCH_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSAPI_WS_WATCH_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSAPI_WS_WATCH_INFORMATION").field("FaultingPc", &self.FaultingPc).field("FaultingVa", &self.FaultingVa).finish()
-    }
-}
 impl windows_core::TypeKind for PSAPI_WS_WATCH_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSAPI_WS_WATCH_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FaultingPc == other.FaultingPc && self.FaultingVa == other.FaultingVa
-    }
-}
-impl Eq for PSAPI_WS_WATCH_INFORMATION {}
 impl Default for PSAPI_WS_WATCH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,
     pub Flags: usize,
 }
-impl Copy for PSAPI_WS_WATCH_INFORMATION_EX {}
-impl Clone for PSAPI_WS_WATCH_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSAPI_WS_WATCH_INFORMATION_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSAPI_WS_WATCH_INFORMATION_EX").field("BasicInfo", &self.BasicInfo).field("FaultingThreadId", &self.FaultingThreadId).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for PSAPI_WS_WATCH_INFORMATION_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSAPI_WS_WATCH_INFORMATION_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.BasicInfo == other.BasicInfo && self.FaultingThreadId == other.FaultingThreadId && self.Flags == other.Flags
-    }
-}
-impl Eq for PSAPI_WS_WATCH_INFORMATION_EX {}
 impl Default for PSAPI_WS_WATCH_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

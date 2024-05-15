@@ -2152,6 +2152,7 @@ impl windows_core::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -2159,49 +2160,22 @@ pub struct BackgroundDownloadProgress {
     pub HasResponseChanged: bool,
     pub HasRestarted: bool,
 }
-impl Copy for BackgroundDownloadProgress {}
-impl Clone for BackgroundDownloadProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BackgroundDownloadProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BackgroundDownloadProgress").field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
-    }
-}
 impl windows_core::TypeKind for BackgroundDownloadProgress {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for BackgroundDownloadProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
-impl PartialEq for BackgroundDownloadProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Status == other.Status && self.HasResponseChanged == other.HasResponseChanged && self.HasRestarted == other.HasRestarted
-    }
-}
-impl Eq for BackgroundDownloadProgress {}
 impl Default for BackgroundDownloadProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
-}
-impl Copy for BackgroundTransferFileRange {}
-impl Clone for BackgroundTransferFileRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BackgroundTransferFileRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BackgroundTransferFileRange").field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
 }
 impl windows_core::TypeKind for BackgroundTransferFileRange {
     type TypeKind = windows_core::CopyType;
@@ -2209,18 +2183,13 @@ impl windows_core::TypeKind for BackgroundTransferFileRange {
 impl windows_core::RuntimeType for BackgroundTransferFileRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
 }
-impl PartialEq for BackgroundTransferFileRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-impl Eq for BackgroundTransferFileRange {}
 impl Default for BackgroundTransferFileRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,
@@ -2230,29 +2199,12 @@ pub struct BackgroundUploadProgress {
     pub HasResponseChanged: bool,
     pub HasRestarted: bool,
 }
-impl Copy for BackgroundUploadProgress {}
-impl Clone for BackgroundUploadProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BackgroundUploadProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BackgroundUploadProgress").field("BytesReceived", &self.BytesReceived).field("BytesSent", &self.BytesSent).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("TotalBytesToSend", &self.TotalBytesToSend).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
-    }
-}
 impl windows_core::TypeKind for BackgroundUploadProgress {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for BackgroundUploadProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundUploadProgress;u8;u8;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
-impl PartialEq for BackgroundUploadProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesReceived == other.BytesReceived && self.BytesSent == other.BytesSent && self.TotalBytesToReceive == other.TotalBytesToReceive && self.TotalBytesToSend == other.TotalBytesToSend && self.Status == other.Status && self.HasResponseChanged == other.HasResponseChanged && self.HasRestarted == other.HasRestarted
-    }
-}
-impl Eq for BackgroundUploadProgress {}
 impl Default for BackgroundUploadProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

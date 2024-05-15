@@ -334,6 +334,7 @@ impl core::fmt::Debug for CALLFRAME_WALK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALLFRAMEINFO {
     pub iMethod: u32,
     pub fHasInValues: super::super::super::Foundation::BOOL,
@@ -348,77 +349,32 @@ pub struct CALLFRAMEINFO {
     pub cMethod: u32,
     pub cParams: u32,
 }
-impl Copy for CALLFRAMEINFO {}
-impl Clone for CALLFRAMEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CALLFRAMEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CALLFRAMEINFO")
-            .field("iMethod", &self.iMethod)
-            .field("fHasInValues", &self.fHasInValues)
-            .field("fHasInOutValues", &self.fHasInOutValues)
-            .field("fHasOutValues", &self.fHasOutValues)
-            .field("fDerivesFromIDispatch", &self.fDerivesFromIDispatch)
-            .field("cInInterfacesMax", &self.cInInterfacesMax)
-            .field("cInOutInterfacesMax", &self.cInOutInterfacesMax)
-            .field("cOutInterfacesMax", &self.cOutInterfacesMax)
-            .field("cTopLevelInInterfaces", &self.cTopLevelInInterfaces)
-            .field("iid", &self.iid)
-            .field("cMethod", &self.cMethod)
-            .field("cParams", &self.cParams)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CALLFRAMEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CALLFRAMEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.iMethod == other.iMethod && self.fHasInValues == other.fHasInValues && self.fHasInOutValues == other.fHasInOutValues && self.fHasOutValues == other.fHasOutValues && self.fDerivesFromIDispatch == other.fDerivesFromIDispatch && self.cInInterfacesMax == other.cInInterfacesMax && self.cInOutInterfacesMax == other.cInOutInterfacesMax && self.cOutInterfacesMax == other.cOutInterfacesMax && self.cTopLevelInInterfaces == other.cTopLevelInInterfaces && self.iid == other.iid && self.cMethod == other.cMethod && self.cParams == other.cParams
-    }
-}
-impl Eq for CALLFRAMEINFO {}
 impl Default for CALLFRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALLFRAMEPARAMINFO {
     pub fIn: super::super::super::Foundation::BOOLEAN,
     pub fOut: super::super::super::Foundation::BOOLEAN,
     pub stackOffset: u32,
     pub cbParam: u32,
 }
-impl Copy for CALLFRAMEPARAMINFO {}
-impl Clone for CALLFRAMEPARAMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CALLFRAMEPARAMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CALLFRAMEPARAMINFO").field("fIn", &self.fIn).field("fOut", &self.fOut).field("stackOffset", &self.stackOffset).field("cbParam", &self.cbParam).finish()
-    }
-}
 impl windows_core::TypeKind for CALLFRAMEPARAMINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CALLFRAMEPARAMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIn == other.fIn && self.fOut == other.fOut && self.stackOffset == other.stackOffset && self.cbParam == other.cbParam
-    }
-}
-impl Eq for CALLFRAMEPARAMINFO {}
 impl Default for CALLFRAMEPARAMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
     pub dwDestContext: u32,
@@ -431,20 +387,9 @@ impl Clone for CALLFRAME_MARSHALCONTEXT {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for CALLFRAME_MARSHALCONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CALLFRAME_MARSHALCONTEXT").field("fIn", &self.fIn).field("dwDestContext", &self.dwDestContext).field("pvDestContext", &self.pvDestContext).field("punkReserved", &self.punkReserved).field("guidTransferSyntax", &self.guidTransferSyntax).finish()
-    }
-}
 impl windows_core::TypeKind for CALLFRAME_MARSHALCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CALLFRAME_MARSHALCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIn == other.fIn && self.dwDestContext == other.dwDestContext && self.pvDestContext == other.pvDestContext && self.punkReserved == other.punkReserved && self.guidTransferSyntax == other.guidTransferSyntax
-    }
-}
-impl Eq for CALLFRAME_MARSHALCONTEXT {}
 impl Default for CALLFRAME_MARSHALCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

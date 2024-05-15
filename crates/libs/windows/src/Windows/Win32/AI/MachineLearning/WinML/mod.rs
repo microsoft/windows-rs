@@ -828,48 +828,27 @@ impl core::fmt::Debug for WINML_TENSOR_DATA_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MLOperatorAttribute {
     pub name: windows_core::PCSTR,
     pub r#type: MLOperatorAttributeType,
     pub required: u8,
 }
-impl Copy for MLOperatorAttribute {}
-impl Clone for MLOperatorAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MLOperatorAttribute {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MLOperatorAttribute").field("name", &self.name).field("type", &self.r#type).field("required", &self.required).finish()
-    }
-}
 impl windows_core::TypeKind for MLOperatorAttribute {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MLOperatorAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.r#type == other.r#type && self.required == other.required
-    }
-}
-impl Eq for MLOperatorAttribute {}
 impl Default for MLOperatorAttribute {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MLOperatorAttributeNameValue {
     pub name: windows_core::PCSTR,
     pub r#type: MLOperatorAttributeType,
     pub valueCount: u32,
     pub Anonymous: MLOperatorAttributeNameValue_0,
-}
-impl Copy for MLOperatorAttributeNameValue {}
-impl Clone for MLOperatorAttributeNameValue {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MLOperatorAttributeNameValue {
     type TypeKind = windows_core::CopyType;
@@ -880,17 +859,12 @@ impl Default for MLOperatorAttributeNameValue {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *const core::ffi::c_void,
     pub ints: *const i64,
     pub strings: *const *const i8,
     pub floats: *const f32,
-}
-impl Copy for MLOperatorAttributeNameValue_0 {}
-impl Clone for MLOperatorAttributeNameValue_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MLOperatorAttributeNameValue_0 {
     type TypeKind = windows_core::CopyType;
@@ -901,15 +875,10 @@ impl Default for MLOperatorAttributeNameValue_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MLOperatorEdgeDescription {
     pub edgeType: MLOperatorEdgeType,
     pub Anonymous: MLOperatorEdgeDescription_0,
-}
-impl Copy for MLOperatorEdgeDescription {}
-impl Clone for MLOperatorEdgeDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MLOperatorEdgeDescription {
     type TypeKind = windows_core::CopyType;
@@ -920,15 +889,10 @@ impl Default for MLOperatorEdgeDescription {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MLOperatorEdgeDescription_0 {
     pub reserved: u64,
     pub tensorDataType: MLOperatorTensorDataType,
-}
-impl Copy for MLOperatorEdgeDescription_0 {}
-impl Clone for MLOperatorEdgeDescription_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MLOperatorEdgeDescription_0 {
     type TypeKind = windows_core::CopyType;
@@ -939,37 +903,22 @@ impl Default for MLOperatorEdgeDescription_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MLOperatorEdgeTypeConstraint {
     pub typeLabel: windows_core::PCSTR,
     pub allowedTypes: *const MLOperatorEdgeDescription,
     pub allowedTypeCount: u32,
 }
-impl Copy for MLOperatorEdgeTypeConstraint {}
-impl Clone for MLOperatorEdgeTypeConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MLOperatorEdgeTypeConstraint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
-    }
-}
 impl windows_core::TypeKind for MLOperatorEdgeTypeConstraint {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MLOperatorEdgeTypeConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.typeLabel == other.typeLabel && self.allowedTypes == other.allowedTypes && self.allowedTypeCount == other.allowedTypeCount
-    }
-}
-impl Eq for MLOperatorEdgeTypeConstraint {}
 impl Default for MLOperatorEdgeTypeConstraint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MLOperatorKernelDescription {
     pub domain: windows_core::PCSTR,
     pub name: windows_core::PCSTR,
@@ -982,43 +931,16 @@ pub struct MLOperatorKernelDescription {
     pub options: MLOperatorKernelOptions,
     pub executionOptions: u32,
 }
-impl Copy for MLOperatorKernelDescription {}
-impl Clone for MLOperatorKernelDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MLOperatorKernelDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MLOperatorKernelDescription")
-            .field("domain", &self.domain)
-            .field("name", &self.name)
-            .field("minimumOperatorSetVersion", &self.minimumOperatorSetVersion)
-            .field("executionType", &self.executionType)
-            .field("typeConstraints", &self.typeConstraints)
-            .field("typeConstraintCount", &self.typeConstraintCount)
-            .field("defaultAttributes", &self.defaultAttributes)
-            .field("defaultAttributeCount", &self.defaultAttributeCount)
-            .field("options", &self.options)
-            .field("executionOptions", &self.executionOptions)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MLOperatorKernelDescription {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MLOperatorKernelDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.domain == other.domain && self.name == other.name && self.minimumOperatorSetVersion == other.minimumOperatorSetVersion && self.executionType == other.executionType && self.typeConstraints == other.typeConstraints && self.typeConstraintCount == other.typeConstraintCount && self.defaultAttributes == other.defaultAttributes && self.defaultAttributeCount == other.defaultAttributeCount && self.options == other.options && self.executionOptions == other.executionOptions
-    }
-}
-impl Eq for MLOperatorKernelDescription {}
 impl Default for MLOperatorKernelDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MLOperatorSchemaDescription {
     pub name: windows_core::PCSTR,
     pub operatorSetVersionAtLastChange: i32,
@@ -1033,55 +955,20 @@ pub struct MLOperatorSchemaDescription {
     pub defaultAttributes: *const MLOperatorAttributeNameValue,
     pub defaultAttributeCount: u32,
 }
-impl Copy for MLOperatorSchemaDescription {}
-impl Clone for MLOperatorSchemaDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MLOperatorSchemaDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MLOperatorSchemaDescription")
-            .field("name", &self.name)
-            .field("operatorSetVersionAtLastChange", &self.operatorSetVersionAtLastChange)
-            .field("inputs", &self.inputs)
-            .field("inputCount", &self.inputCount)
-            .field("outputs", &self.outputs)
-            .field("outputCount", &self.outputCount)
-            .field("typeConstraints", &self.typeConstraints)
-            .field("typeConstraintCount", &self.typeConstraintCount)
-            .field("attributes", &self.attributes)
-            .field("attributeCount", &self.attributeCount)
-            .field("defaultAttributes", &self.defaultAttributes)
-            .field("defaultAttributeCount", &self.defaultAttributeCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MLOperatorSchemaDescription {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MLOperatorSchemaDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.operatorSetVersionAtLastChange == other.operatorSetVersionAtLastChange && self.inputs == other.inputs && self.inputCount == other.inputCount && self.outputs == other.outputs && self.outputCount == other.outputCount && self.typeConstraints == other.typeConstraints && self.typeConstraintCount == other.typeConstraintCount && self.attributes == other.attributes && self.attributeCount == other.attributeCount && self.defaultAttributes == other.defaultAttributes && self.defaultAttributeCount == other.defaultAttributeCount
-    }
-}
-impl Eq for MLOperatorSchemaDescription {}
 impl Default for MLOperatorSchemaDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MLOperatorSchemaEdgeDescription {
     pub options: MLOperatorParameterOptions,
     pub typeFormat: MLOperatorSchemaEdgeTypeFormat,
     pub Anonymous: MLOperatorSchemaEdgeDescription_0,
-}
-impl Copy for MLOperatorSchemaEdgeDescription {}
-impl Clone for MLOperatorSchemaEdgeDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MLOperatorSchemaEdgeDescription {
     type TypeKind = windows_core::CopyType;
@@ -1092,16 +979,11 @@ impl Default for MLOperatorSchemaEdgeDescription {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MLOperatorSchemaEdgeDescription_0 {
     pub reserved: *const core::ffi::c_void,
     pub typeLabel: windows_core::PCSTR,
     pub edgeDescription: MLOperatorEdgeDescription,
-}
-impl Copy for MLOperatorSchemaEdgeDescription_0 {}
-impl Clone for MLOperatorSchemaEdgeDescription_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MLOperatorSchemaEdgeDescription_0 {
     type TypeKind = windows_core::CopyType;
@@ -1112,30 +994,14 @@ impl Default for MLOperatorSchemaEdgeDescription_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MLOperatorSetId {
     pub domain: windows_core::PCSTR,
     pub version: i32,
 }
-impl Copy for MLOperatorSetId {}
-impl Clone for MLOperatorSetId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MLOperatorSetId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MLOperatorSetId").field("domain", &self.domain).field("version", &self.version).finish()
-    }
-}
 impl windows_core::TypeKind for MLOperatorSetId {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MLOperatorSetId {
-    fn eq(&self, other: &Self) -> bool {
-        self.domain == other.domain && self.version == other.version
-    }
-}
-impl Eq for MLOperatorSetId {}
 impl Default for MLOperatorSetId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1190,6 +1056,7 @@ impl Default for WINML_BINDING_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_IMAGE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1197,75 +1064,37 @@ pub struct WINML_IMAGE_BINDING_DESC {
     pub DataSize: u32,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for WINML_IMAGE_BINDING_DESC {}
-impl Clone for WINML_IMAGE_BINDING_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_IMAGE_BINDING_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_IMAGE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for WINML_IMAGE_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_IMAGE_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.DataSize == other.DataSize && self.pData == other.pData
-    }
-}
-impl Eq for WINML_IMAGE_BINDING_DESC {}
 impl Default for WINML_IMAGE_BINDING_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_IMAGE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
     pub pShape: *mut i64,
 }
-impl Copy for WINML_IMAGE_VARIABLE_DESC {}
-impl Clone for WINML_IMAGE_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_IMAGE_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_IMAGE_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
-    }
-}
 impl windows_core::TypeKind for WINML_IMAGE_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_IMAGE_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape
-    }
-}
-impl Eq for WINML_IMAGE_VARIABLE_DESC {}
 impl Default for WINML_IMAGE_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINML_MAP_BINDING_DESC {
     pub ElementCount: u32,
     pub KeyType: WINML_TENSOR_DATA_TYPE,
     pub Anonymous1: WINML_MAP_BINDING_DESC_0,
     pub Fields: WINML_TENSOR_DATA_TYPE,
     pub Anonymous2: WINML_MAP_BINDING_DESC_1,
-}
-impl Copy for WINML_MAP_BINDING_DESC {}
-impl Clone for WINML_MAP_BINDING_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_MAP_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
@@ -1276,15 +1105,10 @@ impl Default for WINML_MAP_BINDING_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINML_MAP_BINDING_DESC_0 {
     pub pStringKeys: *mut windows_core::PWSTR,
     pub pIntKeys: *mut i64,
-}
-impl Copy for WINML_MAP_BINDING_DESC_0 {}
-impl Clone for WINML_MAP_BINDING_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_MAP_BINDING_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -1295,17 +1119,12 @@ impl Default for WINML_MAP_BINDING_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINML_MAP_BINDING_DESC_1 {
     pub pStringFields: *mut windows_core::PWSTR,
     pub pIntFields: *mut i64,
     pub pFloatFields: *mut f32,
     pub pDoubleFields: *mut f64,
-}
-impl Copy for WINML_MAP_BINDING_DESC_1 {}
-impl Clone for WINML_MAP_BINDING_DESC_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_MAP_BINDING_DESC_1 {
     type TypeKind = windows_core::CopyType;
@@ -1316,36 +1135,21 @@ impl Default for WINML_MAP_BINDING_DESC_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_MAP_VARIABLE_DESC {
     pub KeyType: WINML_TENSOR_DATA_TYPE,
     pub Fields: WINML_TENSOR_DATA_TYPE,
 }
-impl Copy for WINML_MAP_VARIABLE_DESC {}
-impl Clone for WINML_MAP_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_MAP_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_MAP_VARIABLE_DESC").field("KeyType", &self.KeyType).field("Fields", &self.Fields).finish()
-    }
-}
 impl windows_core::TypeKind for WINML_MAP_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_MAP_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyType == other.KeyType && self.Fields == other.Fields
-    }
-}
-impl Eq for WINML_MAP_VARIABLE_DESC {}
 impl Default for WINML_MAP_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_MODEL_DESC {
     pub Author: windows_core::PWSTR,
     pub Name: windows_core::PWSTR,
@@ -1353,26 +1157,9 @@ pub struct WINML_MODEL_DESC {
     pub Description: windows_core::PWSTR,
     pub Version: usize,
 }
-impl Copy for WINML_MODEL_DESC {}
-impl Clone for WINML_MODEL_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_MODEL_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_MODEL_DESC").field("Author", &self.Author).field("Name", &self.Name).field("Domain", &self.Domain).field("Description", &self.Description).field("Version", &self.Version).finish()
-    }
-}
 impl windows_core::TypeKind for WINML_MODEL_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_MODEL_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Author == other.Author && self.Name == other.Name && self.Domain == other.Domain && self.Description == other.Description && self.Version == other.Version
-    }
-}
-impl Eq for WINML_MODEL_DESC {}
 impl Default for WINML_MODEL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1380,6 +1167,7 @@ impl Default for WINML_MODEL_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1393,23 +1181,9 @@ impl Clone for WINML_RESOURCE_BINDING_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl core::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_RESOURCE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("pResource", &self.pResource).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::TypeKind for WINML_RESOURCE_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl PartialEq for WINML_RESOURCE_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.pResource == other.pResource
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Eq for WINML_RESOURCE_BINDING_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for WINML_RESOURCE_BINDING_DESC {
     fn default() -> Self {
@@ -1417,16 +1191,11 @@ impl Default for WINML_RESOURCE_BINDING_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINML_SEQUENCE_BINDING_DESC {
     pub ElementCount: u32,
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub Anonymous: WINML_SEQUENCE_BINDING_DESC_0,
-}
-impl Copy for WINML_SEQUENCE_BINDING_DESC {}
-impl Clone for WINML_SEQUENCE_BINDING_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_SEQUENCE_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
@@ -1437,17 +1206,12 @@ impl Default for WINML_SEQUENCE_BINDING_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
     pub pStrings: *mut windows_core::PWSTR,
     pub pInts: *mut i64,
     pub pFloats: *mut f32,
     pub pDoubles: *mut f64,
-}
-impl Copy for WINML_SEQUENCE_BINDING_DESC_0 {}
-impl Clone for WINML_SEQUENCE_BINDING_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_SEQUENCE_BINDING_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -1458,35 +1222,20 @@ impl Default for WINML_SEQUENCE_BINDING_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_SEQUENCE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
-}
-impl Copy for WINML_SEQUENCE_VARIABLE_DESC {}
-impl Clone for WINML_SEQUENCE_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_SEQUENCE_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_SEQUENCE_VARIABLE_DESC").field("ElementType", &self.ElementType).finish()
-    }
 }
 impl windows_core::TypeKind for WINML_SEQUENCE_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_SEQUENCE_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType
-    }
-}
-impl Eq for WINML_SEQUENCE_VARIABLE_DESC {}
 impl Default for WINML_SEQUENCE_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_TENSOR_BINDING_DESC {
     pub DataType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1494,75 +1243,37 @@ pub struct WINML_TENSOR_BINDING_DESC {
     pub DataSize: u32,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for WINML_TENSOR_BINDING_DESC {}
-impl Clone for WINML_TENSOR_BINDING_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_TENSOR_BINDING_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_TENSOR_BINDING_DESC").field("DataType", &self.DataType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for WINML_TENSOR_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_TENSOR_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.DataSize == other.DataSize && self.pData == other.pData
-    }
-}
-impl Eq for WINML_TENSOR_BINDING_DESC {}
 impl Default for WINML_TENSOR_BINDING_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINML_TENSOR_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
     pub pShape: *mut i64,
 }
-impl Copy for WINML_TENSOR_VARIABLE_DESC {}
-impl Clone for WINML_TENSOR_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WINML_TENSOR_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WINML_TENSOR_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
-    }
-}
 impl windows_core::TypeKind for WINML_TENSOR_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WINML_TENSOR_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape
-    }
-}
-impl Eq for WINML_TENSOR_VARIABLE_DESC {}
 impl Default for WINML_TENSOR_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINML_VARIABLE_DESC {
     pub Name: windows_core::PWSTR,
     pub Description: windows_core::PWSTR,
     pub FeatureType: WINML_FEATURE_TYPE,
     pub Required: super::super::super::Foundation::BOOL,
     pub Anonymous: WINML_VARIABLE_DESC_0,
-}
-impl Copy for WINML_VARIABLE_DESC {}
-impl Clone for WINML_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
@@ -1573,17 +1284,12 @@ impl Default for WINML_VARIABLE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,
     pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,
     pub Map: WINML_MAP_VARIABLE_DESC,
     pub Image: WINML_IMAGE_VARIABLE_DESC,
-}
-impl Copy for WINML_VARIABLE_DESC_0 {}
-impl Clone for WINML_VARIABLE_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WINML_VARIABLE_DESC_0 {
     type TypeKind = windows_core::CopyType;

@@ -315,6 +315,7 @@ impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HdmiDisplayHdr2086Metadata {
     pub RedPrimaryX: u16,
     pub RedPrimaryY: u16,
@@ -329,42 +330,12 @@ pub struct HdmiDisplayHdr2086Metadata {
     pub MaxContentLightLevel: u16,
     pub MaxFrameAverageLightLevel: u16,
 }
-impl Copy for HdmiDisplayHdr2086Metadata {}
-impl Clone for HdmiDisplayHdr2086Metadata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HdmiDisplayHdr2086Metadata {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HdmiDisplayHdr2086Metadata")
-            .field("RedPrimaryX", &self.RedPrimaryX)
-            .field("RedPrimaryY", &self.RedPrimaryY)
-            .field("GreenPrimaryX", &self.GreenPrimaryX)
-            .field("GreenPrimaryY", &self.GreenPrimaryY)
-            .field("BluePrimaryX", &self.BluePrimaryX)
-            .field("BluePrimaryY", &self.BluePrimaryY)
-            .field("WhitePointX", &self.WhitePointX)
-            .field("WhitePointY", &self.WhitePointY)
-            .field("MaxMasteringLuminance", &self.MaxMasteringLuminance)
-            .field("MinMasteringLuminance", &self.MinMasteringLuminance)
-            .field("MaxContentLightLevel", &self.MaxContentLightLevel)
-            .field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for HdmiDisplayHdr2086Metadata {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for HdmiDisplayHdr2086Metadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
 }
-impl PartialEq for HdmiDisplayHdr2086Metadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.RedPrimaryX == other.RedPrimaryX && self.RedPrimaryY == other.RedPrimaryY && self.GreenPrimaryX == other.GreenPrimaryX && self.GreenPrimaryY == other.GreenPrimaryY && self.BluePrimaryX == other.BluePrimaryX && self.BluePrimaryY == other.BluePrimaryY && self.WhitePointX == other.WhitePointX && self.WhitePointY == other.WhitePointY && self.MaxMasteringLuminance == other.MaxMasteringLuminance && self.MinMasteringLuminance == other.MinMasteringLuminance && self.MaxContentLightLevel == other.MaxContentLightLevel && self.MaxFrameAverageLightLevel == other.MaxFrameAverageLightLevel
-    }
-}
-impl Eq for HdmiDisplayHdr2086Metadata {}
 impl Default for HdmiDisplayHdr2086Metadata {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

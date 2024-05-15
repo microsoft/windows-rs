@@ -774,48 +774,27 @@ impl core::fmt::Debug for PRIORITY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
 }
-impl Copy for COLUMNSTATUS {}
-impl Clone for COLUMNSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COLUMNSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COLUMNSTATUS").field("cPropCount", &self.cPropCount).field("cPropsLoaded", &self.cPropsLoaded).finish()
-    }
-}
 impl windows_core::TypeKind for COLUMNSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COLUMNSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPropCount == other.cPropCount && self.cPropsLoaded == other.cPropsLoaded
-    }
-}
-impl Eq for COLUMNSTATUS {}
 impl Default for COLUMNSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CProperty {
     pub dwPropID: u32,
     pub cbData: u32,
     pub dwType: u32,
     pub Anonymous: CProperty_0,
     pub fPersist: super::super::Foundation::BOOL,
-}
-impl Copy for CProperty {}
-impl Clone for CProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CProperty {
     type TypeKind = windows_core::CopyType;
@@ -826,16 +805,11 @@ impl Default for CProperty {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CProperty_0 {
     pub lpszwData: windows_core::PWSTR,
     pub lpvData: *mut core::ffi::c_void,
     pub dwValue: u32,
-}
-impl Copy for CProperty_0 {}
-impl Clone for CProperty_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CProperty_0 {
     type TypeKind = windows_core::CopyType;
@@ -847,6 +821,7 @@ impl Default for CProperty_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszCurUrl: windows_core::PCSTR,
@@ -854,31 +829,9 @@ pub struct HHNTRACK {
     pub phhWinType: *mut HH_WINTYPE,
 }
 #[cfg(feature = "Win32_UI_Controls")]
-impl Copy for HHNTRACK {}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for HHNTRACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl core::fmt::Debug for HHNTRACK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HHNTRACK").field("hdr", &self.hdr).field("pszCurUrl", &self.pszCurUrl).field("idAction", &self.idAction).field("phhWinType", &self.phhWinType).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Controls")]
 impl windows_core::TypeKind for HHNTRACK {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Controls")]
-impl PartialEq for HHNTRACK {
-    fn eq(&self, other: &Self) -> bool {
-        self.hdr == other.hdr && self.pszCurUrl == other.pszCurUrl && self.idAction == other.idAction && self.phhWinType == other.phhWinType
-    }
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Eq for HHNTRACK {}
 #[cfg(feature = "Win32_UI_Controls")]
 impl Default for HHNTRACK {
     fn default() -> Self {
@@ -887,36 +840,15 @@ impl Default for HHNTRACK {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: windows_core::PCSTR,
 }
 #[cfg(feature = "Win32_UI_Controls")]
-impl Copy for HHN_NOTIFY {}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for HHN_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl core::fmt::Debug for HHN_NOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HHN_NOTIFY").field("hdr", &self.hdr).field("pszUrl", &self.pszUrl).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Controls")]
 impl windows_core::TypeKind for HHN_NOTIFY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Controls")]
-impl PartialEq for HHN_NOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        self.hdr == other.hdr && self.pszUrl == other.pszUrl
-    }
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Eq for HHN_NOTIFY {}
 #[cfg(feature = "Win32_UI_Controls")]
 impl Default for HHN_NOTIFY {
     fn default() -> Self {
@@ -924,6 +856,7 @@ impl Default for HHN_NOTIFY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
     pub fReserved: super::super::Foundation::BOOL,
@@ -934,63 +867,31 @@ pub struct HH_AKLINK {
     pub pszWindow: *mut i8,
     pub fIndexOnFail: super::super::Foundation::BOOL,
 }
-impl Copy for HH_AKLINK {}
-impl Clone for HH_AKLINK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_AKLINK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_AKLINK").field("cbStruct", &self.cbStruct).field("fReserved", &self.fReserved).field("pszKeywords", &self.pszKeywords).field("pszUrl", &self.pszUrl).field("pszMsgText", &self.pszMsgText).field("pszMsgTitle", &self.pszMsgTitle).field("pszWindow", &self.pszWindow).field("fIndexOnFail", &self.fIndexOnFail).finish()
-    }
-}
 impl windows_core::TypeKind for HH_AKLINK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_AKLINK {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.fReserved == other.fReserved && self.pszKeywords == other.pszKeywords && self.pszUrl == other.pszUrl && self.pszMsgText == other.pszMsgText && self.pszMsgTitle == other.pszMsgTitle && self.pszWindow == other.pszWindow && self.fIndexOnFail == other.fIndexOnFail
-    }
-}
-impl Eq for HH_AKLINK {}
 impl Default for HH_AKLINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
     pub pszCatName: windows_core::PCSTR,
     pub pszCatDescription: windows_core::PCSTR,
 }
-impl Copy for HH_ENUM_CAT {}
-impl Clone for HH_ENUM_CAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_ENUM_CAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_ENUM_CAT").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszCatDescription", &self.pszCatDescription).finish()
-    }
-}
 impl windows_core::TypeKind for HH_ENUM_CAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_ENUM_CAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pszCatName == other.pszCatName && self.pszCatDescription == other.pszCatDescription
-    }
-}
-impl Eq for HH_ENUM_CAT {}
 impl Default for HH_ENUM_CAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
@@ -998,32 +899,16 @@ pub struct HH_ENUM_IT {
     pub pszITName: windows_core::PCSTR,
     pub pszITDescription: windows_core::PCSTR,
 }
-impl Copy for HH_ENUM_IT {}
-impl Clone for HH_ENUM_IT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_ENUM_IT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_ENUM_IT").field("cbStruct", &self.cbStruct).field("iType", &self.iType).field("pszCatName", &self.pszCatName).field("pszITName", &self.pszITName).field("pszITDescription", &self.pszITDescription).finish()
-    }
-}
 impl windows_core::TypeKind for HH_ENUM_IT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_ENUM_IT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.iType == other.iType && self.pszCatName == other.pszCatName && self.pszITName == other.pszITName && self.pszITDescription == other.pszITDescription
-    }
-}
-impl Eq for HH_ENUM_IT {}
 impl Default for HH_ENUM_IT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -1034,32 +919,16 @@ pub struct HH_FTS_QUERY {
     pub fExecute: super::super::Foundation::BOOL,
     pub pszWindow: *mut i8,
 }
-impl Copy for HH_FTS_QUERY {}
-impl Clone for HH_FTS_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_FTS_QUERY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_FTS_QUERY").field("cbStruct", &self.cbStruct).field("fUniCodeStrings", &self.fUniCodeStrings).field("pszSearchQuery", &self.pszSearchQuery).field("iProximity", &self.iProximity).field("fStemmedSearch", &self.fStemmedSearch).field("fTitleOnly", &self.fTitleOnly).field("fExecute", &self.fExecute).field("pszWindow", &self.pszWindow).finish()
-    }
-}
 impl windows_core::TypeKind for HH_FTS_QUERY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_FTS_QUERY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.fUniCodeStrings == other.fUniCodeStrings && self.pszSearchQuery == other.pszSearchQuery && self.iProximity == other.iProximity && self.fStemmedSearch == other.fStemmedSearch && self.fTitleOnly == other.fTitleOnly && self.fExecute == other.fExecute && self.pszWindow == other.pszWindow
-    }
-}
-impl Eq for HH_FTS_QUERY {}
 impl Default for HH_FTS_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: std::mem::ManuallyDrop<windows_core::VARIANT>,
@@ -1069,26 +938,16 @@ impl Clone for HH_GLOBAL_PROPERTY {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for HH_GLOBAL_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_GLOBAL_PROPERTY").field("id", &self.id).field("var", &self.var).finish()
-    }
-}
 impl windows_core::TypeKind for HH_GLOBAL_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_GLOBAL_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.var == other.var
-    }
-}
-impl Eq for HH_GLOBAL_PROPERTY {}
 impl Default for HH_GLOBAL_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_POPUP {
     pub cbStruct: i32,
     pub hinst: super::super::Foundation::HINSTANCE,
@@ -1100,63 +959,31 @@ pub struct HH_POPUP {
     pub rcMargins: super::super::Foundation::RECT,
     pub pszFont: *mut i8,
 }
-impl Copy for HH_POPUP {}
-impl Clone for HH_POPUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_POPUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_POPUP").field("cbStruct", &self.cbStruct).field("hinst", &self.hinst).field("idString", &self.idString).field("pszText", &self.pszText).field("pt", &self.pt).field("clrForeground", &self.clrForeground).field("clrBackground", &self.clrBackground).field("rcMargins", &self.rcMargins).field("pszFont", &self.pszFont).finish()
-    }
-}
 impl windows_core::TypeKind for HH_POPUP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_POPUP {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.hinst == other.hinst && self.idString == other.idString && self.pszText == other.pszText && self.pt == other.pt && self.clrForeground == other.clrForeground && self.clrBackground == other.clrBackground && self.rcMargins == other.rcMargins && self.pszFont == other.pszFont
-    }
-}
-impl Eq for HH_POPUP {}
 impl Default for HH_POPUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: windows_core::PCSTR,
     pub pszInfoTypeName: windows_core::PCSTR,
 }
-impl Copy for HH_SET_INFOTYPE {}
-impl Clone for HH_SET_INFOTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_SET_INFOTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_SET_INFOTYPE").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszInfoTypeName", &self.pszInfoTypeName).finish()
-    }
-}
 impl windows_core::TypeKind for HH_SET_INFOTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_SET_INFOTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pszCatName == other.pszCatName && self.pszInfoTypeName == other.pszInfoTypeName
-    }
-}
-impl Eq for HH_SET_INFOTYPE {}
 impl Default for HH_SET_INFOTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -1195,130 +1022,25 @@ pub struct HH_WINTYPE {
     pub cbInfoTypes: i32,
     pub pszCustomTabs: *mut i8,
 }
-impl Copy for HH_WINTYPE {}
-impl Clone for HH_WINTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HH_WINTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HH_WINTYPE")
-            .field("cbStruct", &self.cbStruct)
-            .field("fUniCodeStrings", &self.fUniCodeStrings)
-            .field("pszType", &self.pszType)
-            .field("fsValidMembers", &self.fsValidMembers)
-            .field("fsWinProperties", &self.fsWinProperties)
-            .field("pszCaption", &self.pszCaption)
-            .field("dwStyles", &self.dwStyles)
-            .field("dwExStyles", &self.dwExStyles)
-            .field("rcWindowPos", &self.rcWindowPos)
-            .field("nShowState", &self.nShowState)
-            .field("hwndHelp", &self.hwndHelp)
-            .field("hwndCaller", &self.hwndCaller)
-            .field("paInfoTypes", &self.paInfoTypes)
-            .field("hwndToolBar", &self.hwndToolBar)
-            .field("hwndNavigation", &self.hwndNavigation)
-            .field("hwndHTML", &self.hwndHTML)
-            .field("iNavWidth", &self.iNavWidth)
-            .field("rcHTML", &self.rcHTML)
-            .field("pszToc", &self.pszToc)
-            .field("pszIndex", &self.pszIndex)
-            .field("pszFile", &self.pszFile)
-            .field("pszHome", &self.pszHome)
-            .field("fsToolBarFlags", &self.fsToolBarFlags)
-            .field("fNotExpanded", &self.fNotExpanded)
-            .field("curNavType", &self.curNavType)
-            .field("tabpos", &self.tabpos)
-            .field("idNotify", &self.idNotify)
-            .field("tabOrder", &self.tabOrder)
-            .field("cHistory", &self.cHistory)
-            .field("pszJump1", &self.pszJump1)
-            .field("pszJump2", &self.pszJump2)
-            .field("pszUrlJump1", &self.pszUrlJump1)
-            .field("pszUrlJump2", &self.pszUrlJump2)
-            .field("rcMinSize", &self.rcMinSize)
-            .field("cbInfoTypes", &self.cbInfoTypes)
-            .field("pszCustomTabs", &self.pszCustomTabs)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for HH_WINTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HH_WINTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.fUniCodeStrings == other.fUniCodeStrings
-            && self.pszType == other.pszType
-            && self.fsValidMembers == other.fsValidMembers
-            && self.fsWinProperties == other.fsWinProperties
-            && self.pszCaption == other.pszCaption
-            && self.dwStyles == other.dwStyles
-            && self.dwExStyles == other.dwExStyles
-            && self.rcWindowPos == other.rcWindowPos
-            && self.nShowState == other.nShowState
-            && self.hwndHelp == other.hwndHelp
-            && self.hwndCaller == other.hwndCaller
-            && self.paInfoTypes == other.paInfoTypes
-            && self.hwndToolBar == other.hwndToolBar
-            && self.hwndNavigation == other.hwndNavigation
-            && self.hwndHTML == other.hwndHTML
-            && self.iNavWidth == other.iNavWidth
-            && self.rcHTML == other.rcHTML
-            && self.pszToc == other.pszToc
-            && self.pszIndex == other.pszIndex
-            && self.pszFile == other.pszFile
-            && self.pszHome == other.pszHome
-            && self.fsToolBarFlags == other.fsToolBarFlags
-            && self.fNotExpanded == other.fNotExpanded
-            && self.curNavType == other.curNavType
-            && self.tabpos == other.tabpos
-            && self.idNotify == other.idNotify
-            && self.tabOrder == other.tabOrder
-            && self.cHistory == other.cHistory
-            && self.pszJump1 == other.pszJump1
-            && self.pszJump2 == other.pszJump2
-            && self.pszUrlJump1 == other.pszUrlJump1
-            && self.pszUrlJump2 == other.pszUrlJump2
-            && self.rcMinSize == other.rcMinSize
-            && self.cbInfoTypes == other.cbInfoTypes
-            && self.pszCustomTabs == other.pszCustomTabs
-    }
-}
-impl Eq for HH_WINTYPE {}
 impl Default for HH_WINTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,
     pub cProperties: i32,
     pub cRowsTotal: i32,
 }
-impl Copy for ROWSTATUS {}
-impl Clone for ROWSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ROWSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROWSTATUS").field("lRowFirst", &self.lRowFirst).field("cRows", &self.cRows).field("cProperties", &self.cProperties).field("cRowsTotal", &self.cRowsTotal).finish()
-    }
-}
 impl windows_core::TypeKind for ROWSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ROWSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lRowFirst == other.lRowFirst && self.cRows == other.cRows && self.cProperties == other.cProperties && self.cRowsTotal == other.cRowsTotal
-    }
-}
-impl Eq for ROWSTATUS {}
 impl Default for ROWSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

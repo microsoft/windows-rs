@@ -1454,6 +1454,7 @@ impl windows_core::RuntimeType for ResourceQualifierPersistence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -1461,29 +1462,12 @@ pub struct ResourceLayoutInfo {
     pub NamedResourceCount: u32,
     pub Checksum: i32,
 }
-impl Copy for ResourceLayoutInfo {}
-impl Clone for ResourceLayoutInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ResourceLayoutInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ResourceLayoutInfo").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ResourceSubtreeCount", &self.ResourceSubtreeCount).field("NamedResourceCount", &self.NamedResourceCount).field("Checksum", &self.Checksum).finish()
-    }
-}
 impl windows_core::TypeKind for ResourceLayoutInfo {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for ResourceLayoutInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
 }
-impl PartialEq for ResourceLayoutInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ResourceSubtreeCount == other.ResourceSubtreeCount && self.NamedResourceCount == other.NamedResourceCount && self.Checksum == other.Checksum
-    }
-}
-impl Eq for ResourceLayoutInfo {}
 impl Default for ResourceLayoutInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

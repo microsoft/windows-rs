@@ -729,19 +729,10 @@ impl windows_core::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AccessListEntry {
     pub Token: windows_core::HSTRING,
     pub Metadata: windows_core::HSTRING,
-}
-impl Clone for AccessListEntry {
-    fn clone(&self) -> Self {
-        Self { Token: self.Token.clone(), Metadata: self.Metadata.clone() }
-    }
-}
-impl core::fmt::Debug for AccessListEntry {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AccessListEntry").field("Token", &self.Token).field("Metadata", &self.Metadata).finish()
-    }
 }
 impl windows_core::TypeKind for AccessListEntry {
     type TypeKind = windows_core::CloneType;
@@ -749,12 +740,6 @@ impl windows_core::TypeKind for AccessListEntry {
 impl windows_core::RuntimeType for AccessListEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
 }
-impl PartialEq for AccessListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token && self.Metadata == other.Metadata
-    }
-}
-impl Eq for AccessListEntry {}
 impl Default for AccessListEntry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

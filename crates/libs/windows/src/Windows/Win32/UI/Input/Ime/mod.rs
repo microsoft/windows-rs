@@ -4146,100 +4146,53 @@ impl core::fmt::Debug for SET_COMPOSITION_STRING_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPLETIDLIST {
     pub count: i32,
     pub pIIDList: *mut windows_core::GUID,
 }
-impl Copy for APPLETIDLIST {}
-impl Clone for APPLETIDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPLETIDLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPLETIDLIST").field("count", &self.count).field("pIIDList", &self.pIIDList).finish()
-    }
-}
 impl windows_core::TypeKind for APPLETIDLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPLETIDLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.pIIDList == other.pIIDList
-    }
-}
-impl Eq for APPLETIDLIST {}
 impl Default for APPLETIDLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPLYCANDEXPARAM {
     pub dwSize: u32,
     pub lpwstrDisplay: windows_core::PWSTR,
     pub lpwstrReading: windows_core::PWSTR,
     pub dwReserved: u32,
 }
-impl Copy for APPLYCANDEXPARAM {}
-impl Clone for APPLYCANDEXPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPLYCANDEXPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPLYCANDEXPARAM").field("dwSize", &self.dwSize).field("lpwstrDisplay", &self.lpwstrDisplay).field("lpwstrReading", &self.lpwstrReading).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for APPLYCANDEXPARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPLYCANDEXPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpwstrDisplay == other.lpwstrDisplay && self.lpwstrReading == other.lpwstrReading && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for APPLYCANDEXPARAM {}
 impl Default for APPLYCANDEXPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
 }
-impl Copy for CANDIDATEFORM {}
-impl Clone for CANDIDATEFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CANDIDATEFORM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CANDIDATEFORM").field("dwIndex", &self.dwIndex).field("dwStyle", &self.dwStyle).field("ptCurrentPos", &self.ptCurrentPos).field("rcArea", &self.rcArea).finish()
-    }
-}
 impl windows_core::TypeKind for CANDIDATEFORM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CANDIDATEFORM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIndex == other.dwIndex && self.dwStyle == other.dwStyle && self.ptCurrentPos == other.ptCurrentPos && self.rcArea == other.rcArea
-    }
-}
-impl Eq for CANDIDATEFORM {}
 impl Default for CANDIDATEFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATEINFO {
     pub dwSize: u32,
     pub dwCount: u32,
@@ -4247,32 +4200,16 @@ pub struct CANDIDATEINFO {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
-impl Copy for CANDIDATEINFO {}
-impl Clone for CANDIDATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CANDIDATEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CANDIDATEINFO").field("dwSize", &self.dwSize).field("dwCount", &self.dwCount).field("dwOffset", &self.dwOffset).field("dwPrivateSize", &self.dwPrivateSize).field("dwPrivateOffset", &self.dwPrivateOffset).finish()
-    }
-}
 impl windows_core::TypeKind for CANDIDATEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CANDIDATEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCount == other.dwCount && self.dwOffset == other.dwOffset && self.dwPrivateSize == other.dwPrivateSize && self.dwPrivateOffset == other.dwPrivateOffset
-    }
-}
-impl Eq for CANDIDATEINFO {}
 impl Default for CANDIDATEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATELIST {
     pub dwSize: u32,
     pub dwStyle: u32,
@@ -4282,26 +4219,9 @@ pub struct CANDIDATELIST {
     pub dwPageSize: u32,
     pub dwOffset: [u32; 1],
 }
-impl Copy for CANDIDATELIST {}
-impl Clone for CANDIDATELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CANDIDATELIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CANDIDATELIST").field("dwSize", &self.dwSize).field("dwStyle", &self.dwStyle).field("dwCount", &self.dwCount).field("dwSelection", &self.dwSelection).field("dwPageStart", &self.dwPageStart).field("dwPageSize", &self.dwPageSize).field("dwOffset", &self.dwOffset).finish()
-    }
-}
 impl windows_core::TypeKind for CANDIDATELIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CANDIDATELIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwStyle == other.dwStyle && self.dwCount == other.dwCount && self.dwSelection == other.dwSelection && self.dwPageStart == other.dwPageStart && self.dwPageSize == other.dwPageSize && self.dwOffset == other.dwOffset
-    }
-}
-impl Eq for CANDIDATELIST {}
 impl Default for CANDIDATELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4309,37 +4229,22 @@ impl Default for CANDIDATELIST {
 }
 pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
 }
-impl Copy for COMPOSITIONFORM {}
-impl Clone for COMPOSITIONFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPOSITIONFORM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPOSITIONFORM").field("dwStyle", &self.dwStyle).field("ptCurrentPos", &self.ptCurrentPos).field("rcArea", &self.rcArea).finish()
-    }
-}
 impl windows_core::TypeKind for COMPOSITIONFORM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPOSITIONFORM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStyle == other.dwStyle && self.ptCurrentPos == other.ptCurrentPos && self.rcArea == other.rcArea
-    }
-}
-impl Eq for COMPOSITIONFORM {}
 impl Default for COMPOSITIONFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITIONSTRING {
     pub dwSize: u32,
     pub dwCompReadAttrLen: u32,
@@ -4367,82 +4272,16 @@ pub struct COMPOSITIONSTRING {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
-impl Copy for COMPOSITIONSTRING {}
-impl Clone for COMPOSITIONSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPOSITIONSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPOSITIONSTRING")
-            .field("dwSize", &self.dwSize)
-            .field("dwCompReadAttrLen", &self.dwCompReadAttrLen)
-            .field("dwCompReadAttrOffset", &self.dwCompReadAttrOffset)
-            .field("dwCompReadClauseLen", &self.dwCompReadClauseLen)
-            .field("dwCompReadClauseOffset", &self.dwCompReadClauseOffset)
-            .field("dwCompReadStrLen", &self.dwCompReadStrLen)
-            .field("dwCompReadStrOffset", &self.dwCompReadStrOffset)
-            .field("dwCompAttrLen", &self.dwCompAttrLen)
-            .field("dwCompAttrOffset", &self.dwCompAttrOffset)
-            .field("dwCompClauseLen", &self.dwCompClauseLen)
-            .field("dwCompClauseOffset", &self.dwCompClauseOffset)
-            .field("dwCompStrLen", &self.dwCompStrLen)
-            .field("dwCompStrOffset", &self.dwCompStrOffset)
-            .field("dwCursorPos", &self.dwCursorPos)
-            .field("dwDeltaStart", &self.dwDeltaStart)
-            .field("dwResultReadClauseLen", &self.dwResultReadClauseLen)
-            .field("dwResultReadClauseOffset", &self.dwResultReadClauseOffset)
-            .field("dwResultReadStrLen", &self.dwResultReadStrLen)
-            .field("dwResultReadStrOffset", &self.dwResultReadStrOffset)
-            .field("dwResultClauseLen", &self.dwResultClauseLen)
-            .field("dwResultClauseOffset", &self.dwResultClauseOffset)
-            .field("dwResultStrLen", &self.dwResultStrLen)
-            .field("dwResultStrOffset", &self.dwResultStrOffset)
-            .field("dwPrivateSize", &self.dwPrivateSize)
-            .field("dwPrivateOffset", &self.dwPrivateOffset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for COMPOSITIONSTRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPOSITIONSTRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCompReadAttrLen == other.dwCompReadAttrLen
-            && self.dwCompReadAttrOffset == other.dwCompReadAttrOffset
-            && self.dwCompReadClauseLen == other.dwCompReadClauseLen
-            && self.dwCompReadClauseOffset == other.dwCompReadClauseOffset
-            && self.dwCompReadStrLen == other.dwCompReadStrLen
-            && self.dwCompReadStrOffset == other.dwCompReadStrOffset
-            && self.dwCompAttrLen == other.dwCompAttrLen
-            && self.dwCompAttrOffset == other.dwCompAttrOffset
-            && self.dwCompClauseLen == other.dwCompClauseLen
-            && self.dwCompClauseOffset == other.dwCompClauseOffset
-            && self.dwCompStrLen == other.dwCompStrLen
-            && self.dwCompStrOffset == other.dwCompStrOffset
-            && self.dwCursorPos == other.dwCursorPos
-            && self.dwDeltaStart == other.dwDeltaStart
-            && self.dwResultReadClauseLen == other.dwResultReadClauseLen
-            && self.dwResultReadClauseOffset == other.dwResultReadClauseOffset
-            && self.dwResultReadStrLen == other.dwResultReadStrLen
-            && self.dwResultReadStrOffset == other.dwResultReadStrOffset
-            && self.dwResultClauseLen == other.dwResultClauseLen
-            && self.dwResultClauseOffset == other.dwResultClauseOffset
-            && self.dwResultStrLen == other.dwResultStrLen
-            && self.dwResultStrOffset == other.dwResultStrOffset
-            && self.dwPrivateSize == other.dwPrivateSize
-            && self.dwPrivateOffset == other.dwPrivateOffset
-    }
-}
-impl Eq for COMPOSITIONSTRING {}
 impl Default for COMPOSITIONSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GUIDELINE {
     pub dwSize: u32,
     pub dwLevel: u32,
@@ -4452,26 +4291,9 @@ pub struct GUIDELINE {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
-impl Copy for GUIDELINE {}
-impl Clone for GUIDELINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GUIDELINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GUIDELINE").field("dwSize", &self.dwSize).field("dwLevel", &self.dwLevel).field("dwIndex", &self.dwIndex).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwPrivateSize", &self.dwPrivateSize).field("dwPrivateOffset", &self.dwPrivateOffset).finish()
-    }
-}
 impl windows_core::TypeKind for GUIDELINE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GUIDELINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwLevel == other.dwLevel && self.dwIndex == other.dwIndex && self.dwStrLen == other.dwStrLen && self.dwStrOffset == other.dwStrOffset && self.dwPrivateSize == other.dwPrivateSize && self.dwPrivateOffset == other.dwPrivateOffset
-    }
-}
-impl Eq for GUIDELINE {}
 impl Default for GUIDELINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4479,6 +4301,7 @@ impl Default for GUIDELINE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEAPPLETCFG {
     pub dwConfig: u32,
     pub wchTitle: [u16; 64],
@@ -4491,31 +4314,9 @@ pub struct IMEAPPLETCFG {
     pub lReserved1: super::super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for IMEAPPLETCFG {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for IMEAPPLETCFG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for IMEAPPLETCFG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEAPPLETCFG").field("dwConfig", &self.dwConfig).field("wchTitle", &self.wchTitle).field("wchTitleFontFace", &self.wchTitleFontFace).field("dwCharSet", &self.dwCharSet).field("iCategory", &self.iCategory).field("hIcon", &self.hIcon).field("langID", &self.langID).field("dummy", &self.dummy).field("lReserved1", &self.lReserved1).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for IMEAPPLETCFG {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl PartialEq for IMEAPPLETCFG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwConfig == other.dwConfig && self.wchTitle == other.wchTitle && self.wchTitleFontFace == other.wchTitleFontFace && self.dwCharSet == other.dwCharSet && self.iCategory == other.iCategory && self.hIcon == other.hIcon && self.langID == other.langID && self.dummy == other.dummy && self.lReserved1 == other.lReserved1
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Eq for IMEAPPLETCFG {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for IMEAPPLETCFG {
     fn default() -> Self {
@@ -4523,6 +4324,7 @@ impl Default for IMEAPPLETCFG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEAPPLETUI {
     pub hwnd: super::super::super::Foundation::HWND,
     pub dwStyle: u32,
@@ -4535,62 +4337,30 @@ pub struct IMEAPPLETUI {
     pub lReserved1: super::super::super::Foundation::LPARAM,
     pub lReserved2: super::super::super::Foundation::LPARAM,
 }
-impl Copy for IMEAPPLETUI {}
-impl Clone for IMEAPPLETUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMEAPPLETUI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEAPPLETUI").field("hwnd", &self.hwnd).field("dwStyle", &self.dwStyle).field("width", &self.width).field("height", &self.height).field("minWidth", &self.minWidth).field("minHeight", &self.minHeight).field("maxWidth", &self.maxWidth).field("maxHeight", &self.maxHeight).field("lReserved1", &self.lReserved1).field("lReserved2", &self.lReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for IMEAPPLETUI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMEAPPLETUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.dwStyle == other.dwStyle && self.width == other.width && self.height == other.height && self.minWidth == other.minWidth && self.minHeight == other.minHeight && self.maxWidth == other.maxWidth && self.maxHeight == other.maxHeight && self.lReserved1 == other.lReserved1 && self.lReserved2 == other.lReserved2
-    }
-}
-impl Eq for IMEAPPLETUI {}
 impl Default for IMEAPPLETUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECHARINFO {
     pub wch: u16,
     pub dwCharInfo: u32,
 }
-impl Copy for IMECHARINFO {}
-impl Clone for IMECHARINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMECHARINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMECHARINFO").field("wch", &self.wch).field("dwCharInfo", &self.dwCharInfo).finish()
-    }
-}
 impl windows_core::TypeKind for IMECHARINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMECHARINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.wch == other.wch && self.dwCharInfo == other.dwCharInfo
-    }
-}
-impl Eq for IMECHARINFO {}
 impl Default for IMECHARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
     pub dwCharPos: u32,
@@ -4598,32 +4368,16 @@ pub struct IMECHARPOSITION {
     pub cLineHeight: u32,
     pub rcDocument: super::super::super::Foundation::RECT,
 }
-impl Copy for IMECHARPOSITION {}
-impl Clone for IMECHARPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMECHARPOSITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMECHARPOSITION").field("dwSize", &self.dwSize).field("dwCharPos", &self.dwCharPos).field("pt", &self.pt).field("cLineHeight", &self.cLineHeight).field("rcDocument", &self.rcDocument).finish()
-    }
-}
 impl windows_core::TypeKind for IMECHARPOSITION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMECHARPOSITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCharPos == other.dwCharPos && self.pt == other.pt && self.cLineHeight == other.cLineHeight && self.rcDocument == other.rcDocument
-    }
-}
-impl Eq for IMECHARPOSITION {}
 impl Default for IMECHARPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECOMPOSITIONSTRINGINFO {
     pub iCompStrLen: i32,
     pub iCaretPos: i32,
@@ -4632,43 +4386,21 @@ pub struct IMECOMPOSITIONSTRINGINFO {
     pub iTargetStart: i32,
     pub iTargetLen: i32,
 }
-impl Copy for IMECOMPOSITIONSTRINGINFO {}
-impl Clone for IMECOMPOSITIONSTRINGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMECOMPOSITIONSTRINGINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMECOMPOSITIONSTRINGINFO").field("iCompStrLen", &self.iCompStrLen).field("iCaretPos", &self.iCaretPos).field("iEditStart", &self.iEditStart).field("iEditLen", &self.iEditLen).field("iTargetStart", &self.iTargetStart).field("iTargetLen", &self.iTargetLen).finish()
-    }
-}
 impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMECOMPOSITIONSTRINGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.iCompStrLen == other.iCompStrLen && self.iCaretPos == other.iCaretPos && self.iEditStart == other.iEditStart && self.iEditLen == other.iEditLen && self.iTargetStart == other.iTargetStart && self.iTargetLen == other.iTargetLen
-    }
-}
-impl Eq for IMECOMPOSITIONSTRINGINFO {}
 impl Default for IMECOMPOSITIONSTRINGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
     pub hwnd: super::super::super::Foundation::HWND,
     pub lpwstrWord: windows_core::PWSTR,
     pub nTabId: i32,
-}
-impl Copy for IMEDLG {}
-impl Clone for IMEDLG {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEDLG {
     type TypeKind = windows_core::CopyType;
@@ -4679,16 +4411,11 @@ impl Default for IMEDLG {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
     pub wrdModifiee: IMEWRD,
     pub relID: IMEREL,
-}
-impl Copy for IMEDP {}
-impl Clone for IMEDP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEDP {
     type TypeKind = windows_core::CopyType;
@@ -4699,37 +4426,22 @@ impl Default for IMEDP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEFAREASTINFO {
     pub dwSize: u32,
     pub dwType: u32,
     pub dwData: [u32; 1],
 }
-impl Copy for IMEFAREASTINFO {}
-impl Clone for IMEFAREASTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMEFAREASTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEFAREASTINFO").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("dwData", &self.dwData).finish()
-    }
-}
 impl windows_core::TypeKind for IMEFAREASTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMEFAREASTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwType == other.dwType && self.dwData == other.dwData
-    }
-}
-impl Eq for IMEFAREASTINFO {}
 impl Default for IMEFAREASTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -4739,87 +4451,38 @@ pub struct IMEINFO {
     pub fdwSCSCaps: u32,
     pub fdwSelectCaps: u32,
 }
-impl Copy for IMEINFO {}
-impl Clone for IMEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEINFO").field("dwPrivateDataSize", &self.dwPrivateDataSize).field("fdwProperty", &self.fdwProperty).field("fdwConversionCaps", &self.fdwConversionCaps).field("fdwSentenceCaps", &self.fdwSentenceCaps).field("fdwUICaps", &self.fdwUICaps).field("fdwSCSCaps", &self.fdwSCSCaps).field("fdwSelectCaps", &self.fdwSelectCaps).finish()
-    }
-}
 impl windows_core::TypeKind for IMEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPrivateDataSize == other.dwPrivateDataSize && self.fdwProperty == other.fdwProperty && self.fdwConversionCaps == other.fdwConversionCaps && self.fdwSentenceCaps == other.fdwSentenceCaps && self.fdwUICaps == other.fdwUICaps && self.fdwSCSCaps == other.fdwSCSCaps && self.fdwSelectCaps == other.fdwSelectCaps
-    }
-}
-impl Eq for IMEINFO {}
 impl Default for IMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEITEM {
     pub cbSize: i32,
     pub iType: i32,
     pub lpItemData: *mut core::ffi::c_void,
 }
-impl Copy for IMEITEM {}
-impl Clone for IMEITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMEITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEITEM").field("cbSize", &self.cbSize).field("iType", &self.iType).field("lpItemData", &self.lpItemData).finish()
-    }
-}
 impl windows_core::TypeKind for IMEITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMEITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iType == other.iType && self.lpItemData == other.lpItemData
-    }
-}
-impl Eq for IMEITEM {}
 impl Default for IMEITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEITEMCANDIDATE {
     pub uCount: u32,
     pub imeItem: [IMEITEM; 1],
 }
-impl Copy for IMEITEMCANDIDATE {}
-impl Clone for IMEITEMCANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMEITEMCANDIDATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEITEMCANDIDATE").field("uCount", &self.uCount).field("imeItem", &self.imeItem).finish()
-    }
-}
 impl windows_core::TypeKind for IMEITEMCANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMEITEMCANDIDATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.uCount == other.uCount && self.imeItem == other.imeItem
-    }
-}
-impl Eq for IMEITEMCANDIDATE {}
 impl Default for IMEITEMCANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4827,19 +4490,12 @@ impl Default for IMEITEMCANDIDATE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
     pub cKeyList: u32,
     pub pKeyList: *mut IMEKMSKEY,
-}
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMS {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Globalization")]
 impl windows_core::TypeKind for IMEKMS {
@@ -4852,17 +4508,12 @@ impl Default for IMEKMS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
     pub idLang: u16,
     pub dwControl: u32,
     pub pwszDescription: [u16; 128],
-}
-impl Copy for IMEKMSFUNCDESC {}
-impl Clone for IMEKMSFUNCDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEKMSFUNCDESC {
     type TypeKind = windows_core::CopyType;
@@ -4873,15 +4524,10 @@ impl Default for IMEKMSFUNCDESC {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
     pub hWnd: super::super::super::Foundation::HWND,
-}
-impl Copy for IMEKMSINIT {}
-impl Clone for IMEKMSINIT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEKMSINIT {
     type TypeKind = windows_core::CopyType;
@@ -4893,18 +4539,11 @@ impl Default for IMEKMSINIT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
     pub dwControl: u32,
-}
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMSINVK {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMSINVK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Globalization")]
 impl windows_core::TypeKind for IMEKMSINVK {
@@ -4917,18 +4556,13 @@ impl Default for IMEKMSINVK {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
     pub dwCompStatus: u32,
     pub dwVKEY: u32,
     pub Anonymous1: IMEKMSKEY_0,
     pub Anonymous2: IMEKMSKEY_1,
-}
-impl Copy for IMEKMSKEY {}
-impl Clone for IMEKMSKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEKMSKEY {
     type TypeKind = windows_core::CopyType;
@@ -4939,15 +4573,10 @@ impl Default for IMEKMSKEY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
-}
-impl Copy for IMEKMSKEY_0 {}
-impl Clone for IMEKMSKEY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEKMSKEY_0 {
     type TypeKind = windows_core::CopyType;
@@ -4958,15 +4587,10 @@ impl Default for IMEKMSKEY_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
-}
-impl Copy for IMEKMSKEY_1 {}
-impl Clone for IMEKMSKEY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEKMSKEY_1 {
     type TypeKind = windows_core::CopyType;
@@ -4978,6 +4602,7 @@ impl Default for IMEKMSKEY_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
@@ -4986,14 +4611,6 @@ pub struct IMEKMSKMP {
     pub wVKEnd: u16,
     pub cKeyList: i32,
     pub pKeyList: *mut IMEKMSKEY,
-}
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMSKMP {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMSKMP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Globalization")]
 impl windows_core::TypeKind for IMEKMSKMP {
@@ -5007,18 +4624,11 @@ impl Default for IMEKMSKMP {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
     pub fSelect: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMSNTFY {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMSNTFY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Globalization")]
 impl windows_core::TypeKind for IMEKMSNTFY {
@@ -5032,6 +4642,7 @@ impl Default for IMEKMSNTFY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
     pub fType: u32,
@@ -5044,31 +4655,9 @@ pub struct IMEMENUITEMINFOA {
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for IMEMENUITEMINFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for IMEMENUITEMINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for IMEMENUITEMINFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEMENUITEMINFOA").field("cbSize", &self.cbSize).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("szString", &self.szString).field("hbmpItem", &self.hbmpItem).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for IMEMENUITEMINFOA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for IMEMENUITEMINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.szString == other.szString && self.hbmpItem == other.hbmpItem
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for IMEMENUITEMINFOA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for IMEMENUITEMINFOA {
     fn default() -> Self {
@@ -5077,6 +4666,7 @@ impl Default for IMEMENUITEMINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
     pub fType: u32,
@@ -5089,31 +4679,9 @@ pub struct IMEMENUITEMINFOW {
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for IMEMENUITEMINFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for IMEMENUITEMINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for IMEMENUITEMINFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMEMENUITEMINFOW").field("cbSize", &self.cbSize).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("szString", &self.szString).field("hbmpItem", &self.hbmpItem).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for IMEMENUITEMINFOW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for IMEMENUITEMINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.szString == other.szString && self.hbmpItem == other.hbmpItem
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for IMEMENUITEMINFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for IMEMENUITEMINFOW {
     fn default() -> Self {
@@ -5121,18 +4689,13 @@ impl Default for IMEMENUITEMINFOW {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
     pub szTitle: [i8; 48],
     pub szDescription: [i8; 256],
     pub szCopyright: [i8; 128],
-}
-impl Copy for IMESHF {}
-impl Clone for IMESHF {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMESHF {
     type TypeKind = windows_core::CopyType;
@@ -5143,36 +4706,21 @@ impl Default for IMESHF {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMESTRINGCANDIDATE {
     pub uCount: u32,
     pub lpwstr: [windows_core::PWSTR; 1],
 }
-impl Copy for IMESTRINGCANDIDATE {}
-impl Clone for IMESTRINGCANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMESTRINGCANDIDATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMESTRINGCANDIDATE").field("uCount", &self.uCount).field("lpwstr", &self.lpwstr).finish()
-    }
-}
 impl windows_core::TypeKind for IMESTRINGCANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMESTRINGCANDIDATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.uCount == other.uCount && self.lpwstr == other.lpwstr
-    }
-}
-impl Eq for IMESTRINGCANDIDATE {}
 impl Default for IMESTRINGCANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
     pub lpFarEastInfo: *mut IMEFAREASTINFO,
@@ -5181,62 +4729,30 @@ pub struct IMESTRINGCANDIDATEINFO {
     pub uCount: u32,
     pub lpwstr: [windows_core::PWSTR; 1],
 }
-impl Copy for IMESTRINGCANDIDATEINFO {}
-impl Clone for IMESTRINGCANDIDATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMESTRINGCANDIDATEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMESTRINGCANDIDATEINFO").field("dwFarEastId", &self.dwFarEastId).field("lpFarEastInfo", &self.lpFarEastInfo).field("fInfoMask", &self.fInfoMask).field("iSelIndex", &self.iSelIndex).field("uCount", &self.uCount).field("lpwstr", &self.lpwstr).finish()
-    }
-}
 impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMESTRINGCANDIDATEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFarEastId == other.dwFarEastId && self.lpFarEastInfo == other.lpFarEastInfo && self.fInfoMask == other.fInfoMask && self.iSelIndex == other.iSelIndex && self.uCount == other.uCount && self.lpwstr == other.lpwstr
-    }
-}
-impl Eq for IMESTRINGCANDIDATEINFO {}
 impl Default for IMESTRINGCANDIDATEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMESTRINGINFO {
     pub dwFarEastId: u32,
     pub lpwstr: windows_core::PWSTR,
 }
-impl Copy for IMESTRINGINFO {}
-impl Clone for IMESTRINGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMESTRINGINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMESTRINGINFO").field("dwFarEastId", &self.dwFarEastId).field("lpwstr", &self.lpwstr).finish()
-    }
-}
 impl windows_core::TypeKind for IMESTRINGINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMESTRINGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFarEastId == other.dwFarEastId && self.lpwstr == other.lpwstr
-    }
-}
-impl Eq for IMESTRINGINFO {}
 impl Default for IMESTRINGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_core::PWSTR,
     pub pwchDisplay: windows_core::PWSTR,
@@ -5245,12 +4761,6 @@ pub struct IMEWRD {
     pub cbComment: i32,
     pub uct: IMEUCT,
     pub pvComment: *mut core::ffi::c_void,
-}
-impl Copy for IMEWRD {}
-impl Clone for IMEWRD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEWRD {
     type TypeKind = windows_core::CopyType;
@@ -5261,15 +4771,10 @@ impl Default for IMEWRD {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
-}
-impl Copy for IMEWRD_0 {}
-impl Clone for IMEWRD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEWRD_0 {
     type TypeKind = windows_core::CopyType;
@@ -5280,15 +4785,10 @@ impl Default for IMEWRD_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
-}
-impl Copy for IMEWRD_0_0 {}
-impl Clone for IMEWRD_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMEWRD_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -5300,6 +4800,7 @@ impl Default for IMEWRD_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy)]
 pub struct INPUTCONTEXT {
     pub hWnd: super::super::super::Foundation::HWND,
     pub fOpen: super::super::super::Foundation::BOOL,
@@ -5320,14 +4821,6 @@ pub struct INPUTCONTEXT {
     pub dwReserve: [u32; 3],
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Copy for INPUTCONTEXT {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Clone for INPUTCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for INPUTCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
@@ -5339,17 +4832,10 @@ impl Default for INPUTCONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy)]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
-}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Copy for INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Clone for INPUTCONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for INPUTCONTEXT_0 {
@@ -5362,6 +4848,7 @@ impl Default for INPUTCONTEXT_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
     pub pwchOutput: windows_core::PWSTR,
@@ -5377,12 +4864,6 @@ pub struct MORRSLT {
     pub pPrivate: *mut core::ffi::c_void,
     pub BLKBuff: [u16; 1],
 }
-impl Copy for MORRSLT {}
-impl Clone for MORRSLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MORRSLT {
     type TypeKind = windows_core::CopyType;
 }
@@ -5392,15 +4873,10 @@ impl Default for MORRSLT {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_core::PWSTR,
     pub pwchComp: windows_core::PWSTR,
-}
-impl Copy for MORRSLT_0 {}
-impl Clone for MORRSLT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MORRSLT_0 {
     type TypeKind = windows_core::CopyType;
@@ -5411,15 +4887,10 @@ impl Default for MORRSLT_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
-}
-impl Copy for MORRSLT_1 {}
-impl Clone for MORRSLT_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MORRSLT_1 {
     type TypeKind = windows_core::CopyType;
@@ -5430,15 +4901,10 @@ impl Default for MORRSLT_1 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
-}
-impl Copy for MORRSLT_2 {}
-impl Clone for MORRSLT_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MORRSLT_2 {
     type TypeKind = windows_core::CopyType;
@@ -5449,15 +4915,10 @@ impl Default for MORRSLT_2 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
-}
-impl Copy for POSTBL {}
-impl Clone for POSTBL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for POSTBL {
     type TypeKind = windows_core::CopyType;
@@ -5468,6 +4929,7 @@ impl Default for POSTBL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -5478,243 +4940,115 @@ pub struct RECONVERTSTRING {
     pub dwTargetStrLen: u32,
     pub dwTargetStrOffset: u32,
 }
-impl Copy for RECONVERTSTRING {}
-impl Clone for RECONVERTSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECONVERTSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECONVERTSTRING").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwCompStrLen", &self.dwCompStrLen).field("dwCompStrOffset", &self.dwCompStrOffset).field("dwTargetStrLen", &self.dwTargetStrLen).field("dwTargetStrOffset", &self.dwTargetStrOffset).finish()
-    }
-}
 impl windows_core::TypeKind for RECONVERTSTRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECONVERTSTRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwVersion == other.dwVersion && self.dwStrLen == other.dwStrLen && self.dwStrOffset == other.dwStrOffset && self.dwCompStrLen == other.dwCompStrLen && self.dwCompStrOffset == other.dwCompStrOffset && self.dwTargetStrLen == other.dwTargetStrLen && self.dwTargetStrOffset == other.dwTargetStrOffset
-    }
-}
-impl Eq for RECONVERTSTRING {}
 impl Default for RECONVERTSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGISTERWORDA {
     pub lpReading: windows_core::PSTR,
     pub lpWord: windows_core::PSTR,
 }
-impl Copy for REGISTERWORDA {}
-impl Clone for REGISTERWORDA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGISTERWORDA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGISTERWORDA").field("lpReading", &self.lpReading).field("lpWord", &self.lpWord).finish()
-    }
-}
 impl windows_core::TypeKind for REGISTERWORDA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGISTERWORDA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpReading == other.lpReading && self.lpWord == other.lpWord
-    }
-}
-impl Eq for REGISTERWORDA {}
 impl Default for REGISTERWORDA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGISTERWORDW {
     pub lpReading: windows_core::PWSTR,
     pub lpWord: windows_core::PWSTR,
 }
-impl Copy for REGISTERWORDW {}
-impl Clone for REGISTERWORDW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REGISTERWORDW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REGISTERWORDW").field("lpReading", &self.lpReading).field("lpWord", &self.lpWord).finish()
-    }
-}
 impl windows_core::TypeKind for REGISTERWORDW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REGISTERWORDW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpReading == other.lpReading && self.lpWord == other.lpWord
-    }
-}
-impl Eq for REGISTERWORDW {}
 impl Default for REGISTERWORDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOFTKBDDATA {
     pub uCount: u32,
     pub wCode: [u16; 256],
 }
-impl Copy for SOFTKBDDATA {}
-impl Clone for SOFTKBDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SOFTKBDDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SOFTKBDDATA").field("uCount", &self.uCount).field("wCode", &self.wCode).finish()
-    }
-}
 impl windows_core::TypeKind for SOFTKBDDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SOFTKBDDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.uCount == other.uCount && self.wCode == other.wCode
-    }
-}
-impl Eq for SOFTKBDDATA {}
 impl Default for SOFTKBDDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
     pub szDescription: [i8; 32],
 }
-impl Copy for STYLEBUFA {}
-impl Clone for STYLEBUFA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STYLEBUFA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STYLEBUFA").field("dwStyle", &self.dwStyle).field("szDescription", &self.szDescription).finish()
-    }
-}
 impl windows_core::TypeKind for STYLEBUFA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STYLEBUFA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStyle == other.dwStyle && self.szDescription == other.szDescription
-    }
-}
-impl Eq for STYLEBUFA {}
 impl Default for STYLEBUFA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],
 }
-impl Copy for STYLEBUFW {}
-impl Clone for STYLEBUFW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STYLEBUFW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STYLEBUFW").field("dwStyle", &self.dwStyle).field("szDescription", &self.szDescription).finish()
-    }
-}
 impl windows_core::TypeKind for STYLEBUFW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STYLEBUFW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStyle == other.dwStyle && self.szDescription == other.szDescription
-    }
-}
-impl Eq for STYLEBUFW {}
 impl Default for STYLEBUFW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSMSG {
     pub message: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
 }
-impl Copy for TRANSMSG {}
-impl Clone for TRANSMSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSMSG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSMSG").field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSMSG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSMSG {
-    fn eq(&self, other: &Self) -> bool {
-        self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam
-    }
-}
-impl Eq for TRANSMSG {}
 impl Default for TRANSMSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSMSGLIST {
     pub uMsgCount: u32,
     pub TransMsg: [TRANSMSG; 1],
 }
-impl Copy for TRANSMSGLIST {}
-impl Clone for TRANSMSGLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSMSGLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSMSGLIST").field("uMsgCount", &self.uMsgCount).field("TransMsg", &self.TransMsg).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSMSGLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSMSGLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.uMsgCount == other.uMsgCount && self.TransMsg == other.TransMsg
-    }
-}
-impl Eq for TRANSMSGLIST {}
 impl Default for TRANSMSGLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
     pub Anonymous1: WDD_0,
@@ -5725,12 +5059,6 @@ pub struct WDD {
     pub _bitfield: u16,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Copy for WDD {}
-impl Clone for WDD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WDD {
     type TypeKind = windows_core::CopyType;
 }
@@ -5740,15 +5068,10 @@ impl Default for WDD {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
-}
-impl Copy for WDD_0 {}
-impl Clone for WDD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WDD_0 {
     type TypeKind = windows_core::CopyType;
@@ -5759,15 +5082,10 @@ impl Default for WDD_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,
-}
-impl Copy for WDD_1 {}
-impl Clone for WDD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WDD_1 {
     type TypeKind = windows_core::CopyType;

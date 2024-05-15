@@ -946,6 +946,7 @@ pub const CEventPublisher: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const CEventSubscription: windows_core::GUID = windows_core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
 pub const CEventSystem: windows_core::GUID = windows_core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct COMEVENTSYSCHANGEINFO {
     pub cbSize: u32,
     pub changeType: EOC_ChangeType,
@@ -959,20 +960,9 @@ impl Clone for COMEVENTSYSCHANGEINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for COMEVENTSYSCHANGEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMEVENTSYSCHANGEINFO").field("cbSize", &self.cbSize).field("changeType", &self.changeType).field("objectId", &self.objectId).field("partitionId", &self.partitionId).field("applicationId", &self.applicationId).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for COMEVENTSYSCHANGEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMEVENTSYSCHANGEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.changeType == other.changeType && self.objectId == other.objectId && self.partitionId == other.partitionId && self.applicationId == other.applicationId && self.reserved == other.reserved
-    }
-}
-impl Eq for COMEVENTSYSCHANGEINFO {}
 impl Default for COMEVENTSYSCHANGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

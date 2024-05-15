@@ -245,20 +245,10 @@ impl windows_core::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,
-}
-impl Copy for ProviderI2cTransferResult {}
-impl Clone for ProviderI2cTransferResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ProviderI2cTransferResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ProviderI2cTransferResult").field("Status", &self.Status).field("BytesTransferred", &self.BytesTransferred).finish()
-    }
 }
 impl windows_core::TypeKind for ProviderI2cTransferResult {
     type TypeKind = windows_core::CopyType;
@@ -266,12 +256,6 @@ impl windows_core::TypeKind for ProviderI2cTransferResult {
 impl windows_core::RuntimeType for ProviderI2cTransferResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.Provider.ProviderI2cTransferResult;enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4);u4)");
 }
-impl PartialEq for ProviderI2cTransferResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.BytesTransferred == other.BytesTransferred
-    }
-}
-impl Eq for ProviderI2cTransferResult {}
 impl Default for ProviderI2cTransferResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

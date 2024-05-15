@@ -85,6 +85,7 @@ pub const wszW32TimeRegValueEnabled: windows_core::PCWSTR = windows_core::w!("En
 pub const wszW32TimeRegValueInputProvider: windows_core::PCWSTR = windows_core::w!("InputProvider");
 pub const wszW32TimeRegValueMetaDataProvider: windows_core::PCWSTR = windows_core::w!("MetaDataProvider");
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -96,32 +97,16 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
-impl Clone for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
-    }
-}
 impl windows_core::TypeKind for DYNAMIC_TIME_ZONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias && self.TimeZoneKeyName == other.TimeZoneKeyName && self.DynamicDaylightTimeDisabled == other.DynamicDaylightTimeDisabled
-    }
-}
-impl Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
 impl Default for DYNAMIC_TIME_ZONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -131,26 +116,9 @@ pub struct TIME_ZONE_INFORMATION {
     pub DaylightDate: super::super::Foundation::SYSTEMTIME,
     pub DaylightBias: i32,
 }
-impl Copy for TIME_ZONE_INFORMATION {}
-impl Clone for TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TIME_ZONE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).finish()
-    }
-}
 impl windows_core::TypeKind for TIME_ZONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TIME_ZONE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias
-    }
-}
-impl Eq for TIME_ZONE_INFORMATION {}
 impl Default for TIME_ZONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

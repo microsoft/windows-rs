@@ -1178,22 +1178,12 @@ impl windows_core::RuntimeName for UIContext {
 unsafe impl Send for UIContext {}
 unsafe impl Sync for UIContext {}
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Color {
     pub A: u8,
     pub R: u8,
     pub G: u8,
     pub B: u8,
-}
-impl Copy for Color {}
-impl Clone for Color {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for Color {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("Color").field("A", &self.A).field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
-    }
 }
 impl windows_core::TypeKind for Color {
     type TypeKind = windows_core::CopyType;
@@ -1201,31 +1191,15 @@ impl windows_core::TypeKind for Color {
 impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
 }
-impl PartialEq for Color {
-    fn eq(&self, other: &Self) -> bool {
-        self.A == other.A && self.R == other.R && self.G == other.G && self.B == other.B
-    }
-}
-impl Eq for Color {}
 impl Default for Color {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WindowId {
     pub Value: u64,
-}
-impl Copy for WindowId {}
-impl Clone for WindowId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WindowId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WindowId").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for WindowId {
     type TypeKind = windows_core::CopyType;
@@ -1233,12 +1207,6 @@ impl windows_core::TypeKind for WindowId {
 impl windows_core::RuntimeType for WindowId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
 }
-impl PartialEq for WindowId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for WindowId {}
 impl Default for WindowId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

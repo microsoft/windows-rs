@@ -276,46 +276,25 @@ impl core::fmt::Debug for TOUCH_FEEDBACK_MODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INPUT_INJECTION_VALUE {
     pub page: u16,
     pub usage: u16,
     pub value: i32,
     pub index: u16,
 }
-impl Copy for INPUT_INJECTION_VALUE {}
-impl Clone for INPUT_INJECTION_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INPUT_INJECTION_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
-    }
-}
 impl windows_core::TypeKind for INPUT_INJECTION_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INPUT_INJECTION_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.page == other.page && self.usage == other.usage && self.value == other.value && self.index == other.index
-    }
-}
-impl Eq for INPUT_INJECTION_VALUE {}
 impl Default for INPUT_INJECTION_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_TRANSFORM {
     pub Anonymous: INPUT_TRANSFORM_0,
-}
-impl Copy for INPUT_TRANSFORM {}
-impl Clone for INPUT_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INPUT_TRANSFORM {
     type TypeKind = windows_core::CopyType;
@@ -326,15 +305,10 @@ impl Default for INPUT_TRANSFORM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INPUT_TRANSFORM_0 {
     pub Anonymous: INPUT_TRANSFORM_0_0,
     pub m: [f32; 16],
-}
-impl Copy for INPUT_TRANSFORM_0 {}
-impl Clone for INPUT_TRANSFORM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INPUT_TRANSFORM_0 {
     type TypeKind = windows_core::CopyType;
@@ -345,6 +319,7 @@ impl Default for INPUT_TRANSFORM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INPUT_TRANSFORM_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -363,26 +338,9 @@ pub struct INPUT_TRANSFORM_0_0 {
     pub _43: f32,
     pub _44: f32,
 }
-impl Copy for INPUT_TRANSFORM_0_0 {}
-impl Clone for INPUT_TRANSFORM_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INPUT_TRANSFORM_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
-    }
-}
 impl windows_core::TypeKind for INPUT_TRANSFORM_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INPUT_TRANSFORM_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
-    }
-}
-impl Eq for INPUT_TRANSFORM_0_0 {}
 impl Default for INPUT_TRANSFORM_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -390,6 +348,7 @@ impl Default for INPUT_TRANSFORM_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINTER_INFO {
     pub pointerType: super::super::WindowsAndMessaging::POINTER_INPUT_TYPE,
     pub pointerId: u32,
@@ -409,48 +368,9 @@ pub struct POINTER_INFO {
     pub ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for POINTER_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for POINTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for POINTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINTER_INFO")
-            .field("pointerType", &self.pointerType)
-            .field("pointerId", &self.pointerId)
-            .field("frameId", &self.frameId)
-            .field("pointerFlags", &self.pointerFlags)
-            .field("sourceDevice", &self.sourceDevice)
-            .field("hwndTarget", &self.hwndTarget)
-            .field("ptPixelLocation", &self.ptPixelLocation)
-            .field("ptHimetricLocation", &self.ptHimetricLocation)
-            .field("ptPixelLocationRaw", &self.ptPixelLocationRaw)
-            .field("ptHimetricLocationRaw", &self.ptHimetricLocationRaw)
-            .field("dwTime", &self.dwTime)
-            .field("historyCount", &self.historyCount)
-            .field("InputData", &self.InputData)
-            .field("dwKeyStates", &self.dwKeyStates)
-            .field("PerformanceCount", &self.PerformanceCount)
-            .field("ButtonChangeType", &self.ButtonChangeType)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for POINTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl PartialEq for POINTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pointerType == other.pointerType && self.pointerId == other.pointerId && self.frameId == other.frameId && self.pointerFlags == other.pointerFlags && self.sourceDevice == other.sourceDevice && self.hwndTarget == other.hwndTarget && self.ptPixelLocation == other.ptPixelLocation && self.ptHimetricLocation == other.ptHimetricLocation && self.ptPixelLocationRaw == other.ptPixelLocationRaw && self.ptHimetricLocationRaw == other.ptHimetricLocationRaw && self.dwTime == other.dwTime && self.historyCount == other.historyCount && self.InputData == other.InputData && self.dwKeyStates == other.dwKeyStates && self.PerformanceCount == other.PerformanceCount && self.ButtonChangeType == other.ButtonChangeType
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Eq for POINTER_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for POINTER_INFO {
     fn default() -> Self {
@@ -459,6 +379,7 @@ impl Default for POINTER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINTER_PEN_INFO {
     pub pointerInfo: POINTER_INFO,
     pub penFlags: u32,
@@ -469,31 +390,9 @@ pub struct POINTER_PEN_INFO {
     pub tiltY: i32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for POINTER_PEN_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for POINTER_PEN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for POINTER_PEN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINTER_PEN_INFO").field("pointerInfo", &self.pointerInfo).field("penFlags", &self.penFlags).field("penMask", &self.penMask).field("pressure", &self.pressure).field("rotation", &self.rotation).field("tiltX", &self.tiltX).field("tiltY", &self.tiltY).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for POINTER_PEN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl PartialEq for POINTER_PEN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pointerInfo == other.pointerInfo && self.penFlags == other.penFlags && self.penMask == other.penMask && self.pressure == other.pressure && self.rotation == other.rotation && self.tiltX == other.tiltX && self.tiltY == other.tiltY
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Eq for POINTER_PEN_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for POINTER_PEN_INFO {
     fn default() -> Self {
@@ -502,6 +401,7 @@ impl Default for POINTER_PEN_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINTER_TOUCH_INFO {
     pub pointerInfo: POINTER_INFO,
     pub touchFlags: u32,
@@ -512,31 +412,9 @@ pub struct POINTER_TOUCH_INFO {
     pub pressure: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for POINTER_TOUCH_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for POINTER_TOUCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for POINTER_TOUCH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINTER_TOUCH_INFO").field("pointerInfo", &self.pointerInfo).field("touchFlags", &self.touchFlags).field("touchMask", &self.touchMask).field("rcContact", &self.rcContact).field("rcContactRaw", &self.rcContactRaw).field("orientation", &self.orientation).field("pressure", &self.pressure).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for POINTER_TOUCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl PartialEq for POINTER_TOUCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pointerInfo == other.pointerInfo && self.touchFlags == other.touchFlags && self.touchMask == other.touchMask && self.rcContact == other.rcContact && self.rcContactRaw == other.rcContactRaw && self.orientation == other.orientation && self.pressure == other.pressure
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Eq for POINTER_TOUCH_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for POINTER_TOUCH_INFO {
     fn default() -> Self {

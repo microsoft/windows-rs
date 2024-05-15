@@ -56,6 +56,7 @@ impl core::fmt::Debug for UpdateImpactLevel {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSUpdateAssessment {
     pub isEndOfSupport: super::super::Foundation::BOOL,
     pub assessmentForCurrent: UpdateAssessment,
@@ -68,68 +69,24 @@ pub struct OSUpdateAssessment {
     pub upToDateOSBuild: windows_core::PWSTR,
     pub upToDateOSReleaseTime: super::super::Foundation::FILETIME,
 }
-impl Copy for OSUpdateAssessment {}
-impl Clone for OSUpdateAssessment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OSUpdateAssessment {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OSUpdateAssessment")
-            .field("isEndOfSupport", &self.isEndOfSupport)
-            .field("assessmentForCurrent", &self.assessmentForCurrent)
-            .field("assessmentForUpToDate", &self.assessmentForUpToDate)
-            .field("securityStatus", &self.securityStatus)
-            .field("assessmentTime", &self.assessmentTime)
-            .field("releaseInfoTime", &self.releaseInfoTime)
-            .field("currentOSBuild", &self.currentOSBuild)
-            .field("currentOSReleaseTime", &self.currentOSReleaseTime)
-            .field("upToDateOSBuild", &self.upToDateOSBuild)
-            .field("upToDateOSReleaseTime", &self.upToDateOSReleaseTime)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OSUpdateAssessment {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OSUpdateAssessment {
-    fn eq(&self, other: &Self) -> bool {
-        self.isEndOfSupport == other.isEndOfSupport && self.assessmentForCurrent == other.assessmentForCurrent && self.assessmentForUpToDate == other.assessmentForUpToDate && self.securityStatus == other.securityStatus && self.assessmentTime == other.assessmentTime && self.releaseInfoTime == other.releaseInfoTime && self.currentOSBuild == other.currentOSBuild && self.currentOSReleaseTime == other.currentOSReleaseTime && self.upToDateOSBuild == other.upToDateOSBuild && self.upToDateOSReleaseTime == other.upToDateOSReleaseTime
-    }
-}
-impl Eq for OSUpdateAssessment {}
 impl Default for OSUpdateAssessment {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UpdateAssessment {
     pub status: UpdateAssessmentStatus,
     pub impact: UpdateImpactLevel,
     pub daysOutOfDate: u32,
 }
-impl Copy for UpdateAssessment {}
-impl Clone for UpdateAssessment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UpdateAssessment {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UpdateAssessment").field("status", &self.status).field("impact", &self.impact).field("daysOutOfDate", &self.daysOutOfDate).finish()
-    }
-}
 impl windows_core::TypeKind for UpdateAssessment {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UpdateAssessment {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.impact == other.impact && self.daysOutOfDate == other.daysOutOfDate
-    }
-}
-impl Eq for UpdateAssessment {}
 impl Default for UpdateAssessment {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

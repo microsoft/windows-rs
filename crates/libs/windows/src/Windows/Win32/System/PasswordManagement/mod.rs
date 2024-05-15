@@ -19,116 +19,52 @@ where
     MSChapSrvChangePassword2(servername.param().abi(), username.param().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.param().abi(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CYPHER_BLOCK {
     pub data: [i8; 8],
-}
-impl Copy for CYPHER_BLOCK {}
-impl Clone for CYPHER_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CYPHER_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CYPHER_BLOCK").field("data", &self.data).finish()
-    }
 }
 impl windows_core::TypeKind for CYPHER_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CYPHER_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data
-    }
-}
-impl Eq for CYPHER_BLOCK {}
 impl Default for CYPHER_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
-}
-impl Copy for ENCRYPTED_LM_OWF_PASSWORD {}
-impl Clone for ENCRYPTED_LM_OWF_PASSWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENCRYPTED_LM_OWF_PASSWORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENCRYPTED_LM_OWF_PASSWORD").field("data", &self.data).finish()
-    }
 }
 impl windows_core::TypeKind for ENCRYPTED_LM_OWF_PASSWORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data
-    }
-}
-impl Eq for ENCRYPTED_LM_OWF_PASSWORD {}
 impl Default for ENCRYPTED_LM_OWF_PASSWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
-}
-impl Copy for LM_OWF_PASSWORD {}
-impl Clone for LM_OWF_PASSWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LM_OWF_PASSWORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LM_OWF_PASSWORD").field("data", &self.data).finish()
-    }
 }
 impl windows_core::TypeKind for LM_OWF_PASSWORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LM_OWF_PASSWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data
-    }
-}
-impl Eq for LM_OWF_PASSWORD {}
 impl Default for LM_OWF_PASSWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAMPR_ENCRYPTED_USER_PASSWORD {
     pub Buffer: [u8; 516],
-}
-impl Copy for SAMPR_ENCRYPTED_USER_PASSWORD {}
-impl Clone for SAMPR_ENCRYPTED_USER_PASSWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SAMPR_ENCRYPTED_USER_PASSWORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAMPR_ENCRYPTED_USER_PASSWORD").field("Buffer", &self.Buffer).finish()
-    }
 }
 impl windows_core::TypeKind for SAMPR_ENCRYPTED_USER_PASSWORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SAMPR_ENCRYPTED_USER_PASSWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer
-    }
-}
-impl Eq for SAMPR_ENCRYPTED_USER_PASSWORD {}
 impl Default for SAMPR_ENCRYPTED_USER_PASSWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

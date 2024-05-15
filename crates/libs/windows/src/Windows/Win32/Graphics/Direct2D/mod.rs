@@ -8752,6 +8752,7 @@ impl core::fmt::Debug for DWRITE_PAINT_FEATURE_LEVEL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_ARC_SEGMENT {
     pub point: Common::D2D_POINT_2F,
     pub size: Common::D2D_SIZE_F,
@@ -8760,31 +8761,9 @@ pub struct D2D1_ARC_SEGMENT {
     pub arcSize: D2D1_ARC_SIZE,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_ARC_SEGMENT {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_ARC_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_ARC_SEGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_ARC_SEGMENT").field("point", &self.point).field("size", &self.size).field("rotationAngle", &self.rotationAngle).field("sweepDirection", &self.sweepDirection).field("arcSize", &self.arcSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_ARC_SEGMENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_ARC_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.point == other.point && self.size == other.size && self.rotationAngle == other.rotationAngle && self.sweepDirection == other.sweepDirection && self.arcSize == other.arcSize
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_ARC_SEGMENT {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_ARC_SEGMENT {
     fn default() -> Self {
@@ -8792,62 +8771,30 @@ impl Default for D2D1_ARC_SEGMENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
     pub extendModeX: D2D1_EXTEND_MODE,
     pub extendModeY: D2D1_EXTEND_MODE,
     pub interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE,
 }
-impl Copy for D2D1_BITMAP_BRUSH_PROPERTIES {}
-impl Clone for D2D1_BITMAP_BRUSH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_BITMAP_BRUSH_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BITMAP_BRUSH_PROPERTIES").field("extendModeX", &self.extendModeX).field("extendModeY", &self.extendModeY).field("interpolationMode", &self.interpolationMode).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_BITMAP_BRUSH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.extendModeX == other.extendModeX && self.extendModeY == other.extendModeY && self.interpolationMode == other.interpolationMode
-    }
-}
-impl Eq for D2D1_BITMAP_BRUSH_PROPERTIES {}
 impl Default for D2D1_BITMAP_BRUSH_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
     pub extendModeX: D2D1_EXTEND_MODE,
     pub extendModeY: D2D1_EXTEND_MODE,
     pub interpolationMode: D2D1_INTERPOLATION_MODE,
 }
-impl Copy for D2D1_BITMAP_BRUSH_PROPERTIES1 {}
-impl Clone for D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BITMAP_BRUSH_PROPERTIES1").field("extendModeX", &self.extendModeX).field("extendModeY", &self.extendModeY).field("interpolationMode", &self.interpolationMode).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.extendModeX == other.extendModeX && self.extendModeY == other.extendModeY && self.interpolationMode == other.interpolationMode
-    }
-}
-impl Eq for D2D1_BITMAP_BRUSH_PROPERTIES1 {}
 impl Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8855,37 +8802,16 @@ impl Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_BITMAP_PROPERTIES {
     pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
     pub dpiX: f32,
     pub dpiY: f32,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D2D1_BITMAP_PROPERTIES {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D2D1_BITMAP_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D2D1_BITMAP_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BITMAP_PROPERTIES").field("pixelFormat", &self.pixelFormat).field("dpiX", &self.dpiX).field("dpiY", &self.dpiY).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D2D1_BITMAP_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pixelFormat == other.pixelFormat && self.dpiX == other.dpiX && self.dpiY == other.dpiY
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D2D1_BITMAP_PROPERTIES {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D2D1_BITMAP_PROPERTIES {
     fn default() -> Self {
@@ -8894,6 +8820,7 @@ impl Default for D2D1_BITMAP_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Debug, PartialEq)]
 pub struct D2D1_BITMAP_PROPERTIES1 {
     pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
     pub dpiX: f32,
@@ -8908,23 +8835,9 @@ impl Clone for D2D1_BITMAP_PROPERTIES1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D2D1_BITMAP_PROPERTIES1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BITMAP_PROPERTIES1").field("pixelFormat", &self.pixelFormat).field("dpiX", &self.dpiX).field("dpiY", &self.dpiY).field("bitmapOptions", &self.bitmapOptions).field("colorContext", &self.colorContext).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D2D1_BITMAP_PROPERTIES1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pixelFormat == other.pixelFormat && self.dpiX == other.dpiX && self.dpiY == other.dpiY && self.bitmapOptions == other.bitmapOptions && self.colorContext == other.colorContext
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D2D1_BITMAP_PROPERTIES1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D2D1_BITMAP_PROPERTIES1 {
     fn default() -> Self {
@@ -8932,6 +8845,7 @@ impl Default for D2D1_BITMAP_PROPERTIES1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_BLEND_DESCRIPTION {
     pub sourceBlend: D2D1_BLEND,
     pub destinationBlend: D2D1_BLEND,
@@ -8941,26 +8855,9 @@ pub struct D2D1_BLEND_DESCRIPTION {
     pub blendOperationAlpha: D2D1_BLEND_OPERATION,
     pub blendFactor: [f32; 4],
 }
-impl Copy for D2D1_BLEND_DESCRIPTION {}
-impl Clone for D2D1_BLEND_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_BLEND_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BLEND_DESCRIPTION").field("sourceBlend", &self.sourceBlend).field("destinationBlend", &self.destinationBlend).field("blendOperation", &self.blendOperation).field("sourceBlendAlpha", &self.sourceBlendAlpha).field("destinationBlendAlpha", &self.destinationBlendAlpha).field("blendOperationAlpha", &self.blendOperationAlpha).field("blendFactor", &self.blendFactor).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_BLEND_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_BLEND_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.sourceBlend == other.sourceBlend && self.destinationBlend == other.destinationBlend && self.blendOperation == other.blendOperation && self.sourceBlendAlpha == other.sourceBlendAlpha && self.destinationBlendAlpha == other.destinationBlendAlpha && self.blendOperationAlpha == other.blendOperationAlpha && self.blendFactor == other.blendFactor
-    }
-}
-impl Eq for D2D1_BLEND_DESCRIPTION {}
 impl Default for D2D1_BLEND_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8968,36 +8865,15 @@ impl Default for D2D1_BLEND_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_BRUSH_PROPERTIES {
     pub opacity: f32,
     pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl Copy for D2D1_BRUSH_PROPERTIES {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for D2D1_BRUSH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for D2D1_BRUSH_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BRUSH_PROPERTIES").field("opacity", &self.opacity).field("transform", &self.transform).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for D2D1_BRUSH_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for D2D1_BRUSH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.opacity == other.opacity && self.transform == other.transform
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for D2D1_BRUSH_PROPERTIES {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for D2D1_BRUSH_PROPERTIES {
     fn default() -> Self {
@@ -9005,31 +8881,15 @@ impl Default for D2D1_BRUSH_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_CREATION_PROPERTIES {
     pub threadingMode: D2D1_THREADING_MODE,
     pub debugLevel: D2D1_DEBUG_LEVEL,
     pub options: D2D1_DEVICE_CONTEXT_OPTIONS,
 }
-impl Copy for D2D1_CREATION_PROPERTIES {}
-impl Clone for D2D1_CREATION_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_CREATION_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_CREATION_PROPERTIES").field("threadingMode", &self.threadingMode).field("debugLevel", &self.debugLevel).field("options", &self.options).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_CREATION_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_CREATION_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.threadingMode == other.threadingMode && self.debugLevel == other.debugLevel && self.options == other.options
-    }
-}
-impl Eq for D2D1_CREATION_PROPERTIES {}
 impl Default for D2D1_CREATION_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9037,6 +8897,7 @@ impl Default for D2D1_CREATION_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     pub shaderBufferWithInputSignature: *const u8,
     pub shaderBufferSize: u32,
@@ -9045,31 +8906,9 @@ pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     pub stride: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES").field("shaderBufferWithInputSignature", &self.shaderBufferWithInputSignature).field("shaderBufferSize", &self.shaderBufferSize).field("inputElements", &self.inputElements).field("elementCount", &self.elementCount).field("stride", &self.stride).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.shaderBufferWithInputSignature == other.shaderBufferWithInputSignature && self.shaderBufferSize == other.shaderBufferSize && self.inputElements == other.inputElements && self.elementCount == other.elementCount && self.stride == other.stride
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     fn default() -> Self {
@@ -9078,6 +8917,7 @@ impl Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION {
     pub antialiasMode: D2D1_ANTIALIAS_MODE,
     pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
@@ -9086,31 +8926,9 @@ pub struct D2D1_DRAWING_STATE_DESCRIPTION {
     pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl Copy for D2D1_DRAWING_STATE_DESCRIPTION {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for D2D1_DRAWING_STATE_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for D2D1_DRAWING_STATE_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_DRAWING_STATE_DESCRIPTION").field("antialiasMode", &self.antialiasMode).field("textAntialiasMode", &self.textAntialiasMode).field("tag1", &self.tag1).field("tag2", &self.tag2).field("transform", &self.transform).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for D2D1_DRAWING_STATE_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.antialiasMode == other.antialiasMode && self.textAntialiasMode == other.textAntialiasMode && self.tag1 == other.tag1 && self.tag2 == other.tag2 && self.transform == other.transform
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for D2D1_DRAWING_STATE_DESCRIPTION {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for D2D1_DRAWING_STATE_DESCRIPTION {
     fn default() -> Self {
@@ -9119,6 +8937,7 @@ impl Default for D2D1_DRAWING_STATE_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
     pub antialiasMode: D2D1_ANTIALIAS_MODE,
     pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
@@ -9129,31 +8948,9 @@ pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
     pub unitMode: D2D1_UNIT_MODE,
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl Copy for D2D1_DRAWING_STATE_DESCRIPTION1 {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_DRAWING_STATE_DESCRIPTION1").field("antialiasMode", &self.antialiasMode).field("textAntialiasMode", &self.textAntialiasMode).field("tag1", &self.tag1).field("tag2", &self.tag2).field("transform", &self.transform).field("primitiveBlend", &self.primitiveBlend).field("unitMode", &self.unitMode).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.antialiasMode == other.antialiasMode && self.textAntialiasMode == other.textAntialiasMode && self.tag1 == other.tag1 && self.tag2 == other.tag2 && self.transform == other.transform && self.primitiveBlend == other.primitiveBlend && self.unitMode == other.unitMode
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for D2D1_DRAWING_STATE_DESCRIPTION1 {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
     fn default() -> Self {
@@ -9162,6 +8959,7 @@ impl Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Debug, PartialEq)]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
     pub effect: std::mem::ManuallyDrop<Option<ID2D1Effect>>,
     pub inputIndex: u32,
@@ -9174,23 +8972,9 @@ impl Clone for D2D1_EFFECT_INPUT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_EFFECT_INPUT_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_EFFECT_INPUT_DESCRIPTION").field("effect", &self.effect).field("inputIndex", &self.inputIndex).field("inputRectangle", &self.inputRectangle).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_EFFECT_INPUT_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_EFFECT_INPUT_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.effect == other.effect && self.inputIndex == other.inputIndex && self.inputRectangle == other.inputRectangle
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_EFFECT_INPUT_DESCRIPTION {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
     fn default() -> Self {
@@ -9199,37 +8983,16 @@ impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_ELLIPSE {
     pub point: Common::D2D_POINT_2F,
     pub radiusX: f32,
     pub radiusY: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_ELLIPSE {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_ELLIPSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_ELLIPSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_ELLIPSE").field("point", &self.point).field("radiusX", &self.radiusX).field("radiusY", &self.radiusY).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_ELLIPSE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_ELLIPSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.point == other.point && self.radiusX == other.radiusX && self.radiusY == other.radiusY
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_ELLIPSE {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_ELLIPSE {
     fn default() -> Self {
@@ -9237,87 +9000,39 @@ impl Default for D2D1_ELLIPSE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_FACTORY_OPTIONS {
     pub debugLevel: D2D1_DEBUG_LEVEL,
-}
-impl Copy for D2D1_FACTORY_OPTIONS {}
-impl Clone for D2D1_FACTORY_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_FACTORY_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_FACTORY_OPTIONS").field("debugLevel", &self.debugLevel).finish()
-    }
 }
 impl windows_core::TypeKind for D2D1_FACTORY_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_FACTORY_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.debugLevel == other.debugLevel
-    }
-}
-impl Eq for D2D1_FACTORY_OPTIONS {}
 impl Default for D2D1_FACTORY_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
-}
-impl Copy for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {}
-impl Clone for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS").field("computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x", &self.computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x).finish()
-    }
 }
 impl windows_core::TypeKind for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x == other.computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x
-    }
-}
-impl Eq for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {}
 impl Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_FEATURE_DATA_DOUBLES {
     pub doublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
-}
-impl Copy for D2D1_FEATURE_DATA_DOUBLES {}
-impl Clone for D2D1_FEATURE_DATA_DOUBLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_FEATURE_DATA_DOUBLES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_FEATURE_DATA_DOUBLES").field("doublePrecisionFloatShaderOps", &self.doublePrecisionFloatShaderOps).finish()
-    }
 }
 impl windows_core::TypeKind for D2D1_FEATURE_DATA_DOUBLES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_FEATURE_DATA_DOUBLES {
-    fn eq(&self, other: &Self) -> bool {
-        self.doublePrecisionFloatShaderOps == other.doublePrecisionFloatShaderOps
-    }
-}
-impl Eq for D2D1_FEATURE_DATA_DOUBLES {}
 impl Default for D2D1_FEATURE_DATA_DOUBLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9325,6 +9040,7 @@ impl Default for D2D1_FEATURE_DATA_DOUBLES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_GRADIENT_MESH_PATCH {
     pub point00: Common::D2D_POINT_2F,
     pub point01: Common::D2D_POINT_2F,
@@ -9352,79 +9068,9 @@ pub struct D2D1_GRADIENT_MESH_PATCH {
     pub rightEdgeMode: D2D1_PATCH_EDGE_MODE,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_GRADIENT_MESH_PATCH {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_GRADIENT_MESH_PATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_GRADIENT_MESH_PATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_GRADIENT_MESH_PATCH")
-            .field("point00", &self.point00)
-            .field("point01", &self.point01)
-            .field("point02", &self.point02)
-            .field("point03", &self.point03)
-            .field("point10", &self.point10)
-            .field("point11", &self.point11)
-            .field("point12", &self.point12)
-            .field("point13", &self.point13)
-            .field("point20", &self.point20)
-            .field("point21", &self.point21)
-            .field("point22", &self.point22)
-            .field("point23", &self.point23)
-            .field("point30", &self.point30)
-            .field("point31", &self.point31)
-            .field("point32", &self.point32)
-            .field("point33", &self.point33)
-            .field("color00", &self.color00)
-            .field("color03", &self.color03)
-            .field("color30", &self.color30)
-            .field("color33", &self.color33)
-            .field("topEdgeMode", &self.topEdgeMode)
-            .field("leftEdgeMode", &self.leftEdgeMode)
-            .field("bottomEdgeMode", &self.bottomEdgeMode)
-            .field("rightEdgeMode", &self.rightEdgeMode)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_GRADIENT_MESH_PATCH {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_GRADIENT_MESH_PATCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.point00 == other.point00
-            && self.point01 == other.point01
-            && self.point02 == other.point02
-            && self.point03 == other.point03
-            && self.point10 == other.point10
-            && self.point11 == other.point11
-            && self.point12 == other.point12
-            && self.point13 == other.point13
-            && self.point20 == other.point20
-            && self.point21 == other.point21
-            && self.point22 == other.point22
-            && self.point23 == other.point23
-            && self.point30 == other.point30
-            && self.point31 == other.point31
-            && self.point32 == other.point32
-            && self.point33 == other.point33
-            && self.color00 == other.color00
-            && self.color03 == other.color03
-            && self.color30 == other.color30
-            && self.color33 == other.color33
-            && self.topEdgeMode == other.topEdgeMode
-            && self.leftEdgeMode == other.leftEdgeMode
-            && self.bottomEdgeMode == other.bottomEdgeMode
-            && self.rightEdgeMode == other.rightEdgeMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_GRADIENT_MESH_PATCH {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_GRADIENT_MESH_PATCH {
     fn default() -> Self {
@@ -9433,37 +9079,16 @@ impl Default for D2D1_GRADIENT_MESH_PATCH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
     pub hwnd: super::super::Foundation::HWND,
     pub pixelSize: Common::D2D_SIZE_U,
     pub presentOptions: D2D1_PRESENT_OPTIONS,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_HWND_RENDER_TARGET_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_HWND_RENDER_TARGET_PROPERTIES").field("hwnd", &self.hwnd).field("pixelSize", &self.pixelSize).field("presentOptions", &self.presentOptions).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.pixelSize == other.pixelSize && self.presentOptions == other.presentOptions
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_HWND_RENDER_TARGET_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     fn default() -> Self {
@@ -9472,6 +9097,7 @@ impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
     pub sourceRectangle: Common::D2D_RECT_F,
     pub extendModeX: D2D1_EXTEND_MODE,
@@ -9479,31 +9105,9 @@ pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
     pub interpolationMode: D2D1_INTERPOLATION_MODE,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_IMAGE_BRUSH_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_IMAGE_BRUSH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_IMAGE_BRUSH_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_IMAGE_BRUSH_PROPERTIES").field("sourceRectangle", &self.sourceRectangle).field("extendModeX", &self.extendModeX).field("extendModeY", &self.extendModeY).field("interpolationMode", &self.interpolationMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_IMAGE_BRUSH_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_IMAGE_BRUSH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.sourceRectangle == other.sourceRectangle && self.extendModeX == other.extendModeX && self.extendModeY == other.extendModeY && self.interpolationMode == other.interpolationMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_IMAGE_BRUSH_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_IMAGE_BRUSH_PROPERTIES {
     fn default() -> Self {
@@ -9511,62 +9115,30 @@ impl Default for D2D1_IMAGE_BRUSH_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_INK_BEZIER_SEGMENT {
     pub point1: D2D1_INK_POINT,
     pub point2: D2D1_INK_POINT,
     pub point3: D2D1_INK_POINT,
 }
-impl Copy for D2D1_INK_BEZIER_SEGMENT {}
-impl Clone for D2D1_INK_BEZIER_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_INK_BEZIER_SEGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_INK_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_INK_BEZIER_SEGMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_INK_BEZIER_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.point1 == other.point1 && self.point2 == other.point2 && self.point3 == other.point3
-    }
-}
-impl Eq for D2D1_INK_BEZIER_SEGMENT {}
 impl Default for D2D1_INK_BEZIER_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_INK_POINT {
     pub x: f32,
     pub y: f32,
     pub radius: f32,
 }
-impl Copy for D2D1_INK_POINT {}
-impl Clone for D2D1_INK_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_INK_POINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_INK_POINT").field("x", &self.x).field("y", &self.y).field("radius", &self.radius).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_INK_POINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_INK_POINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.radius == other.radius
-    }
-}
-impl Eq for D2D1_INK_POINT {}
 impl Default for D2D1_INK_POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9574,36 +9146,15 @@ impl Default for D2D1_INK_POINT {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_INK_STYLE_PROPERTIES {
     pub nibShape: D2D1_INK_NIB_SHAPE,
     pub nibTransform: super::super::super::Foundation::Numerics::Matrix3x2,
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl Copy for D2D1_INK_STYLE_PROPERTIES {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for D2D1_INK_STYLE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for D2D1_INK_STYLE_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_INK_STYLE_PROPERTIES").field("nibShape", &self.nibShape).field("nibTransform", &self.nibTransform).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for D2D1_INK_STYLE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for D2D1_INK_STYLE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.nibShape == other.nibShape && self.nibTransform == other.nibTransform
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for D2D1_INK_STYLE_PROPERTIES {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for D2D1_INK_STYLE_PROPERTIES {
     fn default() -> Self {
@@ -9611,30 +9162,14 @@ impl Default for D2D1_INK_STYLE_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_INPUT_DESCRIPTION {
     pub filter: D2D1_FILTER,
     pub levelOfDetailCount: u32,
 }
-impl Copy for D2D1_INPUT_DESCRIPTION {}
-impl Clone for D2D1_INPUT_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_INPUT_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_INPUT_DESCRIPTION").field("filter", &self.filter).field("levelOfDetailCount", &self.levelOfDetailCount).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_INPUT_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_INPUT_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.filter == other.filter && self.levelOfDetailCount == other.levelOfDetailCount
-    }
-}
-impl Eq for D2D1_INPUT_DESCRIPTION {}
 impl Default for D2D1_INPUT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9642,6 +9177,7 @@ impl Default for D2D1_INPUT_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_INPUT_ELEMENT_DESC {
     pub semanticName: windows_core::PCSTR,
     pub semanticIndex: u32,
@@ -9650,31 +9186,9 @@ pub struct D2D1_INPUT_ELEMENT_DESC {
     pub alignedByteOffset: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D2D1_INPUT_ELEMENT_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D2D1_INPUT_ELEMENT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D2D1_INPUT_ELEMENT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_INPUT_ELEMENT_DESC").field("semanticName", &self.semanticName).field("semanticIndex", &self.semanticIndex).field("format", &self.format).field("inputSlot", &self.inputSlot).field("alignedByteOffset", &self.alignedByteOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D2D1_INPUT_ELEMENT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D2D1_INPUT_ELEMENT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.semanticName == other.semanticName && self.semanticIndex == other.semanticIndex && self.format == other.format && self.inputSlot == other.inputSlot && self.alignedByteOffset == other.alignedByteOffset
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D2D1_INPUT_ELEMENT_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D2D1_INPUT_ELEMENT_DESC {
     fn default() -> Self {
@@ -9683,6 +9197,7 @@ impl Default for D2D1_INPUT_ELEMENT_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[derive(Debug, PartialEq)]
 pub struct D2D1_LAYER_PARAMETERS {
     pub contentBounds: Common::D2D_RECT_F,
     pub geometricMask: std::mem::ManuallyDrop<Option<ID2D1Geometry>>,
@@ -9699,23 +9214,9 @@ impl Clone for D2D1_LAYER_PARAMETERS {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl core::fmt::Debug for D2D1_LAYER_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_LAYER_PARAMETERS").field("contentBounds", &self.contentBounds).field("geometricMask", &self.geometricMask).field("maskAntialiasMode", &self.maskAntialiasMode).field("maskTransform", &self.maskTransform).field("opacity", &self.opacity).field("opacityBrush", &self.opacityBrush).field("layerOptions", &self.layerOptions).finish()
-    }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl PartialEq for D2D1_LAYER_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.contentBounds == other.contentBounds && self.geometricMask == other.geometricMask && self.maskAntialiasMode == other.maskAntialiasMode && self.maskTransform == other.maskTransform && self.opacity == other.opacity && self.opacityBrush == other.opacityBrush && self.layerOptions == other.layerOptions
-    }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl Eq for D2D1_LAYER_PARAMETERS {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl Default for D2D1_LAYER_PARAMETERS {
     fn default() -> Self {
@@ -9724,6 +9225,7 @@ impl Default for D2D1_LAYER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[derive(Debug, PartialEq)]
 pub struct D2D1_LAYER_PARAMETERS1 {
     pub contentBounds: Common::D2D_RECT_F,
     pub geometricMask: std::mem::ManuallyDrop<Option<ID2D1Geometry>>,
@@ -9740,23 +9242,9 @@ impl Clone for D2D1_LAYER_PARAMETERS1 {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl core::fmt::Debug for D2D1_LAYER_PARAMETERS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_LAYER_PARAMETERS1").field("contentBounds", &self.contentBounds).field("geometricMask", &self.geometricMask).field("maskAntialiasMode", &self.maskAntialiasMode).field("maskTransform", &self.maskTransform).field("opacity", &self.opacity).field("opacityBrush", &self.opacityBrush).field("layerOptions", &self.layerOptions).finish()
-    }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl PartialEq for D2D1_LAYER_PARAMETERS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.contentBounds == other.contentBounds && self.geometricMask == other.geometricMask && self.maskAntialiasMode == other.maskAntialiasMode && self.maskTransform == other.maskTransform && self.opacity == other.opacity && self.opacityBrush == other.opacityBrush && self.layerOptions == other.layerOptions
-    }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl Eq for D2D1_LAYER_PARAMETERS1 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl Default for D2D1_LAYER_PARAMETERS1 {
     fn default() -> Self {
@@ -9765,36 +9253,15 @@ impl Default for D2D1_LAYER_PARAMETERS1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     pub startPoint: Common::D2D_POINT_2F,
     pub endPoint: Common::D2D_POINT_2F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES").field("startPoint", &self.startPoint).field("endPoint", &self.endPoint).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.startPoint == other.startPoint && self.endPoint == other.endPoint
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     fn default() -> Self {
@@ -9802,30 +9269,14 @@ impl Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_MAPPED_RECT {
     pub pitch: u32,
     pub bits: *mut u8,
 }
-impl Copy for D2D1_MAPPED_RECT {}
-impl Clone for D2D1_MAPPED_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_MAPPED_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_MAPPED_RECT").field("pitch", &self.pitch).field("bits", &self.bits).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_MAPPED_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_MAPPED_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pitch == other.pitch && self.bits == other.bits
-    }
-}
-impl Eq for D2D1_MAPPED_RECT {}
 impl Default for D2D1_MAPPED_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9833,6 +9284,7 @@ impl Default for D2D1_MAPPED_RECT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_POINT_DESCRIPTION {
     pub point: Common::D2D_POINT_2F,
     pub unitTangentVector: Common::D2D_POINT_2F,
@@ -9841,31 +9293,9 @@ pub struct D2D1_POINT_DESCRIPTION {
     pub lengthToEndSegment: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_POINT_DESCRIPTION {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_POINT_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_POINT_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_POINT_DESCRIPTION").field("point", &self.point).field("unitTangentVector", &self.unitTangentVector).field("endSegment", &self.endSegment).field("endFigure", &self.endFigure).field("lengthToEndSegment", &self.lengthToEndSegment).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_POINT_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_POINT_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.point == other.point && self.unitTangentVector == other.unitTangentVector && self.endSegment == other.endSegment && self.endFigure == other.endFigure && self.lengthToEndSegment == other.lengthToEndSegment
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_POINT_DESCRIPTION {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_POINT_DESCRIPTION {
     fn default() -> Self {
@@ -9873,52 +9303,26 @@ impl Default for D2D1_POINT_DESCRIPTION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_PRINT_CONTROL_PROPERTIES {
     pub fontSubset: D2D1_PRINT_FONT_SUBSET_MODE,
     pub rasterDPI: f32,
     pub colorSpace: D2D1_COLOR_SPACE,
 }
-impl Copy for D2D1_PRINT_CONTROL_PROPERTIES {}
-impl Clone for D2D1_PRINT_CONTROL_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_PRINT_CONTROL_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_PRINT_CONTROL_PROPERTIES").field("fontSubset", &self.fontSubset).field("rasterDPI", &self.rasterDPI).field("colorSpace", &self.colorSpace).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_PRINT_CONTROL_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_PRINT_CONTROL_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.fontSubset == other.fontSubset && self.rasterDPI == other.rasterDPI && self.colorSpace == other.colorSpace
-    }
-}
-impl Eq for D2D1_PRINT_CONTROL_PROPERTIES {}
 impl Default for D2D1_PRINT_CONTROL_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct D2D1_PROPERTY_BINDING {
     pub propertyName: windows_core::PCWSTR,
     pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,
     pub getFunction: PD2D1_PROPERTY_GET_FUNCTION,
-}
-impl Copy for D2D1_PROPERTY_BINDING {}
-impl Clone for D2D1_PROPERTY_BINDING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_PROPERTY_BINDING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_PROPERTY_BINDING").field("propertyName", &self.propertyName).finish()
-    }
 }
 impl windows_core::TypeKind for D2D1_PROPERTY_BINDING {
     type TypeKind = windows_core::CopyType;
@@ -9930,36 +9334,15 @@ impl Default for D2D1_PROPERTY_BINDING {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_QUADRATIC_BEZIER_SEGMENT {
     pub point1: Common::D2D_POINT_2F,
     pub point2: Common::D2D_POINT_2F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_QUADRATIC_BEZIER_SEGMENT {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_QUADRATIC_BEZIER_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_QUADRATIC_BEZIER_SEGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_QUADRATIC_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_QUADRATIC_BEZIER_SEGMENT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_QUADRATIC_BEZIER_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.point1 == other.point1 && self.point2 == other.point2
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_QUADRATIC_BEZIER_SEGMENT {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_QUADRATIC_BEZIER_SEGMENT {
     fn default() -> Self {
@@ -9968,6 +9351,7 @@ impl Default for D2D1_QUADRATIC_BEZIER_SEGMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     pub center: Common::D2D_POINT_2F,
     pub gradientOriginOffset: Common::D2D_POINT_2F,
@@ -9975,31 +9359,9 @@ pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     pub radiusY: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES").field("center", &self.center).field("gradientOriginOffset", &self.gradientOriginOffset).field("radiusX", &self.radiusX).field("radiusY", &self.radiusY).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.center == other.center && self.gradientOriginOffset == other.gradientOriginOffset && self.radiusX == other.radiusX && self.radiusY == other.radiusY
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     fn default() -> Self {
@@ -10008,36 +9370,15 @@ impl Default for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_RENDERING_CONTROLS {
     pub bufferPrecision: D2D1_BUFFER_PRECISION,
     pub tileSize: Common::D2D_SIZE_U,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_RENDERING_CONTROLS {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_RENDERING_CONTROLS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_RENDERING_CONTROLS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_RENDERING_CONTROLS").field("bufferPrecision", &self.bufferPrecision).field("tileSize", &self.tileSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_RENDERING_CONTROLS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_RENDERING_CONTROLS {
-    fn eq(&self, other: &Self) -> bool {
-        self.bufferPrecision == other.bufferPrecision && self.tileSize == other.tileSize
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_RENDERING_CONTROLS {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_RENDERING_CONTROLS {
     fn default() -> Self {
@@ -10046,6 +9387,7 @@ impl Default for D2D1_RENDERING_CONTROLS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_RENDER_TARGET_PROPERTIES {
     pub r#type: D2D1_RENDER_TARGET_TYPE,
     pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
@@ -10055,31 +9397,9 @@ pub struct D2D1_RENDER_TARGET_PROPERTIES {
     pub minLevel: D2D1_FEATURE_LEVEL,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D2D1_RENDER_TARGET_PROPERTIES {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D2D1_RENDER_TARGET_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl core::fmt::Debug for D2D1_RENDER_TARGET_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_RENDER_TARGET_PROPERTIES").field("type", &self.r#type).field("pixelFormat", &self.pixelFormat).field("dpiX", &self.dpiX).field("dpiY", &self.dpiY).field("usage", &self.usage).field("minLevel", &self.minLevel).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D2D1_RENDER_TARGET_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl PartialEq for D2D1_RENDER_TARGET_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.pixelFormat == other.pixelFormat && self.dpiX == other.dpiX && self.dpiY == other.dpiY && self.usage == other.usage && self.minLevel == other.minLevel
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Eq for D2D1_RENDER_TARGET_PROPERTIES {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D2D1_RENDER_TARGET_PROPERTIES {
     fn default() -> Self {
@@ -10087,6 +9407,7 @@ impl Default for D2D1_RENDER_TARGET_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
     pub extents: *const u32,
     pub dimensions: u32,
@@ -10095,26 +9416,9 @@ pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
     pub filter: D2D1_FILTER,
     pub extendModes: *const D2D1_EXTEND_MODE,
 }
-impl Copy for D2D1_RESOURCE_TEXTURE_PROPERTIES {}
-impl Clone for D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_RESOURCE_TEXTURE_PROPERTIES").field("extents", &self.extents).field("dimensions", &self.dimensions).field("bufferPrecision", &self.bufferPrecision).field("channelDepth", &self.channelDepth).field("filter", &self.filter).field("extendModes", &self.extendModes).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_RESOURCE_TEXTURE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.extents == other.extents && self.dimensions == other.dimensions && self.bufferPrecision == other.bufferPrecision && self.channelDepth == other.channelDepth && self.filter == other.filter && self.extendModes == other.extendModes
-    }
-}
-impl Eq for D2D1_RESOURCE_TEXTURE_PROPERTIES {}
 impl Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10122,37 +9426,16 @@ impl Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_ROUNDED_RECT {
     pub rect: Common::D2D_RECT_F,
     pub radiusX: f32,
     pub radiusY: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_ROUNDED_RECT {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_ROUNDED_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_ROUNDED_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_ROUNDED_RECT").field("rect", &self.rect).field("radiusX", &self.radiusX).field("radiusY", &self.radiusY).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_ROUNDED_RECT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_ROUNDED_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.rect == other.rect && self.radiusX == other.radiusX && self.radiusY == other.radiusY
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_ROUNDED_RECT {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_ROUNDED_RECT {
     fn default() -> Self {
@@ -10161,6 +9444,7 @@ impl Default for D2D1_ROUNDED_RECT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_SIMPLE_COLOR_PROFILE {
     pub redPrimary: Common::D2D_POINT_2F,
     pub greenPrimary: Common::D2D_POINT_2F,
@@ -10169,31 +9453,9 @@ pub struct D2D1_SIMPLE_COLOR_PROFILE {
     pub gamma: D2D1_GAMMA1,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_SIMPLE_COLOR_PROFILE {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_SIMPLE_COLOR_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_SIMPLE_COLOR_PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_SIMPLE_COLOR_PROFILE").field("redPrimary", &self.redPrimary).field("greenPrimary", &self.greenPrimary).field("bluePrimary", &self.bluePrimary).field("whitePointXZ", &self.whitePointXZ).field("gamma", &self.gamma).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_SIMPLE_COLOR_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_SIMPLE_COLOR_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.redPrimary == other.redPrimary && self.greenPrimary == other.greenPrimary && self.bluePrimary == other.bluePrimary && self.whitePointXZ == other.whitePointXZ && self.gamma == other.gamma
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_SIMPLE_COLOR_PROFILE {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_SIMPLE_COLOR_PROFILE {
     fn default() -> Self {
@@ -10201,6 +9463,7 @@ impl Default for D2D1_SIMPLE_COLOR_PROFILE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_STROKE_STYLE_PROPERTIES {
     pub startCap: D2D1_CAP_STYLE,
     pub endCap: D2D1_CAP_STYLE,
@@ -10210,32 +9473,16 @@ pub struct D2D1_STROKE_STYLE_PROPERTIES {
     pub dashStyle: D2D1_DASH_STYLE,
     pub dashOffset: f32,
 }
-impl Copy for D2D1_STROKE_STYLE_PROPERTIES {}
-impl Clone for D2D1_STROKE_STYLE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_STROKE_STYLE_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_STROKE_STYLE_PROPERTIES").field("startCap", &self.startCap).field("endCap", &self.endCap).field("dashCap", &self.dashCap).field("lineJoin", &self.lineJoin).field("miterLimit", &self.miterLimit).field("dashStyle", &self.dashStyle).field("dashOffset", &self.dashOffset).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_STROKE_STYLE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.startCap == other.startCap && self.endCap == other.endCap && self.dashCap == other.dashCap && self.lineJoin == other.lineJoin && self.miterLimit == other.miterLimit && self.dashStyle == other.dashStyle && self.dashOffset == other.dashOffset
-    }
-}
-impl Eq for D2D1_STROKE_STYLE_PROPERTIES {}
 impl Default for D2D1_STROKE_STYLE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
     pub startCap: D2D1_CAP_STYLE,
     pub endCap: D2D1_CAP_STYLE,
@@ -10246,125 +9493,61 @@ pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
     pub dashOffset: f32,
     pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
 }
-impl Copy for D2D1_STROKE_STYLE_PROPERTIES1 {}
-impl Clone for D2D1_STROKE_STYLE_PROPERTIES1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_STROKE_STYLE_PROPERTIES1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_STROKE_STYLE_PROPERTIES1").field("startCap", &self.startCap).field("endCap", &self.endCap).field("dashCap", &self.dashCap).field("lineJoin", &self.lineJoin).field("miterLimit", &self.miterLimit).field("dashStyle", &self.dashStyle).field("dashOffset", &self.dashOffset).field("transformType", &self.transformType).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_STROKE_STYLE_PROPERTIES1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.startCap == other.startCap && self.endCap == other.endCap && self.dashCap == other.dashCap && self.lineJoin == other.lineJoin && self.miterLimit == other.miterLimit && self.dashStyle == other.dashStyle && self.dashOffset == other.dashOffset && self.transformType == other.transformType
-    }
-}
-impl Eq for D2D1_STROKE_STYLE_PROPERTIES1 {}
 impl Default for D2D1_STROKE_STYLE_PROPERTIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_SVG_LENGTH {
     pub value: f32,
     pub units: D2D1_SVG_LENGTH_UNITS,
 }
-impl Copy for D2D1_SVG_LENGTH {}
-impl Clone for D2D1_SVG_LENGTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_SVG_LENGTH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_SVG_LENGTH").field("value", &self.value).field("units", &self.units).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_SVG_LENGTH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_SVG_LENGTH {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.units == other.units
-    }
-}
-impl Eq for D2D1_SVG_LENGTH {}
 impl Default for D2D1_SVG_LENGTH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
     pub defer: super::super::Foundation::BOOL,
     pub align: D2D1_SVG_ASPECT_ALIGN,
     pub meetOrSlice: D2D1_SVG_ASPECT_SCALING,
 }
-impl Copy for D2D1_SVG_PRESERVE_ASPECT_RATIO {}
-impl Clone for D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_SVG_PRESERVE_ASPECT_RATIO").field("defer", &self.defer).field("align", &self.align).field("meetOrSlice", &self.meetOrSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    fn eq(&self, other: &Self) -> bool {
-        self.defer == other.defer && self.align == other.align && self.meetOrSlice == other.meetOrSlice
-    }
-}
-impl Eq for D2D1_SVG_PRESERVE_ASPECT_RATIO {}
 impl Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_SVG_VIEWBOX {
     pub x: f32,
     pub y: f32,
     pub width: f32,
     pub height: f32,
 }
-impl Copy for D2D1_SVG_VIEWBOX {}
-impl Clone for D2D1_SVG_VIEWBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_SVG_VIEWBOX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_SVG_VIEWBOX").field("x", &self.x).field("y", &self.y).field("width", &self.width).field("height", &self.height).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_SVG_VIEWBOX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_SVG_VIEWBOX {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.width == other.width && self.height == other.height
-    }
-}
-impl Eq for D2D1_SVG_VIEWBOX {}
 impl Default for D2D1_SVG_VIEWBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     pub orientation: D2D1_ORIENTATION,
     pub scaleX: f32,
@@ -10372,26 +9555,9 @@ pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     pub interpolationMode: D2D1_INTERPOLATION_MODE,
     pub options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS,
 }
-impl Copy for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {}
-impl Clone for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES").field("orientation", &self.orientation).field("scaleX", &self.scaleX).field("scaleY", &self.scaleY).field("interpolationMode", &self.interpolationMode).field("options", &self.options).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.orientation == other.orientation && self.scaleX == other.scaleX && self.scaleY == other.scaleY && self.interpolationMode == other.interpolationMode && self.options == other.options
-    }
-}
-impl Eq for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {}
 impl Default for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10399,37 +9565,16 @@ impl Default for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_TRIANGLE {
     pub point1: Common::D2D_POINT_2F,
     pub point2: Common::D2D_POINT_2F,
     pub point3: Common::D2D_POINT_2F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for D2D1_TRIANGLE {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_TRIANGLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for D2D1_TRIANGLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_TRIANGLE").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for D2D1_TRIANGLE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for D2D1_TRIANGLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.point1 == other.point1 && self.point2 == other.point2 && self.point3 == other.point3
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for D2D1_TRIANGLE {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for D2D1_TRIANGLE {
     fn default() -> Self {
@@ -10437,62 +9582,30 @@ impl Default for D2D1_TRIANGLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
     pub inputCount: u32,
     pub usage: D2D1_VERTEX_USAGE,
     pub data: *const u8,
     pub byteWidth: u32,
 }
-impl Copy for D2D1_VERTEX_BUFFER_PROPERTIES {}
-impl Clone for D2D1_VERTEX_BUFFER_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_VERTEX_BUFFER_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_VERTEX_BUFFER_PROPERTIES").field("inputCount", &self.inputCount).field("usage", &self.usage).field("data", &self.data).field("byteWidth", &self.byteWidth).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_VERTEX_BUFFER_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_VERTEX_BUFFER_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.inputCount == other.inputCount && self.usage == other.usage && self.data == other.data && self.byteWidth == other.byteWidth
-    }
-}
-impl Eq for D2D1_VERTEX_BUFFER_PROPERTIES {}
 impl Default for D2D1_VERTEX_BUFFER_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_VERTEX_RANGE {
     pub startVertex: u32,
     pub vertexCount: u32,
 }
-impl Copy for D2D1_VERTEX_RANGE {}
-impl Clone for D2D1_VERTEX_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_VERTEX_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_VERTEX_RANGE").field("startVertex", &self.startVertex).field("vertexCount", &self.vertexCount).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_VERTEX_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_VERTEX_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.startVertex == other.startVertex && self.vertexCount == other.vertexCount
-    }
-}
-impl Eq for D2D1_VERTEX_RANGE {}
 impl Default for D2D1_VERTEX_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

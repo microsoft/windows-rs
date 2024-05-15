@@ -1694,23 +1694,10 @@ impl windows_core::RuntimeType for SpatialPerceptionAccessStatus {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpatialBoundingBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
     pub Extents: super::super::Foundation::Numerics::Vector3,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for SpatialBoundingBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for SpatialBoundingBox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for SpatialBoundingBox {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpatialBoundingBox").field("Center", &self.Center).field("Extents", &self.Extents).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for SpatialBoundingBox {
@@ -1721,14 +1708,6 @@ impl windows_core::RuntimeType for SpatialBoundingBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for SpatialBoundingBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.Center == other.Center && self.Extents == other.Extents
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for SpatialBoundingBox {}
-#[cfg(feature = "Foundation_Numerics")]
 impl Default for SpatialBoundingBox {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1736,6 +1715,7 @@ impl Default for SpatialBoundingBox {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpatialBoundingFrustum {
     pub Near: super::super::Foundation::Numerics::Plane,
     pub Far: super::super::Foundation::Numerics::Plane,
@@ -1743,20 +1723,6 @@ pub struct SpatialBoundingFrustum {
     pub Left: super::super::Foundation::Numerics::Plane,
     pub Top: super::super::Foundation::Numerics::Plane,
     pub Bottom: super::super::Foundation::Numerics::Plane,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for SpatialBoundingFrustum {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for SpatialBoundingFrustum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for SpatialBoundingFrustum {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpatialBoundingFrustum").field("Near", &self.Near).field("Far", &self.Far).field("Right", &self.Right).field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for SpatialBoundingFrustum {
@@ -1767,14 +1733,6 @@ impl windows_core::RuntimeType for SpatialBoundingFrustum {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for SpatialBoundingFrustum {
-    fn eq(&self, other: &Self) -> bool {
-        self.Near == other.Near && self.Far == other.Far && self.Right == other.Right && self.Left == other.Left && self.Top == other.Top && self.Bottom == other.Bottom
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for SpatialBoundingFrustum {}
-#[cfg(feature = "Foundation_Numerics")]
 impl Default for SpatialBoundingFrustum {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1782,24 +1740,11 @@ impl Default for SpatialBoundingFrustum {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpatialBoundingOrientedBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
     pub Extents: super::super::Foundation::Numerics::Vector3,
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for SpatialBoundingOrientedBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for SpatialBoundingOrientedBox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for SpatialBoundingOrientedBox {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpatialBoundingOrientedBox").field("Center", &self.Center).field("Extents", &self.Extents).field("Orientation", &self.Orientation).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for SpatialBoundingOrientedBox {
@@ -1810,14 +1755,6 @@ impl windows_core::RuntimeType for SpatialBoundingOrientedBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for SpatialBoundingOrientedBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.Center == other.Center && self.Extents == other.Extents && self.Orientation == other.Orientation
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for SpatialBoundingOrientedBox {}
-#[cfg(feature = "Foundation_Numerics")]
 impl Default for SpatialBoundingOrientedBox {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1825,23 +1762,10 @@ impl Default for SpatialBoundingOrientedBox {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpatialBoundingSphere {
     pub Center: super::super::Foundation::Numerics::Vector3,
     pub Radius: f32,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for SpatialBoundingSphere {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for SpatialBoundingSphere {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for SpatialBoundingSphere {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpatialBoundingSphere").field("Center", &self.Center).field("Radius", &self.Radius).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for SpatialBoundingSphere {
@@ -1852,14 +1776,6 @@ impl windows_core::RuntimeType for SpatialBoundingSphere {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for SpatialBoundingSphere {
-    fn eq(&self, other: &Self) -> bool {
-        self.Center == other.Center && self.Radius == other.Radius
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for SpatialBoundingSphere {}
-#[cfg(feature = "Foundation_Numerics")]
 impl Default for SpatialBoundingSphere {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1867,23 +1783,10 @@ impl Default for SpatialBoundingSphere {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpatialRay {
     pub Origin: super::super::Foundation::Numerics::Vector3,
     pub Direction: super::super::Foundation::Numerics::Vector3,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for SpatialRay {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for SpatialRay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for SpatialRay {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpatialRay").field("Origin", &self.Origin).field("Direction", &self.Direction).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for SpatialRay {
@@ -1893,14 +1796,6 @@ impl windows_core::TypeKind for SpatialRay {
 impl windows_core::RuntimeType for SpatialRay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialRay;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for SpatialRay {
-    fn eq(&self, other: &Self) -> bool {
-        self.Origin == other.Origin && self.Direction == other.Direction
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for SpatialRay {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for SpatialRay {
     fn default() -> Self {

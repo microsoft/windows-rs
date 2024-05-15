@@ -1095,121 +1095,57 @@ impl core::fmt::Debug for DXC_OUT_KIND {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DxcArgPair {
     pub pName: windows_core::PCWSTR,
     pub pValue: windows_core::PCWSTR,
 }
-impl Copy for DxcArgPair {}
-impl Clone for DxcArgPair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DxcArgPair {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DxcArgPair").field("pName", &self.pName).field("pValue", &self.pValue).finish()
-    }
-}
 impl windows_core::TypeKind for DxcArgPair {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DxcArgPair {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName && self.pValue == other.pValue
-    }
-}
-impl Eq for DxcArgPair {}
 impl Default for DxcArgPair {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DxcBuffer {
     pub Ptr: *const core::ffi::c_void,
     pub Size: usize,
     pub Encoding: u32,
 }
-impl Copy for DxcBuffer {}
-impl Clone for DxcBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DxcBuffer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DxcBuffer").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Encoding", &self.Encoding).finish()
-    }
-}
 impl windows_core::TypeKind for DxcBuffer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DxcBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr && self.Size == other.Size && self.Encoding == other.Encoding
-    }
-}
-impl Eq for DxcBuffer {}
 impl Default for DxcBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DxcDefine {
     pub Name: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,
 }
-impl Copy for DxcDefine {}
-impl Clone for DxcDefine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DxcDefine {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DxcDefine").field("Name", &self.Name).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for DxcDefine {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DxcDefine {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Value == other.Value
-    }
-}
-impl Eq for DxcDefine {}
 impl Default for DxcDefine {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DxcShaderHash {
     pub Flags: u32,
     pub HashDigest: [u8; 16],
 }
-impl Copy for DxcShaderHash {}
-impl Clone for DxcShaderHash {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DxcShaderHash {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DxcShaderHash").field("Flags", &self.Flags).field("HashDigest", &self.HashDigest).finish()
-    }
-}
 impl windows_core::TypeKind for DxcShaderHash {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DxcShaderHash {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.HashDigest == other.HashDigest
-    }
-}
-impl Eq for DxcShaderHash {}
 impl Default for DxcShaderHash {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1617,6 +1617,7 @@ pub const RDPTransportStreamBuffer: windows_core::GUID = windows_core::GUID::fro
 pub const RDPTransportStreamEvents: windows_core::GUID = windows_core::GUID::from_u128(0x31e3ab20_5350_483f_9dc6_6748665efdeb);
 pub const RDPViewer: windows_core::GUID = windows_core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct __ReferenceRemainingTypes__ {
     pub __ctrlLevel__: CTRL_LEVEL,
     pub __attendeeDisconnectReason__: ATTENDEE_DISCONNECT_REASON,
@@ -1627,35 +1628,9 @@ pub struct __ReferenceRemainingTypes__ {
     pub __rdpsrapiWndFlags__: RDPSRAPI_WND_FLAGS,
     pub __rdpsrapiAppFlags__: RDPSRAPI_APP_FLAGS,
 }
-impl Copy for __ReferenceRemainingTypes__ {}
-impl Clone for __ReferenceRemainingTypes__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for __ReferenceRemainingTypes__ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("__ReferenceRemainingTypes__")
-            .field("__ctrlLevel__", &self.__ctrlLevel__)
-            .field("__attendeeDisconnectReason__", &self.__attendeeDisconnectReason__)
-            .field("__channelPriority__", &self.__channelPriority__)
-            .field("__channelFlags__", &self.__channelFlags__)
-            .field("__channelAccessEnum__", &self.__channelAccessEnum__)
-            .field("__rdpencomapiAttendeeFlags__", &self.__rdpencomapiAttendeeFlags__)
-            .field("__rdpsrapiWndFlags__", &self.__rdpsrapiWndFlags__)
-            .field("__rdpsrapiAppFlags__", &self.__rdpsrapiAppFlags__)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for __ReferenceRemainingTypes__ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for __ReferenceRemainingTypes__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.__ctrlLevel__ == other.__ctrlLevel__ && self.__attendeeDisconnectReason__ == other.__attendeeDisconnectReason__ && self.__channelPriority__ == other.__channelPriority__ && self.__channelFlags__ == other.__channelFlags__ && self.__channelAccessEnum__ == other.__channelAccessEnum__ && self.__rdpencomapiAttendeeFlags__ == other.__rdpencomapiAttendeeFlags__ && self.__rdpsrapiWndFlags__ == other.__rdpsrapiWndFlags__ && self.__rdpsrapiAppFlags__ == other.__rdpsrapiAppFlags__
-    }
-}
-impl Eq for __ReferenceRemainingTypes__ {}
 impl Default for __ReferenceRemainingTypes__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
