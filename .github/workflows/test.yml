@@ -202,6 +202,8 @@ jobs:
         run:  cargo test -p test_helpers --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_implement
         run:  cargo test -p test_implement --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_implement_core
+        run:  cargo test -p test_implement_core --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_interface
         run:  cargo test -p test_interface --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_interface_core
@@ -256,10 +258,10 @@ jobs:
         run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_unions
         run:  cargo test -p test_unions --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_variant
-        run:  cargo test -p test_variant --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_variant
+        run:  cargo test -p test_variant --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_wdk
         run:  cargo test -p test_wdk --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_weak
