@@ -1,8 +1,9 @@
 use super::*;
+use core::marker::PhantomData;
 
 /// A borrowed type with the same memory layout as the type itself that can be used to construct ABI-compatible function signatures.
 #[repr(transparent)]
-pub struct Ref<'a, T: Type<T>>(T::Abi, std::marker::PhantomData<&'a T>);
+pub struct Ref<'a, T: Type<T>>(T::Abi, PhantomData<&'a T>);
 
 impl<'a, T: Type<T, Default = Option<T>, Abi = *mut std::ffi::c_void>> Ref<'a, T> {
     /// Converts the argument to a [Result<&T>] reference.

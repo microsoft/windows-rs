@@ -16,6 +16,11 @@ impl WeakRefCount {
         self.0.fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| bool::then_some(!is_weak_ref(count_or_pointer), count_or_pointer + 1)).map(|u| u as u32 + 1).unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
     }
 
+    #[inline(always)]
+    pub fn is_one(&self) -> bool {
+        self.0.load(Ordering::Acquire) == 1
+    }
+
     pub fn release(&self) -> u32 {
         self.0.fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| bool::then_some(!is_weak_ref(count_or_pointer), count_or_pointer - 1)).map(|u| u as u32 - 1).unwrap_or_else(|pointer| unsafe {
             let tear_off = TearOff::decode(pointer);

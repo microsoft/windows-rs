@@ -67,7 +67,7 @@ macro_rules! expected_token {
 /// ```rust,ignore
 /// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
 /// unsafe trait IUIAnimationVariable: IUnknown {
-/// //^ parses this   
+/// //^ parses this
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
 /// }
 /// ```
@@ -103,10 +103,10 @@ impl Interface {
                 const IID: ::windows_core::GUID = #guid;
             }
             impl ::windows_core::RuntimeName for #name {}
-            impl ::std::ops::Deref for #name {
+            impl ::core::ops::Deref for #name {
                 type Target = #parent;
                 fn deref(&self) -> &Self::Target {
-                    unsafe { ::std::mem::transmute(self) }
+                    unsafe { ::core::mem::transmute(self) }
                 }
             }
             #com_trait
@@ -132,12 +132,14 @@ impl Interface {
 
                 if m.is_result() {
                     quote! {
+                        #[inline(always)]
                         #vis unsafe fn #name<#(#generics),*>(&self, #(#params),*) #ret {
                             (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#args),*).ok()
                         }
                     }
                 } else {
                     quote! {
+                        #[inline(always)]
                         #vis unsafe fn #name<#(#generics),*>(&self, #(#params),*) #ret {
                             (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#args),*)
                         }
@@ -300,15 +302,15 @@ impl Interface {
                         Self { #(#entries),* }
                     }
                 }
-                struct #implvtbl_name<T: #trait_name> (::std::marker::PhantomData<T>);
+                struct #implvtbl_name<T: #trait_name> (::core::marker::PhantomData<T>);
                 impl<T: #trait_name> #implvtbl_name<T> {
                     const VTABLE: #vtable_name = #vtable_name::new::<T>();
                 }
                 impl #name {
                     fn new<'a, T: #trait_name>(this: &'a T) -> ::windows_core::ScopedInterface<'a, #name> {
                         let this = ::windows_core::ScopedHeap { vtable: &#implvtbl_name::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-                        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
-                        unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+                        let this = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
+                        unsafe { ::windows_core::ScopedInterface::new(::core::mem::transmute(&this.vtable)) }
                     }
                 }
             }
@@ -353,7 +355,7 @@ impl Interface {
         if let Some(parent) = &self.parent {
             quote!(#parent)
         } else {
-            quote!(::std::ptr::NonNull<::std::ffi::c_void>)
+            quote!(::core::ptr::NonNull<::core::ffi::c_void>)
         }
     }
 
@@ -428,7 +430,7 @@ impl syn::parse::Parse for Interface {
 ///
 /// ```rust,ignore
 /// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
-///                              //^ parses this   
+///                              //^ parses this
 /// unsafe trait IUIAnimationVariable: IUnknown {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
 /// }
@@ -510,7 +512,7 @@ impl syn::parse::Parse for Guid {
 /// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
 /// unsafe trait IUIAnimationVariable: IUnknown {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
-///   //^ parses this   
+///   //^ parses this
 /// }
 /// ```
 struct InterfaceMethod {

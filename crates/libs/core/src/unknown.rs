@@ -1,18 +1,21 @@
 use super::*;
+use core::ffi::c_void;
+use core::ptr::NonNull;
 
 /// All COM interfaces (and thus WinRT classes and interfaces) implement
 /// [IUnknown](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown)
 /// under the hood to provide reference-counted lifetime management as well as the ability
 /// to query for additional interfaces that the object may implement.
 #[repr(transparent)]
-pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
+pub struct IUnknown(NonNull<c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
+#[allow(non_camel_case_types)]
 pub struct IUnknown_Vtbl {
-    pub QueryInterface: unsafe extern "system" fn(this: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT,
-    pub AddRef: unsafe extern "system" fn(this: *mut std::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(this: *mut std::ffi::c_void) -> u32,
+    pub QueryInterface: unsafe extern "system" fn(this: *mut c_void, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut c_void) -> u32,
 }
 
 unsafe impl Interface for IUnknown {
@@ -56,11 +59,26 @@ impl std::fmt::Debug for IUnknown {
     }
 }
 
+/// The `#[implement]` macro generates implementations of this trait for the types
+/// that it generates, e.g. `MyApp_Impl`,
+///
+/// `ComObject` uses this trait to interact with boxed COM objects.
 #[doc(hidden)]
 pub trait IUnknownImpl {
+    /// The contained user type, e.g. `MyApp`. Also known as the "inner" type.
     type Impl;
+
+    /// Initializes a new heap box and returns it.
+    fn new_box(value: Self::Impl) -> Box<Self>;
+
     /// Get a reference to the backing implementation.
     fn get_impl(&self) -> &Self::Impl;
+
+    /// Get a mutable reference to the contained (inner) object.
+    fn get_impl_mut(&mut self) -> &mut Self::Impl;
+
+    /// Consumes the box and returns the contained (inner) object. This is the opposite of `new_box`.
+    fn into_inner(self) -> Self::Impl;
 
     /// The classic `QueryInterface` method from COM.
     ///
@@ -68,7 +86,7 @@ pub trait IUnknownImpl {
     ///
     /// This function is safe to call as long as the interface pointer is non-null and valid for writes
     /// of an interface pointer.
-    unsafe fn QueryInterface(&self, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT;
+    unsafe fn QueryInterface(&self, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT;
 
     /// Increments the reference count of the interface
     fn AddRef(&self) -> u32;
@@ -77,27 +95,64 @@ pub trait IUnknownImpl {
     ///
     /// # Safety
     ///
-    /// This function should only be called when the interfacer pointer is no longer used as calling `Release`
+    /// This function should only be called when the interface pointer is no longer used as calling `Release`
     /// on a non-aliased interface pointer and then using that interface pointer may result in use after free.
-    unsafe fn Release(&self) -> u32;
+    ///
+    /// This function takes `*mut Self` because the object may be freed by the time this method returns.
+    /// Taking `&self` would violate Rust's rules on reference lifetime.
+    unsafe fn Release(self_: *mut Self) -> u32;
+
+    /// Returns `true` if the reference count of the box is equal to 1.
+    fn is_reference_count_one(&self) -> bool;
 
     /// Gets the trust level of the current object.
     unsafe fn GetTrustLevel(&self, value: *mut i32) -> HRESULT;
+
+    /// Given a reference to an inner type, returns a reference to the outer shared type.
+    ///
+    /// # Safety
+    ///
+    /// This function should only be called from methods that implement COM interfaces, i.e.
+    /// implementations of methods on `IFoo_Impl` traits.
+    // TODO: This can be made safe, if IFoo_Impl are moved to the Object_Impl types.
+    // That requires some substantial redesign, though.
+    unsafe fn from_inner_ref(inner: &Self::Impl) -> &Self;
+
+    /// Gets a borrowed reference to an interface that is implemented by this ComObject.
+    ///
+    /// The returned reference does not have an additional reference count.
+    /// You can AddRef it by calling to_owned().
+    #[inline(always)]
+    fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
+    where
+        Self: ComObjectInterface<I>,
+    {
+        <Self as ComObjectInterface<I>>::as_interface_ref(self)
+    }
+
+    /// Gets an owned (counted) reference to an interface that is implemented by this ComObject.
+    #[inline(always)]
+    fn to_interface<I: Interface>(&self) -> I
+    where
+        Self: ComObjectInterface<I>,
+    {
+        <Self as ComObjectInterface<I>>::as_interface_ref(self).to_owned()
+    }
 }
 
 impl IUnknown_Vtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {
-            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
+        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT {
+            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).QueryInterface(iid, interface)
         }
-        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void) -> u32 {
-            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
+        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void) -> u32 {
+            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).AddRef()
         }
-        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void) -> u32 {
-            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
-            (*this).Release()
+        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void) -> u32 {
+            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
+            T::Release(this)
         }
         Self { QueryInterface: QueryInterface::<T, OFFSET>, AddRef: AddRef::<T, OFFSET>, Release: Release::<T, OFFSET> }
     }

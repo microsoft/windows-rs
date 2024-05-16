@@ -98,3 +98,6 @@ macro_rules! define_interface {
 
 #[doc(hidden)]
 pub use define_interface;
+
+#[doc(hidden)]
+pub use std::boxed::Box;

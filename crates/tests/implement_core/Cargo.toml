@@ -1,0 +1,10 @@
+[package]
+name = "test_implement_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.windows-core]
+path = "../../libs/core"
+
+[dependencies]
+static_assertions = "1.1"
