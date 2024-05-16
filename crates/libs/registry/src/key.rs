@@ -275,8 +275,7 @@ impl Key {
         ptr: *const u8,
         len: usize,
     ) -> Result<()> {
-        let result =
-            unsafe { RegSetValueExW(self.0, pcwstr(name).as_ptr(), 0, ty, ptr, len.try_into()?) };
+        let result = RegSetValueExW(self.0, pcwstr(name).as_ptr(), 0, ty, ptr, len.try_into()?);
 
         win32_error(result)
     }
