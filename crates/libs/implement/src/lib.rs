@@ -221,14 +221,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             unsafe fn Release(self_: *mut Self) -> u32 {
                 let remaining = (*self_).count.release();
                 if remaining == 0 {
-                    Self::destroy(self_);
+                    _ = ::windows_core::imp::Box::from_raw(self_ as *const Self as *mut Self);
                 }
                 remaining
-            }
-
-            #[inline(never)]
-            unsafe fn destroy(self_: *mut Self) {
-                _ = ::windows_core::imp::Box::from_raw(self_ as *const Self as *mut Self);
             }
 
             unsafe fn GetTrustLevel(&self, value: *mut i32) -> ::windows_core::HRESULT {

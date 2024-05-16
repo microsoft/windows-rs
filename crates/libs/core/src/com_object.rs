@@ -74,7 +74,7 @@ impl<T: ComObjectInner> ComObject<T> {
 
     /// Gets a reference to the shared object's heap box.
     #[inline(always)]
-    pub fn get_box(&self) -> &T::Outer {
+    fn get_box(&self) -> &T::Outer {
         unsafe { self.ptr.as_ref() }
     }
 
@@ -98,12 +98,6 @@ impl<T: ComObjectInner> ComObject<T> {
         }
     }
 
-    /// Returns `true` if this reference is the only reference to the `ComObject`.
-    #[inline(always)]
-    pub fn is_exclusive_reference(&self) -> bool {
-        self.get_box().is_reference_count_one()
-    }
-
     /// If this object has only a single object reference (i.e. this [`ComObject`] is the only
     /// reference to the heap allocation), then this method will extract the inner `T`
     /// (and return it in an `Ok`) and then free the heap allocation.
@@ -111,7 +105,7 @@ impl<T: ComObjectInner> ComObject<T> {
     /// If there is more than one reference to this object, then this returns `Err(self)`.
     #[inline(always)]
     pub fn take(self) -> Result<T, Self> {
-        if self.is_exclusive_reference() {
+        if self.is_reference_count_one() {
             let outer_box: Box<T::Outer> = unsafe { core::mem::transmute(self) };
             Ok(outer_box.into_inner())
         } else {

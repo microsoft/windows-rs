@@ -102,8 +102,6 @@ pub trait IUnknownImpl {
     /// Taking `&self` would violate Rust's rules on reference lifetime.
     unsafe fn Release(self_: *mut Self) -> u32;
 
-    unsafe fn destroy(self_: *mut Self);
-
     /// Returns `true` if the reference count of the box is equal to 1.
     fn is_reference_count_one(&self) -> bool;
 
