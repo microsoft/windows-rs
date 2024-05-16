@@ -45,6 +45,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     let original_type2 = original_type.clone();
     let original_type2 = syn::parse_macro_input!(original_type2 as syn::ItemStruct);
+    let vis = &original_type2.vis;
     let original_ident = original_type2.ident;
     let mut constraints = quote! {};
 
@@ -130,7 +131,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     let tokens = quote! {
         #[repr(C)]
-        struct #impl_ident #generics where #constraints {
+        #vis struct #impl_ident #generics where #constraints {
             identity: *const ::windows_core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
             this: #original_ident::#generics,
