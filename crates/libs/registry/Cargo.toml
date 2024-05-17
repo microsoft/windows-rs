@@ -12,7 +12,7 @@ categories = ["os::windows-apis"]
 exclude = ["tests"]
 
 [features]
-default = []
+default = ["std"]
 std = []
 
 [lints]
