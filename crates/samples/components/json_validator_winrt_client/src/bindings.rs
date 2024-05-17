@@ -21,8 +21,8 @@ pub struct IJsonValidator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        std::mem::MaybeUninit<windows_core::HSTRING>,
-        *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+        core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -39,7 +39,7 @@ pub struct IJsonValidatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        std::mem::MaybeUninit<windows_core::HSTRING>,
+        core::mem::MaybeUninit<windows_core::HSTRING>,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
@@ -58,7 +58,7 @@ impl JsonValidator {
     ) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Validate)(
                 windows_core::Interface::as_raw(this),
                 core::mem::transmute_copy(value),
@@ -69,7 +69,7 @@ impl JsonValidator {
     }
     pub fn CreateInstance(schema: &windows_core::HSTRING) -> windows_core::Result<JsonValidator> {
         Self::IJsonValidatorFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::mem::transmute_copy(schema),
