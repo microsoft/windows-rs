@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IEnumWIA_DEV_CAPS, IEnumWIA_DEV_CAPS_Vtbl, 
 impl std::ops::Deref for IEnumWIA_DEV_CAPS {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, windows_core::IUnknown);
@@ -17,11 +17,11 @@ impl IEnumWIA_DEV_CAPS {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -38,7 +38,7 @@ windows_core::imp::define_interface!(IEnumWIA_DEV_INFO, IEnumWIA_DEV_INFO_Vtbl, 
 impl std::ops::Deref for IEnumWIA_DEV_INFO {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, windows_core::IUnknown);
@@ -53,11 +53,11 @@ impl IEnumWIA_DEV_INFO {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWIA_DEV_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -74,7 +74,7 @@ windows_core::imp::define_interface!(IEnumWIA_FORMAT_INFO, IEnumWIA_FORMAT_INFO_
 impl std::ops::Deref for IEnumWIA_FORMAT_INFO {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, windows_core::IUnknown);
@@ -89,11 +89,11 @@ impl IEnumWIA_FORMAT_INFO {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -110,7 +110,7 @@ windows_core::imp::define_interface!(IEnumWiaItem, IEnumWiaItem_Vtbl, 0x5e8383fc
 impl std::ops::Deref for IEnumWiaItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumWiaItem, windows_core::IUnknown);
@@ -125,11 +125,11 @@ impl IEnumWiaItem {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWiaItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -146,7 +146,7 @@ windows_core::imp::define_interface!(IEnumWiaItem2, IEnumWiaItem2_Vtbl, 0x59970a
 impl std::ops::Deref for IEnumWiaItem2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumWiaItem2, windows_core::IUnknown);
@@ -161,11 +161,11 @@ impl IEnumWiaItem2 {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWiaItem2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -182,13 +182,13 @@ windows_core::imp::define_interface!(IWiaAppErrorHandler, IWiaAppErrorHandler_Vt
 impl std::ops::Deref for IWiaAppErrorHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaAppErrorHandler, windows_core::IUnknown);
 impl IWiaAppErrorHandler {
     pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ReportStatus<P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>
@@ -208,7 +208,7 @@ windows_core::imp::define_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0x
 impl std::ops::Deref for IWiaDataCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaDataCallback, windows_core::IUnknown);
@@ -226,7 +226,7 @@ windows_core::imp::define_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0x
 impl std::ops::Deref for IWiaDataTransfer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaDataTransfer, windows_core::IUnknown);
@@ -248,7 +248,7 @@ impl IWiaDataTransfer {
         (windows_core::Interface::vtable(self).idtQueryGetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pfe.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).idtEnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::Result<()> {
@@ -271,20 +271,20 @@ windows_core::imp::define_interface!(IWiaDevMgr, IWiaDevMgr_Vtbl, 0x5eb2502a_8cf
 impl std::ops::Deref for IWiaDevMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaDevMgr, windows_core::IUnknown);
 impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> windows_core::Result<IEnumWIA_DEV_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflag, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDevice<P0>(&self, bstrdeviceid: P0) -> windows_core::Result<IWiaItem>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), bstrdeviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem>) -> windows_core::Result<()>
@@ -322,7 +322,7 @@ impl IWiaDevMgr {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IWiaEventCallback>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterEventCallbackCLSID<P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: P1, bstrdescription: P2, bstricon: P3) -> windows_core::Result<()>
@@ -345,33 +345,33 @@ impl IWiaDevMgr {
 pub struct IWiaDevMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SelectDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SelectDeviceDlgID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, i32, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SelectDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SelectDeviceDlgID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, i32, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub AddDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDevMgr2, IWiaDevMgr2_Vtbl, 0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 impl std::ops::Deref for IWiaDevMgr2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaDevMgr2, windows_core::IUnknown);
 impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDevice<P0>(&self, lflags: i32, bstrdeviceid: P0) -> windows_core::Result<IWiaItem2>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem2>) -> windows_core::Result<()>
@@ -391,7 +391,7 @@ impl IWiaDevMgr2 {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IWiaEventCallback>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterEventCallbackProgram<P0, P1, P2, P3, P4, P5>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, bstrfullappname: P1, bstrcommandlinearg: P2, bstrname: P3, bstrdescription: P4, bstricon: P5) -> windows_core::Result<()>
@@ -428,37 +428,37 @@ impl IWiaDevMgr2 {
 pub struct IWiaDevMgr2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SelectDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SelectDeviceDlgID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut *mut windows_core::BSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SelectDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SelectDeviceDlgID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut *mut windows_core::BSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDrvItem, IWiaDrvItem_Vtbl, 0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
 impl std::ops::Deref for IWiaDrvItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaDrvItem, windows_core::IUnknown);
 impl IWiaDrvItem {
     pub unsafe fn GetItemFlags(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDeviceSpecContext(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceSpecContext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFullItemName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFullItemName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetItemName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddItemToFolder<P0>(&self, __midl__iwiadrvitem0004: P0) -> windows_core::Result<()>
@@ -477,30 +477,30 @@ impl IWiaDrvItem {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0007, __midl__iwiadrvitem0008.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindChildItemByName<P0>(&self, __midl__iwiadrvitem0010: P0) -> windows_core::Result<IWiaDrvItem>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindChildItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0010.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<IWiaDrvItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFirstChildItem(&self) -> windows_core::Result<IWiaDrvItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFirstChildItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextSiblingItem(&self) -> windows_core::Result<IWiaDrvItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextSiblingItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DumpItemData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DumpItemData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -509,23 +509,23 @@ pub struct IWiaDrvItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetItemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetDeviceSpecContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
-    pub GetFullItemName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetItemName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetFullItemName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetItemName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub AddItemToFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnlinkItemTree: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub RemoveItemFromFolder: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FindChildItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindChildItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParentItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFirstChildItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNextSiblingItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DumpItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DumpItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 impl std::ops::Deref for IWiaErrorHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaErrorHandler, windows_core::IUnknown);
@@ -541,7 +541,7 @@ impl IWiaErrorHandler {
     where
         P0: windows_core::Param<IWiaItem2>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStatusDescription)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), hrstatus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -549,13 +549,13 @@ impl IWiaErrorHandler {
 pub struct IWiaErrorHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::Foundation::HWND, *mut core::ffi::c_void, windows_core::HRESULT, i32) -> windows_core::HRESULT,
-    pub GetStatusDescription: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::HRESULT, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetStatusDescription: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::HRESULT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 impl std::ops::Deref for IWiaEventCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaEventCallback, windows_core::IUnknown);
@@ -573,13 +573,13 @@ impl IWiaEventCallback {
 #[repr(C)]
 pub struct IWiaEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ImageEventCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, u32, std::mem::MaybeUninit<windows_core::BSTR>, *mut u32, u32) -> windows_core::HRESULT,
+    pub ImageEventCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, u32, core::mem::MaybeUninit<windows_core::BSTR>, *mut u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaImageFilter, IWiaImageFilter_Vtbl, 0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
 impl std::ops::Deref for IWiaImageFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaImageFilter, windows_core::IUnknown);
@@ -627,20 +627,20 @@ windows_core::imp::define_interface!(IWiaItem, IWiaItem_Vtbl, 0x4db1ad10_3391_11
 impl std::ops::Deref for IWiaItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaItem, windows_core::IUnknown);
 impl IWiaItem {
     pub unsafe fn GetItemType(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AnalyzeItem(&self, lflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AnalyzeItem)(windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self) -> windows_core::Result<IEnumWiaItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::Result<()> {
@@ -651,18 +651,18 @@ impl IWiaItem {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), lflags, bstritemname.param().abi(), bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemByName<P0>(&self, lflags: i32, bstrfullitemname: P0) -> windows_core::Result<IWiaItem>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeviceDlg<P0>(&self, hwndparent: P0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut Option<IWiaItem>) -> windows_core::Result<()>
@@ -675,23 +675,23 @@ impl IWiaItem {
         (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), lflags, pcmdguid, core::mem::transmute(piwiaitem)).ok()
     }
     pub unsafe fn GetRootItem(&self) -> windows_core::Result<IWiaItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRootItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DumpItemData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DumpItemData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DumpDrvItemData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DumpDrvItemData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DumpTreeItemData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DumpTreeItemData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> windows_core::Result<()> {
@@ -705,23 +705,23 @@ pub struct IWiaItem_Vtbl {
     pub AnalyzeItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub EnumChildItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub CreateChildItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateChildItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumRegisterEventInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut i32, *mut *mut Option<IWiaItem>) -> windows_core::HRESULT,
     pub DeviceCommand: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRootItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DumpItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub DumpDrvItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub DumpTreeItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DumpItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DumpDrvItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DumpTreeItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaItem2, IWiaItem2_Vtbl, 0x6cba0075_1287_407d_9b77_cf0e030435cc);
 impl std::ops::Deref for IWiaItem2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaItem2, windows_core::IUnknown);
@@ -730,29 +730,29 @@ impl IWiaItem2 {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), litemflags, lcreationflags, bstritemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self, pcategoryguid: Option<*const windows_core::GUID>) -> windows_core::Result<IEnumWiaItem2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategoryguid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemByName<P0>(&self, lflags: i32, bstrfullitemname: P0) -> windows_core::Result<IWiaItem2>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetItemCategory(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemCategory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetItemType(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DeviceDlg<P0, P1, P2>(&self, lflags: i32, hwndparent: P0, bstrfoldername: P1, bstrfilename: P2, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: Option<*mut Option<IWiaItem2>>) -> windows_core::Result<()>
@@ -767,7 +767,7 @@ impl IWiaItem2 {
         (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), lflags, pcmdguid, core::mem::transmute(ppiwiaitem2)).ok()
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CheckExtension<P0>(&self, lflags: i32, bstrname: P0, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -783,19 +783,19 @@ impl IWiaItem2 {
         (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), lflags, bstrname.param().abi(), riidextensioninterface, ppout).ok()
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<IWiaItem2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRootItem(&self) -> windows_core::Result<IWiaItem2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRootItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> windows_core::Result<IWiaPreview> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPreviewComponent)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> windows_core::Result<()> {
@@ -805,17 +805,17 @@ impl IWiaItem2 {
 #[repr(C)]
 pub struct IWiaItem2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateChildItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateChildItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub EnumChildItems: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItemCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub DeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::Foundation::HWND, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut *mut windows_core::BSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::Foundation::HWND, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut *mut windows_core::BSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeviceCommand: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CheckExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CheckExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParentItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRootItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPreviewComponent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -826,13 +826,13 @@ windows_core::imp::define_interface!(IWiaItemExtras, IWiaItemExtras_Vtbl, 0x6291
 impl std::ops::Deref for IWiaItemExtras {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaItemExtras, windows_core::IUnknown);
 impl IWiaItemExtras {
     pub unsafe fn GetExtendedErrorInfo(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtendedErrorInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: &mut [u8], pdwactualdatasize: *mut u32) -> windows_core::Result<()> {
@@ -845,7 +845,7 @@ impl IWiaItemExtras {
 #[repr(C)]
 pub struct IWiaItemExtras_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetExtendedErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetExtendedErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub CancelPendingIO: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -853,7 +853,7 @@ windows_core::imp::define_interface!(IWiaLog, IWiaLog_Vtbl, 0xa00c10b6_82a1_452f
 impl std::ops::Deref for IWiaLog {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaLog, windows_core::IUnknown);
@@ -876,13 +876,13 @@ pub struct IWiaLog_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeLog: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub hResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
-    pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaLogEx, IWiaLogEx_Vtbl, 0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
 impl std::ops::Deref for IWiaLogEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaLogEx, windows_core::IUnknown);
@@ -914,15 +914,15 @@ pub struct IWiaLogEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeLogEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
     pub hResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
-    pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub hResultEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::HRESULT) -> windows_core::HRESULT,
-    pub LogEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub LogEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaMiniDrv, IWiaMiniDrv_Vtbl, 0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
 impl std::ops::Deref for IWiaMiniDrv {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaMiniDrv, windows_core::IUnknown);
@@ -940,29 +940,29 @@ impl IWiaMiniDrv {
         (windows_core::Interface::vtable(self).drvAcquireItemData)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, __midl__iwiaminidrv0011, __midl__iwiaminidrv0012).ok()
     }
     pub unsafe fn drvInitItemProperties(&self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvInitItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvValidateItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, &mut result__).map(|| result__)
     }
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvWriteItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, __midl__iwiaminidrv0023, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvReadItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0025, __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, __midl__iwiaminidrv0028, &mut result__).map(|| result__)
     }
     pub unsafe fn drvLockWiaDevice(&self, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvLockWiaDevice)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0030, __midl__iwiaminidrv0031, &mut result__).map(|| result__)
     }
     pub unsafe fn drvUnLockWiaDevice(&self, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvUnLockWiaDevice)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0033, __midl__iwiaminidrv0034, &mut result__).map(|| result__)
     }
     pub unsafe fn drvAnalyzeItem(&self, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> windows_core::Result<()> {
@@ -978,11 +978,11 @@ impl IWiaMiniDrv {
         (windows_core::Interface::vtable(self).drvGetCapabilities)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0048, __midl__iwiaminidrv0049, __midl__iwiaminidrv0050, __midl__iwiaminidrv0051, __midl__iwiaminidrv0052).ok()
     }
     pub unsafe fn drvDeleteItem(&self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvDeleteItem)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0053, __midl__iwiaminidrv0054, &mut result__).map(|| result__)
     }
     pub unsafe fn drvFreeDrvItemContext(&self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).drvFreeDrvItemContext)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0056, __midl__iwiaminidrv0057, &mut result__).map(|| result__)
     }
     pub unsafe fn drvGetWiaFormatInfo(&self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> windows_core::Result<()> {
@@ -1001,7 +1001,7 @@ impl IWiaMiniDrv {
 #[repr(C)]
 pub struct IWiaMiniDrv_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub drvInitializeWia: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub drvInitializeWia: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub drvAcquireItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32, *mut MINIDRV_TRANSFER_CONTEXT, *mut i32) -> windows_core::HRESULT,
     pub drvInitItemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1022,14 +1022,14 @@ pub struct IWiaMiniDrv_Vtbl {
     pub drvDeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32, *mut i32) -> windows_core::HRESULT,
     pub drvFreeDrvItemContext: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const u8, *mut i32) -> windows_core::HRESULT,
     pub drvGetWiaFormatInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32, *mut i32, *mut *mut WIA_FORMAT_INFO, *mut i32) -> windows_core::HRESULT,
-    pub drvNotifyPnpEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
+    pub drvNotifyPnpEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
     pub drvUnInitializeWia: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaMiniDrvCallBack, IWiaMiniDrvCallBack_Vtbl, 0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 impl std::ops::Deref for IWiaMiniDrvCallBack {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, windows_core::IUnknown);
@@ -1047,7 +1047,7 @@ windows_core::imp::define_interface!(IWiaMiniDrvTransferCallback, IWiaMiniDrvTra
 impl std::ops::Deref for IWiaMiniDrvTransferCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, windows_core::IUnknown);
@@ -1058,7 +1058,7 @@ impl IWiaMiniDrvTransferCallback {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, bstritemname.param().abi(), bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::Result<()> {
@@ -1069,7 +1069,7 @@ impl IWiaMiniDrvTransferCallback {
 pub struct IWiaMiniDrvTransferCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNextStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNextStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
     pub SendMessage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const WiaTransferParams) -> windows_core::HRESULT,
@@ -1078,7 +1078,7 @@ windows_core::imp::define_interface!(IWiaNotifyDevMgr, IWiaNotifyDevMgr_Vtbl, 0x
 impl std::ops::Deref for IWiaNotifyDevMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaNotifyDevMgr, windows_core::IUnknown);
@@ -1096,7 +1096,7 @@ windows_core::imp::define_interface!(IWiaPreview, IWiaPreview_Vtbl, 0x95c2b4fd_3
 impl std::ops::Deref for IWiaPreview {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaPreview, windows_core::IUnknown);
@@ -1134,7 +1134,7 @@ windows_core::imp::define_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vt
 impl std::ops::Deref for IWiaPropertyStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, windows_core::IUnknown);
@@ -1168,7 +1168,7 @@ impl IWiaPropertyStorage {
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Enum(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTimes(&self, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> windows_core::Result<()> {
@@ -1186,7 +1186,7 @@ impl IWiaPropertyStorage {
         (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags, core::mem::transmute(rgpropvar)).ok()
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1205,11 +1205,11 @@ impl IWiaPropertyStorage {
 pub struct IWiaPropertyStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub ReadMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub ReadMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     ReadMultiple: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub WriteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, u32) -> windows_core::HRESULT,
+    pub WriteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     WriteMultiple: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1232,7 +1232,7 @@ pub struct IWiaPropertyStorage_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     Stat: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub GetPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut u32, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub GetPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut u32, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetPropertyAttributes: usize,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1249,7 +1249,7 @@ windows_core::imp::define_interface!(IWiaSegmentationFilter, IWiaSegmentationFil
 impl std::ops::Deref for IWiaSegmentationFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, windows_core::IUnknown);
@@ -1275,7 +1275,7 @@ windows_core::imp::define_interface!(IWiaTransfer, IWiaTransfer_Vtbl, 0xc39d6942
 impl std::ops::Deref for IWiaTransfer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaTransfer, windows_core::IUnknown);
@@ -1298,7 +1298,7 @@ impl IWiaTransfer {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1317,7 +1317,7 @@ windows_core::imp::define_interface!(IWiaTransferCallback, IWiaTransferCallback_
 impl std::ops::Deref for IWiaTransferCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaTransferCallback, windows_core::IUnknown);
@@ -1331,7 +1331,7 @@ impl IWiaTransferCallback {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, bstritemname.param().abi(), bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1340,7 +1340,7 @@ pub struct IWiaTransferCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransferCallback: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const WiaTransferParams) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNextStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNextStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
 }
@@ -1348,7 +1348,7 @@ windows_core::imp::define_interface!(IWiaUIExtension, IWiaUIExtension_Vtbl, 0xda
 impl std::ops::Deref for IWiaUIExtension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaUIExtension, windows_core::IUnknown);
@@ -1376,11 +1376,11 @@ pub struct IWiaUIExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DeviceDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEVICEDIALOGDATA) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetDeviceIcon: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::UI::WindowsAndMessaging::HICON, u32) -> windows_core::HRESULT,
+    pub GetDeviceIcon: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::UI::WindowsAndMessaging::HICON, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDeviceBitmapLogo: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Graphics::Gdi::HBITMAP, u32, u32) -> windows_core::HRESULT,
+    pub GetDeviceBitmapLogo: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Graphics::Gdi::HBITMAP, u32, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDeviceBitmapLogo: usize,
 }
@@ -1388,7 +1388,7 @@ windows_core::imp::define_interface!(IWiaUIExtension2, IWiaUIExtension2_Vtbl, 0x
 impl std::ops::Deref for IWiaUIExtension2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaUIExtension2, windows_core::IUnknown);
@@ -1409,7 +1409,7 @@ pub struct IWiaUIExtension2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DeviceDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEVICEDIALOGDATA2) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetDeviceIcon: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::UI::WindowsAndMessaging::HICON, u32) -> windows_core::HRESULT,
+    pub GetDeviceIcon: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::UI::WindowsAndMessaging::HICON, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
 }
@@ -1417,13 +1417,13 @@ windows_core::imp::define_interface!(IWiaVideo, IWiaVideo_Vtbl, 0xd52920aa_db88_
 impl std::ops::Deref for IWiaVideo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWiaVideo, windows_core::IUnknown);
 impl IWiaVideo {
     pub unsafe fn PreviewVisible(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PreviewVisible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPreviewVisible<P0>(&self, bpreviewvisible: P0) -> windows_core::Result<()>
@@ -1433,7 +1433,7 @@ impl IWiaVideo {
         (windows_core::Interface::vtable(self).SetPreviewVisible)(windows_core::Interface::as_raw(self), bpreviewvisible.param().abi()).ok()
     }
     pub unsafe fn ImagesDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ImagesDirectory)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetImagesDirectory<P0>(&self, bstrimagedirectory: P0) -> windows_core::Result<()>
@@ -1478,7 +1478,7 @@ impl IWiaVideo {
         (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn TakePicture(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TakePicture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ResizeVideo<P0>(&self, bstretchtofitparent: P0) -> windows_core::Result<()>
@@ -1488,7 +1488,7 @@ impl IWiaVideo {
         (windows_core::Interface::vtable(self).ResizeVideo)(windows_core::Interface::as_raw(self), bstretchtofitparent.param().abi()).ok()
     }
     pub unsafe fn GetCurrentState(&self) -> windows_core::Result<WIAVIDEO_STATE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrentState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1497,15 +1497,15 @@ pub struct IWiaVideo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PreviewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetPreviewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub ImagesDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetImagesDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub CreateVideoByWiaDevID: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ImagesDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetImagesDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub CreateVideoByWiaDevID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CreateVideoByDevNum: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CreateVideoByName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CreateVideoByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub DestroyVideo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Play: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TakePicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub TakePicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ResizeVideo: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WIAVIDEO_STATE) -> windows_core::HRESULT,
 }
@@ -2773,7 +2773,7 @@ impl core::fmt::Debug for WIAVIDEO_STATE {
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub pIWiaItemRoot: std::mem::ManuallyDrop<Option<IWiaItem>>,
+    pub pIWiaItemRoot: core::mem::ManuallyDrop<Option<IWiaItem>>,
     pub dwFlags: u32,
     pub lIntent: i32,
     pub lItemCount: i32,
@@ -2796,14 +2796,14 @@ impl Default for DEVICEDIALOGDATA {
 #[derive(Debug, Eq, PartialEq)]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
-    pub pIWiaItemRoot: std::mem::ManuallyDrop<Option<IWiaItem2>>,
+    pub pIWiaItemRoot: core::mem::ManuallyDrop<Option<IWiaItem2>>,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub bstrFolderName: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrFilename: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrFolderName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrFilename: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub lNumFiles: i32,
     pub pbstrFilePaths: *mut windows_core::BSTR,
-    pub pWiaItem: std::mem::ManuallyDrop<Option<IWiaItem2>>,
+    pub pWiaItem: core::mem::ManuallyDrop<Option<IWiaItem2>>,
 }
 impl Clone for DEVICEDIALOGDATA2 {
     fn clone(&self) -> Self {
@@ -2840,7 +2840,7 @@ pub struct MINIDRV_TRANSFER_CONTEXT {
     pub bTransferDataCB: super::super::Foundation::BOOL,
     pub bClassDrvAllocBuf: super::super::Foundation::BOOL,
     pub lClientAddress: isize,
-    pub pIWiaMiniDrvCallBack: std::mem::ManuallyDrop<Option<IWiaMiniDrvCallBack>>,
+    pub pIWiaMiniDrvCallBack: core::mem::ManuallyDrop<Option<IWiaMiniDrvCallBack>>,
     pub lImageSize: i32,
     pub lHeaderSize: i32,
     pub lItemSize: i32,
@@ -3006,7 +3006,7 @@ impl Default for WIAS_CHANGED_VALUE_INFO {
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
     pub fltVal: f32,
-    pub bstrVal: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub guidVal: windows_core::GUID,
 }
 impl Clone for WIAS_CHANGED_VALUE_INFO_0 {
@@ -3026,7 +3026,7 @@ impl Default for WIAS_CHANGED_VALUE_INFO_0 {
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
     pub fltVal: f32,
-    pub bstrVal: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub guidVal: windows_core::GUID,
 }
 impl Clone for WIAS_CHANGED_VALUE_INFO_1 {
@@ -3173,10 +3173,10 @@ impl Default for WIA_DATA_TRANSFER_INFO {
 pub struct WIA_DEV_CAP {
     pub guid: windows_core::GUID,
     pub ulFlags: u32,
-    pub bstrName: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrDescription: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrIcon: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrCommandline: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrDescription: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrIcon: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrCommandline: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
 impl Clone for WIA_DEV_CAP {
     fn clone(&self) -> Self {
@@ -3212,7 +3212,7 @@ impl Default for WIA_DEV_CAP_DRV {
 #[derive(Debug, Eq, PartialEq)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
-    pub bstrPatternName: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrPatternName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub lPatternWidth: i32,
     pub lPatternLength: i32,
     pub cbPattern: i32,
@@ -3373,7 +3373,7 @@ pub union WIA_PROPERTY_INFO_0 {
     pub List: WIA_PROPERTY_INFO_0_4,
     pub ListFloat: WIA_PROPERTY_INFO_0_2,
     pub ListGuid: WIA_PROPERTY_INFO_0_3,
-    pub ListBStr: std::mem::ManuallyDrop<WIA_PROPERTY_INFO_0_1>,
+    pub ListBStr: core::mem::ManuallyDrop<WIA_PROPERTY_INFO_0_1>,
     pub Flag: WIA_PROPERTY_INFO_0_0,
     pub None: WIA_PROPERTY_INFO_0_5,
 }
@@ -3415,7 +3415,7 @@ impl Default for WIA_PROPERTY_INFO_0_0 {
 #[derive(Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
-    pub Nom: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub Nom: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pList: *mut windows_core::BSTR,
 }
 #[cfg(feature = "Win32_System_Variant")]

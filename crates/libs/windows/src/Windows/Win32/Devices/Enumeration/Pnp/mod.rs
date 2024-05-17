@@ -14,7 +14,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
@@ -23,7 +23,7 @@ where
     P0: windows_core::Param<HSWDEVICE>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceGetLifetime(hswdevice : HSWDEVICE, plifetime : *mut SW_DEVICE_LIFETIME) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SwDeviceGetLifetime(hswdevice.param().abi(), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -45,7 +45,7 @@ where
     P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : super::super::super::Foundation:: BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SwDeviceInterfaceRegister(hswdevice.param().abi(), pinterfaceclassguid, pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -84,7 +84,7 @@ windows_core::imp::define_interface!(IUPnPAddressFamilyControl, IUPnPAddressFami
 impl std::ops::Deref for IUPnPAddressFamilyControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPAddressFamilyControl, windows_core::IUnknown);
@@ -93,7 +93,7 @@ impl IUPnPAddressFamilyControl {
         (windows_core::Interface::vtable(self).SetAddressFamily)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn GetAddressFamily(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAddressFamily)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -107,7 +107,7 @@ windows_core::imp::define_interface!(IUPnPAsyncResult, IUPnPAsyncResult_Vtbl, 0x
 impl std::ops::Deref for IUPnPAsyncResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPAsyncResult, windows_core::IUnknown);
@@ -127,7 +127,7 @@ windows_core::imp::define_interface!(IUPnPDescriptionDocument, IUPnPDescriptionD
 impl std::ops::Deref for IUPnPDescriptionDocument {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -135,7 +135,7 @@ windows_core::imp::interface_hierarchy!(IUPnPDescriptionDocument, windows_core::
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPDescriptionDocument {
     pub unsafe fn ReadyState(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ReadyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Load<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
@@ -152,7 +152,7 @@ impl IUPnPDescriptionDocument {
         (windows_core::Interface::vtable(self).LoadAsync)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), punkcallback.param().abi()).ok()
     }
     pub unsafe fn LoadResult(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LoadResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
@@ -160,7 +160,7 @@ impl IUPnPDescriptionDocument {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RootDevice(&self) -> windows_core::Result<IUPnPDevice> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -168,7 +168,7 @@ impl IUPnPDescriptionDocument {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DeviceByUDN)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -177,8 +177,8 @@ impl IUPnPDescriptionDocument {
 pub struct IUPnPDescriptionDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub ReadyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LoadResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -186,7 +186,7 @@ pub struct IUPnPDescriptionDocument_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RootDevice: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeviceByUDN: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeviceByUDN: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceByUDN: usize,
 }
@@ -194,7 +194,7 @@ windows_core::imp::define_interface!(IUPnPDescriptionDocumentCallback, IUPnPDesc
 impl std::ops::Deref for IUPnPDescriptionDocumentCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDescriptionDocumentCallback, windows_core::IUnknown);
@@ -214,7 +214,7 @@ windows_core::imp::define_interface!(IUPnPDevice, IUPnPDevice_Vtbl, 0x3d44d0d1_9
 impl std::ops::Deref for IUPnPDevice {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -222,86 +222,86 @@ windows_core::imp::interface_hierarchy!(IUPnPDevice, windows_core::IUnknown, sup
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPDevice {
     pub unsafe fn IsRootDevice(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsRootDevice)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RootDevice(&self) -> windows_core::Result<IUPnPDevice> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParentDevice(&self) -> windows_core::Result<IUPnPDevice> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ParentDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn HasChildren(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HasChildren)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Children(&self) -> windows_core::Result<IUPnPDevices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UniqueDeviceName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UniqueDeviceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FriendlyName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PresentationURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PresentationURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ManufacturerName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ManufacturerName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ManufacturerURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ManufacturerURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ModelName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ModelName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ModelNumber(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ModelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ModelURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ModelURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UPC(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UPC)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SerialNumber(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SerialNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IconURL<P0>(&self, bstrencodingformat: P0, lsizex: i32, lsizey: i32, lbitdepth: i32) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IconURL)(windows_core::Interface::as_raw(self), bstrencodingformat.param().abi(), lsizex, lsizey, lbitdepth, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Services(&self) -> windows_core::Result<IUPnPServices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -323,19 +323,19 @@ pub struct IUPnPDevice_Vtbl {
     pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Children: usize,
-    pub UniqueDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub PresentationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ManufacturerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ManufacturerURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ModelName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ModelNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ModelURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub UPC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub IconURL: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, i32, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub UniqueDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub PresentationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ManufacturerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ManufacturerURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ModelName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ModelNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ModelURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub UPC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub IconURL: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -345,7 +345,7 @@ windows_core::imp::define_interface!(IUPnPDeviceControl, IUPnPDeviceControl_Vtbl
 impl std::ops::Deref for IUPnPDeviceControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceControl, windows_core::IUnknown);
@@ -364,16 +364,16 @@ impl IUPnPDeviceControl {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceObject)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), bstrserviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IUPnPDeviceControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetServiceObject: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetServiceObject: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetServiceObject: usize,
 }
@@ -381,58 +381,58 @@ windows_core::imp::define_interface!(IUPnPDeviceControlHttpHeaders, IUPnPDeviceC
 impl std::ops::Deref for IUPnPDeviceControlHttpHeaders {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceControlHttpHeaders, windows_core::IUnknown);
 impl IUPnPDeviceControlHttpHeaders {
     pub unsafe fn GetAdditionalResponseHeaders(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAdditionalResponseHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IUPnPDeviceControlHttpHeaders_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetAdditionalResponseHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetAdditionalResponseHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPDeviceDocumentAccess, IUPnPDeviceDocumentAccess_Vtbl, 0xe7772804_3287_418e_9072_cf2b47238981);
 impl std::ops::Deref for IUPnPDeviceDocumentAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceDocumentAccess, windows_core::IUnknown);
 impl IUPnPDeviceDocumentAccess {
     pub unsafe fn GetDocumentURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocumentURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IUPnPDeviceDocumentAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPDeviceDocumentAccessEx, IUPnPDeviceDocumentAccessEx_Vtbl, 0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
 impl std::ops::Deref for IUPnPDeviceDocumentAccessEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceDocumentAccessEx, windows_core::IUnknown);
 impl IUPnPDeviceDocumentAccessEx {
     pub unsafe fn GetDocument(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IUPnPDeviceDocumentAccessEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPDeviceFinder, IUPnPDeviceFinder_Vtbl, 0xadda3d55_6f72_4319_bff9_18600a539b10);
@@ -440,7 +440,7 @@ windows_core::imp::define_interface!(IUPnPDeviceFinder, IUPnPDeviceFinder_Vtbl, 
 impl std::ops::Deref for IUPnPDeviceFinder {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -452,7 +452,7 @@ impl IUPnPDeviceFinder {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindByType)(windows_core::Interface::as_raw(self), bstrtypeuri.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAsyncFind<P0, P1>(&self, bstrtypeuri: P0, dwflags: u32, punkdevicefindercallback: P1) -> windows_core::Result<i32>
@@ -460,7 +460,7 @@ impl IUPnPDeviceFinder {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAsyncFind)(windows_core::Interface::as_raw(self), bstrtypeuri.param().abi(), dwflags, punkdevicefindercallback.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn StartAsyncFind(&self, lfinddata: i32) -> windows_core::Result<()> {
@@ -474,7 +474,7 @@ impl IUPnPDeviceFinder {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindByUDN)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -483,14 +483,14 @@ impl IUPnPDeviceFinder {
 pub struct IUPnPDeviceFinder_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindByType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindByType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindByType: usize,
-    pub CreateAsyncFind: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, u32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub CreateAsyncFind: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub StartAsyncFind: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub CancelAsyncFind: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindByUDN: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindByUDN: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindByUDN: usize,
 }
@@ -498,7 +498,7 @@ windows_core::imp::define_interface!(IUPnPDeviceFinderAddCallbackWithInterface, 
 impl std::ops::Deref for IUPnPDeviceFinderAddCallbackWithInterface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceFinderAddCallbackWithInterface, windows_core::IUnknown);
@@ -523,7 +523,7 @@ windows_core::imp::define_interface!(IUPnPDeviceFinderCallback, IUPnPDeviceFinde
 impl std::ops::Deref for IUPnPDeviceFinderCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceFinderCallback, windows_core::IUnknown);
@@ -552,14 +552,14 @@ pub struct IUPnPDeviceFinderCallback_Vtbl {
     pub DeviceAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceAdded: usize,
-    pub DeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SearchComplete: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPDeviceProvider, IUPnPDeviceProvider_Vtbl, 0x204810b8_73b2_11d4_bf42_00b0d0118b56);
 impl std::ops::Deref for IUPnPDeviceProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPDeviceProvider, windows_core::IUnknown);
@@ -577,7 +577,7 @@ impl IUPnPDeviceProvider {
 #[repr(C)]
 pub struct IUPnPDeviceProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -586,7 +586,7 @@ windows_core::imp::define_interface!(IUPnPDevices, IUPnPDevices_Vtbl, 0xfdbc0c73
 impl std::ops::Deref for IUPnPDevices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -594,11 +594,11 @@ windows_core::imp::interface_hierarchy!(IUPnPDevices, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPDevices {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -606,7 +606,7 @@ impl IUPnPDevices {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -617,7 +617,7 @@ pub struct IUPnPDevices_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
@@ -625,7 +625,7 @@ windows_core::imp::define_interface!(IUPnPEventSink, IUPnPEventSink_Vtbl, 0x2048
 impl std::ops::Deref for IUPnPEventSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPEventSink, windows_core::IUnknown);
@@ -644,13 +644,13 @@ impl IUPnPEventSink {
 pub struct IUPnPEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i32) -> windows_core::HRESULT,
-    pub OnStateChangedSafe: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub OnStateChangedSafe: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPEventSource, IUPnPEventSource_Vtbl, 0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 impl std::ops::Deref for IUPnPEventSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPEventSource, windows_core::IUnknown);
@@ -678,7 +678,7 @@ windows_core::imp::define_interface!(IUPnPHttpHeaderControl, IUPnPHttpHeaderCont
 impl std::ops::Deref for IUPnPHttpHeaderControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPHttpHeaderControl, windows_core::IUnknown);
@@ -693,13 +693,13 @@ impl IUPnPHttpHeaderControl {
 #[repr(C)]
 pub struct IUPnPHttpHeaderControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddRequestHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub AddRequestHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPRegistrar, IUPnPRegistrar_Vtbl, 0x204810b6_73b2_11d4_bf42_00b0d0118b56);
 impl std::ops::Deref for IUPnPRegistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPRegistrar, windows_core::IUnknown);
@@ -712,7 +712,7 @@ impl IUPnPRegistrar {
         P3: windows_core::Param<windows_core::BSTR>,
         P4: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), bstrxmldesc.param().abi(), bstrprogiddevicecontrolclass.param().abi(), bstrinitstring.param().abi(), bstrcontainerid.param().abi(), bstrresourcepath.param().abi(), nlifetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterRunningDevice<P0, P1, P2, P3>(&self, bstrxmldesc: P0, punkdevicecontrol: P1, bstrinitstring: P2, bstrresourcepath: P3, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>
@@ -722,7 +722,7 @@ impl IUPnPRegistrar {
         P2: windows_core::Param<windows_core::BSTR>,
         P3: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterRunningDevice)(windows_core::Interface::as_raw(self), bstrxmldesc.param().abi(), punkdevicecontrol.param().abi(), bstrinitstring.param().abi(), bstrresourcepath.param().abi(), nlifetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterDeviceProvider<P0, P1, P2, P3>(&self, bstrprovidername: P0, bstrprogidproviderclass: P1, bstrinitstring: P2, bstrcontainerid: P3) -> windows_core::Result<()>
@@ -739,7 +739,7 @@ impl IUPnPRegistrar {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUniqueDeviceName)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.param().abi(), bstrtemplateudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UnregisterDevice<P0, P1>(&self, bstrdeviceidentifier: P0, fpermanent: P1) -> windows_core::Result<()>
@@ -759,18 +759,18 @@ impl IUPnPRegistrar {
 #[repr(C)]
 pub struct IUPnPRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub RegisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub RegisterRunningDevice: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub RegisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetUniqueDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub UnregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub UnregisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RegisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RegisterRunningDevice: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RegisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetUniqueDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub UnregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub UnregisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPRemoteEndpointInfo, IUPnPRemoteEndpointInfo_Vtbl, 0xc92eb863_0269_4aff_9c72_75321bba2952);
 impl std::ops::Deref for IUPnPRemoteEndpointInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPRemoteEndpointInfo, windows_core::IUnknown);
@@ -779,36 +779,36 @@ impl IUPnPRemoteEndpointInfo {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDwordValue)(windows_core::Interface::as_raw(self), bstrvaluename.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringValue<P0>(&self, bstrvaluename: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), bstrvaluename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetGuidValue<P0>(&self, bstrvaluename: P0) -> windows_core::Result<windows_core::GUID>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGuidValue)(windows_core::Interface::as_raw(self), bstrvaluename.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IUPnPRemoteEndpointInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDwordValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> windows_core::HRESULT,
-    pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetGuidValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub GetDwordValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> windows_core::HRESULT,
+    pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetGuidValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPReregistrar, IUPnPReregistrar_Vtbl, 0x204810b7_73b2_11d4_bf42_00b0d0118b56);
 impl std::ops::Deref for IUPnPReregistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPReregistrar, windows_core::IUnknown);
@@ -838,8 +838,8 @@ impl IUPnPReregistrar {
 #[repr(C)]
 pub struct IUPnPReregistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ReregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
-    pub ReregisterRunningDevice: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
+    pub ReregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
+    pub ReregisterRunningDevice: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPService, IUPnPService_Vtbl, 0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
@@ -847,7 +847,7 @@ windows_core::imp::define_interface!(IUPnPService, IUPnPService_Vtbl, 0xa295019c
 impl std::ops::Deref for IUPnPService {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -858,7 +858,7 @@ impl IUPnPService {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QueryStateVariable)(windows_core::Interface::as_raw(self), bstrvariablename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InvokeAction<P0, P1>(&self, bstractionname: P0, vinactionargs: P1, pvoutactionargs: *mut windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
@@ -866,11 +866,11 @@ impl IUPnPService {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InvokeAction)(windows_core::Interface::as_raw(self), bstractionname.param().abi(), vinactionargs.param().abi(), core::mem::transmute(pvoutactionargs), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ServiceTypeIdentifier(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ServiceTypeIdentifier)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddCallback<P0>(&self, punkcallback: P0) -> windows_core::Result<()>
@@ -880,11 +880,11 @@ impl IUPnPService {
         (windows_core::Interface::vtable(self).AddCallback)(windows_core::Interface::as_raw(self), punkcallback.param().abi()).ok()
     }
     pub unsafe fn Id(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastTransportStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LastTransportStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -892,18 +892,18 @@ impl IUPnPService {
 #[repr(C)]
 pub struct IUPnPService_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub QueryStateVariable: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub InvokeAction: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::VARIANT>, *mut std::mem::MaybeUninit<windows_core::VARIANT>, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ServiceTypeIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub QueryStateVariable: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub InvokeAction: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ServiceTypeIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub AddCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub LastTransportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPServiceAsync, IUPnPServiceAsync_Vtbl, 0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 impl std::ops::Deref for IUPnPServiceAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPServiceAsync, windows_core::IUnknown);
@@ -914,7 +914,7 @@ impl IUPnPServiceAsync {
         P1: windows_core::Param<windows_core::VARIANT>,
         P2: windows_core::Param<IUPnPAsyncResult>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginInvokeAction)(windows_core::Interface::as_raw(self), bstractionname.param().abi(), vinactionargs.param().abi(), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut windows_core::VARIANT, pvretval: *mut windows_core::VARIANT) -> windows_core::Result<()> {
@@ -925,7 +925,7 @@ impl IUPnPServiceAsync {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IUPnPAsyncResult>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginQueryStateVariable)(windows_core::Interface::as_raw(self), bstrvariablename.param().abi(), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut windows_core::VARIANT) -> windows_core::Result<()> {
@@ -936,7 +936,7 @@ impl IUPnPServiceAsync {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IUPnPAsyncResult>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginSubscribeToEvents)(windows_core::Interface::as_raw(self), punkcallback.param().abi(), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndSubscribeToEvents(&self, ullrequestid: u64) -> windows_core::Result<()> {
@@ -946,11 +946,11 @@ impl IUPnPServiceAsync {
     where
         P0: windows_core::Param<IUPnPAsyncResult>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginSCPDDownload)(windows_core::Interface::as_raw(self), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndSCPDDownload(&self, ullrequestid: u64) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EndSCPDDownload)(windows_core::Interface::as_raw(self), ullrequestid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CancelAsyncOperation(&self, ullrequestid: u64) -> windows_core::Result<()> {
@@ -960,21 +960,21 @@ impl IUPnPServiceAsync {
 #[repr(C)]
 pub struct IUPnPServiceAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub BeginInvokeAction: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub EndInvokeAction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut std::mem::MaybeUninit<windows_core::VARIANT>, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub BeginQueryStateVariable: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub EndQueryStateVariable: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub BeginInvokeAction: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub EndInvokeAction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub BeginQueryStateVariable: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub EndQueryStateVariable: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub BeginSubscribeToEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub EndSubscribeToEvents: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub BeginSCPDDownload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub EndSCPDDownload: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub EndSCPDDownload: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub CancelAsyncOperation: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPServiceCallback, IUPnPServiceCallback_Vtbl, 0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
 impl std::ops::Deref for IUPnPServiceCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPServiceCallback, windows_core::IUnknown);
@@ -1000,7 +1000,7 @@ impl IUPnPServiceCallback {
 pub struct IUPnPServiceCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub StateVariableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub StateVariableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     StateVariableChanged: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -1012,31 +1012,31 @@ windows_core::imp::define_interface!(IUPnPServiceDocumentAccess, IUPnPServiceDoc
 impl std::ops::Deref for IUPnPServiceDocumentAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPServiceDocumentAccess, windows_core::IUnknown);
 impl IUPnPServiceDocumentAccess {
     pub unsafe fn GetDocumentURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocumentURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDocument(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IUPnPServiceDocumentAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPServiceEnumProperty, IUPnPServiceEnumProperty_Vtbl, 0x38873b37_91bb_49f4_b249_2e8efbb8a816);
 impl std::ops::Deref for IUPnPServiceEnumProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUPnPServiceEnumProperty, windows_core::IUnknown);
@@ -1056,7 +1056,7 @@ windows_core::imp::define_interface!(IUPnPServices, IUPnPServices_Vtbl, 0x3f8c8e
 impl std::ops::Deref for IUPnPServices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1064,11 +1064,11 @@ windows_core::imp::interface_hierarchy!(IUPnPServices, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPServices {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1076,7 +1076,7 @@ impl IUPnPServices {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), bstrserviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1087,7 +1087,7 @@ pub struct IUPnPServices_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }

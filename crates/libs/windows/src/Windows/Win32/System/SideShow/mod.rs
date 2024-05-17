@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCap
 impl std::ops::Deref for ISideShowBulkCapabilities {
     type Target = ISideShowCapabilities;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowBulkCapabilities, windows_core::IUnknown, ISideShowCapabilities);
@@ -23,7 +23,7 @@ windows_core::imp::define_interface!(ISideShowCapabilities, ISideShowCapabilitie
 impl std::ops::Deref for ISideShowCapabilities {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowCapabilities, windows_core::IUnknown);
@@ -37,7 +37,7 @@ impl ISideShowCapabilities {
 pub struct ISideShowCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub GetCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetCapability: usize,
 }
@@ -45,17 +45,17 @@ windows_core::imp::define_interface!(ISideShowCapabilitiesCollection, ISideShowC
 impl std::ops::Deref for ISideShowCapabilitiesCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowCapabilitiesCollection, windows_core::IUnknown);
 impl ISideShowCapabilitiesCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAt(&self, in_dwindex: u32) -> windows_core::Result<ISideShowCapabilities> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), in_dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -69,7 +69,7 @@ windows_core::imp::define_interface!(ISideShowContent, ISideShowContent_Vtbl, 0x
 impl std::ops::Deref for ISideShowContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowContent, windows_core::IUnknown);
@@ -81,11 +81,11 @@ impl ISideShowContent {
         (windows_core::Interface::vtable(self).GetContent)(windows_core::Interface::as_raw(self), in_picapabilities.param().abi(), out_pdwsize, out_ppbdata).ok()
     }
     pub unsafe fn ContentId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ContentId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DifferentiateContent(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DifferentiateContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -100,7 +100,7 @@ windows_core::imp::define_interface!(ISideShowContentManager, ISideShowContentMa
 impl std::ops::Deref for ISideShowContentManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowContentManager, windows_core::IUnknown);
@@ -124,7 +124,7 @@ impl ISideShowContentManager {
         (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), in_pievents.param().abi()).ok()
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> windows_core::Result<ISideShowCapabilitiesCollection> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -141,13 +141,13 @@ windows_core::imp::define_interface!(ISideShowEvents, ISideShowEvents_Vtbl, 0x61
 impl std::ops::Deref for ISideShowEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowEvents, windows_core::IUnknown);
 impl ISideShowEvents {
     pub unsafe fn ContentMissing(&self, in_contentid: u32) -> windows_core::Result<ISideShowContent> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ContentMissing)(windows_core::Interface::as_raw(self), in_contentid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: Option<&[u8]>) -> windows_core::Result<()>
@@ -181,7 +181,7 @@ windows_core::imp::define_interface!(ISideShowKeyCollection, ISideShowKeyCollect
 impl std::ops::Deref for ISideShowKeyCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowKeyCollection, windows_core::IUnknown);
@@ -223,20 +223,20 @@ windows_core::imp::define_interface!(ISideShowNotification, ISideShowNotificatio
 impl std::ops::Deref for ISideShowNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowNotification, windows_core::IUnknown);
 impl ISideShowNotification {
     pub unsafe fn NotificationId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NotificationId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNotificationId(&self, in_notificationid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetNotificationId)(windows_core::Interface::as_raw(self), in_notificationid).ok()
     }
     pub unsafe fn Title(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTitle<P0>(&self, in_pwsztitle: P0) -> windows_core::Result<()>
@@ -246,7 +246,7 @@ impl ISideShowNotification {
         (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), in_pwsztitle.param().abi()).ok()
     }
     pub unsafe fn Message(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMessage<P0>(&self, in_pwszmessage: P0) -> windows_core::Result<()>
@@ -257,7 +257,7 @@ impl ISideShowNotification {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn Image(&self) -> windows_core::Result<super::super::UI::WindowsAndMessaging::HICON> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -268,7 +268,7 @@ impl ISideShowNotification {
         (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), in_hicon.param().abi()).ok()
     }
     pub unsafe fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetExpirationTime(&self, in_ptime: Option<*const super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()> {
@@ -299,7 +299,7 @@ windows_core::imp::define_interface!(ISideShowNotificationManager, ISideShowNoti
 impl std::ops::Deref for ISideShowNotificationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowNotificationManager, windows_core::IUnknown);
@@ -328,7 +328,7 @@ windows_core::imp::define_interface!(ISideShowPropVariantCollection, ISideShowPr
 impl std::ops::Deref for ISideShowPropVariantCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowPropVariantCollection, windows_core::IUnknown);
@@ -352,9 +352,9 @@ impl ISideShowPropVariantCollection {
 #[repr(C)]
 pub struct ISideShowPropVariantCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
@@ -362,17 +362,17 @@ windows_core::imp::define_interface!(ISideShowSession, ISideShowSession_Vtbl, 0x
 impl std::ops::Deref for ISideShowSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISideShowSession, windows_core::IUnknown);
 impl ISideShowSession {
     pub unsafe fn RegisterContent(&self, in_applicationid: *const windows_core::GUID, in_endpointid: *const windows_core::GUID) -> windows_core::Result<ISideShowContentManager> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterContent)(windows_core::Interface::as_raw(self), in_applicationid, in_endpointid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterNotifications(&self, in_applicationid: *const windows_core::GUID) -> windows_core::Result<ISideShowNotificationManager> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterNotifications)(windows_core::Interface::as_raw(self), in_applicationid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

@@ -55,7 +55,7 @@ windows_core::imp::define_interface!(ID3D12CommandAllocator, ID3D12CommandAlloca
 impl std::ops::Deref for ID3D12CommandAllocator {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12CommandAllocator, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -75,7 +75,7 @@ windows_core::imp::define_interface!(ID3D12CommandList, ID3D12CommandList_Vtbl, 
 impl std::ops::Deref for ID3D12CommandList {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12CommandList, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -95,7 +95,7 @@ windows_core::imp::define_interface!(ID3D12CommandQueue, ID3D12CommandQueue_Vtbl
 impl std::ops::Deref for ID3D12CommandQueue {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12CommandQueue, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -151,7 +151,7 @@ impl ID3D12CommandQueue {
         (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), pfence.param().abi(), value).ok()
     }
     pub unsafe fn GetTimestampFrequency(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTimestampFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> windows_core::Result<()> {
@@ -184,7 +184,7 @@ windows_core::imp::define_interface!(ID3D12CommandSignature, ID3D12CommandSignat
 impl std::ops::Deref for ID3D12CommandSignature {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12CommandSignature, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -199,7 +199,7 @@ windows_core::imp::define_interface!(ID3D12Debug, ID3D12Debug_Vtbl, 0x344488b7_6
 impl std::ops::Deref for ID3D12Debug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug, windows_core::IUnknown);
@@ -219,7 +219,7 @@ windows_core::imp::define_interface!(ID3D12Debug1, ID3D12Debug1_Vtbl, 0xaffaa4ca
 impl std::ops::Deref for ID3D12Debug1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug1, windows_core::IUnknown);
@@ -253,7 +253,7 @@ windows_core::imp::define_interface!(ID3D12Debug2, ID3D12Debug2_Vtbl, 0x93a665c4
 impl std::ops::Deref for ID3D12Debug2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug2, windows_core::IUnknown);
@@ -273,7 +273,7 @@ windows_core::imp::define_interface!(ID3D12Debug3, ID3D12Debug3_Vtbl, 0x5cf4e58f
 impl std::ops::Deref for ID3D12Debug3 {
     type Target = ID3D12Debug;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug3, windows_core::IUnknown, ID3D12Debug);
@@ -307,7 +307,7 @@ windows_core::imp::define_interface!(ID3D12Debug4, ID3D12Debug4_Vtbl, 0x014b816e
 impl std::ops::Deref for ID3D12Debug4 {
     type Target = ID3D12Debug3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug4, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3);
@@ -327,7 +327,7 @@ windows_core::imp::define_interface!(ID3D12Debug5, ID3D12Debug5_Vtbl, 0x548d6b12
 impl std::ops::Deref for ID3D12Debug5 {
     type Target = ID3D12Debug4;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug5, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4);
@@ -350,7 +350,7 @@ windows_core::imp::define_interface!(ID3D12Debug6, ID3D12Debug6_Vtbl, 0x82a816d6
 impl std::ops::Deref for ID3D12Debug6 {
     type Target = ID3D12Debug5;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug6, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4, ID3D12Debug5);
@@ -373,7 +373,7 @@ windows_core::imp::define_interface!(ID3D12DebugCommandList, ID3D12DebugCommandL
 impl std::ops::Deref for ID3D12DebugCommandList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList, windows_core::IUnknown);
@@ -404,7 +404,7 @@ windows_core::imp::define_interface!(ID3D12DebugCommandList1, ID3D12DebugCommand
 impl std::ops::Deref for ID3D12DebugCommandList1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList1, windows_core::IUnknown);
@@ -435,7 +435,7 @@ windows_core::imp::define_interface!(ID3D12DebugCommandList2, ID3D12DebugCommand
 impl std::ops::Deref for ID3D12DebugCommandList2 {
     type Target = ID3D12DebugCommandList;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList2, windows_core::IUnknown, ID3D12DebugCommandList);
@@ -459,7 +459,7 @@ windows_core::imp::define_interface!(ID3D12DebugCommandList3, ID3D12DebugCommand
 impl std::ops::Deref for ID3D12DebugCommandList3 {
     type Target = ID3D12DebugCommandList2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList3, windows_core::IUnknown, ID3D12DebugCommandList, ID3D12DebugCommandList2);
@@ -489,7 +489,7 @@ windows_core::imp::define_interface!(ID3D12DebugCommandQueue, ID3D12DebugCommand
 impl std::ops::Deref for ID3D12DebugCommandQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue, windows_core::IUnknown);
@@ -512,7 +512,7 @@ windows_core::imp::define_interface!(ID3D12DebugCommandQueue1, ID3D12DebugComman
 impl std::ops::Deref for ID3D12DebugCommandQueue1 {
     type Target = ID3D12DebugCommandQueue;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue1, windows_core::IUnknown, ID3D12DebugCommandQueue);
@@ -542,7 +542,7 @@ windows_core::imp::define_interface!(ID3D12DebugDevice, ID3D12DebugDevice_Vtbl, 
 impl std::ops::Deref for ID3D12DebugDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice, windows_core::IUnknown);
@@ -570,7 +570,7 @@ windows_core::imp::define_interface!(ID3D12DebugDevice1, ID3D12DebugDevice1_Vtbl
 impl std::ops::Deref for ID3D12DebugDevice1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice1, windows_core::IUnknown);
@@ -598,7 +598,7 @@ windows_core::imp::define_interface!(ID3D12DebugDevice2, ID3D12DebugDevice2_Vtbl
 impl std::ops::Deref for ID3D12DebugDevice2 {
     type Target = ID3D12DebugDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice2, windows_core::IUnknown, ID3D12DebugDevice);
@@ -622,7 +622,7 @@ windows_core::imp::define_interface!(ID3D12DescriptorHeap, ID3D12DescriptorHeap_
 impl std::ops::Deref for ID3D12DescriptorHeap {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DescriptorHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -656,7 +656,7 @@ windows_core::imp::define_interface!(ID3D12Device, ID3D12Device_Vtbl, 0x189819f1
 impl std::ops::Deref for ID3D12Device {
     type Target = ID3D12Object;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device, windows_core::IUnknown, ID3D12Object);
@@ -808,7 +808,7 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12DeviceChild>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), core::mem::transmute(pattributes.unwrap_or(std::ptr::null())), access, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OpenSharedHandle<P0, T>(&self, nthandle: P0, result__: *mut Option<T>) -> windows_core::Result<()>
@@ -822,7 +822,7 @@ impl ID3D12Device {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), name.param().abi(), access, &mut result__).map(|| result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::Result<()> {
@@ -956,7 +956,7 @@ windows_core::imp::define_interface!(ID3D12Device1, ID3D12Device1_Vtbl, 0x77acce
 impl std::ops::Deref for ID3D12Device1 {
     type Target = ID3D12Device;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device1, windows_core::IUnknown, ID3D12Object, ID3D12Device);
@@ -991,7 +991,7 @@ windows_core::imp::define_interface!(ID3D12Device10, ID3D12Device10_Vtbl, 0x517f
 impl std::ops::Deref for ID3D12Device10 {
     type Target = ID3D12Device9;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device10, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
@@ -1043,7 +1043,7 @@ windows_core::imp::define_interface!(ID3D12Device11, ID3D12Device11_Vtbl, 0x5405
 impl std::ops::Deref for ID3D12Device11 {
     type Target = ID3D12Device10;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device11, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10);
@@ -1063,7 +1063,7 @@ windows_core::imp::define_interface!(ID3D12Device12, ID3D12Device12_Vtbl, 0x5af5
 impl std::ops::Deref for ID3D12Device12 {
     type Target = ID3D12Device11;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device12, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11);
@@ -1089,7 +1089,7 @@ windows_core::imp::define_interface!(ID3D12Device13, ID3D12Device13_Vtbl, 0x14ee
 impl std::ops::Deref for ID3D12Device13 {
     type Target = ID3D12Device12;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device13, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11, ID3D12Device12);
@@ -1113,7 +1113,7 @@ windows_core::imp::define_interface!(ID3D12Device2, ID3D12Device2_Vtbl, 0x30baa4
 impl std::ops::Deref for ID3D12Device2 {
     type Target = ID3D12Device1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device2, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1);
@@ -1137,7 +1137,7 @@ windows_core::imp::define_interface!(ID3D12Device3, ID3D12Device3_Vtbl, 0x81dadc
 impl std::ops::Deref for ID3D12Device3 {
     type Target = ID3D12Device2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device3, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2);
@@ -1177,7 +1177,7 @@ windows_core::imp::define_interface!(ID3D12Device4, ID3D12Device4_Vtbl, 0xe865df
 impl std::ops::Deref for ID3D12Device4 {
     type Target = ID3D12Device3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device4, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3);
@@ -1251,7 +1251,7 @@ windows_core::imp::define_interface!(ID3D12Device5, ID3D12Device5_Vtbl, 0x8b4f17
 impl std::ops::Deref for ID3D12Device5 {
     type Target = ID3D12Device4;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device5, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4);
@@ -1316,7 +1316,7 @@ windows_core::imp::define_interface!(ID3D12Device6, ID3D12Device6_Vtbl, 0xc70b22
 impl std::ops::Deref for ID3D12Device6 {
     type Target = ID3D12Device5;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device6, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5);
@@ -1339,7 +1339,7 @@ windows_core::imp::define_interface!(ID3D12Device7, ID3D12Device7_Vtbl, 0x5c014b
 impl std::ops::Deref for ID3D12Device7 {
     type Target = ID3D12Device6;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device7, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6);
@@ -1372,7 +1372,7 @@ windows_core::imp::define_interface!(ID3D12Device8, ID3D12Device8_Vtbl, 0x9218e6
 impl std::ops::Deref for ID3D12Device8 {
     type Target = ID3D12Device7;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device8, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7);
@@ -1438,7 +1438,7 @@ windows_core::imp::define_interface!(ID3D12Device9, ID3D12Device9_Vtbl, 0x4c80e9
 impl std::ops::Deref for ID3D12Device9 {
     type Target = ID3D12Device8;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device9, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8);
@@ -1473,7 +1473,7 @@ windows_core::imp::define_interface!(ID3D12DeviceChild, ID3D12DeviceChild_Vtbl, 
 impl std::ops::Deref for ID3D12DeviceChild {
     type Target = ID3D12Object;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceChild, windows_core::IUnknown, ID3D12Object);
@@ -1496,7 +1496,7 @@ windows_core::imp::define_interface!(ID3D12DeviceConfiguration, ID3D12DeviceConf
 impl std::ops::Deref for ID3D12DeviceConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceConfiguration, windows_core::IUnknown);
@@ -1538,7 +1538,7 @@ windows_core::imp::define_interface!(ID3D12DeviceFactory, ID3D12DeviceFactory_Vt
 impl std::ops::Deref for ID3D12DeviceFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceFactory, windows_core::IUnknown);
@@ -1594,17 +1594,17 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData, ID3D12Devi
 impl std::ops::Deref for ID3D12DeviceRemovedExtendedData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1620,17 +1620,17 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData1, ID3D12Dev
 impl std::ops::Deref for ID3D12DeviceRemovedExtendedData1 {
     type Target = ID3D12DeviceRemovedExtendedData;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData1, windows_core::IUnknown, ID3D12DeviceRemovedExtendedData);
 impl ID3D12DeviceRemovedExtendedData1 {
     pub unsafe fn GetAutoBreadcrumbsOutput1(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput1(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1646,7 +1646,7 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData2, ID3D12Dev
 impl std::ops::Deref for ID3D12DeviceRemovedExtendedData2 {
     type Target = ID3D12DeviceRemovedExtendedData1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData2, windows_core::IUnknown, ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData1);
@@ -1670,7 +1670,7 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings, ID
 impl std::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings, windows_core::IUnknown);
@@ -1698,7 +1698,7 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings1, I
 impl std::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings1 {
     type Target = ID3D12DeviceRemovedExtendedDataSettings;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings1, windows_core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings);
@@ -1718,7 +1718,7 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings2, I
 impl std::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings2 {
     type Target = ID3D12DeviceRemovedExtendedDataSettings1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings2, windows_core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings1);
@@ -1741,7 +1741,7 @@ windows_core::imp::define_interface!(ID3D12Fence, ID3D12Fence_Vtbl, 0x0a753dcf_c
 impl std::ops::Deref for ID3D12Fence {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Fence, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -1772,7 +1772,7 @@ windows_core::imp::define_interface!(ID3D12Fence1, ID3D12Fence1_Vtbl, 0x433685fe
 impl std::ops::Deref for ID3D12Fence1 {
     type Target = ID3D12Fence;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Fence1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Fence);
@@ -1865,7 +1865,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList, ID3D12GraphicsCo
 impl std::ops::Deref for ID3D12GraphicsCommandList {
     type Target = ID3D12CommandList;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
@@ -2166,7 +2166,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList1, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList1 {
     type Target = ID3D12GraphicsCommandList;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList);
@@ -2222,7 +2222,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList2, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList2 {
     type Target = ID3D12GraphicsCommandList1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList2, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1);
@@ -2242,7 +2242,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList3, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList3 {
     type Target = ID3D12GraphicsCommandList2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2);
@@ -2265,7 +2265,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList4, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList4 {
     type Target = ID3D12GraphicsCommandList3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList4, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3);
@@ -2334,7 +2334,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList5, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList5 {
     type Target = ID3D12GraphicsCommandList4;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList5, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4);
@@ -2361,7 +2361,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList6, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList6 {
     type Target = ID3D12GraphicsCommandList5;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList6, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5);
@@ -2381,7 +2381,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList7, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList7 {
     type Target = ID3D12GraphicsCommandList6;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList7, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6);
@@ -2401,7 +2401,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList8, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList8 {
     type Target = ID3D12GraphicsCommandList7;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList8, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7);
@@ -2421,7 +2421,7 @@ windows_core::imp::define_interface!(ID3D12GraphicsCommandList9, ID3D12GraphicsC
 impl std::ops::Deref for ID3D12GraphicsCommandList9 {
     type Target = ID3D12GraphicsCommandList8;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList9, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList8);
@@ -2445,7 +2445,7 @@ windows_core::imp::define_interface!(ID3D12Heap, ID3D12Heap_Vtbl, 0x6b3b2502_6e5
 impl std::ops::Deref for ID3D12Heap {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Heap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -2467,7 +2467,7 @@ windows_core::imp::define_interface!(ID3D12Heap1, ID3D12Heap1_Vtbl, 0x572f7389_2
 impl std::ops::Deref for ID3D12Heap1 {
     type Target = ID3D12Heap;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Heap1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Heap);
@@ -2490,7 +2490,7 @@ windows_core::imp::define_interface!(ID3D12InfoQueue, ID3D12InfoQueue_Vtbl, 0x07
 impl std::ops::Deref for ID3D12InfoQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12InfoQueue, windows_core::IUnknown);
@@ -2664,7 +2664,7 @@ windows_core::imp::define_interface!(ID3D12InfoQueue1, ID3D12InfoQueue1_Vtbl, 0x
 impl std::ops::Deref for ID3D12InfoQueue1 {
     type Target = ID3D12InfoQueue;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12InfoQueue1, windows_core::IUnknown, ID3D12InfoQueue);
@@ -2688,13 +2688,13 @@ windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryRefle
 impl std::ops::Deref for ID3D12LibraryReflection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, windows_core::IUnknown);
 impl ID3D12LibraryReflection {
     pub unsafe fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D12FunctionReflection> {
@@ -2713,7 +2713,7 @@ windows_core::imp::define_interface!(ID3D12LifetimeOwner, ID3D12LifetimeOwner_Vt
 impl std::ops::Deref for ID3D12LifetimeOwner {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12LifetimeOwner, windows_core::IUnknown);
@@ -2733,7 +2733,7 @@ windows_core::imp::define_interface!(ID3D12LifetimeTracker, ID3D12LifetimeTracke
 impl std::ops::Deref for ID3D12LifetimeTracker {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12LifetimeTracker, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -2756,7 +2756,7 @@ windows_core::imp::define_interface!(ID3D12ManualWriteTrackingResource, ID3D12Ma
 impl std::ops::Deref for ID3D12ManualWriteTrackingResource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12ManualWriteTrackingResource, windows_core::IUnknown);
@@ -2776,7 +2776,7 @@ windows_core::imp::define_interface!(ID3D12MetaCommand, ID3D12MetaCommand_Vtbl, 
 impl std::ops::Deref for ID3D12MetaCommand {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12MetaCommand, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -2796,7 +2796,7 @@ windows_core::imp::define_interface!(ID3D12Object, ID3D12Object_Vtbl, 0xc4fec28f
 impl std::ops::Deref for ID3D12Object {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Object, windows_core::IUnknown);
@@ -2834,7 +2834,7 @@ windows_core::imp::define_interface!(ID3D12Pageable, ID3D12Pageable_Vtbl, 0x63ee
 impl std::ops::Deref for ID3D12Pageable {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Pageable, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -2849,7 +2849,7 @@ windows_core::imp::define_interface!(ID3D12PipelineLibrary, ID3D12PipelineLibrar
 impl std::ops::Deref for ID3D12PipelineLibrary {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -2903,7 +2903,7 @@ windows_core::imp::define_interface!(ID3D12PipelineLibrary1, ID3D12PipelineLibra
 impl std::ops::Deref for ID3D12PipelineLibrary1 {
     type Target = ID3D12PipelineLibrary;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12PipelineLibrary);
@@ -2928,14 +2928,14 @@ windows_core::imp::define_interface!(ID3D12PipelineState, ID3D12PipelineState_Vt
 impl std::ops::Deref for ID3D12PipelineState {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineState, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12PipelineState {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetCachedBlob(&self) -> windows_core::Result<super::Direct3D::ID3DBlob> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2953,7 +2953,7 @@ windows_core::imp::define_interface!(ID3D12ProtectedResourceSession, ID3D12Prote
 impl std::ops::Deref for ID3D12ProtectedResourceSession {
     type Target = ID3D12ProtectedSession;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12ProtectedResourceSession, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession);
@@ -2975,7 +2975,7 @@ windows_core::imp::define_interface!(ID3D12ProtectedResourceSession1, ID3D12Prot
 impl std::ops::Deref for ID3D12ProtectedResourceSession1 {
     type Target = ID3D12ProtectedResourceSession;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12ProtectedResourceSession1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession, ID3D12ProtectedResourceSession);
@@ -2997,7 +2997,7 @@ windows_core::imp::define_interface!(ID3D12ProtectedSession, ID3D12ProtectedSess
 impl std::ops::Deref for ID3D12ProtectedSession {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12ProtectedSession, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -3024,7 +3024,7 @@ windows_core::imp::define_interface!(ID3D12QueryHeap, ID3D12QueryHeap_Vtbl, 0x0d
 impl std::ops::Deref for ID3D12QueryHeap {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12QueryHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -3039,7 +3039,7 @@ windows_core::imp::define_interface!(ID3D12Resource, ID3D12Resource_Vtbl, 0x6964
 impl std::ops::Deref for ID3D12Resource {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Resource, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -3089,7 +3089,7 @@ windows_core::imp::define_interface!(ID3D12Resource1, ID3D12Resource1_Vtbl, 0x9d
 impl std::ops::Deref for ID3D12Resource1 {
     type Target = ID3D12Resource;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Resource1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource);
@@ -3112,7 +3112,7 @@ windows_core::imp::define_interface!(ID3D12Resource2, ID3D12Resource2_Vtbl, 0xbe
 impl std::ops::Deref for ID3D12Resource2 {
     type Target = ID3D12Resource1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Resource2, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource, ID3D12Resource1);
@@ -3138,7 +3138,7 @@ windows_core::imp::define_interface!(ID3D12RootSignature, ID3D12RootSignature_Vt
 impl std::ops::Deref for ID3D12RootSignature {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12RootSignature, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -3153,7 +3153,7 @@ windows_core::imp::define_interface!(ID3D12RootSignatureDeserializer, ID3D12Root
 impl std::ops::Deref for ID3D12RootSignatureDeserializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12RootSignatureDeserializer, windows_core::IUnknown);
@@ -3173,7 +3173,7 @@ windows_core::imp::define_interface!(ID3D12SDKConfiguration, ID3D12SDKConfigurat
 impl std::ops::Deref for ID3D12SDKConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration, windows_core::IUnknown);
@@ -3196,7 +3196,7 @@ windows_core::imp::define_interface!(ID3D12SDKConfiguration1, ID3D12SDKConfigura
 impl std::ops::Deref for ID3D12SDKConfiguration1 {
     type Target = ID3D12SDKConfiguration;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration1, windows_core::IUnknown, ID3D12SDKConfiguration);
@@ -3225,7 +3225,7 @@ windows_core::imp::define_interface!(ID3D12ShaderCacheSession, ID3D12ShaderCache
 impl std::ops::Deref for ID3D12ShaderCacheSession {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12ShaderCacheSession, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
@@ -3259,7 +3259,7 @@ windows_core::imp::define_interface!(ID3D12ShaderReflection, ID3D12ShaderReflect
 impl std::ops::Deref for ID3D12ShaderReflection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12ShaderReflection, windows_core::IUnknown);
@@ -3330,7 +3330,7 @@ impl ID3D12ShaderReflection {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetMinFeatureLevel(&self) -> windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinFeatureLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadGroupSize(&self, psizex: Option<*mut u32>, psizey: Option<*mut u32>, psizez: Option<*mut u32>) -> u32 {
@@ -3512,7 +3512,7 @@ windows_core::imp::define_interface!(ID3D12SharingContract, ID3D12SharingContrac
 impl std::ops::Deref for ID3D12SharingContract {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12SharingContract, windows_core::IUnknown);
@@ -3551,7 +3551,7 @@ windows_core::imp::define_interface!(ID3D12StateObject, ID3D12StateObject_Vtbl, 
 impl std::ops::Deref for ID3D12StateObject {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12StateObject, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
@@ -3566,7 +3566,7 @@ windows_core::imp::define_interface!(ID3D12StateObjectProperties, ID3D12StateObj
 impl std::ops::Deref for ID3D12StateObjectProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12StateObjectProperties, windows_core::IUnknown);
@@ -3604,7 +3604,7 @@ windows_core::imp::define_interface!(ID3D12SwapChainAssistant, ID3D12SwapChainAs
 impl std::ops::Deref for ID3D12SwapChainAssistant {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12SwapChainAssistant, windows_core::IUnknown);
@@ -3646,7 +3646,7 @@ windows_core::imp::define_interface!(ID3D12Tools, ID3D12Tools_Vtbl, 0x7071e1f0_e
 impl std::ops::Deref for ID3D12Tools {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12Tools, windows_core::IUnknown);
@@ -3673,13 +3673,13 @@ windows_core::imp::define_interface!(ID3D12VersionedRootSignatureDeserializer, I
 impl std::ops::Deref for ID3D12VersionedRootSignatureDeserializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
     pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRootSignatureDescAtVersion)(windows_core::Interface::as_raw(self), converttoversion, &mut result__).map(|| result__)
     }
     pub unsafe fn GetUnconvertedRootSignatureDesc(&self) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
@@ -3698,7 +3698,7 @@ windows_core::imp::define_interface!(ID3D12VirtualizationGuestDevice, ID3D12Virt
 impl std::ops::Deref for ID3D12VirtualizationGuestDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, windows_core::IUnknown);
@@ -3707,14 +3707,14 @@ impl ID3D12VirtualizationGuestDevice {
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShareWithHost)(windows_core::Interface::as_raw(self), pobject.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: u64) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ID3D12Fence>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateFenceFd)(windows_core::Interface::as_raw(self), pfence.param().abi(), fencevalue, &mut result__).map(|| result__)
     }
 }
@@ -9836,8 +9836,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameW: windows_core::PCWSTR,
     pub pCommandQueueDebugNameA: *const u8,
     pub pCommandQueueDebugNameW: windows_core::PCWSTR,
-    pub pCommandList: std::mem::ManuallyDrop<Option<ID3D12GraphicsCommandList>>,
-    pub pCommandQueue: std::mem::ManuallyDrop<Option<ID3D12CommandQueue>>,
+    pub pCommandList: core::mem::ManuallyDrop<Option<ID3D12GraphicsCommandList>>,
+    pub pCommandQueue: core::mem::ManuallyDrop<Option<ID3D12CommandQueue>>,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *const u32,
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
@@ -9863,8 +9863,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameW: windows_core::PCWSTR,
     pub pCommandQueueDebugNameA: *const u8,
     pub pCommandQueueDebugNameW: windows_core::PCWSTR,
-    pub pCommandList: std::mem::ManuallyDrop<Option<ID3D12GraphicsCommandList>>,
-    pub pCommandQueue: std::mem::ManuallyDrop<Option<ID3D12CommandQueue>>,
+    pub pCommandList: core::mem::ManuallyDrop<Option<ID3D12GraphicsCommandList>>,
+    pub pCommandQueue: core::mem::ManuallyDrop<Option<ID3D12CommandQueue>>,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *const u32,
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
@@ -9973,7 +9973,7 @@ pub struct D3D12_BUFFER_BARRIER {
     pub SyncAfter: D3D12_BARRIER_SYNC,
     pub AccessBefore: D3D12_BARRIER_ACCESS,
     pub AccessAfter: D3D12_BARRIER_ACCESS,
-    pub pResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Offset: u64,
     pub Size: u64,
 }
@@ -10191,7 +10191,7 @@ impl Default for D3D12_COMMAND_SIGNATURE_DESC {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    pub pRootSignature: std::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
+    pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
     pub CS: D3D12_SHADER_BYTECODE,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
@@ -10674,7 +10674,7 @@ pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameW: windows_core::PCWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
     pub pNext: *const D3D12_DRED_ALLOCATION_NODE1,
-    pub pObject: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pObject: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 impl Clone for D3D12_DRED_ALLOCATION_NODE1 {
     fn clone(&self) -> Self {
@@ -10808,7 +10808,7 @@ impl Default for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
-    pub pExistingCollection: std::mem::ManuallyDrop<Option<ID3D12StateObject>>,
+    pub pExistingCollection: core::mem::ManuallyDrop<Option<ID3D12StateObject>>,
     pub NumExports: u32,
     pub pExports: *const D3D12_EXPORT_DESC,
 }
@@ -11575,7 +11575,7 @@ impl Default for D3D12_GLOBAL_BARRIER {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
-    pub pGlobalRootSignature: std::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
+    pub pGlobalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
 }
 impl Clone for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn clone(&self) -> Self {
@@ -11650,7 +11650,7 @@ impl Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Debug, PartialEq)]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    pub pRootSignature: std::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
+    pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
     pub VS: D3D12_SHADER_BYTECODE,
     pub PS: D3D12_SHADER_BYTECODE,
     pub DS: D3D12_SHADER_BYTECODE,
@@ -11943,7 +11943,7 @@ impl Default for D3D12_LIBRARY_DESC {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
-    pub pLocalRootSignature: std::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
+    pub pLocalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
 }
 impl Clone for D3D12_LOCAL_ROOT_SIGNATURE {
     fn clone(&self) -> Self {
@@ -12683,7 +12683,7 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
-    pub Resolve: std::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
+    pub Resolve: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
     pub PreserveLocal: D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12720,8 +12720,8 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    pub pSrcResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
-    pub pDstResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pSrcResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pDstResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub SubresourceCount: u32,
     pub pSubresourceParameters: *const D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
@@ -12850,8 +12850,8 @@ impl Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
-    pub pResourceBefore: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
-    pub pResourceAfter: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResourceBefore: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResourceAfter: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
 impl Clone for D3D12_RESOURCE_ALIASING_BARRIER {
     fn clone(&self) -> Self {
@@ -12916,9 +12916,9 @@ impl Default for D3D12_RESOURCE_BARRIER {
 }
 #[repr(C)]
 pub union D3D12_RESOURCE_BARRIER_0 {
-    pub Transition: std::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
-    pub Aliasing: std::mem::ManuallyDrop<D3D12_RESOURCE_ALIASING_BARRIER>,
-    pub UAV: std::mem::ManuallyDrop<D3D12_RESOURCE_UAV_BARRIER>,
+    pub Transition: core::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
+    pub Aliasing: core::mem::ManuallyDrop<D3D12_RESOURCE_ALIASING_BARRIER>,
+    pub UAV: core::mem::ManuallyDrop<D3D12_RESOURCE_UAV_BARRIER>,
 }
 impl Clone for D3D12_RESOURCE_BARRIER_0 {
     fn clone(&self) -> Self {
@@ -12987,7 +12987,7 @@ impl Default for D3D12_RESOURCE_DESC1 {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
-    pub pResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u32,
     pub StateBefore: D3D12_RESOURCE_STATES,
     pub StateAfter: D3D12_RESOURCE_STATES,
@@ -13008,7 +13008,7 @@ impl Default for D3D12_RESOURCE_TRANSITION_BARRIER {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
-    pub pResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
 impl Clone for D3D12_RESOURCE_UAV_BARRIER {
     fn clone(&self) -> Self {
@@ -14240,7 +14240,7 @@ pub struct D3D12_TEXTURE_BARRIER {
     pub AccessAfter: D3D12_BARRIER_ACCESS,
     pub LayoutBefore: D3D12_BARRIER_LAYOUT,
     pub LayoutAfter: D3D12_BARRIER_LAYOUT,
-    pub pResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresources: D3D12_BARRIER_SUBRESOURCE_RANGE,
     pub Flags: D3D12_TEXTURE_BARRIER_FLAGS,
 }
@@ -14260,7 +14260,7 @@ impl Default for D3D12_TEXTURE_BARRIER {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
-    pub pResource: std::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }

@@ -86,7 +86,7 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RequestInfoForPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestInfoForPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoForPackageAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
@@ -94,7 +94,7 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoForAppAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub RequestInfoForAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestInfoForAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoForAppUserModelId: usize,
 }
@@ -174,9 +174,9 @@ impl windows_core::RuntimeType for IAppResourceGroupBackgroundTaskReport {
 pub struct IAppResourceGroupBackgroundTaskReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub EntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub EntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppResourceGroupInfo, IAppResourceGroupInfo_Vtbl, 0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
 impl windows_core::RuntimeType for IAppResourceGroupInfo {
@@ -285,8 +285,8 @@ impl windows_core::RuntimeType for IAppUriHandlerHost {
 #[repr(C)]
 pub struct IAppUriHandlerHost_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppUriHandlerHost2, IAppUriHandlerHost2_Vtbl, 0x3a0bee95_29e4_51bf_8095_a3c068e3c72a);
 impl windows_core::RuntimeType for IAppUriHandlerHost2 {
@@ -305,7 +305,7 @@ impl windows_core::RuntimeType for IAppUriHandlerHostFactory {
 #[repr(C)]
 pub struct IAppUriHandlerHostFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppUriHandlerRegistration, IAppUriHandlerRegistration_Vtbl, 0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
 impl windows_core::RuntimeType for IAppUriHandlerRegistration {
@@ -314,7 +314,7 @@ impl windows_core::RuntimeType for IAppUriHandlerRegistration {
 #[repr(C)]
 pub struct IAppUriHandlerRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAppAddedHostsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -340,7 +340,7 @@ pub struct IAppUriHandlerRegistration2_Vtbl {
     pub UpdateHosts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     UpdateHosts: usize,
-    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppUriHandlerRegistrationManager, IAppUriHandlerRegistrationManager_Vtbl, 0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
 impl windows_core::RuntimeType for IAppUriHandlerRegistrationManager {
@@ -350,7 +350,7 @@ impl windows_core::RuntimeType for IAppUriHandlerRegistrationManager {
 pub struct IAppUriHandlerRegistrationManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TryGetRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryGetRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppUriHandlerRegistrationManager2, IAppUriHandlerRegistrationManager2_Vtbl, 0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
 impl windows_core::RuntimeType for IAppUriHandlerRegistrationManager2 {
@@ -359,7 +359,7 @@ impl windows_core::RuntimeType for IAppUriHandlerRegistrationManager2 {
 #[repr(C)]
 pub struct IAppUriHandlerRegistrationManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppUriHandlerRegistrationManagerStatics, IAppUriHandlerRegistrationManagerStatics_Vtbl, 0xd5cedd9f_5729_5b76_a1d4_0285f295c124);
 impl windows_core::RuntimeType for IAppUriHandlerRegistrationManagerStatics {
@@ -378,8 +378,8 @@ impl windows_core::RuntimeType for IAppUriHandlerRegistrationManagerStatics2 {
 #[repr(C)]
 pub struct IAppUriHandlerRegistrationManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetForPackageForUser: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetForPackageForUser: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDateTimeSettingsStatics, IDateTimeSettingsStatics_Vtbl, 0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
 impl windows_core::RuntimeType for IDateTimeSettingsStatics {
@@ -487,15 +487,15 @@ impl windows_core::RuntimeType for IKnownUserPropertiesStatics {
 #[repr(C)]
 pub struct IKnownUserPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub FirstName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub LastName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub AccountName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub GuestHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PrincipalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DomainName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SessionInitiationProtocolUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FirstName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LastName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AccountName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GuestHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PrincipalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DomainName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SessionInitiationProtocolUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKnownUserPropertiesStatics2, IKnownUserPropertiesStatics2_Vtbl, 0x5b450782_f620_577e_b1b3_dd56644d79b1);
 impl windows_core::RuntimeType for IKnownUserPropertiesStatics2 {
@@ -504,7 +504,7 @@ impl windows_core::RuntimeType for IKnownUserPropertiesStatics2 {
 #[repr(C)]
 pub struct IKnownUserPropertiesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AgeEnforcementRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AgeEnforcementRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchUriResult, ILaunchUriResult_Vtbl, 0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
 impl windows_core::RuntimeType for ILaunchUriResult {
@@ -531,14 +531,14 @@ pub struct ILauncherOptions_Vtbl {
     pub DisplayApplicationPicker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDisplayApplicationPicker: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub UI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PreferredApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetPreferredApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PreferredApplicationDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetPreferredApplicationDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PreferredApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetPreferredApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PreferredApplicationDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetPreferredApplicationDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FallbackUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFallbackUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILauncherOptions2, ILauncherOptions2_Vtbl, 0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49);
 impl windows_core::RuntimeType for ILauncherOptions2 {
@@ -547,8 +547,8 @@ impl windows_core::RuntimeType for ILauncherOptions2 {
 #[repr(C)]
 pub struct ILauncherOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TargetApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTargetApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TargetApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTargetApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Search")]
     pub NeighboringFilesQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]
@@ -613,25 +613,25 @@ pub struct ILauncherStatics2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     LaunchUriWithDataAsync: usize,
     pub QueryUriSupportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LaunchQuerySupportType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QueryUriSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LaunchQuerySupportType, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub QueryUriSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LaunchQuerySupportType, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage")]
     pub QueryFileSupportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     QueryFileSupportAsync: usize,
     #[cfg(feature = "Storage")]
-    pub QueryFileSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub QueryFileSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     QueryFileSupportWithPackageFamilyNameAsync: usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindUriSchemeHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindUriSchemeHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindUriSchemeHandlersAsync: usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindUriSchemeHandlersWithLaunchUriTypeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, LaunchQuerySupportType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindUriSchemeHandlersWithLaunchUriTypeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, LaunchQuerySupportType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindUriSchemeHandlersWithLaunchUriTypeAsync: usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindFileHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindFileHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindFileHandlersAsync: usize,
 }
@@ -659,7 +659,7 @@ impl windows_core::RuntimeType for ILauncherStatics4 {
 pub struct ILauncherStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub QueryAppUriSupportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QueryAppUriSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub QueryAppUriSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindAppUriHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
@@ -683,10 +683,10 @@ impl windows_core::RuntimeType for ILauncherStatics5 {
 #[repr(C)]
 pub struct ILauncherStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub LaunchFolderPathAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFolderPathWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFolderPathForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFolderPathWithOptionsForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFolderPathAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFolderPathWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFolderPathForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFolderPathWithOptionsForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILauncherUIOptions, ILauncherUIOptions_Vtbl, 0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
 impl windows_core::RuntimeType for ILauncherUIOptions {
@@ -712,7 +712,7 @@ windows_core::imp::define_interface!(ILauncherViewOptions, ILauncherViewOptions_
 impl std::ops::Deref for ILauncherViewOptions {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILauncherViewOptions, windows_core::IUnknown, windows_core::IInspectable);
@@ -721,7 +721,7 @@ impl ILauncherViewOptions {
     pub fn DesiredRemainingView(&self) -> windows_core::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredRemainingView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -822,8 +822,8 @@ pub struct IProcessLauncherOptions_Vtbl {
     pub SetStandardError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     SetStandardError: usize,
-    pub WorkingDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetWorkingDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub WorkingDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetWorkingDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProcessLauncherResult, IProcessLauncherResult_Vtbl, 0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
 impl windows_core::RuntimeType for IProcessLauncherResult {
@@ -841,8 +841,8 @@ impl windows_core::RuntimeType for IProcessLauncherStatics {
 #[repr(C)]
 pub struct IProcessLauncherStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RunToCompletionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RunToCompletionAsyncWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RunToCompletionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RunToCompletionAsyncWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProcessMemoryReport, IProcessMemoryReport_Vtbl, 0x087305a8_9b70_4782_8741_3a982b6ce5e4);
 impl windows_core::RuntimeType for IProcessMemoryReport {
@@ -928,13 +928,13 @@ impl windows_core::RuntimeType for ITimeZoneSettingsStatics {
 #[repr(C)]
 pub struct ITimeZoneSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CurrentTimeZoneDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CurrentTimeZoneDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedTimeZoneDisplayNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedTimeZoneDisplayNames: usize,
     pub CanChangeTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ChangeTimeZoneByDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ChangeTimeZoneByDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimeZoneSettingsStatics2, ITimeZoneSettingsStatics2_Vtbl, 0x555c0db8_39a8_49fa_b4f6_a2c7fc2842ec);
 impl windows_core::RuntimeType for ITimeZoneSettingsStatics2 {
@@ -952,10 +952,10 @@ impl windows_core::RuntimeType for IUser {
 #[repr(C)]
 pub struct IUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub NonRoamableId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub NonRoamableId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub AuthenticationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserAuthenticationStatus) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserType) -> windows_core::HRESULT,
-    pub GetPropertyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPropertyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1023,7 +1023,7 @@ impl windows_core::RuntimeType for IUserDeviceAssociationChangedEventArgs {
 #[repr(C)]
 pub struct IUserDeviceAssociationChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub NewUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OldUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1034,7 +1034,7 @@ impl windows_core::RuntimeType for IUserDeviceAssociationStatics {
 #[repr(C)]
 pub struct IUserDeviceAssociationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FindUserFromDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindUserFromDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UserDeviceAssociationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveUserDeviceAssociationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
@@ -1080,7 +1080,7 @@ pub struct IUserStatics_Vtbl {
     pub FindAllAsyncByTypeAndStatus: unsafe extern "system" fn(*mut core::ffi::c_void, UserType, UserAuthenticationStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     FindAllAsyncByTypeAndStatus: usize,
-    pub GetFromId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetFromId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserStatics2, IUserStatics2_Vtbl, 0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
 impl windows_core::RuntimeType for IUserStatics2 {
@@ -1124,14 +1124,14 @@ impl AppActivationResult {
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppResourceGroupInfo(&self) -> windows_core::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppResourceGroupInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1157,7 +1157,7 @@ impl AppDiagnosticInfo {
     pub fn AppInfo(&self) -> windows_core::Result<super::ApplicationModel::AppInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1165,61 +1165,61 @@ impl AppDiagnosticInfo {
     pub fn GetResourceGroups(&self) -> windows_core::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>> {
         let this = &windows_core::Interface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetResourceGroups)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateResourceGroupWatcher(&self) -> windows_core::Result<AppResourceGroupInfoWatcher> {
         let this = &windows_core::Interface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateResourceGroupWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LaunchAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppActivationResult>> {
         let this = &windows_core::Interface::cast::<IAppDiagnosticInfo3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWatcher() -> windows_core::Result<AppDiagnosticInfoWatcher> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestAccessAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForPackageAsync(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForAppAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForAppUserModelId(appusermodelid: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForAppUserModelId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1257,7 +1257,7 @@ impl AppDiagnosticInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1271,7 +1271,7 @@ impl AppDiagnosticInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1285,7 +1285,7 @@ impl AppDiagnosticInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1299,7 +1299,7 @@ impl AppDiagnosticInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1310,7 +1310,7 @@ impl AppDiagnosticInfoWatcher {
     pub fn Status(&self) -> windows_core::Result<AppDiagnosticInfoWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1343,7 +1343,7 @@ impl AppDiagnosticInfoWatcherEventArgs {
     pub fn AppDiagnosticInfo(&self) -> windows_core::Result<AppDiagnosticInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppDiagnosticInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1368,7 +1368,7 @@ impl AppExecutionStateChangeResult {
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1393,35 +1393,35 @@ impl AppMemoryReport {
     pub fn PrivateCommitUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrivateCommitUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PeakPrivateCommitUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeakPrivateCommitUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TotalCommitUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalCommitUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TotalCommitLimit(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalCommitLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ExpectedTotalCommitLimit(&self) -> windows_core::Result<u64> {
         let this = &windows_core::Interface::cast::<IAppMemoryReport2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpectedTotalCommitLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1446,14 +1446,14 @@ impl AppMemoryUsageLimitChangingEventArgs {
     pub fn OldLimit(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OldLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn NewLimit(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1478,28 +1478,28 @@ impl AppResourceGroupBackgroundTaskReport {
     pub fn TaskId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Trigger(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Trigger)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn EntryPoint(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EntryPoint)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1524,14 +1524,14 @@ impl AppResourceGroupInfo {
     pub fn InstanceId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsShared(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsShared)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1539,14 +1539,14 @@ impl AppResourceGroupInfo {
     pub fn GetBackgroundTaskReports(&self) -> windows_core::Result<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBackgroundTaskReports)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMemoryReport(&self) -> windows_core::Result<AppResourceGroupMemoryReport> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMemoryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1554,35 +1554,35 @@ impl AppResourceGroupInfo {
     pub fn GetProcessDiagnosticInfos(&self) -> windows_core::Result<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetProcessDiagnosticInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetStateReport(&self) -> windows_core::Result<AppResourceGroupStateReport> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStateReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StartSuspendAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &windows_core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartSuspendAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StartResumeAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &windows_core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartResumeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StartTerminateAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &windows_core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTerminateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1610,7 +1610,7 @@ impl AppResourceGroupInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1624,7 +1624,7 @@ impl AppResourceGroupInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1638,7 +1638,7 @@ impl AppResourceGroupInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1652,7 +1652,7 @@ impl AppResourceGroupInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1666,7 +1666,7 @@ impl AppResourceGroupInfoWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExecutionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1677,7 +1677,7 @@ impl AppResourceGroupInfoWatcher {
     pub fn Status(&self) -> windows_core::Result<AppResourceGroupInfoWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1711,14 +1711,14 @@ impl AppResourceGroupInfoWatcherEventArgs {
     pub fn AppDiagnosticInfos(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppDiagnosticInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppResourceGroupInfo(&self) -> windows_core::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppResourceGroupInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1744,14 +1744,14 @@ impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     pub fn AppDiagnosticInfos(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppDiagnosticInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppResourceGroupInfo(&self) -> windows_core::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppResourceGroupInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1776,28 +1776,28 @@ impl AppResourceGroupMemoryReport {
     pub fn CommitUsageLimit(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommitUsageLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CommitUsageLevel(&self) -> windows_core::Result<AppMemoryUsageLevel> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommitUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PrivateCommitUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrivateCommitUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TotalCommitUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalCommitUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1822,14 +1822,14 @@ impl AppResourceGroupStateReport {
     pub fn ExecutionState(&self) -> windows_core::Result<AppResourceGroupExecutionState> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn EnergyQuotaState(&self) -> windows_core::Result<AppResourceGroupEnergyQuotaState> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnergyQuotaState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1861,7 +1861,7 @@ impl AppUriHandlerHost {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1872,7 +1872,7 @@ impl AppUriHandlerHost {
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IAppUriHandlerHost2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1882,7 +1882,7 @@ impl AppUriHandlerHost {
     }
     pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<AppUriHandlerHost> {
         Self::IAppUriHandlerHostFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1912,14 +1912,14 @@ impl AppUriHandlerRegistration {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn User(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1927,7 +1927,7 @@ impl AppUriHandlerRegistration {
     pub fn GetAppAddedHostsAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppAddedHostsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1938,7 +1938,7 @@ impl AppUriHandlerRegistration {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetAppAddedHostsAsync)(windows_core::Interface::as_raw(this), hosts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1946,7 +1946,7 @@ impl AppUriHandlerRegistration {
     pub fn GetAllHosts(&self) -> windows_core::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>> {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllHosts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1961,7 +1961,7 @@ impl AppUriHandlerRegistration {
     pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1986,27 +1986,27 @@ impl AppUriHandlerRegistrationManager {
     pub fn User(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetRegistration(&self, name: &windows_core::HSTRING) -> windows_core::Result<AppUriHandlerRegistration> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetRegistration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistrationManager2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2015,13 +2015,13 @@ impl AppUriHandlerRegistrationManager {
         P0: windows_core::Param<User>,
     {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForPackage(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2030,7 +2030,7 @@ impl AppUriHandlerRegistrationManager {
         P0: windows_core::Param<User>,
     {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForPackageForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2079,7 +2079,7 @@ impl DispatcherQueue {
     pub fn CreateTimer(&self) -> windows_core::Result<DispatcherQueueTimer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTimer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2089,7 +2089,7 @@ impl DispatcherQueue {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryEnqueue)(windows_core::Interface::as_raw(this), callback.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2099,7 +2099,7 @@ impl DispatcherQueue {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryEnqueueWithPriority)(windows_core::Interface::as_raw(this), priority, callback.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2109,7 +2109,7 @@ impl DispatcherQueue {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShutdownStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2123,7 +2123,7 @@ impl DispatcherQueue {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShutdownCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2134,13 +2134,13 @@ impl DispatcherQueue {
     pub fn HasThreadAccess(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IDispatcherQueue2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasThreadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetForCurrentThread() -> windows_core::Result<DispatcherQueue> {
         Self::IDispatcherQueueStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2170,20 +2170,20 @@ impl DispatcherQueueController {
     pub fn DispatcherQueue(&self) -> windows_core::Result<DispatcherQueue> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShutdownQueueAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShutdownQueueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateOnDedicatedThread() -> windows_core::Result<DispatcherQueueController> {
         Self::IDispatcherQueueControllerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOnDedicatedThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2213,7 +2213,7 @@ impl DispatcherQueueShutdownStartingEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2238,7 +2238,7 @@ impl DispatcherQueueTimer {
     pub fn Interval(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Interval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2249,14 +2249,14 @@ impl DispatcherQueueTimer {
     pub fn IsRunning(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRunning)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsRepeating(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRepeating)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2278,7 +2278,7 @@ impl DispatcherQueueTimer {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tick)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2316,7 +2316,7 @@ impl FolderLauncherOptions {
     pub fn ItemsToSelect(&self) -> windows_core::Result<super::Foundation::Collections::IVector<super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ItemsToSelect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2324,7 +2324,7 @@ impl FolderLauncherOptions {
     pub fn DesiredRemainingView(&self) -> windows_core::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = &windows_core::Interface::cast::<ILauncherViewOptions>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredRemainingView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2350,61 +2350,61 @@ pub struct KnownUserProperties;
 impl KnownUserProperties {
     pub fn DisplayName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FirstName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FirstName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LastName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LastName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ProviderName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProviderName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AccountName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GuestHost() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GuestHost)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn PrincipalName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrincipalName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn DomainName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn SessionInitiationProtocolUri() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionInitiationProtocolUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AgeEnforcementRegion() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownUserPropertiesStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AgeEnforcementRegion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2430,7 +2430,7 @@ impl LaunchUriResult {
     pub fn Status(&self) -> windows_core::Result<LaunchUriStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2438,7 +2438,7 @@ impl LaunchUriResult {
     pub fn Result(&self) -> windows_core::Result<super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2463,7 +2463,7 @@ impl Launcher {
         P0: windows_core::Param<super::Storage::IStorageFile>,
     {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2474,7 +2474,7 @@ impl Launcher {
         P1: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFileWithOptionsAsync)(windows_core::Interface::as_raw(this), file.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2483,7 +2483,7 @@ impl Launcher {
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2493,7 +2493,7 @@ impl Launcher {
         P1: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2503,7 +2503,7 @@ impl Launcher {
         P1: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriForResultsAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2515,7 +2515,7 @@ impl Launcher {
         P2: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2527,7 +2527,7 @@ impl Launcher {
         P2: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2536,7 +2536,7 @@ impl Launcher {
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryUriSupportAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), launchquerysupporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2545,7 +2545,7 @@ impl Launcher {
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), launchquerysupporttype, core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2555,7 +2555,7 @@ impl Launcher {
         P0: windows_core::Param<super::Storage::StorageFile>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryFileSupportAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2565,28 +2565,28 @@ impl Launcher {
         P0: windows_core::Param<super::Storage::StorageFile>,
     {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindUriSchemeHandlersAsync(scheme: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUriSchemeHandlersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scheme), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme: &windows_core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scheme), launchquerysupporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindFileHandlersAsync(extension: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindFileHandlersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(extension), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2596,7 +2596,7 @@ impl Launcher {
         P0: windows_core::Param<super::Storage::IStorageFolder>,
     {
         Self::ILauncherStatics3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2607,7 +2607,7 @@ impl Launcher {
         P1: windows_core::Param<FolderLauncherOptions>,
     {
         Self::ILauncherStatics3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderWithOptionsAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2616,7 +2616,7 @@ impl Launcher {
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryAppUriSupportAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2625,7 +2625,7 @@ impl Launcher {
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2635,7 +2635,7 @@ impl Launcher {
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAppUriHandlersAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2645,7 +2645,7 @@ impl Launcher {
         P1: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2656,7 +2656,7 @@ impl Launcher {
         P2: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2669,7 +2669,7 @@ impl Launcher {
         P3: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2680,7 +2680,7 @@ impl Launcher {
         P2: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriForResultsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2693,13 +2693,13 @@ impl Launcher {
         P3: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchFolderPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderPathAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2708,7 +2708,7 @@ impl Launcher {
         P0: windows_core::Param<FolderLauncherOptions>,
     {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2717,7 +2717,7 @@ impl Launcher {
         P0: windows_core::Param<User>,
     {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2727,7 +2727,7 @@ impl Launcher {
         P1: windows_core::Param<FolderLauncherOptions>,
     {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2776,7 +2776,7 @@ impl LauncherOptions {
     pub fn TreatAsUntrusted(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TreatAsUntrusted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2787,7 +2787,7 @@ impl LauncherOptions {
     pub fn DisplayApplicationPicker(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayApplicationPicker)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2798,14 +2798,14 @@ impl LauncherOptions {
     pub fn UI(&self) -> windows_core::Result<LauncherUIOptions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PreferredApplicationPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredApplicationPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2816,7 +2816,7 @@ impl LauncherOptions {
     pub fn PreferredApplicationDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredApplicationDisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2827,7 +2827,7 @@ impl LauncherOptions {
     pub fn FallbackUri(&self) -> windows_core::Result<super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FallbackUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2841,7 +2841,7 @@ impl LauncherOptions {
     pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2852,7 +2852,7 @@ impl LauncherOptions {
     pub fn TargetApplicationPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILauncherOptions2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TargetApplicationPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2864,7 +2864,7 @@ impl LauncherOptions {
     pub fn NeighboringFilesQuery(&self) -> windows_core::Result<super::Storage::Search::StorageFileQueryResult> {
         let this = &windows_core::Interface::cast::<ILauncherOptions2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NeighboringFilesQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2879,7 +2879,7 @@ impl LauncherOptions {
     pub fn IgnoreAppUriHandlers(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILauncherOptions3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IgnoreAppUriHandlers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2890,7 +2890,7 @@ impl LauncherOptions {
     pub fn LimitPickerToCurrentAppAndAppUriHandlers(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILauncherOptions4>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LimitPickerToCurrentAppAndAppUriHandlers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2902,7 +2902,7 @@ impl LauncherOptions {
     pub fn DesiredRemainingView(&self) -> windows_core::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = &windows_core::Interface::cast::<ILauncherViewOptions>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredRemainingView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2932,7 +2932,7 @@ impl LauncherUIOptions {
     pub fn InvocationPoint(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvocationPoint)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2946,7 +2946,7 @@ impl LauncherUIOptions {
     pub fn SelectionRect(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::Rect>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectionRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2961,7 +2961,7 @@ impl LauncherUIOptions {
     pub fn PreferredPlacement(&self) -> windows_core::Result<super::UI::Popups::Placement> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredPlacement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2987,19 +2987,19 @@ pub struct MemoryManager;
 impl MemoryManager {
     pub fn AppMemoryUsage() -> windows_core::Result<u64> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMemoryUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AppMemoryUsageLimit() -> windows_core::Result<u64> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMemoryUsageLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AppMemoryUsageLevel() -> windows_core::Result<AppMemoryUsageLevel> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMemoryUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -3008,7 +3008,7 @@ impl MemoryManager {
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMemoryUsageIncreased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -3020,7 +3020,7 @@ impl MemoryManager {
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMemoryUsageDecreased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -3032,7 +3032,7 @@ impl MemoryManager {
         P0: windows_core::Param<super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>,
     {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMemoryUsageLimitChanging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -3041,25 +3041,25 @@ impl MemoryManager {
     }
     pub fn GetAppMemoryReport() -> windows_core::Result<AppMemoryReport> {
         Self::IMemoryManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppMemoryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetProcessMemoryReport() -> windows_core::Result<ProcessMemoryReport> {
         Self::IMemoryManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetProcessMemoryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn TrySetAppMemoryUsageLimit(value: u64) -> windows_core::Result<bool> {
         Self::IMemoryManagerStatics3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetAppMemoryUsageLimit)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         })
     }
     pub fn ExpectedAppMemoryUsageLimit() -> windows_core::Result<u64> {
         Self::IMemoryManagerStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpectedAppMemoryUsageLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -3091,7 +3091,7 @@ pub struct ProcessLauncher;
 impl ProcessLauncher {
     pub fn RunToCompletionAsync(filename: &windows_core::HSTRING, args: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunToCompletionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(args), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3100,7 +3100,7 @@ impl ProcessLauncher {
         P0: windows_core::Param<ProcessLauncherOptions>,
     {
         Self::IProcessLauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunToCompletionAsyncWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(args), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3129,7 +3129,7 @@ impl ProcessLauncherOptions {
     pub fn StandardInput(&self) -> windows_core::Result<super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StandardInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3145,7 +3145,7 @@ impl ProcessLauncherOptions {
     pub fn StandardOutput(&self) -> windows_core::Result<super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StandardOutput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3161,7 +3161,7 @@ impl ProcessLauncherOptions {
     pub fn StandardError(&self) -> windows_core::Result<super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StandardError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3176,7 +3176,7 @@ impl ProcessLauncherOptions {
     pub fn WorkingDirectory(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WorkingDirectory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3205,7 +3205,7 @@ impl ProcessLauncherResult {
     pub fn ExitCode(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExitCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3230,14 +3230,14 @@ impl ProcessMemoryReport {
     pub fn PrivateWorkingSetUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrivateWorkingSetUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TotalWorkingSetUsage(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalWorkingSetUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3289,7 +3289,7 @@ impl RemoteLauncher {
         P1: windows_core::Param<super::Foundation::Uri>,
     {
         Self::IRemoteLauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3301,7 +3301,7 @@ impl RemoteLauncher {
         P2: windows_core::Param<RemoteLauncherOptions>,
     {
         Self::IRemoteLauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3314,7 +3314,7 @@ impl RemoteLauncher {
         P3: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::IRemoteLauncherStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3342,7 +3342,7 @@ impl RemoteLauncherOptions {
     pub fn FallbackUri(&self) -> windows_core::Result<super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FallbackUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3357,7 +3357,7 @@ impl RemoteLauncherOptions {
     pub fn PreferredAppIds(&self) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredAppIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3384,7 +3384,7 @@ impl ShutdownManager {
     }
     pub fn IsPowerStateSupported(powerstate: PowerState) -> windows_core::Result<bool> {
         Self::IShutdownManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPowerStateSupported)(windows_core::Interface::as_raw(this), powerstate, &mut result__).map(|| result__)
         })
     }
@@ -3412,20 +3412,20 @@ pub struct TimeZoneSettings;
 impl TimeZoneSettings {
     pub fn CurrentTimeZoneDisplayName() -> windows_core::Result<windows_core::HSTRING> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentTimeZoneDisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedTimeZoneDisplayNames() -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedTimeZoneDisplayNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CanChangeTimeZone() -> windows_core::Result<bool> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanChangeTimeZone)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -3434,7 +3434,7 @@ impl TimeZoneSettings {
     }
     pub fn AutoUpdateTimeZoneAsync(timeout: super::Foundation::TimeSpan) -> windows_core::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
         Self::ITimeZoneSettingsStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoUpdateTimeZoneAsync)(windows_core::Interface::as_raw(this), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3460,28 +3460,28 @@ impl User {
     pub fn NonRoamableId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NonRoamableId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AuthenticationStatus(&self) -> windows_core::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Type(&self) -> windows_core::Result<UserType> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPropertyAsync(&self, value: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3492,7 +3492,7 @@ impl User {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertiesAsync)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3500,53 +3500,53 @@ impl User {
     pub fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPictureAsync)(windows_core::Interface::as_raw(this), desiredsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> windows_core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>> {
         let this = &windows_core::Interface::cast::<IUser2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckUserAgeConsentGroupAsync)(windows_core::Interface::as_raw(this), consentgroup, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateWatcher() -> windows_core::Result<UserWatcher> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsyncByType(r#type: UserType) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncByType)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncByTypeAndStatus)(windows_core::Interface::as_raw(this), r#type, status, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetFromId(nonroamableid: &windows_core::HSTRING) -> windows_core::Result<User> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nonroamableid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefault() -> windows_core::Result<User> {
         Self::IUserStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3603,28 +3603,28 @@ impl UserAuthenticationStatusChangingEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<UserAuthenticationStatusChangeDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn User(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NewStatus(&self) -> windows_core::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CurrentStatus(&self) -> windows_core::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3649,7 +3649,7 @@ impl UserChangedEventArgs {
     pub fn User(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3657,7 +3657,7 @@ impl UserChangedEventArgs {
     pub fn ChangedPropertyKinds(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>> {
         let this = &windows_core::Interface::cast::<IUserChangedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangedPropertyKinds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3678,7 +3678,7 @@ pub struct UserDeviceAssociation;
 impl UserDeviceAssociation {
     pub fn FindUserFromDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<User> {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUserFromDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3687,7 +3687,7 @@ impl UserDeviceAssociation {
         P0: windows_core::Param<super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>,
     {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDeviceAssociationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -3711,21 +3711,21 @@ impl UserDeviceAssociationChangedEventArgs {
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NewUser(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewUser)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OldUser(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OldUser)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3757,7 +3757,7 @@ impl UserPicker {
     pub fn AllowGuestAccounts(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowGuestAccounts)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3768,7 +3768,7 @@ impl UserPicker {
     pub fn SuggestedSelectedUser(&self) -> windows_core::Result<User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SuggestedSelectedUser)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3782,13 +3782,13 @@ impl UserPicker {
     pub fn PickSingleUserAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<User>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickSingleUserAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::IUserPickerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -3818,7 +3818,7 @@ impl UserWatcher {
     pub fn Status(&self) -> windows_core::Result<UserWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3836,7 +3836,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3850,7 +3850,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3864,7 +3864,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3878,7 +3878,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticationStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3892,7 +3892,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticationStatusChanging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3906,7 +3906,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3920,7 +3920,7 @@ impl UserWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }

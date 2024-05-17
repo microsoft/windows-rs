@@ -272,7 +272,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : windows_core::PCWSTR, ppjoininfo : *mut *mut DSREG_JOIN_INFO) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     NetGetAadJoinInformation(pcsztenantid.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -1448,7 +1448,7 @@ windows_core::imp::define_interface!(IEnumNetCfgBindingInterface, IEnumNetCfgBin
 impl std::ops::Deref for IEnumNetCfgBindingInterface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumNetCfgBindingInterface, windows_core::IUnknown);
@@ -1478,7 +1478,7 @@ windows_core::imp::define_interface!(IEnumNetCfgBindingPath, IEnumNetCfgBindingP
 impl std::ops::Deref for IEnumNetCfgBindingPath {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumNetCfgBindingPath, windows_core::IUnknown);
@@ -1508,7 +1508,7 @@ windows_core::imp::define_interface!(IEnumNetCfgComponent, IEnumNetCfgComponent_
 impl std::ops::Deref for IEnumNetCfgComponent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumNetCfgComponent, windows_core::IUnknown);
@@ -1538,7 +1538,7 @@ windows_core::imp::define_interface!(INetCfg, INetCfg_Vtbl, 0xc0e8ae93_306e_11d1
 impl std::ops::Deref for INetCfg {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfg, windows_core::IUnknown);
@@ -1583,7 +1583,7 @@ windows_core::imp::define_interface!(INetCfgBindingInterface, INetCfgBindingInte
 impl std::ops::Deref for INetCfgBindingInterface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgBindingInterface, windows_core::IUnknown);
@@ -1609,7 +1609,7 @@ windows_core::imp::define_interface!(INetCfgBindingPath, INetCfgBindingPath_Vtbl
 impl std::ops::Deref for INetCfgBindingPath {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgBindingPath, windows_core::IUnknown);
@@ -1642,7 +1642,7 @@ impl INetCfgBindingPath {
         (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcomponent.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDepth(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDepth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumBindingInterfaces(&self, ppenuminterface: Option<*mut Option<IEnumNetCfgBindingInterface>>) -> windows_core::Result<()> {
@@ -1665,7 +1665,7 @@ windows_core::imp::define_interface!(INetCfgClass, INetCfgClass_Vtbl, 0xc0e8ae97
 impl std::ops::Deref for INetCfgClass {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgClass, windows_core::IUnknown);
@@ -1690,7 +1690,7 @@ windows_core::imp::define_interface!(INetCfgClassSetup, INetCfgClassSetup_Vtbl, 
 impl std::ops::Deref for INetCfgClassSetup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgClassSetup, windows_core::IUnknown);
@@ -1727,7 +1727,7 @@ windows_core::imp::define_interface!(INetCfgClassSetup2, INetCfgClassSetup2_Vtbl
 impl std::ops::Deref for INetCfgClassSetup2 {
     type Target = INetCfgClassSetup;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgClassSetup2, windows_core::IUnknown, INetCfgClassSetup);
@@ -1748,7 +1748,7 @@ windows_core::imp::define_interface!(INetCfgComponent, INetCfgComponent_Vtbl, 0x
 impl std::ops::Deref for INetCfgComponent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponent, windows_core::IUnknown);
@@ -1769,7 +1769,7 @@ impl INetCfgComponent {
         (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), core::mem::transmute(ppszwid.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetInstanceGuid(&self, pguid: Option<*mut windows_core::GUID>) -> windows_core::Result<()> {
@@ -1785,7 +1785,7 @@ impl INetCfgComponent {
         (windows_core::Interface::vtable(self).GetBindName)(windows_core::Interface::as_raw(self), core::mem::transmute(ppszwbindname.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDeviceStatus(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Registry")]
@@ -1823,7 +1823,7 @@ windows_core::imp::define_interface!(INetCfgComponentBindings, INetCfgComponentB
 impl std::ops::Deref for INetCfgComponentBindings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentBindings, windows_core::IUnknown);
@@ -1892,7 +1892,7 @@ windows_core::imp::define_interface!(INetCfgComponentControl, INetCfgComponentCo
 impl std::ops::Deref for INetCfgComponentControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentControl, windows_core::IUnknown);
@@ -1930,7 +1930,7 @@ windows_core::imp::define_interface!(INetCfgComponentNotifyBinding, INetCfgCompo
 impl std::ops::Deref for INetCfgComponentNotifyBinding {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentNotifyBinding, windows_core::IUnknown);
@@ -1958,13 +1958,13 @@ windows_core::imp::define_interface!(INetCfgComponentNotifyGlobal, INetCfgCompon
 impl std::ops::Deref for INetCfgComponentNotifyGlobal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentNotifyGlobal, windows_core::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     pub unsafe fn GetSupportedNotifications(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSupportedNotifications)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SysQueryBindingPath<P0>(&self, dwchangeflag: u32, pipath: P0) -> windows_core::Result<()>
@@ -1998,7 +1998,7 @@ windows_core::imp::define_interface!(INetCfgComponentPropertyUi, INetCfgComponen
 impl std::ops::Deref for INetCfgComponentPropertyUi {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentPropertyUi, windows_core::IUnknown);
@@ -2048,7 +2048,7 @@ windows_core::imp::define_interface!(INetCfgComponentSetup, INetCfgComponentSetu
 impl std::ops::Deref for INetCfgComponentSetup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentSetup, windows_core::IUnknown);
@@ -2082,7 +2082,7 @@ windows_core::imp::define_interface!(INetCfgComponentSysPrep, INetCfgComponentSy
 impl std::ops::Deref for INetCfgComponentSysPrep {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentSysPrep, windows_core::IUnknown);
@@ -2112,7 +2112,7 @@ windows_core::imp::define_interface!(INetCfgComponentUpperEdge, INetCfgComponent
 impl std::ops::Deref for INetCfgComponentUpperEdge {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgComponentUpperEdge, windows_core::IUnknown);
@@ -2147,7 +2147,7 @@ windows_core::imp::define_interface!(INetCfgLock, INetCfgLock_Vtbl, 0xc0e8ae9f_3
 impl std::ops::Deref for INetCfgLock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgLock, windows_core::IUnknown);
@@ -2176,7 +2176,7 @@ windows_core::imp::define_interface!(INetCfgPnpReconfigCallback, INetCfgPnpRecon
 impl std::ops::Deref for INetCfgPnpReconfigCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgPnpReconfigCallback, windows_core::IUnknown);
@@ -2198,7 +2198,7 @@ windows_core::imp::define_interface!(INetCfgSysPrep, INetCfgSysPrep_Vtbl, 0xc0e8
 impl std::ops::Deref for INetCfgSysPrep {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetCfgSysPrep, windows_core::IUnknown);
@@ -2247,13 +2247,13 @@ windows_core::imp::define_interface!(INetLanConnectionUiInfo, INetLanConnectionU
 impl std::ops::Deref for INetLanConnectionUiInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetLanConnectionUiInfo, windows_core::IUnknown);
 impl INetLanConnectionUiInfo {
     pub unsafe fn GetDeviceGuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2266,7 +2266,7 @@ windows_core::imp::define_interface!(INetRasConnectionIpUiInfo, INetRasConnectio
 impl std::ops::Deref for INetRasConnectionIpUiInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetRasConnectionIpUiInfo, windows_core::IUnknown);
@@ -2284,7 +2284,7 @@ windows_core::imp::define_interface!(IProvisioningDomain, IProvisioningDomain_Vt
 impl std::ops::Deref for IProvisioningDomain {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProvisioningDomain, windows_core::IUnknown);
@@ -2302,7 +2302,7 @@ impl IProvisioningDomain {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), pszwdomain.param().abi(), pszwlanguage.param().abi(), pszwxpathquery.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2319,7 +2319,7 @@ windows_core::imp::define_interface!(IProvisioningProfileWireless, IProvisioning
 impl std::ops::Deref for IProvisioningProfileWireless {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProvisioningProfileWireless, windows_core::IUnknown);
@@ -2329,14 +2329,14 @@ impl IProvisioningProfileWireless {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateProfile)(windows_core::Interface::as_raw(self), bstrxmlwirelessconfigprofile.param().abi(), bstrxmlconnectionconfigprofile.param().abi(), padapterinstanceguid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IProvisioningProfileWireless_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
+    pub CreateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 pub const AA_AUDIT_ALL: u32 = 1u32;
 pub const AA_A_ACL: u32 = 32768u32;
@@ -6308,7 +6308,7 @@ pub const NetProvisioning: windows_core::GUID = windows_core::GUID::from_u128(0x
 #[derive(Debug, Eq, PartialEq)]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
-    pub pncc: std::mem::ManuallyDrop<Option<INetCfgComponent>>,
+    pub pncc: core::mem::ManuallyDrop<Option<INetCfgComponent>>,
     pub pszwManufacturer: windows_core::PCWSTR,
     pub pszwProduct: windows_core::PCWSTR,
     pub pszwDisplayName: windows_core::PCWSTR,

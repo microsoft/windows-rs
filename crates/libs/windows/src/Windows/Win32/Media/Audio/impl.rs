@@ -1849,7 +1849,7 @@ impl windows_core::RuntimeName for IMMDevice {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMMDevice_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>() -> IMMDevice_Vtbl {
-        unsafe extern "system" fn Activate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMMDevice_Impl::Activate(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dwclsctx), core::mem::transmute_copy(&pactivationparams), core::mem::transmute_copy(&ppinterface)).into()
@@ -1899,7 +1899,7 @@ pub trait IMMDeviceActivator_Impl: Sized {
 impl windows_core::RuntimeName for IMMDeviceActivator {}
 impl IMMDeviceActivator_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDeviceActivator_Impl, const OFFSET: isize>() -> IMMDeviceActivator_Vtbl {
-        unsafe extern "system" fn Activate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDeviceActivator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, pdevice: *mut core::ffi::c_void, pactivationparams: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDeviceActivator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, pdevice: *mut core::ffi::c_void, pactivationparams: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMMDeviceActivator_Impl::Activate(this, core::mem::transmute_copy(&iid), windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pactivationparams), core::mem::transmute_copy(&ppinterface)).into()
@@ -2516,12 +2516,12 @@ impl ISpatialAudioClient_Vtbl {
             let this = (*this).get_impl();
             ISpatialAudioClient_Impl::IsAudioObjectFormatSupported(this, core::mem::transmute_copy(&objectformat)).into()
         }
-        unsafe extern "system" fn IsSpatialAudioStreamAvailable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSpatialAudioStreamAvailable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpatialAudioClient_Impl::IsSpatialAudioStreamAvailable(this, core::mem::transmute_copy(&streamuuid), core::mem::transmute_copy(&auxiliaryinfo)).into()
         }
-        unsafe extern "system" fn ActivateSpatialAudioStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activationparams: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActivateSpatialAudioStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activationparams: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpatialAudioClient_Impl::ActivateSpatialAudioStream(this, core::mem::transmute_copy(&activationparams), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&stream)).into()

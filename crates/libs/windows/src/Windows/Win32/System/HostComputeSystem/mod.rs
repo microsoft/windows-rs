@@ -68,7 +68,7 @@ where
     P2: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation.param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
@@ -80,7 +80,7 @@ where
     P3: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation.param().abi(), core::mem::transmute(options.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
@@ -118,7 +118,7 @@ where
     P2: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsCreateProcess(computesystem.param().abi(), processparameters.param().abi(), operation.param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
@@ -210,7 +210,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("computestorage.dll" "system" fn HcsGetLayerVhdMountPath(vhdhandle : super::super::Foundation:: HANDLE, mountpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsGetLayerVhdMountPath(vhdhandle.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -294,7 +294,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsGetServiceProperties(propertyquery : windows_core::PCWSTR, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsGetServiceProperties(propertyquery.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -380,7 +380,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsOpenComputeSystem(id : windows_core::PCWSTR, requestedaccess : u32, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsOpenComputeSystem(id.param().abi(), requestedaccess, &mut result__).map(|| result__)
 }
 #[inline]
@@ -390,7 +390,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsOpenComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, requestedaccess : u32, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsOpenComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), requestedaccess, &mut result__).map(|| result__)
 }
 #[inline]
@@ -399,7 +399,7 @@ where
     P0: windows_core::Param<HCS_SYSTEM>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsOpenProcess(computesystem : HCS_SYSTEM, processid : u32, requestedaccess : u32, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     HcsOpenProcess(computesystem.param().abi(), processid, requestedaccess, &mut result__).map(|| result__)
 }
 #[inline]

@@ -34,5 +34,5 @@ version = "0.56.0"
 path = "../bindgen"
 
 [features]
-# default = ["std"]
+default = ["std"]
 std = []

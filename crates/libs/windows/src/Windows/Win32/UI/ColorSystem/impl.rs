@@ -14,7 +14,7 @@ pub trait IDeviceModelPlugIn_Impl: Sized {
 impl windows_core::RuntimeName for IDeviceModelPlugIn {}
 impl IDeviceModelPlugIn_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>() -> IDeviceModelPlugIn_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: std::mem::MaybeUninit<windows_core::BSTR>, cnummodels: u32, imodelposition: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: core::mem::MaybeUninit<windows_core::BSTR>, cnummodels: u32, imodelposition: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDeviceModelPlugIn_Impl::Initialize(this, core::mem::transmute(&bstrxml), core::mem::transmute_copy(&cnummodels), core::mem::transmute_copy(&imodelposition)).into()
@@ -119,7 +119,7 @@ pub trait IGamutMapModelPlugIn_Impl: Sized {
 impl windows_core::RuntimeName for IGamutMapModelPlugIn {}
 impl IGamutMapModelPlugIn_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>() -> IGamutMapModelPlugIn_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: std::mem::MaybeUninit<windows_core::BSTR>, psrcplugin: *mut core::ffi::c_void, pdestplugin: *mut core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: core::mem::MaybeUninit<windows_core::BSTR>, psrcplugin: *mut core::ffi::c_void, pdestplugin: *mut core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGamutMapModelPlugIn_Impl::Initialize(this, core::mem::transmute(&bstrxml), windows_core::from_raw_borrowed(&psrcplugin), windows_core::from_raw_borrowed(&pdestplugin), core::mem::transmute_copy(&psrcgbd), core::mem::transmute_copy(&pdestgbd)).into()

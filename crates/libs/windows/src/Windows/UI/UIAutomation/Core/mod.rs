@@ -15,7 +15,7 @@ windows_core::imp::define_interface!(ICoreAutomationConnectionBoundObjectProvide
 impl std::ops::Deref for ICoreAutomationConnectionBoundObjectProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreAutomationConnectionBoundObjectProvider, windows_core::IUnknown, windows_core::IInspectable);
@@ -23,7 +23,7 @@ impl ICoreAutomationConnectionBoundObjectProvider {
     pub fn IsComThreadingRequired(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsComThreadingRequired)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -83,7 +83,7 @@ windows_core::imp::define_interface!(ICoreAutomationRemoteOperationExtensionProv
 impl std::ops::Deref for ICoreAutomationRemoteOperationExtensionProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreAutomationRemoteOperationExtensionProvider, windows_core::IUnknown, windows_core::IInspectable);
@@ -98,7 +98,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
     pub fn IsExtensionSupported(&self, extensionid: windows_core::GUID) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsExtensionSupported)(windows_core::Interface::as_raw(this), extensionid, &mut result__).map(|| result__)
         }
     }
@@ -135,8 +135,8 @@ impl windows_core::RuntimeType for IRemoteAutomationClientSessionFactory {
 #[repr(C)]
 pub struct IRemoteAutomationClientSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteAutomationConnectionRequestedEventArgs, IRemoteAutomationConnectionRequestedEventArgs_Vtbl, 0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 impl windows_core::RuntimeType for IRemoteAutomationConnectionRequestedEventArgs {
@@ -145,7 +145,7 @@ impl windows_core::RuntimeType for IRemoteAutomationConnectionRequestedEventArgs
 #[repr(C)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub LocalPipeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LocalPipeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub RemoteProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteAutomationDisconnectedEventArgs, IRemoteAutomationDisconnectedEventArgs_Vtbl, 0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
@@ -155,7 +155,7 @@ impl windows_core::RuntimeType for IRemoteAutomationDisconnectedEventArgs {
 #[repr(C)]
 pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub LocalPipeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LocalPipeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteAutomationServerStatics, IRemoteAutomationServerStatics_Vtbl, 0xe6e8945e_0c11_5028_9ae3_c2771288b6b7);
 impl windows_core::RuntimeType for IRemoteAutomationServerStatics {
@@ -184,35 +184,35 @@ impl AutomationRemoteOperationResult {
     pub fn Status(&self) -> windows_core::Result<AutomationRemoteOperationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ErrorLocation(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasOperand(&self, operandid: AutomationRemoteOperationOperandId) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasOperand)(windows_core::Interface::as_raw(this), operandid, &mut result__).map(|| result__)
         }
     }
     pub fn GetOperand(&self, operandid: AutomationRemoteOperationOperandId) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetOperand)(windows_core::Interface::as_raw(this), operandid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -233,7 +233,7 @@ pub struct CoreAutomationRegistrar;
 impl CoreAutomationRegistrar {
     pub fn RegisterAnnotationType(guid: windows_core::GUID) -> windows_core::Result<AutomationAnnotationTypeRegistration> {
         Self::ICoreAutomationRegistrarStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegisterAnnotationType)(windows_core::Interface::as_raw(this), guid, &mut result__).map(|| result__)
         })
     }
@@ -264,7 +264,7 @@ impl CoreAutomationRemoteOperation {
     pub fn IsOpcodeSupported(&self, opcode: u32) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOpcodeSupported)(windows_core::Interface::as_raw(this), opcode, &mut result__).map(|| result__)
         }
     }
@@ -289,7 +289,7 @@ impl CoreAutomationRemoteOperation {
     pub fn Execute(&self, bytecodebuffer: &[u8]) -> windows_core::Result<AutomationRemoteOperationResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Execute)(windows_core::Interface::as_raw(this), bytecodebuffer.len().try_into().unwrap(), bytecodebuffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -321,7 +321,7 @@ impl CoreAutomationRemoteOperationContext {
     pub fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetOperand)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -371,14 +371,14 @@ impl RemoteAutomationClientSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWindowAsync)(windows_core::Interface::as_raw(this), remotewindowid, remoteprocessid, parentautomationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SessionId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -388,7 +388,7 @@ impl RemoteAutomationClientSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -402,7 +402,7 @@ impl RemoteAutomationClientSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Disconnected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -412,13 +412,13 @@ impl RemoteAutomationClientSession {
     }
     pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<RemoteAutomationClientSession> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateInstance2(name: &windows_core::HSTRING, sessionid: windows_core::GUID) -> windows_core::Result<RemoteAutomationClientSession> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), sessionid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -448,14 +448,14 @@ impl RemoteAutomationConnectionRequestedEventArgs {
     pub fn LocalPipeName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalPipeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoteProcessId(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteProcessId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -480,7 +480,7 @@ impl RemoteAutomationDisconnectedEventArgs {
     pub fn LocalPipeName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalPipeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -519,14 +519,14 @@ impl RemoteAutomationWindow {
     pub fn AutomationProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UnregisterAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnregisterAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

@@ -59,7 +59,7 @@ impl CoreAppWindowPreview {
         P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
     {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIdFromWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -89,7 +89,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -100,7 +100,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -128,7 +128,7 @@ impl SystemNavigationManagerPreview {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -138,7 +138,7 @@ impl SystemNavigationManagerPreview {
     }
     pub fn GetForCurrentView() -> windows_core::Result<SystemNavigationManagerPreview> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

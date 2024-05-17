@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IUIApplication, IUIApplication_Vtbl, 0xd428
 impl std::ops::Deref for IUIApplication {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIApplication, windows_core::IUnknown);
@@ -14,7 +14,7 @@ impl IUIApplication {
         (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.param().abi(), verb, ureasoncode).ok()
     }
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnDestroyUICommand<P0>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P0) -> windows_core::Result<()>
@@ -35,17 +35,17 @@ windows_core::imp::define_interface!(IUICollection, IUICollection_Vtbl, 0xdf4f45
 impl std::ops::Deref for IUICollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUICollection, windows_core::IUnknown);
 impl IUICollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
@@ -88,7 +88,7 @@ windows_core::imp::define_interface!(IUICollectionChangedEvent, IUICollectionCha
 impl std::ops::Deref for IUICollectionChangedEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUICollectionChangedEvent, windows_core::IUnknown);
@@ -110,7 +110,7 @@ windows_core::imp::define_interface!(IUICommandHandler, IUICommandHandler_Vtbl, 
 impl std::ops::Deref for IUICommandHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUICommandHandler, windows_core::IUnknown);
@@ -124,7 +124,7 @@ impl IUICommandHandler {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: Option<*const windows_core::PROPVARIANT>) -> windows_core::Result<windows_core::PROPVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UpdateProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(currentvalue.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -132,11 +132,11 @@ impl IUICommandHandler {
 pub struct IUICommandHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, UI_EXECUTIONVERB, *const super::Shell::PropertiesSystem::PROPERTYKEY, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, UI_EXECUTIONVERB, *const super::Shell::PropertiesSystem::PROPERTYKEY, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Execute: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub UpdateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::Shell::PropertiesSystem::PROPERTYKEY, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub UpdateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::Shell::PropertiesSystem::PROPERTYKEY, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     UpdateProperty: usize,
 }
@@ -144,7 +144,7 @@ windows_core::imp::define_interface!(IUIContextualUI, IUIContextualUI_Vtbl, 0xee
 impl std::ops::Deref for IUIContextualUI {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIContextualUI, windows_core::IUnknown);
@@ -162,7 +162,7 @@ windows_core::imp::define_interface!(IUIEventLogger, IUIEventLogger_Vtbl, 0xec3e
 impl std::ops::Deref for IUIEventLogger {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIEventLogger, windows_core::IUnknown);
@@ -180,7 +180,7 @@ windows_core::imp::define_interface!(IUIEventingManager, IUIEventingManager_Vtbl
 impl std::ops::Deref for IUIEventingManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIEventingManager, windows_core::IUnknown);
@@ -201,7 +201,7 @@ windows_core::imp::define_interface!(IUIFramework, IUIFramework_Vtbl, 0xf4f0385d
 impl std::ops::Deref for IUIFramework {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIFramework, windows_core::IUnknown);
@@ -228,7 +228,7 @@ impl IUIFramework {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -254,11 +254,11 @@ pub struct IUIFramework_Vtbl {
     pub LoadUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HINSTANCE, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetUICommandProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::Shell::PropertiesSystem::PROPERTYKEY, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub GetUICommandProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::Shell::PropertiesSystem::PROPERTYKEY, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetUICommandProperty: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub SetUICommandProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::Shell::PropertiesSystem::PROPERTYKEY, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub SetUICommandProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::Shell::PropertiesSystem::PROPERTYKEY, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     SetUICommandProperty: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -272,14 +272,14 @@ windows_core::imp::define_interface!(IUIImage, IUIImage_Vtbl, 0x23c8c838_4de6_43
 impl std::ops::Deref for IUIImage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIImage, windows_core::IUnknown);
 impl IUIImage {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -295,7 +295,7 @@ windows_core::imp::define_interface!(IUIImageFromBitmap, IUIImageFromBitmap_Vtbl
 impl std::ops::Deref for IUIImageFromBitmap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIImageFromBitmap, windows_core::IUnknown);
@@ -305,7 +305,7 @@ impl IUIImageFromBitmap {
     where
         P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -321,13 +321,13 @@ windows_core::imp::define_interface!(IUIRibbon, IUIRibbon_Vtbl, 0x803982ab_370a_
 impl std::ops::Deref for IUIRibbon {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUIRibbon, windows_core::IUnknown);
 impl IUIRibbon {
     pub unsafe fn GetHeight(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -362,14 +362,14 @@ windows_core::imp::define_interface!(IUISimplePropertySet, IUISimplePropertySet_
 impl std::ops::Deref for IUISimplePropertySet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUISimplePropertySet, windows_core::IUnknown);
 impl IUISimplePropertySet {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetValue(&self, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -377,7 +377,7 @@ impl IUISimplePropertySet {
 pub struct IUISimplePropertySet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Shell::PropertiesSystem::PROPERTYKEY, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Shell::PropertiesSystem::PROPERTYKEY, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetValue: usize,
 }

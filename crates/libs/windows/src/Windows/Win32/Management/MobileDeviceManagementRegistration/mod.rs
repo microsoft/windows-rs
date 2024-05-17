@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mdmregistration.dll" "system" fn DiscoverManagementService(pszupn : windows_core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     DiscoverManagementService(pszupn.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -22,7 +22,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mdmregistration.dll" "system" fn DiscoverManagementServiceEx(pszupn : windows_core::PCWSTR, pszdiscoveryservicecandidate : windows_core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     DiscoverManagementServiceEx(pszupn.param().abi(), pszdiscoveryservicecandidate.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -51,13 +51,13 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     IsManagementRegistrationAllowed(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     IsMdmUxWithoutAadAllowed(&mut result__).map(|| result__)
 }
 #[inline]

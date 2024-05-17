@@ -6,11 +6,11 @@ impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
 pub struct IGameControllerProviderInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetParentProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetParentProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     GetParentProviderId: usize,
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     GetProviderId: usize,
 }
@@ -22,7 +22,7 @@ impl GameControllerProviderInfo {
         P0: windows_core::Param<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetParentProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -32,7 +32,7 @@ impl GameControllerProviderInfo {
         P0: windows_core::Param<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

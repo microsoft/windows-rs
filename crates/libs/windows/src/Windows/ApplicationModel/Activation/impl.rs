@@ -118,7 +118,7 @@ impl windows_core::RuntimeName for IAppointmentsProviderActivatedEventArgs {
 }
 impl IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderActivatedEventArgs_Impl, const OFFSET: isize>() -> IAppointmentsProviderActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAppointmentsProviderActivatedEventArgs_Impl::Verb(this) {
@@ -257,7 +257,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocalId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::LocalId(this) {
@@ -269,7 +269,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoamingId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoamingId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::RoamingId(this) {
@@ -373,7 +373,7 @@ impl windows_core::RuntimeName for IBarcodeScannerPreviewActivatedEventArgs {
 }
 impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBarcodeScannerPreviewActivatedEventArgs_Impl, const OFFSET: isize>() -> IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn ConnectionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBarcodeScannerPreviewActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBarcodeScannerPreviewActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBarcodeScannerPreviewActivatedEventArgs_Impl::ConnectionId(this) {
@@ -506,7 +506,7 @@ impl windows_core::RuntimeName for IContactActivatedEventArgs {
 }
 impl IContactActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactActivatedEventArgs_Impl, const OFFSET: isize>() -> IContactActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactActivatedEventArgs_Impl::Verb(this) {
@@ -537,7 +537,7 @@ impl windows_core::RuntimeName for IContactCallActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactCallActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>() -> IContactCallActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactCallActivatedEventArgs_Impl::ServiceId(this) {
@@ -549,7 +549,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactCallActivatedEventArgs_Impl::ServiceUserId(this) {
@@ -643,7 +643,7 @@ impl windows_core::RuntimeName for IContactMessageActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactMessageActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>() -> IContactMessageActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactMessageActivatedEventArgs_Impl::ServiceId(this) {
@@ -655,7 +655,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactMessageActivatedEventArgs_Impl::ServiceUserId(this) {
@@ -781,7 +781,7 @@ impl windows_core::RuntimeName for IContactPostActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactPostActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>() -> IContactPostActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactPostActivatedEventArgs_Impl::ServiceId(this) {
@@ -793,7 +793,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactPostActivatedEventArgs_Impl::ServiceUserId(this) {
@@ -841,7 +841,7 @@ impl windows_core::RuntimeName for IContactVideoCallActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactVideoCallActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>() -> IContactVideoCallActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactVideoCallActivatedEventArgs_Impl::ServiceId(this) {
@@ -853,7 +853,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactVideoCallActivatedEventArgs_Impl::ServiceUserId(this) {
@@ -896,7 +896,7 @@ impl windows_core::RuntimeName for IContactsProviderActivatedEventArgs {
 }
 impl IContactsProviderActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactsProviderActivatedEventArgs_Impl, const OFFSET: isize>() -> IContactsProviderActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactsProviderActivatedEventArgs_Impl::Verb(this) {
@@ -955,7 +955,7 @@ impl windows_core::RuntimeName for IDeviceActivatedEventArgs {
 }
 impl IDeviceActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>() -> IDeviceActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn DeviceInformationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceInformationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDeviceActivatedEventArgs_Impl::DeviceInformationId(this) {
@@ -967,7 +967,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDeviceActivatedEventArgs_Impl::Verb(this) {
@@ -1029,7 +1029,7 @@ impl windows_core::RuntimeName for IDialReceiverActivatedEventArgs {
 }
 impl IDialReceiverActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialReceiverActivatedEventArgs_Impl, const OFFSET: isize>() -> IDialReceiverActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn AppName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialReceiverActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AppName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialReceiverActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDialReceiverActivatedEventArgs_Impl::AppName(this) {
@@ -1071,7 +1071,7 @@ impl IFileActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileActivatedEventArgs_Impl::Verb(this) {
@@ -1101,7 +1101,7 @@ impl windows_core::RuntimeName for IFileActivatedEventArgsWithCallerPackageFamil
 }
 impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl, const OFFSET: isize>() -> IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileActivatedEventArgsWithCallerPackageFamilyName_Impl::CallerPackageFamilyName(this) {
@@ -1194,7 +1194,7 @@ impl windows_core::RuntimeName for IFileOpenPickerActivatedEventArgs2 {
 }
 impl IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOpenPickerActivatedEventArgs2_Impl, const OFFSET: isize>() -> IFileOpenPickerActivatedEventArgs2_Vtbl {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOpenPickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOpenPickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileOpenPickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
@@ -1285,7 +1285,7 @@ impl windows_core::RuntimeName for IFileSavePickerActivatedEventArgs2 {
 }
 impl IFileSavePickerActivatedEventArgs2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>() -> IFileSavePickerActivatedEventArgs2_Vtbl {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileSavePickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
@@ -1297,7 +1297,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnterpriseId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnterpriseId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileSavePickerActivatedEventArgs2_Impl::EnterpriseId(this) {
@@ -1386,7 +1386,7 @@ impl windows_core::RuntimeName for ILaunchActivatedEventArgs {
 }
 impl ILaunchActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>() -> ILaunchActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILaunchActivatedEventArgs_Impl::Arguments(this) {
@@ -1398,7 +1398,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TileId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TileId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILaunchActivatedEventArgs_Impl::TileId(this) {
@@ -1537,7 +1537,7 @@ impl windows_core::RuntimeName for IPickerReturnedActivatedEventArgs {
 }
 impl IPickerReturnedActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPickerReturnedActivatedEventArgs_Impl, const OFFSET: isize>() -> IPickerReturnedActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn PickerOperationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPickerReturnedActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PickerOperationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPickerReturnedActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPickerReturnedActivatedEventArgs_Impl::PickerOperationId(this) {
@@ -1688,7 +1688,7 @@ impl windows_core::RuntimeName for IProtocolActivatedEventArgsWithCallerPackageF
 #[cfg(feature = "Foundation_Collections")]
 impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>() -> IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::CallerPackageFamilyName(this) {
@@ -1792,7 +1792,7 @@ impl windows_core::RuntimeName for ISearchActivatedEventArgs {
 }
 impl ISearchActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>() -> ISearchActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn QueryText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISearchActivatedEventArgs_Impl::QueryText(this) {
@@ -1804,7 +1804,7 @@ impl ISearchActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISearchActivatedEventArgs_Impl::Language(this) {
@@ -1898,7 +1898,7 @@ impl windows_core::RuntimeName for IStartupTaskActivatedEventArgs {
 }
 impl IStartupTaskActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStartupTaskActivatedEventArgs_Impl, const OFFSET: isize>() -> IStartupTaskActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn TaskId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStartupTaskActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TaskId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStartupTaskActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IStartupTaskActivatedEventArgs_Impl::TaskId(this) {
@@ -1928,7 +1928,7 @@ impl windows_core::RuntimeName for IToastNotificationActivatedEventArgs {
 #[cfg(feature = "Foundation_Collections")]
 impl IToastNotificationActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>() -> IToastNotificationActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn Argument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Argument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IToastNotificationActivatedEventArgs_Impl::Argument(this) {
@@ -2065,7 +2065,7 @@ impl windows_core::RuntimeName for IWalletActionActivatedEventArgs {
 #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
 impl IWalletActionActivatedEventArgs_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>() -> IWalletActionActivatedEventArgs_Vtbl {
-        unsafe extern "system" fn ItemId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ItemId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWalletActionActivatedEventArgs_Impl::ItemId(this) {
@@ -2088,7 +2088,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWalletActionActivatedEventArgs_Impl::ActionId(this) {

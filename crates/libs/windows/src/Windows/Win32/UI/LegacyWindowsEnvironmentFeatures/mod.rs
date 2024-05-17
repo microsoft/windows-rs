@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IADesktopP2, IADesktopP2_Vtbl, 0xb22754e2_4
 impl std::ops::Deref for IADesktopP2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IADesktopP2, windows_core::IUnknown);
@@ -39,7 +39,7 @@ windows_core::imp::define_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52
 impl std::ops::Deref for IActiveDesktopP {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IActiveDesktopP, windows_core::IUnknown);
@@ -72,7 +72,7 @@ windows_core::imp::define_interface!(IBriefcaseInitiator, IBriefcaseInitiator_Vt
 impl std::ops::Deref for IBriefcaseInitiator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBriefcaseInitiator, windows_core::IUnknown);
@@ -97,7 +97,7 @@ windows_core::imp::define_interface!(IEmptyVolumeCache, IEmptyVolumeCache_Vtbl, 
 impl std::ops::Deref for IEmptyVolumeCache {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEmptyVolumeCache, windows_core::IUnknown);
@@ -129,7 +129,7 @@ impl IEmptyVolumeCache {
         (windows_core::Interface::vtable(self).ShowProperties)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
     }
     pub unsafe fn Deactivate(&self) -> windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -149,7 +149,7 @@ windows_core::imp::define_interface!(IEmptyVolumeCache2, IEmptyVolumeCache2_Vtbl
 impl std::ops::Deref for IEmptyVolumeCache2 {
     type Target = IEmptyVolumeCache;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEmptyVolumeCache2, windows_core::IUnknown, IEmptyVolumeCache);
@@ -176,7 +176,7 @@ windows_core::imp::define_interface!(IEmptyVolumeCacheCallBack, IEmptyVolumeCach
 impl std::ops::Deref for IEmptyVolumeCacheCallBack {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, windows_core::IUnknown);
@@ -204,7 +204,7 @@ windows_core::imp::define_interface!(IReconcilableObject, IReconcilableObject_Vt
 impl std::ops::Deref for IReconcilableObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IReconcilableObject, windows_core::IUnknown);
@@ -220,7 +220,7 @@ impl IReconcilableObject {
         (windows_core::Interface::vtable(self).Reconcile)(windows_core::Interface::as_raw(self), pinitiator.param().abi(), dwflags, hwndowner.param().abi(), hwndprogressfeedback.param().abi(), rgpmkotherinput.len().try_into().unwrap(), core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.param().abi(), core::mem::transmute(pvreserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -237,7 +237,7 @@ windows_core::imp::define_interface!(IReconcileInitiator, IReconcileInitiator_Vt
 impl std::ops::Deref for IReconcileInitiator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IReconcileInitiator, windows_core::IUnknown);

@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IApoAcousticEchoCancellation, IApoAcousticE
 impl std::ops::Deref for IApoAcousticEchoCancellation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IApoAcousticEchoCancellation, windows_core::IUnknown);
@@ -15,7 +15,7 @@ windows_core::imp::define_interface!(IApoAuxiliaryInputConfiguration, IApoAuxili
 impl std::ops::Deref for IApoAuxiliaryInputConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IApoAuxiliaryInputConfiguration, windows_core::IUnknown);
@@ -30,7 +30,7 @@ impl IApoAuxiliaryInputConfiguration {
     where
         P0: windows_core::Param<IAudioMediaType>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -45,7 +45,7 @@ windows_core::imp::define_interface!(IApoAuxiliaryInputRT, IApoAuxiliaryInputRT_
 impl std::ops::Deref for IApoAuxiliaryInputRT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IApoAuxiliaryInputRT, windows_core::IUnknown);
@@ -63,7 +63,7 @@ windows_core::imp::define_interface!(IAudioDeviceModulesClient, IAudioDeviceModu
 impl std::ops::Deref for IAudioDeviceModulesClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioDeviceModulesClient, windows_core::IUnknown);
@@ -84,20 +84,20 @@ windows_core::imp::define_interface!(IAudioMediaType, IAudioMediaType_Vtbl, 0x4e
 impl std::ops::Deref for IAudioMediaType {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioMediaType, windows_core::IUnknown);
 impl IAudioMediaType {
     pub unsafe fn IsCompressedFormat(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsCompressedFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<IAudioMediaType>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), piaudiotype.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
@@ -119,7 +119,7 @@ windows_core::imp::define_interface!(IAudioProcessingObject, IAudioProcessingObj
 impl std::ops::Deref for IAudioProcessingObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObject, windows_core::IUnknown);
@@ -128,11 +128,11 @@ impl IAudioProcessingObject {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLatency(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRegistrationProperties(&self) -> windows_core::Result<*mut APO_REG_PROPERTIES> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRegistrationProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> windows_core::Result<()> {
@@ -143,7 +143,7 @@ impl IAudioProcessingObject {
         P0: windows_core::Param<IAudioMediaType>,
         P1: windows_core::Param<IAudioMediaType>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> windows_core::Result<IAudioMediaType>
@@ -151,11 +151,11 @@ impl IAudioProcessingObject {
         P0: windows_core::Param<IAudioMediaType>,
         P1: windows_core::Param<IAudioMediaType>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedoutputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInputChannelCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInputChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -174,7 +174,7 @@ windows_core::imp::define_interface!(IAudioProcessingObjectConfiguration, IAudio
 impl std::ops::Deref for IAudioProcessingObjectConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectConfiguration, windows_core::IUnknown);
@@ -196,7 +196,7 @@ windows_core::imp::define_interface!(IAudioProcessingObjectLoggingService, IAudi
 impl std::ops::Deref for IAudioProcessingObjectLoggingService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectLoggingService, windows_core::IUnknown);
@@ -217,7 +217,7 @@ windows_core::imp::define_interface!(IAudioProcessingObjectNotifications, IAudio
 impl std::ops::Deref for IAudioProcessingObjectNotifications {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectNotifications, windows_core::IUnknown);
@@ -243,7 +243,7 @@ windows_core::imp::define_interface!(IAudioProcessingObjectNotifications2, IAudi
 impl std::ops::Deref for IAudioProcessingObjectNotifications2 {
     type Target = IAudioProcessingObjectNotifications;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectNotifications2, windows_core::IUnknown, IAudioProcessingObjectNotifications);
@@ -261,7 +261,7 @@ windows_core::imp::define_interface!(IAudioProcessingObjectRT, IAudioProcessingO
 impl std::ops::Deref for IAudioProcessingObjectRT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectRT, windows_core::IUnknown);
@@ -287,13 +287,13 @@ windows_core::imp::define_interface!(IAudioProcessingObjectRTQueueService, IAudi
 impl std::ops::Deref for IAudioProcessingObjectRTQueueService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectRTQueueService, windows_core::IUnknown);
 impl IAudioProcessingObjectRTQueueService {
     pub unsafe fn GetRealTimeWorkQueue(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRealTimeWorkQueue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -306,17 +306,17 @@ windows_core::imp::define_interface!(IAudioProcessingObjectVBR, IAudioProcessing
 impl std::ops::Deref for IAudioProcessingObjectVBR {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectVBR, windows_core::IUnknown);
 impl IAudioProcessingObjectVBR {
     pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CalcMaxInputFrames)(windows_core::Interface::as_raw(self), u32maxoutputframecount, &mut result__).map(|| result__)
     }
     pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CalcMaxOutputFrames)(windows_core::Interface::as_raw(self), u32maxinputframecount, &mut result__).map(|| result__)
     }
 }
@@ -330,7 +330,7 @@ windows_core::imp::define_interface!(IAudioSystemEffects, IAudioSystemEffects_Vt
 impl std::ops::Deref for IAudioSystemEffects {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects, windows_core::IUnknown);
@@ -343,7 +343,7 @@ windows_core::imp::define_interface!(IAudioSystemEffects2, IAudioSystemEffects2_
 impl std::ops::Deref for IAudioSystemEffects2 {
     type Target = IAudioSystemEffects;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects2, windows_core::IUnknown, IAudioSystemEffects);
@@ -364,7 +364,7 @@ windows_core::imp::define_interface!(IAudioSystemEffects3, IAudioSystemEffects3_
 impl std::ops::Deref for IAudioSystemEffects3 {
     type Target = IAudioSystemEffects2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects3, windows_core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
@@ -389,21 +389,21 @@ windows_core::imp::define_interface!(IAudioSystemEffectsCustomFormats, IAudioSys
 impl std::ops::Deref for IAudioSystemEffectsCustomFormats {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsCustomFormats, windows_core::IUnknown);
 impl IAudioSystemEffectsCustomFormats {
     pub unsafe fn GetFormatCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormatCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFormat(&self, nformat: u32) -> windows_core::Result<IAudioMediaType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), nformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormatRepresentation)(windows_core::Interface::as_raw(self), nformat, &mut result__).map(|| result__)
     }
 }
@@ -681,10 +681,10 @@ impl Default for APOInitBaseStruct {
 #[derive(Debug, Eq, PartialEq)]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-    pub pAPOSystemEffectsProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pAPOSystemEffectsProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub pReserved: *mut core::ffi::c_void,
-    pub pDeviceCollection: std::mem::ManuallyDrop<Option<super::IMMDeviceCollection>>,
+    pub pDeviceCollection: core::mem::ManuallyDrop<Option<super::IMMDeviceCollection>>,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Clone for APOInitSystemEffects {
@@ -707,10 +707,10 @@ impl Default for APOInitSystemEffects {
 #[derive(Debug, Eq, PartialEq)]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-    pub pAPOSystemEffectsProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pAPOSystemEffectsProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub pReserved: *mut core::ffi::c_void,
-    pub pDeviceCollection: std::mem::ManuallyDrop<Option<super::IMMDeviceCollection>>,
+    pub pDeviceCollection: core::mem::ManuallyDrop<Option<super::IMMDeviceCollection>>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: windows_core::GUID,
@@ -737,9 +737,9 @@ impl Default for APOInitSystemEffects2 {
 #[derive(Debug, Eq, PartialEq)]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-    pub pServiceProvider: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IServiceProvider>>,
-    pub pDeviceCollection: std::mem::ManuallyDrop<Option<super::IMMDeviceCollection>>,
+    pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pServiceProvider: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IServiceProvider>>,
+    pub pDeviceCollection: core::mem::ManuallyDrop<Option<super::IMMDeviceCollection>>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: windows_core::GUID,
@@ -767,7 +767,7 @@ pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
     pub u32MaxFrameCount: u32,
-    pub pFormat: std::mem::ManuallyDrop<Option<IAudioMediaType>>,
+    pub pFormat: core::mem::ManuallyDrop<Option<IAudioMediaType>>,
     pub u32Signature: u32,
 }
 impl Clone for APO_CONNECTION_DESCRIPTOR {
@@ -838,12 +838,12 @@ impl Default for APO_NOTIFICATION {
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub union APO_NOTIFICATION_0 {
-    pub audioEndpointVolumeChange: std::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
-    pub audioEndpointPropertyChange: std::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
-    pub audioSystemEffectsPropertyChange: std::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION>,
-    pub audioEndpointVolumeChange2: std::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2>,
+    pub audioEndpointVolumeChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
+    pub audioEndpointPropertyChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
+    pub audioSystemEffectsPropertyChange: core::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION>,
+    pub audioEndpointVolumeChange2: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2>,
     pub deviceOrientation: DEVICE_ORIENTATION_TYPE,
-    pub audioMicrophoneBoostChange: std::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_NOTIFICATION>,
+    pub audioMicrophoneBoostChange: core::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_NOTIFICATION>,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Clone for APO_NOTIFICATION_0 {
@@ -881,10 +881,10 @@ impl Default for APO_NOTIFICATION_DESCRIPTOR {
 }
 #[repr(C)]
 pub union APO_NOTIFICATION_DESCRIPTOR_0 {
-    pub audioEndpointVolume: std::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR>,
-    pub audioEndpointPropertyChange: std::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
-    pub audioSystemEffectsPropertyChange: std::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
-    pub audioMicrophoneBoost: std::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioEndpointVolume: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioEndpointPropertyChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioSystemEffectsPropertyChange: core::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioMicrophoneBoost: core::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR>,
 }
 impl Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
@@ -927,7 +927,7 @@ impl Default for APO_REG_PROPERTIES {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
 impl Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -946,8 +946,8 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
-    pub propertyStore: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -969,7 +969,7 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
 impl Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -987,7 +987,7 @@ impl Default for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
 }
 impl Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
@@ -1006,7 +1006,7 @@ impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
-    pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub volume: *mut AUDIO_VOLUME_NOTIFICATION_DATA2,
 }
 impl Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
@@ -1025,7 +1025,7 @@ impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
 impl Clone for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -1043,7 +1043,7 @@ impl Default for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_NOTIFICATION {
-    pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub eventContext: windows_core::GUID,
     pub microphoneBoostEnabled: super::super::super::Foundation::BOOL,
     pub levelInDb: f32,
@@ -1084,7 +1084,7 @@ impl Default for AUDIO_SYSTEMEFFECT {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
 }
 impl Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -1104,10 +1104,10 @@ impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
+    pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
     pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
-    pub propertyStore: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1152,7 +1152,7 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA2 {
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: windows_core::PWSTR,
-    pub pFxProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pFxProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Clone for AudioFXExtensionParams {

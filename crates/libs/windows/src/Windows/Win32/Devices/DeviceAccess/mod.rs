@@ -4,14 +4,14 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("deviceaccess.dll" "system" fn CreateDeviceAccessInstance(deviceinterfacepath : windows_core::PCWSTR, desiredaccess : u32, createasync : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateDeviceAccessInstance(deviceinterfacepath.param().abi(), desiredaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(ICreateDeviceAccessAsync, ICreateDeviceAccessAsync_Vtbl, 0x3474628f_683d_42d2_abcb_db018c6503bc);
 impl std::ops::Deref for ICreateDeviceAccessAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICreateDeviceAccessAsync, windows_core::IUnknown);
@@ -45,7 +45,7 @@ windows_core::imp::define_interface!(IDeviceIoControl, IDeviceIoControl_Vtbl, 0x
 impl std::ops::Deref for IDeviceIoControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDeviceIoControl, windows_core::IUnknown);
@@ -84,7 +84,7 @@ windows_core::imp::define_interface!(IDeviceRequestCompletionCallback, IDeviceRe
 impl std::ops::Deref for IDeviceRequestCompletionCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDeviceRequestCompletionCallback, windows_core::IUnknown);

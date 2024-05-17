@@ -221,7 +221,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValidateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValidateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::ValidateData(this, core::mem::transmute(&data)) {
@@ -595,12 +595,12 @@ impl windows_core::RuntimeName for IPosPrinterJob {
 }
 impl IPosPrinterJob_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>() -> IPosPrinterJob_Vtbl {
-        unsafe extern "system" fn Print<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Print<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPosPrinterJob_Impl::Print(this, core::mem::transmute(&data)).into()
         }
-        unsafe extern "system" fn PrintLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrintLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPosPrinterJob_Impl::PrintLine(this, core::mem::transmute(&data)).into()
@@ -699,17 +699,17 @@ impl IReceiptOrSlipJob_Vtbl {
             let this = (*this).get_impl();
             IReceiptOrSlipJob_Impl::PrintSavedBitmap(this, bitmapnumber).into()
         }
-        unsafe extern "system" fn DrawRuledLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, positionlist: std::mem::MaybeUninit<windows_core::HSTRING>, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawRuledLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, positionlist: core::mem::MaybeUninit<windows_core::HSTRING>, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IReceiptOrSlipJob_Impl::DrawRuledLine(this, core::mem::transmute(&positionlist), linedirection, linewidth, linestyle, linecolor).into()
         }
-        unsafe extern "system" fn PrintBarcode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrintBarcode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IReceiptOrSlipJob_Impl::PrintBarcode(this, core::mem::transmute(&data), symbology, height, width, textposition, alignment).into()
         }
-        unsafe extern "system" fn PrintBarcodeCustomAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrintBarcodeCustomAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IReceiptOrSlipJob_Impl::PrintBarcodeCustomAlign(this, core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()

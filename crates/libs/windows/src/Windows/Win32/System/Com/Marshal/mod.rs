@@ -1,41 +1,41 @@
 #[inline]
 pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const windows_core::BSTR) {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserFree(param0 : *const u32, param1 : *const std::mem::MaybeUninit < windows_core::BSTR >));
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserFree(param0 : *const u32, param1 : *const core::mem::MaybeUninit < windows_core::BSTR >));
     BSTR_UserFree(param0, core::mem::transmute(param1))
 }
 #[inline]
 pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const windows_core::BSTR) {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserFree64(param0 : *const u32, param1 : *const std::mem::MaybeUninit < windows_core::BSTR >));
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserFree64(param0 : *const u32, param1 : *const core::mem::MaybeUninit < windows_core::BSTR >));
     BSTR_UserFree64(param0, core::mem::transmute(param1))
 }
 #[inline]
 pub unsafe fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const windows_core::BSTR) -> *mut u8 {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const std::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const core::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
     BSTR_UserMarshal(param0, param1, core::mem::transmute(param2))
 }
 #[inline]
 pub unsafe fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const windows_core::BSTR) -> *mut u8 {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const std::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const core::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
     BSTR_UserMarshal64(param0, param1, core::mem::transmute(param2))
 }
 #[inline]
 pub unsafe fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const windows_core::BSTR) -> u32 {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserSize(param0 : *const u32, param1 : u32, param2 : *const std::mem::MaybeUninit < windows_core::BSTR >) -> u32);
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserSize(param0 : *const u32, param1 : u32, param2 : *const core::mem::MaybeUninit < windows_core::BSTR >) -> u32);
     BSTR_UserSize(param0, param1, core::mem::transmute(param2))
 }
 #[inline]
 pub unsafe fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const windows_core::BSTR) -> u32 {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserSize64(param0 : *const u32, param1 : u32, param2 : *const std::mem::MaybeUninit < windows_core::BSTR >) -> u32);
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserSize64(param0 : *const u32, param1 : u32, param2 : *const core::mem::MaybeUninit < windows_core::BSTR >) -> u32);
     BSTR_UserSize64(param0, param1, core::mem::transmute(param2))
 }
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut windows_core::BSTR) -> *mut u8 {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
     BSTR_UserUnmarshal(param0, param1, core::mem::transmute(param2))
 }
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut windows_core::BSTR) -> *mut u8 {
-    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
+    windows_targets::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> *mut u8);
     BSTR_UserUnmarshal64(param0, param1, core::mem::transmute(param2))
 }
 #[inline]
@@ -92,7 +92,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetStandardMarshal(riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32, ppmarshal : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CoGetStandardMarshal(riid, punk.param().abi(), dwdestcontext, core::mem::transmute(pvdestcontext.unwrap_or(std::ptr::null())), mshlflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -101,7 +101,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetStdMarshalEx(punkouter : * mut core::ffi::c_void, smexflags : u32, ppunkinner : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CoGetStdMarshalEx(punkouter.param().abi(), smexflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -118,7 +118,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoMarshalInterThreadInterfaceInStream(riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppstm : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CoMarshalInterThreadInterfaceInStream(riid, punk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -144,7 +144,7 @@ where
     P0: windows_core::Param<super::IStream>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoUnmarshalHresult(pstm : * mut core::ffi::c_void, phresult : *mut windows_core::HRESULT) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CoUnmarshalHresult(pstm.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -657,17 +657,17 @@ windows_core::imp::define_interface!(IMarshal, IMarshal_Vtbl, 0x00000003_0000_00
 impl std::ops::Deref for IMarshal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMarshal, windows_core::IUnknown);
 impl IMarshal {
     pub unsafe fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUnmarshalClass)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(pv.unwrap_or(std::ptr::null())), dwdestcontext, core::mem::transmute(pvdestcontext.unwrap_or(std::ptr::null())), mshlflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMarshalSizeMax)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(pv.unwrap_or(std::ptr::null())), dwdestcontext, core::mem::transmute(pvdestcontext.unwrap_or(std::ptr::null())), mshlflags, &mut result__).map(|| result__)
     }
     pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
@@ -706,7 +706,7 @@ windows_core::imp::define_interface!(IMarshal2, IMarshal2_Vtbl, 0x000001cf_0000_
 impl std::ops::Deref for IMarshal2 {
     type Target = IMarshal;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMarshal2, windows_core::IUnknown, IMarshal);
@@ -719,13 +719,13 @@ windows_core::imp::define_interface!(IMarshalingStream, IMarshalingStream_Vtbl, 
 impl std::ops::Deref for IMarshalingStream {
     type Target = super::IStream;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMarshalingStream, windows_core::IUnknown, super::ISequentialStream, super::IStream);
 impl IMarshalingStream {
     pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> windows_core::Result<usize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMarshalingContextAttribute)(windows_core::Interface::as_raw(self), attribute, &mut result__).map(|| result__)
     }
 }

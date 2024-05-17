@@ -25,7 +25,7 @@ windows_core::imp::define_interface!(IEnumOfflineFilesItems, IEnumOfflineFilesIt
 impl std::ops::Deref for IEnumOfflineFilesItems {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumOfflineFilesItems, windows_core::IUnknown);
@@ -40,7 +40,7 @@ impl IEnumOfflineFilesItems {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOfflineFilesItems> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -56,7 +56,7 @@ windows_core::imp::define_interface!(IEnumOfflineFilesSettings, IEnumOfflineFile
 impl std::ops::Deref for IEnumOfflineFilesSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumOfflineFilesSettings, windows_core::IUnknown);
@@ -71,7 +71,7 @@ impl IEnumOfflineFilesSettings {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOfflineFilesSettings> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -87,7 +87,7 @@ windows_core::imp::define_interface!(IOfflineFilesCache, IOfflineFilesCache_Vtbl
 impl std::ops::Deref for IOfflineFilesCache {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesCache, windows_core::IUnknown);
@@ -150,7 +150,7 @@ impl IOfflineFilesCache {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindItem)(windows_core::Interface::as_raw(self), pszpath.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
@@ -161,7 +161,7 @@ impl IOfflineFilesCache {
         P3: windows_core::Param<IOfflineFilesItemFilter>,
         P4: windows_core::Param<IOfflineFilesItemFilter>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindItemEx)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RenameItem<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> windows_core::Result<()>
@@ -173,7 +173,7 @@ impl IOfflineFilesCache {
         (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), pszpathoriginal.param().abi(), pszpathnew.param().abi(), breplaceifexists.param().abi()).ok()
     }
     pub unsafe fn GetLocation(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> windows_core::Result<()> {
@@ -193,11 +193,11 @@ impl IOfflineFilesCache {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSettingObject)(windows_core::Interface::as_raw(self), pszsettingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumSettingObjects(&self) -> windows_core::Result<IEnumOfflineFilesSettings> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumSettingObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>
@@ -232,7 +232,7 @@ windows_core::imp::define_interface!(IOfflineFilesCache2, IOfflineFilesCache2_Vt
 impl std::ops::Deref for IOfflineFilesCache2 {
     type Target = IOfflineFilesCache;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesCache2, windows_core::IUnknown, IOfflineFilesCache);
@@ -255,7 +255,7 @@ windows_core::imp::define_interface!(IOfflineFilesChangeInfo, IOfflineFilesChang
 impl std::ops::Deref for IOfflineFilesChangeInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesChangeInfo, windows_core::IUnknown);
@@ -264,23 +264,23 @@ impl IOfflineFilesChangeInfo {
         (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self), pbdirty)
     }
     pub unsafe fn IsDeletedOffline(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsDeletedOffline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsCreatedOffline(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsCreatedOffline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsLocallyModifiedData(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsLocallyModifiedData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsLocallyModifiedAttributes(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsLocallyModifiedAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsLocallyModifiedTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsLocallyModifiedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -298,7 +298,7 @@ windows_core::imp::define_interface!(IOfflineFilesConnectionInfo, IOfflineFilesC
 impl std::ops::Deref for IOfflineFilesConnectionInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesConnectionInfo, windows_core::IUnknown);
@@ -323,7 +323,7 @@ impl IOfflineFilesConnectionInfo {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TransitionOffline)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), dwflags, bforceopenfilesclosed.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -339,7 +339,7 @@ windows_core::imp::define_interface!(IOfflineFilesDirectoryItem, IOfflineFilesDi
 impl std::ops::Deref for IOfflineFilesDirectoryItem {
     type Target = IOfflineFilesItem;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesDirectoryItem, windows_core::IUnknown, IOfflineFilesItem);
@@ -352,17 +352,17 @@ windows_core::imp::define_interface!(IOfflineFilesDirtyInfo, IOfflineFilesDirtyI
 impl std::ops::Deref for IOfflineFilesDirtyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesDirtyInfo, windows_core::IUnknown);
 impl IOfflineFilesDirtyInfo {
     pub unsafe fn LocalDirtyByteCount(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LocalDirtyByteCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoteDirtyByteCount(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RemoteDirtyByteCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -376,18 +376,18 @@ windows_core::imp::define_interface!(IOfflineFilesErrorInfo, IOfflineFilesErrorI
 impl std::ops::Deref for IOfflineFilesErrorInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesErrorInfo, windows_core::IUnknown);
 impl IOfflineFilesErrorInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRawData(&self) -> windows_core::Result<*mut super::super::System::Com::BYTE_BLOB> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRawData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -404,7 +404,7 @@ windows_core::imp::define_interface!(IOfflineFilesEvents, IOfflineFilesEvents_Vt
 impl std::ops::Deref for IOfflineFilesEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesEvents, windows_core::IUnknown);
@@ -576,7 +576,7 @@ windows_core::imp::define_interface!(IOfflineFilesEvents2, IOfflineFilesEvents2_
 impl std::ops::Deref for IOfflineFilesEvents2 {
     type Target = IOfflineFilesEvents;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesEvents2, windows_core::IUnknown, IOfflineFilesEvents);
@@ -626,7 +626,7 @@ windows_core::imp::define_interface!(IOfflineFilesEvents3, IOfflineFilesEvents3_
 impl std::ops::Deref for IOfflineFilesEvents3 {
     type Target = IOfflineFilesEvents2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesEvents3, windows_core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2);
@@ -664,7 +664,7 @@ windows_core::imp::define_interface!(IOfflineFilesEvents4, IOfflineFilesEvents4_
 impl std::ops::Deref for IOfflineFilesEvents4 {
     type Target = IOfflineFilesEvents3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesEvents4, windows_core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2, IOfflineFilesEvents3);
@@ -686,7 +686,7 @@ windows_core::imp::define_interface!(IOfflineFilesEventsFilter, IOfflineFilesEve
 impl std::ops::Deref for IOfflineFilesEventsFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesEventsFilter, windows_core::IUnknown);
@@ -712,17 +712,17 @@ windows_core::imp::define_interface!(IOfflineFilesFileItem, IOfflineFilesFileIte
 impl std::ops::Deref for IOfflineFilesFileItem {
     type Target = IOfflineFilesItem;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesFileItem, windows_core::IUnknown, IOfflineFilesItem);
 impl IOfflineFilesFileItem {
     pub unsafe fn IsSparse(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsSparse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsEncrypted(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEncrypted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -736,20 +736,20 @@ windows_core::imp::define_interface!(IOfflineFilesFileSysInfo, IOfflineFilesFile
 impl std::ops::Deref for IOfflineFilesFileSysInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesFileSysInfo, windows_core::IUnknown);
 impl IOfflineFilesFileSysInfo {
     pub unsafe fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), copy, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimes(&self, copy: OFFLINEFILES_ITEM_COPY, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTimes)(windows_core::Interface::as_raw(self), copy, pftcreationtime, pftlastwritetime, pftchangetime, pftlastaccesstime).ok()
     }
     pub unsafe fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), copy, &mut result__).map(|| result__)
     }
 }
@@ -764,13 +764,13 @@ windows_core::imp::define_interface!(IOfflineFilesGhostInfo, IOfflineFilesGhostI
 impl std::ops::Deref for IOfflineFilesGhostInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesGhostInfo, windows_core::IUnknown);
 impl IOfflineFilesGhostInfo {
     pub unsafe fn IsGhosted(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsGhosted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -783,28 +783,28 @@ windows_core::imp::define_interface!(IOfflineFilesItem, IOfflineFilesItem_Vtbl, 
 impl std::ops::Deref for IOfflineFilesItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesItem, windows_core::IUnknown);
 impl IOfflineFilesItem {
     pub unsafe fn GetItemType(&self) -> windows_core::Result<OFFLINEFILES_ITEM_TYPE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPath(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<IOfflineFilesItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), dwqueryflags).ok()
     }
     pub unsafe fn IsMarkedForDeletion(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsMarkedForDeletion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -821,13 +821,13 @@ windows_core::imp::define_interface!(IOfflineFilesItemContainer, IOfflineFilesIt
 impl std::ops::Deref for IOfflineFilesItemContainer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesItemContainer, windows_core::IUnknown);
 impl IOfflineFilesItemContainer {
     pub unsafe fn EnumItems(&self, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumItemsEx<P0, P1, P2, P3>(&self, pincludefilefilter: P0, pincludedirfilter: P1, pexcludefilefilter: P2, pexcludedirfilter: P3, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>
@@ -837,7 +837,7 @@ impl IOfflineFilesItemContainer {
         P2: windows_core::Param<IOfflineFilesItemFilter>,
         P3: windows_core::Param<IOfflineFilesItemFilter>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumItemsEx)(windows_core::Interface::as_raw(self), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwenumflags, dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -851,7 +851,7 @@ windows_core::imp::define_interface!(IOfflineFilesItemFilter, IOfflineFilesItemF
 impl std::ops::Deref for IOfflineFilesItemFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesItemFilter, windows_core::IUnknown);
@@ -877,13 +877,13 @@ windows_core::imp::define_interface!(IOfflineFilesPinInfo, IOfflineFilesPinInfo_
 impl std::ops::Deref for IOfflineFilesPinInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesPinInfo, windows_core::IUnknown);
 impl IOfflineFilesPinInfo {
     pub unsafe fn IsPinned(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsPinned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsPinnedForUser(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
@@ -912,13 +912,13 @@ windows_core::imp::define_interface!(IOfflineFilesPinInfo2, IOfflineFilesPinInfo
 impl std::ops::Deref for IOfflineFilesPinInfo2 {
     type Target = IOfflineFilesPinInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesPinInfo2, windows_core::IUnknown, IOfflineFilesPinInfo);
 impl IOfflineFilesPinInfo2 {
     pub unsafe fn IsPartlyPinned(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsPartlyPinned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -931,17 +931,17 @@ windows_core::imp::define_interface!(IOfflineFilesProgress, IOfflineFilesProgres
 impl std::ops::Deref for IOfflineFilesProgress {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesProgress, windows_core::IUnknown);
 impl IOfflineFilesProgress {
     pub unsafe fn Begin(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn QueryAbort(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QueryAbort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn End(&self, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
@@ -959,7 +959,7 @@ windows_core::imp::define_interface!(IOfflineFilesServerItem, IOfflineFilesServe
 impl std::ops::Deref for IOfflineFilesServerItem {
     type Target = IOfflineFilesItem;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesServerItem, windows_core::IUnknown, IOfflineFilesItem);
@@ -972,24 +972,24 @@ windows_core::imp::define_interface!(IOfflineFilesSetting, IOfflineFilesSetting_
 impl std::ops::Deref for IOfflineFilesSetting {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSetting, windows_core::IUnknown);
 impl IOfflineFilesSetting {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetValueType(&self) -> windows_core::Result<OFFLINEFILES_SETTING_VALUE_TYPE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPreference(&self, pvarvalue: *mut windows_core::VARIANT, dwscope: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPreference)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn GetPreferenceScope(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPreferenceScope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPreference(&self, pvarvalue: *const windows_core::VARIANT, dwscope: u32) -> windows_core::Result<()> {
@@ -1002,7 +1002,7 @@ impl IOfflineFilesSetting {
         (windows_core::Interface::vtable(self).GetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn GetPolicyScope(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPolicyScope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetValue(&self, pvarvalue: *mut windows_core::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
@@ -1014,33 +1014,33 @@ pub struct IOfflineFilesSetting_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetValueType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OFFLINEFILES_SETTING_VALUE_TYPE) -> windows_core::HRESULT,
-    pub GetPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>, u32) -> windows_core::HRESULT,
+    pub GetPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>, u32) -> windows_core::HRESULT,
     pub GetPreferenceScope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>, u32) -> windows_core::HRESULT,
+    pub SetPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, u32) -> windows_core::HRESULT,
     pub DeletePreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>, u32) -> windows_core::HRESULT,
+    pub GetPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>, u32) -> windows_core::HRESULT,
     pub GetPolicyScope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOfflineFilesShareInfo, IOfflineFilesShareInfo_Vtbl, 0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
 impl std::ops::Deref for IOfflineFilesShareInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesShareInfo, windows_core::IUnknown);
 impl IOfflineFilesShareInfo {
     pub unsafe fn GetShareItem(&self) -> windows_core::Result<IOfflineFilesShareItem> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetShareItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetShareCachingMode(&self) -> windows_core::Result<OFFLINEFILES_CACHING_MODE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetShareCachingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsShareDfsJunction(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsShareDfsJunction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1055,7 +1055,7 @@ windows_core::imp::define_interface!(IOfflineFilesShareItem, IOfflineFilesShareI
 impl std::ops::Deref for IOfflineFilesShareItem {
     type Target = IOfflineFilesItem;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesShareItem, windows_core::IUnknown, IOfflineFilesItem);
@@ -1068,7 +1068,7 @@ windows_core::imp::define_interface!(IOfflineFilesSimpleProgress, IOfflineFilesS
 impl std::ops::Deref for IOfflineFilesSimpleProgress {
     type Target = IOfflineFilesProgress;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSimpleProgress, windows_core::IUnknown, IOfflineFilesProgress);
@@ -1077,14 +1077,14 @@ impl IOfflineFilesSimpleProgress {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ItemBegin)(windows_core::Interface::as_raw(self), pszfile.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ItemResult<P0>(&self, pszfile: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), hrresult, &mut result__).map(|| result__)
     }
 }
@@ -1098,7 +1098,7 @@ windows_core::imp::define_interface!(IOfflineFilesSuspend, IOfflineFilesSuspend_
 impl std::ops::Deref for IOfflineFilesSuspend {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSuspend, windows_core::IUnknown);
@@ -1119,7 +1119,7 @@ windows_core::imp::define_interface!(IOfflineFilesSuspendInfo, IOfflineFilesSusp
 impl std::ops::Deref for IOfflineFilesSuspendInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSuspendInfo, windows_core::IUnknown);
@@ -1137,7 +1137,7 @@ windows_core::imp::define_interface!(IOfflineFilesSyncConflictHandler, IOfflineF
 impl std::ops::Deref for IOfflineFilesSyncConflictHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSyncConflictHandler, windows_core::IUnknown);
@@ -1158,17 +1158,17 @@ windows_core::imp::define_interface!(IOfflineFilesSyncErrorInfo, IOfflineFilesSy
 impl std::ops::Deref for IOfflineFilesSyncErrorInfo {
     type Target = IOfflineFilesErrorInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSyncErrorInfo, windows_core::IUnknown, IOfflineFilesErrorInfo);
 impl IOfflineFilesSyncErrorInfo {
     pub unsafe fn GetSyncOperation(&self) -> windows_core::Result<OFFLINEFILES_SYNC_OPERATION> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncOperation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetItemChangeFlags(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemChangeFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn InfoEnumerated(&self, pblocalenumerated: *mut super::super::Foundation::BOOL, pbremoteenumerated: *mut super::super::Foundation::BOOL, pboriginalenumerated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
@@ -1178,15 +1178,15 @@ impl IOfflineFilesSyncErrorInfo {
         (windows_core::Interface::vtable(self).InfoAvailable)(windows_core::Interface::as_raw(self), pblocalinfo, pbremoteinfo, pboriginalinfo).ok()
     }
     pub unsafe fn GetLocalInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLocalInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRemoteInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRemoteInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetOriginalInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1205,20 +1205,20 @@ windows_core::imp::define_interface!(IOfflineFilesSyncErrorItemInfo, IOfflineFil
 impl std::ops::Deref for IOfflineFilesSyncErrorItemInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSyncErrorItemInfo, windows_core::IUnknown);
 impl IOfflineFilesSyncErrorItemInfo {
     pub unsafe fn GetFileAttributes(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFileTimes(&self, pftlastwrite: *mut super::super::Foundation::FILETIME, pftchange: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFileTimes)(windows_core::Interface::as_raw(self), pftlastwrite, pftchange).ok()
     }
     pub unsafe fn GetFileSize(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1233,7 +1233,7 @@ windows_core::imp::define_interface!(IOfflineFilesSyncProgress, IOfflineFilesSyn
 impl std::ops::Deref for IOfflineFilesSyncProgress {
     type Target = IOfflineFilesProgress;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesSyncProgress, windows_core::IUnknown, IOfflineFilesProgress);
@@ -1242,7 +1242,7 @@ impl IOfflineFilesSyncProgress {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SyncItemBegin)(windows_core::Interface::as_raw(self), pszfile.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SyncItemResult<P0, P1>(&self, pszfile: P0, hrresult: windows_core::HRESULT, perrorinfo: P1) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>
@@ -1250,7 +1250,7 @@ impl IOfflineFilesSyncProgress {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IOfflineFilesSyncErrorInfo>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SyncItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), hrresult, perrorinfo.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -1264,13 +1264,13 @@ windows_core::imp::define_interface!(IOfflineFilesTransparentCacheInfo, IOffline
 impl std::ops::Deref for IOfflineFilesTransparentCacheInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, windows_core::IUnknown);
 impl IOfflineFilesTransparentCacheInfo {
     pub unsafe fn IsTransparentlyCached(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsTransparentlyCached)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }

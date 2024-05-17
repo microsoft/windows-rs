@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IRadialControllerConfigurationInterop, IRad
 impl std::ops::Deref for IRadialControllerConfigurationInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRadialControllerConfigurationInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -25,7 +25,7 @@ windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceInte
 impl std::ops::Deref for IRadialControllerIndependentInputSourceInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRadialControllerIndependentInputSourceInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -48,7 +48,7 @@ windows_core::imp::define_interface!(IRadialControllerInterop, IRadialController
 impl std::ops::Deref for IRadialControllerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRadialControllerInterop, windows_core::IUnknown, windows_core::IInspectable);

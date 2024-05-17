@@ -7,7 +7,7 @@ impl windows_core::RuntimeName for IMSMQApplication {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>() -> IMSMQApplication_Vtbl {
-        unsafe extern "system" fn MachineIdOfMachineName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinename: std::mem::MaybeUninit<windows_core::BSTR>, pbstrguid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MachineIdOfMachineName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinename: core::mem::MaybeUninit<windows_core::BSTR>, pbstrguid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication_Impl::MachineIdOfMachineName(this, core::mem::transmute(&machinename)) {
@@ -39,12 +39,12 @@ impl windows_core::RuntimeName for IMSMQApplication2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>() -> IMSMQApplication2_Vtbl {
-        unsafe extern "system" fn RegisterCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *const std::mem::MaybeUninit<windows_core::VARIANT>, externalcertificate: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *const core::mem::MaybeUninit<windows_core::VARIANT>, externalcertificate: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQApplication2_Impl::RegisterCertificate(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&externalcertificate)).into()
         }
-        unsafe extern "system" fn MachineNameOfMachineId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, pbstrmachinename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MachineNameOfMachineId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, pbstrmachinename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::MachineNameOfMachineId(this, core::mem::transmute(&bstrguid)) {
@@ -143,7 +143,7 @@ impl windows_core::RuntimeName for IMSMQApplication3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>() -> IMSMQApplication3_Vtbl {
-        unsafe extern "system" fn ActiveQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvactivequeues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActiveQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvactivequeues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::ActiveQueues(this) {
@@ -154,7 +154,7 @@ impl IMSMQApplication3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivateQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvprivatequeues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrivateQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvprivatequeues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::PrivateQueues(this) {
@@ -165,7 +165,7 @@ impl IMSMQApplication3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DirectoryServiceServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdirectoryserviceserver: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DirectoryServiceServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdirectoryserviceserver: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::DirectoryServiceServer(this) {
@@ -187,7 +187,7 @@ impl IMSMQApplication3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesInAllQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinallqueues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BytesInAllQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinallqueues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::BytesInAllQueues(this) {
@@ -198,12 +198,12 @@ impl IMSMQApplication3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMachine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmachine: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMachine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmachine: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQApplication3_Impl::SetMachine(this, core::mem::transmute(&bstrmachine)).into()
         }
-        unsafe extern "system" fn Machine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Machine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmachine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::Machine(this) {
@@ -258,7 +258,7 @@ impl windows_core::RuntimeName for IMSMQCollection {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCollection_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCollection_Impl, const OFFSET: isize>() -> IMSMQCollection_Vtbl {
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarret: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarret: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
@@ -471,7 +471,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             IMSMQDestination_Impl::putref_IADs(this, windows_core::from_raw_borrowed(&piads)).into()
         }
-        unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::ADsPath(this) {
@@ -482,12 +482,12 @@ impl IMSMQDestination_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradspath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradspath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQDestination_Impl::SetADsPath(this, core::mem::transmute(&bstradspath)).into()
         }
-        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::PathName(this) {
@@ -498,12 +498,12 @@ impl IMSMQDestination_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQDestination_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::FormatName(this) {
@@ -514,7 +514,7 @@ impl IMSMQDestination_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQDestination_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
@@ -637,12 +637,12 @@ impl windows_core::RuntimeName for IMSMQManagement {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQManagement_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>() -> IMSMQManagement_Vtbl {
-        unsafe extern "system" fn Init<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machine: *const std::mem::MaybeUninit<windows_core::VARIANT>, pathname: *const std::mem::MaybeUninit<windows_core::VARIANT>, formatname: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Init<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machine: *const core::mem::MaybeUninit<windows_core::VARIANT>, pathname: *const core::mem::MaybeUninit<windows_core::VARIANT>, formatname: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQManagement_Impl::Init(this, core::mem::transmute_copy(&machine), core::mem::transmute_copy(&pathname), core::mem::transmute_copy(&formatname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::FormatName(this) {
@@ -653,7 +653,7 @@ impl IMSMQManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Machine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Machine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmachine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::Machine(this) {
@@ -719,7 +719,7 @@ impl IMSMQManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesInQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinqueue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BytesInQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinqueue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::BytesInQueue(this) {
@@ -954,7 +954,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SourceMachineGuid(this) {
@@ -976,7 +976,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Body(this) {
@@ -987,7 +987,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
@@ -1008,7 +1008,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage_Impl::putref_AdminQueueInfo(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Id(this) {
@@ -1019,7 +1019,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::CorrelationId(this) {
@@ -1030,7 +1030,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
@@ -1051,7 +1051,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Label(this) {
@@ -1062,7 +1062,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
@@ -1131,7 +1131,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SentTime(this) {
@@ -1142,7 +1142,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::ArrivedTime(this) {
@@ -1164,7 +1164,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SenderCertificate(this) {
@@ -1175,12 +1175,12 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SenderId(this) {
@@ -1207,7 +1207,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
@@ -1507,7 +1507,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SourceMachineGuid(this) {
@@ -1529,7 +1529,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Body(this) {
@@ -1540,7 +1540,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
@@ -1561,7 +1561,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Id(this) {
@@ -1572,7 +1572,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::CorrelationId(this) {
@@ -1583,7 +1583,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
@@ -1604,7 +1604,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Label(this) {
@@ -1615,7 +1615,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
@@ -1684,7 +1684,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SentTime(this) {
@@ -1695,7 +1695,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ArrivedTime(this) {
@@ -1717,7 +1717,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SenderCertificate(this) {
@@ -1728,12 +1728,12 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SenderId(this) {
@@ -1760,7 +1760,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
@@ -1781,7 +1781,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Extension(this) {
@@ -1792,12 +1792,12 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
-        unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ConnectorTypeGuid(this) {
@@ -1808,7 +1808,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetConnectorTypeGuid(this, core::mem::transmute(&bstrguidconnectortype)).into()
@@ -1824,7 +1824,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::DestinationSymmetricKey(this) {
@@ -1835,12 +1835,12 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
-        unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Signature(this) {
@@ -1851,7 +1851,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
@@ -1872,7 +1872,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetAuthenticationProviderType(this, core::mem::transmute_copy(&lauthprovtype)).into()
         }
-        unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AuthenticationProviderName(this) {
@@ -1883,12 +1883,12 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
-        unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage2_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
@@ -1920,7 +1920,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::TransactionId(this) {
@@ -2328,7 +2328,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SourceMachineGuid(this) {
@@ -2350,7 +2350,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Body(this) {
@@ -2361,7 +2361,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
@@ -2382,7 +2382,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Id(this) {
@@ -2393,7 +2393,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::CorrelationId(this) {
@@ -2404,7 +2404,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
@@ -2425,7 +2425,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Label(this) {
@@ -2436,7 +2436,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
@@ -2505,7 +2505,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SentTime(this) {
@@ -2516,7 +2516,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ArrivedTime(this) {
@@ -2538,7 +2538,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SenderCertificate(this) {
@@ -2549,12 +2549,12 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SenderId(this) {
@@ -2581,7 +2581,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
@@ -2602,7 +2602,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Extension(this) {
@@ -2613,12 +2613,12 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
-        unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ConnectorTypeGuid(this) {
@@ -2629,7 +2629,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetConnectorTypeGuid(this, core::mem::transmute(&bstrguidconnectortype)).into()
@@ -2645,7 +2645,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::DestinationSymmetricKey(this) {
@@ -2656,12 +2656,12 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
-        unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Signature(this) {
@@ -2672,7 +2672,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
@@ -2693,7 +2693,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetAuthenticationProviderType(this, core::mem::transmute_copy(&lauthprovtype)).into()
         }
-        unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AuthenticationProviderName(this) {
@@ -2704,12 +2704,12 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
-        unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
@@ -2741,7 +2741,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::TransactionId(this) {
@@ -2876,7 +2876,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::LookupId(this) {
@@ -2925,7 +2925,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::AttachCurrentSecurityContext2(this).into()
         }
-        unsafe extern "system" fn SoapEnvelope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsoapenvelope: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SoapEnvelope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsoapenvelope: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SoapEnvelope(this) {
@@ -2936,7 +2936,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompoundMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompoundMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::CompoundMessage(this) {
@@ -2947,12 +2947,12 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSoapHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapheader: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSoapHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapheader: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetSoapHeader(this, core::mem::transmute(&bstrsoapheader)).into()
         }
-        unsafe extern "system" fn SetSoapBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapbody: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSoapBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapbody: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage3_Impl::SetSoapBody(this, core::mem::transmute(&bstrsoapbody)).into()
@@ -3305,7 +3305,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SourceMachineGuid(this) {
@@ -3327,7 +3327,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Body(this) {
@@ -3338,7 +3338,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
@@ -3359,7 +3359,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Id(this) {
@@ -3370,7 +3370,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::CorrelationId(this) {
@@ -3381,7 +3381,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
@@ -3402,7 +3402,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Label(this) {
@@ -3413,7 +3413,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
@@ -3482,7 +3482,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SentTime(this) {
@@ -3493,7 +3493,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ArrivedTime(this) {
@@ -3515,7 +3515,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SenderCertificate(this) {
@@ -3526,12 +3526,12 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SenderId(this) {
@@ -3558,7 +3558,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
@@ -3579,7 +3579,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Extension(this) {
@@ -3590,12 +3590,12 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
-        unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ConnectorTypeGuid(this) {
@@ -3606,7 +3606,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetConnectorTypeGuid(this, core::mem::transmute(&bstrguidconnectortype)).into()
@@ -3622,7 +3622,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::DestinationSymmetricKey(this) {
@@ -3633,12 +3633,12 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
-        unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Signature(this) {
@@ -3649,7 +3649,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
@@ -3670,7 +3670,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetAuthenticationProviderType(this, core::mem::transmute_copy(&lauthprovtype)).into()
         }
-        unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AuthenticationProviderName(this) {
@@ -3681,12 +3681,12 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
-        unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
@@ -3718,7 +3718,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::TransactionId(this) {
@@ -3853,7 +3853,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::LookupId(this) {
@@ -3902,7 +3902,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::AttachCurrentSecurityContext2(this).into()
         }
-        unsafe extern "system" fn SoapEnvelope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsoapenvelope: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SoapEnvelope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsoapenvelope: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SoapEnvelope(this) {
@@ -3913,7 +3913,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompoundMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompoundMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::CompoundMessage(this) {
@@ -3924,12 +3924,12 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSoapHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapheader: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSoapHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapheader: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetSoapHeader(this, core::mem::transmute(&bstrsoapheader)).into()
         }
-        unsafe extern "system" fn SetSoapBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapbody: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSoapBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapbody: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQMessage4_Impl::SetSoapBody(this, core::mem::transmute(&bstrsoapbody)).into()
@@ -4058,7 +4058,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextHops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnexthops: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextHops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnexthops: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQOutgoingQueueManagement_Impl::NextHops(this) {
@@ -4119,7 +4119,7 @@ impl windows_core::RuntimeName for IMSMQPrivateDestination {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQPrivateDestination_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>() -> IMSMQPrivateDestination_Vtbl {
-        unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQPrivateDestination_Impl::Handle(this) {
@@ -4130,7 +4130,7 @@ impl IMSMQPrivateDestination_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varhandle: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varhandle: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQPrivateDestination_Impl::SetHandle(this, core::mem::transmute(&varhandle)).into()
@@ -4199,15 +4199,15 @@ impl IMSMQQuery_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery_Impl, const OFFSET: isize>() -> IMSMQQuery_Vtbl {
         unsafe extern "system" fn LookupQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4238,15 +4238,15 @@ impl IMSMQQuery2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery2_Impl, const OFFSET: isize>() -> IMSMQQuery2_Vtbl {
         unsafe extern "system" fn LookupQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery2_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4293,15 +4293,15 @@ impl IMSMQQuery3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery3_Impl, const OFFSET: isize>() -> IMSMQQuery3_Vtbl {
         unsafe extern "system" fn LookupQueue_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery3_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4327,17 +4327,17 @@ impl IMSMQQuery3_Vtbl {
         }
         unsafe extern "system" fn LookupQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery3_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            multicastaddress: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmulticastaddress: *const std::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            multicastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmulticastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4374,15 +4374,15 @@ impl IMSMQQuery4_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery4_Impl, const OFFSET: isize>() -> IMSMQQuery4_Vtbl {
         unsafe extern "system" fn LookupQueue_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery4_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4408,17 +4408,17 @@ impl IMSMQQuery4_Vtbl {
         }
         unsafe extern "system" fn LookupQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery4_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            multicastaddress: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            relmulticastaddress: *const std::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            multicastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            relmulticastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4523,7 +4523,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4534,7 +4534,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4545,7 +4545,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueue_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
@@ -4555,7 +4555,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4566,7 +4566,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4577,7 +4577,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4696,7 +4696,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue2_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4707,7 +4707,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4718,7 +4718,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueue2_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
@@ -4728,7 +4728,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue2_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4739,7 +4739,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4750,7 +4750,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4761,7 +4761,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -4772,7 +4772,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -4783,7 +4783,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -4794,7 +4794,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -4805,7 +4805,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -4954,7 +4954,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue3_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4965,7 +4965,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4976,7 +4976,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueue3_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
@@ -4986,7 +4986,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue3_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -4997,7 +4997,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5008,7 +5008,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5019,7 +5019,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5030,7 +5030,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5041,7 +5041,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5052,7 +5052,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5063,7 +5063,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5085,7 +5085,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Handle2(this) {
@@ -5096,7 +5096,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5107,7 +5107,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5118,7 +5118,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5129,7 +5129,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5140,7 +5140,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5151,7 +5151,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5162,7 +5162,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5173,7 +5173,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekPreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekPreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5184,7 +5184,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5195,7 +5195,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5363,7 +5363,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue4_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5374,7 +5374,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5385,7 +5385,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueue4_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
@@ -5395,7 +5395,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueue4_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5406,7 +5406,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5417,7 +5417,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
@@ -5428,7 +5428,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5439,7 +5439,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5450,7 +5450,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5461,7 +5461,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5472,7 +5472,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5494,7 +5494,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Handle2(this) {
@@ -5505,7 +5505,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5516,7 +5516,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5527,7 +5527,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5538,7 +5538,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5549,7 +5549,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5560,7 +5560,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5571,7 +5571,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5582,7 +5582,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekPreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekPreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5593,7 +5593,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5604,7 +5604,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5631,7 +5631,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveByLookupIdAllowPeek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveByLookupIdAllowPeek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveByLookupIdAllowPeek(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
@@ -5721,7 +5721,7 @@ impl windows_core::RuntimeName for IMSMQQueueInfo {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>() -> IMSMQQueueInfo_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::QueueGuid(this) {
@@ -5732,7 +5732,7 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::ServiceTypeGuid(this) {
@@ -5743,12 +5743,12 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::Label(this) {
@@ -5759,12 +5759,12 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::PathName(this) {
@@ -5775,12 +5775,12 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::FormatName(this) {
@@ -5791,7 +5791,7 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
@@ -5871,7 +5871,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::CreateTime(this) {
@@ -5882,7 +5882,7 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::ModifyTime(this) {
@@ -5936,7 +5936,7 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
@@ -6047,7 +6047,7 @@ impl windows_core::RuntimeName for IMSMQQueueInfo2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>() -> IMSMQQueueInfo2_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::QueueGuid(this) {
@@ -6058,7 +6058,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::ServiceTypeGuid(this) {
@@ -6069,12 +6069,12 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Label(this) {
@@ -6085,12 +6085,12 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::PathName(this) {
@@ -6101,12 +6101,12 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::FormatName(this) {
@@ -6117,7 +6117,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
@@ -6197,7 +6197,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::CreateTime(this) {
@@ -6208,7 +6208,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::ModifyTime(this) {
@@ -6262,7 +6262,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
@@ -6293,7 +6293,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::Update(this).into()
         }
-        unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::PathNameDNS(this) {
@@ -6315,7 +6315,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Security(this) {
@@ -6326,7 +6326,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo2_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
@@ -6420,7 +6420,7 @@ impl windows_core::RuntimeName for IMSMQQueueInfo3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>() -> IMSMQQueueInfo3_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::QueueGuid(this) {
@@ -6431,7 +6431,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::ServiceTypeGuid(this) {
@@ -6442,12 +6442,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Label(this) {
@@ -6458,12 +6458,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::PathName(this) {
@@ -6474,12 +6474,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::FormatName(this) {
@@ -6490,7 +6490,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
@@ -6570,7 +6570,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::CreateTime(this) {
@@ -6581,7 +6581,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::ModifyTime(this) {
@@ -6635,7 +6635,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
@@ -6666,7 +6666,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::Update(this).into()
         }
-        unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::PathNameDNS(this) {
@@ -6688,7 +6688,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Security(this) {
@@ -6699,7 +6699,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
@@ -6726,7 +6726,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmulticastaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmulticastaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::MulticastAddress(this) {
@@ -6737,12 +6737,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmulticastaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmulticastaddress: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo3_Impl::SetMulticastAddress(this, core::mem::transmute(&bstrmulticastaddress)).into()
         }
-        unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::ADsPath(this) {
@@ -6847,7 +6847,7 @@ impl windows_core::RuntimeName for IMSMQQueueInfo4 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo4_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>() -> IMSMQQueueInfo4_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::QueueGuid(this) {
@@ -6858,7 +6858,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::ServiceTypeGuid(this) {
@@ -6869,12 +6869,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Label(this) {
@@ -6885,12 +6885,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::PathName(this) {
@@ -6901,12 +6901,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::FormatName(this) {
@@ -6917,7 +6917,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
@@ -6997,7 +6997,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::CreateTime(this) {
@@ -7008,7 +7008,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::ModifyTime(this) {
@@ -7062,7 +7062,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
@@ -7093,7 +7093,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::Update(this).into()
         }
-        unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::PathNameDNS(this) {
@@ -7115,7 +7115,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Security(this) {
@@ -7126,7 +7126,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
@@ -7153,7 +7153,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmulticastaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmulticastaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::MulticastAddress(this) {
@@ -7164,12 +7164,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmulticastaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmulticastaddress: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQQueueInfo4_Impl::SetMulticastAddress(this, core::mem::transmute(&bstrmulticastaddress)).into()
         }
-        unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::ADsPath(this) {
@@ -7432,7 +7432,7 @@ impl IMSMQQueueManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesInJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinjournal: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BytesInJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinjournal: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueManagement_Impl::BytesInJournal(this) {
@@ -7443,7 +7443,7 @@ impl IMSMQQueueManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EodGetReceiveInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcollection: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EodGetReceiveInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcollection: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQQueueManagement_Impl::EodGetReceiveInfo(this) {
@@ -7487,12 +7487,12 @@ impl IMSMQTransaction_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const std::mem::MaybeUninit<windows_core::VARIANT>, grftc: *const std::mem::MaybeUninit<windows_core::VARIANT>, grfrm: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const core::mem::MaybeUninit<windows_core::VARIANT>, grftc: *const core::mem::MaybeUninit<windows_core::VARIANT>, grfrm: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQTransaction_Impl::Commit(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm)).into()
         }
-        unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const std::mem::MaybeUninit<windows_core::VARIANT>, fasync: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const core::mem::MaybeUninit<windows_core::VARIANT>, fasync: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQTransaction_Impl::Abort(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&fasync)).into()
@@ -7518,7 +7518,7 @@ impl windows_core::RuntimeName for IMSMQTransaction2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>() -> IMSMQTransaction2_Vtbl {
-        unsafe extern "system" fn InitNew<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartransaction: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitNew<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartransaction: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMSMQTransaction2_Impl::InitNew(this, core::mem::transmute(&vartransaction)).into()
@@ -7553,7 +7553,7 @@ impl windows_core::RuntimeName for IMSMQTransaction3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction3_Impl, const OFFSET: isize>() -> IMSMQTransaction3_Vtbl {
-        unsafe extern "system" fn ITransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaritransaction: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ITransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaritransaction: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMSMQTransaction3_Impl::ITransaction(this) {

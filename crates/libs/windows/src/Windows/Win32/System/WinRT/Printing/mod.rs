@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IPrintManagerInterop, IPrintManagerInterop_
 impl std::ops::Deref for IPrintManagerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintManagerInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -34,24 +34,24 @@ windows_core::imp::define_interface!(IPrintWorkflowConfigurationNative, IPrintWo
 impl std::ops::Deref for IPrintWorkflowConfigurationNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintWorkflowConfigurationNative, windows_core::IUnknown);
 impl IPrintWorkflowConfigurationNative {
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn PrinterQueue(&self) -> windows_core::Result<super::super::super::Graphics::Printing::IPrinterQueue> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrinterQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn DriverProperties(&self) -> windows_core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DriverProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn UserProperties(&self) -> windows_core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UserProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -75,7 +75,7 @@ windows_core::imp::define_interface!(IPrintWorkflowObjectModelSourceFileContentN
 impl std::ops::Deref for IPrintWorkflowObjectModelSourceFileContentNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, windows_core::IUnknown);
@@ -88,7 +88,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
     }
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn ObjectFactory(&self) -> windows_core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ObjectFactory)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -105,14 +105,14 @@ windows_core::imp::define_interface!(IPrintWorkflowXpsObjectModelTargetPackageNa
 impl std::ops::Deref for IPrintWorkflowXpsObjectModelTargetPackageNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintWorkflowXpsObjectModelTargetPackageNative, windows_core::IUnknown);
 impl IPrintWorkflowXpsObjectModelTargetPackageNative {
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn DocumentPackageTarget(&self) -> windows_core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DocumentPackageTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -128,7 +128,7 @@ windows_core::imp::define_interface!(IPrintWorkflowXpsReceiver, IPrintWorkflowXp
 impl std::ops::Deref for IPrintWorkflowXpsReceiver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintWorkflowXpsReceiver, windows_core::IUnknown);
@@ -188,7 +188,7 @@ windows_core::imp::define_interface!(IPrintWorkflowXpsReceiver2, IPrintWorkflowX
 impl std::ops::Deref for IPrintWorkflowXpsReceiver2 {
     type Target = IPrintWorkflowXpsReceiver;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintWorkflowXpsReceiver2, windows_core::IUnknown, IPrintWorkflowXpsReceiver);
@@ -206,7 +206,7 @@ windows_core::imp::define_interface!(IPrinting3DManagerInterop, IPrinting3DManag
 impl std::ops::Deref for IPrinting3DManagerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrinting3DManagerInterop, windows_core::IUnknown, windows_core::IInspectable);

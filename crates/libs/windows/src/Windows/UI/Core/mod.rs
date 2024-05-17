@@ -23,7 +23,7 @@ impl windows_core::RuntimeType for IAcceleratorKeyEventArgs2 {
 #[repr(C)]
 pub struct IAcceleratorKeyEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAutomationProviderRequestedEventArgs, IAutomationProviderRequestedEventArgs_Vtbl, 0x961ff258_21bf_4b42_a298_fa479d4c52e2);
 impl windows_core::RuntimeType for IAutomationProviderRequestedEventArgs {
@@ -71,7 +71,7 @@ windows_core::imp::define_interface!(ICoreAcceleratorKeys, ICoreAcceleratorKeys_
 impl std::ops::Deref for ICoreAcceleratorKeys {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreAcceleratorKeys, windows_core::IUnknown, windows_core::IInspectable);
@@ -82,7 +82,7 @@ impl ICoreAcceleratorKeys {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -212,7 +212,7 @@ windows_core::imp::define_interface!(ICoreInputSourceBase, ICoreInputSourceBase_
 impl std::ops::Deref for ICoreInputSourceBase {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreInputSourceBase, windows_core::IUnknown, windows_core::IInspectable);
@@ -220,14 +220,14 @@ impl ICoreInputSourceBase {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -241,7 +241,7 @@ impl ICoreInputSourceBase {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -287,13 +287,13 @@ impl windows_core::RuntimeType for ICoreKeyboardInputSource2 {
 #[repr(C)]
 pub struct ICoreKeyboardInputSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorePointerInputSource, ICorePointerInputSource_Vtbl, 0xbbf1bb18_e47a_48eb_8807_f8f8d3ea4551);
 impl std::ops::Deref for ICorePointerInputSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICorePointerInputSource, windows_core::IUnknown, windows_core::IInspectable);
@@ -309,21 +309,21 @@ impl ICorePointerInputSource {
     pub fn HasCapture(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCapture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -340,7 +340,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -354,7 +354,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -368,7 +368,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -382,7 +382,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -396,7 +396,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -410,7 +410,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -424,7 +424,7 @@ impl ICorePointerInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -464,7 +464,7 @@ windows_core::imp::define_interface!(ICorePointerInputSource2, ICorePointerInput
 impl std::ops::Deref for ICorePointerInputSource2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICorePointerInputSource2, windows_core::IUnknown, windows_core::IInspectable);
@@ -474,7 +474,7 @@ impl ICorePointerInputSource2 {
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -489,21 +489,21 @@ impl ICorePointerInputSource2 {
     pub fn HasCapture(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCapture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -520,7 +520,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -534,7 +534,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -548,7 +548,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -562,7 +562,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -576,7 +576,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -590,7 +590,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -604,7 +604,7 @@ impl ICorePointerInputSource2 {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -628,7 +628,7 @@ windows_core::imp::define_interface!(ICorePointerRedirector, ICorePointerRedirec
 impl std::ops::Deref for ICorePointerRedirector {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICorePointerRedirector, windows_core::IUnknown, windows_core::IInspectable);
@@ -639,7 +639,7 @@ impl ICorePointerRedirector {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -653,7 +653,7 @@ impl ICorePointerRedirector {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -667,7 +667,7 @@ impl ICorePointerRedirector {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -703,7 +703,7 @@ windows_core::imp::define_interface!(ICoreWindow, ICoreWindow_Vtbl, 0x79b9d5f2_8
 impl std::ops::Deref for ICoreWindow {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreWindow, windows_core::IUnknown, windows_core::IInspectable);
@@ -711,14 +711,14 @@ impl ICoreWindow {
     pub fn AutomationHostProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationHostProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -726,21 +726,21 @@ impl ICoreWindow {
     pub fn CustomProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlowDirection(&self) -> windows_core::Result<CoreWindowFlowDirection> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FlowDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -751,7 +751,7 @@ impl ICoreWindow {
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -762,7 +762,7 @@ impl ICoreWindow {
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -776,14 +776,14 @@ impl ICoreWindow {
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Visible(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -799,7 +799,7 @@ impl ICoreWindow {
     pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsyncKeyState)(windows_core::Interface::as_raw(this), virtualkey, &mut result__).map(|| result__)
         }
     }
@@ -807,7 +807,7 @@ impl ICoreWindow {
     pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetKeyState)(windows_core::Interface::as_raw(this), virtualkey, &mut result__).map(|| result__)
         }
     }
@@ -825,7 +825,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -839,7 +839,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationProviderRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -853,7 +853,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -867,7 +867,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -881,7 +881,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -895,7 +895,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -909,7 +909,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -923,7 +923,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -937,7 +937,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -951,7 +951,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -965,7 +965,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -979,7 +979,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -993,7 +993,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1007,7 +1007,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1021,7 +1021,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1035,7 +1035,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1049,7 +1049,7 @@ impl ICoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1144,7 +1144,7 @@ pub struct ICoreWindow3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ClosestInteractiveBoundsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveClosestInteractiveBoundsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindow4, ICoreWindow4_Vtbl, 0x35caf0d0_47f0_436c_af97_0dd88f6f5f02);
 impl windows_core::RuntimeType for ICoreWindow4 {
@@ -1182,8 +1182,8 @@ pub struct ICoreWindowDialog_Vtbl {
     pub RemoveShowing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub MaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
     pub MinSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetIsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
@@ -1214,13 +1214,13 @@ impl windows_core::RuntimeType for ICoreWindowDialogFactory {
 #[repr(C)]
 pub struct ICoreWindowDialogFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindowEventArgs, ICoreWindowEventArgs_Vtbl, 0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
 impl std::ops::Deref for ICoreWindowEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreWindowEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1228,7 +1228,7 @@ impl ICoreWindowEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1257,8 +1257,8 @@ pub struct ICoreWindowFlyout_Vtbl {
     pub RemoveShowing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub MaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
     pub MinSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetIsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
@@ -1288,7 +1288,7 @@ impl windows_core::RuntimeType for ICoreWindowFlyoutFactory {
 pub struct ICoreWindowFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindowPopupShowingEventArgs, ICoreWindowPopupShowingEventArgs_Vtbl, 0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
 impl windows_core::RuntimeType for ICoreWindowPopupShowingEventArgs {
@@ -1358,7 +1358,7 @@ windows_core::imp::define_interface!(IInitializeWithCoreWindow, IInitializeWithC
 impl std::ops::Deref for IInitializeWithCoreWindow {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInitializeWithCoreWindow, windows_core::IUnknown, windows_core::IInspectable);
@@ -1408,7 +1408,7 @@ impl windows_core::RuntimeType for IKeyEventArgs2 {
 #[repr(C)]
 pub struct IKeyEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerEventArgs, IPointerEventArgs_Vtbl, 0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
 impl windows_core::RuntimeType for IPointerEventArgs {
@@ -1509,7 +1509,7 @@ impl AcceleratorKeyEventArgs {
     pub fn EventType(&self) -> windows_core::Result<CoreAcceleratorKeyEventType> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EventType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1517,28 +1517,28 @@ impl AcceleratorKeyEventArgs {
     pub fn VirtualKey(&self) -> windows_core::Result<super::super::System::VirtualKey> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VirtualKey)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn KeyStatus(&self) -> windows_core::Result<CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAcceleratorKeyEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1568,7 +1568,7 @@ impl AutomationProviderRequestedEventArgs {
     pub fn AutomationProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1582,7 +1582,7 @@ impl AutomationProviderRequestedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1609,7 +1609,7 @@ impl BackRequestedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1639,21 +1639,21 @@ impl CharacterReceivedEventArgs {
     pub fn KeyCode(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn KeyStatus(&self) -> windows_core::Result<CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1680,21 +1680,21 @@ impl ClosestInteractiveBoundsRequestedEventArgs {
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SearchBounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchBounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ClosestInteractiveBounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClosestInteractiveBounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1725,7 +1725,7 @@ impl CoreAcceleratorKeys {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1758,7 +1758,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreClosestInteractiveBoundsRequested>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1769,7 +1769,7 @@ impl CoreComponentInputSource {
     pub fn HasFocus(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasFocus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1779,7 +1779,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GotFocus)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1793,7 +1793,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LostFocus)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1804,14 +1804,14 @@ impl CoreComponentInputSource {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1825,7 +1825,7 @@ impl CoreComponentInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1837,7 +1837,7 @@ impl CoreComponentInputSource {
     pub fn GetCurrentKeyState(&self, virtualkey: super::super::System::VirtualKey) -> windows_core::Result<CoreVirtualKeyStates> {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentKeyState)(windows_core::Interface::as_raw(this), virtualkey, &mut result__).map(|| result__)
         }
     }
@@ -1847,7 +1847,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1861,7 +1861,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1875,7 +1875,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1886,7 +1886,7 @@ impl CoreComponentInputSource {
     pub fn GetCurrentKeyEventDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentKeyEventDeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1901,21 +1901,21 @@ impl CoreComponentInputSource {
     pub fn HasCapture(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCapture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1932,7 +1932,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1946,7 +1946,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1960,7 +1960,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1974,7 +1974,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1988,7 +1988,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2002,7 +2002,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2016,7 +2016,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2028,7 +2028,7 @@ impl CoreComponentInputSource {
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2038,7 +2038,7 @@ impl CoreComponentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICoreTouchHitTesting>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2067,20 +2067,20 @@ impl CoreCursor {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Type(&self) -> windows_core::Result<CoreCursorType> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CreateCursor(r#type: CoreCursorType, id: u32) -> windows_core::Result<CoreCursor> {
         Self::ICoreCursorFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCursor)(windows_core::Interface::as_raw(this), r#type, id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2114,7 +2114,7 @@ impl CoreDispatcher {
     {
         let this = &windows_core::Interface::cast::<ICoreAcceleratorKeys>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2125,7 +2125,7 @@ impl CoreDispatcher {
     pub fn HasThreadAccess(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasThreadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2139,7 +2139,7 @@ impl CoreDispatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2149,7 +2149,7 @@ impl CoreDispatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2159,7 +2159,7 @@ impl CoreDispatcher {
     {
         let this = &windows_core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2169,14 +2169,14 @@ impl CoreDispatcher {
     {
         let this = &windows_core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentPriority(&self) -> windows_core::Result<CoreDispatcherPriority> {
         let this = &windows_core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentPriority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2187,14 +2187,14 @@ impl CoreDispatcher {
     pub fn ShouldYield(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShouldYield)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ShouldYieldToPriority(&self, priority: CoreDispatcherPriority) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShouldYieldToPriority)(windows_core::Interface::as_raw(this), priority, &mut result__).map(|| result__)
         }
     }
@@ -2224,14 +2224,14 @@ impl CoreIndependentInputSource {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2245,7 +2245,7 @@ impl CoreIndependentInputSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2264,21 +2264,21 @@ impl CoreIndependentInputSource {
     pub fn HasCapture(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCapture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2295,7 +2295,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2309,7 +2309,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2323,7 +2323,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2337,7 +2337,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2351,7 +2351,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2365,7 +2365,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2379,7 +2379,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2391,7 +2391,7 @@ impl CoreIndependentInputSource {
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2401,7 +2401,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2415,7 +2415,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2429,7 +2429,7 @@ impl CoreIndependentInputSource {
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2463,7 +2463,7 @@ impl CoreIndependentInputSourceController {
     pub fn IsTransparentForUncontrolledInput(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTransparentForUncontrolledInput)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2474,7 +2474,7 @@ impl CoreIndependentInputSourceController {
     pub fn IsPalmRejectionEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPalmRejectionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2485,7 +2485,7 @@ impl CoreIndependentInputSourceController {
     pub fn Source(&self) -> windows_core::Result<CoreIndependentInputSource> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2503,7 +2503,7 @@ impl CoreIndependentInputSourceController {
         P0: windows_core::Param<super::Composition::Visual>,
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2513,7 +2513,7 @@ impl CoreIndependentInputSourceController {
         P0: windows_core::Param<super::Composition::IVisualElement>,
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForIVisualElement)(windows_core::Interface::as_raw(this), visualelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -2547,7 +2547,7 @@ impl CoreWindow {
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2561,7 +2561,7 @@ impl CoreWindow {
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2575,7 +2575,7 @@ impl CoreWindow {
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2586,14 +2586,14 @@ impl CoreWindow {
     pub fn AutomationHostProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationHostProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2601,21 +2601,21 @@ impl CoreWindow {
     pub fn CustomProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlowDirection(&self) -> windows_core::Result<CoreWindowFlowDirection> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FlowDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2626,7 +2626,7 @@ impl CoreWindow {
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2637,7 +2637,7 @@ impl CoreWindow {
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2651,14 +2651,14 @@ impl CoreWindow {
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Visible(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2674,7 +2674,7 @@ impl CoreWindow {
     pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsyncKeyState)(windows_core::Interface::as_raw(this), virtualkey, &mut result__).map(|| result__)
         }
     }
@@ -2682,7 +2682,7 @@ impl CoreWindow {
     pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetKeyState)(windows_core::Interface::as_raw(this), virtualkey, &mut result__).map(|| result__)
         }
     }
@@ -2700,7 +2700,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2714,7 +2714,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationProviderRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2728,7 +2728,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2742,7 +2742,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2756,7 +2756,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2770,7 +2770,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2784,7 +2784,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2798,7 +2798,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2812,7 +2812,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2826,7 +2826,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2840,7 +2840,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2854,7 +2854,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2868,7 +2868,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2882,7 +2882,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2896,7 +2896,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2910,7 +2910,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2924,7 +2924,7 @@ impl CoreWindow {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2942,7 +2942,7 @@ impl CoreWindow {
     {
         let this = &windows_core::Interface::cast::<ICoreWindow3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2953,7 +2953,7 @@ impl CoreWindow {
     pub fn GetCurrentKeyEventDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ICoreWindow3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentKeyEventDeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2963,7 +2963,7 @@ impl CoreWindow {
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResizeStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2977,7 +2977,7 @@ impl CoreWindow {
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResizeCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -2989,27 +2989,27 @@ impl CoreWindow {
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &windows_core::Interface::cast::<ICoreWindow5>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ActivationMode(&self) -> windows_core::Result<CoreWindowActivationMode> {
         let this = &windows_core::Interface::cast::<ICoreWindow5>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivationMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetForCurrentThread() -> windows_core::Result<CoreWindow> {
         Self::ICoreWindowStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn UIContext(&self) -> windows_core::Result<super::UIContext> {
         let this = &windows_core::Interface::cast::<ICoreWindowWithContext>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3047,7 +3047,7 @@ impl CoreWindowDialog {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3058,21 +3058,21 @@ impl CoreWindowDialog {
     pub fn MaxSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3083,7 +3083,7 @@ impl CoreWindowDialog {
     pub fn IsInteractionDelayed(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInteractionDelayed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3095,14 +3095,14 @@ impl CoreWindowDialog {
     pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DefaultCommandIndex(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultCommandIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3113,7 +3113,7 @@ impl CoreWindowDialog {
     pub fn CancelCommandIndex(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CancelCommandIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3125,7 +3125,7 @@ impl CoreWindowDialog {
     pub fn BackButtonCommand(&self) -> windows_core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackButtonCommand)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3141,13 +3141,13 @@ impl CoreWindowDialog {
     pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateWithTitle(title: &windows_core::HSTRING) -> windows_core::Result<CoreWindowDialog> {
         Self::ICoreWindowDialogFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3176,7 +3176,7 @@ impl CoreWindowEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3206,7 +3206,7 @@ impl CoreWindowFlyout {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3217,21 +3217,21 @@ impl CoreWindowFlyout {
     pub fn MaxSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3242,7 +3242,7 @@ impl CoreWindowFlyout {
     pub fn IsInteractionDelayed(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInteractionDelayed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3254,14 +3254,14 @@ impl CoreWindowFlyout {
     pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DefaultCommandIndex(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultCommandIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3273,7 +3273,7 @@ impl CoreWindowFlyout {
     pub fn BackButtonCommand(&self) -> windows_core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackButtonCommand)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3289,19 +3289,19 @@ impl CoreWindowFlyout {
     pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Create(position: super::super::Foundation::Point) -> windows_core::Result<CoreWindowFlyout> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithTitle(position: super::super::Foundation::Point, title: &windows_core::HSTRING) -> windows_core::Result<CoreWindowFlyout> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), position, core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3357,13 +3357,13 @@ impl CoreWindowResizeManager {
     pub fn ShouldWaitForLayoutCompletion(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowResizeManagerLayoutCapability>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShouldWaitForLayoutCompletion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetForCurrentView() -> windows_core::Result<CoreWindowResizeManager> {
         Self::ICoreWindowResizeManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3393,7 +3393,7 @@ impl IdleDispatchedHandlerArgs {
     pub fn IsDispatcherIdle(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDispatcherIdle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3417,7 +3417,7 @@ impl InputEnabledEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3428,7 +3428,7 @@ impl InputEnabledEventArgs {
     pub fn InputEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3452,7 +3452,7 @@ impl KeyEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3464,21 +3464,21 @@ impl KeyEventArgs {
     pub fn VirtualKey(&self) -> windows_core::Result<super::super::System::VirtualKey> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VirtualKey)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn KeyStatus(&self) -> windows_core::Result<CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IKeyEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3502,7 +3502,7 @@ impl PointerEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3514,7 +3514,7 @@ impl PointerEventArgs {
     pub fn CurrentPoint(&self) -> windows_core::Result<super::Input::PointerPoint> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentPoint)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3522,7 +3522,7 @@ impl PointerEventArgs {
     pub fn KeyModifiers(&self) -> windows_core::Result<super::super::System::VirtualKeyModifiers> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyModifiers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3530,7 +3530,7 @@ impl PointerEventArgs {
     pub fn GetIntermediatePoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Input::PointerPoint>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIntermediatePoints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3556,7 +3556,7 @@ impl SystemNavigationManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -3567,7 +3567,7 @@ impl SystemNavigationManager {
     pub fn AppViewBackButtonVisibility(&self) -> windows_core::Result<AppViewBackButtonVisibility> {
         let this = &windows_core::Interface::cast::<ISystemNavigationManager2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppViewBackButtonVisibility)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3577,7 +3577,7 @@ impl SystemNavigationManager {
     }
     pub fn GetForCurrentView() -> windows_core::Result<SystemNavigationManager> {
         Self::ISystemNavigationManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -3608,7 +3608,7 @@ impl TouchHitTestingEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3619,7 +3619,7 @@ impl TouchHitTestingEventArgs {
     pub fn ProximityEvaluation(&self) -> windows_core::Result<CoreProximityEvaluation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProximityEvaluation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3630,28 +3630,28 @@ impl TouchHitTestingEventArgs {
     pub fn Point(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Point)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn EvaluateProximityToRect(&self, controlboundingbox: super::super::Foundation::Rect) -> windows_core::Result<CoreProximityEvaluation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EvaluateProximityToRect)(windows_core::Interface::as_raw(this), controlboundingbox, &mut result__).map(|| result__)
         }
     }
     pub fn EvaluateProximityToPolygon(&self, controlvertices: &[super::super::Foundation::Point]) -> windows_core::Result<CoreProximityEvaluation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EvaluateProximityToPolygon)(windows_core::Interface::as_raw(this), controlvertices.len().try_into().unwrap(), controlvertices.as_ptr(), &mut result__).map(|| result__)
         }
     }
@@ -3675,7 +3675,7 @@ impl VisibilityChangedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3686,7 +3686,7 @@ impl VisibilityChangedEventArgs {
     pub fn Visible(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3710,7 +3710,7 @@ impl WindowActivatedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3721,7 +3721,7 @@ impl WindowActivatedEventArgs {
     pub fn WindowActivationState(&self) -> windows_core::Result<CoreWindowActivationState> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowActivationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3745,7 +3745,7 @@ impl WindowSizeChangedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3756,7 +3756,7 @@ impl WindowSizeChangedEventArgs {
     pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

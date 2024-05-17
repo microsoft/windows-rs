@@ -77,7 +77,7 @@ impl UserDataAvailabilityStateChangedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -102,7 +102,7 @@ impl UserDataBufferUnprotectResult {
     pub fn Status(&self) -> windows_core::Result<UserDataBufferUnprotectStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -110,7 +110,7 @@ impl UserDataBufferUnprotectResult {
     pub fn UnprotectedBuffer(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnprotectedBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -139,7 +139,7 @@ impl UserDataProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectStorageItemAsync)(windows_core::Interface::as_raw(this), storageitem.param().abi(), availability, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -150,7 +150,7 @@ impl UserDataProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(windows_core::Interface::as_raw(this), storageitem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -161,7 +161,7 @@ impl UserDataProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectBufferAsync)(windows_core::Interface::as_raw(this), unprotectedbuffer.param().abi(), availability, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -172,14 +172,14 @@ impl UserDataProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnprotectBufferAsync)(windows_core::Interface::as_raw(this), protectedbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsContinuedDataAvailabilityExpected)(windows_core::Interface::as_raw(this), availability, &mut result__).map(|| result__)
         }
     }
@@ -189,7 +189,7 @@ impl UserDataProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataAvailabilityStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -199,7 +199,7 @@ impl UserDataProtectionManager {
     }
     pub fn TryGetDefault() -> windows_core::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -209,7 +209,7 @@ impl UserDataProtectionManager {
         P0: windows_core::Param<super::super::System::User>,
     {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -239,7 +239,7 @@ impl UserDataStorageItemProtectionInfo {
     pub fn Availability(&self) -> windows_core::Result<UserDataAvailability> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Availability)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

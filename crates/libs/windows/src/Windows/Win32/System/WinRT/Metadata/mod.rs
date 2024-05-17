@@ -7,14 +7,14 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const windows_core::GUID, riid: *con
 #[inline]
 pub unsafe fn RoCreateNonAgilePropertySet() -> windows_core::Result<super::super::super::super::Foundation::Collections::IPropertySet> {
     windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoCreateNonAgilePropertySet(pppropertyset : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RoCreateNonAgilePropertySet(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Storage_Streams")]
 #[inline]
 pub unsafe fn RoCreatePropertySetSerializer() -> windows_core::Result<super::super::super::super::Storage::Streams::IPropertySetSerializer> {
     windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoCreatePropertySetSerializer(pppropertysetserializer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RoCreatePropertySetSerializer(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -30,7 +30,7 @@ pub unsafe fn RoGetMetaDataFile<P0>(name: &windows_core::HSTRING, metadatadispen
 where
     P0: windows_core::Param<IMetaDataDispenserEx>,
 {
-    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoGetMetaDataFile(name : std::mem::MaybeUninit < windows_core::HSTRING >, metadatadispenser : * mut core::ffi::c_void, metadatafilepath : *mut std::mem::MaybeUninit < windows_core::HSTRING >, metadataimport : *mut * mut core::ffi::c_void, typedeftoken : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoGetMetaDataFile(name : core::mem::MaybeUninit < windows_core::HSTRING >, metadatadispenser : * mut core::ffi::c_void, metadatafilepath : *mut core::mem::MaybeUninit < windows_core::HSTRING >, metadataimport : *mut * mut core::ffi::c_void, typedeftoken : *mut u32) -> windows_core::HRESULT);
     RoGetMetaDataFile(core::mem::transmute_copy(name), metadatadispenser.param().abi(), core::mem::transmute(metadatafilepath.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadataimport.unwrap_or(std::ptr::null_mut())), core::mem::transmute(typedeftoken.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -47,7 +47,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractMajorVersionPresent(name : windows_core::PCWSTR, majorversion : u16, present : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RoIsApiContractMajorVersionPresent(name.param().abi(), majorversion, &mut result__).map(|| result__)
 }
 #[inline]
@@ -56,7 +56,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractPresent(name : windows_core::PCWSTR, majorversion : u16, minorversion : u16, present : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RoIsApiContractPresent(name.param().abi(), majorversion, minorversion, &mut result__).map(|| result__)
 }
 #[inline]
@@ -69,12 +69,12 @@ where
 }
 #[inline]
 pub unsafe fn RoParseTypeName(typename: &windows_core::HSTRING, partscount: *mut u32, typenameparts: *mut *mut windows_core::HSTRING) -> windows_core::Result<()> {
-    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoParseTypeName(typename : std::mem::MaybeUninit < windows_core::HSTRING >, partscount : *mut u32, typenameparts : *mut *mut windows_core::HSTRING) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoParseTypeName(typename : core::mem::MaybeUninit < windows_core::HSTRING >, partscount : *mut u32, typenameparts : *mut *mut windows_core::HSTRING) -> windows_core::HRESULT);
     RoParseTypeName(core::mem::transmute_copy(typename), partscount, typenameparts).ok()
 }
 #[inline]
 pub unsafe fn RoResolveNamespace(name: &windows_core::HSTRING, windowsmetadatadir: &windows_core::HSTRING, packagegraphdirs: Option<&[windows_core::HSTRING]>, metadatafilepathscount: Option<*mut u32>, metadatafilepaths: Option<*mut *mut windows_core::HSTRING>, subnamespacescount: Option<*mut u32>, subnamespaces: Option<*mut *mut windows_core::HSTRING>) -> windows_core::Result<()> {
-    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoResolveNamespace(name : std::mem::MaybeUninit < windows_core::HSTRING >, windowsmetadatadir : std::mem::MaybeUninit < windows_core::HSTRING >, packagegraphdirscount : u32, packagegraphdirs : *const std::mem::MaybeUninit < windows_core::HSTRING >, metadatafilepathscount : *mut u32, metadatafilepaths : *mut *mut windows_core::HSTRING, subnamespacescount : *mut u32, subnamespaces : *mut *mut windows_core::HSTRING) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoResolveNamespace(name : core::mem::MaybeUninit < windows_core::HSTRING >, windowsmetadatadir : core::mem::MaybeUninit < windows_core::HSTRING >, packagegraphdirscount : u32, packagegraphdirs : *const core::mem::MaybeUninit < windows_core::HSTRING >, metadatafilepathscount : *mut u32, metadatafilepaths : *mut *mut windows_core::HSTRING, subnamespacescount : *mut u32, subnamespaces : *mut *mut windows_core::HSTRING) -> windows_core::HRESULT);
     RoResolveNamespace(
         core::mem::transmute_copy(name),
         core::mem::transmute_copy(windowsmetadatadir),
@@ -91,7 +91,7 @@ windows_core::imp::define_interface!(ICeeGen, ICeeGen_Vtbl, 0x7ed1bdff_8e36_11d2
 impl std::ops::Deref for ICeeGen {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICeeGen, windows_core::IUnknown);
@@ -112,7 +112,7 @@ impl ICeeGen {
         (windows_core::Interface::vtable(self).GetMethodBuffer)(windows_core::Interface::as_raw(self), rva, lpbuffer).ok()
     }
     pub unsafe fn GetIMapTokenIface(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIMapTokenIface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GenerateCeeFile(&self) -> windows_core::Result<()> {
@@ -172,7 +172,7 @@ windows_core::imp::define_interface!(IHostFilter, IHostFilter_Vtbl, 0xd0e80dd3_1
 impl std::ops::Deref for IHostFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHostFilter, windows_core::IUnknown);
@@ -190,7 +190,7 @@ windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_
 impl std::ops::Deref for IMapToken {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMapToken, windows_core::IUnknown);
@@ -208,7 +208,7 @@ windows_core::imp::define_interface!(IMetaDataAssemblyEmit, IMetaDataAssemblyEmi
 impl std::ops::Deref for IMetaDataAssemblyEmit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataAssemblyEmit, windows_core::IUnknown);
@@ -283,7 +283,7 @@ windows_core::imp::define_interface!(IMetaDataAssemblyImport, IMetaDataAssemblyI
 impl std::ops::Deref for IMetaDataAssemblyImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataAssemblyImport, windows_core::IUnknown);
@@ -364,24 +364,24 @@ windows_core::imp::define_interface!(IMetaDataDispenser, IMetaDataDispenser_Vtbl
 impl std::ops::Deref for IMetaDataDispenser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataDispenser, windows_core::IUnknown);
 impl IMetaDataDispenser {
     pub unsafe fn DefineScope(&self, rclsid: *const windows_core::GUID, dwcreateflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefineScope)(windows_core::Interface::as_raw(self), rclsid, dwcreateflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OpenScope<P0>(&self, szscope: P0, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenScope)(windows_core::Interface::as_raw(self), szscope.param().abi(), dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OpenScopeOnMemory(&self, pdata: *const core::ffi::c_void, cbdata: u32, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenScopeOnMemory)(windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -396,7 +396,7 @@ windows_core::imp::define_interface!(IMetaDataDispenserEx, IMetaDataDispenserEx_
 impl std::ops::Deref for IMetaDataDispenserEx {
     type Target = IMetaDataDispenser;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataDispenserEx, windows_core::IUnknown, IMetaDataDispenser);
@@ -412,7 +412,7 @@ impl IMetaDataDispenserEx {
     where
         P0: windows_core::Param<super::super::Com::ITypeInfo>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenScopeOnITypeInfo)(windows_core::Interface::as_raw(self), piti.param().abi(), dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCORSystemDirectory(&self, szbuffer: Option<&mut [u16]>, pchbuffer: *mut u32) -> windows_core::Result<()> {
@@ -442,8 +442,8 @@ impl IMetaDataDispenserEx {
 #[repr(C)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
-    pub SetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub SetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub GetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenScopeOnITypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -456,7 +456,7 @@ windows_core::imp::define_interface!(IMetaDataEmit, IMetaDataEmit_Vtbl, 0xba3fee
 impl std::ops::Deref for IMetaDataEmit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataEmit, windows_core::IUnknown);
@@ -748,7 +748,7 @@ windows_core::imp::define_interface!(IMetaDataEmit2, IMetaDataEmit2_Vtbl, 0xf5dd
 impl std::ops::Deref for IMetaDataEmit2 {
     type Target = IMetaDataEmit;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataEmit2, windows_core::IUnknown, IMetaDataEmit);
@@ -810,7 +810,7 @@ windows_core::imp::define_interface!(IMetaDataError, IMetaDataError_Vtbl, 0xb81f
 impl std::ops::Deref for IMetaDataError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataError, windows_core::IUnknown);
@@ -828,7 +828,7 @@ windows_core::imp::define_interface!(IMetaDataFilter, IMetaDataFilter_Vtbl, 0xd0
 impl std::ops::Deref for IMetaDataFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataFilter, windows_core::IUnknown);
@@ -854,7 +854,7 @@ windows_core::imp::define_interface!(IMetaDataImport, IMetaDataImport_Vtbl, 0x7d
 impl std::ops::Deref for IMetaDataImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataImport, windows_core::IUnknown);
@@ -1152,7 +1152,7 @@ windows_core::imp::define_interface!(IMetaDataImport2, IMetaDataImport2_Vtbl, 0x
 impl std::ops::Deref for IMetaDataImport2 {
     type Target = IMetaDataImport;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataImport2, windows_core::IUnknown, IMetaDataImport);
@@ -1198,7 +1198,7 @@ windows_core::imp::define_interface!(IMetaDataInfo, IMetaDataInfo_Vtbl, 0x7998ea
 impl std::ops::Deref for IMetaDataInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataInfo, windows_core::IUnknown);
@@ -1216,7 +1216,7 @@ windows_core::imp::define_interface!(IMetaDataTables, IMetaDataTables_Vtbl, 0xd8
 impl std::ops::Deref for IMetaDataTables {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataTables, windows_core::IUnknown);
@@ -1306,7 +1306,7 @@ windows_core::imp::define_interface!(IMetaDataTables2, IMetaDataTables2_Vtbl, 0x
 impl std::ops::Deref for IMetaDataTables2 {
     type Target = IMetaDataTables;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataTables2, windows_core::IUnknown, IMetaDataTables);
@@ -1328,7 +1328,7 @@ windows_core::imp::define_interface!(IMetaDataValidate, IMetaDataValidate_Vtbl, 
 impl std::ops::Deref for IMetaDataValidate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataValidate, windows_core::IUnknown);
@@ -1353,7 +1353,7 @@ windows_core::imp::define_interface!(IMetaDataWinMDImport, IMetaDataWinMDImport_
 impl std::ops::Deref for IMetaDataWinMDImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMetaDataWinMDImport, windows_core::IUnknown);

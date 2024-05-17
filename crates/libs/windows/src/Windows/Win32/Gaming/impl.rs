@@ -7,7 +7,7 @@ pub trait IGameExplorer_Impl: Sized {
 impl windows_core::RuntimeName for IGameExplorer {}
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>() -> IGameExplorer_Vtbl {
-        unsafe extern "system" fn AddGame<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: std::mem::MaybeUninit<windows_core::BSTR>, bstrgameinstalldirectory: std::mem::MaybeUninit<windows_core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddGame<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: core::mem::MaybeUninit<windows_core::BSTR>, bstrgameinstalldirectory: core::mem::MaybeUninit<windows_core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGameExplorer_Impl::AddGame(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute(&bstrgameinstalldirectory), core::mem::transmute_copy(&installscope), core::mem::transmute_copy(&pguidinstanceid)).into()
@@ -22,7 +22,7 @@ impl IGameExplorer_Vtbl {
             let this = (*this).get_impl();
             IGameExplorer_Impl::UpdateGame(this, core::mem::transmute(&guidinstanceid)).into()
         }
-        unsafe extern "system" fn VerifyAccess<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: std::mem::MaybeUninit<windows_core::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerifyAccess<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: core::mem::MaybeUninit<windows_core::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath)) {

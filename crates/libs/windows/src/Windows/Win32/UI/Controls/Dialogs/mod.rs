@@ -119,7 +119,7 @@ windows_core::imp::define_interface!(IPrintDialogCallback, IPrintDialogCallback_
 impl std::ops::Deref for IPrintDialogCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintDialogCallback, windows_core::IUnknown);
@@ -150,7 +150,7 @@ windows_core::imp::define_interface!(IPrintDialogServices, IPrintDialogServices_
 impl std::ops::Deref for IPrintDialogServices {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintDialogServices, windows_core::IUnknown);
@@ -1843,7 +1843,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: windows_core::PCSTR,
-    pub lpCallback: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub lpCallback: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1888,7 +1888,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: windows_core::PCSTR,
-    pub lpCallback: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub lpCallback: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1926,7 +1926,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: windows_core::PCWSTR,
-    pub lpCallback: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub lpCallback: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1971,7 +1971,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: windows_core::PCWSTR,
-    pub lpCallback: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub lpCallback: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,

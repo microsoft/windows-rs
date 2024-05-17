@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IAdaptiveCard, IAdaptiveCard_Vtbl, 0x72d056
 impl std::ops::Deref for IAdaptiveCard {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveCard, windows_core::IUnknown, windows_core::IInspectable);
@@ -10,7 +10,7 @@ impl IAdaptiveCard {
     pub fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToJson)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -21,13 +21,13 @@ impl windows_core::RuntimeType for IAdaptiveCard {
 #[repr(C)]
 pub struct IAdaptiveCard_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdaptiveCardBuilderStatics, IAdaptiveCardBuilderStatics_Vtbl, 0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 impl std::ops::Deref for IAdaptiveCardBuilderStatics {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveCardBuilderStatics, windows_core::IUnknown, windows_core::IInspectable);
@@ -35,7 +35,7 @@ impl IAdaptiveCardBuilderStatics {
     pub fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAdaptiveCardFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -46,7 +46,7 @@ impl windows_core::RuntimeType for IAdaptiveCardBuilderStatics {
 #[repr(C)]
 pub struct IAdaptiveCardBuilderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFocusSession, IFocusSession_Vtbl, 0x069fbab8_0e84_5f2f_8614_9b6544326277);
 impl windows_core::RuntimeType for IFocusSession {
@@ -55,7 +55,7 @@ impl windows_core::RuntimeType for IFocusSession {
 #[repr(C)]
 pub struct IFocusSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFocusSessionManager, IFocusSessionManager_Vtbl, 0xe7ffbaa9_d8be_5dbf_bac6_49364842e37e);
@@ -66,7 +66,7 @@ impl windows_core::RuntimeType for IFocusSessionManager {
 pub struct IFocusSessionManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFocusActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetSession: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSession: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryStartFocusSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryStartFocusSession2: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeactivateFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -90,7 +90,7 @@ impl windows_core::RuntimeType for ISecurityAppManager {
 #[repr(C)]
 pub struct ISecurityAppManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, SecurityAppKind, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, bool, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, SecurityAppKind, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, bool, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, SecurityAppKind, windows_core::GUID) -> windows_core::HRESULT,
     pub UpdateState: unsafe extern "system" fn(*mut core::ffi::c_void, SecurityAppKind, windows_core::GUID, SecurityAppState, SecurityAppSubstatus, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -156,12 +156,12 @@ impl windows_core::RuntimeType for ITaskbarManager2 {
 #[repr(C)]
 pub struct ITaskbarManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub IsSecondaryTilePinnedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsSecondaryTilePinnedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "UI_StartScreen")]
     pub RequestPinSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI_StartScreen"))]
     RequestPinSecondaryTileAsync: usize,
-    pub TryUnpinSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryUnpinSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskbarManagerDesktopAppSupportStatics, ITaskbarManagerDesktopAppSupportStatics_Vtbl, 0xcdfefd63_e879_4134_b9a7_8283f05f9480);
 impl windows_core::RuntimeType for ITaskbarManagerDesktopAppSupportStatics {
@@ -189,12 +189,12 @@ pub struct IWindowTab_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TreatAsSecondaryTileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTreatAsSecondaryTileId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TreatAsSecondaryTileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTreatAsSecondaryTileId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportThumbnailAvailable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -224,8 +224,8 @@ impl windows_core::RuntimeType for IWindowTabGroup {
 #[repr(C)]
 pub struct IWindowTabGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -244,8 +244,8 @@ impl windows_core::RuntimeType for IWindowTabIconStatics {
 #[repr(C)]
 pub struct IWindowTabIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateFromFontGlyph: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFromFontGlyphWithUri: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromFontGlyph: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromFontGlyphWithUri: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub CreateFromImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -328,7 +328,7 @@ pub struct AdaptiveCardBuilder;
 impl AdaptiveCardBuilder {
     pub fn CreateAdaptiveCardFromJson(value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAdaptiveCardFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -349,7 +349,7 @@ impl FocusSession {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -378,28 +378,28 @@ impl FocusSessionManager {
     pub fn IsFocusActive(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFocusActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetSession(&self, id: &windows_core::HSTRING) -> windows_core::Result<FocusSession> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSession)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryStartFocusSession(&self) -> windows_core::Result<FocusSession> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStartFocusSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryStartFocusSession2(&self, endtime: super::super::Foundation::DateTime) -> windows_core::Result<FocusSession> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStartFocusSession2)(windows_core::Interface::as_raw(this), endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -413,7 +413,7 @@ impl FocusSessionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFocusActiveChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -423,13 +423,13 @@ impl FocusSessionManager {
     }
     pub fn GetDefault() -> windows_core::Result<FocusSessionManager> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -469,7 +469,7 @@ impl SecurityAppManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.param().abi(), registerperuser, &mut result__).map(|| result__)
         }
     }
@@ -505,14 +505,14 @@ impl ShareWindowCommandEventArgs {
     pub fn WindowId(&self) -> windows_core::Result<super::WindowId> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Command(&self) -> windows_core::Result<ShareWindowCommand> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Command)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -556,7 +556,7 @@ impl ShareWindowCommandSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommandRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -570,7 +570,7 @@ impl ShareWindowCommandSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommandInvoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -580,7 +580,7 @@ impl ShareWindowCommandSource {
     }
     pub fn GetForCurrentView() -> windows_core::Result<ShareWindowCommandSource> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -610,21 +610,21 @@ impl TaskbarManager {
     pub fn IsSupported(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsPinningAllowed(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPinningAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentAppPinnedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -635,14 +635,14 @@ impl TaskbarManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestPinCurrentAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -653,14 +653,14 @@ impl TaskbarManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -671,20 +671,20 @@ impl TaskbarManager {
     {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<TaskbarManager> {
         Self::ITaskbarManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -721,7 +721,7 @@ impl WindowTab {
     pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -735,7 +735,7 @@ impl WindowTab {
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -746,7 +746,7 @@ impl WindowTab {
     pub fn Icon(&self) -> windows_core::Result<WindowTabIcon> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -760,7 +760,7 @@ impl WindowTab {
     pub fn TreatAsSecondaryTileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TreatAsSecondaryTileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -771,7 +771,7 @@ impl WindowTab {
     pub fn Group(&self) -> windows_core::Result<WindowTabGroup> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -807,7 +807,7 @@ impl WindowTabCloseRequestedEventArgs {
     pub fn Tab(&self) -> windows_core::Result<WindowTab> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tab)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -835,7 +835,7 @@ impl WindowTabCollection {
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<WindowTab>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<WindowTab>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -843,7 +843,7 @@ impl WindowTabCollection {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<WindowTab> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -851,7 +851,7 @@ impl WindowTabCollection {
     pub fn Size(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -859,7 +859,7 @@ impl WindowTabCollection {
     pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowTab>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -870,7 +870,7 @@ impl WindowTabCollection {
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
@@ -917,7 +917,7 @@ impl WindowTabCollection {
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<WindowTab>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
@@ -977,7 +977,7 @@ impl WindowTabGroup {
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -988,7 +988,7 @@ impl WindowTabGroup {
     pub fn Icon(&self) -> windows_core::Result<WindowTabIcon> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1019,7 +1019,7 @@ windows_core::imp::interface_hierarchy!(WindowTabIcon, windows_core::IUnknown, w
 impl WindowTabIcon {
     pub fn CreateFromFontGlyph(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<WindowTabIcon> {
         Self::IWindowTabIconStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromFontGlyph)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1028,7 +1028,7 @@ impl WindowTabIcon {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IWindowTabIconStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1038,7 +1038,7 @@ impl WindowTabIcon {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IWindowTabIconStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1068,7 +1068,7 @@ impl WindowTabManager {
     pub fn Tabs(&self) -> windows_core::Result<WindowTabCollection> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tabs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1085,7 +1085,7 @@ impl WindowTabManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TabSwitchRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1099,7 +1099,7 @@ impl WindowTabManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TabCloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1113,7 +1113,7 @@ impl WindowTabManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TabTearOutRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1127,7 +1127,7 @@ impl WindowTabManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TabThumbnailRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1137,19 +1137,19 @@ impl WindowTabManager {
     }
     pub fn GetForWindow(id: super::WindowId) -> windows_core::Result<WindowTabManager> {
         Self::IWindowTabManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForWindow)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::IWindowTabManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsTabTearOutSupported() -> windows_core::Result<bool> {
         Self::IWindowTabManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTabTearOutSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -1179,7 +1179,7 @@ impl WindowTabSwitchRequestedEventArgs {
     pub fn Tab(&self) -> windows_core::Result<WindowTab> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tab)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1204,14 +1204,14 @@ impl WindowTabTearOutRequestedEventArgs {
     pub fn Tab(&self) -> windows_core::Result<WindowTab> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tab)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WindowId(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1222,7 +1222,7 @@ impl WindowTabTearOutRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1247,7 +1247,7 @@ impl WindowTabThumbnailRequestedEventArgs {
     pub fn Tab(&self) -> windows_core::Result<WindowTab> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tab)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1255,7 +1255,7 @@ impl WindowTabThumbnailRequestedEventArgs {
     pub fn RequestedSize(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestedSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1263,7 +1263,7 @@ impl WindowTabThumbnailRequestedEventArgs {
     pub fn Image(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Image)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1278,14 +1278,14 @@ impl WindowTabThumbnailRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsCompositedOnWindow(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCompositedOnWindow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

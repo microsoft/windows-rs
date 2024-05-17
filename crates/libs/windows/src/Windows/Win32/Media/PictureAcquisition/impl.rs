@@ -65,7 +65,7 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
             let this = (*this).get_impl();
             IPhotoAcquireDeviceSelectionDialog_Impl::SetSubmitButtonText(this, core::mem::transmute(&pszsubmitbuttontext)).into()
         }
-        unsafe extern "system" fn DoModal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoModal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPhotoAcquireDeviceSelectionDialog_Impl::DoModal(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwdeviceflags), core::mem::transmute_copy(&pbstrdeviceid), core::mem::transmute_copy(&pndevicetype)).into()
@@ -98,7 +98,7 @@ impl windows_core::RuntimeName for IPhotoAcquireItem {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPhotoAcquireItem_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>() -> IPhotoAcquireItem_Vtbl {
-        unsafe extern "system" fn GetItemName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstritemname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstritemname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPhotoAcquireItem_Impl::GetItemName(this) {
@@ -120,7 +120,7 @@ impl IPhotoAcquireItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPhotoAcquireItem_Impl::GetProperty(this, core::mem::transmute_copy(&key)) {
@@ -131,7 +131,7 @@ impl IPhotoAcquireItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPhotoAcquireItem_Impl::SetProperty(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pv)).into()
@@ -432,7 +432,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUserInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riidtype: *const windows_core::GUID, punknown: *mut core::ffi::c_void, ppropvarresult: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppropvardefault: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUserInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riidtype: *const windows_core::GUID, punknown: *mut core::ffi::c_void, ppropvarresult: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, ppropvardefault: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPhotoAcquireProgressCB_Impl::GetUserInput(this, core::mem::transmute_copy(&riidtype), windows_core::from_raw_borrowed(&punknown), core::mem::transmute_copy(&ppropvarresult), core::mem::transmute_copy(&ppropvardefault)).into()
@@ -528,7 +528,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputFilenameTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplate: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOutputFilenameTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplate: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPhotoAcquireSettings_Impl::GetOutputFilenameTemplate(this) {
@@ -561,7 +561,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGroupTag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgrouptag: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGroupTag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgrouptag: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPhotoAcquireSettings_Impl::GetGroupTag(this) {
@@ -620,7 +620,7 @@ impl windows_core::RuntimeName for IPhotoAcquireSource {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IPhotoAcquireSource_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>() -> IPhotoAcquireSource_Vtbl {
-        unsafe extern "system" fn GetFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfriendlyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfriendlyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPhotoAcquireSource_Impl::GetFriendlyName(this) {
@@ -674,7 +674,7 @@ impl IPhotoAcquireSource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdeviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdeviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPhotoAcquireSource_Impl::GetDeviceId(this) {
@@ -852,7 +852,7 @@ impl IPhotoProgressDialog_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUserInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riidtype: *const windows_core::GUID, punknown: *mut core::ffi::c_void, ppropvarresult: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppropvardefault: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUserInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riidtype: *const windows_core::GUID, punknown: *mut core::ffi::c_void, ppropvarresult: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, ppropvardefault: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPhotoProgressDialog_Impl::GetUserInput(this, core::mem::transmute_copy(&riidtype), windows_core::from_raw_borrowed(&punknown), core::mem::transmute_copy(&ppropvarresult), core::mem::transmute_copy(&ppropvardefault)).into()
@@ -901,7 +901,7 @@ impl windows_core::RuntimeName for IUserInputString {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IUserInputString_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>() -> IUserInputString_Vtbl {
-        unsafe extern "system" fn GetSubmitButtonText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmitbuttontext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSubmitButtonText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmitbuttontext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IUserInputString_Impl::GetSubmitButtonText(this) {
@@ -912,7 +912,7 @@ impl IUserInputString_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrompt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprompttitle: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrompt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprompttitle: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IUserInputString_Impl::GetPrompt(this) {
@@ -923,7 +923,7 @@ impl IUserInputString_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstringid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStringId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstringid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IUserInputString_Impl::GetStringId(this) {
@@ -945,7 +945,7 @@ impl IUserInputString_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTooltipText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtooltiptext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTooltipText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtooltiptext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IUserInputString_Impl::GetTooltipText(this) {
@@ -967,7 +967,7 @@ impl IUserInputString_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefault<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdefault: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDefault<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdefault: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IUserInputString_Impl::GetDefault(this) {
@@ -989,7 +989,7 @@ impl IUserInputString_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMruEntryAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pbstrmruentry: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMruEntryAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pbstrmruentry: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IUserInputString_Impl::GetMruEntryAt(this, core::mem::transmute_copy(&nindex)) {

@@ -30,7 +30,7 @@ windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_
 impl std::ops::Deref for IEffectivePermission {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
@@ -53,7 +53,7 @@ windows_core::imp::define_interface!(IEffectivePermission2, IEffectivePermission
 impl std::ops::Deref for IEffectivePermission2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEffectivePermission2, windows_core::IUnknown);
@@ -109,7 +109,7 @@ windows_core::imp::define_interface!(ISecurityInformation, ISecurityInformation_
 impl std::ops::Deref for ISecurityInformation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISecurityInformation, windows_core::IUnknown);
@@ -164,7 +164,7 @@ windows_core::imp::define_interface!(ISecurityInformation2, ISecurityInformation
 impl std::ops::Deref for ISecurityInformation2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISecurityInformation2, windows_core::IUnknown);
@@ -174,7 +174,7 @@ impl ISecurityInformation2 {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> windows_core::Result<super::super::super::System::Com::IDataObject> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LookupSids)(windows_core::Interface::as_raw(self), csids, rgpsids, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -191,13 +191,13 @@ windows_core::imp::define_interface!(ISecurityInformation3, ISecurityInformation
 impl std::ops::Deref for ISecurityInformation3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISecurityInformation3, windows_core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFullResourceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn OpenElevatedEditor<P0>(&self, hwnd: P0, upage: SI_PAGE_TYPE) -> windows_core::Result<()>
@@ -217,7 +217,7 @@ windows_core::imp::define_interface!(ISecurityInformation4, ISecurityInformation
 impl std::ops::Deref for ISecurityInformation4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISecurityInformation4, windows_core::IUnknown);
@@ -235,7 +235,7 @@ windows_core::imp::define_interface!(ISecurityObjectTypeInfo, ISecurityObjectTyp
 impl std::ops::Deref for ISecurityObjectTypeInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, windows_core::IUnknown);

@@ -22,7 +22,7 @@ windows_core::imp::define_interface!(IDMLBindingTable, IDMLBindingTable_Vtbl, 0x
 impl std::ops::Deref for IDMLBindingTable {
     type Target = IDMLDeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
@@ -60,7 +60,7 @@ windows_core::imp::define_interface!(IDMLCommandRecorder, IDMLCommandRecorder_Vt
 impl std::ops::Deref for IDMLCommandRecorder {
     type Target = IDMLDeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLCommandRecorder, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
@@ -87,7 +87,7 @@ windows_core::imp::define_interface!(IDMLCompiledOperator, IDMLCompiledOperator_
 impl std::ops::Deref for IDMLCompiledOperator {
     type Target = IDMLDispatchable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLCompiledOperator, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
@@ -100,7 +100,7 @@ windows_core::imp::define_interface!(IDMLDebugDevice, IDMLDebugDevice_Vtbl, 0x7d
 impl std::ops::Deref for IDMLDebugDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLDebugDevice, windows_core::IUnknown);
@@ -121,7 +121,7 @@ windows_core::imp::define_interface!(IDMLDevice, IDMLDevice_Vtbl, 0x6dbd6437_96f
 impl std::ops::Deref for IDMLDevice {
     type Target = IDMLObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLDevice, windows_core::IUnknown, IDMLObject);
@@ -202,7 +202,7 @@ windows_core::imp::define_interface!(IDMLDevice1, IDMLDevice1_Vtbl, 0xa0884f9a_d
 impl std::ops::Deref for IDMLDevice1 {
     type Target = IDMLDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLDevice1, windows_core::IUnknown, IDMLObject, IDMLDevice);
@@ -223,7 +223,7 @@ windows_core::imp::define_interface!(IDMLDeviceChild, IDMLDeviceChild_Vtbl, 0x27
 impl std::ops::Deref for IDMLDeviceChild {
     type Target = IDMLObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLDeviceChild, windows_core::IUnknown, IDMLObject);
@@ -245,7 +245,7 @@ windows_core::imp::define_interface!(IDMLDispatchable, IDMLDispatchable_Vtbl, 0x
 impl std::ops::Deref for IDMLDispatchable {
     type Target = IDMLPageable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLDispatchable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
@@ -265,7 +265,7 @@ windows_core::imp::define_interface!(IDMLObject, IDMLObject_Vtbl, 0xc8263aac_9e0
 impl std::ops::Deref for IDMLObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLObject, windows_core::IUnknown);
@@ -301,7 +301,7 @@ windows_core::imp::define_interface!(IDMLOperator, IDMLOperator_Vtbl, 0x26caae7a
 impl std::ops::Deref for IDMLOperator {
     type Target = IDMLDeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLOperator, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
@@ -314,7 +314,7 @@ windows_core::imp::define_interface!(IDMLOperatorInitializer, IDMLOperatorInitia
 impl std::ops::Deref for IDMLOperatorInitializer {
     type Target = IDMLDispatchable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
@@ -332,7 +332,7 @@ windows_core::imp::define_interface!(IDMLPageable, IDMLPageable_Vtbl, 0xb1ab0825
 impl std::ops::Deref for IDMLPageable {
     type Target = IDMLDeviceChild;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDMLPageable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
@@ -1415,7 +1415,7 @@ impl Default for DML_BINDING_PROPERTIES {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct DML_BINDING_TABLE_DESC {
-    pub Dispatchable: std::mem::ManuallyDrop<Option<IDMLDispatchable>>,
+    pub Dispatchable: core::mem::ManuallyDrop<Option<IDMLDispatchable>>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
@@ -1457,7 +1457,7 @@ impl Default for DML_BUFFER_ARRAY_BINDING {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct DML_BUFFER_BINDING {
-    pub Buffer: std::mem::ManuallyDrop<Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub Buffer: core::mem::ManuallyDrop<Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
@@ -3200,7 +3200,7 @@ impl Default for DML_OPERATOR_DESC {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
-    pub Operator: std::mem::ManuallyDrop<Option<IDMLOperator>>,
+    pub Operator: core::mem::ManuallyDrop<Option<IDMLOperator>>,
     pub Name: windows_core::PCSTR,
 }
 impl Clone for DML_OPERATOR_GRAPH_NODE_DESC {

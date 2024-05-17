@@ -1596,7 +1596,7 @@ pub trait IWICEnumMetadataItem_Impl: Sized {
 impl windows_core::RuntimeName for IWICEnumMetadataItem {}
 impl IWICEnumMetadataItem_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICEnumMetadataItem_Impl, const OFFSET: isize>() -> IWICEnumMetadataItem_Vtbl {
-        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICEnumMetadataItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgeltschema: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, rgeltid: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, rgeltvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICEnumMetadataItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgeltschema: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, rgeltid: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, rgeltvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICEnumMetadataItem_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgeltschema), core::mem::transmute_copy(&rgeltid), core::mem::transmute_copy(&rgeltvalue), core::mem::transmute_copy(&pceltfetched)).into()
@@ -2449,7 +2449,7 @@ impl IWICMetadataQueryReader_Vtbl {
             let this = (*this).get_impl();
             IWICMetadataQueryReader_Impl::GetLocation(this, core::mem::transmute_copy(&cchmaxlength), core::mem::transmute(&wznamespace), core::mem::transmute_copy(&pcchactuallength)).into()
         }
-        unsafe extern "system" fn GetMetadataByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMetadataByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataQueryReader_Impl::GetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue)).into()
@@ -2487,7 +2487,7 @@ impl windows_core::RuntimeName for IWICMetadataQueryWriter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWICMetadataQueryWriter_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>() -> IWICMetadataQueryWriter_Vtbl {
-        unsafe extern "system" fn SetMetadataByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMetadataByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataQueryWriter_Impl::SetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue)).into()
@@ -2551,12 +2551,12 @@ impl IWICMetadataReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataReader_Impl::GetValueByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataReader_Impl::GetValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
@@ -2644,17 +2644,17 @@ pub trait IWICMetadataWriter_Impl: Sized + IWICMetadataReader_Impl {
 impl windows_core::RuntimeName for IWICMetadataWriter {}
 impl IWICMetadataWriter_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>() -> IWICMetadataWriter_Vtbl {
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataWriter_Impl::SetValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn SetValueByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValueByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataWriter_Impl::SetValueByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn RemoveValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWICMetadataWriter_Impl::RemoveValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid)).into()

@@ -21,7 +21,7 @@ pub struct IPdfDocumentStatics_Vtbl {
     #[cfg(not(feature = "Storage"))]
     LoadFromFileAsync: usize,
     #[cfg(feature = "Storage")]
-    pub LoadFromFileWithPasswordAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LoadFromFileWithPasswordAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     LoadFromFileWithPasswordAsync: usize,
     #[cfg(feature = "Storage_Streams")]
@@ -29,7 +29,7 @@ pub struct IPdfDocumentStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub LoadFromStreamWithPasswordAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LoadFromStreamWithPasswordAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithPasswordAsync: usize,
 }
@@ -102,21 +102,21 @@ impl PdfDocument {
     pub fn GetPage(&self, pageindex: u32) -> windows_core::Result<PdfPage> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPage)(windows_core::Interface::as_raw(this), pageindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PageCount(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsPasswordProtected(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPasswordProtected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -126,7 +126,7 @@ impl PdfDocument {
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -136,7 +136,7 @@ impl PdfDocument {
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadFromFileWithPasswordAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -146,7 +146,7 @@ impl PdfDocument {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadFromStreamAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -156,7 +156,7 @@ impl PdfDocument {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadFromStreamWithPasswordAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -195,7 +195,7 @@ impl PdfPage {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenderToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -207,49 +207,49 @@ impl PdfPage {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PreparePageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreparePageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Index(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Index)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Dimensions(&self) -> windows_core::Result<PdfPageDimensions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dimensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Rotation(&self) -> windows_core::Result<PdfPageRotation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rotation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreferredZoom(&self) -> windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredZoom)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -274,35 +274,35 @@ impl PdfPageDimensions {
     pub fn MediaBox(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CropBox(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CropBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BleedBox(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BleedBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TrimBox(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ArtBox(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ArtBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -334,7 +334,7 @@ impl PdfPageRenderOptions {
     pub fn SourceRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -345,7 +345,7 @@ impl PdfPageRenderOptions {
     pub fn DestinationWidth(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DestinationWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -356,7 +356,7 @@ impl PdfPageRenderOptions {
     pub fn DestinationHeight(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DestinationHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -368,7 +368,7 @@ impl PdfPageRenderOptions {
     pub fn BackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -380,7 +380,7 @@ impl PdfPageRenderOptions {
     pub fn IsIgnoringHighContrast(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsIgnoringHighContrast)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -391,7 +391,7 @@ impl PdfPageRenderOptions {
     pub fn BitmapEncoderId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitmapEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

@@ -5,13 +5,13 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![doc(html_no_source)]
 #![allow(non_snake_case, unexpected_cfgs)]
 #![cfg_attr(windows_debugger_visualizer, debugger_visualizer(natvis_file = "../.natvis"))]
-#![cfg_attr(not(test), no_std)]
+#![cfg_attr(all(not(test), not(feature = "std")), no_std)]
 
 extern crate self as windows_core;
 
 #[macro_use]
 extern crate alloc;
-use alloc::vec;
+// use alloc::vec;
 
 use alloc::{boxed::Box, string::String, vec::Vec};
 

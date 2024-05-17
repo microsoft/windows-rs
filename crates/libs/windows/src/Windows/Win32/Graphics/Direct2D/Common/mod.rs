@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ID2D1SimplifiedGeometrySink, ID2D1Simplifie
 impl std::ops::Deref for ID2D1SimplifiedGeometrySink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, windows_core::IUnknown);

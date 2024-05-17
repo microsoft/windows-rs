@@ -23,7 +23,7 @@ windows_core::imp::define_interface!(ID3D11On12Device, ID3D11On12Device_Vtbl, 0x
 impl std::ops::Deref for ID3D11On12Device {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D11On12Device, windows_core::IUnknown);
@@ -67,7 +67,7 @@ windows_core::imp::define_interface!(ID3D11On12Device1, ID3D11On12Device1_Vtbl, 
 impl std::ops::Deref for ID3D11On12Device1 {
     type Target = ID3D11On12Device;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D11On12Device1, windows_core::IUnknown, ID3D11On12Device);
@@ -91,7 +91,7 @@ windows_core::imp::define_interface!(ID3D11On12Device2, ID3D11On12Device2_Vtbl, 
 impl std::ops::Deref for ID3D11On12Device2 {
     type Target = ID3D11On12Device1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3D11On12Device2, windows_core::IUnknown, ID3D11On12Device, ID3D11On12Device1);

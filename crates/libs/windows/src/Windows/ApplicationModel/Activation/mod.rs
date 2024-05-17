@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IActivatedEventArgs, IActivatedEventArgs_Vt
 impl std::ops::Deref for IActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -10,21 +10,21 @@ impl IActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -43,7 +43,7 @@ windows_core::imp::define_interface!(IActivatedEventArgsWithUser, IActivatedEven
 impl std::ops::Deref for IActivatedEventArgsWithUser {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IActivatedEventArgsWithUser, windows_core::IUnknown, windows_core::IInspectable);
@@ -53,28 +53,28 @@ impl IActivatedEventArgsWithUser {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -94,7 +94,7 @@ windows_core::imp::define_interface!(IApplicationViewActivatedEventArgs, IApplic
 impl std::ops::Deref for IApplicationViewActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IApplicationViewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -103,28 +103,28 @@ impl IApplicationViewActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -141,7 +141,7 @@ windows_core::imp::define_interface!(IAppointmentsProviderActivatedEventArgs, IA
 impl std::ops::Deref for IAppointmentsProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -150,28 +150,28 @@ impl IAppointmentsProviderActivatedEventArgs {
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -182,13 +182,13 @@ impl windows_core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
 #[repr(C)]
 pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl, 0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 impl std::ops::Deref for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -198,35 +198,35 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn AddAppointmentOperation(&self) -> windows_core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -246,7 +246,7 @@ windows_core::imp::define_interface!(IAppointmentsProviderRemoveAppointmentActiv
 impl std::ops::Deref for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -256,35 +256,35 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn RemoveAppointmentOperation(&self) -> windows_core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoveAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -304,7 +304,7 @@ windows_core::imp::define_interface!(IAppointmentsProviderReplaceAppointmentActi
 impl std::ops::Deref for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -314,35 +314,35 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn ReplaceAppointmentOperation(&self) -> windows_core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReplaceAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -362,7 +362,7 @@ windows_core::imp::define_interface!(IAppointmentsProviderShowAppointmentDetails
 impl std::ops::Deref for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -371,49 +371,49 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceStartDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoamingId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -425,14 +425,14 @@ impl windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsAc
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceStartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub RoamingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RoamingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl, 0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 impl std::ops::Deref for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -441,42 +441,42 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeToShow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -494,7 +494,7 @@ windows_core::imp::define_interface!(IBackgroundActivatedEventArgs, IBackgroundA
 impl std::ops::Deref for IBackgroundActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -503,7 +503,7 @@ impl IBackgroundActivatedEventArgs {
     pub fn TaskInstance(&self) -> windows_core::Result<super::Background::IBackgroundTaskInstance> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TaskInstance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -523,7 +523,7 @@ windows_core::imp::define_interface!(IBarcodeScannerPreviewActivatedEventArgs, I
 impl std::ops::Deref for IBarcodeScannerPreviewActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -532,28 +532,28 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
     pub fn ConnectionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -564,13 +564,13 @@ impl windows_core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
 #[repr(C)]
 pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterActivatedEventArgs, ICachedFileUpdaterActivatedEventArgs_Vtbl, 0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 impl std::ops::Deref for ICachedFileUpdaterActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -580,28 +580,28 @@ impl ICachedFileUpdaterActivatedEventArgs {
     pub fn CachedFileUpdaterUI(&self) -> windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CachedFileUpdaterUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -621,7 +621,7 @@ windows_core::imp::define_interface!(ICameraSettingsActivatedEventArgs, ICameraS
 impl std::ops::Deref for ICameraSettingsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -630,35 +630,35 @@ impl ICameraSettingsActivatedEventArgs {
     pub fn VideoDeviceController(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoDeviceController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn VideoDeviceExtension(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoDeviceExtension)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -676,7 +676,7 @@ windows_core::imp::define_interface!(ICommandLineActivatedEventArgs, ICommandLin
 impl std::ops::Deref for ICommandLineActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -685,28 +685,28 @@ impl ICommandLineActivatedEventArgs {
     pub fn Operation(&self) -> windows_core::Result<CommandLineActivationOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -726,8 +726,8 @@ impl windows_core::RuntimeType for ICommandLineActivationOperation {
 #[repr(C)]
 pub struct ICommandLineActivationOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub CurrentDirectoryPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CurrentDirectoryPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetExitCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ExitCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -736,7 +736,7 @@ windows_core::imp::define_interface!(IContactActivatedEventArgs, IContactActivat
 impl std::ops::Deref for IContactActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -745,28 +745,28 @@ impl IContactActivatedEventArgs {
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -777,13 +777,13 @@ impl windows_core::RuntimeType for IContactActivatedEventArgs {
 #[repr(C)]
 pub struct IContactActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCallActivatedEventArgs, IContactCallActivatedEventArgs_Vtbl, 0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 impl std::ops::Deref for IContactCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -792,14 +792,14 @@ impl IContactCallActivatedEventArgs {
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -807,35 +807,35 @@ impl IContactCallActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -846,8 +846,8 @@ impl windows_core::RuntimeType for IContactCallActivatedEventArgs {
 #[repr(C)]
 pub struct IContactCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -857,7 +857,7 @@ windows_core::imp::define_interface!(IContactMapActivatedEventArgs, IContactMapA
 impl std::ops::Deref for IContactMapActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -867,7 +867,7 @@ impl IContactMapActivatedEventArgs {
     pub fn Address(&self) -> windows_core::Result<super::Contacts::ContactAddress> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -875,35 +875,35 @@ impl IContactMapActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -927,7 +927,7 @@ windows_core::imp::define_interface!(IContactMessageActivatedEventArgs, IContact
 impl std::ops::Deref for IContactMessageActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -936,14 +936,14 @@ impl IContactMessageActivatedEventArgs {
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -951,35 +951,35 @@ impl IContactMessageActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -990,8 +990,8 @@ impl windows_core::RuntimeType for IContactMessageActivatedEventArgs {
 #[repr(C)]
 pub struct IContactMessageActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -1001,7 +1001,7 @@ windows_core::imp::define_interface!(IContactPanelActivatedEventArgs, IContactPa
 impl std::ops::Deref for IContactPanelActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1010,7 +1010,7 @@ impl IContactPanelActivatedEventArgs {
     pub fn ContactPanel(&self) -> windows_core::Result<super::Contacts::ContactPanel> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactPanel)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1018,7 +1018,7 @@ impl IContactPanelActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1042,7 +1042,7 @@ windows_core::imp::define_interface!(IContactPickerActivatedEventArgs, IContactP
 impl std::ops::Deref for IContactPickerActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1052,28 +1052,28 @@ impl IContactPickerActivatedEventArgs {
     pub fn ContactPickerUI(&self) -> windows_core::Result<super::Contacts::Provider::ContactPickerUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1093,7 +1093,7 @@ windows_core::imp::define_interface!(IContactPostActivatedEventArgs, IContactPos
 impl std::ops::Deref for IContactPostActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1102,14 +1102,14 @@ impl IContactPostActivatedEventArgs {
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1117,35 +1117,35 @@ impl IContactPostActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1156,8 +1156,8 @@ impl windows_core::RuntimeType for IContactPostActivatedEventArgs {
 #[repr(C)]
 pub struct IContactPostActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -1167,7 +1167,7 @@ windows_core::imp::define_interface!(IContactVideoCallActivatedEventArgs, IConta
 impl std::ops::Deref for IContactVideoCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1176,14 +1176,14 @@ impl IContactVideoCallActivatedEventArgs {
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1191,35 +1191,35 @@ impl IContactVideoCallActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1230,8 +1230,8 @@ impl windows_core::RuntimeType for IContactVideoCallActivatedEventArgs {
 #[repr(C)]
 pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -1241,7 +1241,7 @@ windows_core::imp::define_interface!(IContactsProviderActivatedEventArgs, IConta
 impl std::ops::Deref for IContactsProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContactsProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1250,28 +1250,28 @@ impl IContactsProviderActivatedEventArgs {
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1282,13 +1282,13 @@ impl windows_core::RuntimeType for IContactsProviderActivatedEventArgs {
 #[repr(C)]
 pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContinuationActivatedEventArgs, IContinuationActivatedEventArgs_Vtbl, 0xe58106b5_155f_4a94_a742_c7e08f4e188c);
 impl std::ops::Deref for IContinuationActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IContinuationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1298,28 +1298,28 @@ impl IContinuationActivatedEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1339,7 +1339,7 @@ windows_core::imp::define_interface!(IDeviceActivatedEventArgs, IDeviceActivated
 impl std::ops::Deref for IDeviceActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1348,35 +1348,35 @@ impl IDeviceActivatedEventArgs {
     pub fn DeviceInformationId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceInformationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1387,14 +1387,14 @@ impl windows_core::RuntimeType for IDeviceActivatedEventArgs {
 #[repr(C)]
 pub struct IDeviceActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceInformationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DeviceInformationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePairingActivatedEventArgs, IDevicePairingActivatedEventArgs_Vtbl, 0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 impl std::ops::Deref for IDevicePairingActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1404,28 +1404,28 @@ impl IDevicePairingActivatedEventArgs {
     pub fn DeviceInformation(&self) -> windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1445,7 +1445,7 @@ windows_core::imp::define_interface!(IDialReceiverActivatedEventArgs, IDialRecei
 impl std::ops::Deref for IDialReceiverActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1454,42 +1454,42 @@ impl IDialReceiverActivatedEventArgs {
     pub fn AppName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1500,13 +1500,13 @@ impl windows_core::RuntimeType for IDialReceiverActivatedEventArgs {
 #[repr(C)]
 pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgs, IFileActivatedEventArgs_Vtbl, 0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 impl std::ops::Deref for IFileActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1516,35 +1516,35 @@ impl IFileActivatedEventArgs {
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1559,13 +1559,13 @@ pub struct IFileActivatedEventArgs_Vtbl {
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     Files: usize,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl, 0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
 impl std::ops::Deref for IFileActivatedEventArgsWithCallerPackageFamilyName {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, windows_core::IUnknown, windows_core::IInspectable);
@@ -1574,28 +1574,28 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1606,13 +1606,13 @@ impl windows_core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamil
 #[repr(C)]
 pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithNeighboringFiles_Vtbl, 0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
 impl std::ops::Deref for IFileActivatedEventArgsWithNeighboringFiles {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, windows_core::IUnknown, windows_core::IInspectable);
@@ -1622,28 +1622,28 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
     pub fn NeighboringFilesQuery(&self) -> windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NeighboringFilesQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1651,14 +1651,14 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = &windows_core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1678,7 +1678,7 @@ windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs, IFileOpe
 impl std::ops::Deref for IFileOpenPickerActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1688,28 +1688,28 @@ impl IFileOpenPickerActivatedEventArgs {
     pub fn FileOpenPickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileOpenPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1729,7 +1729,7 @@ windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs2, IFileOp
 impl std::ops::Deref for IFileOpenPickerActivatedEventArgs2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs2, windows_core::IUnknown, windows_core::IInspectable);
@@ -1737,7 +1737,7 @@ impl IFileOpenPickerActivatedEventArgs2 {
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1748,7 +1748,7 @@ impl windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
 #[repr(C)]
 pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFileOpenPickerContinuationEventArgs_Vtbl, 0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
@@ -1756,7 +1756,7 @@ windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFile
 impl std::ops::Deref for IFileOpenPickerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1769,28 +1769,28 @@ impl IFileOpenPickerContinuationEventArgs {
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1798,7 +1798,7 @@ impl IFileOpenPickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1820,7 +1820,7 @@ windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSav
 impl std::ops::Deref for IFileSavePickerActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1830,28 +1830,28 @@ impl IFileSavePickerActivatedEventArgs {
     pub fn FileSavePickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSavePickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1871,7 +1871,7 @@ windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs2, IFileSa
 impl std::ops::Deref for IFileSavePickerActivatedEventArgs2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs2, windows_core::IUnknown, windows_core::IInspectable);
@@ -1879,14 +1879,14 @@ impl IFileSavePickerActivatedEventArgs2 {
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1897,8 +1897,8 @@ impl windows_core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
 #[repr(C)]
 pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFileSavePickerContinuationEventArgs_Vtbl, 0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
@@ -1906,7 +1906,7 @@ windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFile
 impl std::ops::Deref for IFileSavePickerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1919,28 +1919,28 @@ impl IFileSavePickerContinuationEventArgs {
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1948,7 +1948,7 @@ impl IFileSavePickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1972,7 +1972,7 @@ windows_core::imp::define_interface!(IFolderPickerContinuationEventArgs, IFolder
 impl std::ops::Deref for IFolderPickerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1985,28 +1985,28 @@ impl IFolderPickerContinuationEventArgs {
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2014,7 +2014,7 @@ impl IFolderPickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2036,7 +2036,7 @@ windows_core::imp::define_interface!(ILaunchActivatedEventArgs, ILaunchActivated
 impl std::ops::Deref for ILaunchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2045,35 +2045,35 @@ impl ILaunchActivatedEventArgs {
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2084,14 +2084,14 @@ impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
 #[repr(C)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchActivatedEventArgs2, ILaunchActivatedEventArgs2_Vtbl, 0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 impl std::ops::Deref for ILaunchActivatedEventArgs2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILaunchActivatedEventArgs2, windows_core::IUnknown, windows_core::IInspectable);
@@ -2100,42 +2100,42 @@ impl ILaunchActivatedEventArgs2 {
     pub fn TileActivatedInfo(&self) -> windows_core::Result<TileActivatedInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileActivatedInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2152,7 +2152,7 @@ windows_core::imp::define_interface!(ILockScreenActivatedEventArgs, ILockScreenA
 impl std::ops::Deref for ILockScreenActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2161,28 +2161,28 @@ impl ILockScreenActivatedEventArgs {
     pub fn Info(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Info)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2199,7 +2199,7 @@ windows_core::imp::define_interface!(ILockScreenCallActivatedEventArgs, ILockScr
 impl std::ops::Deref for ILockScreenCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2209,42 +2209,42 @@ impl ILockScreenCallActivatedEventArgs {
     pub fn CallUI(&self) -> windows_core::Result<super::Calls::LockScreenCallUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2264,7 +2264,7 @@ windows_core::imp::define_interface!(IPhoneCallActivatedEventArgs, IPhoneCallAct
 impl std::ops::Deref for IPhoneCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2273,28 +2273,28 @@ impl IPhoneCallActivatedEventArgs {
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2311,7 +2311,7 @@ windows_core::imp::define_interface!(IPickerReturnedActivatedEventArgs, IPickerR
 impl std::ops::Deref for IPickerReturnedActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPickerReturnedActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2320,28 +2320,28 @@ impl IPickerReturnedActivatedEventArgs {
     pub fn PickerOperationId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickerOperationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2352,13 +2352,13 @@ impl windows_core::RuntimeType for IPickerReturnedActivatedEventArgs {
 #[repr(C)]
 pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrelaunchActivatedEventArgs, IPrelaunchActivatedEventArgs_Vtbl, 0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 impl std::ops::Deref for IPrelaunchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrelaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2367,28 +2367,28 @@ impl IPrelaunchActivatedEventArgs {
     pub fn PrelaunchActivated(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrelaunchActivated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2405,7 +2405,7 @@ windows_core::imp::define_interface!(IPrint3DWorkflowActivatedEventArgs, IPrint3
 impl std::ops::Deref for IPrint3DWorkflowActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2415,28 +2415,28 @@ impl IPrint3DWorkflowActivatedEventArgs {
     pub fn Workflow(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Workflow)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2456,7 +2456,7 @@ windows_core::imp::define_interface!(IPrintTaskSettingsActivatedEventArgs, IPrin
 impl std::ops::Deref for IPrintTaskSettingsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2466,28 +2466,28 @@ impl IPrintTaskSettingsActivatedEventArgs {
     pub fn Configuration(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2507,7 +2507,7 @@ windows_core::imp::define_interface!(IProtocolActivatedEventArgs, IProtocolActiv
 impl std::ops::Deref for IProtocolActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2516,28 +2516,28 @@ impl IProtocolActivatedEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2554,7 +2554,7 @@ windows_core::imp::define_interface!(IProtocolActivatedEventArgsWithCallerPackag
 impl std::ops::Deref for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, windows_core::IUnknown, windows_core::IInspectable);
@@ -2563,7 +2563,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2571,28 +2571,28 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2603,7 +2603,7 @@ impl windows_core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageF
 #[repr(C)]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2613,7 +2613,7 @@ windows_core::imp::define_interface!(IProtocolForResultsActivatedEventArgs, IPro
 impl std::ops::Deref for IProtocolForResultsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2623,28 +2623,28 @@ impl IProtocolForResultsActivatedEventArgs {
     pub fn ProtocolForResultsOperation(&self) -> windows_core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolForResultsOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2664,7 +2664,7 @@ windows_core::imp::define_interface!(IRestrictedLaunchActivatedEventArgs, IRestr
 impl std::ops::Deref for IRestrictedLaunchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2673,28 +2673,28 @@ impl IRestrictedLaunchActivatedEventArgs {
     pub fn SharedContext(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SharedContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2711,7 +2711,7 @@ windows_core::imp::define_interface!(ISearchActivatedEventArgs, ISearchActivated
 impl std::ops::Deref for ISearchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2720,35 +2720,35 @@ impl ISearchActivatedEventArgs {
     pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2759,14 +2759,14 @@ impl windows_core::RuntimeType for ISearchActivatedEventArgs {
 #[repr(C)]
 pub struct ISearchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchActivatedEventArgsWithLinguisticDetails, ISearchActivatedEventArgsWithLinguisticDetails_Vtbl, 0xc09f33da_08ab_4931_9b7c_451025f21f81);
 impl std::ops::Deref for ISearchActivatedEventArgsWithLinguisticDetails {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISearchActivatedEventArgsWithLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -2775,7 +2775,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
     pub fn LinguisticDetails(&self) -> windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2795,7 +2795,7 @@ windows_core::imp::define_interface!(IShareTargetActivatedEventArgs, IShareTarge
 impl std::ops::Deref for IShareTargetActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2805,28 +2805,28 @@ impl IShareTargetActivatedEventArgs {
     pub fn ShareOperation(&self) -> windows_core::Result<super::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShareOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2857,7 +2857,7 @@ windows_core::imp::define_interface!(IStartupTaskActivatedEventArgs, IStartupTas
 impl std::ops::Deref for IStartupTaskActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2866,28 +2866,28 @@ impl IStartupTaskActivatedEventArgs {
     pub fn TaskId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2898,7 +2898,7 @@ impl windows_core::RuntimeType for IStartupTaskActivatedEventArgs {
 #[repr(C)]
 pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 impl windows_core::RuntimeType for ITileActivatedInfo {
@@ -2916,7 +2916,7 @@ windows_core::imp::define_interface!(IToastNotificationActivatedEventArgs, IToas
 impl std::ops::Deref for IToastNotificationActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2925,7 +2925,7 @@ impl IToastNotificationActivatedEventArgs {
     pub fn Argument(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Argument)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2933,28 +2933,28 @@ impl IToastNotificationActivatedEventArgs {
     pub fn UserInput(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -2965,7 +2965,7 @@ impl windows_core::RuntimeType for IToastNotificationActivatedEventArgs {
 #[repr(C)]
 pub struct IToastNotificationActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Argument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Argument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub UserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2975,7 +2975,7 @@ windows_core::imp::define_interface!(IUserDataAccountProviderActivatedEventArgs,
 impl std::ops::Deref for IUserDataAccountProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2985,28 +2985,28 @@ impl IUserDataAccountProviderActivatedEventArgs {
     pub fn Operation(&self) -> windows_core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3026,7 +3026,7 @@ windows_core::imp::define_interface!(IViewSwitcherProvider, IViewSwitcherProvide
 impl std::ops::Deref for IViewSwitcherProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IViewSwitcherProvider, windows_core::IUnknown, windows_core::IInspectable);
@@ -3036,28 +3036,28 @@ impl IViewSwitcherProvider {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3077,7 +3077,7 @@ windows_core::imp::define_interface!(IVoiceCommandActivatedEventArgs, IVoiceComm
 impl std::ops::Deref for IVoiceCommandActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3087,28 +3087,28 @@ impl IVoiceCommandActivatedEventArgs {
     pub fn Result(&self) -> windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3130,7 +3130,7 @@ windows_core::imp::define_interface!(IWalletActionActivatedEventArgs, IWalletAct
 impl std::ops::Deref for IWalletActionActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3143,7 +3143,7 @@ impl IWalletActionActivatedEventArgs {
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ItemId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3151,7 +3151,7 @@ impl IWalletActionActivatedEventArgs {
     pub fn ActionKind(&self) -> windows_core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3159,28 +3159,28 @@ impl IWalletActionActivatedEventArgs {
     pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3194,7 +3194,7 @@ impl windows_core::RuntimeType for IWalletActionActivatedEventArgs {
 pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub ItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ItemId: usize,
     #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
@@ -3202,7 +3202,7 @@ pub struct IWalletActionActivatedEventArgs_Vtbl {
     #[cfg(not(all(feature = "ApplicationModel_Wallet", feature = "deprecated")))]
     ActionKind: usize,
     #[cfg(feature = "deprecated")]
-    pub ActionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ActionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ActionId: usize,
 }
@@ -3210,7 +3210,7 @@ windows_core::imp::define_interface!(IWebAccountProviderActivatedEventArgs, IWeb
 impl std::ops::Deref for IWebAccountProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3220,28 +3220,28 @@ impl IWebAccountProviderActivatedEventArgs {
     pub fn Operation(&self) -> windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3261,7 +3261,7 @@ windows_core::imp::define_interface!(IWebAuthenticationBrokerContinuationEventAr
 impl std::ops::Deref for IWebAuthenticationBrokerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3271,28 +3271,28 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
     pub fn WebAuthenticationResult(&self) -> windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAuthenticationResult)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3300,7 +3300,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3325,21 +3325,21 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3347,14 +3347,14 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3362,7 +3362,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn AddAppointmentOperation(&self) -> windows_core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3388,21 +3388,21 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3410,14 +3410,14 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3425,7 +3425,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn RemoveAppointmentOperation(&self) -> windows_core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoveAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3451,21 +3451,21 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3473,14 +3473,14 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3488,7 +3488,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn ReplaceAppointmentOperation(&self) -> windows_core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReplaceAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3514,21 +3514,21 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3536,35 +3536,35 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceStartDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoamingId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3590,21 +3590,21 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3612,28 +3612,28 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeToShow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -3660,7 +3660,7 @@ impl BackgroundActivatedEventArgs {
     pub fn TaskInstance(&self) -> windows_core::Result<super::Background::IBackgroundTaskInstance> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TaskInstance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3686,21 +3686,21 @@ impl BarcodeScannerPreviewActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3708,14 +3708,14 @@ impl BarcodeScannerPreviewActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ConnectionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3741,21 +3741,21 @@ impl CachedFileUpdaterActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3763,7 +3763,7 @@ impl CachedFileUpdaterActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3771,7 +3771,7 @@ impl CachedFileUpdaterActivatedEventArgs {
     pub fn CachedFileUpdaterUI(&self) -> windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CachedFileUpdaterUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3797,35 +3797,35 @@ impl CameraSettingsActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn VideoDeviceController(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoDeviceController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn VideoDeviceExtension(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoDeviceExtension)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3851,21 +3851,21 @@ impl CommandLineActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3873,14 +3873,14 @@ impl CommandLineActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Operation(&self) -> windows_core::Result<CommandLineActivationOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3905,14 +3905,14 @@ impl CommandLineActivationOperation {
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentDirectoryPath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentDirectoryPath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3923,14 +3923,14 @@ impl CommandLineActivationOperation {
     pub fn ExitCode(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExitCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3956,42 +3956,42 @@ impl ContactCallActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -3999,7 +3999,7 @@ impl ContactCallActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4025,28 +4025,28 @@ impl ContactMapActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4054,7 +4054,7 @@ impl ContactMapActivatedEventArgs {
     pub fn Address(&self) -> windows_core::Result<super::Contacts::ContactAddress> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4062,7 +4062,7 @@ impl ContactMapActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4088,42 +4088,42 @@ impl ContactMessageActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4131,7 +4131,7 @@ impl ContactMessageActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4157,21 +4157,21 @@ impl ContactPanelActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4179,7 +4179,7 @@ impl ContactPanelActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4187,7 +4187,7 @@ impl ContactPanelActivatedEventArgs {
     pub fn ContactPanel(&self) -> windows_core::Result<super::Contacts::ContactPanel> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactPanel)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4195,7 +4195,7 @@ impl ContactPanelActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4221,21 +4221,21 @@ impl ContactPickerActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4243,7 +4243,7 @@ impl ContactPickerActivatedEventArgs {
     pub fn ContactPickerUI(&self) -> windows_core::Result<super::Contacts::Provider::ContactPickerUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4269,42 +4269,42 @@ impl ContactPostActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4312,7 +4312,7 @@ impl ContactPostActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4338,42 +4338,42 @@ impl ContactVideoCallActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4381,7 +4381,7 @@ impl ContactVideoCallActivatedEventArgs {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4407,21 +4407,21 @@ impl DeviceActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4429,28 +4429,28 @@ impl DeviceActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DeviceInformationId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceInformationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4458,7 +4458,7 @@ impl DeviceActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4484,21 +4484,21 @@ impl DevicePairingActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4506,7 +4506,7 @@ impl DevicePairingActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4514,7 +4514,7 @@ impl DevicePairingActivatedEventArgs {
     pub fn DeviceInformation(&self) -> windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4540,21 +4540,21 @@ impl DialReceiverActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4562,35 +4562,35 @@ impl DialReceiverActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4598,7 +4598,7 @@ impl DialReceiverActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4624,21 +4624,21 @@ impl FileActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4646,14 +4646,14 @@ impl FileActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -4661,21 +4661,21 @@ impl FileActivatedEventArgs {
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4683,7 +4683,7 @@ impl FileActivatedEventArgs {
     pub fn NeighboringFilesQuery(&self) -> windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = &windows_core::Interface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NeighboringFilesQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4691,7 +4691,7 @@ impl FileActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4717,21 +4717,21 @@ impl FileOpenPickerActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4739,7 +4739,7 @@ impl FileOpenPickerActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4747,14 +4747,14 @@ impl FileOpenPickerActivatedEventArgs {
     pub fn FileOpenPickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileOpenPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4784,21 +4784,21 @@ impl FileOpenPickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4806,7 +4806,7 @@ impl FileOpenPickerContinuationEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4814,7 +4814,7 @@ impl FileOpenPickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4822,7 +4822,7 @@ impl FileOpenPickerContinuationEventArgs {
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4853,21 +4853,21 @@ impl FileSavePickerActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4875,7 +4875,7 @@ impl FileSavePickerActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4883,21 +4883,21 @@ impl FileSavePickerActivatedEventArgs {
     pub fn FileSavePickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSavePickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4927,21 +4927,21 @@ impl FileSavePickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4949,7 +4949,7 @@ impl FileSavePickerContinuationEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4957,7 +4957,7 @@ impl FileSavePickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -4965,7 +4965,7 @@ impl FileSavePickerContinuationEventArgs {
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5000,21 +5000,21 @@ impl FolderPickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5022,7 +5022,7 @@ impl FolderPickerContinuationEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5030,7 +5030,7 @@ impl FolderPickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5038,7 +5038,7 @@ impl FolderPickerContinuationEventArgs {
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5069,21 +5069,21 @@ impl LaunchActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5091,42 +5091,42 @@ impl LaunchActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileActivatedInfo(&self) -> windows_core::Result<TileActivatedInfo> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileActivatedInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PrelaunchActivated(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrelaunchActivated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -5134,7 +5134,7 @@ impl LaunchActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5160,21 +5160,21 @@ impl LockScreenActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5182,14 +5182,14 @@ impl LockScreenActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Info(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Info)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5215,42 +5215,42 @@ impl LockScreenCallActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5258,7 +5258,7 @@ impl LockScreenCallActivatedEventArgs {
     pub fn CallUI(&self) -> windows_core::Result<super::Calls::LockScreenCallUI> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5266,7 +5266,7 @@ impl LockScreenCallActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5292,21 +5292,21 @@ impl LockScreenComponentActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5332,21 +5332,21 @@ impl PhoneCallActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5354,14 +5354,14 @@ impl PhoneCallActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -5387,28 +5387,28 @@ impl PickerReturnedActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PickerOperationId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickerOperationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5434,21 +5434,21 @@ impl Print3DWorkflowActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5456,7 +5456,7 @@ impl Print3DWorkflowActivatedEventArgs {
     pub fn Workflow(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Workflow)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5482,21 +5482,21 @@ impl PrintTaskSettingsActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5504,7 +5504,7 @@ impl PrintTaskSettingsActivatedEventArgs {
     pub fn Configuration(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5530,21 +5530,21 @@ impl ProtocolActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5552,28 +5552,28 @@ impl ProtocolActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5581,7 +5581,7 @@ impl ProtocolActivatedEventArgs {
     pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5589,7 +5589,7 @@ impl ProtocolActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5615,21 +5615,21 @@ impl ProtocolForResultsActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5637,28 +5637,28 @@ impl ProtocolForResultsActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IProtocolActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5666,7 +5666,7 @@ impl ProtocolForResultsActivatedEventArgs {
     pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5674,7 +5674,7 @@ impl ProtocolForResultsActivatedEventArgs {
     pub fn ProtocolForResultsOperation(&self) -> windows_core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolForResultsOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5682,7 +5682,7 @@ impl ProtocolForResultsActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5708,21 +5708,21 @@ impl RestrictedLaunchActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5730,14 +5730,14 @@ impl RestrictedLaunchActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SharedContext(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SharedContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5763,21 +5763,21 @@ impl SearchActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5785,28 +5785,28 @@ impl SearchActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5814,7 +5814,7 @@ impl SearchActivatedEventArgs {
     pub fn LinguisticDetails(&self) -> windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
         let this = &windows_core::Interface::cast::<ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5822,7 +5822,7 @@ impl SearchActivatedEventArgs {
     pub fn ViewSwitcher(&self) -> windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewSwitcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5848,21 +5848,21 @@ impl ShareTargetActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5870,7 +5870,7 @@ impl ShareTargetActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5878,7 +5878,7 @@ impl ShareTargetActivatedEventArgs {
     pub fn ShareOperation(&self) -> windows_core::Result<super::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShareOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5903,7 +5903,7 @@ impl SplashScreen {
     pub fn ImageLocation(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImageLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -5913,7 +5913,7 @@ impl SplashScreen {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -5941,21 +5941,21 @@ impl StartupTaskActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5963,14 +5963,14 @@ impl StartupTaskActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TaskId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -5996,7 +5996,7 @@ impl TileActivatedInfo {
     pub fn RecentlyShownNotifications(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecentlyShownNotifications)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6022,21 +6022,21 @@ impl ToastNotificationActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6044,21 +6044,21 @@ impl ToastNotificationActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Argument(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Argument)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6066,7 +6066,7 @@ impl ToastNotificationActivatedEventArgs {
     pub fn UserInput(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6092,21 +6092,21 @@ impl UserDataAccountProviderActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6114,7 +6114,7 @@ impl UserDataAccountProviderActivatedEventArgs {
     pub fn Operation(&self) -> windows_core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6140,21 +6140,21 @@ impl VoiceCommandActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6162,7 +6162,7 @@ impl VoiceCommandActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6170,7 +6170,7 @@ impl VoiceCommandActivatedEventArgs {
     pub fn Result(&self) -> windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6200,21 +6200,21 @@ impl WalletActionActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6222,7 +6222,7 @@ impl WalletActionActivatedEventArgs {
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ItemId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6230,7 +6230,7 @@ impl WalletActionActivatedEventArgs {
     pub fn ActionKind(&self) -> windows_core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -6238,7 +6238,7 @@ impl WalletActionActivatedEventArgs {
     pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6269,21 +6269,21 @@ impl WebAccountProviderActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6291,7 +6291,7 @@ impl WebAccountProviderActivatedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6299,7 +6299,7 @@ impl WebAccountProviderActivatedEventArgs {
     pub fn Operation(&self) -> windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6325,21 +6325,21 @@ impl WebAuthenticationBrokerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6347,7 +6347,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -6355,7 +6355,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
     pub fn WebAuthenticationResult(&self) -> windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAuthenticationResult)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

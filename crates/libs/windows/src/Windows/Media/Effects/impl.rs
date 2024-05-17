@@ -10,7 +10,7 @@ impl windows_core::RuntimeName for IAudioEffectDefinition {
 #[cfg(feature = "Foundation_Collections")]
 impl IAudioEffectDefinition_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>() -> IAudioEffectDefinition_Vtbl {
-        unsafe extern "system" fn ActivatableClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActivatableClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAudioEffectDefinition_Impl::ActivatableClassId(this) {
@@ -287,7 +287,7 @@ impl windows_core::RuntimeName for IVideoCompositorDefinition {
 #[cfg(feature = "Foundation_Collections")]
 impl IVideoCompositorDefinition_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>() -> IVideoCompositorDefinition_Vtbl {
-        unsafe extern "system" fn ActivatableClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActivatableClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IVideoCompositorDefinition_Impl::ActivatableClassId(this) {
@@ -333,7 +333,7 @@ impl windows_core::RuntimeName for IVideoEffectDefinition {
 #[cfg(feature = "Foundation_Collections")]
 impl IVideoEffectDefinition_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>() -> IVideoEffectDefinition_Vtbl {
-        unsafe extern "system" fn ActivatableClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActivatableClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IVideoEffectDefinition_Impl::ActivatableClassId(this) {

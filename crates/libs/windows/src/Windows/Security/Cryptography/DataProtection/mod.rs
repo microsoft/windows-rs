@@ -29,7 +29,7 @@ impl windows_core::RuntimeType for IDataProtectionProviderFactory {
 #[repr(C)]
 pub struct IDataProtectionProviderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateOverloadExplicit: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateOverloadExplicit: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
@@ -50,7 +50,7 @@ impl DataProtectionProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -61,7 +61,7 @@ impl DataProtectionProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnprotectAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -73,7 +73,7 @@ impl DataProtectionProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectStreamAsync)(windows_core::Interface::as_raw(this), src.param().abi(), dest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -85,13 +85,13 @@ impl DataProtectionProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnprotectStreamAsync)(windows_core::Interface::as_raw(this), src.param().abi(), dest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateOverloadExplicit(protectiondescriptor: &windows_core::HSTRING) -> windows_core::Result<DataProtectionProvider> {
         Self::IDataProtectionProviderFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOverloadExplicit)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(protectiondescriptor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

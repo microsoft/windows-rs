@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IDirectMusic, IDirectMusic_Vtbl, 0x6536115a
 impl std::ops::Deref for IDirectMusic {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusic, windows_core::IUnknown);
@@ -69,7 +69,7 @@ windows_core::imp::define_interface!(IDirectMusic8, IDirectMusic8_Vtbl, 0x2d3629
 impl std::ops::Deref for IDirectMusic8 {
     type Target = IDirectMusic;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusic8, windows_core::IUnknown, IDirectMusic);
@@ -90,7 +90,7 @@ windows_core::imp::define_interface!(IDirectMusicBuffer, IDirectMusicBuffer_Vtbl
 impl std::ops::Deref for IDirectMusicBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicBuffer, windows_core::IUnknown);
@@ -156,13 +156,13 @@ windows_core::imp::define_interface!(IDirectMusicCollection, IDirectMusicCollect
 impl std::ops::Deref for IDirectMusicCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicCollection, windows_core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> windows_core::Result<IDirectMusicInstrument> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInstrument)(windows_core::Interface::as_raw(self), dwpatch, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> windows_core::Result<()>
@@ -182,7 +182,7 @@ windows_core::imp::define_interface!(IDirectMusicDownload, IDirectMusicDownload_
 impl std::ops::Deref for IDirectMusicDownload {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicDownload, windows_core::IUnknown);
@@ -200,7 +200,7 @@ windows_core::imp::define_interface!(IDirectMusicDownloadedInstrument, IDirectMu
 impl std::ops::Deref for IDirectMusicDownloadedInstrument {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, windows_core::IUnknown);
@@ -213,7 +213,7 @@ windows_core::imp::define_interface!(IDirectMusicInstrument, IDirectMusicInstrum
 impl std::ops::Deref for IDirectMusicInstrument {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicInstrument, windows_core::IUnknown);
@@ -235,7 +235,7 @@ windows_core::imp::define_interface!(IDirectMusicPort, IDirectMusicPort_Vtbl, 0x
 impl std::ops::Deref for IDirectMusicPort {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicPort, windows_core::IUnknown);
@@ -271,7 +271,7 @@ impl IDirectMusicPort {
         (windows_core::Interface::vtable(self).UnloadInstrument)(windows_core::Interface::as_raw(self), pdownloadedinstrument.param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatencyClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> windows_core::Result<()> {
@@ -348,17 +348,17 @@ windows_core::imp::define_interface!(IDirectMusicPortDownload, IDirectMusicPortD
 impl std::ops::Deref for IDirectMusicPortDownload {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, windows_core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> windows_core::Result<IDirectMusicDownload> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), dwdlid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> windows_core::Result<IDirectMusicDownload> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), dwsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> windows_core::Result<()> {
@@ -394,7 +394,7 @@ windows_core::imp::define_interface!(IDirectMusicSynth, IDirectMusicSynth_Vtbl, 
 impl std::ops::Deref for IDirectMusicSynth {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicSynth, windows_core::IUnknown);
@@ -434,7 +434,7 @@ impl IDirectMusicSynth {
         (windows_core::Interface::vtable(self).SetMasterClock)(windows_core::Interface::as_raw(self), pclock.param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatencyClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> windows_core::Result<()>
@@ -490,7 +490,7 @@ windows_core::imp::define_interface!(IDirectMusicSynth8, IDirectMusicSynth8_Vtbl
 impl std::ops::Deref for IDirectMusicSynth8 {
     type Target = IDirectMusicSynth;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicSynth8, windows_core::IUnknown, IDirectMusicSynth);
@@ -524,7 +524,7 @@ windows_core::imp::define_interface!(IDirectMusicSynthSink, IDirectMusicSynthSin
 impl std::ops::Deref for IDirectMusicSynthSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicSynthSink, windows_core::IUnknown);
@@ -542,7 +542,7 @@ impl IDirectMusicSynthSink {
         (windows_core::Interface::vtable(self).SetMasterClock)(windows_core::Interface::as_raw(self), pclock.param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatencyClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> windows_core::Result<()>
@@ -588,7 +588,7 @@ windows_core::imp::define_interface!(IDirectMusicThru, IDirectMusicThru_Vtbl, 0x
 impl std::ops::Deref for IDirectMusicThru {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectMusicThru, windows_core::IUnknown);

@@ -20,7 +20,7 @@ windows_core::imp::define_interface!(IITDatabase, IITDatabase_Vtbl, 0x8fa0d5a2_d
 impl std::ops::Deref for IITDatabase {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IITDatabase, windows_core::IUnknown);
@@ -64,7 +64,7 @@ windows_core::imp::define_interface!(IITPropList, IITPropList_Vtbl, 0x1f403bb1_9
 impl std::ops::Deref for IITPropList {
     type Target = super::super::System::Com::IPersistStreamInit;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -169,7 +169,7 @@ windows_core::imp::define_interface!(IITResultSet, IITResultSet_Vtbl, 0x3bb91d41
 impl std::ops::Deref for IITResultSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IITResultSet, windows_core::IUnknown);
@@ -318,7 +318,7 @@ windows_core::imp::define_interface!(IStemSink, IStemSink_Vtbl, 0xfe77c330_7f42_
 impl std::ops::Deref for IStemSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStemSink, windows_core::IUnknown);
@@ -346,7 +346,7 @@ windows_core::imp::define_interface!(IStemmerConfig, IStemmerConfig_Vtbl, 0x8fa0
 impl std::ops::Deref for IStemmerConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStemmerConfig, windows_core::IUnknown);
@@ -387,7 +387,7 @@ windows_core::imp::define_interface!(IWordBreakerConfig, IWordBreakerConfig_Vtbl
 impl std::ops::Deref for IWordBreakerConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWordBreakerConfig, windows_core::IUnknown);
@@ -426,7 +426,7 @@ impl IWordBreakerConfig {
     }
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> windows_core::Result<super::super::System::Search::IStemmer> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWordStemmer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -931,7 +931,7 @@ impl Default for HH_FTS_QUERY {
 #[derive(Debug, Eq, PartialEq)]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
-    pub var: std::mem::ManuallyDrop<windows_core::VARIANT>,
+    pub var: core::mem::ManuallyDrop<windows_core::VARIANT>,
 }
 impl Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {

@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IOplockBreakingHandler, IOplockBreakingHand
 impl std::ops::Deref for IOplockBreakingHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IOplockBreakingHandler, windows_core::IUnknown);
@@ -20,13 +20,13 @@ windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomA
 impl std::ops::Deref for IRandomAccessStreamFileAccessMode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, windows_core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -39,7 +39,7 @@ windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderH
 impl std::ops::Deref for IStorageFolderHandleAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStorageFolderHandleAccess, windows_core::IUnknown);
@@ -49,7 +49,7 @@ impl IStorageFolderHandleAccess {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IOplockBreakingHandler>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -62,7 +62,7 @@ windows_core::imp::define_interface!(IStorageItemHandleAccess, IStorageItemHandl
 impl std::ops::Deref for IStorageItemHandleAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStorageItemHandleAccess, windows_core::IUnknown);
@@ -71,7 +71,7 @@ impl IStorageItemHandleAccess {
     where
         P0: windows_core::Param<IOplockBreakingHandler>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -84,7 +84,7 @@ windows_core::imp::define_interface!(IUnbufferedFileHandleOplockCallback, IUnbuf
 impl std::ops::Deref for IUnbufferedFileHandleOplockCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, windows_core::IUnknown);
@@ -102,7 +102,7 @@ windows_core::imp::define_interface!(IUnbufferedFileHandleProvider, IUnbufferedF
 impl std::ops::Deref for IUnbufferedFileHandleProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, windows_core::IUnknown);
@@ -111,7 +111,7 @@ impl IUnbufferedFileHandleProvider {
     where
         P0: windows_core::Param<IUnbufferedFileHandleOplockCallback>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(windows_core::Interface::as_raw(self), oplockbreakcallback.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()> {

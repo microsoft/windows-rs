@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa3
 impl std::ops::Deref for IDirect3DDevice {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirect3DDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -29,7 +29,7 @@ windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x
 impl std::ops::Deref for IDirect3DSurface {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirect3DSurface, windows_core::IUnknown, windows_core::IInspectable);
@@ -38,7 +38,7 @@ impl IDirect3DSurface {
     pub fn Description(&self) -> windows_core::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

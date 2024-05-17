@@ -14,7 +14,7 @@ windows_core::imp::define_interface!(IDirect3DDevice9On12, IDirect3DDevice9On12_
 impl std::ops::Deref for IDirect3DDevice9On12 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirect3DDevice9On12, windows_core::IUnknown);
@@ -56,8 +56,8 @@ pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3D9ON12_ARGS {
     pub Enable9On12: super::super::Foundation::BOOL,
-    pub pD3D12Device: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub ppD3D12Queues: [std::mem::ManuallyDrop<Option<windows_core::IUnknown>>; 2usize],
+    pub pD3D12Device: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub ppD3D12Queues: [core::mem::ManuallyDrop<Option<windows_core::IUnknown>>; 2usize],
     pub NumQueues: u32,
     pub NodeMask: u32,
 }

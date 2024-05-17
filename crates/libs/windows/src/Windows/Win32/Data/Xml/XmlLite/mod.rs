@@ -17,7 +17,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, fencodinghint.param().abi(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -31,7 +31,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.param().abi(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -51,7 +51,7 @@ where
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateXmlWriterOutputWithEncodingCodePage(poutputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -63,14 +63,14 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IXmlReader, IXmlReader_Vtbl, 0x7279fc81_709d_4095_b63d_69fe4b0d9030);
 impl std::ops::Deref for IXmlReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXmlReader, windows_core::IUnknown);
@@ -82,7 +82,7 @@ impl IXmlReader {
         (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), pinput.param().abi()).ok()
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), nproperty, &mut result__).map(|| result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()> {
@@ -92,7 +92,7 @@ impl IXmlReader {
         (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pnodetype.unwrap_or(std::ptr::null_mut())))
     }
     pub unsafe fn GetNodeType(&self) -> windows_core::Result<XmlNodeType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNodeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveToFirstAttribute(&self) -> windows_core::HRESULT {
@@ -139,19 +139,19 @@ impl IXmlReader {
         (windows_core::Interface::vtable(self).IsEmptyElement)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetLineNumber(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLineNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLinePosition(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLinePosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributeCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAttributeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDepth(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDepth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsEOF(&self) -> super::super::super::Foundation::BOOL {
@@ -189,7 +189,7 @@ windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82
 impl std::ops::Deref for IXmlResolver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
@@ -200,7 +200,7 @@ impl IXmlResolver {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResolveUri)(windows_core::Interface::as_raw(self), pwszbaseuri.param().abi(), pwszpublicidentifier.param().abi(), pwszsystemidentifier.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -213,7 +213,7 @@ windows_core::imp::define_interface!(IXmlWriter, IXmlWriter_Vtbl, 0x7279fc88_709
 impl std::ops::Deref for IXmlWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXmlWriter, windows_core::IUnknown);
@@ -225,7 +225,7 @@ impl IXmlWriter {
         (windows_core::Interface::vtable(self).SetOutput)(windows_core::Interface::as_raw(self), poutput.param().abi()).ok()
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), nproperty, &mut result__).map(|| result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()> {
@@ -414,7 +414,7 @@ windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x8624
 impl std::ops::Deref for IXmlWriterLite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXmlWriterLite, windows_core::IUnknown);
@@ -426,7 +426,7 @@ impl IXmlWriterLite {
         (windows_core::Interface::vtable(self).SetOutput)(windows_core::Interface::as_raw(self), poutput.param().abi()).ok()
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), nproperty, &mut result__).map(|| result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()> {

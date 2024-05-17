@@ -22,7 +22,7 @@ windows_core::imp::define_interface!(AsyncIFtpAuthenticationProvider, AsyncIFtpA
 impl std::ops::Deref for AsyncIFtpAuthenticationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpAuthenticationProvider, windows_core::IUnknown);
@@ -50,7 +50,7 @@ windows_core::imp::define_interface!(AsyncIFtpAuthorizationProvider, AsyncIFtpAu
 impl std::ops::Deref for AsyncIFtpAuthorizationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpAuthorizationProvider, windows_core::IUnknown);
@@ -65,7 +65,7 @@ impl AsyncIFtpAuthorizationProvider {
         (windows_core::Interface::vtable(self).Begin_GetUserAccessPermission)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszvirtualpath.param().abi(), pszusername.param().abi()).ok()
     }
     pub unsafe fn Finish_GetUserAccessPermission(&self) -> windows_core::Result<FTP_ACCESS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Finish_GetUserAccessPermission)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -79,7 +79,7 @@ windows_core::imp::define_interface!(AsyncIFtpHomeDirectoryProvider, AsyncIFtpHo
 impl std::ops::Deref for AsyncIFtpHomeDirectoryProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, windows_core::IUnknown);
@@ -93,7 +93,7 @@ impl AsyncIFtpHomeDirectoryProvider {
         (windows_core::Interface::vtable(self).Begin_GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi()).ok()
     }
     pub unsafe fn Finish_GetUserHomeDirectoryData(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Finish_GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -107,7 +107,7 @@ windows_core::imp::define_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_
 impl std::ops::Deref for AsyncIFtpLogProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpLogProvider, windows_core::IUnknown);
@@ -129,7 +129,7 @@ windows_core::imp::define_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPost
 impl std::ops::Deref for AsyncIFtpPostprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpPostprocessProvider, windows_core::IUnknown);
@@ -138,7 +138,7 @@ impl AsyncIFtpPostprocessProvider {
         (windows_core::Interface::vtable(self).Begin_HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters).ok()
     }
     pub unsafe fn Finish_HandlePostprocess(&self) -> windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Finish_HandlePostprocess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -152,7 +152,7 @@ windows_core::imp::define_interface!(AsyncIFtpPreprocessProvider, AsyncIFtpPrepr
 impl std::ops::Deref for AsyncIFtpPreprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpPreprocessProvider, windows_core::IUnknown);
@@ -161,7 +161,7 @@ impl AsyncIFtpPreprocessProvider {
         (windows_core::Interface::vtable(self).Begin_HandlePreprocess)(windows_core::Interface::as_raw(self), ppreprocessparameters).ok()
     }
     pub unsafe fn Finish_HandlePreprocess(&self) -> windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Finish_HandlePreprocess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -175,7 +175,7 @@ windows_core::imp::define_interface!(AsyncIFtpRoleProvider, AsyncIFtpRoleProvide
 impl std::ops::Deref for AsyncIFtpRoleProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIFtpRoleProvider, windows_core::IUnknown);
@@ -190,7 +190,7 @@ impl AsyncIFtpRoleProvider {
         (windows_core::Interface::vtable(self).Begin_IsUserInRole)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszrole.param().abi()).ok()
     }
     pub unsafe fn Finish_IsUserInRole(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Finish_IsUserInRole)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -204,7 +204,7 @@ windows_core::imp::define_interface!(AsyncIMSAdminBaseSinkW, AsyncIMSAdminBaseSi
 impl std::ops::Deref for AsyncIMSAdminBaseSinkW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(AsyncIMSAdminBaseSinkW, windows_core::IUnknown);
@@ -234,7 +234,7 @@ windows_core::imp::define_interface!(IADMEXT, IADMEXT_Vtbl, 0x51dfe970_f6f2_11d0
 impl std::ops::Deref for IADMEXT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IADMEXT, windows_core::IUnknown);
@@ -260,7 +260,7 @@ windows_core::imp::define_interface!(IFtpAuthenticationProvider, IFtpAuthenticat
 impl std::ops::Deref for IFtpAuthenticationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpAuthenticationProvider, windows_core::IUnknown);
@@ -284,7 +284,7 @@ windows_core::imp::define_interface!(IFtpAuthorizationProvider, IFtpAuthorizatio
 impl std::ops::Deref for IFtpAuthorizationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpAuthorizationProvider, windows_core::IUnknown);
@@ -296,7 +296,7 @@ impl IFtpAuthorizationProvider {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserAccessPermission)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszvirtualpath.param().abi(), pszusername.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -309,7 +309,7 @@ windows_core::imp::define_interface!(IFtpHomeDirectoryProvider, IFtpHomeDirector
 impl std::ops::Deref for IFtpHomeDirectoryProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpHomeDirectoryProvider, windows_core::IUnknown);
@@ -320,7 +320,7 @@ impl IFtpHomeDirectoryProvider {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -333,7 +333,7 @@ windows_core::imp::define_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xa1
 impl std::ops::Deref for IFtpLogProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpLogProvider, windows_core::IUnknown);
@@ -351,13 +351,13 @@ windows_core::imp::define_interface!(IFtpPostprocessProvider, IFtpPostprocessPro
 impl std::ops::Deref for IFtpPostprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpPostprocessProvider, windows_core::IUnknown);
 impl IFtpPostprocessProvider {
     pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters, &mut result__).map(|| result__)
     }
 }
@@ -370,13 +370,13 @@ windows_core::imp::define_interface!(IFtpPreprocessProvider, IFtpPreprocessProvi
 impl std::ops::Deref for IFtpPreprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpPreprocessProvider, windows_core::IUnknown);
 impl IFtpPreprocessProvider {
     pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HandlePreprocess)(windows_core::Interface::as_raw(self), ppreprocessparameters, &mut result__).map(|| result__)
     }
 }
@@ -389,7 +389,7 @@ windows_core::imp::define_interface!(IFtpProviderConstruct, IFtpProviderConstruc
 impl std::ops::Deref for IFtpProviderConstruct {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpProviderConstruct, windows_core::IUnknown);
@@ -411,7 +411,7 @@ windows_core::imp::define_interface!(IFtpRoleProvider, IFtpRoleProvider_Vtbl, 0x
 impl std::ops::Deref for IFtpRoleProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFtpRoleProvider, windows_core::IUnknown);
@@ -423,7 +423,7 @@ impl IFtpRoleProvider {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsUserInRole)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszrole.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -436,7 +436,7 @@ windows_core::imp::define_interface!(IMSAdminBase2W, IMSAdminBase2W_Vtbl, 0x8298
 impl std::ops::Deref for IMSAdminBase2W {
     type Target = IMSAdminBaseW;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSAdminBase2W, windows_core::IUnknown, IMSAdminBaseW);
@@ -496,7 +496,7 @@ windows_core::imp::define_interface!(IMSAdminBase3W, IMSAdminBase3W_Vtbl, 0xf612
 impl std::ops::Deref for IMSAdminBase3W {
     type Target = IMSAdminBase2W;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSAdminBase3W, windows_core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
@@ -517,7 +517,7 @@ windows_core::imp::define_interface!(IMSAdminBaseSinkW, IMSAdminBaseSinkW_Vtbl, 
 impl std::ops::Deref for IMSAdminBaseSinkW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSAdminBaseSinkW, windows_core::IUnknown);
@@ -539,7 +539,7 @@ windows_core::imp::define_interface!(IMSAdminBaseW, IMSAdminBaseW_Vtbl, 0x70b514
 impl std::ops::Deref for IMSAdminBaseW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSAdminBaseW, windows_core::IUnknown);
@@ -638,7 +638,7 @@ impl IMSAdminBaseW {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdaccessrequested, dwmdtimeout, &mut result__).map(|| result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> windows_core::Result<()> {
@@ -651,18 +651,18 @@ impl IMSAdminBaseW {
         (windows_core::Interface::vtable(self).SaveData)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> windows_core::Result<METADATA_HANDLE_INFO> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHandleInfo)(windows_core::Interface::as_raw(self), hmdhandle, &mut result__).map(|| result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSystemChangeNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataSetNumber<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataSetNumber)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLastChangeTime<P0, P1>(&self, hmdhandle: u32, pszmdpath: P0, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: P1) -> windows_core::Result<()>
@@ -707,7 +707,7 @@ impl IMSAdminBaseW {
         (windows_core::Interface::vtable(self).DeleteBackup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion).ok()
     }
     pub unsafe fn UnmarshalInterface(&self) -> windows_core::Result<IMSAdminBaseW> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UnmarshalInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetServerGuid(&self) -> windows_core::Result<()> {
@@ -753,7 +753,7 @@ windows_core::imp::define_interface!(IMSImpExpHelpW, IMSImpExpHelpW_Vtbl, 0x29ff
 impl std::ops::Deref for IMSImpExpHelpW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSImpExpHelpW, windows_core::IUnknown);
@@ -1843,8 +1843,8 @@ impl Default for CERT_CONTEXT_EX {
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrValue: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrKey: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
 impl Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {

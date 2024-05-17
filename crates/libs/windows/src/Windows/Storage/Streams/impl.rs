@@ -54,7 +54,7 @@ impl windows_core::RuntimeName for IContentTypeProvider {
 }
 impl IContentTypeProvider_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContentTypeProvider_Impl, const OFFSET: isize>() -> IContentTypeProvider_Vtbl {
-        unsafe extern "system" fn ContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContentTypeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContentTypeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContentTypeProvider_Impl::ContentType(this) {
@@ -302,7 +302,7 @@ impl IDataReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codeunitcount: u32, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codeunitcount: u32, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadString(this, codeunitcount) {
@@ -563,7 +563,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             IDataWriter_Impl::WriteTimeSpan(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn WriteString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataWriter_Impl::WriteString(this, core::mem::transmute(&value)) {
@@ -574,7 +574,7 @@ impl IDataWriter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MeasureString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MeasureString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataWriter_Impl::MeasureString(this, core::mem::transmute(&value)) {

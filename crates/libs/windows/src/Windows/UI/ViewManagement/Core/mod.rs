@@ -234,7 +234,7 @@ impl CoreFrameworkInputView {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryViewAnimationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -248,7 +248,7 @@ impl CoreFrameworkInputView {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OcclusionsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -261,13 +261,13 @@ impl CoreFrameworkInputView {
         P0: windows_core::Param<super::super::UIContext>,
     {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentView() -> windows_core::Result<CoreFrameworkInputView> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -298,21 +298,21 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occlusions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FrameworkAnimationRecommended(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FrameworkAnimationRecommended)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AnimationDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnimationDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -338,14 +338,14 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occlusions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -373,7 +373,7 @@ impl CoreInputView {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OcclusionsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -385,21 +385,21 @@ impl CoreInputView {
     pub fn GetCoreInputViewOcclusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCoreInputViewOcclusions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryShowPrimaryView(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowPrimaryView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TryHidePrimaryView(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryHidePrimaryView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -409,7 +409,7 @@ impl CoreInputView {
     {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).XYFocusTransferringFromPrimaryView)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -423,7 +423,7 @@ impl CoreInputView {
     {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).XYFocusTransferredToPrimaryView)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -434,28 +434,28 @@ impl CoreInputView {
     pub fn TryTransferXYFocusToPrimaryView(&self, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryTransferXYFocusToPrimaryView)(windows_core::Interface::as_raw(this), origin, direction, &mut result__).map(|| result__)
         }
     }
     pub fn TryShow(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TryShowWithKind(&self, r#type: CoreInputViewKind) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowWithKind)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
         }
     }
     pub fn TryHide(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryHide)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -465,7 +465,7 @@ impl CoreInputView {
     {
         let this = &windows_core::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryViewShowing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -479,7 +479,7 @@ impl CoreInputView {
     {
         let this = &windows_core::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryViewHiding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -490,7 +490,7 @@ impl CoreInputView {
     pub fn IsKindSupported(&self, r#type: CoreInputViewKind) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsKindSupported)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
         }
     }
@@ -500,7 +500,7 @@ impl CoreInputView {
     {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedKindsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -514,7 +514,7 @@ impl CoreInputView {
     {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryViewAnimationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -524,7 +524,7 @@ impl CoreInputView {
     }
     pub fn GetForCurrentView() -> windows_core::Result<CoreInputView> {
         Self::ICoreInputViewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -533,7 +533,7 @@ impl CoreInputView {
         P0: windows_core::Param<super::super::UIContext>,
     {
         Self::ICoreInputViewStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -569,14 +569,14 @@ impl CoreInputViewAnimationStartingEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occlusions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -587,7 +587,7 @@ impl CoreInputViewAnimationStartingEventArgs {
     pub fn AnimationDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnimationDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -612,7 +612,7 @@ impl CoreInputViewHidingEventArgs {
     pub fn TryCancel(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCancel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -637,14 +637,14 @@ impl CoreInputViewOcclusion {
     pub fn OccludingRect(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OccludingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OcclusionKind(&self) -> windows_core::Result<CoreInputViewOcclusionKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OcclusionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -670,14 +670,14 @@ impl CoreInputViewOcclusionsChangedEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occlusions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -706,7 +706,7 @@ impl CoreInputViewShowingEventArgs {
     pub fn TryCancel(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCancel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -731,14 +731,14 @@ impl CoreInputViewTransferringXYFocusEventArgs {
     pub fn Origin(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Origin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Direction(&self) -> windows_core::Result<CoreInputViewXYFocusTransferDirection> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Direction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -749,7 +749,7 @@ impl CoreInputViewTransferringXYFocusEventArgs {
     pub fn TransferHandled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransferHandled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -760,7 +760,7 @@ impl CoreInputViewTransferringXYFocusEventArgs {
     pub fn KeepPrimaryViewVisible(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeepPrimaryViewVisible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -804,7 +804,7 @@ impl UISettingsController {
     }
     pub fn RequestDefaultAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

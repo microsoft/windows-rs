@@ -2,13 +2,13 @@ windows_core::imp::define_interface!(IFindSimilarResults, IFindSimilarResults_Vt
 impl std::ops::Deref for IFindSimilarResults {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFindSimilarResults, windows_core::IUnknown);
 impl IFindSimilarResults {
     pub unsafe fn GetSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextFileId(&self, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()> {
@@ -25,7 +25,7 @@ windows_core::imp::define_interface!(IRdcComparator, IRdcComparator_Vtbl, 0x9623
 impl std::ops::Deref for IRdcComparator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcComparator, windows_core::IUnknown);
@@ -46,20 +46,20 @@ windows_core::imp::define_interface!(IRdcFileReader, IRdcFileReader_Vtbl, 0x9623
 impl std::ops::Deref for IRdcFileReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcFileReader, windows_core::IUnknown);
 impl IRdcFileReader {
     pub unsafe fn GetFileSize(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread, buffer, eof).ok()
     }
     pub unsafe fn GetFilePosition(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilePosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -74,13 +74,13 @@ windows_core::imp::define_interface!(IRdcFileWriter, IRdcFileWriter_Vtbl, 0x9623
 impl std::ops::Deref for IRdcFileWriter {
     type Target = IRdcFileReader;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcFileWriter, windows_core::IUnknown, IRdcFileReader);
 impl IRdcFileWriter {
     pub unsafe fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), offsetfilestart, bytestowrite, &mut result__).map(|| result__)
     }
     pub unsafe fn Truncate(&self) -> windows_core::Result<()> {
@@ -101,13 +101,13 @@ windows_core::imp::define_interface!(IRdcGenerator, IRdcGenerator_Vtbl, 0x96236a
 impl std::ops::Deref for IRdcGenerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcGenerator, windows_core::IUnknown);
 impl IRdcGenerator {
     pub unsafe fn GetGeneratorParameters(&self, level: u32) -> windows_core::Result<IRdcGeneratorParameters> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGeneratorParameters)(windows_core::Interface::as_raw(self), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::Result<()>
@@ -127,20 +127,20 @@ windows_core::imp::define_interface!(IRdcGeneratorFilterMaxParameters, IRdcGener
 impl std::ops::Deref for IRdcGeneratorFilterMaxParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcGeneratorFilterMaxParameters, windows_core::IUnknown);
 impl IRdcGeneratorFilterMaxParameters {
     pub unsafe fn GetHorizonSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHorizonSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHorizonSize(&self, horizonsize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetHorizonSize)(windows_core::Interface::as_raw(self), horizonsize).ok()
     }
     pub unsafe fn GetHashWindowSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHashWindowSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHashWindowSize(&self, hashwindowsize: u32) -> windows_core::Result<()> {
@@ -159,20 +159,20 @@ windows_core::imp::define_interface!(IRdcGeneratorParameters, IRdcGeneratorParam
 impl std::ops::Deref for IRdcGeneratorParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcGeneratorParameters, windows_core::IUnknown);
 impl IRdcGeneratorParameters {
     pub unsafe fn GetGeneratorParametersType(&self) -> windows_core::Result<GeneratorParametersType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGeneratorParametersType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetParametersVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetParametersVersion)(windows_core::Interface::as_raw(self), currentversion, minimumcompatibleappversion).ok()
     }
     pub unsafe fn GetSerializeSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSerializeSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Serialize(&self, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> windows_core::Result<()> {
@@ -191,39 +191,39 @@ windows_core::imp::define_interface!(IRdcLibrary, IRdcLibrary_Vtbl, 0x96236a78_9
 impl std::ops::Deref for IRdcLibrary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcLibrary, windows_core::IUnknown);
 impl IRdcLibrary {
     pub unsafe fn ComputeDefaultRecursionDepth(&self, filesize: u64) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ComputeDefaultRecursionDepth)(windows_core::Interface::as_raw(self), filesize, &mut result__).map(|| result__)
     }
     pub unsafe fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> windows_core::Result<IRdcGeneratorParameters> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateGeneratorParameters)(windows_core::Interface::as_raw(self), parameterstype, level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> windows_core::Result<IRdcGeneratorParameters> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenGeneratorParameters)(windows_core::Interface::as_raw(self), size, parametersblob, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateGenerator(&self, igeneratorparametersarray: &[Option<IRdcGeneratorParameters>]) -> windows_core::Result<IRdcGenerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateGenerator)(windows_core::Interface::as_raw(self), igeneratorparametersarray.len().try_into().unwrap(), core::mem::transmute(igeneratorparametersarray.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateComparator<P0>(&self, iseedsignaturesfile: P0, comparatorbuffersize: u32) -> windows_core::Result<IRdcComparator>
     where
         P0: windows_core::Param<IRdcFileReader>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateComparator)(windows_core::Interface::as_raw(self), iseedsignaturesfile.param().abi(), comparatorbuffersize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSignatureReader<P0>(&self, ifilereader: P0) -> windows_core::Result<IRdcSignatureReader>
     where
         P0: windows_core::Param<IRdcFileReader>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSignatureReader)(windows_core::Interface::as_raw(self), ifilereader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()> {
@@ -245,13 +245,13 @@ windows_core::imp::define_interface!(IRdcSignatureReader, IRdcSignatureReader_Vt
 impl std::ops::Deref for IRdcSignatureReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcSignatureReader, windows_core::IUnknown);
 impl IRdcSignatureReader {
     pub unsafe fn ReadHeader(&self) -> windows_core::Result<RDC_ErrorCode> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ReadHeader)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ReadSignatures(&self, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
@@ -268,7 +268,7 @@ windows_core::imp::define_interface!(IRdcSimilarityGenerator, IRdcSimilarityGene
 impl std::ops::Deref for IRdcSimilarityGenerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRdcSimilarityGenerator, windows_core::IUnknown);
@@ -277,7 +277,7 @@ impl IRdcSimilarityGenerator {
         (windows_core::Interface::vtable(self).EnableSimilarity)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Results(&self) -> windows_core::Result<SimilarityData> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Results)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -291,7 +291,7 @@ windows_core::imp::define_interface!(ISimilarity, ISimilarity_Vtbl, 0x96236a83_9
 impl std::ops::Deref for ISimilarity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarity, windows_core::IUnknown);
@@ -301,7 +301,7 @@ impl ISimilarity {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.param().abi(), securitydescriptor, recordsize, &mut result__).map(|| result__)
     }
     pub unsafe fn CreateTableIndirect<P0, P1, P2>(&self, mapping: P0, fileidfile: P1, truncate: P2, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
@@ -310,7 +310,7 @@ impl ISimilarity {
         P1: windows_core::Param<IRdcFileWriter>,
         P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), mapping.param().abi(), fileidfile.param().abi(), truncate.param().abi(), recordsize, &mut result__).map(|| result__)
     }
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> windows_core::Result<()>
@@ -323,7 +323,7 @@ impl ISimilarity {
         (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), similarityfileid, similaritydata).ok()
     }
     pub unsafe fn FindSimilarFileId(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> windows_core::Result<IFindSimilarResults> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindSimilarFileId)(windows_core::Interface::as_raw(self), similaritydata, numberofmatchesrequired, resultssize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CopyAndSwap<P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> windows_core::Result<()>
@@ -334,7 +334,7 @@ impl ISimilarity {
         (windows_core::Interface::vtable(self).CopyAndSwap)(windows_core::Interface::as_raw(self), newsimilaritytables.param().abi(), reportprogress.param().abi()).ok()
     }
     pub unsafe fn GetRecordCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -353,7 +353,7 @@ windows_core::imp::define_interface!(ISimilarityFileIdTable, ISimilarityFileIdTa
 impl std::ops::Deref for ISimilarityFileIdTable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarityFileIdTable, windows_core::IUnknown);
@@ -363,7 +363,7 @@ impl ISimilarityFileIdTable {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.param().abi(), securitydescriptor, recordsize, &mut result__).map(|| result__)
     }
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, fileidfile: P0, truncate: P1, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
@@ -371,7 +371,7 @@ impl ISimilarityFileIdTable {
         P0: windows_core::Param<IRdcFileWriter>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), fileidfile.param().abi(), truncate.param().abi(), recordsize, &mut result__).map(|| result__)
     }
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> windows_core::Result<()>
@@ -381,7 +381,7 @@ impl ISimilarityFileIdTable {
         (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.param().abi()).ok()
     }
     pub unsafe fn Append(&self, similarityfileid: *const SimilarityFileId) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), similarityfileid, &mut result__).map(|| result__)
     }
     pub unsafe fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()> {
@@ -391,7 +391,7 @@ impl ISimilarityFileIdTable {
         (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self), similarityfileindex).ok()
     }
     pub unsafe fn GetRecordCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -410,7 +410,7 @@ windows_core::imp::define_interface!(ISimilarityReportProgress, ISimilarityRepor
 impl std::ops::Deref for ISimilarityReportProgress {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarityReportProgress, windows_core::IUnknown);
@@ -428,7 +428,7 @@ windows_core::imp::define_interface!(ISimilarityTableDumpState, ISimilarityTable
 impl std::ops::Deref for ISimilarityTableDumpState {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarityTableDumpState, windows_core::IUnknown);
@@ -446,7 +446,7 @@ windows_core::imp::define_interface!(ISimilarityTraitsMappedView, ISimilarityTra
 impl std::ops::Deref for ISimilarityTraitsMappedView {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarityTraitsMappedView, windows_core::IUnknown);
@@ -461,7 +461,7 @@ impl ISimilarityTraitsMappedView {
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), index, dirty.param().abi(), numelements, &mut result__).map(|| result__)
     }
     pub unsafe fn GetView(&self, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8) {
@@ -480,7 +480,7 @@ windows_core::imp::define_interface!(ISimilarityTraitsMapping, ISimilarityTraits
 impl std::ops::Deref for ISimilarityTraitsMapping {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarityTraitsMapping, windows_core::IUnknown);
@@ -492,24 +492,24 @@ impl ISimilarityTraitsMapping {
         (windows_core::Interface::vtable(self).SetFileSize)(windows_core::Interface::as_raw(self), filesize).ok()
     }
     pub unsafe fn GetFileSize(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn OpenMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenMapping)(windows_core::Interface::as_raw(self), accessmode, begin, end, &mut result__).map(|| result__)
     }
     pub unsafe fn ResizeMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResizeMapping)(windows_core::Interface::as_raw(self), accessmode, begin, end, &mut result__).map(|| result__)
     }
     pub unsafe fn GetPageSize(&self) -> u32 {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPageSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     pub unsafe fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> windows_core::Result<ISimilarityTraitsMappedView> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), minimummappedpages, accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -528,7 +528,7 @@ windows_core::imp::define_interface!(ISimilarityTraitsTable, ISimilarityTraitsTa
 impl std::ops::Deref for ISimilarityTraitsTable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISimilarityTraitsTable, windows_core::IUnknown);
@@ -538,7 +538,7 @@ impl ISimilarityTraitsTable {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.param().abi(), securitydescriptor, &mut result__).map(|| result__)
     }
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, mapping: P0, truncate: P1) -> windows_core::Result<RdcCreatedTables>
@@ -546,7 +546,7 @@ impl ISimilarityTraitsTable {
         P0: windows_core::Param<ISimilarityTraitsMapping>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), mapping.param().abi(), truncate.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> windows_core::Result<()>
@@ -562,11 +562,11 @@ impl ISimilarityTraitsTable {
         (windows_core::Interface::vtable(self).FindSimilarFileIndex)(windows_core::Interface::as_raw(self), similaritydata, numberofmatchesrequired, findsimilarfileindexresults, resultssize, resultsused).ok()
     }
     pub unsafe fn BeginDump(&self) -> windows_core::Result<ISimilarityTableDumpState> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginDump)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLastIndex(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLastIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }

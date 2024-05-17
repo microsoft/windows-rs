@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ITpmVirtualSmartCardManager, ITpmVirtualSma
 impl std::ops::Deref for ITpmVirtualSmartCardManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager, windows_core::IUnknown);
@@ -20,7 +20,7 @@ impl ITpmVirtualSmartCardManager {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ITpmVirtualSmartCardManagerStatusCallback>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DestroyVirtualSmartCard)(windows_core::Interface::as_raw(self), pszinstanceid.param().abi(), pstatuscallback.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -34,7 +34,7 @@ windows_core::imp::define_interface!(ITpmVirtualSmartCardManager2, ITpmVirtualSm
 impl std::ops::Deref for ITpmVirtualSmartCardManager2 {
     type Target = ITpmVirtualSmartCardManager;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager2, windows_core::IUnknown, ITpmVirtualSmartCardManager);
@@ -76,7 +76,7 @@ windows_core::imp::define_interface!(ITpmVirtualSmartCardManager3, ITpmVirtualSm
 impl std::ops::Deref for ITpmVirtualSmartCardManager3 {
     type Target = ITpmVirtualSmartCardManager2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager3, windows_core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);
@@ -87,7 +87,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: windows_core::Param<super::super::Foundation::BOOL>,
         P2: windows_core::Param<ITpmVirtualSmartCardManagerStatusCallback>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVirtualSmartCardWithAttestation)(
             windows_core::Interface::as_raw(self),
             pszfriendlyname.param().abi(),
@@ -119,7 +119,7 @@ windows_core::imp::define_interface!(ITpmVirtualSmartCardManagerStatusCallback, 
 impl std::ops::Deref for ITpmVirtualSmartCardManagerStatusCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, windows_core::IUnknown);

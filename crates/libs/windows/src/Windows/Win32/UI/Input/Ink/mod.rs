@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IInkCommitRequestHandler, IInkCommitRequest
 impl std::ops::Deref for IInkCommitRequestHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkCommitRequestHandler, windows_core::IUnknown);
@@ -20,7 +20,7 @@ windows_core::imp::define_interface!(IInkD2DRenderer, IInkD2DRenderer_Vtbl, 0x40
 impl std::ops::Deref for IInkD2DRenderer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer, windows_core::IUnknown);
@@ -43,7 +43,7 @@ windows_core::imp::define_interface!(IInkD2DRenderer2, IInkD2DRenderer2_Vtbl, 0x
 impl std::ops::Deref for IInkD2DRenderer2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer2, windows_core::IUnknown);
@@ -65,7 +65,7 @@ windows_core::imp::define_interface!(IInkDesktopHost, IInkDesktopHost_Vtbl, 0x4c
 impl std::ops::Deref for IInkDesktopHost {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkDesktopHost, windows_core::IUnknown);
@@ -103,7 +103,7 @@ windows_core::imp::define_interface!(IInkHostWorkItem, IInkHostWorkItem_Vtbl, 0x
 impl std::ops::Deref for IInkHostWorkItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkHostWorkItem, windows_core::IUnknown);
@@ -121,7 +121,7 @@ windows_core::imp::define_interface!(IInkPresenterDesktop, IInkPresenterDesktop_
 impl std::ops::Deref for IInkPresenterDesktop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkPresenterDesktop, windows_core::IUnknown);

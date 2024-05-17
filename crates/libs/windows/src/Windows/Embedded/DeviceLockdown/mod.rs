@@ -5,7 +5,7 @@ impl windows_core::RuntimeType for IDeviceLockdownProfileInformation {
 #[repr(C)]
 pub struct IDeviceLockdownProfileInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceLockdownProfileStatics, IDeviceLockdownProfileStatics_Vtbl, 0x622f6965_f9a8_41a1_a691_88cd80c7a069);
 impl windows_core::RuntimeType for IDeviceLockdownProfileStatics {
@@ -27,25 +27,25 @@ impl DeviceLockdownProfile {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedLockdownProfiles() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedLockdownProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetCurrentLockdownProfile() -> windows_core::Result<windows_core::GUID> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ApplyLockdownProfileAsync(profileid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplyLockdownProfileAsync)(windows_core::Interface::as_raw(this), profileid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetLockdownProfileInformation(profileid: windows_core::GUID) -> windows_core::Result<DeviceLockdownProfileInformation> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLockdownProfileInformation)(windows_core::Interface::as_raw(this), profileid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -66,7 +66,7 @@ impl DeviceLockdownProfileInformation {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

@@ -10,7 +10,7 @@ windows_core::imp::define_interface!(IPrintDocumentSource, IPrintDocumentSource_
 impl std::ops::Deref for IPrintDocumentSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintDocumentSource, windows_core::IUnknown, windows_core::IInspectable);
@@ -175,7 +175,7 @@ windows_core::imp::define_interface!(IPrintTaskOptionsCore, IPrintTaskOptionsCor
 impl std::ops::Deref for IPrintTaskOptionsCore {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCore, windows_core::IUnknown, windows_core::IInspectable);
@@ -183,7 +183,7 @@ impl IPrintTaskOptionsCore {
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<PrintPageDescription> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPageDescription)(windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).map(|| result__)
         }
     }
@@ -200,7 +200,7 @@ windows_core::imp::define_interface!(IPrintTaskOptionsCoreProperties, IPrintTask
 impl std::ops::Deref for IPrintTaskOptionsCoreProperties {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCoreProperties, windows_core::IUnknown, windows_core::IInspectable);
@@ -212,7 +212,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn MediaSize(&self) -> windows_core::Result<PrintMediaSize> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -223,7 +223,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn MediaType(&self) -> windows_core::Result<PrintMediaType> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -234,7 +234,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn Orientation(&self) -> windows_core::Result<PrintOrientation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -245,7 +245,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn PrintQuality(&self) -> windows_core::Result<PrintQuality> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrintQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -256,7 +256,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn ColorMode(&self) -> windows_core::Result<PrintColorMode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ColorMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -267,7 +267,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn Duplex(&self) -> windows_core::Result<PrintDuplex> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duplex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -278,7 +278,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn Collation(&self) -> windows_core::Result<PrintCollation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Collation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -289,7 +289,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn Staple(&self) -> windows_core::Result<PrintStaple> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Staple)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -300,7 +300,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn HolePunch(&self) -> windows_core::Result<PrintHolePunch> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HolePunch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -311,21 +311,21 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn Binding(&self) -> windows_core::Result<PrintBinding> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Binding)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinCopies(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MaxCopies(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -336,7 +336,7 @@ impl IPrintTaskOptionsCoreProperties {
     pub fn NumberOfCopies(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NumberOfCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -376,7 +376,7 @@ windows_core::imp::define_interface!(IPrintTaskOptionsCoreUIConfiguration, IPrin
 impl std::ops::Deref for IPrintTaskOptionsCoreUIConfiguration {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, windows_core::IUnknown, windows_core::IInspectable);
@@ -385,7 +385,7 @@ impl IPrintTaskOptionsCoreUIConfiguration {
     pub fn DisplayedOptions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -418,7 +418,7 @@ impl windows_core::RuntimeType for IPrintTaskRequest {
 pub struct IPrintTaskRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub CreatePrintTask: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePrintTask: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskRequestedDeferral, IPrintTaskRequestedDeferral_Vtbl, 0xcfefb3f0_ce3e_42c7_9496_64800c622c44);
@@ -478,19 +478,19 @@ impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic {
 #[repr(C)]
 pub struct IStandardPrintTaskOptionsStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub MediaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PrintQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Duplex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Collation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Staple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub HolePunch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Binding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Copies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub NUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub InputBin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub MediaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PrintQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Duplex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Collation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Staple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub HolePunch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Binding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Copies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub NUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub InputBin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStandardPrintTaskOptionsStatic2, IStandardPrintTaskOptionsStatic2_Vtbl, 0x3be38bf4_7a44_4269_9a52_81261e289ee9);
 impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic2 {
@@ -499,7 +499,7 @@ impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic2 {
 #[repr(C)]
 pub struct IStandardPrintTaskOptionsStatic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Bordering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Bordering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStandardPrintTaskOptionsStatic3, IStandardPrintTaskOptionsStatic3_Vtbl, 0xbbf68e86_3858_41b3_a799_55dd9888d475);
 impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic3 {
@@ -508,7 +508,7 @@ impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic3 {
 #[repr(C)]
 pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CustomPageRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CustomPageRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
@@ -521,7 +521,7 @@ impl PrintManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrintTaskRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -531,19 +531,19 @@ impl PrintManager {
     }
     pub fn GetForCurrentView() -> windows_core::Result<PrintManager> {
         Self::IPrintManagerStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ShowPrintUIAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPrintManagerStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowPrintUIAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::IPrintManagerStatic2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -589,7 +589,7 @@ impl PrintPageInfo {
     pub fn MediaSize(&self) -> windows_core::Result<PrintMediaSize> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -600,7 +600,7 @@ impl PrintPageInfo {
     pub fn PageSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -611,7 +611,7 @@ impl PrintPageInfo {
     pub fn DpiX(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DpiX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -622,7 +622,7 @@ impl PrintPageInfo {
     pub fn DpiY(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DpiY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -633,7 +633,7 @@ impl PrintPageInfo {
     pub fn Orientation(&self) -> windows_core::Result<PrintOrientation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -658,26 +658,26 @@ impl PrintPageRange {
     pub fn FirstPageNumber(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FirstPageNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LastPageNumber(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LastPageNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Create(firstpage: i32, lastpage: i32) -> windows_core::Result<PrintPageRange> {
         Self::IPrintPageRangeFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), firstpage, lastpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithSinglePage(page: i32) -> windows_core::Result<PrintPageRange> {
         Self::IPrintPageRangeFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithSinglePage)(windows_core::Interface::as_raw(this), page, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -711,7 +711,7 @@ impl PrintPageRangeOptions {
     pub fn AllowAllPages(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowAllPages)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -722,7 +722,7 @@ impl PrintPageRangeOptions {
     pub fn AllowCurrentPage(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowCurrentPage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -733,7 +733,7 @@ impl PrintPageRangeOptions {
     pub fn AllowCustomSetOfPages(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowCustomSetOfPages)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -759,21 +759,21 @@ impl PrintTask {
     pub fn Properties(&self) -> windows_core::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Source(&self) -> windows_core::Result<IPrintDocumentSource> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Options(&self) -> windows_core::Result<PrintTaskOptions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Options)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -783,7 +783,7 @@ impl PrintTask {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Previewing)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -797,7 +797,7 @@ impl PrintTask {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Submitting)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -811,7 +811,7 @@ impl PrintTask {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Progressing)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -825,7 +825,7 @@ impl PrintTask {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -840,7 +840,7 @@ impl PrintTask {
     pub fn IsPreviewEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IPrintTask2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPreviewEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -851,7 +851,7 @@ impl PrintTask {
     pub fn IsPrinterTargetEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IPrintTaskTargetDeviceSupport>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPrinterTargetEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -862,7 +862,7 @@ impl PrintTask {
     pub fn Is3DManufacturingTargetEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IPrintTaskTargetDeviceSupport>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Is3DManufacturingTargetEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -887,7 +887,7 @@ impl PrintTaskCompletedEventArgs {
     pub fn Completion(&self) -> windows_core::Result<PrintTaskCompletion> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Completion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -917,7 +917,7 @@ impl PrintTaskOptions {
     pub fn Bordering(&self) -> windows_core::Result<PrintBordering> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bordering)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -928,14 +928,14 @@ impl PrintTaskOptions {
     {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPagePrintTicket)(windows_core::Interface::as_raw(this), printpageinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PageRangeOptions(&self) -> windows_core::Result<PrintPageRangeOptions> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageRangeOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -943,14 +943,14 @@ impl PrintTaskOptions {
     pub fn CustomPageRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<PrintPageRange>> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomPageRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<PrintPageDescription> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPageDescription)(windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).map(|| result__)
         }
     }
@@ -961,7 +961,7 @@ impl PrintTaskOptions {
     pub fn MediaSize(&self) -> windows_core::Result<PrintMediaSize> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -972,7 +972,7 @@ impl PrintTaskOptions {
     pub fn MediaType(&self) -> windows_core::Result<PrintMediaType> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -983,7 +983,7 @@ impl PrintTaskOptions {
     pub fn Orientation(&self) -> windows_core::Result<PrintOrientation> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -994,7 +994,7 @@ impl PrintTaskOptions {
     pub fn PrintQuality(&self) -> windows_core::Result<PrintQuality> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrintQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1005,7 +1005,7 @@ impl PrintTaskOptions {
     pub fn ColorMode(&self) -> windows_core::Result<PrintColorMode> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ColorMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1016,7 +1016,7 @@ impl PrintTaskOptions {
     pub fn Duplex(&self) -> windows_core::Result<PrintDuplex> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duplex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1027,7 +1027,7 @@ impl PrintTaskOptions {
     pub fn Collation(&self) -> windows_core::Result<PrintCollation> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Collation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1038,7 +1038,7 @@ impl PrintTaskOptions {
     pub fn Staple(&self) -> windows_core::Result<PrintStaple> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Staple)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1049,7 +1049,7 @@ impl PrintTaskOptions {
     pub fn HolePunch(&self) -> windows_core::Result<PrintHolePunch> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HolePunch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1060,21 +1060,21 @@ impl PrintTaskOptions {
     pub fn Binding(&self) -> windows_core::Result<PrintBinding> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Binding)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinCopies(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MaxCopies(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1085,7 +1085,7 @@ impl PrintTaskOptions {
     pub fn NumberOfCopies(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NumberOfCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1093,7 +1093,7 @@ impl PrintTaskOptions {
     pub fn DisplayedOptions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreUIConfiguration>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1118,7 +1118,7 @@ impl PrintTaskProgressingEventArgs {
     pub fn DocumentPageCount(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DocumentPageCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1143,7 +1143,7 @@ impl PrintTaskRequest {
     pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1153,14 +1153,14 @@ impl PrintTaskRequest {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePrintTask)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskRequestedDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1207,7 +1207,7 @@ impl PrintTaskRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<PrintTaskRequest> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1232,7 +1232,7 @@ impl PrintTaskSourceRequestedArgs {
     pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1246,7 +1246,7 @@ impl PrintTaskSourceRequestedArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskSourceRequestedDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1289,91 +1289,91 @@ pub struct StandardPrintTaskOptions;
 impl StandardPrintTaskOptions {
     pub fn MediaSize() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn MediaType() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Orientation() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn PrintQuality() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrintQuality)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ColorMode() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ColorMode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Duplex() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duplex)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Collation() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Collation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Staple() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Staple)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn HolePunch() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HolePunch)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Binding() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Binding)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Copies() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Copies)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn NUp() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NUp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn InputBin() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputBin)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Bordering() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bordering)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CustomPageRanges() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomPageRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

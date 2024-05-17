@@ -4,7 +4,7 @@ windows_core::imp::define_interface!(IATSCChannelTuneRequest, IATSCChannelTuneRe
 impl std::ops::Deref for IATSCChannelTuneRequest {
     type Target = IChannelTuneRequest;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12,7 +12,7 @@ windows_core::imp::interface_hierarchy!(IATSCChannelTuneRequest, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCChannelTuneRequest {
     pub unsafe fn MinorChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinorChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinorChannel(&self, minorchannel: i32) -> windows_core::Result<()> {
@@ -32,7 +32,7 @@ windows_core::imp::define_interface!(IATSCComponentType, IATSCComponentType_Vtbl
 impl std::ops::Deref for IATSCComponentType {
     type Target = IMPEG2ComponentType;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -40,7 +40,7 @@ windows_core::imp::interface_hierarchy!(IATSCComponentType, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCComponentType {
     pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFlags(&self, flags: i32) -> windows_core::Result<()> {
@@ -60,7 +60,7 @@ windows_core::imp::define_interface!(IATSCLocator, IATSCLocator_Vtbl, 0xbf8d986f
 impl std::ops::Deref for IATSCLocator {
     type Target = IDigitalLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -68,14 +68,14 @@ windows_core::imp::interface_hierarchy!(IATSCLocator, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCLocator {
     pub unsafe fn PhysicalChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PhysicalChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPhysicalChannel(&self, physicalchannel: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPhysicalChannel)(windows_core::Interface::as_raw(self), physicalchannel).ok()
     }
     pub unsafe fn TSID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTSID(&self, tsid: i32) -> windows_core::Result<()> {
@@ -97,7 +97,7 @@ windows_core::imp::define_interface!(IATSCLocator2, IATSCLocator2_Vtbl, 0x612aa8
 impl std::ops::Deref for IATSCLocator2 {
     type Target = IATSCLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -105,7 +105,7 @@ windows_core::imp::interface_hierarchy!(IATSCLocator2, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCLocator2 {
     pub unsafe fn ProgramNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProgramNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetProgramNumber(&self, programnumber: i32) -> windows_core::Result<()> {
@@ -125,7 +125,7 @@ windows_core::imp::define_interface!(IATSCTuningSpace, IATSCTuningSpace_Vtbl, 0x
 impl std::ops::Deref for IATSCTuningSpace {
     type Target = IAnalogTVTuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -133,28 +133,28 @@ windows_core::imp::interface_hierarchy!(IATSCTuningSpace, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCTuningSpace {
     pub unsafe fn MinMinorChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinMinorChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinMinorChannel(&self, newminminorchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMinMinorChannel)(windows_core::Interface::as_raw(self), newminminorchannelval).ok()
     }
     pub unsafe fn MaxMinorChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxMinorChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxMinorChannel(&self, newmaxminorchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMaxMinorChannel)(windows_core::Interface::as_raw(self), newmaxminorchannelval).ok()
     }
     pub unsafe fn MinPhysicalChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinPhysicalChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinPhysicalChannel(&self, newminphysicalchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMinPhysicalChannel)(windows_core::Interface::as_raw(self), newminphysicalchannelval).ok()
     }
     pub unsafe fn MaxPhysicalChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxPhysicalChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxPhysicalChannel(&self, newmaxphysicalchannelval: i32) -> windows_core::Result<()> {
@@ -178,7 +178,7 @@ windows_core::imp::define_interface!(IATSC_EIT, IATSC_EIT_Vtbl, 0xd7c212d7_76a2_
 impl std::ops::Deref for IATSC_EIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IATSC_EIT, windows_core::IUnknown);
@@ -191,46 +191,46 @@ impl IATSC_EIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSourceId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocolVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtocolVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEventId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEventId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordStartTime(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordStartTime)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEtmLocation(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEtmLocation)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDuration(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDuration)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTitleText(&self, dwrecordindex: u32, pdwlength: *mut u32, pptext: *mut *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRecordTitleText)(windows_core::Interface::as_raw(self), dwrecordindex, pdwlength, pptext).ok()
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -258,7 +258,7 @@ windows_core::imp::define_interface!(IATSC_ETT, IATSC_ETT_Vtbl, 0x5a142cc9_b8cf_
 impl std::ops::Deref for IATSC_ETT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IATSC_ETT, windows_core::IUnknown);
@@ -271,15 +271,15 @@ impl IATSC_ETT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocolVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtocolVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEtmId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEtmId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetExtendedMessageText(&self, pdwlength: *mut u32, pptext: *mut *mut u8) -> windows_core::Result<()> {
@@ -299,7 +299,7 @@ windows_core::imp::define_interface!(IATSC_MGT, IATSC_MGT_Vtbl, 0x8877dabd_c137_
 impl std::ops::Deref for IATSC_MGT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IATSC_MGT, windows_core::IUnknown);
@@ -312,35 +312,35 @@ impl IATSC_MGT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocolVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtocolVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordType(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordType)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTypePid(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTypePid)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordVersionNumber(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordVersionNumber)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -350,7 +350,7 @@ impl IATSC_MGT {
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), pdwval).ok()
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -378,7 +378,7 @@ windows_core::imp::define_interface!(IATSC_STT, IATSC_STT_Vtbl, 0x6bf42423_217d_
 impl std::ops::Deref for IATSC_STT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IATSC_STT, windows_core::IUnknown);
@@ -391,27 +391,27 @@ impl IATSC_STT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetProtocolVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtocolVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSystemTime(&self) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSystemTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGpsUtcOffset(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGpsUtcOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDaylightSavings(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDaylightSavings)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -434,7 +434,7 @@ windows_core::imp::define_interface!(IATSC_VCT, IATSC_VCT_Vtbl, 0x26879a18_32f9_
 impl std::ops::Deref for IATSC_VCT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IATSC_VCT, windows_core::IUnknown);
@@ -447,87 +447,87 @@ impl IATSC_VCT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransportStreamId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportStreamId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocolVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtocolVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordName(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordName)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordMajorChannelNumber(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordMajorChannelNumber)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordMinorChannelNumber(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordMinorChannelNumber)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordModulationMode(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordModulationMode)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCarrierFrequency(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCarrierFrequency)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTransportStreamId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordProgramNumber(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordProgramNumber)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEtmLocation(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEtmLocation)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordIsAccessControlledBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordIsHiddenBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordIsPathSelectBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordIsOutOfBandBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordIsHideGuideBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceType(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceType)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordSourceId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordSourceId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -537,7 +537,7 @@ impl IATSC_VCT {
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), pdwval).ok()
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -580,7 +580,7 @@ windows_core::imp::define_interface!(IAnalogAudioComponentType, IAnalogAudioComp
 impl std::ops::Deref for IAnalogAudioComponentType {
     type Target = IComponentType;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -588,7 +588,7 @@ windows_core::imp::interface_hierarchy!(IAnalogAudioComponentType, windows_core:
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogAudioComponentType {
     pub unsafe fn AnalogAudioMode(&self) -> windows_core::Result<super::TVAudioMode> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AnalogAudioMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAnalogAudioMode(&self, mode: super::TVAudioMode) -> windows_core::Result<()> {
@@ -608,7 +608,7 @@ windows_core::imp::define_interface!(IAnalogLocator, IAnalogLocator_Vtbl, 0x34d1
 impl std::ops::Deref for IAnalogLocator {
     type Target = ILocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -616,7 +616,7 @@ windows_core::imp::interface_hierarchy!(IAnalogLocator, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogLocator {
     pub unsafe fn VideoStandard(&self) -> windows_core::Result<super::AnalogVideoStandard> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoStandard)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetVideoStandard(&self, avs: super::AnalogVideoStandard) -> windows_core::Result<()> {
@@ -636,7 +636,7 @@ windows_core::imp::define_interface!(IAnalogRadioTuningSpace, IAnalogRadioTuning
 impl std::ops::Deref for IAnalogRadioTuningSpace {
     type Target = ITuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -644,21 +644,21 @@ windows_core::imp::interface_hierarchy!(IAnalogRadioTuningSpace, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogRadioTuningSpace {
     pub unsafe fn MinFrequency(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinFrequency(&self, newminfrequencyval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMinFrequency)(windows_core::Interface::as_raw(self), newminfrequencyval).ok()
     }
     pub unsafe fn MaxFrequency(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxFrequency(&self, newmaxfrequencyval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMaxFrequency)(windows_core::Interface::as_raw(self), newmaxfrequencyval).ok()
     }
     pub unsafe fn Step(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Step)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStep(&self, newstepval: i32) -> windows_core::Result<()> {
@@ -682,7 +682,7 @@ windows_core::imp::define_interface!(IAnalogRadioTuningSpace2, IAnalogRadioTunin
 impl std::ops::Deref for IAnalogRadioTuningSpace2 {
     type Target = IAnalogRadioTuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -690,7 +690,7 @@ windows_core::imp::interface_hierarchy!(IAnalogRadioTuningSpace2, windows_core::
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogRadioTuningSpace2 {
     pub unsafe fn CountryCode(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CountryCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()> {
@@ -710,7 +710,7 @@ windows_core::imp::define_interface!(IAnalogTVTuningSpace, IAnalogTVTuningSpace_
 impl std::ops::Deref for IAnalogTVTuningSpace {
     type Target = ITuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -718,28 +718,28 @@ windows_core::imp::interface_hierarchy!(IAnalogTVTuningSpace, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogTVTuningSpace {
     pub unsafe fn MinChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinChannel(&self, newminchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMinChannel)(windows_core::Interface::as_raw(self), newminchannelval).ok()
     }
     pub unsafe fn MaxChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxChannel(&self, newmaxchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMaxChannel)(windows_core::Interface::as_raw(self), newmaxchannelval).ok()
     }
     pub unsafe fn InputType(&self) -> windows_core::Result<super::TunerInputType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InputType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInputType(&self, newinputtypeval: super::TunerInputType) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetInputType)(windows_core::Interface::as_raw(self), newinputtypeval).ok()
     }
     pub unsafe fn CountryCode(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CountryCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()> {
@@ -763,37 +763,37 @@ windows_core::imp::define_interface!(IAtscContentAdvisoryDescriptor, IAtscConten
 impl std::ops::Deref for IAtscContentAdvisoryDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAtscContentAdvisoryDescriptor, windows_core::IUnknown);
 impl IAtscContentAdvisoryDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRatingRegionCount(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRatingRegionCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRatingRegion(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRatingRegion)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRatedDimensions(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRatedDimensions)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRatingDimension(&self, bindexouter: u8, bindexinner: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRatingDimension)(windows_core::Interface::as_raw(self), bindexouter, bindexinner, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRatingValue(&self, bindexouter: u8, bindexinner: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRatingValue)(windows_core::Interface::as_raw(self), bindexouter, bindexinner, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRatingDescriptionText(&self, bindex: u8, pblength: *mut u8, pptext: *mut *mut u8) -> windows_core::Result<()> {
@@ -816,7 +816,7 @@ windows_core::imp::define_interface!(IAtscPsipParser, IAtscPsipParser_Vtbl, 0xb2
 impl std::ops::Deref for IAtscPsipParser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAtscPsipParser, windows_core::IUnknown);
@@ -828,46 +828,46 @@ impl IAtscPsipParser {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punkmpeg2data.param().abi()).ok()
     }
     pub unsafe fn GetPAT(&self) -> windows_core::Result<IPAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPAT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCAT(&self, dwtimeout: u32) -> windows_core::Result<ICAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCAT)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPMT(&self, pid: u16, pwprogramnumber: *const u16) -> windows_core::Result<IPMT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPMT)(windows_core::Interface::as_raw(self), pid, pwprogramnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTSDT(&self) -> windows_core::Result<ITSDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTSDT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMGT(&self) -> windows_core::Result<IATSC_MGT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMGT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetVCT<P0>(&self, tableid: u8, fgetnexttable: P0) -> windows_core::Result<IATSC_VCT>
     where
         P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVCT)(windows_core::Interface::as_raw(self), tableid, fgetnexttable.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetEIT(&self, pid: u16, pwsourceid: *const u16, dwtimeout: u32) -> windows_core::Result<IATSC_EIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEIT)(windows_core::Interface::as_raw(self), pid, pwsourceid, dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetETT(&self, pid: u16, wsourceid: *const u16, pweventid: *const u16) -> windows_core::Result<IATSC_ETT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetETT)(windows_core::Interface::as_raw(self), pid, wsourceid, pweventid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSTT(&self) -> windows_core::Result<IATSC_STT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSTT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetEAS(&self, pid: u16) -> windows_core::Result<ISCTE_EAS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEAS)(windows_core::Interface::as_raw(self), pid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -890,13 +890,13 @@ windows_core::imp::define_interface!(IAttributeGet, IAttributeGet_Vtbl, 0x52dbd1
 impl std::ops::Deref for IAttributeGet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAttributeGet, windows_core::IUnknown);
 impl IAttributeGet {
     pub unsafe fn GetCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttribIndexed(&self, lindex: i32, pguidattribute: *mut windows_core::GUID, pbattribute: *mut u8, pdwattributelength: *mut u32) -> windows_core::Result<()> {
@@ -917,7 +917,7 @@ windows_core::imp::define_interface!(IAttributeSet, IAttributeSet_Vtbl, 0x583ec3
 impl std::ops::Deref for IAttributeSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAttributeSet, windows_core::IUnknown);
@@ -937,7 +937,7 @@ windows_core::imp::define_interface!(IAuxInTuningSpace, IAuxInTuningSpace_Vtbl, 
 impl std::ops::Deref for IAuxInTuningSpace {
     type Target = ITuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -955,7 +955,7 @@ windows_core::imp::define_interface!(IAuxInTuningSpace2, IAuxInTuningSpace2_Vtbl
 impl std::ops::Deref for IAuxInTuningSpace2 {
     type Target = IAuxInTuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -963,7 +963,7 @@ windows_core::imp::interface_hierarchy!(IAuxInTuningSpace2, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IAuxInTuningSpace2 {
     pub unsafe fn CountryCode(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CountryCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()> {
@@ -981,7 +981,7 @@ windows_core::imp::define_interface!(IBDAComparable, IBDAComparable_Vtbl, 0xb345
 impl std::ops::Deref for IBDAComparable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBDAComparable, windows_core::IUnknown);
@@ -991,7 +991,7 @@ impl IBDAComparable {
     where
         P0: windows_core::Param<super::super::super::System::Com::IDispatch>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CompareExact)(windows_core::Interface::as_raw(self), compareto.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -999,23 +999,23 @@ impl IBDAComparable {
     where
         P0: windows_core::Param<super::super::super::System::Com::IDispatch>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CompareEquivalent)(windows_core::Interface::as_raw(self), compareto.param().abi(), dwflags, &mut result__).map(|| result__)
     }
     pub unsafe fn HashExact(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HashExact)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn HashExactIncremental(&self, partialresult: i64) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HashExactIncremental)(windows_core::Interface::as_raw(self), partialresult, &mut result__).map(|| result__)
     }
     pub unsafe fn HashEquivalent(&self, dwflags: u32) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HashEquivalent)(windows_core::Interface::as_raw(self), dwflags, &mut result__).map(|| result__)
     }
     pub unsafe fn HashEquivalentIncremental(&self, partialresult: i64, dwflags: u32) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HashEquivalentIncremental)(windows_core::Interface::as_raw(self), partialresult, dwflags, &mut result__).map(|| result__)
     }
 }
@@ -1039,14 +1039,14 @@ windows_core::imp::define_interface!(IBDACreateTuneRequestEx, IBDACreateTuneRequ
 impl std::ops::Deref for IBDACreateTuneRequestEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBDACreateTuneRequestEx, windows_core::IUnknown);
 impl IBDACreateTuneRequestEx {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequestEx(&self, tunerequestiid: *const windows_core::GUID) -> windows_core::Result<ITuneRequest> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTuneRequestEx)(windows_core::Interface::as_raw(self), tunerequestiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1062,7 +1062,7 @@ windows_core::imp::define_interface!(IBDA_TIF_REGISTRATION, IBDA_TIF_REGISTRATIO
 impl std::ops::Deref for IBDA_TIF_REGISTRATION {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBDA_TIF_REGISTRATION, windows_core::IUnknown);
@@ -1087,7 +1087,7 @@ windows_core::imp::define_interface!(ICAT, ICAT_Vtbl, 0x7c6995fb_2a31_4bd7_953e_
 impl std::ops::Deref for ICAT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICAT, windows_core::IUnknown);
@@ -1100,15 +1100,15 @@ impl ICAT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -1121,7 +1121,7 @@ impl ICAT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<ICAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -1151,32 +1151,32 @@ windows_core::imp::define_interface!(ICaptionServiceDescriptor, ICaptionServiceD
 impl std::ops::Deref for ICaptionServiceDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICaptionServiceDescriptor, windows_core::IUnknown);
 impl ICaptionServiceDescriptor {
     pub unsafe fn GetNumberOfServices(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNumberOfServices)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageCode(&self, bindex: u8, langcode: &mut [u8; 3]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguageCode)(windows_core::Interface::as_raw(self), bindex, core::mem::transmute(langcode.as_ptr())).ok()
     }
     pub unsafe fn GetCaptionServiceNumber(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCaptionServiceNumber)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCCType(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCCType)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEasyReader(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEasyReader)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetWideAspectRatio(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWideAspectRatio)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
 }
@@ -1196,7 +1196,7 @@ windows_core::imp::define_interface!(IChannelIDTuneRequest, IChannelIDTuneReques
 impl std::ops::Deref for IChannelIDTuneRequest {
     type Target = ITuneRequest;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1204,7 +1204,7 @@ windows_core::imp::interface_hierarchy!(IChannelIDTuneRequest, windows_core::IUn
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelIDTuneRequest {
     pub unsafe fn ChannelID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ChannelID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetChannelID<P0>(&self, channelid: P0) -> windows_core::Result<()>
@@ -1218,8 +1218,8 @@ impl IChannelIDTuneRequest {
 #[repr(C)]
 pub struct IChannelIDTuneRequest_Vtbl {
     pub base__: ITuneRequest_Vtbl,
-    pub ChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IChannelTuneRequest, IChannelTuneRequest_Vtbl, 0x0369b4e0_45b6_11d3_b650_00c04f79498e);
@@ -1227,7 +1227,7 @@ windows_core::imp::define_interface!(IChannelTuneRequest, IChannelTuneRequest_Vt
 impl std::ops::Deref for IChannelTuneRequest {
     type Target = ITuneRequest;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1235,7 +1235,7 @@ windows_core::imp::interface_hierarchy!(IChannelTuneRequest, windows_core::IUnkn
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelTuneRequest {
     pub unsafe fn Channel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Channel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetChannel(&self, channel: i32) -> windows_core::Result<()> {
@@ -1255,7 +1255,7 @@ windows_core::imp::define_interface!(IComponent, IComponent_Vtbl, 0x1a5576fc_0e1
 impl std::ops::Deref for IComponent {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1264,7 +1264,7 @@ windows_core::imp::interface_hierarchy!(IComponent, windows_core::IUnknown, supe
 impl IComponent {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> windows_core::Result<IComponentType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1275,21 +1275,21 @@ impl IComponent {
         (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), ct.param().abi()).ok()
     }
     pub unsafe fn DescLangID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DescLangID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDescLangID(&self, langid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDescLangID)(windows_core::Interface::as_raw(self), langid).ok()
     }
     pub unsafe fn Status(&self) -> windows_core::Result<super::ComponentStatus> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStatus(&self, status: super::ComponentStatus) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
@@ -1300,7 +1300,7 @@ impl IComponent {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<IComponent> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1320,8 +1320,8 @@ pub struct IComponent_Vtbl {
     pub SetDescLangID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ComponentStatus) -> windows_core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, super::ComponentStatus) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1333,7 +1333,7 @@ windows_core::imp::define_interface!(IComponentType, IComponentType_Vtbl, 0x6a34
 impl std::ops::Deref for IComponentType {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1341,14 +1341,14 @@ windows_core::imp::interface_hierarchy!(IComponentType, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentType {
     pub unsafe fn Category(&self) -> windows_core::Result<super::ComponentCategory> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Category)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCategory(&self, category: super::ComponentCategory) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCategory)(windows_core::Interface::as_raw(self), category).ok()
     }
     pub unsafe fn MediaMajorType(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MediaMajorType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMediaMajorType<P0>(&self, mediamajortype: P0) -> windows_core::Result<()>
@@ -1358,14 +1358,14 @@ impl IComponentType {
         (windows_core::Interface::vtable(self).SetMediaMajorType)(windows_core::Interface::as_raw(self), mediamajortype.param().abi()).ok()
     }
     pub unsafe fn _MediaMajorType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._MediaMajorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Set_MediaMajorType(&self, mediamajortypeguid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Set_MediaMajorType)(windows_core::Interface::as_raw(self), mediamajortypeguid).ok()
     }
     pub unsafe fn MediaSubType(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MediaSubType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMediaSubType<P0>(&self, mediasubtype: P0) -> windows_core::Result<()>
@@ -1375,14 +1375,14 @@ impl IComponentType {
         (windows_core::Interface::vtable(self).SetMediaSubType)(windows_core::Interface::as_raw(self), mediasubtype.param().abi()).ok()
     }
     pub unsafe fn _MediaSubType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._MediaSubType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Set_MediaSubType(&self, mediasubtypeguid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Set_MediaSubType)(windows_core::Interface::as_raw(self), mediasubtypeguid).ok()
     }
     pub unsafe fn MediaFormatType(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MediaFormatType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMediaFormatType<P0>(&self, mediaformattype: P0) -> windows_core::Result<()>
@@ -1392,7 +1392,7 @@ impl IComponentType {
         (windows_core::Interface::vtable(self).SetMediaFormatType)(windows_core::Interface::as_raw(self), mediaformattype.param().abi()).ok()
     }
     pub unsafe fn _MediaFormatType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._MediaFormatType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -1400,7 +1400,7 @@ impl IComponentType {
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn MediaType(&self) -> windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -1409,7 +1409,7 @@ impl IComponentType {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<IComponentType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1419,16 +1419,16 @@ pub struct IComponentType_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ComponentCategory) -> windows_core::HRESULT,
     pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, super::ComponentCategory) -> windows_core::HRESULT,
-    pub MediaMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetMediaMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub MediaMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetMediaMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub _MediaMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Set_MediaMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub MediaSubType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetMediaSubType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub MediaSubType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetMediaSubType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub _MediaSubType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Set_MediaSubType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub MediaFormatType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetMediaFormatType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub MediaFormatType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetMediaFormatType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub _MediaFormatType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Set_MediaFormatType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -1450,7 +1450,7 @@ windows_core::imp::define_interface!(IComponentTypes, IComponentTypes_Vtbl, 0x0d
 impl std::ops::Deref for IComponentTypes {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1458,16 +1458,16 @@ windows_core::imp::interface_hierarchy!(IComponentTypes, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentTypes {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumComponentTypes(&self) -> windows_core::Result<IEnumComponentTypes> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumComponentTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1475,7 +1475,7 @@ impl IComponentTypes {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1491,7 +1491,7 @@ impl IComponentTypes {
     where
         P0: windows_core::Param<IComponentType>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), componenttype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove<P0>(&self, index: P0) -> windows_core::Result<()>
@@ -1502,7 +1502,7 @@ impl IComponentTypes {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<IComponentTypes> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1517,18 +1517,18 @@ pub struct IComponentTypes_Vtbl {
     _NewEnum: usize,
     pub EnumComponentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub put_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     put_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1540,7 +1540,7 @@ windows_core::imp::define_interface!(IComponents, IComponents_Vtbl, 0x39a48091_f
 impl std::ops::Deref for IComponents {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1548,16 +1548,16 @@ windows_core::imp::interface_hierarchy!(IComponents, windows_core::IUnknown, sup
 #[cfg(feature = "Win32_System_Com")]
 impl IComponents {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumComponents(&self) -> windows_core::Result<IEnumComponents> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumComponents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1565,7 +1565,7 @@ impl IComponents {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1573,7 +1573,7 @@ impl IComponents {
     where
         P0: windows_core::Param<IComponent>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), component.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove<P0>(&self, index: P0) -> windows_core::Result<()>
@@ -1584,7 +1584,7 @@ impl IComponents {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<IComponents> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1607,20 +1607,20 @@ pub struct IComponents_Vtbl {
     _NewEnum: usize,
     pub EnumComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub put_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     put_Item: usize,
 }
@@ -1630,7 +1630,7 @@ windows_core::imp::define_interface!(IComponentsOld, IComponentsOld_Vtbl, 0xfcd0
 impl std::ops::Deref for IComponentsOld {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1638,16 +1638,16 @@ windows_core::imp::interface_hierarchy!(IComponentsOld, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentsOld {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumComponents(&self) -> windows_core::Result<IEnumComponents> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumComponents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1655,7 +1655,7 @@ impl IComponentsOld {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1663,7 +1663,7 @@ impl IComponentsOld {
     where
         P0: windows_core::Param<IComponent>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), component.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove<P0>(&self, index: P0) -> windows_core::Result<()>
@@ -1674,7 +1674,7 @@ impl IComponentsOld {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<IComponents> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1689,14 +1689,14 @@ pub struct IComponentsOld_Vtbl {
     _NewEnum: usize,
     pub EnumComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1706,7 +1706,7 @@ windows_core::imp::define_interface!(ICreatePropBagOnRegKey, ICreatePropBagOnReg
 impl std::ops::Deref for ICreatePropBagOnRegKey {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICreatePropBagOnRegKey, windows_core::IUnknown);
@@ -1732,27 +1732,27 @@ windows_core::imp::define_interface!(IDTFilter, IDTFilter_Vtbl, 0xc4c4c4b2_0049_
 impl std::ops::Deref for IDTFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDTFilter, windows_core::IUnknown);
 impl IDTFilter {
     pub unsafe fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EvalRatObjOK)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCurrRating)(windows_core::Interface::as_raw(self), pensystem, penrating, plbfenattr).ok()
     }
     pub unsafe fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_BlockedRatingAttributes)(windows_core::Interface::as_raw(self), ensystem, enlevel, &mut result__).map(|| result__)
     }
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
     pub unsafe fn BlockUnRated(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BlockUnRated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> windows_core::Result<()>
@@ -1762,7 +1762,7 @@ impl IDTFilter {
         (windows_core::Interface::vtable(self).SetBlockUnRated)(windows_core::Interface::as_raw(self), fblockunratedshows.param().abi()).ok()
     }
     pub unsafe fn BlockUnRatedDelay(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BlockUnRatedDelay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBlockUnRatedDelay(&self, msecsdelaybeforeblock: i32) -> windows_core::Result<()> {
@@ -1785,17 +1785,17 @@ windows_core::imp::define_interface!(IDTFilter2, IDTFilter2_Vtbl, 0xc4c4c4b4_004
 impl std::ops::Deref for IDTFilter2 {
     type Target = IDTFilter;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDTFilter2, windows_core::IUnknown, IDTFilter);
 impl IDTFilter2 {
     pub unsafe fn ChallengeUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ChallengeUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrLicenseExpDate(&self, prottype: *const ProtType) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrLicenseExpDate)(windows_core::Interface::as_raw(self), prottype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLastErrorCode(&self) -> windows_core::Result<()> {
@@ -1805,7 +1805,7 @@ impl IDTFilter2 {
 #[repr(C)]
 pub struct IDTFilter2_Vtbl {
     pub base__: IDTFilter_Vtbl,
-    pub ChallengeUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ChallengeUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(*mut core::ffi::c_void, *const ProtType, *mut i32) -> windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1813,17 +1813,17 @@ windows_core::imp::define_interface!(IDTFilter3, IDTFilter3_Vtbl, 0x513998cc_e92
 impl std::ops::Deref for IDTFilter3 {
     type Target = IDTFilter2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDTFilter3, windows_core::IUnknown, IDTFilter, IDTFilter2);
 impl IDTFilter3 {
     pub unsafe fn GetProtectionType(&self) -> windows_core::Result<ProtType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtectionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn LicenseHasExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LicenseHasExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRights<P0>(&self, bstrrights: P0) -> windows_core::Result<()>
@@ -1838,19 +1838,19 @@ pub struct IDTFilter3_Vtbl {
     pub base__: IDTFilter2_Vtbl,
     pub GetProtectionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProtType) -> windows_core::HRESULT,
     pub LicenseHasExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetRights: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetRights: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDTFilterConfig, IDTFilterConfig_Vtbl, 0xc4c4c4d2_0049_4e2b_98fb_9537f6ce516d);
 impl std::ops::Deref for IDTFilterConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDTFilterConfig, windows_core::IUnknown);
 impl IDTFilterConfig {
     pub unsafe fn GetSecureChannelObject(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSecureChannelObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1865,7 +1865,7 @@ windows_core::imp::define_interface!(IDTFilterEvents, IDTFilterEvents_Vtbl, 0xc4
 impl std::ops::Deref for IDTFilterEvents {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1881,7 +1881,7 @@ windows_core::imp::define_interface!(IDTFilterLicenseRenewal, IDTFilterLicenseRe
 impl std::ops::Deref for IDTFilterLicenseRenewal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDTFilterLicenseRenewal, windows_core::IUnknown);
@@ -1901,7 +1901,7 @@ windows_core::imp::define_interface!(IDVBCLocator, IDVBCLocator_Vtbl, 0x6e42f36e
 impl std::ops::Deref for IDVBCLocator {
     type Target = IDigitalLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1919,7 +1919,7 @@ windows_core::imp::define_interface!(IDVBSLocator, IDVBSLocator_Vtbl, 0x3d7c353c
 impl std::ops::Deref for IDVBSLocator {
     type Target = IDigitalLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1927,14 +1927,14 @@ windows_core::imp::interface_hierarchy!(IDVBSLocator, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBSLocator {
     pub unsafe fn SignalPolarisation(&self) -> windows_core::Result<super::Polarisation> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SignalPolarisation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSignalPolarisation)(windows_core::Interface::as_raw(self), polarisationval).ok()
     }
     pub unsafe fn WestPosition(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).WestPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> windows_core::Result<()>
@@ -1944,21 +1944,21 @@ impl IDVBSLocator {
         (windows_core::Interface::vtable(self).SetWestPosition)(windows_core::Interface::as_raw(self), westlongitude.param().abi()).ok()
     }
     pub unsafe fn OrbitalPosition(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OrbitalPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOrbitalPosition(&self, longitude: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOrbitalPosition)(windows_core::Interface::as_raw(self), longitude).ok()
     }
     pub unsafe fn Azimuth(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Azimuth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAzimuth(&self, azimuth: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAzimuth)(windows_core::Interface::as_raw(self), azimuth).ok()
     }
     pub unsafe fn Elevation(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Elevation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetElevation(&self, elevation: i32) -> windows_core::Result<()> {
@@ -1986,7 +1986,7 @@ windows_core::imp::define_interface!(IDVBSLocator2, IDVBSLocator2_Vtbl, 0x604463
 impl std::ops::Deref for IDVBSLocator2 {
     type Target = IDVBSLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1994,49 +1994,49 @@ windows_core::imp::interface_hierarchy!(IDVBSLocator2, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBSLocator2 {
     pub unsafe fn DiseqLNBSource(&self) -> windows_core::Result<super::LNB_Source> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DiseqLNBSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDiseqLNBSource(&self, diseqlnbsourceval: super::LNB_Source) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDiseqLNBSource)(windows_core::Interface::as_raw(self), diseqlnbsourceval).ok()
     }
     pub unsafe fn LocalOscillatorOverrideLow(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LocalOscillatorOverrideLow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLocalOscillatorOverrideLow(&self, localoscillatoroverridelowval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocalOscillatorOverrideLow)(windows_core::Interface::as_raw(self), localoscillatoroverridelowval).ok()
     }
     pub unsafe fn LocalOscillatorOverrideHigh(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LocalOscillatorOverrideHigh)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLocalOscillatorOverrideHigh(&self, localoscillatoroverridehighval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocalOscillatorOverrideHigh)(windows_core::Interface::as_raw(self), localoscillatoroverridehighval).ok()
     }
     pub unsafe fn LocalLNBSwitchOverride(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LocalLNBSwitchOverride)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLocalLNBSwitchOverride(&self, locallnbswitchoverrideval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocalLNBSwitchOverride)(windows_core::Interface::as_raw(self), locallnbswitchoverrideval).ok()
     }
     pub unsafe fn LocalSpectralInversionOverride(&self) -> windows_core::Result<super::SpectralInversion> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LocalSpectralInversionOverride)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLocalSpectralInversionOverride(&self, localspectralinversionoverrideval: super::SpectralInversion) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocalSpectralInversionOverride)(windows_core::Interface::as_raw(self), localspectralinversionoverrideval).ok()
     }
     pub unsafe fn SignalRollOff(&self) -> windows_core::Result<super::RollOff> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SignalRollOff)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSignalRollOff(&self, rolloffval: super::RollOff) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSignalRollOff)(windows_core::Interface::as_raw(self), rolloffval).ok()
     }
     pub unsafe fn SignalPilot(&self) -> windows_core::Result<super::Pilot> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SignalPilot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSignalPilot(&self, pilotval: super::Pilot) -> windows_core::Result<()> {
@@ -2068,7 +2068,7 @@ windows_core::imp::define_interface!(IDVBSTuningSpace, IDVBSTuningSpace_Vtbl, 0x
 impl std::ops::Deref for IDVBSTuningSpace {
     type Target = IDVBTuningSpace2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2076,28 +2076,28 @@ windows_core::imp::interface_hierarchy!(IDVBSTuningSpace, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBSTuningSpace {
     pub unsafe fn LowOscillator(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LowOscillator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLowOscillator(&self, lowoscillator: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLowOscillator)(windows_core::Interface::as_raw(self), lowoscillator).ok()
     }
     pub unsafe fn HighOscillator(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HighOscillator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHighOscillator(&self, highoscillator: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetHighOscillator)(windows_core::Interface::as_raw(self), highoscillator).ok()
     }
     pub unsafe fn LNBSwitch(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LNBSwitch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLNBSwitch(&self, lnbswitch: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLNBSwitch)(windows_core::Interface::as_raw(self), lnbswitch).ok()
     }
     pub unsafe fn InputRange(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InputRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetInputRange<P0>(&self, inputrange: P0) -> windows_core::Result<()>
@@ -2107,7 +2107,7 @@ impl IDVBSTuningSpace {
         (windows_core::Interface::vtable(self).SetInputRange)(windows_core::Interface::as_raw(self), inputrange.param().abi()).ok()
     }
     pub unsafe fn SpectralInversion(&self) -> windows_core::Result<super::SpectralInversion> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SpectralInversion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpectralInversion(&self, spectralinversionval: super::SpectralInversion) -> windows_core::Result<()> {
@@ -2124,8 +2124,8 @@ pub struct IDVBSTuningSpace_Vtbl {
     pub SetHighOscillator: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub LNBSwitch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetLNBSwitch: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub InputRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetInputRange: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub InputRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetInputRange: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SpectralInversion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::SpectralInversion) -> windows_core::HRESULT,
     pub SetSpectralInversion: unsafe extern "system" fn(*mut core::ffi::c_void, super::SpectralInversion) -> windows_core::HRESULT,
 }
@@ -2135,7 +2135,7 @@ windows_core::imp::define_interface!(IDVBTLocator, IDVBTLocator_Vtbl, 0x8664da16
 impl std::ops::Deref for IDVBTLocator {
     type Target = IDigitalLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2143,49 +2143,49 @@ windows_core::imp::interface_hierarchy!(IDVBTLocator, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTLocator {
     pub unsafe fn Bandwidth(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Bandwidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBandwidth(&self, bandwidthval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBandwidth)(windows_core::Interface::as_raw(self), bandwidthval).ok()
     }
     pub unsafe fn LPInnerFEC(&self) -> windows_core::Result<super::FECMethod> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LPInnerFEC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLPInnerFEC(&self, fec: super::FECMethod) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLPInnerFEC)(windows_core::Interface::as_raw(self), fec).ok()
     }
     pub unsafe fn LPInnerFECRate(&self) -> windows_core::Result<super::BinaryConvolutionCodeRate> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LPInnerFECRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLPInnerFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLPInnerFECRate)(windows_core::Interface::as_raw(self), fec).ok()
     }
     pub unsafe fn HAlpha(&self) -> windows_core::Result<super::HierarchyAlpha> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HAlpha)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHAlpha(&self, alpha: super::HierarchyAlpha) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetHAlpha)(windows_core::Interface::as_raw(self), alpha).ok()
     }
     pub unsafe fn Guard(&self) -> windows_core::Result<super::GuardInterval> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Guard)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetGuard(&self, gi: super::GuardInterval) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetGuard)(windows_core::Interface::as_raw(self), gi).ok()
     }
     pub unsafe fn Mode(&self) -> windows_core::Result<super::TransmissionMode> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Mode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMode(&self, mode: super::TransmissionMode) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), mode).ok()
     }
     pub unsafe fn OtherFrequencyInUse(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OtherFrequencyInUse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherFrequencyInUse<P0>(&self, otherfrequencyinuseval: P0) -> windows_core::Result<()>
@@ -2220,7 +2220,7 @@ windows_core::imp::define_interface!(IDVBTLocator2, IDVBTLocator2_Vtbl, 0x448a2e
 impl std::ops::Deref for IDVBTLocator2 {
     type Target = IDVBTLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2228,7 +2228,7 @@ windows_core::imp::interface_hierarchy!(IDVBTLocator2, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTLocator2 {
     pub unsafe fn PhysicalLayerPipeId(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PhysicalLayerPipeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPhysicalLayerPipeId(&self, physicallayerpipeidval: i32) -> windows_core::Result<()> {
@@ -2248,7 +2248,7 @@ windows_core::imp::define_interface!(IDVBTuneRequest, IDVBTuneRequest_Vtbl, 0x0d
 impl std::ops::Deref for IDVBTuneRequest {
     type Target = ITuneRequest;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2256,21 +2256,21 @@ windows_core::imp::interface_hierarchy!(IDVBTuneRequest, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuneRequest {
     pub unsafe fn ONID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ONID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetONID(&self, onid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetONID)(windows_core::Interface::as_raw(self), onid).ok()
     }
     pub unsafe fn TSID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTSID(&self, tsid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetTSID)(windows_core::Interface::as_raw(self), tsid).ok()
     }
     pub unsafe fn SID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSID(&self, sid: i32) -> windows_core::Result<()> {
@@ -2294,7 +2294,7 @@ windows_core::imp::define_interface!(IDVBTuningSpace, IDVBTuningSpace_Vtbl, 0xad
 impl std::ops::Deref for IDVBTuningSpace {
     type Target = ITuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2302,7 +2302,7 @@ windows_core::imp::interface_hierarchy!(IDVBTuningSpace, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuningSpace {
     pub unsafe fn SystemType(&self) -> windows_core::Result<super::DVBSystemType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SystemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSystemType(&self, systype: super::DVBSystemType) -> windows_core::Result<()> {
@@ -2322,7 +2322,7 @@ windows_core::imp::define_interface!(IDVBTuningSpace2, IDVBTuningSpace2_Vtbl, 0x
 impl std::ops::Deref for IDVBTuningSpace2 {
     type Target = IDVBTuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2330,7 +2330,7 @@ windows_core::imp::interface_hierarchy!(IDVBTuningSpace2, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuningSpace2 {
     pub unsafe fn NetworkID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NetworkID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkID(&self, networkid: i32) -> windows_core::Result<()> {
@@ -2348,7 +2348,7 @@ windows_core::imp::define_interface!(IDVB_BAT, IDVB_BAT_Vtbl, 0xece9bb0c_43b6_45
 impl std::ops::Deref for IDVB_BAT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_BAT, windows_core::IUnknown);
@@ -2361,15 +2361,15 @@ impl IDVB_BAT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBouquetId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBouquetId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32, ppdescriptor: *const Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -2379,23 +2379,23 @@ impl IDVB_BAT {
         (windows_core::Interface::vtable(self).GetTableDescriptorByTag)(windows_core::Interface::as_raw(self), btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTransportStreamId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordOriginalNetworkId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordOriginalNetworkId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -2408,7 +2408,7 @@ impl IDVB_BAT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_BAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -2445,7 +2445,7 @@ windows_core::imp::define_interface!(IDVB_DIT, IDVB_DIT_Vtbl, 0x91bffdf9_9432_41
 impl std::ops::Deref for IDVB_DIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_DIT, windows_core::IUnknown);
@@ -2457,7 +2457,7 @@ impl IDVB_DIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi()).ok()
     }
     pub unsafe fn GetTransitionFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransitionFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2471,7 +2471,7 @@ windows_core::imp::define_interface!(IDVB_EIT, IDVB_EIT_Vtbl, 0x442db029_02cb_44
 impl std::ops::Deref for IDVB_EIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_EIT, windows_core::IUnknown);
@@ -2484,59 +2484,59 @@ impl IDVB_EIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransportStreamId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportStreamId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSegmentLastSectionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSegmentLastSectionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLastTableId(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLastTableId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEventId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEventId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordStartTime(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordStartTime)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDuration(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDuration)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRunningStatus)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordFreeCAMode)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -2549,7 +2549,7 @@ impl IDVB_EIT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_EIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -2562,7 +2562,7 @@ impl IDVB_EIT {
         (windows_core::Interface::vtable(self).ConvertNextToCurrent)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2595,7 +2595,7 @@ windows_core::imp::define_interface!(IDVB_EIT2, IDVB_EIT2_Vtbl, 0x61a389e0_9b9e_
 impl std::ops::Deref for IDVB_EIT2 {
     type Target = IDVB_EIT;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_EIT2, windows_core::IUnknown, IDVB_EIT);
@@ -2604,7 +2604,7 @@ impl IDVB_EIT2 {
         (windows_core::Interface::vtable(self).GetSegmentInfo)(windows_core::Interface::as_raw(self), pbtid, pbsegment).ok()
     }
     pub unsafe fn GetRecordSection(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordSection)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
 }
@@ -2618,7 +2618,7 @@ windows_core::imp::define_interface!(IDVB_NIT, IDVB_NIT_Vtbl, 0xc64935f4_29e4_4e
 impl std::ops::Deref for IDVB_NIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_NIT, windows_core::IUnknown);
@@ -2631,42 +2631,42 @@ impl IDVB_NIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTableDescriptorByTag)(windows_core::Interface::as_raw(self), btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTransportStreamId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordOriginalNetworkId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordOriginalNetworkId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -2679,7 +2679,7 @@ impl IDVB_NIT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_NIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -2692,7 +2692,7 @@ impl IDVB_NIT {
         (windows_core::Interface::vtable(self).ConvertNextToCurrent)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2721,7 +2721,7 @@ windows_core::imp::define_interface!(IDVB_RST, IDVB_RST_Vtbl, 0xf47dcd04_1e23_4f
 impl std::ops::Deref for IDVB_RST {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_RST, windows_core::IUnknown);
@@ -2733,27 +2733,27 @@ impl IDVB_RST {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi()).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTransportStreamId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordOriginalNetworkId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordOriginalNetworkId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEventId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEventId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRunningStatus)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
 }
@@ -2772,7 +2772,7 @@ windows_core::imp::define_interface!(IDVB_SDT, IDVB_SDT_Vtbl, 0x02cad8d3_fe43_48
 impl std::ops::Deref for IDVB_SDT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_SDT, windows_core::IUnknown);
@@ -2785,47 +2785,47 @@ impl IDVB_SDT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransportStreamId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportStreamId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEITScheduleFlag)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEITPresentFollowingFlag)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRunningStatus)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordFreeCAMode)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -2838,7 +2838,7 @@ impl IDVB_SDT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_SDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -2851,7 +2851,7 @@ impl IDVB_SDT {
         (windows_core::Interface::vtable(self).ConvertNextToCurrent)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2881,7 +2881,7 @@ windows_core::imp::define_interface!(IDVB_SIT, IDVB_SIT_Vtbl, 0x68cdce53_8bea_45
 impl std::ops::Deref for IDVB_SIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_SIT, windows_core::IUnknown);
@@ -2894,38 +2894,38 @@ impl IDVB_SIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTableDescriptorByTag)(windows_core::Interface::as_raw(self), btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordRunningStatus)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -2938,7 +2938,7 @@ impl IDVB_SIT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<IDVB_SIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -2974,7 +2974,7 @@ windows_core::imp::define_interface!(IDVB_ST, IDVB_ST_Vtbl, 0x4d5b9f23_2a02_45de
 impl std::ops::Deref for IDVB_ST {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_ST, windows_core::IUnknown);
@@ -2986,11 +2986,11 @@ impl IDVB_ST {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi()).ok()
     }
     pub unsafe fn GetDataLength(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetData(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -3005,7 +3005,7 @@ windows_core::imp::define_interface!(IDVB_TDT, IDVB_TDT_Vtbl, 0x0780dc7d_d55c_4a
 impl std::ops::Deref for IDVB_TDT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_TDT, windows_core::IUnknown);
@@ -3017,7 +3017,7 @@ impl IDVB_TDT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi()).ok()
     }
     pub unsafe fn GetUTCTime(&self) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUTCTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -3031,7 +3031,7 @@ windows_core::imp::define_interface!(IDVB_TOT, IDVB_TOT_Vtbl, 0x83295d6a_faba_4e
 impl std::ops::Deref for IDVB_TOT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDVB_TOT, windows_core::IUnknown);
@@ -3043,15 +3043,15 @@ impl IDVB_TOT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi()).ok()
     }
     pub unsafe fn GetUTCTime(&self) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUTCTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -3073,7 +3073,7 @@ windows_core::imp::define_interface!(IDigitalCableLocator, IDigitalCableLocator_
 impl std::ops::Deref for IDigitalCableLocator {
     type Target = IATSCLocator2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3091,7 +3091,7 @@ windows_core::imp::define_interface!(IDigitalCableTuneRequest, IDigitalCableTune
 impl std::ops::Deref for IDigitalCableTuneRequest {
     type Target = IATSCChannelTuneRequest;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3099,14 +3099,14 @@ windows_core::imp::interface_hierarchy!(IDigitalCableTuneRequest, windows_core::
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableTuneRequest {
     pub unsafe fn MajorChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MajorChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMajorChannel(&self, majorchannel: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMajorChannel)(windows_core::Interface::as_raw(self), majorchannel).ok()
     }
     pub unsafe fn SourceID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SourceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSourceID(&self, sourceid: i32) -> windows_core::Result<()> {
@@ -3128,7 +3128,7 @@ windows_core::imp::define_interface!(IDigitalCableTuningSpace, IDigitalCableTuni
 impl std::ops::Deref for IDigitalCableTuningSpace {
     type Target = IATSCTuningSpace;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3136,28 +3136,28 @@ windows_core::imp::interface_hierarchy!(IDigitalCableTuningSpace, windows_core::
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableTuningSpace {
     pub unsafe fn MinMajorChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinMajorChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinMajorChannel(&self, newminmajorchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMinMajorChannel)(windows_core::Interface::as_raw(self), newminmajorchannelval).ok()
     }
     pub unsafe fn MaxMajorChannel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxMajorChannel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxMajorChannel(&self, newmaxmajorchannelval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMaxMajorChannel)(windows_core::Interface::as_raw(self), newmaxmajorchannelval).ok()
     }
     pub unsafe fn MinSourceID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinSourceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinSourceID(&self, newminsourceidval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMinSourceID)(windows_core::Interface::as_raw(self), newminsourceidval).ok()
     }
     pub unsafe fn MaxSourceID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxSourceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxSourceID(&self, newmaxsourceidval: i32) -> windows_core::Result<()> {
@@ -3183,7 +3183,7 @@ windows_core::imp::define_interface!(IDigitalLocator, IDigitalLocator_Vtbl, 0x19
 impl std::ops::Deref for IDigitalLocator {
     type Target = ILocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3199,37 +3199,37 @@ windows_core::imp::define_interface!(IDvbCableDeliverySystemDescriptor, IDvbCabl
 impl std::ops::Deref for IDvbCableDeliverySystemDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbCableDeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbCableDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFrequency(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFECOuter(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFECOuter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetModulation(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetModulation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolRate(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSymbolRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFECInner(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFECInner)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -3248,36 +3248,36 @@ windows_core::imp::define_interface!(IDvbComponentDescriptor, IDvbComponentDescr
 impl std::ops::Deref for IDvbComponentDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbComponentDescriptor, windows_core::IUnknown);
 impl IDvbComponentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStreamContent(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageCode(&self, pszcode: &mut [u8; 4]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguageCode)(windows_core::Interface::as_raw(self), core::mem::transmute(pszcode.as_ptr())).ok()
     }
     pub unsafe fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -3290,27 +3290,27 @@ pub struct IDvbComponentDescriptor_Vtbl {
     pub GetComponentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetComponentTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbContentDescriptor, IDvbContentDescriptor_Vtbl, 0x2e883881_a467_412a_9d63_6f2b6da05bf0);
 impl std::ops::Deref for IDvbContentDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbContentDescriptor, windows_core::IUnknown);
 impl IDvbContentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordContentNibbles(&self, brecordindex: u8, pbvallevel1: *mut u8, pbvallevel2: *mut u8) -> windows_core::Result<()> {
@@ -3333,21 +3333,21 @@ windows_core::imp::define_interface!(IDvbContentIdentifierDescriptor, IDvbConten
 impl std::ops::Deref for IDvbContentIdentifierDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbContentIdentifierDescriptor, windows_core::IUnknown);
 impl IDvbContentIdentifierDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCrid(&self, brecordindex: u8, pbtype: *mut u8, pblocation: *mut u8, pblength: *mut u8, ppbbytes: *mut *mut u8) -> windows_core::Result<()> {
@@ -3366,40 +3366,40 @@ windows_core::imp::define_interface!(IDvbDataBroadcastDescriptor, IDvbDataBroadc
 impl std::ops::Deref for IDvbDataBroadcastDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbDataBroadcastDescriptor, windows_core::IUnknown);
 impl IDvbDataBroadcastDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataBroadcastID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataBroadcastID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSelectorLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSelectorLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSelectorBytes(&self, pblen: *mut u8, pbval: *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSelectorBytes)(windows_core::Interface::as_raw(self), pblen, pbval).ok()
     }
     pub unsafe fn GetLangID(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLangID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTextLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetText(&self, pblen: *mut u8, pbval: *mut u8) -> windows_core::Result<()> {
@@ -3423,21 +3423,21 @@ windows_core::imp::define_interface!(IDvbDataBroadcastIDDescriptor, IDvbDataBroa
 impl std::ops::Deref for IDvbDataBroadcastIDDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbDataBroadcastIDDescriptor, windows_core::IUnknown);
 impl IDvbDataBroadcastIDDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataBroadcastID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataBroadcastID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIDSelectorBytes(&self, pblen: *mut u8, pbval: *mut u8) -> windows_core::Result<()> {
@@ -3456,17 +3456,17 @@ windows_core::imp::define_interface!(IDvbDefaultAuthorityDescriptor, IDvbDefault
 impl std::ops::Deref for IDvbDefaultAuthorityDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbDefaultAuthorityDescriptor, windows_core::IUnknown);
 impl IDvbDefaultAuthorityDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDefaultAuthority(&self, pblength: *mut u8, ppbbytes: *mut *mut u8) -> windows_core::Result<()> {
@@ -3484,32 +3484,32 @@ windows_core::imp::define_interface!(IDvbExtendedEventDescriptor, IDvbExtendedEv
 impl std::ops::Deref for IDvbExtendedEventDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbExtendedEventDescriptor, windows_core::IUnknown);
 impl IDvbExtendedEventDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDescriptorNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDescriptorNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLastDescriptorNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLastDescriptorNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageCode(&self, pszcode: &mut [u8; 4]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguageCode)(windows_core::Interface::as_raw(self), core::mem::transmute(pszcode.as_ptr())).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordItemW(&self, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut windows_core::BSTR, pbstritem: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -3522,14 +3522,14 @@ impl IDvbExtendedEventDescriptor {
         (windows_core::Interface::vtable(self).GetConcatenatedItemW)(windows_core::Interface::as_raw(self), pfollowingdescriptor.param().abi(), convmode, core::mem::transmute(pbstrdesc), core::mem::transmute(pbstritem)).ok()
     }
     pub unsafe fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetConcatenatedTextW<P0>(&self, followingdescriptor: P0, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<IDvbExtendedEventDescriptor>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConcatenatedTextW)(windows_core::Interface::as_raw(self), followingdescriptor.param().abi(), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordItemRawBytes(&self, brecordindex: u8, ppbrawitem: *mut *mut u8, pbitemlength: *mut u8) -> windows_core::Result<()> {
@@ -3545,39 +3545,39 @@ pub struct IDvbExtendedEventDescriptor_Vtbl {
     pub GetLastDescriptorNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetRecordItemW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetConcatenatedItemW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetConcatenatedTextW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetRecordItemW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetConcatenatedItemW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetConcatenatedTextW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetRecordItemRawBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut u8, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbFrequencyListDescriptor, IDvbFrequencyListDescriptor_Vtbl, 0x1cadb613_e1dd_4512_afa8_bb7a007ef8b1);
 impl std::ops::Deref for IDvbFrequencyListDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbFrequencyListDescriptor, windows_core::IUnknown);
 impl IDvbFrequencyListDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodingType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCodingType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCentreFrequency(&self, brecordindex: u8) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCentreFrequency)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -3594,7 +3594,7 @@ windows_core::imp::define_interface!(IDvbHDSimulcastLogicalChannelDescriptor, ID
 impl std::ops::Deref for IDvbHDSimulcastLogicalChannelDescriptor {
     type Target = IDvbLogicalChannelDescriptor2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbHDSimulcastLogicalChannelDescriptor, windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
@@ -3607,37 +3607,37 @@ windows_core::imp::define_interface!(IDvbLinkageDescriptor, IDvbLinkageDescripto
 impl std::ops::Deref for IDvbLinkageDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbLinkageDescriptor, windows_core::IUnknown);
 impl IDvbLinkageDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTSId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTSId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetONId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetONId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLinkageType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLinkageType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPrivateDataLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPrivateDataLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPrivateData(&self, pblen: *mut u8, pbdata: *mut u8) -> windows_core::Result<()> {
@@ -3660,40 +3660,40 @@ windows_core::imp::define_interface!(IDvbLogicalChannel2Descriptor, IDvbLogicalC
 impl std::ops::Deref for IDvbLogicalChannel2Descriptor {
     type Target = IDvbLogicalChannelDescriptor2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbLogicalChannel2Descriptor, windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
 impl IDvbLogicalChannel2Descriptor {
     pub unsafe fn GetCountOfLists(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfLists)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetListId(&self, blistindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListId)(windows_core::Interface::as_raw(self), blistindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetListNameW(&self, blistindex: u8, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListNameW)(windows_core::Interface::as_raw(self), blistindex, convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetListCountryCode(&self, blistindex: u8, pszcode: &mut [u8; 4]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetListCountryCode)(windows_core::Interface::as_raw(self), blistindex, core::mem::transmute(pszcode.as_ptr())).ok()
     }
     pub unsafe fn GetListCountOfRecords(&self, bchannellistindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListCountOfRecords)(windows_core::Interface::as_raw(self), bchannellistindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetListRecordServiceId(&self, blistindex: u8, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListRecordServiceId)(windows_core::Interface::as_raw(self), blistindex, brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetListRecordLogicalChannelNumber(&self, blistindex: u8, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListRecordLogicalChannelNumber)(windows_core::Interface::as_raw(self), blistindex, brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetListRecordLogicalChannelAndVisibility(&self, blistindex: u8, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListRecordLogicalChannelAndVisibility)(windows_core::Interface::as_raw(self), blistindex, brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -3702,7 +3702,7 @@ pub struct IDvbLogicalChannel2Descriptor_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor2_Vtbl,
     pub GetCountOfLists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetListId: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
-    pub GetListNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetListNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetListCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetListCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetListRecordServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut u16) -> windows_core::HRESULT,
@@ -3713,29 +3713,29 @@ windows_core::imp::define_interface!(IDvbLogicalChannelDescriptor, IDvbLogicalCh
 impl std::ops::Deref for IDvbLogicalChannelDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbLogicalChannelDescriptor, windows_core::IUnknown);
 impl IDvbLogicalChannelDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceId(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordLogicalChannelNumber(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordLogicalChannelNumber)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -3752,13 +3752,13 @@ windows_core::imp::define_interface!(IDvbLogicalChannelDescriptor2, IDvbLogicalC
 impl std::ops::Deref for IDvbLogicalChannelDescriptor2 {
     type Target = IDvbLogicalChannelDescriptor;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbLogicalChannelDescriptor2, windows_core::IUnknown, IDvbLogicalChannelDescriptor);
 impl IDvbLogicalChannelDescriptor2 {
     pub unsafe fn GetRecordLogicalChannelAndVisibility(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordLogicalChannelAndVisibility)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -3771,33 +3771,33 @@ windows_core::imp::define_interface!(IDvbMultilingualServiceNameDescriptor, IDvb
 impl std::ops::Deref for IDvbMultilingualServiceNameDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbMultilingualServiceNameDescriptor, windows_core::IUnknown);
 impl IDvbMultilingualServiceNameDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordLangId(&self, brecordindex: u8) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordLangId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceProviderNameW(&self, brecordindex: u8, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceProviderNameW)(windows_core::Interface::as_raw(self), brecordindex, convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordServiceNameW(&self, brecordindex: u8, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceNameW)(windows_core::Interface::as_raw(self), brecordindex, convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -3808,32 +3808,32 @@ pub struct IDvbMultilingualServiceNameDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordLangId: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32) -> windows_core::HRESULT,
-    pub GetRecordServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetRecordServiceNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetRecordServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetRecordServiceNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbNetworkNameDescriptor, IDvbNetworkNameDescriptor_Vtbl, 0x5b2a80cf_35b9_446c_b3e4_048b761dbc51);
 impl std::ops::Deref for IDvbNetworkNameDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbNetworkNameDescriptor, windows_core::IUnknown);
 impl IDvbNetworkNameDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNetworkName(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNetworkNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -3843,27 +3843,27 @@ pub struct IDvbNetworkNameDescriptor_Vtbl {
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetNetworkName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
-    pub GetNetworkNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetNetworkNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbParentalRatingDescriptor, IDvbParentalRatingDescriptor_Vtbl, 0x3ad9dde1_fb1b_4186_937f_22e6b5a72a10);
 impl std::ops::Deref for IDvbParentalRatingDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbParentalRatingDescriptor, windows_core::IUnknown);
 impl IDvbParentalRatingDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordRating(&self, brecordindex: u8, pszcountrycode: &mut [u8; 4], pbval: *mut u8) -> windows_core::Result<()> {
@@ -3882,21 +3882,21 @@ windows_core::imp::define_interface!(IDvbPrivateDataSpecifierDescriptor, IDvbPri
 impl std::ops::Deref for IDvbPrivateDataSpecifierDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbPrivateDataSpecifierDescriptor, windows_core::IUnknown);
 impl IDvbPrivateDataSpecifierDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPrivateDataSpecifier(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPrivateDataSpecifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -3911,45 +3911,45 @@ windows_core::imp::define_interface!(IDvbSatelliteDeliverySystemDescriptor, IDvb
 impl std::ops::Deref for IDvbSatelliteDeliverySystemDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbSatelliteDeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbSatelliteDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFrequency(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOrbitalPosition(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOrbitalPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetWestEastFlag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWestEastFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPolarization(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPolarization)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetModulation(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetModulation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolRate(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSymbolRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFECInner(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFECInner)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -3970,33 +3970,33 @@ windows_core::imp::define_interface!(IDvbServiceAttributeDescriptor, IDvbService
 impl std::ops::Deref for IDvbServiceAttributeDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbServiceAttributeDescriptor, windows_core::IUnknown);
 impl IDvbServiceAttributeDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceId(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordNumericSelectionFlag)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordVisibleServiceFlag)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -4014,41 +4014,41 @@ windows_core::imp::define_interface!(IDvbServiceDescriptor, IDvbServiceDescripto
 impl std::ops::Deref for IDvbServiceDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbServiceDescriptor, windows_core::IUnknown);
 impl IDvbServiceDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceProviderName(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceProviderName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceProviderNameW(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceProviderNameW)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetServiceName(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProcessedServiceName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProcessedServiceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetServiceNameEmphasized(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceNameEmphasized)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -4059,62 +4059,62 @@ pub struct IDvbServiceDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetServiceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetServiceProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
-    pub GetServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
-    pub GetProcessedServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetServiceNameEmphasized: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetProcessedServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetServiceNameEmphasized: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbServiceDescriptor2, IDvbServiceDescriptor2_Vtbl, 0xd6c76506_85ab_487c_9b2b_36416511e4a2);
 impl std::ops::Deref for IDvbServiceDescriptor2 {
     type Target = IDvbServiceDescriptor;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbServiceDescriptor2, windows_core::IUnknown, IDvbServiceDescriptor);
 impl IDvbServiceDescriptor2 {
     pub unsafe fn GetServiceProviderNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceProviderNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetServiceNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IDvbServiceDescriptor2_Vtbl {
     pub base__: IDvbServiceDescriptor_Vtbl,
-    pub GetServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetServiceNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetServiceNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbServiceListDescriptor, IDvbServiceListDescriptor_Vtbl, 0x05db0d8f_6008_491a_acd3_7090952707d0);
 impl std::ops::Deref for IDvbServiceListDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbServiceListDescriptor, windows_core::IUnknown);
 impl IDvbServiceListDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceId(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceType(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceType)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -4131,28 +4131,28 @@ windows_core::imp::define_interface!(IDvbShortEventDescriptor, IDvbShortEventDes
 impl std::ops::Deref for IDvbShortEventDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbShortEventDescriptor, windows_core::IUnknown);
 impl IDvbShortEventDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageCode(&self, pszcode: &mut [u8; 4]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguageCode)(windows_core::Interface::as_raw(self), core::mem::transmute(pszcode.as_ptr())).ok()
     }
     pub unsafe fn GetEventNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEventNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -4162,14 +4162,14 @@ pub struct IDvbShortEventDescriptor_Vtbl {
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetEventNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetEventNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDvbSiParser, IDvbSiParser_Vtbl, 0xb758a7bd_14dc_449d_b828_35909acb3b1e);
 impl std::ops::Deref for IDvbSiParser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbSiParser, windows_core::IUnknown);
@@ -4181,59 +4181,59 @@ impl IDvbSiParser {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punkmpeg2data.param().abi()).ok()
     }
     pub unsafe fn GetPAT(&self) -> windows_core::Result<IPAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPAT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCAT(&self, dwtimeout: u32) -> windows_core::Result<ICAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCAT)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPMT(&self, pid: u16, pwprogramnumber: Option<*const u16>) -> windows_core::Result<IPMT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPMT)(windows_core::Interface::as_raw(self), pid, core::mem::transmute(pwprogramnumber.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTSDT(&self) -> windows_core::Result<ITSDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTSDT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNIT(&self, tableid: u8, pwnetworkid: Option<*const u16>) -> windows_core::Result<IDVB_NIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNIT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pwnetworkid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSDT(&self, tableid: u8, pwtransportstreamid: Option<*const u16>) -> windows_core::Result<IDVB_SDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSDT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pwtransportstreamid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetEIT(&self, tableid: u8, pwserviceid: Option<*const u16>) -> windows_core::Result<IDVB_EIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEIT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pwserviceid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetBAT(&self, pwbouquetid: Option<*const u16>) -> windows_core::Result<IDVB_BAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBAT)(windows_core::Interface::as_raw(self), core::mem::transmute(pwbouquetid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRST(&self, dwtimeout: u32) -> windows_core::Result<IDVB_RST> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRST)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetST(&self, pid: u16, dwtimeout: u32) -> windows_core::Result<IDVB_ST> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetST)(windows_core::Interface::as_raw(self), pid, dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTDT(&self) -> windows_core::Result<IDVB_TDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTDT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTOT(&self) -> windows_core::Result<IDVB_TOT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTOT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDIT(&self, dwtimeout: u32) -> windows_core::Result<IDVB_DIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDIT)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSIT(&self, dwtimeout: u32) -> windows_core::Result<IDVB_SIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSIT)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -4260,13 +4260,13 @@ windows_core::imp::define_interface!(IDvbSiParser2, IDvbSiParser2_Vtbl, 0x0ac552
 impl std::ops::Deref for IDvbSiParser2 {
     type Target = IDvbSiParser;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbSiParser2, windows_core::IUnknown, IDvbSiParser);
 impl IDvbSiParser2 {
     pub unsafe fn GetEIT2(&self, tableid: u8, pwserviceid: Option<*const u16>, pbsegment: Option<*const u8>) -> windows_core::Result<IDVB_EIT2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEIT2)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pwserviceid.unwrap_or(std::ptr::null())), core::mem::transmute(pbsegment.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -4279,37 +4279,37 @@ windows_core::imp::define_interface!(IDvbSubtitlingDescriptor, IDvbSubtitlingDes
 impl std::ops::Deref for IDvbSubtitlingDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbSubtitlingDescriptor, windows_core::IUnknown);
 impl IDvbSubtitlingDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordLangId(&self, brecordindex: u8) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordLangId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordSubtitlingType(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordSubtitlingType)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCompositionPageID(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCompositionPageID)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordAncillaryPageID(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordAncillaryPageID)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -4328,37 +4328,37 @@ windows_core::imp::define_interface!(IDvbTeletextDescriptor, IDvbTeletextDescrip
 impl std::ops::Deref for IDvbTeletextDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbTeletextDescriptor, windows_core::IUnknown);
 impl IDvbTeletextDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordLangId(&self, brecordindex: u8) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordLangId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTeletextType(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTeletextType)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordMagazineNumber(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordMagazineNumber)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordPageNumber(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordPageNumber)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -4377,61 +4377,61 @@ windows_core::imp::define_interface!(IDvbTerrestrial2DeliverySystemDescriptor, I
 impl std::ops::Deref for IDvbTerrestrial2DeliverySystemDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbTerrestrial2DeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbTerrestrial2DeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTagExtension(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTagExtension)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCentreFrequency(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCentreFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPLPId(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPLPId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetT2SystemId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetT2SystemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMultipleInputMode(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMultipleInputMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBandwidth(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBandwidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGuardInterval(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGuardInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransmissionMode(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransmissionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCellId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOtherFrequencyFlag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOtherFrequencyFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTFSFlag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTFSFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4456,53 +4456,53 @@ windows_core::imp::define_interface!(IDvbTerrestrialDeliverySystemDescriptor, ID
 impl std::ops::Deref for IDvbTerrestrialDeliverySystemDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDvbTerrestrialDeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbTerrestrialDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCentreFrequency(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCentreFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBandwidth(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBandwidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetConstellation(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConstellation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetHierarchyInformation(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHierarchyInformation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeRateHPStream(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCodeRateHPStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeRateLPStream(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCodeRateLPStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGuardInterval(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGuardInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransmissionMode(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransmissionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOtherFrequencyFlag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOtherFrequencyFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4525,13 +4525,13 @@ windows_core::imp::define_interface!(IESCloseMmiEvent, IESCloseMmiEvent_Vtbl, 0x
 impl std::ops::Deref for IESCloseMmiEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESCloseMmiEvent, windows_core::IUnknown, super::IESEvent);
 impl IESCloseMmiEvent {
     pub unsafe fn GetDialogNumber(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDialogNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4544,7 +4544,7 @@ windows_core::imp::define_interface!(IESEventFactory, IESEventFactory_Vtbl, 0x50
 impl std::ops::Deref for IESEventFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESEventFactory, windows_core::IUnknown);
@@ -4555,20 +4555,20 @@ impl IESEventFactory {
         P1: windows_core::Param<windows_core::BSTR>,
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateESEvent)(windows_core::Interface::as_raw(self), pserviceprovider.param().abi(), dweventid, core::mem::transmute(guideventtype), peventdata.len().try_into().unwrap(), core::mem::transmute(peventdata.as_ptr()), bstrbaseurl.param().abi(), pinitcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IESEventFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::GUID, u32, *const u8, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::GUID, u32, *const u8, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IESEventService, IESEventService_Vtbl, 0xed89a619_4c06_4b2f_99eb_c7669b13047c);
 impl std::ops::Deref for IESEventService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESEventService, windows_core::IUnknown);
@@ -4589,7 +4589,7 @@ windows_core::imp::define_interface!(IESEventServiceConfiguration, IESEventServi
 impl std::ops::Deref for IESEventServiceConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESEventServiceConfiguration, windows_core::IUnknown);
@@ -4639,33 +4639,33 @@ windows_core::imp::define_interface!(IESFileExpiryDateEvent, IESFileExpiryDateEv
 impl std::ops::Deref for IESFileExpiryDateEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESFileExpiryDateEvent, windows_core::IUnknown, super::IESEvent);
 impl IESFileExpiryDateEvent {
     pub unsafe fn GetTunerId(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTunerId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetExpiryDate(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExpiryDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFinalExpiryDate(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFinalExpiryDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMaxRenewalCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaxRenewalCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsEntitlementTokenPresent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEntitlementTokenPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DoesExpireAfterFirstUse(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DoesExpireAfterFirstUse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4683,26 +4683,26 @@ windows_core::imp::define_interface!(IESIsdbCasResponseEvent, IESIsdbCasResponse
 impl std::ops::Deref for IESIsdbCasResponseEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESIsdbCasResponseEvent, windows_core::IUnknown, super::IESEvent);
 impl IESIsdbCasResponseEvent {
     pub unsafe fn GetRequestId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRequestId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetResponseData(&self) -> windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResponseData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4721,54 +4721,54 @@ windows_core::imp::define_interface!(IESLicenseRenewalResultEvent, IESLicenseRen
 impl std::ops::Deref for IESLicenseRenewalResultEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESLicenseRenewalResultEvent, windows_core::IUnknown, super::IESEvent);
 impl IESLicenseRenewalResultEvent {
     pub unsafe fn GetCallersId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCallersId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsRenewalSuccessful(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsRenewalSuccessful)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsCheckEntitlementCallRequired(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsCheckEntitlementCallRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDescrambledStatus(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDescrambledStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRenewalResultCode(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRenewalResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCASFailureCode(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCASFailureCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRenewalHResult(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRenewalHResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEntitlementTokenLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEntitlementTokenLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEntitlementToken(&self) -> windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEntitlementToken)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetExpiryDate(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExpiryDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4776,7 +4776,7 @@ impl IESLicenseRenewalResultEvent {
 pub struct IESLicenseRenewalResultEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetCallersId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub IsRenewalSuccessful: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsCheckEntitlementCallRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetDescrambledStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4794,26 +4794,26 @@ windows_core::imp::define_interface!(IESOpenMmiEvent, IESOpenMmiEvent_Vtbl, 0xba
 impl std::ops::Deref for IESOpenMmiEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESOpenMmiEvent, windows_core::IUnknown, super::IESEvent);
 impl IESOpenMmiEvent {
     pub unsafe fn GetDialogNumber(&self, pdialogrequest: *mut u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDialogNumber)(windows_core::Interface::as_raw(self), pdialogrequest, &mut result__).map(|| result__)
     }
     pub unsafe fn GetDialogType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDialogType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDialogData(&self) -> windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDialogData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDialogStringData(&self, pbstrbaseurl: *mut windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDialogStringData)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrbaseurl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -4826,31 +4826,31 @@ pub struct IESOpenMmiEvent_Vtbl {
     pub GetDialogData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDialogData: usize,
-    pub GetDialogStringData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDialogStringData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IESRequestTunerEvent, IESRequestTunerEvent_Vtbl, 0x54c7a5e8_c3bb_4f51_af14_e0e2c0e34c6d);
 impl std::ops::Deref for IESRequestTunerEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESRequestTunerEvent, windows_core::IUnknown, super::IESEvent);
 impl IESRequestTunerEvent {
     pub unsafe fn GetPriority(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetReason(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetReason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetConsequences(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConsequences)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEstimatedTime(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEstimatedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4866,14 +4866,14 @@ windows_core::imp::define_interface!(IESValueUpdatedEvent, IESValueUpdatedEvent_
 impl std::ops::Deref for IESValueUpdatedEvent {
     type Target = super::IESEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IESValueUpdatedEvent, windows_core::IUnknown, super::IESEvent);
 impl IESValueUpdatedEvent {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetValueNames(&self) -> windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValueNames)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -4889,20 +4889,20 @@ windows_core::imp::define_interface!(IETFilter, IETFilter_Vtbl, 0xc4c4c4b1_0049_
 impl std::ops::Deref for IETFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IETFilter, windows_core::IUnknown);
 impl IETFilter {
     pub unsafe fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EvalRatObjOK)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCurrRating)(windows_core::Interface::as_raw(self), pensystem, penrating, plbfenattr).ok()
     }
     pub unsafe fn GetCurrLicenseExpDate(&self, prottype: *const ProtType) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrLicenseExpDate)(windows_core::Interface::as_raw(self), prottype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLastErrorCode(&self) -> windows_core::Result<()> {
@@ -4928,7 +4928,7 @@ windows_core::imp::define_interface!(IETFilterConfig, IETFilterConfig_Vtbl, 0xc4
 impl std::ops::Deref for IETFilterConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IETFilterConfig, windows_core::IUnknown);
@@ -4937,7 +4937,7 @@ impl IETFilterConfig {
         (windows_core::Interface::vtable(self).InitLicense)(windows_core::Interface::as_raw(self), licenseid).ok()
     }
     pub unsafe fn GetSecureChannelObject(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSecureChannelObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -4953,7 +4953,7 @@ windows_core::imp::define_interface!(IETFilterEvents, IETFilterEvents_Vtbl, 0xc4
 impl std::ops::Deref for IETFilterEvents {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4969,7 +4969,7 @@ windows_core::imp::define_interface!(IEnumComponentTypes, IEnumComponentTypes_Vt
 impl std::ops::Deref for IEnumComponentTypes {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumComponentTypes, windows_core::IUnknown);
@@ -4985,7 +4985,7 @@ impl IEnumComponentTypes {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumComponentTypes> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5004,7 +5004,7 @@ windows_core::imp::define_interface!(IEnumComponents, IEnumComponents_Vtbl, 0x2a
 impl std::ops::Deref for IEnumComponents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumComponents, windows_core::IUnknown);
@@ -5020,7 +5020,7 @@ impl IEnumComponents {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumComponents> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5039,7 +5039,7 @@ windows_core::imp::define_interface!(IEnumGuideDataProperties, IEnumGuideDataPro
 impl std::ops::Deref for IEnumGuideDataProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumGuideDataProperties, windows_core::IUnknown);
@@ -5054,7 +5054,7 @@ impl IEnumGuideDataProperties {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumGuideDataProperties> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5070,7 +5070,7 @@ windows_core::imp::define_interface!(IEnumMSVidGraphSegment, IEnumMSVidGraphSegm
 impl std::ops::Deref for IEnumMSVidGraphSegment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumMSVidGraphSegment, windows_core::IUnknown);
@@ -5086,7 +5086,7 @@ impl IEnumMSVidGraphSegment {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5105,7 +5105,7 @@ windows_core::imp::define_interface!(IEnumStreamBufferRecordingAttrib, IEnumStre
 impl std::ops::Deref for IEnumStreamBufferRecordingAttrib {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumStreamBufferRecordingAttrib, windows_core::IUnknown);
@@ -5120,7 +5120,7 @@ impl IEnumStreamBufferRecordingAttrib {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumStreamBufferRecordingAttrib> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5136,7 +5136,7 @@ windows_core::imp::define_interface!(IEnumTuneRequests, IEnumTuneRequests_Vtbl, 
 impl std::ops::Deref for IEnumTuneRequests {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumTuneRequests, windows_core::IUnknown);
@@ -5152,7 +5152,7 @@ impl IEnumTuneRequests {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTuneRequests> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5171,7 +5171,7 @@ windows_core::imp::define_interface!(IEnumTuningSpaces, IEnumTuningSpaces_Vtbl, 
 impl std::ops::Deref for IEnumTuningSpaces {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumTuningSpaces, windows_core::IUnknown);
@@ -5187,7 +5187,7 @@ impl IEnumTuningSpaces {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTuningSpaces> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5208,7 +5208,7 @@ windows_core::imp::define_interface!(IEvalRat, IEvalRat_Vtbl, 0xc5c5c5b1_3abc_11
 impl std::ops::Deref for IEvalRat {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5216,14 +5216,14 @@ windows_core::imp::interface_hierarchy!(IEvalRat, windows_core::IUnknown, super:
 #[cfg(feature = "Win32_System_Com")]
 impl IEvalRat {
     pub unsafe fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_BlockedRatingAttributes)(windows_core::Interface::as_raw(self), ensystem, enlevel, &mut result__).map(|| result__)
     }
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
     pub unsafe fn BlockUnRated(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BlockUnRated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> windows_core::Result<()>
@@ -5254,7 +5254,7 @@ windows_core::imp::define_interface!(IGenericDescriptor, IGenericDescriptor_Vtbl
 impl std::ops::Deref for IGenericDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGenericDescriptor, windows_core::IUnknown);
@@ -5263,15 +5263,15 @@ impl IGenericDescriptor {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pbdesc, bcount).ok()
     }
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBody(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBody)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5287,7 +5287,7 @@ windows_core::imp::define_interface!(IGenericDescriptor2, IGenericDescriptor2_Vt
 impl std::ops::Deref for IGenericDescriptor2 {
     type Target = IGenericDescriptor;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGenericDescriptor2, windows_core::IUnknown, IGenericDescriptor);
@@ -5296,7 +5296,7 @@ impl IGenericDescriptor2 {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pbdesc, wcount).ok()
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5310,32 +5310,32 @@ windows_core::imp::define_interface!(IGpnvsCommonBase, IGpnvsCommonBase_Vtbl, 0x
 impl std::ops::Deref for IGpnvsCommonBase {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGpnvsCommonBase, windows_core::IUnknown);
 impl IGpnvsCommonBase {
     pub unsafe fn GetValueUpdateName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValueUpdateName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IGpnvsCommonBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetValueUpdateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetValueUpdateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuideData, IGuideData_Vtbl, 0x61571138_5b01_43cd_aeaf_60b784a0bf93);
 impl std::ops::Deref for IGuideData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGuideData, windows_core::IUnknown);
 impl IGuideData {
     pub unsafe fn GetServices(&self) -> windows_core::Result<IEnumTuneRequests> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -5343,31 +5343,31 @@ impl IGuideData {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceProperties)(windows_core::Interface::as_raw(self), ptunerequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetGuideProgramIDs(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGuideProgramIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetProgramProperties<P0>(&self, varprogramdescriptionid: P0) -> windows_core::Result<IEnumGuideDataProperties>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProgramProperties)(windows_core::Interface::as_raw(self), varprogramdescriptionid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetScheduleEntryIDs(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetScheduleEntryIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetScheduleEntryProperties<P0>(&self, varscheduleentrydescriptionid: P0) -> windows_core::Result<IEnumGuideDataProperties>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetScheduleEntryProperties)(windows_core::Interface::as_raw(self), varscheduleentrydescriptionid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5383,18 +5383,18 @@ pub struct IGuideData_Vtbl {
     pub GetGuideProgramIDs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetGuideProgramIDs: usize,
-    pub GetProgramProperties: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetProgramProperties: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetScheduleEntryIDs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetScheduleEntryIDs: usize,
-    pub GetScheduleEntryProperties: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetScheduleEntryProperties: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuideDataEvent, IGuideDataEvent_Vtbl, 0xefda0c80_f395_42c3_9b3c_56b37dec7bb7);
 impl std::ops::Deref for IGuideDataEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGuideDataEvent, windows_core::IUnknown);
@@ -5443,18 +5443,18 @@ impl IGuideDataEvent {
 pub struct IGuideDataEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GuideDataAcquired: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProgramChanged: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ServiceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ScheduleEntryChanged: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ProgramDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ServiceDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ScheduleDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ProgramChanged: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ServiceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ScheduleEntryChanged: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ProgramDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ServiceDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ScheduleDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuideDataLoader, IGuideDataLoader_Vtbl, 0x4764ff7c_fa95_4525_af4d_d32236db9e38);
 impl std::ops::Deref for IGuideDataLoader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGuideDataLoader, windows_core::IUnknown);
@@ -5479,30 +5479,30 @@ windows_core::imp::define_interface!(IGuideDataProperty, IGuideDataProperty_Vtbl
 impl std::ops::Deref for IGuideDataProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGuideDataProperty, windows_core::IUnknown);
 impl IGuideDataProperty {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Language(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Language)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IGuideDataProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IISDBSLocator, IISDBSLocator_Vtbl, 0xc9897087_e29c_473f_9e4b_7072123dea14);
@@ -5510,7 +5510,7 @@ windows_core::imp::define_interface!(IISDBSLocator, IISDBSLocator_Vtbl, 0xc98970
 impl std::ops::Deref for IISDBSLocator {
     type Target = IDVBSLocator;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5526,7 +5526,7 @@ windows_core::imp::define_interface!(IISDB_BIT, IISDB_BIT_Vtbl, 0x537cd71e_0e46_
 impl std::ops::Deref for IISDB_BIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_BIT, windows_core::IUnknown);
@@ -5539,49 +5539,49 @@ impl IISDB_BIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBroadcastViewPropriety(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBroadcastViewPropriety)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTableDescriptorByTag)(windows_core::Interface::as_raw(self), btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordBroadcasterId(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordBroadcasterId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(windows_core::Interface::as_raw(self), dwrecordindex, btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5606,7 +5606,7 @@ windows_core::imp::define_interface!(IISDB_CDT, IISDB_CDT_Vtbl, 0x25fa92c2_8b80_
 impl std::ops::Deref for IISDB_CDT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_CDT, windows_core::IUnknown);
@@ -5619,46 +5619,46 @@ impl IISDB_CDT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi(), bsectionnumber).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDownloadDataId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDownloadDataId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSectionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSectionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTableDescriptorByTag)(windows_core::Interface::as_raw(self), btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetSizeOfDataModule(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSizeOfDataModule)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataModule(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataModule)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5682,7 +5682,7 @@ windows_core::imp::define_interface!(IISDB_EMM, IISDB_EMM_Vtbl, 0x0edb556d_43ad_
 impl std::ops::Deref for IISDB_EMM {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_EMM, windows_core::IUnknown);
@@ -5695,11 +5695,11 @@ impl IISDB_EMM {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableIdExtension(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableIdExtension)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataBytes(&self, pwbufferlength: *mut u16, pbbuffer: *mut u8) -> windows_core::Result<()> {
@@ -5715,7 +5715,7 @@ impl IISDB_EMM {
         (windows_core::Interface::vtable(self).GetIndividualEmmMessage)(windows_core::Interface::as_raw(self), punknown.param().abi(), pwlength, ppbmessage).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5734,7 +5734,7 @@ windows_core::imp::define_interface!(IISDB_LDT, IISDB_LDT_Vtbl, 0x141a546b_02ff_
 impl std::ops::Deref for IISDB_LDT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_LDT, windows_core::IUnknown);
@@ -5747,42 +5747,42 @@ impl IISDB_LDT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalServiceId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalServiceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransportStreamId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportStreamId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptionId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptionId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(windows_core::Interface::as_raw(self), dwrecordindex, btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5805,7 +5805,7 @@ windows_core::imp::define_interface!(IISDB_NBIT, IISDB_NBIT_Vtbl, 0x1b1863ef_08f
 impl std::ops::Deref for IISDB_NBIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_NBIT, windows_core::IUnknown);
@@ -5818,58 +5818,58 @@ impl IISDB_NBIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordInformationId(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordInformationId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordInformationType(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordInformationType)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptionBodyLocation(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptionBodyLocation)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordMessageSectionNumber(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordMessageSectionNumber)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordUserDefined(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordUserDefined)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordNumberOfKeys(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordNumberOfKeys)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordKeys(&self, dwrecordindex: u32) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordKeys)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(windows_core::Interface::as_raw(self), dwrecordindex, btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -5896,13 +5896,13 @@ windows_core::imp::define_interface!(IISDB_SDT, IISDB_SDT_Vtbl, 0x3f3dc9a2_bb32_
 impl std::ops::Deref for IISDB_SDT {
     type Target = IDVB_SDT;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_SDT, windows_core::IUnknown, IDVB_SDT);
 impl IISDB_SDT {
     pub unsafe fn GetRecordEITUserDefinedFlags(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEITUserDefinedFlags)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
 }
@@ -5915,7 +5915,7 @@ windows_core::imp::define_interface!(IISDB_SDTT, IISDB_SDTT_Vtbl, 0xee60ef2d_813
 impl std::ops::Deref for IISDB_SDTT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IISDB_SDTT, windows_core::IUnknown);
@@ -5928,78 +5928,78 @@ impl IISDB_SDTT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableIdExt(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableIdExt)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransportStreamId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportStreamId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginalNetworkId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginalNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordGroup(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordGroup)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTargetVersion(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTargetVersion)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordNewVersion(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordNewVersion)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDownloadLevel(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDownloadLevel)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordVersionIndicator(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordVersionIndicator)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordScheduleTimeShiftInformation(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordScheduleTimeShiftInformation)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfSchedules(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfSchedules)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordStartTimeByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordStartTimeByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDurationByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<MPEG_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDurationByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: Option<*mut u32>, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(windows_core::Interface::as_raw(self), dwrecordindex, btag, core::mem::transmute(pdwcookie.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetVersionHash(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionHash)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -6031,53 +6031,53 @@ windows_core::imp::define_interface!(IIsdbAudioComponentDescriptor, IIsdbAudioCo
 impl std::ops::Deref for IIsdbAudioComponentDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbAudioComponentDescriptor, windows_core::IUnknown);
 impl IIsdbAudioComponentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStreamContent(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStreamType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSimulcastGroupTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSimulcastGroupTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetESMultiLingualFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetESMultiLingualFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMainComponentFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMainComponentFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetQualityIndicator(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetQualityIndicator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSamplingRate(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSamplingRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageCode(&self, pszcode: &mut [u8; 4]) -> windows_core::Result<()> {
@@ -6087,7 +6087,7 @@ impl IIsdbAudioComponentDescriptor {
         (windows_core::Interface::vtable(self).GetLanguageCode2)(windows_core::Interface::as_raw(self), core::mem::transmute(pszcode.as_ptr())).ok()
     }
     pub unsafe fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6107,51 +6107,51 @@ pub struct IIsdbAudioComponentDescriptor_Vtbl {
     pub GetSamplingRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbCAContractInformationDescriptor, IIsdbCAContractInformationDescriptor_Vtbl, 0x08e18b25_a28f_4e92_821e_4fced5cc2291);
 impl std::ops::Deref for IIsdbCAContractInformationDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbCAContractInformationDescriptor, windows_core::IUnknown);
 impl IIsdbCAContractInformationDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCASystemId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCASystemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCAUnitId(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCAUnitId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordComponentTag(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordComponentTag)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetContractVerificationInfoLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetContractVerificationInfoLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetContractVerificationInfo(&self, bbuflength: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetContractVerificationInfo)(windows_core::Interface::as_raw(self), bbuflength, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFeeNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFeeNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6166,35 +6166,35 @@ pub struct IIsdbCAContractInformationDescriptor_Vtbl {
     pub GetRecordComponentTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetContractVerificationInfoLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetContractVerificationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
-    pub GetFeeNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetFeeNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbCADescriptor, IIsdbCADescriptor_Vtbl, 0x0570aa47_52bc_42ae_8ca5_969f41e81aea);
 impl std::ops::Deref for IIsdbCADescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbCADescriptor, windows_core::IUnknown);
 impl IIsdbCADescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCASystemId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCASystemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetReservedBits(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetReservedBits)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCAPID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCAPID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPrivateDataBytes(&self, pbbufferlength: *mut u8, pbbuffer: *mut u8) -> windows_core::Result<()> {
@@ -6215,29 +6215,29 @@ windows_core::imp::define_interface!(IIsdbCAServiceDescriptor, IIsdbCAServiceDes
 impl std::ops::Deref for IIsdbCAServiceDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbCAServiceDescriptor, windows_core::IUnknown);
 impl IIsdbCAServiceDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCASystemId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCASystemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCABroadcasterGroupId(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCABroadcasterGroupId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMessageControl(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMessageControl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceIds(&self, pbnumserviceids: *mut u8, pwserviceids: *mut u16) -> windows_core::Result<()> {
@@ -6258,53 +6258,53 @@ windows_core::imp::define_interface!(IIsdbComponentGroupDescriptor, IIsdbCompone
 impl std::ops::Deref for IIsdbComponentGroupDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbComponentGroupDescriptor, windows_core::IUnknown);
 impl IIsdbComponentGroupDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentGroupType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentGroupType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordGroupId(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordGroupId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordNumberOfCAUnit(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordNumberOfCAUnit)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCAUnitCAUnitId(&self, brecordindex: u8, bcaunitindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCAUnitCAUnitId)(windows_core::Interface::as_raw(self), brecordindex, bcaunitindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCAUnitNumberOfComponents(&self, brecordindex: u8, bcaunitindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCAUnitNumberOfComponents)(windows_core::Interface::as_raw(self), brecordindex, bcaunitindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCAUnitComponentTag(&self, brecordindex: u8, bcaunitindex: u8, bcomponentindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCAUnitComponentTag)(windows_core::Interface::as_raw(self), brecordindex, bcaunitindex, bcomponentindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTotalBitRate(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTotalBitRate)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTextW(&self, brecordindex: u8, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTextW)(windows_core::Interface::as_raw(self), brecordindex, convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6321,54 +6321,54 @@ pub struct IIsdbComponentGroupDescriptor_Vtbl {
     pub GetRecordCAUnitNumberOfComponents: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordCAUnitComponentTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordTotalBitRate: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
-    pub GetRecordTextW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetRecordTextW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbDataContentDescriptor, IIsdbDataContentDescriptor_Vtbl, 0xa428100a_e646_4bd6_aa14_6087bdc08cd5);
 impl std::ops::Deref for IIsdbDataContentDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbDataContentDescriptor, windows_core::IUnknown);
 impl IIsdbDataContentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataComponentId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataComponentId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEntryComponent(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEntryComponent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSelectorLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSelectorLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSelectorBytes(&self, bbuflength: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSelectorBytes)(windows_core::Interface::as_raw(self), bbuflength, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordComponentRef(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordComponentRef)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageCode(&self, pszcode: &mut [u8; 4]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguageCode)(windows_core::Interface::as_raw(self), core::mem::transmute(pszcode.as_ptr())).ok()
     }
     pub unsafe fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6384,30 +6384,30 @@ pub struct IIsdbDataContentDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordComponentRef: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbDigitalCopyControlDescriptor, IIsdbDigitalCopyControlDescriptor_Vtbl, 0x1a28417e_266a_4bb8_a4bd_d782bcfb8161);
 impl std::ops::Deref for IIsdbDigitalCopyControlDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbDigitalCopyControlDescriptor, windows_core::IUnknown);
 impl IIsdbDigitalCopyControlDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCopyControl(&self, pbdigitalrecordingcontroldata: *mut u8, pbcopycontroltype: *mut u8, pbapscontroldata: *mut u8, pbmaximumbitrate: *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCopyControl)(windows_core::Interface::as_raw(self), pbdigitalrecordingcontroldata, pbcopycontroltype, pbapscontroldata, pbmaximumbitrate).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCopyControl(&self, brecordindex: u8, pbcomponenttag: *mut u8, pbdigitalrecordingcontroldata: *mut u8, pbcopycontroltype: *mut u8, pbapscontroldata: *mut u8, pbmaximumbitrate: *mut u8) -> windows_core::Result<()> {
@@ -6427,75 +6427,75 @@ windows_core::imp::define_interface!(IIsdbDownloadContentDescriptor, IIsdbDownlo
 impl std::ops::Deref for IIsdbDownloadContentDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbDownloadContentDescriptor, windows_core::IUnknown);
 impl IIsdbDownloadContentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFlags(&self, pfreboot: *mut super::super::super::Foundation::BOOL, pfaddon: *mut super::super::super::Foundation::BOOL, pfcompatibility: *mut super::super::super::Foundation::BOOL, pfmoduleinfo: *mut super::super::super::Foundation::BOOL, pftextinfo: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pfreboot, pfaddon, pfcompatibility, pfmoduleinfo, pftextinfo).ok()
     }
     pub unsafe fn GetComponentSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDownloadId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDownloadId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimeOutValueDII(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTimeOutValueDII)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLeakRate(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLeakRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetComponentTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetComponentTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCompatiblityDescriptorLength(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCompatiblityDescriptorLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCompatiblityDescriptor(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCompatiblityDescriptor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordModuleId(&self, wrecordindex: u16) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordModuleId)(windows_core::Interface::as_raw(self), wrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordModuleSize(&self, wrecordindex: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordModuleSize)(windows_core::Interface::as_raw(self), wrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordModuleInfoLength(&self, wrecordindex: u16) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordModuleInfoLength)(windows_core::Interface::as_raw(self), wrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordModuleInfo(&self, wrecordindex: u16) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordModuleInfo)(windows_core::Interface::as_raw(self), wrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTextLanguageCode(&self, szcode: &mut [u8; 4]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTextLanguageCode)(windows_core::Interface::as_raw(self), core::mem::transmute(szcode.as_ptr())).ok()
     }
     pub unsafe fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTextW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6518,39 +6518,39 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
     pub GetRecordModuleInfoLength: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u8) -> windows_core::HRESULT,
     pub GetRecordModuleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut u8) -> windows_core::HRESULT,
     pub GetTextLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbEmergencyInformationDescriptor, IIsdbEmergencyInformationDescriptor_Vtbl, 0xba6fa681_b973_4da1_9207_ac3e7f0341eb);
 impl std::ops::Deref for IIsdbEmergencyInformationDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbEmergencyInformationDescriptor, windows_core::IUnknown);
 impl IIsdbEmergencyInformationDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceId(&self, brecordindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStartEndFlag(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartEndFlag)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetSignalLevel(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSignalLevel)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAreaCode(&self, brecordindex: u8, ppwval: *mut *mut u16, pbnumareacodes: *mut u8) -> windows_core::Result<()> {
@@ -6572,32 +6572,32 @@ windows_core::imp::define_interface!(IIsdbEventGroupDescriptor, IIsdbEventGroupD
 impl std::ops::Deref for IIsdbEventGroupDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbEventGroupDescriptor, windows_core::IUnknown);
 impl IIsdbEventGroupDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGroupType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGroupType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEvent(&self, brecordindex: u8, pwserviceid: *mut u16, pweventid: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRecordEvent)(windows_core::Interface::as_raw(self), brecordindex, pwserviceid, pweventid).ok()
     }
     pub unsafe fn GetCountOfRefRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRefRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRefRecordEvent(&self, brecordindex: u8, pworiginalnetworkid: *mut u16, pwtransportstreamid: *mut u16, pwserviceid: *mut u16, pweventid: *mut u16) -> windows_core::Result<()> {
@@ -6619,33 +6619,33 @@ windows_core::imp::define_interface!(IIsdbHierarchicalTransmissionDescriptor, II
 impl std::ops::Deref for IIsdbHierarchicalTransmissionDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbHierarchicalTransmissionDescriptor, windows_core::IUnknown);
 impl IIsdbHierarchicalTransmissionDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFutureUse1(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFutureUse1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetQualityLevel(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetQualityLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFutureUse2(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFutureUse2)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetReferencePid(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetReferencePid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -6663,37 +6663,37 @@ windows_core::imp::define_interface!(IIsdbLogoTransmissionDescriptor, IIsdbLogoT
 impl std::ops::Deref for IIsdbLogoTransmissionDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbLogoTransmissionDescriptor, windows_core::IUnknown);
 impl IIsdbLogoTransmissionDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLogoTransmissionType(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLogoTransmissionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLogoId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLogoId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLogoVersion(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLogoVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDownloadDataId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDownloadDataId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLogoCharW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLogoCharW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6706,43 +6706,43 @@ pub struct IIsdbLogoTransmissionDescriptor_Vtbl {
     pub GetLogoId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetLogoVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetDownloadDataId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetLogoCharW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetLogoCharW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbSIParameterDescriptor, IIsdbSIParameterDescriptor_Vtbl, 0xf837dc36_867c_426a_9111_f62093951a45);
 impl std::ops::Deref for IIsdbSIParameterDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbSIParameterDescriptor, windows_core::IUnknown);
 impl IIsdbSIParameterDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetParameterVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParameterVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetUpdateTime(&self) -> windows_core::Result<MPEG_DATE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUpdateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordNumberOfTable(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordNumberOfTable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableId(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptionLength(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptionLength)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptionBytes(&self, brecordindex: u8, pbbufferlength: *mut u8, pbbuffer: *mut u8) -> windows_core::Result<()> {
@@ -6765,44 +6765,44 @@ windows_core::imp::define_interface!(IIsdbSeriesDescriptor, IIsdbSeriesDescripto
 impl std::ops::Deref for IIsdbSeriesDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbSeriesDescriptor, windows_core::IUnknown);
 impl IIsdbSeriesDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSeriesId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSeriesId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRepeatLabel(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRepeatLabel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProgramPattern(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProgramPattern)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetExpireDate(&self, pfvalid: *mut super::super::super::Foundation::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExpireDate)(windows_core::Interface::as_raw(self), pfvalid, pmdtval).ok()
     }
     pub unsafe fn GetEpisodeNumber(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEpisodeNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLastEpisodeNumber(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLastEpisodeNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSeriesNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSeriesNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6817,43 +6817,43 @@ pub struct IIsdbSeriesDescriptor_Vtbl {
     pub GetExpireDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL, *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT,
     pub GetEpisodeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetLastEpisodeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetSeriesNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetSeriesNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsdbSiParser2, IIsdbSiParser2_Vtbl, 0x900e4bb7_18cd_453f_98be_3be6aa211772);
 impl std::ops::Deref for IIsdbSiParser2 {
     type Target = IDvbSiParser2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbSiParser2, windows_core::IUnknown, IDvbSiParser, IDvbSiParser2);
 impl IIsdbSiParser2 {
     pub unsafe fn GetSDT(&self, tableid: u8, pwtransportstreamid: Option<*const u16>) -> windows_core::Result<IISDB_SDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSDT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pwtransportstreamid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetBIT(&self, tableid: u8, pworiginalnetworkid: Option<*const u16>) -> windows_core::Result<IISDB_BIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBIT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pworiginalnetworkid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNBIT(&self, tableid: u8, pworiginalnetworkid: Option<*const u16>) -> windows_core::Result<IISDB_NBIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNBIT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pworiginalnetworkid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLDT(&self, tableid: u8, pworiginalserviceid: Option<*const u16>) -> windows_core::Result<IISDB_LDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLDT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pworiginalserviceid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSDTT(&self, tableid: u8, pwtableidext: Option<*const u16>) -> windows_core::Result<IISDB_SDTT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSDTT)(windows_core::Interface::as_raw(self), tableid, core::mem::transmute(pwtableidext.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCDT(&self, tableid: u8, bsectionnumber: u8, pwdownloaddataid: Option<*const u16>) -> windows_core::Result<IISDB_CDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCDT)(windows_core::Interface::as_raw(self), tableid, bsectionnumber, core::mem::transmute(pwdownloaddataid.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetEMM(&self, pid: u16, wtableidext: u16) -> windows_core::Result<IISDB_EMM> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEMM)(windows_core::Interface::as_raw(self), pid, wtableidext, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -6872,41 +6872,41 @@ windows_core::imp::define_interface!(IIsdbTSInformationDescriptor, IIsdbTSInform
 impl std::ops::Deref for IIsdbTSInformationDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbTSInformationDescriptor, windows_core::IUnknown);
 impl IIsdbTSInformationDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRemoteControlKeyId(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRemoteControlKeyId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTSNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTSNameW)(windows_core::Interface::as_raw(self), convmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordTransmissionTypeInfo(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordTransmissionTypeInfo)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordNumberOfServices(&self, brecordindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordNumberOfServices)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordServiceIdByIndex(&self, brecordindex: u8, bserviceindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordServiceIdByIndex)(windows_core::Interface::as_raw(self), brecordindex, bserviceindex, &mut result__).map(|| result__)
     }
 }
@@ -6916,7 +6916,7 @@ pub struct IIsdbTSInformationDescriptor_Vtbl {
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRemoteControlKeyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetTSNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetTSNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordTransmissionTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordNumberOfServices: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
@@ -6926,37 +6926,37 @@ windows_core::imp::define_interface!(IIsdbTerrestrialDeliverySystemDescriptor, I
 impl std::ops::Deref for IIsdbTerrestrialDeliverySystemDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsdbTerrestrialDeliverySystemDescriptor, windows_core::IUnknown);
 impl IIsdbTerrestrialDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAreaCode(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAreaCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGuardInterval(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGuardInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransmissionMode(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransmissionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordFrequency(&self, brecordindex: u8) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordFrequency)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
     }
 }
@@ -6977,7 +6977,7 @@ windows_core::imp::define_interface!(ILanguageComponentType, ILanguageComponentT
 impl std::ops::Deref for ILanguageComponentType {
     type Target = IComponentType;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6985,7 +6985,7 @@ windows_core::imp::interface_hierarchy!(ILanguageComponentType, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl ILanguageComponentType {
     pub unsafe fn LangID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LangID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLangID(&self, langid: i32) -> windows_core::Result<()> {
@@ -7005,7 +7005,7 @@ windows_core::imp::define_interface!(ILocator, ILocator_Vtbl, 0x286d7f89_760c_4f
 impl std::ops::Deref for ILocator {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7013,49 +7013,49 @@ windows_core::imp::interface_hierarchy!(ILocator, windows_core::IUnknown, super:
 #[cfg(feature = "Win32_System_Com")]
 impl ILocator {
     pub unsafe fn CarrierFrequency(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CarrierFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCarrierFrequency(&self, frequency: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCarrierFrequency)(windows_core::Interface::as_raw(self), frequency).ok()
     }
     pub unsafe fn InnerFEC(&self) -> windows_core::Result<super::FECMethod> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InnerFEC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInnerFEC(&self, fec: super::FECMethod) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetInnerFEC)(windows_core::Interface::as_raw(self), fec).ok()
     }
     pub unsafe fn InnerFECRate(&self) -> windows_core::Result<super::BinaryConvolutionCodeRate> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InnerFECRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInnerFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetInnerFECRate)(windows_core::Interface::as_raw(self), fec).ok()
     }
     pub unsafe fn OuterFEC(&self) -> windows_core::Result<super::FECMethod> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OuterFEC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOuterFEC(&self, fec: super::FECMethod) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOuterFEC)(windows_core::Interface::as_raw(self), fec).ok()
     }
     pub unsafe fn OuterFECRate(&self) -> windows_core::Result<super::BinaryConvolutionCodeRate> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OuterFECRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOuterFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOuterFECRate)(windows_core::Interface::as_raw(self), fec).ok()
     }
     pub unsafe fn Modulation(&self) -> windows_core::Result<super::ModulationType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Modulation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetModulation(&self, modulation: super::ModulationType) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetModulation)(windows_core::Interface::as_raw(self), modulation).ok()
     }
     pub unsafe fn SymbolRate(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SymbolRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> windows_core::Result<()> {
@@ -7063,7 +7063,7 @@ impl ILocator {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<ILocator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -7096,7 +7096,7 @@ windows_core::imp::define_interface!(IMPEG2Component, IMPEG2Component_Vtbl, 0x14
 impl std::ops::Deref for IMPEG2Component {
     type Target = IComponent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7104,21 +7104,21 @@ windows_core::imp::interface_hierarchy!(IMPEG2Component, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2Component {
     pub unsafe fn PID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPID(&self, pid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPID)(windows_core::Interface::as_raw(self), pid).ok()
     }
     pub unsafe fn PCRPID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PCRPID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPCRPID(&self, pcrpid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPCRPID)(windows_core::Interface::as_raw(self), pcrpid).ok()
     }
     pub unsafe fn ProgramNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProgramNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetProgramNumber(&self, programnumber: i32) -> windows_core::Result<()> {
@@ -7142,7 +7142,7 @@ windows_core::imp::define_interface!(IMPEG2ComponentType, IMPEG2ComponentType_Vt
 impl std::ops::Deref for IMPEG2ComponentType {
     type Target = ILanguageComponentType;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7150,7 +7150,7 @@ windows_core::imp::interface_hierarchy!(IMPEG2ComponentType, windows_core::IUnkn
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2ComponentType {
     pub unsafe fn StreamType(&self) -> windows_core::Result<super::MPEG2StreamType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).StreamType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStreamType(&self, mp2streamtype: super::MPEG2StreamType) -> windows_core::Result<()> {
@@ -7170,7 +7170,7 @@ windows_core::imp::define_interface!(IMPEG2TuneRequest, IMPEG2TuneRequest_Vtbl, 
 impl std::ops::Deref for IMPEG2TuneRequest {
     type Target = ITuneRequest;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7178,14 +7178,14 @@ windows_core::imp::interface_hierarchy!(IMPEG2TuneRequest, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequest {
     pub unsafe fn TSID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTSID(&self, tsid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetTSID)(windows_core::Interface::as_raw(self), tsid).ok()
     }
     pub unsafe fn ProgNo(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProgNo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetProgNo(&self, progno: i32) -> windows_core::Result<()> {
@@ -7207,7 +7207,7 @@ windows_core::imp::define_interface!(IMPEG2TuneRequestFactory, IMPEG2TuneRequest
 impl std::ops::Deref for IMPEG2TuneRequestFactory {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7219,7 +7219,7 @@ impl IMPEG2TuneRequestFactory {
     where
         P0: windows_core::Param<ITuningSpace>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTuneRequest)(windows_core::Interface::as_raw(self), tuningspace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -7236,7 +7236,7 @@ windows_core::imp::define_interface!(IMPEG2TuneRequestSupport, IMPEG2TuneRequest
 impl std::ops::Deref for IMPEG2TuneRequestSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestSupport, windows_core::IUnknown);
@@ -7249,7 +7249,7 @@ windows_core::imp::define_interface!(IMPEG2_TIF_CONTROL, IMPEG2_TIF_CONTROL_Vtbl
 impl std::ops::Deref for IMPEG2_TIF_CONTROL {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMPEG2_TIF_CONTROL, windows_core::IUnknown);
@@ -7270,7 +7270,7 @@ impl IMPEG2_TIF_CONTROL {
         (windows_core::Interface::vtable(self).DeletePIDs)(windows_core::Interface::as_raw(self), ulcpids, pulpids).ok()
     }
     pub unsafe fn GetPIDCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPIDCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPIDs(&self, pulcpids: *mut u32, pulpids: *mut u32) -> windows_core::Result<()> {
@@ -7293,7 +7293,7 @@ windows_core::imp::define_interface!(IMSEventBinder, IMSEventBinder_Vtbl, 0xc3a9
 impl std::ops::Deref for IMSEventBinder {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7307,7 +7307,7 @@ impl IMSEventBinder {
         P1: windows_core::Param<windows_core::BSTR>,
         P2: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), peventobject.param().abi(), eventname.param().abi(), eventhandler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Unbind(&self, cancelcookie: u32) -> windows_core::Result<()> {
@@ -7319,7 +7319,7 @@ impl IMSEventBinder {
 pub struct IMSEventBinder_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
+    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Bind: usize,
     pub Unbind: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -7330,7 +7330,7 @@ windows_core::imp::define_interface!(IMSVidAnalogTuner, IMSVidAnalogTuner_Vtbl, 
 impl std::ops::Deref for IMSVidAnalogTuner {
     type Target = IMSVidTuner;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7338,29 +7338,29 @@ windows_core::imp::interface_hierarchy!(IMSVidAnalogTuner, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTuner {
     pub unsafe fn Channel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Channel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetChannel(&self, channel: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetChannel)(windows_core::Interface::as_raw(self), channel).ok()
     }
     pub unsafe fn VideoFrequency(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AudioFrequency(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CountryCode(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CountryCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCountryCode(&self, lcc: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCountryCode)(windows_core::Interface::as_raw(self), lcc).ok()
     }
     pub unsafe fn SAP(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SAP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSAP<P0>(&self, fsapon: P0) -> windows_core::Result<()>
@@ -7370,7 +7370,7 @@ impl IMSVidAnalogTuner {
         (windows_core::Interface::vtable(self).SetSAP)(windows_core::Interface::as_raw(self), fsapon.param().abi()).ok()
     }
     pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ChannelAvailable)(windows_core::Interface::as_raw(self), nchannel, signalstrength, &mut result__).map(|| result__)
     }
 }
@@ -7394,7 +7394,7 @@ windows_core::imp::define_interface!(IMSVidAnalogTuner2, IMSVidAnalogTuner2_Vtbl
 impl std::ops::Deref for IMSVidAnalogTuner2 {
     type Target = IMSVidAnalogTuner;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7402,15 +7402,15 @@ windows_core::imp::interface_hierarchy!(IMSVidAnalogTuner2, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTuner2 {
     pub unsafe fn TVFormats(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TVFormats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn TunerModes(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TunerModes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn NumAuxInputs(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NumAuxInputs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -7428,7 +7428,7 @@ windows_core::imp::define_interface!(IMSVidAnalogTunerEvent, IMSVidAnalogTunerEv
 impl std::ops::Deref for IMSVidAnalogTunerEvent {
     type Target = IMSVidTunerEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7446,7 +7446,7 @@ windows_core::imp::define_interface!(IMSVidAudioRenderer, IMSVidAudioRenderer_Vt
 impl std::ops::Deref for IMSVidAudioRenderer {
     type Target = IMSVidOutputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7457,14 +7457,14 @@ impl IMSVidAudioRenderer {
         (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), lvol).ok()
     }
     pub unsafe fn Volume(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Volume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBalance(&self, lbal: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBalance)(windows_core::Interface::as_raw(self), lbal).ok()
     }
     pub unsafe fn Balance(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Balance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -7483,7 +7483,7 @@ windows_core::imp::define_interface!(IMSVidAudioRendererDevices, IMSVidAudioRend
 impl std::ops::Deref for IMSVidAudioRendererDevices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7491,12 +7491,12 @@ windows_core::imp::interface_hierarchy!(IMSVidAudioRendererDevices, windows_core
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererDevices {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7504,7 +7504,7 @@ impl IMSVidAudioRendererDevices {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), v.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7531,14 +7531,14 @@ pub struct IMSVidAudioRendererDevices_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidAudioRendererEvent, IMSVidAudioRendererEvent_Vtbl, 0x37b03541_a4c8_11d2_b634_00c04f79498e);
@@ -7546,7 +7546,7 @@ windows_core::imp::define_interface!(IMSVidAudioRendererEvent, IMSVidAudioRender
 impl std::ops::Deref for IMSVidAudioRendererEvent {
     type Target = IMSVidOutputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7564,7 +7564,7 @@ windows_core::imp::define_interface!(IMSVidAudioRendererEvent2, IMSVidAudioRende
 impl std::ops::Deref for IMSVidAudioRendererEvent2 {
     type Target = IMSVidAudioRendererEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7615,7 +7615,7 @@ windows_core::imp::define_interface!(IMSVidClosedCaptioning, IMSVidClosedCaption
 impl std::ops::Deref for IMSVidClosedCaptioning {
     type Target = IMSVidFeature;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7623,7 +7623,7 @@ windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidClosedCaptioning {
     pub unsafe fn Enable(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> windows_core::Result<()>
@@ -7646,7 +7646,7 @@ windows_core::imp::define_interface!(IMSVidClosedCaptioning2, IMSVidClosedCaptio
 impl std::ops::Deref for IMSVidClosedCaptioning2 {
     type Target = IMSVidClosedCaptioning;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7654,7 +7654,7 @@ windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning2, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidClosedCaptioning2 {
     pub unsafe fn Service(&self) -> windows_core::Result<MSVidCCService> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Service)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetService(&self, on: MSVidCCService) -> windows_core::Result<()> {
@@ -7674,7 +7674,7 @@ windows_core::imp::define_interface!(IMSVidClosedCaptioning3, IMSVidClosedCaptio
 impl std::ops::Deref for IMSVidClosedCaptioning3 {
     type Target = IMSVidClosedCaptioning2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7682,7 +7682,7 @@ windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning3, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidClosedCaptioning3 {
     pub unsafe fn TeleTextFilter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TeleTextFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -7698,7 +7698,7 @@ windows_core::imp::define_interface!(IMSVidCompositionSegment, IMSVidComposition
 impl std::ops::Deref for IMSVidCompositionSegment {
     type Target = IMSVidGraphSegment;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7715,12 +7715,12 @@ impl IMSVidCompositionSegment {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Up(&self) -> windows_core::Result<IMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Up)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Down(&self) -> windows_core::Result<IMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Down)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -7747,7 +7747,7 @@ windows_core::imp::define_interface!(IMSVidCtl, IMSVidCtl_Vtbl, 0xb0edf162_910a_
 impl std::ops::Deref for IMSVidCtl {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7755,7 +7755,7 @@ windows_core::imp::interface_hierarchy!(IMSVidCtl, windows_core::IUnknown, super
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCtl {
     pub unsafe fn AutoSize(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutoSize<P0>(&self, vbool: P0) -> windows_core::Result<()>
@@ -7765,14 +7765,14 @@ impl IMSVidCtl {
         (windows_core::Interface::vtable(self).SetAutoSize)(windows_core::Interface::as_raw(self), vbool.param().abi()).ok()
     }
     pub unsafe fn BackColor(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBackColor(&self, backcolor: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), backcolor).ok()
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnabled<P0>(&self, vbool: P0) -> windows_core::Result<()>
@@ -7782,7 +7782,7 @@ impl IMSVidCtl {
         (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), vbool.param().abi()).ok()
     }
     pub unsafe fn TabStop(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TabStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTabStop<P0>(&self, vbool: P0) -> windows_core::Result<()>
@@ -7792,21 +7792,21 @@ impl IMSVidCtl {
         (windows_core::Interface::vtable(self).SetTabStop)(windows_core::Interface::as_raw(self), vbool.param().abi()).ok()
     }
     pub unsafe fn Window(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Window)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DisplaySize(&self) -> windows_core::Result<DisplaySizeList> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DisplaySize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDisplaySize(&self, newvalue: DisplaySizeList) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDisplaySize)(windows_core::Interface::as_raw(self), newvalue).ok()
     }
     pub unsafe fn MaintainAspectRatio(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaintainAspectRatio)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaintainAspectRatio<P0>(&self, newvalue: P0) -> windows_core::Result<()>
@@ -7816,7 +7816,7 @@ impl IMSVidCtl {
         (windows_core::Interface::vtable(self).SetMaintainAspectRatio)(windows_core::Interface::as_raw(self), newvalue.param().abi()).ok()
     }
     pub unsafe fn ColorKey(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ColorKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetColorKey(&self, newvalue: u32) -> windows_core::Result<()> {
@@ -7827,7 +7827,7 @@ impl IMSVidCtl {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_InputsAvailable)(windows_core::Interface::as_raw(self), categoryguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7835,37 +7835,37 @@ impl IMSVidCtl {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_OutputsAvailable)(windows_core::Interface::as_raw(self), categoryguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get__InputsAvailable(&self, categoryguid: *const windows_core::GUID) -> windows_core::Result<IMSVidInputDevices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get__InputsAvailable)(windows_core::Interface::as_raw(self), categoryguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get__OutputsAvailable(&self, categoryguid: *const windows_core::GUID) -> windows_core::Result<IMSVidOutputDevices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get__OutputsAvailable)(windows_core::Interface::as_raw(self), categoryguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRenderersAvailable(&self) -> windows_core::Result<IMSVidVideoRendererDevices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoRenderersAvailable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRenderersAvailable(&self) -> windows_core::Result<IMSVidAudioRendererDevices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioRenderersAvailable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FeaturesAvailable(&self) -> windows_core::Result<IMSVidFeatures> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FeaturesAvailable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InputActive(&self) -> windows_core::Result<IMSVidInputDevice> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InputActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7877,7 +7877,7 @@ impl IMSVidCtl {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutputsActive(&self) -> windows_core::Result<IMSVidOutputDevices> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OutputsActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7889,7 +7889,7 @@ impl IMSVidCtl {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRendererActive(&self) -> windows_core::Result<IMSVidVideoRenderer> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoRendererActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7901,7 +7901,7 @@ impl IMSVidCtl {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRendererActive(&self) -> windows_core::Result<IMSVidAudioRenderer> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioRendererActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7913,7 +7913,7 @@ impl IMSVidCtl {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FeaturesActive(&self) -> windows_core::Result<IMSVidFeatures> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FeaturesActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7924,7 +7924,7 @@ impl IMSVidCtl {
         (windows_core::Interface::vtable(self).SetFeaturesActive)(windows_core::Interface::as_raw(self), pval.param().abi()).ok()
     }
     pub unsafe fn State(&self) -> windows_core::Result<MSVidCtlStateList> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn View(&self, v: *const windows_core::VARIANT) -> windows_core::Result<()> {
@@ -7976,11 +7976,11 @@ pub struct IMSVidCtl_Vtbl {
     pub ColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_InputsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_InputsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_InputsAvailable: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_OutputsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_OutputsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_OutputsAvailable: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -8044,7 +8044,7 @@ pub struct IMSVidCtl_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetFeaturesActive: usize,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MSVidCtlStateList) -> windows_core::HRESULT,
-    pub View: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub View: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub Build: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8052,7 +8052,7 @@ pub struct IMSVidCtl_Vtbl {
     pub Decompose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableVideo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableAudio: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ViewNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub ViewNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidDataServices, IMSVidDataServices_Vtbl, 0x334125c1_77e5_11d3_b653_00c04f79498e);
@@ -8060,7 +8060,7 @@ windows_core::imp::define_interface!(IMSVidDataServices, IMSVidDataServices_Vtbl
 impl std::ops::Deref for IMSVidDataServices {
     type Target = IMSVidFeature;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8078,7 +8078,7 @@ windows_core::imp::define_interface!(IMSVidDataServicesEvent, IMSVidDataServices
 impl std::ops::Deref for IMSVidDataServicesEvent {
     type Target = IMSVidDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8096,7 +8096,7 @@ windows_core::imp::define_interface!(IMSVidDevice, IMSVidDevice_Vtbl, 0x1c15d47c
 impl std::ops::Deref for IMSVidDevice {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8104,11 +8104,11 @@ windows_core::imp::interface_hierarchy!(IMSVidDevice, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDevice {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Status(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPower<P0>(&self, power: P0) -> windows_core::Result<()>
@@ -8118,23 +8118,23 @@ impl IMSVidDevice {
         (windows_core::Interface::vtable(self).SetPower)(windows_core::Interface::as_raw(self), power.param().abi()).ok()
     }
     pub unsafe fn Power(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Power)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Category(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Category)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ClassID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ClassID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _Category(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._Category)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn _ClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._ClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8142,7 +8142,7 @@ impl IMSVidDevice {
     where
         P0: windows_core::Param<IMSVidDevice>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEqualDevice)(windows_core::Interface::as_raw(self), device.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -8150,12 +8150,12 @@ impl IMSVidDevice {
 #[repr(C)]
 pub struct IMSVidDevice_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetPower: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub Power: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub _Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub _ClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -8167,20 +8167,20 @@ windows_core::imp::define_interface!(IMSVidDevice2, IMSVidDevice2_Vtbl, 0x87bd27
 impl std::ops::Deref for IMSVidDevice2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSVidDevice2, windows_core::IUnknown);
 impl IMSVidDevice2 {
     pub unsafe fn DevicePath(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DevicePath)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IMSVidDevice2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub DevicePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DevicePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidDeviceEvent, IMSVidDeviceEvent_Vtbl, 0x1c15d480_911d_11d2_b632_00c04f79498e);
@@ -8188,7 +8188,7 @@ windows_core::imp::define_interface!(IMSVidDeviceEvent, IMSVidDeviceEvent_Vtbl, 
 impl std::ops::Deref for IMSVidDeviceEvent {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8218,7 +8218,7 @@ windows_core::imp::define_interface!(IMSVidEVR, IMSVidEVR_Vtbl, 0x15e496ae_82a8_
 impl std::ops::Deref for IMSVidEVR {
     type Target = IMSVidVideoRenderer;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8227,7 +8227,7 @@ windows_core::imp::interface_hierarchy!(IMSVidEVR, windows_core::IUnknown, super
 impl IMSVidEVR {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn Presenter(&self) -> windows_core::Result<super::super::MediaFoundation::IMFVideoPresenter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Presenter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -8244,7 +8244,7 @@ impl IMSVidEVR {
         (windows_core::Interface::vtable(self).SetSuppressEffects)(windows_core::Interface::as_raw(self), bsuppress.param().abi()).ok()
     }
     pub unsafe fn SuppressEffects(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SuppressEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -8269,7 +8269,7 @@ windows_core::imp::define_interface!(IMSVidEVREvent, IMSVidEVREvent_Vtbl, 0x349a
 impl std::ops::Deref for IMSVidEVREvent {
     type Target = IMSVidOutputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8292,7 +8292,7 @@ windows_core::imp::define_interface!(IMSVidEncoder, IMSVidEncoder_Vtbl, 0xc0020f
 impl std::ops::Deref for IMSVidEncoder {
     type Target = IMSVidFeature;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8300,11 +8300,11 @@ windows_core::imp::interface_hierarchy!(IMSVidEncoder, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidEncoder {
     pub unsafe fn VideoEncoderInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoEncoderInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AudioEncoderInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioEncoderInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -8321,7 +8321,7 @@ windows_core::imp::define_interface!(IMSVidFeature, IMSVidFeature_Vtbl, 0x37b035
 impl std::ops::Deref for IMSVidFeature {
     type Target = IMSVidDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8339,7 +8339,7 @@ windows_core::imp::define_interface!(IMSVidFeatureEvent, IMSVidFeatureEvent_Vtbl
 impl std::ops::Deref for IMSVidFeatureEvent {
     type Target = IMSVidDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8357,7 +8357,7 @@ windows_core::imp::define_interface!(IMSVidFeatures, IMSVidFeatures_Vtbl, 0xc570
 impl std::ops::Deref for IMSVidFeatures {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8365,12 +8365,12 @@ windows_core::imp::interface_hierarchy!(IMSVidFeatures, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFeatures {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8378,7 +8378,7 @@ impl IMSVidFeatures {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), v.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8405,14 +8405,14 @@ pub struct IMSVidFeatures_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidFilePlayback, IMSVidFilePlayback_Vtbl, 0x37b03539_a4c8_11d2_b634_00c04f79498e);
@@ -8420,7 +8420,7 @@ windows_core::imp::define_interface!(IMSVidFilePlayback, IMSVidFilePlayback_Vtbl
 impl std::ops::Deref for IMSVidFilePlayback {
     type Target = IMSVidPlayback;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8428,7 +8428,7 @@ windows_core::imp::interface_hierarchy!(IMSVidFilePlayback, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFilePlayback {
     pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileName<P0>(&self, filename: P0) -> windows_core::Result<()>
@@ -8442,8 +8442,8 @@ impl IMSVidFilePlayback {
 #[repr(C)]
 pub struct IMSVidFilePlayback_Vtbl {
     pub base__: IMSVidPlayback_Vtbl,
-    pub FileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub FileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidFilePlayback2, IMSVidFilePlayback2_Vtbl, 0x2f7e44af_6e52_4660_bc08_d8d542587d72);
@@ -8451,7 +8451,7 @@ windows_core::imp::define_interface!(IMSVidFilePlayback2, IMSVidFilePlayback2_Vt
 impl std::ops::Deref for IMSVidFilePlayback2 {
     type Target = IMSVidFilePlayback;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8472,7 +8472,7 @@ impl IMSVidFilePlayback2 {
 #[repr(C)]
 pub struct IMSVidFilePlayback2_Vtbl {
     pub base__: IMSVidFilePlayback_Vtbl,
-    pub Set_SourceFilter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Set_SourceFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Set__SourceFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8481,7 +8481,7 @@ windows_core::imp::define_interface!(IMSVidFilePlaybackEvent, IMSVidFilePlayback
 impl std::ops::Deref for IMSVidFilePlaybackEvent {
     type Target = IMSVidPlaybackEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8499,7 +8499,7 @@ windows_core::imp::define_interface!(IMSVidGenericSink, IMSVidGenericSink_Vtbl, 
 impl std::ops::Deref for IMSVidGenericSink {
     type Target = IMSVidOutputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8513,7 +8513,7 @@ impl IMSVidGenericSink {
         (windows_core::Interface::vtable(self).SetSinkFilter)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn SinkStreams(&self) -> windows_core::Result<MSVidSinkStreams> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SinkStreams)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSinkStreams(&self, streams: MSVidSinkStreams) -> windows_core::Result<()> {
@@ -8524,7 +8524,7 @@ impl IMSVidGenericSink {
 #[repr(C)]
 pub struct IMSVidGenericSink_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
-    pub SetSinkFilter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetSinkFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SinkStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MSVidSinkStreams) -> windows_core::HRESULT,
     pub SetSinkStreams: unsafe extern "system" fn(*mut core::ffi::c_void, MSVidSinkStreams) -> windows_core::HRESULT,
 }
@@ -8534,7 +8534,7 @@ windows_core::imp::define_interface!(IMSVidGenericSink2, IMSVidGenericSink2_Vtbl
 impl std::ops::Deref for IMSVidGenericSink2 {
     type Target = IMSVidGenericSink;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8555,7 +8555,7 @@ impl IMSVidGenericSink2 {
 #[repr(C)]
 pub struct IMSVidGenericSink2_Vtbl {
     pub base__: IMSVidGenericSink_Vtbl,
-    pub AddFilter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub AddFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ResetFilterList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8564,7 +8564,7 @@ windows_core::imp::define_interface!(IMSVidGraphSegment, IMSVidGraphSegment_Vtbl
 impl std::ops::Deref for IMSVidGraphSegment {
     type Target = super::super::super::System::Com::IPersist;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8572,7 +8572,7 @@ windows_core::imp::interface_hierarchy!(IMSVidGraphSegment, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidGraphSegment {
     pub unsafe fn Init(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetInit<P0>(&self, pinit: P0) -> windows_core::Result<()>
@@ -8582,11 +8582,11 @@ impl IMSVidGraphSegment {
         (windows_core::Interface::vtable(self).SetInit)(windows_core::Interface::as_raw(self), pinit.param().abi()).ok()
     }
     pub unsafe fn EnumFilters(&self) -> windows_core::Result<super::IEnumFilters> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumFilters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Container(&self) -> windows_core::Result<IMSVidGraphSegmentContainer> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Container)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetContainer<P0>(&self, pctl: P0) -> windows_core::Result<()>
@@ -8596,11 +8596,11 @@ impl IMSVidGraphSegment {
         (windows_core::Interface::vtable(self).SetContainer)(windows_core::Interface::as_raw(self), pctl.param().abi()).ok()
     }
     pub unsafe fn Type(&self) -> windows_core::Result<MSVidSegmentType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Category(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Category)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Build(&self) -> windows_core::Result<()> {
@@ -8652,44 +8652,44 @@ windows_core::imp::define_interface!(IMSVidGraphSegmentContainer, IMSVidGraphSeg
 impl std::ops::Deref for IMSVidGraphSegmentContainer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSVidGraphSegmentContainer, windows_core::IUnknown);
 impl IMSVidGraphSegmentContainer {
     pub unsafe fn Graph(&self) -> windows_core::Result<super::IGraphBuilder> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Graph)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Input(&self) -> windows_core::Result<IMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Outputs(&self) -> windows_core::Result<IEnumMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Outputs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRenderer(&self) -> windows_core::Result<IMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoRenderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRenderer(&self) -> windows_core::Result<IMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioRenderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Features(&self) -> windows_core::Result<IEnumMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Features)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Composites(&self) -> windows_core::Result<IEnumMSVidGraphSegment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Composites)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ParentContainer(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ParentContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8737,7 +8737,7 @@ windows_core::imp::define_interface!(IMSVidGraphSegmentUserInput, IMSVidGraphSeg
 impl std::ops::Deref for IMSVidGraphSegmentUserInput {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMSVidGraphSegmentUserInput, windows_core::IUnknown);
@@ -8785,7 +8785,7 @@ windows_core::imp::define_interface!(IMSVidInputDevice, IMSVidInputDevice_Vtbl, 
 impl std::ops::Deref for IMSVidInputDevice {
     type Target = IMSVidDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8793,7 +8793,7 @@ windows_core::imp::interface_hierarchy!(IMSVidInputDevice, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidInputDevice {
     pub unsafe fn IsViewable(&self, v: *const windows_core::VARIANT) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsViewable)(windows_core::Interface::as_raw(self), core::mem::transmute(v), &mut result__).map(|| result__)
     }
     pub unsafe fn View(&self, v: *const windows_core::VARIANT) -> windows_core::Result<()> {
@@ -8804,8 +8804,8 @@ impl IMSVidInputDevice {
 #[repr(C)]
 pub struct IMSVidInputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
-    pub IsViewable: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub View: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub IsViewable: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub View: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidInputDeviceEvent, IMSVidInputDeviceEvent_Vtbl, 0x37b0353e_a4c8_11d2_b634_00c04f79498e);
@@ -8813,7 +8813,7 @@ windows_core::imp::define_interface!(IMSVidInputDeviceEvent, IMSVidInputDeviceEv
 impl std::ops::Deref for IMSVidInputDeviceEvent {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8831,7 +8831,7 @@ windows_core::imp::define_interface!(IMSVidInputDevices, IMSVidInputDevices_Vtbl
 impl std::ops::Deref for IMSVidInputDevices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8839,12 +8839,12 @@ windows_core::imp::interface_hierarchy!(IMSVidInputDevices, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidInputDevices {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8852,7 +8852,7 @@ impl IMSVidInputDevices {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), v.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8879,14 +8879,14 @@ pub struct IMSVidInputDevices_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidOutputDevice, IMSVidOutputDevice_Vtbl, 0x37b03546_a4c8_11d2_b634_00c04f79498e);
@@ -8894,7 +8894,7 @@ windows_core::imp::define_interface!(IMSVidOutputDevice, IMSVidOutputDevice_Vtbl
 impl std::ops::Deref for IMSVidOutputDevice {
     type Target = IMSVidDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8912,7 +8912,7 @@ windows_core::imp::define_interface!(IMSVidOutputDeviceEvent, IMSVidOutputDevice
 impl std::ops::Deref for IMSVidOutputDeviceEvent {
     type Target = IMSVidDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8930,7 +8930,7 @@ windows_core::imp::define_interface!(IMSVidOutputDevices, IMSVidOutputDevices_Vt
 impl std::ops::Deref for IMSVidOutputDevices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8938,12 +8938,12 @@ windows_core::imp::interface_hierarchy!(IMSVidOutputDevices, windows_core::IUnkn
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidOutputDevices {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8951,7 +8951,7 @@ impl IMSVidOutputDevices {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), v.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -8978,14 +8978,14 @@ pub struct IMSVidOutputDevices_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidPlayback, IMSVidPlayback_Vtbl, 0x37b03538_a4c8_11d2_b634_00c04f79498e);
@@ -8993,7 +8993,7 @@ windows_core::imp::define_interface!(IMSVidPlayback, IMSVidPlayback_Vtbl, 0x37b0
 impl std::ops::Deref for IMSVidPlayback {
     type Target = IMSVidInputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9001,7 +9001,7 @@ windows_core::imp::interface_hierarchy!(IMSVidPlayback, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidPlayback {
     pub unsafe fn EnableResetOnStop(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnableResetOnStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> windows_core::Result<()>
@@ -9023,7 +9023,7 @@ impl IMSVidPlayback {
     where
         P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_CanStep)(windows_core::Interface::as_raw(self), fbackwards.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Step(&self, lstep: i32) -> windows_core::Result<()> {
@@ -9033,25 +9033,25 @@ impl IMSVidPlayback {
         (windows_core::Interface::vtable(self).SetRate)(windows_core::Interface::as_raw(self), plrate).ok()
     }
     pub unsafe fn Rate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Rate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCurrentPosition(&self, lposition: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), lposition).ok()
     }
     pub unsafe fn CurrentPosition(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPositionMode(&self, lpositionmode: PositionModeList) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPositionMode)(windows_core::Interface::as_raw(self), lpositionmode).ok()
     }
     pub unsafe fn PositionMode(&self) -> windows_core::Result<PositionModeList> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PositionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Length(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -9080,7 +9080,7 @@ windows_core::imp::define_interface!(IMSVidPlaybackEvent, IMSVidPlaybackEvent_Vt
 impl std::ops::Deref for IMSVidPlaybackEvent {
     type Target = IMSVidInputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9110,7 +9110,7 @@ windows_core::imp::define_interface!(IMSVidRect, IMSVidRect_Vtbl, 0x7f5000a6_a44
 impl std::ops::Deref for IMSVidRect {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9118,35 +9118,35 @@ windows_core::imp::interface_hierarchy!(IMSVidRect, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidRect {
     pub unsafe fn Top(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTop(&self, topval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), topval).ok()
     }
     pub unsafe fn Left(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLeft(&self, leftval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), leftval).ok()
     }
     pub unsafe fn Width(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetWidth(&self, widthval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), widthval).ok()
     }
     pub unsafe fn Height(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHeight(&self, heightval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetHeight)(windows_core::Interface::as_raw(self), heightval).ok()
     }
     pub unsafe fn HWnd(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHWnd<P0>(&self, hwndval: P0) -> windows_core::Result<()>
@@ -9188,7 +9188,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferRecordingControl, IMSVidS
 impl std::ops::Deref for IMSVidStreamBufferRecordingControl {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9196,33 +9196,33 @@ windows_core::imp::interface_hierarchy!(IMSVidStreamBufferRecordingControl, wind
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferRecordingControl {
     pub unsafe fn StartTime(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStartTime(&self, rtstart: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), rtstart).ok()
     }
     pub unsafe fn StopTime(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).StopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStopTime(&self, rtstop: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStopTime)(windows_core::Interface::as_raw(self), rtstop).ok()
     }
     pub unsafe fn RecordingStopped(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RecordingStopped)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RecordingStarted(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RecordingStarted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RecordingType(&self) -> windows_core::Result<RecordingType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RecordingType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RecordingAttribute(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RecordingAttribute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -9245,7 +9245,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSink, IMSVidStreamBufferS
 impl std::ops::Deref for IMSVidStreamBufferSink {
     type Target = IMSVidOutputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9257,7 +9257,7 @@ impl IMSVidStreamBufferSink {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_ContentRecorder)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -9265,11 +9265,11 @@ impl IMSVidStreamBufferSink {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_ReferenceRecorder)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SinkName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SinkName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSinkName<P0>(&self, name: P0) -> windows_core::Result<()>
@@ -9282,7 +9282,7 @@ impl IMSVidStreamBufferSink {
         (windows_core::Interface::vtable(self).NameSetLock)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SBESink(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SBESink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -9291,15 +9291,15 @@ impl IMSVidStreamBufferSink {
 pub struct IMSVidStreamBufferSink_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_ContentRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ContentRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ContentRecorder: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_ReferenceRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ReferenceRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ReferenceRecorder: usize,
-    pub SinkName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetSinkName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SinkName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetSinkName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub NameSetLock: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SBESink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -9309,7 +9309,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSink2, IMSVidStreamBuffer
 impl std::ops::Deref for IMSVidStreamBufferSink2 {
     type Target = IMSVidStreamBufferSink;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9332,7 +9332,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSink3, IMSVidStreamBuffer
 impl std::ops::Deref for IMSVidStreamBufferSink3 {
     type Target = IMSVidStreamBufferSink2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9340,23 +9340,23 @@ windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink3, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSink3 {
     pub unsafe fn SetMinSeek(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SetMinSeek)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AudioCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn VideoCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CCCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CCCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn WSTCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).WSTCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetAudioAnalysisFilter<P0>(&self, szclsid: P0) -> windows_core::Result<()>
@@ -9366,14 +9366,14 @@ impl IMSVidStreamBufferSink3 {
         (windows_core::Interface::vtable(self).SetAudioAnalysisFilter)(windows_core::Interface::as_raw(self), szclsid.param().abi()).ok()
     }
     pub unsafe fn AudioAnalysisFilter(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioAnalysisFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Set_AudioAnalysisFilter(&self, guid: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Set_AudioAnalysisFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)).ok()
     }
     pub unsafe fn _AudioAnalysisFilter(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._AudioAnalysisFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetVideoAnalysisFilter<P0>(&self, szclsid: P0) -> windows_core::Result<()>
@@ -9383,14 +9383,14 @@ impl IMSVidStreamBufferSink3 {
         (windows_core::Interface::vtable(self).SetVideoAnalysisFilter)(windows_core::Interface::as_raw(self), szclsid.param().abi()).ok()
     }
     pub unsafe fn VideoAnalysisFilter(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoAnalysisFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Set_VideoAnalysisFilter(&self, guid: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Set_VideoAnalysisFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)).ok()
     }
     pub unsafe fn _VideoAnalysisFilter(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._VideoAnalysisFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDataAnalysisFilter<P0>(&self, szclsid: P0) -> windows_core::Result<()>
@@ -9400,18 +9400,18 @@ impl IMSVidStreamBufferSink3 {
         (windows_core::Interface::vtable(self).SetDataAnalysisFilter)(windows_core::Interface::as_raw(self), szclsid.param().abi()).ok()
     }
     pub unsafe fn DataAnalysisFilter(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DataAnalysisFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Set_DataAnalysisFilter(&self, guid: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Set_DataAnalysisFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)).ok()
     }
     pub unsafe fn _DataAnalysisFilter(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._DataAnalysisFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn LicenseErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LicenseErrorCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -9424,16 +9424,16 @@ pub struct IMSVidStreamBufferSink3_Vtbl {
     pub VideoCounter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CCCounter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WSTCounter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAudioAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub AudioAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetAudioAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub AudioAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Set_AudioAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub _AudioAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub SetVideoAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub VideoAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetVideoAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub VideoAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Set_VideoAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub _VideoAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub SetDataAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub DataAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetDataAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DataAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Set_DataAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub _DataAnalysisFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub LicenseErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -9444,7 +9444,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent, IMSVidStreamBu
 impl std::ops::Deref for IMSVidStreamBufferSinkEvent {
     type Target = IMSVidOutputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9475,7 +9475,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent2, IMSVidStreamB
 impl std::ops::Deref for IMSVidStreamBufferSinkEvent2 {
     type Target = IMSVidStreamBufferSinkEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9502,7 +9502,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent3, IMSVidStreamB
 impl std::ops::Deref for IMSVidStreamBufferSinkEvent3 {
     type Target = IMSVidStreamBufferSinkEvent2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9525,7 +9525,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent4, IMSVidStreamB
 impl std::ops::Deref for IMSVidStreamBufferSinkEvent4 {
     type Target = IMSVidStreamBufferSinkEvent3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9548,7 +9548,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSource, IMSVidStreamBuffe
 impl std::ops::Deref for IMSVidStreamBufferSource {
     type Target = IMSVidFilePlayback;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9556,11 +9556,11 @@ windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSource, windows_core::
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSource {
     pub unsafe fn Start(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RecordingAttribute(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RecordingAttribute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CurrentRatings(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, pbfenattr: *mut i32) -> windows_core::Result<()> {
@@ -9579,7 +9579,7 @@ impl IMSVidStreamBufferSource {
         (windows_core::Interface::vtable(self).SetUnratedDelay)(windows_core::Interface::as_raw(self), dwdelay).ok()
     }
     pub unsafe fn SBESource(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SBESource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -9601,7 +9601,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSource2, IMSVidStreamBuff
 impl std::ops::Deref for IMSVidStreamBufferSource2 {
     type Target = IMSVidStreamBufferSource;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9612,19 +9612,19 @@ impl IMSVidStreamBufferSource2 {
         (windows_core::Interface::vtable(self).put_RateEx)(windows_core::Interface::as_raw(self), dwrate, dwframespersecond).ok()
     }
     pub unsafe fn AudioCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn VideoCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VideoCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CCCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CCCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn WSTCounter(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).WSTCounter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -9644,7 +9644,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSourceEvent, IMSVidStream
 impl std::ops::Deref for IMSVidStreamBufferSourceEvent {
     type Target = IMSVidFilePlaybackEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9699,7 +9699,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSourceEvent2, IMSVidStrea
 impl std::ops::Deref for IMSVidStreamBufferSourceEvent2 {
     type Target = IMSVidStreamBufferSourceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9722,7 +9722,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferSourceEvent3, IMSVidStrea
 impl std::ops::Deref for IMSVidStreamBufferSourceEvent3 {
     type Target = IMSVidStreamBufferSourceEvent2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9755,8 +9755,8 @@ impl IMSVidStreamBufferSourceEvent3 {
 #[repr(C)]
 pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
     pub base__: IMSVidStreamBufferSourceEvent2_Vtbl,
-    pub BroadcastEvent: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub BroadcastEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, u32, u32, u32, u32) -> windows_core::HRESULT,
+    pub BroadcastEvent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub BroadcastEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32, u32, u32, u32) -> windows_core::HRESULT,
     pub COPPBlocked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub COPPUnblocked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9767,7 +9767,7 @@ windows_core::imp::define_interface!(IMSVidStreamBufferV2SourceEvent, IMSVidStre
 impl std::ops::Deref for IMSVidStreamBufferV2SourceEvent {
     type Target = IMSVidFilePlaybackEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9818,8 +9818,8 @@ pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub ContentBecomingStale: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StaleFileDeleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
-    pub BroadcastEvent: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub BroadcastEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, u32, u32, u32, u32) -> windows_core::HRESULT,
+    pub BroadcastEvent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub BroadcastEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32, u32, u32, u32) -> windows_core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9828,7 +9828,7 @@ windows_core::imp::define_interface!(IMSVidTuner, IMSVidTuner_Vtbl, 0x1c15d47d_9
 impl std::ops::Deref for IMSVidTuner {
     type Target = IMSVidVideoInputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9837,7 +9837,7 @@ windows_core::imp::interface_hierarchy!(IMSVidTuner, windows_core::IUnknown, sup
 impl IMSVidTuner {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> windows_core::Result<ITuneRequest> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Tune)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -9849,7 +9849,7 @@ impl IMSVidTuner {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> windows_core::Result<ITuningSpace> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuningSpace)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -9887,7 +9887,7 @@ windows_core::imp::define_interface!(IMSVidTunerEvent, IMSVidTunerEvent_Vtbl, 0x
 impl std::ops::Deref for IMSVidTunerEvent {
     type Target = IMSVidInputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9917,7 +9917,7 @@ windows_core::imp::define_interface!(IMSVidVMR9, IMSVidVMR9_Vtbl, 0xd58b0015_ebe
 impl std::ops::Deref for IMSVidVMR9 {
     type Target = IMSVidVideoRenderer;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9925,7 +9925,7 @@ windows_core::imp::interface_hierarchy!(IMSVidVMR9, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVMR9 {
     pub unsafe fn Allocator_ID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Allocator_ID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllocator<P0>(&self, allocpresent: P0, id: i32) -> windows_core::Result<()>
@@ -9941,11 +9941,11 @@ impl IMSVidVMR9 {
         (windows_core::Interface::vtable(self).SetSuppressEffects)(windows_core::Interface::as_raw(self), bsuppress.param().abi()).ok()
     }
     pub unsafe fn SuppressEffects(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SuppressEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Allocator(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Allocator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -9965,7 +9965,7 @@ windows_core::imp::define_interface!(IMSVidVRGraphSegment, IMSVidVRGraphSegment_
 impl std::ops::Deref for IMSVidVRGraphSegment {
     type Target = IMSVidGraphSegment;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9982,11 +9982,11 @@ impl IMSVidVRGraphSegment {
         (windows_core::Interface::vtable(self).SetOwner)(windows_core::Interface::as_raw(self), window.param().abi()).ok()
     }
     pub unsafe fn Owner(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Owner)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn UseOverlay(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UseOverlay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetUseOverlay<P0>(&self, useoverlayval: P0) -> windows_core::Result<()>
@@ -9996,7 +9996,7 @@ impl IMSVidVRGraphSegment {
         (windows_core::Interface::vtable(self).SetUseOverlay)(windows_core::Interface::as_raw(self), useoverlayval.param().abi()).ok()
     }
     pub unsafe fn Visible(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetVisible<P0>(&self, visible: P0) -> windows_core::Result<()>
@@ -10006,21 +10006,21 @@ impl IMSVidVRGraphSegment {
         (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible.param().abi()).ok()
     }
     pub unsafe fn ColorKey(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ColorKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetColorKey(&self, colorkey: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), colorkey).ok()
     }
     pub unsafe fn Source(&self) -> windows_core::Result<super::super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSource(&self, r: super::super::super::Foundation::RECT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSource)(windows_core::Interface::as_raw(self), core::mem::transmute(r)).ok()
     }
     pub unsafe fn Destination(&self) -> windows_core::Result<super::super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Destination)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDestination(&self, r: super::super::super::Foundation::RECT) -> windows_core::Result<()> {
@@ -10030,14 +10030,14 @@ impl IMSVidVRGraphSegment {
         (windows_core::Interface::vtable(self).get_NativeSize)(windows_core::Interface::as_raw(self), sizeval, aspectratio).ok()
     }
     pub unsafe fn BorderColor(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BorderColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBorderColor(&self, color: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), color).ok()
     }
     pub unsafe fn MaintainAspectRatio(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaintainAspectRatio)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaintainAspectRatio<P0>(&self, fmaintain: P0) -> windows_core::Result<()>
@@ -10095,7 +10095,7 @@ windows_core::imp::define_interface!(IMSVidVideoInputDevice, IMSVidVideoInputDev
 impl std::ops::Deref for IMSVidVideoInputDevice {
     type Target = IMSVidInputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10113,7 +10113,7 @@ windows_core::imp::define_interface!(IMSVidVideoRenderer, IMSVidVideoRenderer_Vt
 impl std::ops::Deref for IMSVidVideoRenderer {
     type Target = IMSVidOutputDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10121,7 +10121,7 @@ windows_core::imp::interface_hierarchy!(IMSVidVideoRenderer, windows_core::IUnkn
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRenderer {
     pub unsafe fn CustomCompositorClass(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CustomCompositorClass)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCustomCompositorClass<P0>(&self, compositorclsid: P0) -> windows_core::Result<()>
@@ -10131,14 +10131,14 @@ impl IMSVidVideoRenderer {
         (windows_core::Interface::vtable(self).SetCustomCompositorClass)(windows_core::Interface::as_raw(self), compositorclsid.param().abi()).ok()
     }
     pub unsafe fn _CustomCompositorClass(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._CustomCompositorClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Set_CustomCompositorClass(&self, compositorclsid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Set_CustomCompositorClass)(windows_core::Interface::as_raw(self), compositorclsid).ok()
     }
     pub unsafe fn _CustomCompositor(&self) -> windows_core::Result<super::IVMRImageCompositor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._CustomCompositor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Set_CustomCompositor<P0>(&self, compositor: P0) -> windows_core::Result<()>
@@ -10149,11 +10149,11 @@ impl IMSVidVideoRenderer {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MixerBitmap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _MixerBitmap(&self) -> windows_core::Result<super::IVMRMixerBitmap> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._MixerBitmap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10169,7 +10169,7 @@ impl IMSVidVideoRenderer {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MixerBitmapPositionRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -10180,7 +10180,7 @@ impl IMSVidVideoRenderer {
         (windows_core::Interface::vtable(self).SetMixerBitmapPositionRect)(windows_core::Interface::as_raw(self), rdest.param().abi()).ok()
     }
     pub unsafe fn MixerBitmapOpacity(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MixerBitmapOpacity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> windows_core::Result<()> {
@@ -10195,14 +10195,14 @@ impl IMSVidVideoRenderer {
         (windows_core::Interface::vtable(self).SetupMixerBitmap)(windows_core::Interface::as_raw(self), mixerpicturedisp.param().abi(), opacity, rdest.param().abi()).ok()
     }
     pub unsafe fn SourceSize(&self) -> windows_core::Result<SourceSizeList> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SourceSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSourceSize(&self, newsize: SourceSizeList) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSourceSize)(windows_core::Interface::as_raw(self), newsize).ok()
     }
     pub unsafe fn OverScan(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OverScan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> windows_core::Result<()> {
@@ -10210,22 +10210,22 @@ impl IMSVidVideoRenderer {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AvailableSourceRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxVidRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinVidRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ClippedSourceRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -10236,7 +10236,7 @@ impl IMSVidVideoRenderer {
         (windows_core::Interface::vtable(self).SetClippedSourceRect)(windows_core::Interface::as_raw(self), prect.param().abi()).ok()
     }
     pub unsafe fn UsingOverlay(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UsingOverlay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> windows_core::Result<()>
@@ -10247,15 +10247,15 @@ impl IMSVidVideoRenderer {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Capture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FramesPerSecond(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FramesPerSecond)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DecimateInput(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DecimateInput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> windows_core::Result<()>
@@ -10269,8 +10269,8 @@ impl IMSVidVideoRenderer {
 #[repr(C)]
 pub struct IMSVidVideoRenderer_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
-    pub CustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetCustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub CustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetCustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub _CustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Set_CustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub _CustomCompositor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10342,7 +10342,7 @@ windows_core::imp::define_interface!(IMSVidVideoRenderer2, IMSVidVideoRenderer2_
 impl std::ops::Deref for IMSVidVideoRenderer2 {
     type Target = IMSVidVideoRenderer;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10350,15 +10350,15 @@ windows_core::imp::interface_hierarchy!(IMSVidVideoRenderer2, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRenderer2 {
     pub unsafe fn Allocator(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Allocator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _Allocator(&self) -> windows_core::Result<super::IVMRSurfaceAllocator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._Allocator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Allocator_ID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Allocator_ID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllocator<P0>(&self, allocpresent: P0, id: i32) -> windows_core::Result<()>
@@ -10380,7 +10380,7 @@ impl IMSVidVideoRenderer2 {
         (windows_core::Interface::vtable(self).SetSuppressEffects)(windows_core::Interface::as_raw(self), bsuppress.param().abi()).ok()
     }
     pub unsafe fn SuppressEffects(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SuppressEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -10402,7 +10402,7 @@ windows_core::imp::define_interface!(IMSVidVideoRendererDevices, IMSVidVideoRend
 impl std::ops::Deref for IMSVidVideoRendererDevices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10410,12 +10410,12 @@ windows_core::imp::interface_hierarchy!(IMSVidVideoRendererDevices, windows_core
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererDevices {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -10423,7 +10423,7 @@ impl IMSVidVideoRendererDevices {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), v.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -10450,14 +10450,14 @@ pub struct IMSVidVideoRendererDevices_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSVidVideoRendererEvent, IMSVidVideoRendererEvent_Vtbl, 0x37b03545_a4c8_11d2_b634_00c04f79498e);
@@ -10465,7 +10465,7 @@ windows_core::imp::define_interface!(IMSVidVideoRendererEvent, IMSVidVideoRender
 impl std::ops::Deref for IMSVidVideoRendererEvent {
     type Target = IMSVidOutputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10488,7 +10488,7 @@ windows_core::imp::define_interface!(IMSVidVideoRendererEvent2, IMSVidVideoRende
 impl std::ops::Deref for IMSVidVideoRendererEvent2 {
     type Target = IMSVidOutputDeviceEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10511,7 +10511,7 @@ windows_core::imp::define_interface!(IMSVidWebDVD, IMSVidWebDVD_Vtbl, 0xcf45f88b
 impl std::ops::Deref for IMSVidWebDVD {
     type Target = IMSVidPlayback;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10568,7 +10568,7 @@ impl IMSVidWebDVD {
     where
         P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_AudioLanguage)(windows_core::Interface::as_raw(self), lstream, fformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShowMenu(&self, menuid: DVDMenuIDConstants) -> windows_core::Result<()> {
@@ -10581,11 +10581,11 @@ impl IMSVidWebDVD {
         (windows_core::Interface::vtable(self).ReturnFromSubmenu)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ButtonsAvailable(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ButtonsAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentButton(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentButton)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SelectAndActivateButton(&self, lbutton: i32) -> windows_core::Result<()> {
@@ -10613,55 +10613,55 @@ impl IMSVidWebDVD {
         (windows_core::Interface::vtable(self).SelectAtPosition)(windows_core::Interface::as_raw(self), xpos, ypos).ok()
     }
     pub unsafe fn get_ButtonAtPosition(&self, xpos: i32, ypos: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_ButtonAtPosition)(windows_core::Interface::as_raw(self), xpos, ypos, &mut result__).map(|| result__)
     }
     pub unsafe fn get_NumberOfChapters(&self, ltitle: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_NumberOfChapters)(windows_core::Interface::as_raw(self), ltitle, &mut result__).map(|| result__)
     }
     pub unsafe fn TotalTitleTime(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TotalTitleTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn TitlesAvailable(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TitlesAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn VolumesAvailable(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VolumesAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentVolume(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentVolume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentDiscSide(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentDiscSide)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentDomain(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentDomain)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentChapter(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentChapter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentTitle(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentTitle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentTime(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DVDTimeCode2bstr(&self, timecode: i32) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DVDTimeCode2bstr)(windows_core::Interface::as_raw(self), timecode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DVDDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DVDDirectory)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDVDDirectory<P0>(&self, newval: P0) -> windows_core::Result<()>
@@ -10671,52 +10671,52 @@ impl IMSVidWebDVD {
         (windows_core::Interface::vtable(self).SetDVDDirectory)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
     }
     pub unsafe fn IsSubpictureStreamEnabled(&self, lstream: i32) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsSubpictureStreamEnabled)(windows_core::Interface::as_raw(self), lstream, &mut result__).map(|| result__)
     }
     pub unsafe fn IsAudioStreamEnabled(&self, lstream: i32) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsAudioStreamEnabled)(windows_core::Interface::as_raw(self), lstream, &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentSubpictureStream(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentSubpictureStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCurrentSubpictureStream(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCurrentSubpictureStream)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn get_SubpictureLanguage(&self, lstream: i32) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_SubpictureLanguage)(windows_core::Interface::as_raw(self), lstream, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CurrentAudioStream(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentAudioStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCurrentAudioStream(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCurrentAudioStream)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn AudioStreamsAvailable(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AudioStreamsAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AnglesAvailable(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AnglesAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CurrentAngle(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentAngle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCurrentAngle(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCurrentAngle)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn SubpictureStreamsAvailable(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SubpictureStreamsAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SubpictureOn(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SubpictureOn)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSubpictureOn<P0>(&self, newval: P0) -> windows_core::Result<()>
@@ -10726,7 +10726,7 @@ impl IMSVidWebDVD {
         (windows_core::Interface::vtable(self).SetSubpictureOn)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
     }
     pub unsafe fn DVDUniqueID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DVDUniqueID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AcceptParentalLevelChange<P0, P1, P2>(&self, faccept: P0, strusername: P1, strpassword: P2) -> windows_core::Result<()>
@@ -10758,53 +10758,53 @@ impl IMSVidWebDVD {
         (windows_core::Interface::vtable(self).SelectParentalLevel)(windows_core::Interface::as_raw(self), lparentallevel, strusername.param().abi(), strpassword.param().abi()).ok()
     }
     pub unsafe fn get_TitleParentalLevels(&self, ltitle: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_TitleParentalLevels)(windows_core::Interface::as_raw(self), ltitle, &mut result__).map(|| result__)
     }
     pub unsafe fn PlayerParentalCountry(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PlayerParentalCountry)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn PlayerParentalLevel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PlayerParentalLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Eject(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Eject)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn UOPValid(&self, luop: i32) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UOPValid)(windows_core::Interface::as_raw(self), luop, &mut result__).map(|| result__)
     }
     pub unsafe fn get_SPRM(&self, lindex: i32) -> windows_core::Result<i16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_SPRM)(windows_core::Interface::as_raw(self), lindex, &mut result__).map(|| result__)
     }
     pub unsafe fn get_GPRM(&self, lindex: i32) -> windows_core::Result<i16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_GPRM)(windows_core::Interface::as_raw(self), lindex, &mut result__).map(|| result__)
     }
     pub unsafe fn put_GPRM(&self, lindex: i32, svalue: i16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).put_GPRM)(windows_core::Interface::as_raw(self), lindex, svalue).ok()
     }
     pub unsafe fn get_DVDTextStringType(&self, llangindex: i32, lstringindex: i32) -> windows_core::Result<DVDTextStringType> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_DVDTextStringType)(windows_core::Interface::as_raw(self), llangindex, lstringindex, &mut result__).map(|| result__)
     }
     pub unsafe fn get_DVDTextString(&self, llangindex: i32, lstringindex: i32) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_DVDTextString)(windows_core::Interface::as_raw(self), llangindex, lstringindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_DVDTextNumberOfStrings(&self, llangindex: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_DVDTextNumberOfStrings)(windows_core::Interface::as_raw(self), llangindex, &mut result__).map(|| result__)
     }
     pub unsafe fn DVDTextNumberOfLanguages(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DVDTextNumberOfLanguages)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn get_DVDTextLanguageLCID(&self, llangindex: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_DVDTextLanguageLCID)(windows_core::Interface::as_raw(self), llangindex, &mut result__).map(|| result__)
     }
     pub unsafe fn RegionChange(&self) -> windows_core::Result<()> {
@@ -10812,7 +10812,7 @@ impl IMSVidWebDVD {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDAdm(&self) -> windows_core::Result<super::super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DVDAdm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteBookmark(&self) -> windows_core::Result<()> {
@@ -10831,49 +10831,49 @@ impl IMSVidWebDVD {
         (windows_core::Interface::vtable(self).SelectDefaultSubpictureLanguage)(windows_core::Interface::as_raw(self), lang, ext).ok()
     }
     pub unsafe fn PreferredSubpictureStream(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PreferredSubpictureStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DefaultMenuLanguage(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultMenuLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultMenuLanguage(&self, lang: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultMenuLanguage)(windows_core::Interface::as_raw(self), lang).ok()
     }
     pub unsafe fn DefaultSubpictureLanguage(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultSubpictureLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DefaultAudioLanguage(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultAudioLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DefaultSubpictureLanguageExt(&self) -> windows_core::Result<DVDSPExt> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultSubpictureLanguageExt)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DefaultAudioLanguageExt(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultAudioLanguageExt)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn get_LanguageFromLCID(&self, lcid: i32) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_LanguageFromLCID)(windows_core::Interface::as_raw(self), lcid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn KaraokeAudioPresentationMode(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).KaraokeAudioPresentationMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKaraokeAudioPresentationMode(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetKaraokeAudioPresentationMode)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn get_KaraokeChannelContent(&self, lstream: i32, lchan: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_KaraokeChannelContent)(windows_core::Interface::as_raw(self), lstream, lchan, &mut result__).map(|| result__)
     }
     pub unsafe fn get_KaraokeChannelAssignment(&self, lstream: i32) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_KaraokeChannelAssignment)(windows_core::Interface::as_raw(self), lstream, &mut result__).map(|| result__)
     }
     pub unsafe fn RestorePreferredSettings(&self) -> windows_core::Result<()> {
@@ -10881,12 +10881,12 @@ impl IMSVidWebDVD {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ButtonRect(&self, lbutton: i32) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_ButtonRect)(windows_core::Interface::as_raw(self), lbutton, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDScreenInMouseCoordinates(&self) -> windows_core::Result<IMSVidRect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DVDScreenInMouseCoordinates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -10906,14 +10906,14 @@ pub struct IMSVidWebDVD_Vtbl {
     pub PlayChapterInTitle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub PlayChapter: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub PlayChaptersAutoStop: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
-    pub PlayAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub PlayAtTimeInTitle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub PlayPeriodInTitleAutoStop: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub PlayAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub PlayAtTimeInTitle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub PlayPeriodInTitleAutoStop: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ReplayChapter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PlayPrevChapter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PlayNextChapter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StillOff: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub get_AudioLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::super::Foundation::VARIANT_BOOL, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_AudioLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::super::Foundation::VARIANT_BOOL, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ShowMenu: unsafe extern "system" fn(*mut core::ffi::c_void, DVDMenuIDConstants) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReturnFromSubmenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10929,7 +10929,7 @@ pub struct IMSVidWebDVD_Vtbl {
     pub SelectAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub get_ButtonAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub get_NumberOfChapters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    pub TotalTitleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub TotalTitleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub TitlesAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub VolumesAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CurrentVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10937,15 +10937,15 @@ pub struct IMSVidWebDVD_Vtbl {
     pub CurrentDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CurrentChapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CurrentTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub CurrentTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub DVDTimeCode2bstr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub DVDDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetDVDDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub CurrentTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DVDTimeCode2bstr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DVDDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetDVDDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub IsSubpictureStreamEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub IsAudioStreamEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub CurrentSubpictureStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCurrentSubpictureStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub get_SubpictureLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_SubpictureLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub CurrentAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCurrentAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub AudioStreamsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10955,11 +10955,11 @@ pub struct IMSVidWebDVD_Vtbl {
     pub SubpictureStreamsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SubpictureOn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub SetSubpictureOn: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub DVDUniqueID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub AcceptParentalLevelChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DVDUniqueID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub AcceptParentalLevelChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub NotifyParentalLevelChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub SelectParentalCountry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SelectParentalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SelectParentalCountry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SelectParentalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub get_TitleParentalLevels: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub PlayerParentalCountry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub PlayerParentalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10969,7 +10969,7 @@ pub struct IMSVidWebDVD_Vtbl {
     pub get_GPRM: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i16) -> windows_core::HRESULT,
     pub put_GPRM: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i16) -> windows_core::HRESULT,
     pub get_DVDTextStringType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut DVDTextStringType) -> windows_core::HRESULT,
-    pub get_DVDTextString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_DVDTextString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub get_DVDTextNumberOfStrings: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub DVDTextNumberOfLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub get_DVDTextLanguageLCID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
@@ -10990,7 +10990,7 @@ pub struct IMSVidWebDVD_Vtbl {
     pub DefaultAudioLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DefaultSubpictureLanguageExt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DVDSPExt) -> windows_core::HRESULT,
     pub DefaultAudioLanguageExt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub get_LanguageFromLCID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_LanguageFromLCID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub KaraokeAudioPresentationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetKaraokeAudioPresentationMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_KaraokeChannelContent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
@@ -11015,7 +11015,7 @@ windows_core::imp::define_interface!(IMSVidWebDVD2, IMSVidWebDVD2_Vtbl, 0x702721
 impl std::ops::Deref for IMSVidWebDVD2 {
     type Target = IMSVidWebDVD;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11042,7 +11042,7 @@ windows_core::imp::define_interface!(IMSVidWebDVDAdm, IMSVidWebDVDAdm_Vtbl, 0xb8
 impl std::ops::Deref for IMSVidWebDVDAdm {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11076,40 +11076,40 @@ impl IMSVidWebDVDAdm {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ConfirmPassword)(windows_core::Interface::as_raw(self), strusername.param().abi(), strpassword.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetParentalLevel(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParentalLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetParentalCountry(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParentalCountry)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DefaultAudioLCID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultAudioLCID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultAudioLCID(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultAudioLCID)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn DefaultSubpictureLCID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultSubpictureLCID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultSubpictureLCID(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultSubpictureLCID)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn DefaultMenuLCID(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultMenuLCID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultMenuLCID(&self, newval: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultMenuLCID)(windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn BookmarkOnStop(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BookmarkOnStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBookmarkOnStop<P0>(&self, newval: P0) -> windows_core::Result<()>
@@ -11123,10 +11123,10 @@ impl IMSVidWebDVDAdm {
 #[repr(C)]
 pub struct IMSVidWebDVDAdm_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub ChangePassword: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SaveParentalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SaveParentalCountry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ConfirmPassword: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub ChangePassword: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SaveParentalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SaveParentalCountry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub ConfirmPassword: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub GetParentalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetParentalCountry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DefaultAudioLCID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11144,7 +11144,7 @@ windows_core::imp::define_interface!(IMSVidWebDVDEvent, IMSVidWebDVDEvent_Vtbl, 
 impl std::ops::Deref for IMSVidWebDVDEvent {
     type Target = IMSVidPlaybackEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11295,7 +11295,7 @@ impl IMSVidWebDVDEvent {
 #[repr(C)]
 pub struct IMSVidWebDVDEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
-    pub DVDNotify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::VARIANT>, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub DVDNotify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub PlayForwards: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub PlayBackwards: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub ShowMenu: unsafe extern "system" fn(*mut core::ffi::c_void, DVDMenuIDConstants, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -11325,7 +11325,7 @@ windows_core::imp::define_interface!(IMSVidXDS, IMSVidXDS_Vtbl, 0x11ebc158_e712_
 impl std::ops::Deref for IMSVidXDS {
     type Target = IMSVidFeature;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11333,7 +11333,7 @@ windows_core::imp::interface_hierarchy!(IMSVidXDS, windows_core::IUnknown, super
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidXDS {
     pub unsafe fn ChannelChangeInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ChannelChangeInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11349,7 +11349,7 @@ windows_core::imp::define_interface!(IMSVidXDSEvent, IMSVidXDSEvent_Vtbl, 0x6db2
 impl std::ops::Deref for IMSVidXDSEvent {
     type Target = IMSVidFeatureEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11370,7 +11370,7 @@ windows_core::imp::define_interface!(IMceBurnerControl, IMceBurnerControl_Vtbl, 
 impl std::ops::Deref for IMceBurnerControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMceBurnerControl, windows_core::IUnknown);
@@ -11388,24 +11388,24 @@ windows_core::imp::define_interface!(IMpeg2Data, IMpeg2Data_Vtbl, 0x9b396d40_f38
 impl std::ops::Deref for IMpeg2Data {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMpeg2Data, windows_core::IUnknown);
 impl IMpeg2Data {
     pub unsafe fn GetSection(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> windows_core::Result<ISectionList> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSection)(windows_core::Interface::as_raw(self), pid, tid, pfilter, dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTable(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> windows_core::Result<ISectionList> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTable)(windows_core::Interface::as_raw(self), pid, tid, pfilter, dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStreamOfSections<P0>(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: P0) -> windows_core::Result<IMpeg2Stream>
     where
         P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamOfSections)(windows_core::Interface::as_raw(self), pid, tid, pfilter, hdatareadyevent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11420,7 +11420,7 @@ windows_core::imp::define_interface!(IMpeg2Stream, IMpeg2Stream_Vtbl, 0x400cc286
 impl std::ops::Deref for IMpeg2Stream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMpeg2Stream, windows_core::IUnknown);
@@ -11446,7 +11446,7 @@ windows_core::imp::define_interface!(IMpeg2TableFilter, IMpeg2TableFilter_Vtbl, 
 impl std::ops::Deref for IMpeg2TableFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMpeg2TableFilter, windows_core::IUnknown);
@@ -11484,7 +11484,7 @@ windows_core::imp::define_interface!(IPAT, IPAT_Vtbl, 0x6623b511_4b5f_43c3_9a01_
 impl std::ops::Deref for IPAT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPAT, windows_core::IUnknown);
@@ -11497,27 +11497,27 @@ impl IPAT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetTransportStreamId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportStreamId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordProgramNumber(&self, dwindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordProgramNumber)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordProgramMapPid(&self, dwindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordProgramMapPid)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn FindRecordProgramMapPid(&self, wprogramnumber: u16) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindRecordProgramMapPid)(windows_core::Interface::as_raw(self), wprogramnumber, &mut result__).map(|| result__)
     }
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> windows_core::Result<()>
@@ -11527,7 +11527,7 @@ impl IPAT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<IPAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -11559,17 +11559,17 @@ windows_core::imp::define_interface!(IPBDAAttributesDescriptor, IPBDAAttributesD
 impl std::ops::Deref for IPBDAAttributesDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPBDAAttributesDescriptor, windows_core::IUnknown);
 impl IPBDAAttributesDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributePayload(&self, ppbattributebuffer: *mut *mut u8, pdwattributelength: *mut u32) -> windows_core::Result<()> {
@@ -11587,17 +11587,17 @@ windows_core::imp::define_interface!(IPBDAEntitlementDescriptor, IPBDAEntitlemen
 impl std::ops::Deref for IPBDAEntitlementDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPBDAEntitlementDescriptor, windows_core::IUnknown);
 impl IPBDAEntitlementDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLength(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetToken(&self, ppbtokenbuffer: *mut *mut u8, pdwtokenlength: *mut u32) -> windows_core::Result<()> {
@@ -11615,7 +11615,7 @@ windows_core::imp::define_interface!(IPBDASiParser, IPBDASiParser_Vtbl, 0x9de49a
 impl std::ops::Deref for IPBDASiParser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPBDASiParser, windows_core::IUnknown);
@@ -11627,11 +11627,11 @@ impl IPBDASiParser {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn GetEIT(&self, dwsize: u32, pbuffer: *const u8) -> windows_core::Result<IPBDA_EIT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEIT)(windows_core::Interface::as_raw(self), dwsize, pbuffer, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetServices(&self, dwsize: u32, pbuffer: *const u8) -> windows_core::Result<IPBDA_Services> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServices)(windows_core::Interface::as_raw(self), dwsize, pbuffer, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11646,7 +11646,7 @@ windows_core::imp::define_interface!(IPBDA_EIT, IPBDA_EIT_Vtbl, 0xa35f2dea_098f_
 impl std::ops::Deref for IPBDA_EIT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPBDA_EIT, windows_core::IUnknown);
@@ -11655,39 +11655,39 @@ impl IPBDA_EIT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetTableId(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceIdx(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceIdx)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordEventId(&self, dwrecordindex: u32) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordEventId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordStartTime(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_DATE_AND_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordStartTime)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDuration(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDuration)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -11713,7 +11713,7 @@ windows_core::imp::define_interface!(IPBDA_Services, IPBDA_Services_Vtbl, 0x944e
 impl std::ops::Deref for IPBDA_Services {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPBDA_Services, windows_core::IUnknown);
@@ -11722,11 +11722,11 @@ impl IPBDA_Services {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordByIndex(&self, dwrecordindex: u32) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
 }
@@ -11741,7 +11741,7 @@ windows_core::imp::define_interface!(IPMT, IPMT_Vtbl, 0x01f3b398_9527_4736_94db_
 impl std::ops::Deref for IPMT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPMT, windows_core::IUnknown);
@@ -11754,46 +11754,46 @@ impl IPMT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetProgramNumber(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProgramNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPcrPid(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPcrPid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTableDescriptorByTag)(windows_core::Interface::as_raw(self), btag, pdwcookie, core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordStreamType(&self, dwrecordindex: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordStreamType)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordElementaryPid(&self, dwrecordindex: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordElementaryPid)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordCountOfDescriptors)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwdescindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecordDescriptorByIndex)(windows_core::Interface::as_raw(self), dwrecordindex, dwdescindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -11812,7 +11812,7 @@ impl IPMT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<IPMT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -11852,13 +11852,13 @@ windows_core::imp::define_interface!(IPSITables, IPSITables_Vtbl, 0x919f24c5_7b1
 impl std::ops::Deref for IPSITables {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPSITables, windows_core::IUnknown);
 impl IPSITables {
     pub unsafe fn GetTable(&self, dwtsid: u32, dwtid_pid: u32, dwhashedver: u32, dwpara4: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTable)(windows_core::Interface::as_raw(self), dwtsid, dwtid_pid, dwhashedver, dwpara4, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11871,7 +11871,7 @@ windows_core::imp::define_interface!(IPTFilterLicenseRenewal, IPTFilterLicenseRe
 impl std::ops::Deref for IPTFilterLicenseRenewal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPTFilterLicenseRenewal, windows_core::IUnknown);
@@ -11900,7 +11900,7 @@ windows_core::imp::define_interface!(IPersistTuneXml, IPersistTuneXml_Vtbl, 0x07
 impl std::ops::Deref for IPersistTuneXml {
     type Target = super::super::super::System::Com::IPersist;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11917,7 +11917,7 @@ impl IPersistTuneXml {
         (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), varvalue.param().abi()).ok()
     }
     pub unsafe fn Save(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11926,14 +11926,14 @@ impl IPersistTuneXml {
 pub struct IPersistTuneXml_Vtbl {
     pub base__: super::super::super::System::Com::IPersist_Vtbl,
     pub InitNew: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPersistTuneXmlUtility, IPersistTuneXmlUtility_Vtbl, 0x990237ae_ac11_4614_be8f_dd217a4cb4cb);
 impl std::ops::Deref for IPersistTuneXmlUtility {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility, windows_core::IUnknown);
@@ -11942,20 +11942,20 @@ impl IPersistTuneXmlUtility {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Deserialize)(windows_core::Interface::as_raw(self), varvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IPersistTuneXmlUtility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPersistTuneXmlUtility2, IPersistTuneXmlUtility2_Vtbl, 0x992e165f_ea24_4b2f_9a1d_009d92120451);
 impl std::ops::Deref for IPersistTuneXmlUtility2 {
     type Target = IPersistTuneXmlUtility;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility2, windows_core::IUnknown, IPersistTuneXmlUtility);
@@ -11965,7 +11965,7 @@ impl IPersistTuneXmlUtility2 {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pitunerequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11973,7 +11973,7 @@ impl IPersistTuneXmlUtility2 {
 pub struct IPersistTuneXmlUtility2_Vtbl {
     pub base__: IPersistTuneXmlUtility_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Serialize: usize,
 }
@@ -11981,7 +11981,7 @@ windows_core::imp::define_interface!(IRegisterTuner, IRegisterTuner_Vtbl, 0x359b
 impl std::ops::Deref for IRegisterTuner {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRegisterTuner, windows_core::IUnknown);
@@ -12007,7 +12007,7 @@ windows_core::imp::define_interface!(ISBE2Crossbar, ISBE2Crossbar_Vtbl, 0x547b6d
 impl std::ops::Deref for ISBE2Crossbar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2Crossbar, windows_core::IUnknown);
@@ -12016,7 +12016,7 @@ impl ISBE2Crossbar {
         (windows_core::Interface::vtable(self).EnableDefaultMode)(windows_core::Interface::as_raw(self), defaultflags).ok()
     }
     pub unsafe fn GetInitialProfile(&self) -> windows_core::Result<ISBE2MediaTypeProfile> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInitialProfile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOutputProfile<P0>(&self, pprofile: P0, pcoutputpins: *mut u32, ppoutputpins: *mut Option<super::IPin>) -> windows_core::Result<()>
@@ -12026,7 +12026,7 @@ impl ISBE2Crossbar {
         (windows_core::Interface::vtable(self).SetOutputProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi(), pcoutputpins, core::mem::transmute(ppoutputpins)).ok()
     }
     pub unsafe fn EnumStreams(&self) -> windows_core::Result<ISBE2EnumStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumStreams)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -12042,7 +12042,7 @@ windows_core::imp::define_interface!(ISBE2EnumStream, ISBE2EnumStream_Vtbl, 0xf7
 impl std::ops::Deref for ISBE2EnumStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2EnumStream, windows_core::IUnknown);
@@ -12057,7 +12057,7 @@ impl ISBE2EnumStream {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ISBE2EnumStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -12073,7 +12073,7 @@ windows_core::imp::define_interface!(ISBE2FileScan, ISBE2FileScan_Vtbl, 0x3e2bf5
 impl std::ops::Deref for ISBE2FileScan {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2FileScan, windows_core::IUnknown);
@@ -12094,7 +12094,7 @@ windows_core::imp::define_interface!(ISBE2GlobalEvent, ISBE2GlobalEvent_Vtbl, 0x
 impl std::ops::Deref for ISBE2GlobalEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent, windows_core::IUnknown);
@@ -12112,7 +12112,7 @@ windows_core::imp::define_interface!(ISBE2GlobalEvent2, ISBE2GlobalEvent2_Vtbl, 
 impl std::ops::Deref for ISBE2GlobalEvent2 {
     type Target = ISBE2GlobalEvent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent2, windows_core::IUnknown, ISBE2GlobalEvent);
@@ -12130,18 +12130,18 @@ windows_core::imp::define_interface!(ISBE2MediaTypeProfile, ISBE2MediaTypeProfil
 impl std::ops::Deref for ISBE2MediaTypeProfile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2MediaTypeProfile, windows_core::IUnknown);
 impl ISBE2MediaTypeProfile {
     pub unsafe fn GetStreamCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetStream(&self, index: u32) -> windows_core::Result<*mut super::super::MediaFoundation::AM_MEDIA_TYPE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -12170,7 +12170,7 @@ windows_core::imp::define_interface!(ISBE2SpanningEvent, ISBE2SpanningEvent_Vtbl
 impl std::ops::Deref for ISBE2SpanningEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2SpanningEvent, windows_core::IUnknown);
@@ -12188,7 +12188,7 @@ windows_core::imp::define_interface!(ISBE2StreamMap, ISBE2StreamMap_Vtbl, 0x667c
 impl std::ops::Deref for ISBE2StreamMap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISBE2StreamMap, windows_core::IUnknown);
@@ -12200,7 +12200,7 @@ impl ISBE2StreamMap {
         (windows_core::Interface::vtable(self).UnmapStream)(windows_core::Interface::as_raw(self), stream).ok()
     }
     pub unsafe fn EnumMappedStreams(&self) -> windows_core::Result<ISBE2EnumStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumMappedStreams)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -12215,7 +12215,7 @@ windows_core::imp::define_interface!(ISCTE_EAS, ISCTE_EAS_Vtbl, 0x1ff544d6_161d_
 impl std::ops::Deref for ISCTE_EAS {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISCTE_EAS, windows_core::IUnknown);
@@ -12228,115 +12228,115 @@ impl ISCTE_EAS {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSequencyNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSequencyNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocolVersion(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtocolVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEASEventID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEASEventID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOriginatorCode(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOriginatorCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEASEventCodeLen(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEASEventCodeLen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEASEventCode(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEASEventCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRawNatureOfActivationTextLen(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRawNatureOfActivationTextLen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRawNatureOfActivationText(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRawNatureOfActivationText)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNatureOfActivationText<P0>(&self, bstris0639code: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNatureOfActivationText)(windows_core::Interface::as_raw(self), bstris0639code.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTimeRemaining(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTimeRemaining)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStartTime(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDuration(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAlertPriority(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAlertPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDetailsOOBSourceID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDetailsOOBSourceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDetailsMajor(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDetailsMajor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDetailsMinor(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDetailsMinor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDetailsAudioOOBSourceID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDetailsAudioOOBSourceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAlertText<P0>(&self, bstris0639code: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAlertText)(windows_core::Interface::as_raw(self), bstris0639code.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRawAlertTextLen(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRawAlertTextLen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRawAlertText(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRawAlertText)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLocationCount(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLocationCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLocationCodes(&self, bindex: u8, pbstate: *mut u8, pbcountysubdivision: *mut u8, pwcounty: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLocationCodes)(windows_core::Interface::as_raw(self), bindex, pbstate, pbcountysubdivision, pwcounty).ok()
     }
     pub unsafe fn GetExceptionCount(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExceptionCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetExceptionService(&self, bindex: u8, pbibref: *mut u8, pwfirst: *mut u16, pwsecond: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionService)(windows_core::Interface::as_raw(self), bindex, pbibref, pwfirst, pwsecond).ok()
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -12356,7 +12356,7 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetEASEventCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRawNatureOfActivationTextLen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRawNatureOfActivationText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetNatureOfActivationText: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetNatureOfActivationText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetTimeRemaining: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -12365,7 +12365,7 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetDetailsMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetDetailsMinor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetDetailsAudioOOBSourceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetAlertText: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetAlertText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetRawAlertTextLen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetRawAlertText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLocationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12380,7 +12380,7 @@ windows_core::imp::define_interface!(ISIInbandEPG, ISIInbandEPG_Vtbl, 0xf90ad9d0
 impl std::ops::Deref for ISIInbandEPG {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISIInbandEPG, windows_core::IUnknown);
@@ -12392,7 +12392,7 @@ impl ISIInbandEPG {
         (windows_core::Interface::vtable(self).StopSIEPGScan)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn IsSIEPGScanRunning(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsSIEPGScanRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -12407,7 +12407,7 @@ windows_core::imp::define_interface!(ISIInbandEPGEvent, ISIInbandEPGEvent_Vtbl, 
 impl std::ops::Deref for ISIInbandEPGEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISIInbandEPGEvent, windows_core::IUnknown);
@@ -12428,7 +12428,7 @@ windows_core::imp::define_interface!(IScanningTuner, IScanningTuner_Vtbl, 0x1dfd
 impl std::ops::Deref for IScanningTuner {
     type Target = ITuner;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IScanningTuner, windows_core::IUnknown, ITuner);
@@ -12462,7 +12462,7 @@ windows_core::imp::define_interface!(IScanningTunerEx, IScanningTunerEx_Vtbl, 0x
 impl std::ops::Deref for IScanningTunerEx {
     type Target = IScanningTuner;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IScanningTunerEx, windows_core::IUnknown, ITuner, IScanningTuner);
@@ -12478,7 +12478,7 @@ impl IScanningTunerEx {
         (windows_core::Interface::vtable(self).PerformExhaustiveScan)(windows_core::Interface::as_raw(self), dwlowerfreq, dwhigherfreq, bfinetune.param().abi(), hevent).ok()
     }
     pub unsafe fn TerminateCurrentScan(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TerminateCurrentScan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ResumeCurrentScan(&self, hevent: usize) -> windows_core::Result<()> {
@@ -12516,7 +12516,7 @@ windows_core::imp::define_interface!(ISectionList, ISectionList_Vtbl, 0xafec1eb5
 impl std::ops::Deref for ISectionList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISectionList, windows_core::IUnknown);
@@ -12535,7 +12535,7 @@ impl ISectionList {
         (windows_core::Interface::vtable(self).CancelPendingRequest)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetNumberOfSections(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNumberOfSections)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSectionData(&self, sectionnumber: u16, pdwrawpacketlength: *mut u32, ppsection: *mut *mut SECTION) -> windows_core::Result<()> {
@@ -12563,25 +12563,25 @@ windows_core::imp::define_interface!(IServiceLocationDescriptor, IServiceLocatio
 impl std::ops::Deref for IServiceLocationDescriptor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IServiceLocationDescriptor, windows_core::IUnknown);
 impl IServiceLocationDescriptor {
     pub unsafe fn GetPCR_PID(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPCR_PID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberOfElements(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNumberOfElements)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetElementStreamType(&self, bindex: u8) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetElementStreamType)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetElementPID(&self, bindex: u8) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetElementPID)(windows_core::Interface::as_raw(self), bindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetElementLanguageCode(&self, bindex: u8, langcode: &mut [u8; 3]) -> windows_core::Result<()> {
@@ -12601,7 +12601,7 @@ windows_core::imp::define_interface!(IStreamBufferConfigure, IStreamBufferConfig
 impl std::ops::Deref for IStreamBufferConfigure {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure, windows_core::IUnknown);
@@ -12613,7 +12613,7 @@ impl IStreamBufferConfigure {
         (windows_core::Interface::vtable(self).SetDirectory)(windows_core::Interface::as_raw(self), pszdirectoryname.param().abi()).ok()
     }
     pub unsafe fn GetDirectory(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBackingFileCount(&self, dwmin: u32, dwmax: u32) -> windows_core::Result<()> {
@@ -12626,7 +12626,7 @@ impl IStreamBufferConfigure {
         (windows_core::Interface::vtable(self).SetBackingFileDuration)(windows_core::Interface::as_raw(self), dwseconds).ok()
     }
     pub unsafe fn GetBackingFileDuration(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBackingFileDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -12644,7 +12644,7 @@ windows_core::imp::define_interface!(IStreamBufferConfigure2, IStreamBufferConfi
 impl std::ops::Deref for IStreamBufferConfigure2 {
     type Target = IStreamBufferConfigure;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure2, windows_core::IUnknown, IStreamBufferConfigure);
@@ -12653,7 +12653,7 @@ impl IStreamBufferConfigure2 {
         (windows_core::Interface::vtable(self).SetMultiplexedPacketSize)(windows_core::Interface::as_raw(self), cbbytesperpacket).ok()
     }
     pub unsafe fn GetMultiplexedPacketSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMultiplexedPacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFFTransitionRates(&self, dwmaxfullframerate: u32, dwmaxnonskippingrate: u32) -> windows_core::Result<()> {
@@ -12675,7 +12675,7 @@ windows_core::imp::define_interface!(IStreamBufferConfigure3, IStreamBufferConfi
 impl std::ops::Deref for IStreamBufferConfigure3 {
     type Target = IStreamBufferConfigure2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure3, windows_core::IUnknown, IStreamBufferConfigure, IStreamBufferConfigure2);
@@ -12687,7 +12687,7 @@ impl IStreamBufferConfigure3 {
         (windows_core::Interface::vtable(self).SetStartRecConfig)(windows_core::Interface::as_raw(self), fstartstopscur.param().abi()).ok()
     }
     pub unsafe fn GetStartRecConfig(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartRecConfig)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNamespace<P0>(&self, psznamespace: P0) -> windows_core::Result<()>
@@ -12697,7 +12697,7 @@ impl IStreamBufferConfigure3 {
         (windows_core::Interface::vtable(self).SetNamespace)(windows_core::Interface::as_raw(self), psznamespace.param().abi()).ok()
     }
     pub unsafe fn GetNamespace(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNamespace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -12713,7 +12713,7 @@ windows_core::imp::define_interface!(IStreamBufferDataCounters, IStreamBufferDat
 impl std::ops::Deref for IStreamBufferDataCounters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferDataCounters, windows_core::IUnknown);
@@ -12735,7 +12735,7 @@ windows_core::imp::define_interface!(IStreamBufferInitialize, IStreamBufferIniti
 impl std::ops::Deref for IStreamBufferInitialize {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferInitialize, windows_core::IUnknown);
@@ -12764,7 +12764,7 @@ windows_core::imp::define_interface!(IStreamBufferMediaSeeking, IStreamBufferMed
 impl std::ops::Deref for IStreamBufferMediaSeeking {
     type Target = super::IMediaSeeking;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking, windows_core::IUnknown, super::IMediaSeeking);
@@ -12777,7 +12777,7 @@ windows_core::imp::define_interface!(IStreamBufferMediaSeeking2, IStreamBufferMe
 impl std::ops::Deref for IStreamBufferMediaSeeking2 {
     type Target = IStreamBufferMediaSeeking;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking2, windows_core::IUnknown, super::IMediaSeeking, IStreamBufferMediaSeeking);
@@ -12795,7 +12795,7 @@ windows_core::imp::define_interface!(IStreamBufferRecComp, IStreamBufferRecComp_
 impl std::ops::Deref for IStreamBufferRecComp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferRecComp, windows_core::IUnknown);
@@ -12820,7 +12820,7 @@ impl IStreamBufferRecComp {
         (windows_core::Interface::vtable(self).AppendEx)(windows_core::Interface::as_raw(self), pszsbrecording.param().abi(), rtstart, rtstop).ok()
     }
     pub unsafe fn GetCurrentLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrentLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
@@ -12844,7 +12844,7 @@ windows_core::imp::define_interface!(IStreamBufferRecordControl, IStreamBufferRe
 impl std::ops::Deref for IStreamBufferRecordControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferRecordControl, windows_core::IUnknown);
@@ -12870,7 +12870,7 @@ windows_core::imp::define_interface!(IStreamBufferRecordingAttribute, IStreamBuf
 impl std::ops::Deref for IStreamBufferRecordingAttribute {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferRecordingAttribute, windows_core::IUnknown);
@@ -12882,7 +12882,7 @@ impl IStreamBufferRecordingAttribute {
         (windows_core::Interface::vtable(self).SetAttribute)(windows_core::Interface::as_raw(self), ulreserved, pszattributename.param().abi(), streambufferattributetype, core::mem::transmute(pbattribute.as_ptr()), pbattribute.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetAttributeCount(&self, ulreserved: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAttributeCount)(windows_core::Interface::as_raw(self), ulreserved, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributeByName<P0>(&self, pszattributename: P0, pulreserved: *const u32, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
@@ -12895,7 +12895,7 @@ impl IStreamBufferRecordingAttribute {
         (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), windex, pulreserved, core::mem::transmute(pszattributename), pcchnamelength, pstreambufferattributetype, pbattribute, pcblength).ok()
     }
     pub unsafe fn EnumAttributes(&self) -> windows_core::Result<IEnumStreamBufferRecordingAttrib> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -12912,7 +12912,7 @@ windows_core::imp::define_interface!(IStreamBufferSink, IStreamBufferSink_Vtbl, 
 impl std::ops::Deref for IStreamBufferSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferSink, windows_core::IUnknown);
@@ -12927,7 +12927,7 @@ impl IStreamBufferSink {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRecorder)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), dwrecordtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsProfileLocked(&self) -> windows_core::Result<()> {
@@ -12945,7 +12945,7 @@ windows_core::imp::define_interface!(IStreamBufferSink2, IStreamBufferSink2_Vtbl
 impl std::ops::Deref for IStreamBufferSink2 {
     type Target = IStreamBufferSink;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferSink2, windows_core::IUnknown, IStreamBufferSink);
@@ -12963,7 +12963,7 @@ windows_core::imp::define_interface!(IStreamBufferSink3, IStreamBufferSink3_Vtbl
 impl std::ops::Deref for IStreamBufferSink3 {
     type Target = IStreamBufferSink2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferSink3, windows_core::IUnknown, IStreamBufferSink, IStreamBufferSink2);
@@ -12981,7 +12981,7 @@ windows_core::imp::define_interface!(IStreamBufferSource, IStreamBufferSource_Vt
 impl std::ops::Deref for IStreamBufferSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferSource, windows_core::IUnknown);
@@ -13002,7 +13002,7 @@ windows_core::imp::define_interface!(ITSDT, ITSDT_Vtbl, 0xd19bdb43_405b_4a7c_a79
 impl std::ops::Deref for ITSDT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITSDT, windows_core::IUnknown);
@@ -13015,15 +13015,15 @@ impl ITSDT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi(), pmpegdata.param().abi()).ok()
     }
     pub unsafe fn GetVersionNumber(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCountOfTableDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTableDescriptorByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut Option<IGenericDescriptor>) -> windows_core::Result<()> {
@@ -13036,7 +13036,7 @@ impl ITSDT {
         (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable.param().abi()).ok()
     }
     pub unsafe fn GetNextTable(&self) -> windows_core::Result<ITSDT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> windows_core::Result<()>
@@ -13068,7 +13068,7 @@ windows_core::imp::define_interface!(ITuneRequest, ITuneRequest_Vtbl, 0x07ddc146
 impl std::ops::Deref for ITuneRequest {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13077,22 +13077,22 @@ windows_core::imp::interface_hierarchy!(ITuneRequest, windows_core::IUnknown, su
 impl ITuneRequest {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> windows_core::Result<ITuningSpace> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuningSpace)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> windows_core::Result<IComponents> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Components)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<ITuneRequest> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> windows_core::Result<ILocator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Locator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13132,7 +13132,7 @@ windows_core::imp::define_interface!(ITuneRequestInfo, ITuneRequestInfo_Vtbl, 0x
 impl std::ops::Deref for ITuneRequestInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITuneRequestInfo, windows_core::IUnknown);
@@ -13163,7 +13163,7 @@ impl ITuneRequestInfo {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextProgram)(windows_core::Interface::as_raw(self), currentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13171,7 +13171,7 @@ impl ITuneRequestInfo {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPreviousProgram)(windows_core::Interface::as_raw(self), currentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13179,7 +13179,7 @@ impl ITuneRequestInfo {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextLocator)(windows_core::Interface::as_raw(self), currentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13187,7 +13187,7 @@ impl ITuneRequestInfo {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPreviousLocator)(windows_core::Interface::as_raw(self), currentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -13227,7 +13227,7 @@ windows_core::imp::define_interface!(ITuneRequestInfoEx, ITuneRequestInfoEx_Vtbl
 impl std::ops::Deref for ITuneRequestInfoEx {
     type Target = ITuneRequestInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITuneRequestInfoEx, windows_core::IUnknown, ITuneRequestInfo);
@@ -13237,7 +13237,7 @@ impl ITuneRequestInfoEx {
     where
         P0: windows_core::Param<ITuneRequest>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateComponentListEx)(windows_core::Interface::as_raw(self), currentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -13253,14 +13253,14 @@ windows_core::imp::define_interface!(ITuner, ITuner_Vtbl, 0x28c52640_018a_11d3_9
 impl std::ops::Deref for ITuner {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITuner, windows_core::IUnknown);
 impl ITuner {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> windows_core::Result<ITuningSpace> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuningSpace)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13271,12 +13271,12 @@ impl ITuner {
         (windows_core::Interface::vtable(self).SetTuningSpace)(windows_core::Interface::as_raw(self), tuningspace.param().abi()).ok()
     }
     pub unsafe fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumTuningSpaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> windows_core::Result<ITuneRequest> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuneRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13295,7 +13295,7 @@ impl ITuner {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> windows_core::Result<IComponentTypes> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PreferredComponentTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13306,7 +13306,7 @@ impl ITuner {
         (windows_core::Interface::vtable(self).SetPreferredComponentTypes)(windows_core::Interface::as_raw(self), componenttypes.param().abi()).ok()
     }
     pub unsafe fn SignalStrength(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SignalStrength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn TriggerSignalEvents(&self, interval: i32) -> windows_core::Result<()> {
@@ -13352,7 +13352,7 @@ windows_core::imp::define_interface!(ITunerCap, ITunerCap_Vtbl, 0xe60dfa45_8d56_
 impl std::ops::Deref for ITunerCap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITunerCap, windows_core::IUnknown);
@@ -13378,13 +13378,13 @@ windows_core::imp::define_interface!(ITunerCapEx, ITunerCapEx_Vtbl, 0xed3e0c66_1
 impl std::ops::Deref for ITunerCapEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITunerCapEx, windows_core::IUnknown);
 impl ITunerCapEx {
     pub unsafe fn Has608_708Caption(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Has608_708Caption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -13399,7 +13399,7 @@ windows_core::imp::define_interface!(ITuningSpace, ITuningSpace_Vtbl, 0x061c6e30
 impl std::ops::Deref for ITuningSpace {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13407,7 +13407,7 @@ windows_core::imp::interface_hierarchy!(ITuningSpace, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl ITuningSpace {
     pub unsafe fn UniqueName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UniqueName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetUniqueName<P0>(&self, name: P0) -> windows_core::Result<()>
@@ -13417,7 +13417,7 @@ impl ITuningSpace {
         (windows_core::Interface::vtable(self).SetUniqueName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FriendlyName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFriendlyName<P0>(&self, name: P0) -> windows_core::Result<()>
@@ -13427,11 +13427,11 @@ impl ITuningSpace {
         (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn CLSID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CLSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn NetworkType(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NetworkType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetNetworkType<P0>(&self, networktypeguid: P0) -> windows_core::Result<()>
@@ -13441,7 +13441,7 @@ impl ITuningSpace {
         (windows_core::Interface::vtable(self).SetNetworkType)(windows_core::Interface::as_raw(self), networktypeguid.param().abi()).ok()
     }
     pub unsafe fn _NetworkType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NetworkType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -13449,22 +13449,22 @@ impl ITuningSpace {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> windows_core::Result<ITuneRequest> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTuneRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> windows_core::Result<super::super::super::System::Com::IEnumGUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumCategoryGUIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumDeviceMonikers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> windows_core::Result<IComponentTypes> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultPreferredComponentTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13475,7 +13475,7 @@ impl ITuningSpace {
         (windows_core::Interface::vtable(self).SetDefaultPreferredComponentTypes)(windows_core::Interface::as_raw(self), newcomponenttypes.param().abi()).ok()
     }
     pub unsafe fn FrequencyMapping(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FrequencyMapping)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFrequencyMapping<P0>(&self, mapping: P0) -> windows_core::Result<()>
@@ -13486,7 +13486,7 @@ impl ITuningSpace {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> windows_core::Result<ILocator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DefaultLocator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13498,7 +13498,7 @@ impl ITuningSpace {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> windows_core::Result<ITuningSpace> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -13506,13 +13506,13 @@ impl ITuningSpace {
 #[repr(C)]
 pub struct ITuningSpace_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub UniqueName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetUniqueName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub CLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub NetworkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetNetworkType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub UniqueName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetUniqueName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub CLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub NetworkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetNetworkType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub _NetworkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Set_NetworkType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -13535,8 +13535,8 @@ pub struct ITuningSpace_Vtbl {
     pub SetDefaultPreferredComponentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetDefaultPreferredComponentTypes: usize,
-    pub FrequencyMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetFrequencyMapping: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub FrequencyMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetFrequencyMapping: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DefaultLocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13556,7 +13556,7 @@ windows_core::imp::define_interface!(ITuningSpaceContainer, ITuningSpaceContaine
 impl std::ops::Deref for ITuningSpaceContainer {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13564,12 +13564,12 @@ windows_core::imp::interface_hierarchy!(ITuningSpaceContainer, windows_core::IUn
 #[cfg(feature = "Win32_System_Com")]
 impl ITuningSpaceContainer {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13577,7 +13577,7 @@ impl ITuningSpaceContainer {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13593,12 +13593,12 @@ impl ITuningSpaceContainer {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuningSpacesForCLSID)(windows_core::Interface::as_raw(self), spaceclsid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn _TuningSpacesForCLSID2(&self, spaceclsid: *const windows_core::GUID) -> windows_core::Result<ITuningSpaces> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._TuningSpacesForCLSID2)(windows_core::Interface::as_raw(self), spaceclsid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13606,7 +13606,7 @@ impl ITuningSpaceContainer {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuningSpacesForName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13614,7 +13614,7 @@ impl ITuningSpaceContainer {
     where
         P0: windows_core::Param<ITuningSpace>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindID)(windows_core::Interface::as_raw(self), tuningspace.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13622,11 +13622,11 @@ impl ITuningSpaceContainer {
     where
         P0: windows_core::Param<ITuningSpace>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), tuningspace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumTuningSpaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove<P0>(&self, index: P0) -> windows_core::Result<()>
@@ -13636,7 +13636,7 @@ impl ITuningSpaceContainer {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), index.param().abi()).ok()
     }
     pub unsafe fn MaxCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaxCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxCount(&self, maxcount: i32) -> windows_core::Result<()> {
@@ -13653,15 +13653,15 @@ pub struct ITuningSpaceContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub put_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     put_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub TuningSpacesForCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TuningSpacesForCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TuningSpacesForCLSID: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -13669,7 +13669,7 @@ pub struct ITuningSpaceContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     _TuningSpacesForCLSID2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub TuningSpacesForName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TuningSpacesForName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TuningSpacesForName: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -13677,11 +13677,11 @@ pub struct ITuningSpaceContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     FindID: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub MaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
@@ -13691,7 +13691,7 @@ windows_core::imp::define_interface!(ITuningSpaces, ITuningSpaces_Vtbl, 0x901284
 impl std::ops::Deref for ITuningSpaces {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13699,12 +13699,12 @@ windows_core::imp::interface_hierarchy!(ITuningSpaces, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl ITuningSpaces {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13712,11 +13712,11 @@ impl ITuningSpaces {
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumTuningSpaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -13730,7 +13730,7 @@ pub struct ITuningSpaces_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13739,20 +13739,20 @@ windows_core::imp::define_interface!(IXDSCodec, IXDSCodec_Vtbl, 0xc4c4c4b3_0049_
 impl std::ops::Deref for IXDSCodec {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXDSCodec, windows_core::IUnknown);
 impl IXDSCodec {
     pub unsafe fn XDSToRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).XDSToRatObjOK)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCCSubstreamService(&self, substreammask: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCCSubstreamService)(windows_core::Interface::as_raw(self), substreammask).ok()
     }
     pub unsafe fn CCSubstreamService(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CCSubstreamService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetContentAdvisoryRating(&self, prat: *mut i32, ppktseqid: *mut i32, pcallseqid: *mut i32, ptimestart: *mut i64, ptimeend: *mut i64) -> windows_core::Result<()> {
@@ -13762,7 +13762,7 @@ impl IXDSCodec {
         (windows_core::Interface::vtable(self).GetXDSPacket)(windows_core::Interface::as_raw(self), pxdsclasspkt, pxdstypepkt, core::mem::transmute(pbstrxdspkt), ppktseqid, pcallseqid, ptimestart, ptimeend).ok()
     }
     pub unsafe fn GetCurrLicenseExpDate(&self, prottype: *const ProtType) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrLicenseExpDate)(windows_core::Interface::as_raw(self), prottype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLastErrorCode(&self) -> windows_core::Result<()> {
@@ -13776,7 +13776,7 @@ pub struct IXDSCodec_Vtbl {
     pub SetCCSubstreamService: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub CCSubstreamService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetContentAdvisoryRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i64, *mut i64) -> windows_core::HRESULT,
-    pub GetXDSPacket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut i32, *mut i64, *mut i64) -> windows_core::HRESULT,
+    pub GetXDSPacket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut i32, *mut i64, *mut i64) -> windows_core::HRESULT,
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(*mut core::ffi::c_void, *const ProtType, *mut i32) -> windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -13784,13 +13784,13 @@ windows_core::imp::define_interface!(IXDSCodecConfig, IXDSCodecConfig_Vtbl, 0xc4
 impl std::ops::Deref for IXDSCodecConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXDSCodecConfig, windows_core::IUnknown);
 impl IXDSCodecConfig {
     pub unsafe fn GetSecureChannelObject(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSecureChannelObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPauseBufferTime(&self, dwpausebuffertime: u32) -> windows_core::Result<()> {
@@ -13809,7 +13809,7 @@ windows_core::imp::define_interface!(IXDSCodecEvents, IXDSCodecEvents_Vtbl, 0xc4
 impl std::ops::Deref for IXDSCodecEvents {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13827,7 +13827,7 @@ windows_core::imp::define_interface!(IXDSToRat, IXDSToRat_Vtbl, 0xc5c5c5b0_3abc_
 impl std::ops::Deref for IXDSToRat {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13854,7 +13854,7 @@ windows_core::imp::define_interface!(_IMSVidCtlEvents, _IMSVidCtlEvents_Vtbl, 0x
 impl std::ops::Deref for _IMSVidCtlEvents {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

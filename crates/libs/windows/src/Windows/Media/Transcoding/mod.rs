@@ -13,14 +13,14 @@ pub struct IMediaTranscoder_Vtbl {
     pub AlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub HardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub AddAudioEffect: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AddAudioEffect: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddAudioEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddAudioEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddAudioEffectWithSettings: usize,
-    pub AddVideoEffect: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AddVideoEffect: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddVideoEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddVideoEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddVideoEffectWithSettings: usize,
     pub ClearEffects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -77,7 +77,7 @@ impl MediaTranscoder {
     pub fn TrimStartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -88,7 +88,7 @@ impl MediaTranscoder {
     pub fn TrimStopTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimStopTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -99,7 +99,7 @@ impl MediaTranscoder {
     pub fn AlwaysReencode(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlwaysReencode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -110,7 +110,7 @@ impl MediaTranscoder {
     pub fn HardwareAccelerationEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareAccelerationEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -151,7 +151,7 @@ impl MediaTranscoder {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -164,7 +164,7 @@ impl MediaTranscoder {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -177,7 +177,7 @@ impl MediaTranscoder {
     {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -188,7 +188,7 @@ impl MediaTranscoder {
     pub fn VideoProcessingAlgorithm(&self) -> windows_core::Result<MediaVideoProcessingAlgorithm> {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoProcessingAlgorithm)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -213,21 +213,21 @@ impl PrepareTranscodeResult {
     pub fn CanTranscode(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanTranscode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn FailureReason(&self) -> windows_core::Result<TranscodeFailureReason> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FailureReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TranscodeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TranscodeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

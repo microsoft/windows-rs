@@ -61,13 +61,13 @@ where
 #[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateSurfaceHandle(desiredaccess : u32, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, surfacehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     DCompositionCreateSurfaceHandle(desiredaccess, core::mem::transmute(securityattributes.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> windows_core::Result<u64> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionGetFrameId(frameidtype : COMPOSITION_FRAME_ID_TYPE, frameid : *mut u64) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     DCompositionGetFrameId(frameidtype, &mut result__).map(|| result__)
 }
 #[inline]
@@ -89,7 +89,7 @@ windows_core::imp::define_interface!(IDCompositionAffineTransform2DEffect, IDCom
 impl std::ops::Deref for IDCompositionAffineTransform2DEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionAffineTransform2DEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -149,7 +149,7 @@ windows_core::imp::define_interface!(IDCompositionAnimation, IDCompositionAnimat
 impl std::ops::Deref for IDCompositionAnimation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionAnimation, windows_core::IUnknown);
@@ -187,7 +187,7 @@ windows_core::imp::define_interface!(IDCompositionArithmeticCompositeEffect, IDC
 impl std::ops::Deref for IDCompositionArithmeticCompositeEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -260,7 +260,7 @@ windows_core::imp::define_interface!(IDCompositionBlendEffect, IDCompositionBlen
 impl std::ops::Deref for IDCompositionBlendEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionBlendEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -282,7 +282,7 @@ windows_core::imp::define_interface!(IDCompositionBrightnessEffect, IDCompositio
 impl std::ops::Deref for IDCompositionBrightnessEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionBrightnessEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -356,7 +356,7 @@ windows_core::imp::define_interface!(IDCompositionClip, IDCompositionClip_Vtbl, 
 impl std::ops::Deref for IDCompositionClip {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionClip, windows_core::IUnknown);
@@ -369,7 +369,7 @@ windows_core::imp::define_interface!(IDCompositionColorMatrixEffect, IDCompositi
 impl std::ops::Deref for IDCompositionColorMatrixEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionColorMatrixEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -417,7 +417,7 @@ windows_core::imp::define_interface!(IDCompositionCompositeEffect, IDComposition
 impl std::ops::Deref for IDCompositionCompositeEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionCompositeEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -439,17 +439,17 @@ windows_core::imp::define_interface!(IDCompositionDelegatedInkTrail, IDCompositi
 impl std::ops::Deref for IDCompositionDelegatedInkTrail {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, windows_core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(inkpoints.as_ptr()), inkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
     pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), core::mem::transmute(inkpoints.as_ptr()), inkpoints.len().try_into().unwrap(), core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> windows_core::Result<()> {
@@ -475,7 +475,7 @@ windows_core::imp::define_interface!(IDCompositionDesktopDevice, IDCompositionDe
 impl std::ops::Deref for IDCompositionDesktopDevice {
     type Target = IDCompositionDevice2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDesktopDevice, windows_core::IUnknown, IDCompositionDevice2);
@@ -485,21 +485,21 @@ impl IDCompositionDesktopDevice {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -514,7 +514,7 @@ windows_core::imp::define_interface!(IDCompositionDevice, IDCompositionDevice_Vt
 impl std::ops::Deref for IDCompositionDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice, windows_core::IUnknown);
@@ -534,95 +534,95 @@ impl IDCompositionDevice {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTranslateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateScaleTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRotateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSkewTransform(&self) -> windows_core::Result<IDCompositionSkewTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSkewTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateMatrixTransform(&self) -> windows_core::Result<IDCompositionMatrixTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>]) -> windows_core::Result<IDCompositionTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTranslateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> windows_core::Result<IDCompositionScaleTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateScaleTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> windows_core::Result<IDCompositionRotateTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRotateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> windows_core::Result<IDCompositionMatrixTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateMatrixTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>]) -> windows_core::Result<IDCompositionTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEffectGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRectangleClip)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAnimation(&self) -> windows_core::Result<IDCompositionAnimation> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAnimation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CheckDeviceState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -667,7 +667,7 @@ windows_core::imp::define_interface!(IDCompositionDevice2, IDCompositionDevice2_
 impl std::ops::Deref for IDCompositionDevice2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice2, windows_core::IUnknown);
@@ -683,80 +683,80 @@ impl IDCompositionDevice2 {
         (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), statistics).ok()
     }
     pub unsafe fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> windows_core::Result<IDCompositionSurfaceFactory>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurfaceFactory)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTranslateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateScaleTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRotateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSkewTransform(&self) -> windows_core::Result<IDCompositionSkewTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSkewTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateMatrixTransform(&self) -> windows_core::Result<IDCompositionMatrixTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>]) -> windows_core::Result<IDCompositionTransform> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTranslateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> windows_core::Result<IDCompositionScaleTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateScaleTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> windows_core::Result<IDCompositionRotateTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRotateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> windows_core::Result<IDCompositionMatrixTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateMatrixTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>]) -> windows_core::Result<IDCompositionTransform3D> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEffectGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRectangleClip)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAnimation(&self) -> windows_core::Result<IDCompositionAnimation> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAnimation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -798,61 +798,61 @@ windows_core::imp::define_interface!(IDCompositionDevice3, IDCompositionDevice3_
 impl std::ops::Deref for IDCompositionDevice3 {
     type Target = IDCompositionDevice2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice3, windows_core::IUnknown, IDCompositionDevice2);
 impl IDCompositionDevice3 {
     pub unsafe fn CreateGaussianBlurEffect(&self) -> windows_core::Result<IDCompositionGaussianBlurEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateGaussianBlurEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateBrightnessEffect(&self) -> windows_core::Result<IDCompositionBrightnessEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBrightnessEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateColorMatrixEffect(&self) -> windows_core::Result<IDCompositionColorMatrixEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateColorMatrixEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateShadowEffect(&self) -> windows_core::Result<IDCompositionShadowEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateShadowEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateHueRotationEffect(&self) -> windows_core::Result<IDCompositionHueRotationEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateHueRotationEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSaturationEffect(&self) -> windows_core::Result<IDCompositionSaturationEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSaturationEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTurbulenceEffect(&self) -> windows_core::Result<IDCompositionTurbulenceEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTurbulenceEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateLinearTransferEffect(&self) -> windows_core::Result<IDCompositionLinearTransferEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateLinearTransferEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTableTransferEffect(&self) -> windows_core::Result<IDCompositionTableTransferEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateTableTransferEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateCompositeEffect(&self) -> windows_core::Result<IDCompositionCompositeEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateCompositeEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateBlendEffect(&self) -> windows_core::Result<IDCompositionBlendEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBlendEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateArithmeticCompositeEffect(&self) -> windows_core::Result<IDCompositionArithmeticCompositeEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateArithmeticCompositeEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAffineTransform2DEffect(&self) -> windows_core::Result<IDCompositionAffineTransform2DEffect> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAffineTransform2DEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -877,7 +877,7 @@ windows_core::imp::define_interface!(IDCompositionDevice4, IDCompositionDevice4_
 impl std::ops::Deref for IDCompositionDevice4 {
     type Target = IDCompositionDevice3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice4, windows_core::IUnknown, IDCompositionDevice2, IDCompositionDevice3);
@@ -886,14 +886,14 @@ impl IDCompositionDevice4 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> windows_core::Result<IDCompositionTexture>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -907,7 +907,7 @@ windows_core::imp::define_interface!(IDCompositionDeviceDebug, IDCompositionDevi
 impl std::ops::Deref for IDCompositionDeviceDebug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDeviceDebug, windows_core::IUnknown);
@@ -929,7 +929,7 @@ windows_core::imp::define_interface!(IDCompositionEffect, IDCompositionEffect_Vt
 impl std::ops::Deref for IDCompositionEffect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionEffect, windows_core::IUnknown);
@@ -942,7 +942,7 @@ windows_core::imp::define_interface!(IDCompositionEffectGroup, IDCompositionEffe
 impl std::ops::Deref for IDCompositionEffectGroup {
     type Target = IDCompositionEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionEffectGroup, windows_core::IUnknown, IDCompositionEffect);
@@ -974,7 +974,7 @@ windows_core::imp::define_interface!(IDCompositionFilterEffect, IDCompositionFil
 impl std::ops::Deref for IDCompositionFilterEffect {
     type Target = IDCompositionEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionFilterEffect, windows_core::IUnknown, IDCompositionEffect);
@@ -995,7 +995,7 @@ windows_core::imp::define_interface!(IDCompositionGaussianBlurEffect, IDComposit
 impl std::ops::Deref for IDCompositionGaussianBlurEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionGaussianBlurEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1028,7 +1028,7 @@ windows_core::imp::define_interface!(IDCompositionHueRotationEffect, IDCompositi
 impl std::ops::Deref for IDCompositionHueRotationEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionHueRotationEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1053,20 +1053,20 @@ windows_core::imp::define_interface!(IDCompositionInkTrailDevice, IDCompositionI
 impl std::ops::Deref for IDCompositionInkTrailDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionInkTrailDevice, windows_core::IUnknown);
 impl IDCompositionInkTrailDevice {
     pub unsafe fn CreateDelegatedInkTrail(&self) -> windows_core::Result<IDCompositionDelegatedInkTrail> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDelegatedInkTrail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDelegatedInkTrailForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<IDCompositionDelegatedInkTrail>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDelegatedInkTrailForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1080,7 +1080,7 @@ windows_core::imp::define_interface!(IDCompositionLinearTransferEffect, IDCompos
 impl std::ops::Deref for IDCompositionLinearTransferEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionLinearTransferEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1217,7 +1217,7 @@ windows_core::imp::define_interface!(IDCompositionMatrixTransform, IDComposition
 impl std::ops::Deref for IDCompositionMatrixTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionMatrixTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1250,7 +1250,7 @@ windows_core::imp::define_interface!(IDCompositionMatrixTransform3D, IDCompositi
 impl std::ops::Deref for IDCompositionMatrixTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionMatrixTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -1283,7 +1283,7 @@ windows_core::imp::define_interface!(IDCompositionRectangleClip, IDCompositionRe
 impl std::ops::Deref for IDCompositionRectangleClip {
     type Target = IDCompositionClip;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionRectangleClip, windows_core::IUnknown, IDCompositionClip);
@@ -1429,7 +1429,7 @@ windows_core::imp::define_interface!(IDCompositionRotateTransform, IDComposition
 impl std::ops::Deref for IDCompositionRotateTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1476,7 +1476,7 @@ windows_core::imp::define_interface!(IDCompositionRotateTransform3D, IDCompositi
 impl std::ops::Deref for IDCompositionRotateTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -1567,7 +1567,7 @@ windows_core::imp::define_interface!(IDCompositionSaturationEffect, IDCompositio
 impl std::ops::Deref for IDCompositionSaturationEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionSaturationEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1592,7 +1592,7 @@ windows_core::imp::define_interface!(IDCompositionScaleTransform, IDCompositionS
 impl std::ops::Deref for IDCompositionScaleTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1650,7 +1650,7 @@ windows_core::imp::define_interface!(IDCompositionScaleTransform3D, IDCompositio
 impl std::ops::Deref for IDCompositionScaleTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -1730,7 +1730,7 @@ windows_core::imp::define_interface!(IDCompositionShadowEffect, IDCompositionSha
 impl std::ops::Deref for IDCompositionShadowEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionShadowEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1807,7 +1807,7 @@ windows_core::imp::define_interface!(IDCompositionSkewTransform, IDCompositionSk
 impl std::ops::Deref for IDCompositionSkewTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionSkewTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1865,7 +1865,7 @@ windows_core::imp::define_interface!(IDCompositionSurface, IDCompositionSurface_
 impl std::ops::Deref for IDCompositionSurface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionSurface, windows_core::IUnknown);
@@ -1903,19 +1903,19 @@ windows_core::imp::define_interface!(IDCompositionSurfaceFactory, IDCompositionS
 impl std::ops::Deref for IDCompositionSurfaceFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionSurfaceFactory, windows_core::IUnknown);
 impl IDCompositionSurfaceFactory {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1935,7 +1935,7 @@ windows_core::imp::define_interface!(IDCompositionTableTransferEffect, IDComposi
 impl std::ops::Deref for IDCompositionTableTransferEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTableTransferEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -2044,7 +2044,7 @@ windows_core::imp::define_interface!(IDCompositionTarget, IDCompositionTarget_Vt
 impl std::ops::Deref for IDCompositionTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTarget, windows_core::IUnknown);
@@ -2065,7 +2065,7 @@ windows_core::imp::define_interface!(IDCompositionTexture, IDCompositionTexture_
 impl std::ops::Deref for IDCompositionTexture {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTexture, windows_core::IUnknown);
@@ -2107,7 +2107,7 @@ windows_core::imp::define_interface!(IDCompositionTransform, IDCompositionTransf
 impl std::ops::Deref for IDCompositionTransform {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2120,7 +2120,7 @@ windows_core::imp::define_interface!(IDCompositionTransform3D, IDCompositionTran
 impl std::ops::Deref for IDCompositionTransform3D {
     type Target = IDCompositionEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTransform3D, windows_core::IUnknown, IDCompositionEffect);
@@ -2133,7 +2133,7 @@ windows_core::imp::define_interface!(IDCompositionTranslateTransform, IDComposit
 impl std::ops::Deref for IDCompositionTranslateTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -2169,7 +2169,7 @@ windows_core::imp::define_interface!(IDCompositionTranslateTransform3D, IDCompos
 impl std::ops::Deref for IDCompositionTranslateTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2216,7 +2216,7 @@ windows_core::imp::define_interface!(IDCompositionTurbulenceEffect, IDCompositio
 impl std::ops::Deref for IDCompositionTurbulenceEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTurbulenceEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -2277,7 +2277,7 @@ windows_core::imp::define_interface!(IDCompositionVirtualSurface, IDCompositionV
 impl std::ops::Deref for IDCompositionVirtualSurface {
     type Target = IDCompositionSurface;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionVirtualSurface, windows_core::IUnknown, IDCompositionSurface);
@@ -2299,7 +2299,7 @@ windows_core::imp::define_interface!(IDCompositionVisual, IDCompositionVisual_Vt
 impl std::ops::Deref for IDCompositionVisual {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionVisual, windows_core::IUnknown);
@@ -2418,7 +2418,7 @@ windows_core::imp::define_interface!(IDCompositionVisual2, IDCompositionVisual2_
 impl std::ops::Deref for IDCompositionVisual2 {
     type Target = IDCompositionVisual;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionVisual2, windows_core::IUnknown, IDCompositionVisual);
@@ -2440,7 +2440,7 @@ windows_core::imp::define_interface!(IDCompositionVisual3, IDCompositionVisual3_
 impl std::ops::Deref for IDCompositionVisual3 {
     type Target = IDCompositionVisualDebug;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionVisual3, windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
@@ -2502,7 +2502,7 @@ windows_core::imp::define_interface!(IDCompositionVisualDebug, IDCompositionVisu
 impl std::ops::Deref for IDCompositionVisualDebug {
     type Target = IDCompositionVisual2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDCompositionVisualDebug, windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2);

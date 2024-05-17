@@ -31,8 +31,8 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
     pub Commands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
     Commands: usize,
-    pub HeaderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetHeaderText: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub HeaderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetHeaderText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAccountsSettingsPaneCommandsRequestedEventArgs2, IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl, 0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
@@ -129,7 +129,7 @@ impl windows_core::RuntimeType for ISettingsCommandFactory {
 pub struct ISettingsCommandFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Popups")]
-    pub CreateSettingsCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateSettingsCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI_Popups"))]
     CreateSettingsCommand: usize,
 }
@@ -288,7 +288,7 @@ impl AccountsSettingsPane {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountCommandsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -298,7 +298,7 @@ impl AccountsSettingsPane {
     }
     pub fn GetForCurrentView() -> windows_core::Result<AccountsSettingsPane> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -307,13 +307,13 @@ impl AccountsSettingsPane {
     }
     pub fn ShowManageAccountsAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowManageAccountsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ShowAddAccountAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAddAccountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -323,7 +323,7 @@ impl AccountsSettingsPane {
         P0: windows_core::Param<super::super::System::User>,
     {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowManageAccountsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -333,7 +333,7 @@ impl AccountsSettingsPane {
         P0: windows_core::Param<super::super::System::User>,
     {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAddAccountForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -372,7 +372,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     pub fn WebAccountProviderCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WebAccountProviderCommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountProviderCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -380,7 +380,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     pub fn WebAccountCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WebAccountCommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -388,7 +388,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     pub fn CredentialCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<CredentialCommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CredentialCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -396,14 +396,14 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn HeaderText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -414,7 +414,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<AccountsSettingsPaneEventDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -422,7 +422,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IAccountsSettingsPaneCommandsRequestedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -466,14 +466,14 @@ impl CredentialCommand {
     pub fn PasswordCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CredentialDeleted(&self) -> windows_core::Result<CredentialCommandCredentialDeletedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CredentialDeleted)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -483,7 +483,7 @@ impl CredentialCommand {
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         Self::ICredentialCommandFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCredentialCommand)(windows_core::Interface::as_raw(this), passwordcredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -494,7 +494,7 @@ impl CredentialCommand {
         P1: windows_core::Param<CredentialCommandCredentialDeletedHandler>,
     {
         Self::ICredentialCommandFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCredentialCommandWithHandler)(windows_core::Interface::as_raw(this), passwordcredential.param().abi(), deleted.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -531,14 +531,14 @@ impl SettingsCommand {
         P1: windows_core::Param<super::Popups::UICommandInvokedHandler>,
     {
         Self::ISettingsCommandFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSettingsCommand)(windows_core::Interface::as_raw(this), settingscommandid.param().abi(), core::mem::transmute_copy(label), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Popups")]
     pub fn AccountsCommand() -> windows_core::Result<SettingsCommand> {
         Self::ISettingsCommandStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountsCommand)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -546,7 +546,7 @@ impl SettingsCommand {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -559,7 +559,7 @@ impl SettingsCommand {
     pub fn Invoked(&self) -> windows_core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -575,7 +575,7 @@ impl SettingsCommand {
     pub fn Id(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -626,7 +626,7 @@ impl SettingsPane {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommandsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -638,7 +638,7 @@ impl SettingsPane {
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> windows_core::Result<SettingsPane> {
         Self::ISettingsPaneStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -649,7 +649,7 @@ impl SettingsPane {
     #[cfg(feature = "deprecated")]
     pub fn Edge() -> windows_core::Result<SettingsEdgeLocation> {
         Self::ISettingsPaneStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Edge)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -685,7 +685,7 @@ impl SettingsPaneCommandsRequest {
     pub fn ApplicationCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -715,7 +715,7 @@ impl SettingsPaneCommandsRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<SettingsPaneCommandsRequest> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -742,21 +742,21 @@ impl WebAccountCommand {
     pub fn WebAccount(&self) -> windows_core::Result<super::super::Security::Credentials::WebAccount> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Invoked(&self) -> windows_core::Result<WebAccountCommandInvokedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Actions(&self) -> windows_core::Result<SupportedWebAccountActions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Actions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -767,7 +767,7 @@ impl WebAccountCommand {
         P1: windows_core::Param<WebAccountCommandInvokedHandler>,
     {
         Self::IWebAccountCommandFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWebAccountCommand)(windows_core::Interface::as_raw(this), webaccount.param().abi(), invoked.param().abi(), actions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -795,7 +795,7 @@ impl WebAccountInvokedArgs {
     pub fn Action(&self) -> windows_core::Result<WebAccountAction> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Action)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -819,14 +819,14 @@ impl WebAccountProviderCommand {
     pub fn WebAccountProvider(&self) -> windows_core::Result<super::super::Security::Credentials::WebAccountProvider> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Invoked(&self) -> windows_core::Result<WebAccountProviderCommandInvokedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -837,7 +837,7 @@ impl WebAccountProviderCommand {
         P1: windows_core::Param<WebAccountProviderCommandInvokedHandler>,
     {
         Self::IWebAccountProviderCommandFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWebAccountProviderCommand)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), invoked.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

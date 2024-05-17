@@ -11,7 +11,7 @@ windows_core::imp::define_interface!(IDXCoreAdapter, IDXCoreAdapter_Vtbl, 0xf0db
 impl std::ops::Deref for IDXCoreAdapter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXCoreAdapter, windows_core::IUnknown);
@@ -29,7 +29,7 @@ impl IDXCoreAdapter {
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), property, buffersize, propertydata).ok()
     }
     pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<usize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPropertySize)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
     }
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
@@ -70,7 +70,7 @@ windows_core::imp::define_interface!(IDXCoreAdapterFactory, IDXCoreAdapterFactor
 impl std::ops::Deref for IDXCoreAdapterFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory, windows_core::IUnknown);
@@ -96,7 +96,7 @@ impl IDXCoreAdapterFactory {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, core::mem::transmute(callbackcontext.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::Result<()> {
@@ -116,7 +116,7 @@ windows_core::imp::define_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl
 impl std::ops::Deref for IDXCoreAdapterList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterList, windows_core::IUnknown);

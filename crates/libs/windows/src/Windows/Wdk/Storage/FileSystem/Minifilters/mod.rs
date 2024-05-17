@@ -1174,7 +1174,7 @@ pub unsafe fn FltInitializeOplock(oplock: *mut *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn FltInitializePushLock() -> usize {
     windows_targets::link!("fltmgr.sys" "system" fn FltInitializePushLock(pushlock : *mut usize));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FltInitializePushLock(&mut result__);
     result__
 }

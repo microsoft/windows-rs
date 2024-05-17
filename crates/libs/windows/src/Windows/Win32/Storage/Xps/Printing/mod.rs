@@ -29,7 +29,7 @@ windows_core::imp::define_interface!(IPrintDocumentPackageStatusEvent, IPrintDoc
 impl std::ops::Deref for IPrintDocumentPackageStatusEvent {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -50,7 +50,7 @@ windows_core::imp::define_interface!(IPrintDocumentPackageTarget, IPrintDocument
 impl std::ops::Deref for IPrintDocumentPackageTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget, windows_core::IUnknown);
@@ -80,13 +80,13 @@ windows_core::imp::define_interface!(IPrintDocumentPackageTarget2, IPrintDocumen
 impl std::ops::Deref for IPrintDocumentPackageTarget2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget2, windows_core::IUnknown);
 impl IPrintDocumentPackageTarget2 {
     pub unsafe fn GetIsTargetIppPrinter(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsTargetIppPrinter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTargetIppPrintDevice<T>(&self) -> windows_core::Result<T>
@@ -107,7 +107,7 @@ windows_core::imp::define_interface!(IPrintDocumentPackageTargetFactory, IPrintD
 impl std::ops::Deref for IPrintDocumentPackageTargetFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTargetFactory, windows_core::IUnknown);
@@ -120,7 +120,7 @@ impl IPrintDocumentPackageTargetFactory {
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
         P3: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(windows_core::Interface::as_raw(self), printername.param().abi(), jobname.param().abi(), joboutputstream.param().abi(), jobprintticketstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -136,7 +136,7 @@ windows_core::imp::define_interface!(IXpsPrintJob, IXpsPrintJob_Vtbl, 0x5ab89b06
 impl std::ops::Deref for IXpsPrintJob {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXpsPrintJob, windows_core::IUnknown);
@@ -160,7 +160,7 @@ windows_core::imp::define_interface!(IXpsPrintJobStream, IXpsPrintJobStream_Vtbl
 impl std::ops::Deref for IXpsPrintJobStream {
     type Target = super::super::super::System::Com::ISequentialStream;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

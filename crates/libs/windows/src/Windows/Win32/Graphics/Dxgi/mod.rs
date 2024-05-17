@@ -50,20 +50,20 @@ windows_core::imp::define_interface!(IDXGIAdapter, IDXGIAdapter_Vtbl, 0x2411e7e1
 impl std::ops::Deref for IDXGIAdapter {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter, windows_core::IUnknown, IDXGIObject);
 impl IDXGIAdapter {
     pub unsafe fn EnumOutputs(&self, output: u32) -> windows_core::Result<IDXGIOutput> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumOutputs)(windows_core::Interface::as_raw(self), output, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_ADAPTER_DESC) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
     }
     pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const windows_core::GUID) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckInterfaceSupport)(windows_core::Interface::as_raw(self), interfacename, &mut result__).map(|| result__)
     }
 }
@@ -80,7 +80,7 @@ windows_core::imp::define_interface!(IDXGIAdapter1, IDXGIAdapter1_Vtbl, 0x29038f
 impl std::ops::Deref for IDXGIAdapter1 {
     type Target = IDXGIAdapter;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter1, windows_core::IUnknown, IDXGIObject, IDXGIAdapter);
@@ -100,7 +100,7 @@ windows_core::imp::define_interface!(IDXGIAdapter2, IDXGIAdapter2_Vtbl, 0x0aa1ae
 impl std::ops::Deref for IDXGIAdapter2 {
     type Target = IDXGIAdapter1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter2, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
@@ -120,7 +120,7 @@ windows_core::imp::define_interface!(IDXGIAdapter3, IDXGIAdapter3_Vtbl, 0x645967
 impl std::ops::Deref for IDXGIAdapter3 {
     type Target = IDXGIAdapter2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter3, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2);
@@ -129,7 +129,7 @@ impl IDXGIAdapter3 {
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterHardwareContentProtectionTeardownStatusEvent)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32) {
@@ -145,7 +145,7 @@ impl IDXGIAdapter3 {
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterVideoMemoryBudgetChangeNotificationEvent)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32) {
@@ -168,7 +168,7 @@ windows_core::imp::define_interface!(IDXGIAdapter4, IDXGIAdapter4_Vtbl, 0x3c8d99
 impl std::ops::Deref for IDXGIAdapter4 {
     type Target = IDXGIAdapter3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter4, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
@@ -188,7 +188,7 @@ windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9
 impl std::ops::Deref for IDXGIDebug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDebug, windows_core::IUnknown);
@@ -208,7 +208,7 @@ windows_core::imp::define_interface!(IDXGIDebug1, IDXGIDebug1_Vtbl, 0xc5a05f0c_1
 impl std::ops::Deref for IDXGIDebug1 {
     type Target = IDXGIDebug;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDebug1, windows_core::IUnknown, IDXGIDebug);
@@ -236,7 +236,7 @@ windows_core::imp::define_interface!(IDXGIDecodeSwapChain, IDXGIDecodeSwapChain_
 impl std::ops::Deref for IDXGIDecodeSwapChain {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDecodeSwapChain, windows_core::IUnknown);
@@ -254,11 +254,11 @@ impl IDXGIDecodeSwapChain {
         (windows_core::Interface::vtable(self).SetDestSize)(windows_core::Interface::as_raw(self), width, height).ok()
     }
     pub unsafe fn GetSourceRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTargetRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTargetRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDestSize(&self, pwidth: *mut u32, pheight: *mut u32) -> windows_core::Result<()> {
@@ -290,13 +290,13 @@ windows_core::imp::define_interface!(IDXGIDevice, IDXGIDevice_Vtbl, 0x54ec77fa_1
 impl std::ops::Deref for IDXGIDevice {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice, windows_core::IUnknown, IDXGIObject);
 impl IDXGIDevice {
     pub unsafe fn GetAdapter(&self) -> windows_core::Result<IDXGIAdapter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -310,7 +310,7 @@ impl IDXGIDevice {
         (windows_core::Interface::vtable(self).SetGPUThreadPriority)(windows_core::Interface::as_raw(self), priority).ok()
     }
     pub unsafe fn GetGPUThreadPriority(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGPUThreadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -332,7 +332,7 @@ windows_core::imp::define_interface!(IDXGIDevice1, IDXGIDevice1_Vtbl, 0x77db970f
 impl std::ops::Deref for IDXGIDevice1 {
     type Target = IDXGIDevice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice1, windows_core::IUnknown, IDXGIObject, IDXGIDevice);
@@ -341,7 +341,7 @@ impl IDXGIDevice1 {
         (windows_core::Interface::vtable(self).SetMaximumFrameLatency)(windows_core::Interface::as_raw(self), maxlatency).ok()
     }
     pub unsafe fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaximumFrameLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -357,7 +357,7 @@ windows_core::imp::define_interface!(IDXGIDevice2, IDXGIDevice2_Vtbl, 0x05008617
 impl std::ops::Deref for IDXGIDevice2 {
     type Target = IDXGIDevice1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice2, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
@@ -388,7 +388,7 @@ windows_core::imp::define_interface!(IDXGIDevice3, IDXGIDevice3_Vtbl, 0x6007896c
 impl std::ops::Deref for IDXGIDevice3 {
     type Target = IDXGIDevice2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice3, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2);
@@ -408,7 +408,7 @@ windows_core::imp::define_interface!(IDXGIDevice4, IDXGIDevice4_Vtbl, 0x95b4f95f
 impl std::ops::Deref for IDXGIDevice4 {
     type Target = IDXGIDevice3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice4, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
@@ -432,7 +432,7 @@ windows_core::imp::define_interface!(IDXGIDeviceSubObject, IDXGIDeviceSubObject_
 impl std::ops::Deref for IDXGIDeviceSubObject {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDeviceSubObject, windows_core::IUnknown, IDXGIObject);
@@ -456,7 +456,7 @@ windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vt
 impl std::ops::Deref for IDXGIDisplayControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIDisplayControl, windows_core::IUnknown);
@@ -483,13 +483,13 @@ windows_core::imp::define_interface!(IDXGIFactory, IDXGIFactory_Vtbl, 0x7b7166ec
 impl std::ops::Deref for IDXGIFactory {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory, windows_core::IUnknown, IDXGIObject);
 impl IDXGIFactory {
     pub unsafe fn EnumAdapters(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumAdapters)(windows_core::Interface::as_raw(self), adapter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> windows_core::Result<()>
@@ -499,7 +499,7 @@ impl IDXGIFactory {
         (windows_core::Interface::vtable(self).MakeWindowAssociation)(windows_core::Interface::as_raw(self), windowhandle.param().abi(), flags).ok()
     }
     pub unsafe fn GetWindowAssociation(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWindowAssociation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -513,7 +513,7 @@ impl IDXGIFactory {
     where
         P0: windows_core::Param<super::super::Foundation::HMODULE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSoftwareAdapter)(windows_core::Interface::as_raw(self), module.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -535,13 +535,13 @@ windows_core::imp::define_interface!(IDXGIFactory1, IDXGIFactory1_Vtbl, 0x770aae
 impl std::ops::Deref for IDXGIFactory1 {
     type Target = IDXGIFactory;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory1, windows_core::IUnknown, IDXGIObject, IDXGIFactory);
 impl IDXGIFactory1 {
     pub unsafe fn EnumAdapters1(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumAdapters1)(windows_core::Interface::as_raw(self), adapter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
@@ -560,7 +560,7 @@ windows_core::imp::define_interface!(IDXGIFactory2, IDXGIFactory2_Vtbl, 0x50c83a
 impl std::ops::Deref for IDXGIFactory2 {
     type Target = IDXGIFactory1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory2, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1);
@@ -575,7 +575,7 @@ impl IDXGIFactory2 {
         P1: windows_core::Param<super::super::Foundation::HWND>,
         P2: windows_core::Param<IDXGIOutput>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSwapChainForHwnd)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hwnd.param().abi(), pdesc, core::mem::transmute(pfullscreendesc.unwrap_or(std::ptr::null())), prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -585,28 +585,28 @@ impl IDXGIFactory2 {
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<IDXGIOutput>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSwapChainForCoreWindow)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pwindow.param().abi(), pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> windows_core::Result<super::super::Foundation::LUID>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSharedResourceAdapterLuid)(windows_core::Interface::as_raw(self), hresource.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterStereoStatusWindow)(windows_core::Interface::as_raw(self), windowhandle.param().abi(), wmsg, &mut result__).map(|| result__)
     }
     pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterStereoStatusEvent)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
@@ -616,14 +616,14 @@ impl IDXGIFactory2 {
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterOcclusionStatusWindow)(windows_core::Interface::as_raw(self), windowhandle.param().abi(), wmsg, &mut result__).map(|| result__)
     }
     pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterOcclusionStatusEvent)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
@@ -635,7 +635,7 @@ impl IDXGIFactory2 {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IDXGIOutput>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSwapChainForComposition)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -669,7 +669,7 @@ windows_core::imp::define_interface!(IDXGIFactory3, IDXGIFactory3_Vtbl, 0x254838
 impl std::ops::Deref for IDXGIFactory3 {
     type Target = IDXGIFactory2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory3, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
@@ -689,7 +689,7 @@ windows_core::imp::define_interface!(IDXGIFactory4, IDXGIFactory4_Vtbl, 0x1bc6ea
 impl std::ops::Deref for IDXGIFactory4 {
     type Target = IDXGIFactory3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory4, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3);
@@ -721,7 +721,7 @@ windows_core::imp::define_interface!(IDXGIFactory5, IDXGIFactory5_Vtbl, 0x7632e1
 impl std::ops::Deref for IDXGIFactory5 {
     type Target = IDXGIFactory4;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory5, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4);
@@ -741,7 +741,7 @@ windows_core::imp::define_interface!(IDXGIFactory6, IDXGIFactory6_Vtbl, 0xc1b669
 impl std::ops::Deref for IDXGIFactory6 {
     type Target = IDXGIFactory5;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory6, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5);
@@ -765,7 +765,7 @@ windows_core::imp::define_interface!(IDXGIFactory7, IDXGIFactory7_Vtbl, 0xa4966e
 impl std::ops::Deref for IDXGIFactory7 {
     type Target = IDXGIFactory6;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory7, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5, IDXGIFactory6);
@@ -774,7 +774,7 @@ impl IDXGIFactory7 {
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterAdaptersChangedEvent)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> windows_core::Result<()> {
@@ -793,7 +793,7 @@ windows_core::imp::define_interface!(IDXGIFactoryMedia, IDXGIFactoryMedia_Vtbl, 
 impl std::ops::Deref for IDXGIFactoryMedia {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactoryMedia, windows_core::IUnknown);
@@ -805,7 +805,7 @@ impl IDXGIFactoryMedia {
         P1: windows_core::Param<super::super::Foundation::HANDLE>,
         P2: windows_core::Param<IDXGIOutput>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.param().abi(), pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<P0, P1, P2, P3>(&self, pdevice: P0, hsurface: P1, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P2, prestricttooutput: P3) -> windows_core::Result<IDXGIDecodeSwapChain>
@@ -815,7 +815,7 @@ impl IDXGIFactoryMedia {
         P2: windows_core::Param<IDXGIResource>,
         P3: windows_core::Param<IDXGIOutput>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.param().abi(), pdesc, pyuvdecodebuffers.param().abi(), prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -834,7 +834,7 @@ windows_core::imp::define_interface!(IDXGIInfoQueue, IDXGIInfoQueue_Vtbl, 0xd674
 impl std::ops::Deref for IDXGIInfoQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIInfoQueue, windows_core::IUnknown);
@@ -1016,7 +1016,7 @@ windows_core::imp::define_interface!(IDXGIKeyedMutex, IDXGIKeyedMutex_Vtbl, 0x9d
 impl std::ops::Deref for IDXGIKeyedMutex {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIKeyedMutex, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
@@ -1040,7 +1040,7 @@ windows_core::imp::define_interface!(IDXGIObject, IDXGIObject_Vtbl, 0xaec22fb8_7
 impl std::ops::Deref for IDXGIObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIObject, windows_core::IUnknown);
@@ -1079,7 +1079,7 @@ windows_core::imp::define_interface!(IDXGIOutput, IDXGIOutput_Vtbl, 0xae02eedb_c
 impl std::ops::Deref for IDXGIOutput {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput, windows_core::IUnknown, IDXGIObject);
@@ -1180,7 +1180,7 @@ windows_core::imp::define_interface!(IDXGIOutput1, IDXGIOutput1_Vtbl, 0x00cddea8
 impl std::ops::Deref for IDXGIOutput1 {
     type Target = IDXGIOutput;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput1, windows_core::IUnknown, IDXGIObject, IDXGIOutput);
@@ -1206,7 +1206,7 @@ impl IDXGIOutput1 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DuplicateOutput)(windows_core::Interface::as_raw(self), pdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1230,7 +1230,7 @@ windows_core::imp::define_interface!(IDXGIOutput2, IDXGIOutput2_Vtbl, 0x595e39d1
 impl std::ops::Deref for IDXGIOutput2 {
     type Target = IDXGIOutput1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput2, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1);
@@ -1250,7 +1250,7 @@ windows_core::imp::define_interface!(IDXGIOutput3, IDXGIOutput3_Vtbl, 0x8a6bb301
 impl std::ops::Deref for IDXGIOutput3 {
     type Target = IDXGIOutput2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput3, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
@@ -1260,7 +1260,7 @@ impl IDXGIOutput3 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckOverlaySupport)(windows_core::Interface::as_raw(self), enumformat, pconcerneddevice.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -1278,7 +1278,7 @@ windows_core::imp::define_interface!(IDXGIOutput4, IDXGIOutput4_Vtbl, 0xdc7dca35
 impl std::ops::Deref for IDXGIOutput4 {
     type Target = IDXGIOutput3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput4, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3);
@@ -1288,7 +1288,7 @@ impl IDXGIOutput4 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(windows_core::Interface::as_raw(self), format, colorspace, pconcerneddevice.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -1306,7 +1306,7 @@ windows_core::imp::define_interface!(IDXGIOutput5, IDXGIOutput5_Vtbl, 0x80a07424
 impl std::ops::Deref for IDXGIOutput5 {
     type Target = IDXGIOutput4;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput5, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
@@ -1316,7 +1316,7 @@ impl IDXGIOutput5 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), pdevice.param().abi(), flags, psupportedformats.len().try_into().unwrap(), core::mem::transmute(psupportedformats.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1334,7 +1334,7 @@ windows_core::imp::define_interface!(IDXGIOutput6, IDXGIOutput6_Vtbl, 0x068346e8
 impl std::ops::Deref for IDXGIOutput6 {
     type Target = IDXGIOutput5;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput6, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
@@ -1344,7 +1344,7 @@ impl IDXGIOutput6 {
         (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc).ok()
     }
     pub unsafe fn CheckHardwareCompositionSupport(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckHardwareCompositionSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1363,7 +1363,7 @@ windows_core::imp::define_interface!(IDXGIOutputDuplication, IDXGIOutputDuplicat
 impl std::ops::Deref for IDXGIOutputDuplication {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutputDuplication, windows_core::IUnknown, IDXGIObject);
@@ -1385,7 +1385,7 @@ impl IDXGIOutputDuplication {
         (windows_core::Interface::vtable(self).GetFramePointerShape)(windows_core::Interface::as_raw(self), pointershapebuffersize, ppointershapebuffer, ppointershapebuffersizerequired, ppointershapeinfo).ok()
     }
     pub unsafe fn MapDesktopSurface(&self) -> windows_core::Result<DXGI_MAPPED_RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MapDesktopSurface)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn UnMapDesktopSurface(&self) -> windows_core::Result<()> {
@@ -1416,24 +1416,24 @@ windows_core::imp::define_interface!(IDXGIResource, IDXGIResource_Vtbl, 0x035f3a
 impl std::ops::Deref for IDXGIResource {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIResource, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl IDXGIResource {
     pub unsafe fn GetSharedHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSharedHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetUsage(&self) -> windows_core::Result<DXGI_USAGE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUsage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetEvictionPriority)(windows_core::Interface::as_raw(self), evictionpriority).ok()
     }
     pub unsafe fn GetEvictionPriority(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEvictionPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1451,13 +1451,13 @@ windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x3096
 impl std::ops::Deref for IDXGIResource1 {
     type Target = IDXGIResource;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGIResource1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);
 impl IDXGIResource1 {
     pub unsafe fn CreateSubresourceSurface(&self, index: u32) -> windows_core::Result<IDXGISurface2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSubresourceSurface)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Security")]
@@ -1465,7 +1465,7 @@ impl IDXGIResource1 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(pattributes.unwrap_or(std::ptr::null())), dwaccess, lpname.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -1484,7 +1484,7 @@ windows_core::imp::define_interface!(IDXGISurface, IDXGISurface_Vtbl, 0xcafcb56c
 impl std::ops::Deref for IDXGISurface {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISurface, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
@@ -1516,7 +1516,7 @@ windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae630
 impl std::ops::Deref for IDXGISurface1 {
     type Target = IDXGISurface;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISurface1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface);
@@ -1526,7 +1526,7 @@ impl IDXGISurface1 {
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), discard.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReleaseDC(&self, pdirtyrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
@@ -1548,7 +1548,7 @@ windows_core::imp::define_interface!(IDXGISurface2, IDXGISurface2_Vtbl, 0xaba496
 impl std::ops::Deref for IDXGISurface2 {
     type Target = IDXGISurface1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISurface2, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface, IDXGISurface1);
@@ -1572,7 +1572,7 @@ windows_core::imp::define_interface!(IDXGISwapChain, IDXGISwapChain_Vtbl, 0x310d
 impl std::ops::Deref for IDXGISwapChain {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
@@ -1610,14 +1610,14 @@ impl IDXGISwapChain {
         (windows_core::Interface::vtable(self).ResizeTarget)(windows_core::Interface::as_raw(self), pnewtargetparameters).ok()
     }
     pub unsafe fn GetContainingOutput(&self) -> windows_core::Result<IDXGIOutput> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetContainingOutput)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), pstats).ok()
     }
     pub unsafe fn GetLastPresentCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLastPresentCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1650,7 +1650,7 @@ windows_core::imp::define_interface!(IDXGISwapChain1, IDXGISwapChain1_Vtbl, 0x79
 impl std::ops::Deref for IDXGISwapChain1 {
     type Target = IDXGISwapChain;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
@@ -1664,7 +1664,7 @@ impl IDXGISwapChain1 {
         (windows_core::Interface::vtable(self).GetFullscreenDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
     }
     pub unsafe fn GetHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCoreWindow<T>(&self) -> windows_core::Result<T>
@@ -1681,14 +1681,14 @@ impl IDXGISwapChain1 {
         (windows_core::Interface::vtable(self).IsTemporaryMonoSupported)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetRestrictToOutput(&self) -> windows_core::Result<IDXGIOutput> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRestrictToOutput)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBackgroundColor)(windows_core::Interface::as_raw(self), pcolor).ok()
     }
     pub unsafe fn GetBackgroundColor(&self) -> windows_core::Result<DXGI_RGBA> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1697,7 +1697,7 @@ impl IDXGISwapChain1 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRotation(&self) -> windows_core::Result<Common::DXGI_MODE_ROTATION> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRotation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1734,7 +1734,7 @@ windows_core::imp::define_interface!(IDXGISwapChain2, IDXGISwapChain2_Vtbl, 0xa8
 impl std::ops::Deref for IDXGISwapChain2 {
     type Target = IDXGISwapChain1;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain2, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1);
@@ -1749,7 +1749,7 @@ impl IDXGISwapChain2 {
         (windows_core::Interface::vtable(self).SetMaximumFrameLatency)(windows_core::Interface::as_raw(self), maxlatency).ok()
     }
     pub unsafe fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaximumFrameLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE {
@@ -1779,7 +1779,7 @@ windows_core::imp::define_interface!(IDXGISwapChain3, IDXGISwapChain3_Vtbl, 0x94
 impl std::ops::Deref for IDXGISwapChain3 {
     type Target = IDXGISwapChain2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain3, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2);
@@ -1789,7 +1789,7 @@ impl IDXGISwapChain3 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckColorSpaceSupport)(windows_core::Interface::as_raw(self), colorspace, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1824,7 +1824,7 @@ windows_core::imp::define_interface!(IDXGISwapChain4, IDXGISwapChain4_Vtbl, 0x3d
 impl std::ops::Deref for IDXGISwapChain4 {
     type Target = IDXGISwapChain3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain4, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
@@ -1844,7 +1844,7 @@ windows_core::imp::define_interface!(IDXGISwapChainMedia, IDXGISwapChainMedia_Vt
 impl std::ops::Deref for IDXGISwapChainMedia {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChainMedia, windows_core::IUnknown);
@@ -1872,7 +1872,7 @@ windows_core::imp::define_interface!(IDXGraphicsAnalysis, IDXGraphicsAnalysis_Vt
 impl std::ops::Deref for IDXGraphicsAnalysis {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDXGraphicsAnalysis, windows_core::IUnknown);

@@ -12,7 +12,7 @@ impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
 }
 impl IHumanPresenceSensorExtension_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>() -> IHumanPresenceSensorExtension_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceinterface: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceinterface: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IHumanPresenceSensorExtension_Impl::Initialize(this, core::mem::transmute(&deviceinterface)).into()

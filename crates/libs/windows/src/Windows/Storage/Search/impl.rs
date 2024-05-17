@@ -15,7 +15,7 @@ impl windows_core::RuntimeName for IIndexableContent {
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IIndexableContent_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>() -> IIndexableContent_Vtbl {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IIndexableContent_Impl::Id(this) {
@@ -27,7 +27,7 @@ impl IIndexableContent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IIndexableContent_Impl::SetId(this, core::mem::transmute(&value)).into()
@@ -61,7 +61,7 @@ impl IIndexableContent_Vtbl {
             let this = (*this).get_impl();
             IIndexableContent_Impl::SetStream(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn StreamContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StreamContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IIndexableContent_Impl::StreamContentType(this) {
@@ -73,7 +73,7 @@ impl IIndexableContent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreamContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStreamContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IIndexableContent_Impl::SetStreamContentType(this, core::mem::transmute(&value)).into()

@@ -34,7 +34,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : windows_core::PCWSTR, dwoptions : u32, lpcontext : *const core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FilterConnectCommunicationPort(lpportname.param().abi(), dwoptions, core::mem::transmute(lpcontext.unwrap_or(std::ptr::null())), wsizeofcontext, core::mem::transmute(lpsecurityattributes.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
@@ -43,7 +43,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterCreate(lpfiltername : windows_core::PCWSTR, hfilter : *mut HFILTER) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FilterCreate(lpfiltername.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -118,7 +118,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterInstanceCreate(lpfiltername : windows_core::PCWSTR, lpvolumename : windows_core::PCWSTR, lpinstancename : windows_core::PCWSTR, hinstance : *mut HFILTER_INSTANCE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FilterInstanceCreate(lpfiltername.param().abi(), lpvolumename.param().abi(), lpinstancename.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]

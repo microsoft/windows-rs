@@ -782,7 +782,7 @@ impl IMultiLanguage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharsetInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: std::mem::MaybeUninit<windows_core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCharsetInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: core::mem::MaybeUninit<windows_core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMultiLanguage_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo)).into()
@@ -812,7 +812,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             IMultiLanguage_Impl::ConvertStringReset(this).into()
         }
-        unsafe extern "system" fn GetRfc1766FromLcid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: u32, pbstrrfc1766: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRfc1766FromLcid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: u32, pbstrrfc1766: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMultiLanguage_Impl::GetRfc1766FromLcid(this, core::mem::transmute_copy(&locale)) {
@@ -823,7 +823,7 @@ impl IMultiLanguage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLcidFromRfc1766<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocale: *mut u32, bstrrfc1766: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLcidFromRfc1766<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocale: *mut u32, bstrrfc1766: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMultiLanguage_Impl::GetLcidFromRfc1766(this, core::mem::transmute_copy(&plocale), core::mem::transmute(&bstrrfc1766)).into()
@@ -951,7 +951,7 @@ impl IMultiLanguage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharsetInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: std::mem::MaybeUninit<windows_core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCharsetInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: core::mem::MaybeUninit<windows_core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMultiLanguage2_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo)).into()
@@ -981,7 +981,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             IMultiLanguage2_Impl::ConvertStringReset(this).into()
         }
-        unsafe extern "system" fn GetRfc1766FromLcid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: u32, pbstrrfc1766: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRfc1766FromLcid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: u32, pbstrrfc1766: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMultiLanguage2_Impl::GetRfc1766FromLcid(this, core::mem::transmute_copy(&locale)) {
@@ -992,7 +992,7 @@ impl IMultiLanguage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLcidFromRfc1766<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocale: *mut u32, bstrrfc1766: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLcidFromRfc1766<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocale: *mut u32, bstrrfc1766: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMultiLanguage2_Impl::GetLcidFromRfc1766(this, core::mem::transmute_copy(&plocale), core::mem::transmute(&bstrrfc1766)).into()

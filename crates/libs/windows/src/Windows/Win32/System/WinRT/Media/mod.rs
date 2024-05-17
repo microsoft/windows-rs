@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 
 impl std::ops::Deref for IAudioFrameNative {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioFrameNative, windows_core::IUnknown, windows_core::IInspectable);
@@ -24,7 +24,7 @@ windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNative
 impl std::ops::Deref for IAudioFrameNativeFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
@@ -52,7 +52,7 @@ windows_core::imp::define_interface!(IVideoFrameNative, IVideoFrameNative_Vtbl, 
 impl std::ops::Deref for IVideoFrameNative {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IVideoFrameNative, windows_core::IUnknown, windows_core::IInspectable);
@@ -82,7 +82,7 @@ windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNative
 impl std::ops::Deref for IVideoFrameNativeFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);

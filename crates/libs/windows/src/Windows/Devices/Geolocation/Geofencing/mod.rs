@@ -8,7 +8,7 @@ pub struct IGeofence_Vtbl {
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub DwellTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub MonitoredStates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MonitoredGeofenceStates) -> windows_core::HRESULT,
     pub Geoshape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SingleUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -20,10 +20,10 @@ impl windows_core::RuntimeType for IGeofenceFactory {
 #[repr(C)]
 pub struct IGeofenceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithMonitorStates: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithMonitorStatesAndDwellTime: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithMonitorStatesDwellTimeStartTimeAndDuration: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::DateTime, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithMonitorStates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithMonitorStatesAndDwellTime: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithMonitorStatesDwellTimeStartTimeAndDuration: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::DateTime, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeofenceMonitor, IGeofenceMonitor_Vtbl, 0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 impl windows_core::RuntimeType for IGeofenceMonitor {
@@ -76,49 +76,49 @@ impl Geofence {
     pub fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DwellTime(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DwellTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MonitoredStates(&self) -> windows_core::Result<MonitoredGeofenceStates> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MonitoredStates)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Geoshape(&self) -> windows_core::Result<super::IGeoshape> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Geoshape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SingleUse(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SingleUse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -127,7 +127,7 @@ impl Geofence {
         P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -136,7 +136,7 @@ impl Geofence {
         P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithMonitorStates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -145,7 +145,7 @@ impl Geofence {
         P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, dwelltime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -154,7 +154,7 @@ impl Geofence {
         P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, dwelltime, starttime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -184,7 +184,7 @@ impl GeofenceMonitor {
     pub fn Status(&self) -> windows_core::Result<GeofenceMonitorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -192,14 +192,14 @@ impl GeofenceMonitor {
     pub fn Geofences(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<Geofence>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Geofences)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LastKnownGeoposition(&self) -> windows_core::Result<super::Geoposition> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LastKnownGeoposition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -209,7 +209,7 @@ impl GeofenceMonitor {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GeofenceStateChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -221,7 +221,7 @@ impl GeofenceMonitor {
     pub fn ReadReports(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadReports)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -231,7 +231,7 @@ impl GeofenceMonitor {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -241,7 +241,7 @@ impl GeofenceMonitor {
     }
     pub fn Current() -> windows_core::Result<GeofenceMonitor> {
         Self::IGeofenceMonitorStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -271,28 +271,28 @@ impl GeofenceStateChangeReport {
     pub fn NewState(&self) -> windows_core::Result<GeofenceState> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Geofence(&self) -> windows_core::Result<Geofence> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Geofence)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Geoposition(&self) -> windows_core::Result<super::Geoposition> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Geoposition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemovalReason(&self) -> windows_core::Result<GeofenceRemovalReason> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemovalReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

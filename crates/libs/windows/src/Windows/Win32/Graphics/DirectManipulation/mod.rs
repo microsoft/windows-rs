@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IDirectManipulationAutoScrollBehavior, IDir
 impl std::ops::Deref for IDirectManipulationAutoScrollBehavior {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationAutoScrollBehavior, windows_core::IUnknown);
@@ -20,7 +20,7 @@ windows_core::imp::define_interface!(IDirectManipulationCompositor, IDirectManip
 impl std::ops::Deref for IDirectManipulationCompositor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationCompositor, windows_core::IUnknown);
@@ -62,7 +62,7 @@ windows_core::imp::define_interface!(IDirectManipulationCompositor2, IDirectMani
 impl std::ops::Deref for IDirectManipulationCompositor2 {
     type Target = IDirectManipulationCompositor;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationCompositor2, windows_core::IUnknown, IDirectManipulationCompositor);
@@ -86,13 +86,13 @@ windows_core::imp::define_interface!(IDirectManipulationContent, IDirectManipula
 impl std::ops::Deref for IDirectManipulationContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationContent, windows_core::IUnknown);
 impl IDirectManipulationContent {
     pub unsafe fn GetContentRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetContentRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
@@ -143,7 +143,7 @@ windows_core::imp::define_interface!(IDirectManipulationDeferContactService, IDi
 impl std::ops::Deref for IDirectManipulationDeferContactService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationDeferContactService, windows_core::IUnknown);
@@ -169,7 +169,7 @@ windows_core::imp::define_interface!(IDirectManipulationDragDropBehavior, IDirec
 impl std::ops::Deref for IDirectManipulationDragDropBehavior {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationDragDropBehavior, windows_core::IUnknown);
@@ -178,7 +178,7 @@ impl IDirectManipulationDragDropBehavior {
         (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), configuration).ok()
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<DIRECTMANIPULATION_DRAG_DROP_STATUS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -192,7 +192,7 @@ windows_core::imp::define_interface!(IDirectManipulationDragDropEventHandler, ID
 impl std::ops::Deref for IDirectManipulationDragDropEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationDragDropEventHandler, windows_core::IUnknown);
@@ -213,7 +213,7 @@ windows_core::imp::define_interface!(IDirectManipulationFrameInfoProvider, IDire
 impl std::ops::Deref for IDirectManipulationFrameInfoProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationFrameInfoProvider, windows_core::IUnknown);
@@ -231,7 +231,7 @@ windows_core::imp::define_interface!(IDirectManipulationInteractionEventHandler,
 impl std::ops::Deref for IDirectManipulationInteractionEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationInteractionEventHandler, windows_core::IUnknown);
@@ -252,7 +252,7 @@ windows_core::imp::define_interface!(IDirectManipulationManager, IDirectManipula
 impl std::ops::Deref for IDirectManipulationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager, windows_core::IUnknown);
@@ -278,7 +278,7 @@ impl IDirectManipulationManager {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), message, &mut result__).map(|| result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> windows_core::Result<T>
@@ -324,7 +324,7 @@ windows_core::imp::define_interface!(IDirectManipulationManager2, IDirectManipul
 impl std::ops::Deref for IDirectManipulationManager2 {
     type Target = IDirectManipulationManager;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager2, windows_core::IUnknown, IDirectManipulationManager);
@@ -346,7 +346,7 @@ windows_core::imp::define_interface!(IDirectManipulationManager3, IDirectManipul
 impl std::ops::Deref for IDirectManipulationManager3 {
     type Target = IDirectManipulationManager2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager3, windows_core::IUnknown, IDirectManipulationManager, IDirectManipulationManager2);
@@ -368,7 +368,7 @@ windows_core::imp::define_interface!(IDirectManipulationPrimaryContent, IDirectM
 impl std::ops::Deref for IDirectManipulationPrimaryContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationPrimaryContent, windows_core::IUnknown);
@@ -418,7 +418,7 @@ windows_core::imp::define_interface!(IDirectManipulationUpdateHandler, IDirectMa
 impl std::ops::Deref for IDirectManipulationUpdateHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateHandler, windows_core::IUnknown);
@@ -436,7 +436,7 @@ windows_core::imp::define_interface!(IDirectManipulationUpdateManager, IDirectMa
 impl std::ops::Deref for IDirectManipulationUpdateManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateManager, windows_core::IUnknown);
@@ -446,7 +446,7 @@ impl IDirectManipulationUpdateManager {
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
         P1: windows_core::Param<IDirectManipulationUpdateHandler>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterWaitHandleCallback)(windows_core::Interface::as_raw(self), handle.param().abi(), eventhandler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: u32) -> windows_core::Result<()> {
@@ -470,7 +470,7 @@ windows_core::imp::define_interface!(IDirectManipulationViewport, IDirectManipul
 impl std::ops::Deref for IDirectManipulationViewport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewport, windows_core::IUnknown);
@@ -491,7 +491,7 @@ impl IDirectManipulationViewport {
         (windows_core::Interface::vtable(self).ReleaseAllContacts)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<DIRECTMANIPULATION_STATUS> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> windows_core::Result<()>
@@ -507,7 +507,7 @@ impl IDirectManipulationViewport {
         (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok()
     }
     pub unsafe fn GetViewportRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetViewportRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
@@ -567,7 +567,7 @@ impl IDirectManipulationViewport {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<IDirectManipulationViewportEventHandler>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddEventHandler)(windows_core::Interface::as_raw(self), window.param().abi(), eventhandler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> windows_core::Result<()> {
@@ -622,7 +622,7 @@ windows_core::imp::define_interface!(IDirectManipulationViewport2, IDirectManipu
 impl std::ops::Deref for IDirectManipulationViewport2 {
     type Target = IDirectManipulationViewport;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewport2, windows_core::IUnknown, IDirectManipulationViewport);
@@ -631,7 +631,7 @@ impl IDirectManipulationViewport2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddBehavior)(windows_core::Interface::as_raw(self), behavior.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveBehavior(&self, cookie: u32) -> windows_core::Result<()> {
@@ -652,7 +652,7 @@ windows_core::imp::define_interface!(IDirectManipulationViewportEventHandler, ID
 impl std::ops::Deref for IDirectManipulationViewportEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewportEventHandler, windows_core::IUnknown);

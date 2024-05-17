@@ -8,7 +8,7 @@ impl windows_core::RuntimeName for IDisplayDeviceInterop {}
 #[cfg(feature = "Win32_Security")]
 impl IDisplayDeviceInterop_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>() -> IDisplayDeviceInterop_Vtbl {
-        unsafe extern "system" fn CreateSharedHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: std::mem::MaybeUninit<windows_core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSharedHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: core::mem::MaybeUninit<windows_core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {

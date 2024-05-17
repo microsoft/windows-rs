@@ -26,10 +26,11 @@ windows-core = { path = "../core", version = "0.56.0" }
 windows-targets = { path = "../targets", version = "0.52.5" }
 
 [features]
-default = []
+default = ["std"]
 docs = []
 deprecated = []
 implement = []
+std = ["windows-core/std"]
 # generated features
 AI = ["Foundation"]
 AI_MachineLearning = ["AI"]

@@ -111,7 +111,7 @@ where
 #[inline]
 pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_core::Result<windows_core::PCWSTR> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     NdfGetTraceFile(handle, &mut result__).map(|| result__)
 }
 #[inline]
@@ -123,7 +123,7 @@ windows_core::imp::define_interface!(INetDiagExtensibleHelper, INetDiagExtensibl
 impl std::ops::Deref for INetDiagExtensibleHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetDiagExtensibleHelper, windows_core::IUnknown);
@@ -141,7 +141,7 @@ windows_core::imp::define_interface!(INetDiagHelper, INetDiagHelper_Vtbl, 0xc0b3
 impl std::ops::Deref for INetDiagHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetDiagHelper, windows_core::IUnknown);
@@ -150,7 +150,7 @@ impl INetDiagHelper {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), rgattributes.len().try_into().unwrap(), core::mem::transmute(rgattributes.as_ptr())).ok()
     }
     pub unsafe fn GetDiagnosticsInfo(&self) -> windows_core::Result<*mut DiagnosticsInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDiagnosticsInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
@@ -190,14 +190,14 @@ impl INetDiagHelper {
         (windows_core::Interface::vtable(self).GetRepairInfo)(windows_core::Interface::as_raw(self), problem, pcelt, ppinfo).ok()
     }
     pub unsafe fn GetLifeTime(&self) -> windows_core::Result<LIFE_TIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLifeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLifeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(lifetime)).ok()
     }
     pub unsafe fn GetCacheTime(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCacheTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
@@ -236,7 +236,7 @@ windows_core::imp::define_interface!(INetDiagHelperEx, INetDiagHelperEx_Vtbl, 0x
 impl std::ops::Deref for INetDiagHelperEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetDiagHelperEx, windows_core::IUnknown);
@@ -265,7 +265,7 @@ windows_core::imp::define_interface!(INetDiagHelperInfo, INetDiagHelperInfo_Vtbl
 impl std::ops::Deref for INetDiagHelperInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetDiagHelperInfo, windows_core::IUnknown);
@@ -283,7 +283,7 @@ windows_core::imp::define_interface!(INetDiagHelperUtilFactory, INetDiagHelperUt
 impl std::ops::Deref for INetDiagHelperUtilFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INetDiagHelperUtilFactory, windows_core::IUnknown);

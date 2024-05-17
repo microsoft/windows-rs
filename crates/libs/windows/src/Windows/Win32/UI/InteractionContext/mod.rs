@@ -18,7 +18,7 @@ where
 #[inline]
 pub unsafe fn CreateInteractionContext() -> windows_core::Result<HINTERACTIONCONTEXT> {
     windows_targets::link!("ninput.dll" "system" fn CreateInteractionContext(interactioncontext : *mut HINTERACTIONCONTEXT) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateInteractionContext(&mut result__).map(|| result__)
 }
 #[inline]
@@ -35,7 +35,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetCrossSlideParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, threshold : CROSS_SLIDE_THRESHOLD, distance : *mut f32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetCrossSlideParameterInteractionContext(interactioncontext.param().abi(), threshold, &mut result__).map(|| result__)
 }
 #[inline]
@@ -44,7 +44,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetHoldParameterInteractionContext(interactioncontext.param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
@@ -53,7 +53,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetInertiaParameterInteractionContext(interactioncontext.param().abi(), inertiaparameter, &mut result__).map(|| result__)
 }
 #[inline]
@@ -70,7 +70,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetMouseWheelParameterInteractionContext(interactioncontext.param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
@@ -79,7 +79,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetPropertyInteractionContext(interactioncontext.param().abi(), contextproperty, &mut result__).map(|| result__)
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -89,7 +89,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetStateInteractionContext(interactioncontext.param().abi(), core::mem::transmute(pointerinfo.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
@@ -98,7 +98,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetTapParameterInteractionContext(interactioncontext.param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
@@ -107,7 +107,7 @@ where
     P0: windows_core::Param<HINTERACTIONCONTEXT>,
 {
     windows_targets::link!("ninput.dll" "system" fn GetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetTranslationParameterInteractionContext(interactioncontext.param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]

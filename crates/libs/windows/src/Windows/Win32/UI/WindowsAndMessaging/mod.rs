@@ -2272,7 +2272,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mrmsupport.dll" "system" fn MrmGetPriFileContentChecksum(prifile : windows_core::PCWSTR, checksum : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     MrmGetPriFileContentChecksum(prifile.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]

@@ -5,7 +5,7 @@ impl windows_core::RuntimeType for IInkAnalysisInkBullet {
 #[repr(C)]
 pub struct IInkAnalysisInkBullet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisInkDrawing, IInkAnalysisInkDrawing_Vtbl, 0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
 impl windows_core::RuntimeType for IInkAnalysisInkDrawing {
@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for IInkAnalysisInkWord {
 #[repr(C)]
 pub struct IInkAnalysisInkWord_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub TextAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -41,7 +41,7 @@ impl windows_core::RuntimeType for IInkAnalysisLine {
 #[repr(C)]
 pub struct IInkAnalysisLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IndentLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisListItem, IInkAnalysisListItem_Vtbl, 0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
@@ -51,13 +51,13 @@ impl windows_core::RuntimeType for IInkAnalysisListItem {
 #[repr(C)]
 pub struct IInkAnalysisListItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisNode, IInkAnalysisNode_Vtbl, 0x30831f05_5f64_4a2c_ba37_4f4887879574);
 impl std::ops::Deref for IInkAnalysisNode {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkAnalysisNode, windows_core::IUnknown, windows_core::IInspectable);
@@ -65,21 +65,21 @@ impl IInkAnalysisNode {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -87,7 +87,7 @@ impl IInkAnalysisNode {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -95,14 +95,14 @@ impl IInkAnalysisNode {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -110,7 +110,7 @@ impl IInkAnalysisNode {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -145,7 +145,7 @@ impl windows_core::RuntimeType for IInkAnalysisParagraph {
 #[repr(C)]
 pub struct IInkAnalysisParagraph_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisResult, IInkAnalysisResult_Vtbl, 0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
 impl windows_core::RuntimeType for IInkAnalysisResult {
@@ -163,7 +163,7 @@ impl windows_core::RuntimeType for IInkAnalysisRoot {
 #[repr(C)]
 pub struct IInkAnalysisRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub FindNodes: unsafe extern "system" fn(*mut core::ffi::c_void, InkAnalysisNodeKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -176,7 +176,7 @@ impl windows_core::RuntimeType for IInkAnalysisWritingRegion {
 #[repr(C)]
 pub struct IInkAnalysisWritingRegion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalyzer, IInkAnalyzer_Vtbl, 0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
 impl windows_core::RuntimeType for IInkAnalyzer {
@@ -206,7 +206,7 @@ windows_core::imp::define_interface!(IInkAnalyzerFactory, IInkAnalyzerFactory_Vt
 impl std::ops::Deref for IInkAnalyzerFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInkAnalyzerFactory, windows_core::IUnknown, windows_core::IInspectable);
@@ -214,7 +214,7 @@ impl IInkAnalyzerFactory {
     pub fn CreateAnalyzer(&self) -> windows_core::Result<InkAnalyzer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAnalyzer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -236,28 +236,28 @@ impl InkAnalysisInkBullet {
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -265,7 +265,7 @@ impl InkAnalysisInkBullet {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -273,14 +273,14 @@ impl InkAnalysisInkBullet {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -288,7 +288,7 @@ impl InkAnalysisInkBullet {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -314,14 +314,14 @@ impl InkAnalysisInkDrawing {
     pub fn DrawingKind(&self) -> windows_core::Result<InkAnalysisDrawingKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DrawingKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Center(&self) -> windows_core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Center)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -329,28 +329,28 @@ impl InkAnalysisInkDrawing {
     pub fn Points(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Points)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -358,7 +358,7 @@ impl InkAnalysisInkDrawing {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -366,14 +366,14 @@ impl InkAnalysisInkDrawing {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -381,7 +381,7 @@ impl InkAnalysisInkDrawing {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -407,7 +407,7 @@ impl InkAnalysisInkWord {
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -415,28 +415,28 @@ impl InkAnalysisInkWord {
     pub fn TextAlternates(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextAlternates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -444,7 +444,7 @@ impl InkAnalysisInkWord {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -452,14 +452,14 @@ impl InkAnalysisInkWord {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -467,7 +467,7 @@ impl InkAnalysisInkWord {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -493,35 +493,35 @@ impl InkAnalysisLine {
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IndentLevel(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndentLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -529,7 +529,7 @@ impl InkAnalysisLine {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -537,14 +537,14 @@ impl InkAnalysisLine {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -552,7 +552,7 @@ impl InkAnalysisLine {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -578,28 +578,28 @@ impl InkAnalysisListItem {
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -607,7 +607,7 @@ impl InkAnalysisListItem {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -615,14 +615,14 @@ impl InkAnalysisListItem {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -630,7 +630,7 @@ impl InkAnalysisListItem {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -656,21 +656,21 @@ impl InkAnalysisNode {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -678,7 +678,7 @@ impl InkAnalysisNode {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -686,14 +686,14 @@ impl InkAnalysisNode {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -701,7 +701,7 @@ impl InkAnalysisNode {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -727,21 +727,21 @@ impl InkAnalysisParagraph {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -749,7 +749,7 @@ impl InkAnalysisParagraph {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -757,14 +757,14 @@ impl InkAnalysisParagraph {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -772,14 +772,14 @@ impl InkAnalysisParagraph {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -804,7 +804,7 @@ impl InkAnalysisResult {
     pub fn Status(&self) -> windows_core::Result<InkAnalysisStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -830,21 +830,21 @@ impl InkAnalysisRoot {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -852,7 +852,7 @@ impl InkAnalysisRoot {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -860,14 +860,14 @@ impl InkAnalysisRoot {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -875,14 +875,14 @@ impl InkAnalysisRoot {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -890,7 +890,7 @@ impl InkAnalysisRoot {
     pub fn FindNodes(&self, nodekind: InkAnalysisNodeKind) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindNodes)(windows_core::Interface::as_raw(this), nodekind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -916,21 +916,21 @@ impl InkAnalysisWritingRegion {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -938,7 +938,7 @@ impl InkAnalysisWritingRegion {
     pub fn RotatedBoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotatedBoundingRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -946,14 +946,14 @@ impl InkAnalysisWritingRegion {
     pub fn Children(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -961,14 +961,14 @@ impl InkAnalysisWritingRegion {
     pub fn GetStrokeIds(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStrokeIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RecognizedText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1000,14 +1000,14 @@ impl InkAnalyzer {
     pub fn AnalysisRoot(&self) -> windows_core::Result<InkAnalysisRoot> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnalysisRoot)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsAnalyzing(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAnalyzing)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1056,7 +1056,7 @@ impl InkAnalyzer {
     pub fn AnalyzeAsync(&self) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnalyzeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

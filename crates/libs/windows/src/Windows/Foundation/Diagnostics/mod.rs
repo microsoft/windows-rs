@@ -5,7 +5,7 @@ impl windows_core::RuntimeType for IAsyncCausalityTracerStatics {
 #[repr(C)]
 pub struct IAsyncCausalityTracerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TraceOperationCreation: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, std::mem::MaybeUninit<windows_core::HSTRING>, u64) -> windows_core::HRESULT,
+    pub TraceOperationCreation: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, core::mem::MaybeUninit<windows_core::HSTRING>, u64) -> windows_core::HRESULT,
     pub TraceOperationCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, super::AsyncStatus) -> windows_core::HRESULT,
     pub TraceOperationRelation: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, CausalityRelation) -> windows_core::HRESULT,
     pub TraceSynchronousWorkStart: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, CausalitySynchronousWork) -> windows_core::HRESULT,
@@ -20,8 +20,8 @@ impl windows_core::RuntimeType for IErrorDetails {
 #[repr(C)]
 pub struct IErrorDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub LongDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LongDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub HelpUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IErrorDetailsStatics, IErrorDetailsStatics_Vtbl, 0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9);
@@ -37,7 +37,7 @@ windows_core::imp::define_interface!(IErrorReportingSettings, IErrorReportingSet
 impl std::ops::Deref for IErrorReportingSettings {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IErrorReportingSettings, windows_core::IUnknown, windows_core::IInspectable);
@@ -49,7 +49,7 @@ impl IErrorReportingSettings {
     pub fn GetErrorOptions(&self) -> windows_core::Result<ErrorOptions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetErrorOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -67,7 +67,7 @@ windows_core::imp::define_interface!(IFileLoggingSession, IFileLoggingSession_Vt
 impl std::ops::Deref for IFileLoggingSession {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFileLoggingSession, windows_core::IUnknown, windows_core::IInspectable);
@@ -76,7 +76,7 @@ impl IFileLoggingSession {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -105,7 +105,7 @@ impl IFileLoggingSession {
     pub fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CloseAndSaveToFileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -115,7 +115,7 @@ impl IFileLoggingSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LogFileGenerated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -134,7 +134,7 @@ impl windows_core::RuntimeType for IFileLoggingSession {
 #[repr(C)]
 pub struct IFileLoggingSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub AddLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddLoggingChannelWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
     pub RemoveLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -152,7 +152,7 @@ impl windows_core::RuntimeType for IFileLoggingSessionFactory {
 #[repr(C)]
 pub struct IFileLoggingSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILogFileGeneratedEventArgs, ILogFileGeneratedEventArgs_Vtbl, 0x269e976f_0d38_4c1a_b53f_b395d881df84);
 impl windows_core::RuntimeType for ILogFileGeneratedEventArgs {
@@ -173,7 +173,7 @@ impl windows_core::RuntimeType for ILoggingActivity {
 #[repr(C)]
 pub struct ILoggingActivity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingActivity2, ILoggingActivity2_Vtbl, 0x26c29808_6322_456a_af82_80c8642f178b);
@@ -184,9 +184,9 @@ impl windows_core::RuntimeType for ILoggingActivity2 {
 pub struct ILoggingActivity2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StopActivity: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub StopActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StopActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StopActivity: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub StopActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StopActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingActivityFactory, ILoggingActivityFactory_Vtbl, 0x6b33b483_e10a_4c58_97d5_10fb451074fb);
 impl windows_core::RuntimeType for ILoggingActivityFactory {
@@ -195,14 +195,14 @@ impl windows_core::RuntimeType for ILoggingActivityFactory {
 #[repr(C)]
 pub struct ILoggingActivityFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateLoggingActivity: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateLoggingActivityWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateLoggingActivity: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateLoggingActivityWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingChannel, ILoggingChannel_Vtbl, 0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
 impl std::ops::Deref for ILoggingChannel {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILoggingChannel, windows_core::IUnknown, windows_core::IInspectable);
@@ -211,21 +211,21 @@ impl ILoggingChannel {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Enabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Level(&self) -> windows_core::Result<LoggingLevel> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -251,7 +251,7 @@ impl ILoggingChannel {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoggingEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -270,13 +270,13 @@ impl windows_core::RuntimeType for ILoggingChannel {
 #[repr(C)]
 pub struct ILoggingChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Level: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LoggingLevel) -> windows_core::HRESULT,
-    pub LogMessage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub LogMessageWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, LoggingLevel) -> windows_core::HRESULT,
-    pub LogValuePair: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i32) -> windows_core::HRESULT,
-    pub LogValuePairWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i32, LoggingLevel) -> windows_core::HRESULT,
+    pub LogMessage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LogMessageWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, LoggingLevel) -> windows_core::HRESULT,
+    pub LogValuePair: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i32) -> windows_core::HRESULT,
+    pub LogValuePairWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i32, LoggingLevel) -> windows_core::HRESULT,
     pub LoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveLoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
 }
@@ -297,7 +297,7 @@ impl windows_core::RuntimeType for ILoggingChannelFactory {
 pub struct ILoggingChannelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Create: usize,
 }
@@ -308,8 +308,8 @@ impl windows_core::RuntimeType for ILoggingChannelFactory2 {
 #[repr(C)]
 pub struct ILoggingChannelFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithOptionsAndId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithOptionsAndId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingChannelOptions, ILoggingChannelOptions_Vtbl, 0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
 impl windows_core::RuntimeType for ILoggingChannelOptions {
@@ -338,120 +338,120 @@ impl windows_core::RuntimeType for ILoggingFields {
 pub struct ILoggingFields_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BeginStruct: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub BeginStructWithTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i32) -> windows_core::HRESULT,
+    pub BeginStruct: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub BeginStructWithTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i32) -> windows_core::HRESULT,
     pub EndStruct: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub AddEmptyWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddEmptyWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt8: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u8) -> windows_core::HRESULT,
-    pub AddUInt8WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u8, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt8WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u8, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt8Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u8) -> windows_core::HRESULT,
-    pub AddUInt8ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u8, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt8ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u8, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddInt16: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i16) -> windows_core::HRESULT,
-    pub AddInt16WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i16, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddInt16WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i16) -> windows_core::HRESULT,
-    pub AddInt16ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i16, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddInt16ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u16) -> windows_core::HRESULT,
-    pub AddUInt16WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt16WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16) -> windows_core::HRESULT,
-    pub AddUInt16ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt16ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddInt32: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i32) -> windows_core::HRESULT,
-    pub AddInt32WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i32, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddInt32WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i32) -> windows_core::HRESULT,
-    pub AddInt32ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i32, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddInt32ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32) -> windows_core::HRESULT,
-    pub AddUInt32WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt32WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u32) -> windows_core::HRESULT,
-    pub AddUInt32ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u32, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt32ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddInt64: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i64) -> windows_core::HRESULT,
-    pub AddInt64WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i64, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddInt64WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, i64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i64) -> windows_core::HRESULT,
-    pub AddInt64ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i64, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddInt64ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u64) -> windows_core::HRESULT,
-    pub AddUInt64WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u64, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt64WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddUInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u64) -> windows_core::HRESULT,
-    pub AddUInt64ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u64, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddUInt64ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddSingle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, f32) -> windows_core::HRESULT,
-    pub AddSingleWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, f32, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddSingleWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, f32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddSingleArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f32) -> windows_core::HRESULT,
-    pub AddSingleArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f32, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddSingleArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddDouble: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, f64) -> windows_core::HRESULT,
-    pub AddDoubleWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, f64, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddDoubleWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, f64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddDoubleArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f64) -> windows_core::HRESULT,
-    pub AddDoubleArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f64, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddDoubleArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddChar16: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u16) -> windows_core::HRESULT,
-    pub AddChar16WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddChar16WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddChar16Array: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16) -> windows_core::HRESULT,
-    pub AddChar16ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddChar16ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool) -> windows_core::HRESULT,
-    pub AddBooleanWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddBooleanWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const bool) -> windows_core::HRESULT,
-    pub AddBooleanArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const bool, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddBooleanArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const bool, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddString: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub AddStringWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddStringWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub AddStringArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const std::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddStringArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const std::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddGuid: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID) -> windows_core::HRESULT,
-    pub AddGuidWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddGuidWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub AddGuidArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const windows_core::GUID, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddGuidArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const windows_core::GUID, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::DateTime) -> windows_core::HRESULT,
-    pub AddDateTimeWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddDateTimeWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::DateTime) -> windows_core::HRESULT,
-    pub AddDateTimeArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddDateTimeArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::TimeSpan) -> windows_core::HRESULT,
-    pub AddTimeSpanWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddTimeSpanWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::TimeSpan) -> windows_core::HRESULT,
-    pub AddTimeSpanArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddTimeSpanArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddPoint: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Point) -> windows_core::HRESULT,
-    pub AddPointWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Point, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddPointWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Point, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddPointArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Point) -> windows_core::HRESULT,
-    pub AddPointArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Point, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddPointArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Point, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddSize: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Size) -> windows_core::HRESULT,
-    pub AddSizeWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Size, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddSizeWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Size, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Size) -> windows_core::HRESULT,
-    pub AddSizeArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Size, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddSizeArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Size, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddRect: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Rect) -> windows_core::HRESULT,
-    pub AddRectWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Rect, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddRectWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::Rect, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Rect) -> windows_core::HRESULT,
-    pub AddRectArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Rect, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddRectArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Rect, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AddEmptyWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddEmptyWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt8: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u8) -> windows_core::HRESULT,
+    pub AddUInt8WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u8, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt8WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u8, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt8Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u8) -> windows_core::HRESULT,
+    pub AddUInt8ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u8, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt8ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u8, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddInt16: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i16) -> windows_core::HRESULT,
+    pub AddInt16WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i16, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddInt16WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i16) -> windows_core::HRESULT,
+    pub AddInt16ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i16, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddInt16ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16) -> windows_core::HRESULT,
+    pub AddUInt16WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt16WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16) -> windows_core::HRESULT,
+    pub AddUInt16ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt16ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddInt32: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i32) -> windows_core::HRESULT,
+    pub AddInt32WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i32, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddInt32WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i32) -> windows_core::HRESULT,
+    pub AddInt32ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i32, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddInt32ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32) -> windows_core::HRESULT,
+    pub AddUInt32WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt32WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u32) -> windows_core::HRESULT,
+    pub AddUInt32ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u32, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt32ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddInt64: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i64) -> windows_core::HRESULT,
+    pub AddInt64WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i64, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddInt64WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, i64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i64) -> windows_core::HRESULT,
+    pub AddInt64ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i64, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddInt64ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const i64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u64) -> windows_core::HRESULT,
+    pub AddUInt64WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u64, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt64WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddUInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u64) -> windows_core::HRESULT,
+    pub AddUInt64ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u64, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddUInt64ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddSingle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, f32) -> windows_core::HRESULT,
+    pub AddSingleWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, f32, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddSingleWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, f32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddSingleArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f32) -> windows_core::HRESULT,
+    pub AddSingleArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f32, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddSingleArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f32, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddDouble: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, f64) -> windows_core::HRESULT,
+    pub AddDoubleWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, f64, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddDoubleWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, f64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddDoubleArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f64) -> windows_core::HRESULT,
+    pub AddDoubleArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f64, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddDoubleArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const f64, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddChar16: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16) -> windows_core::HRESULT,
+    pub AddChar16WithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddChar16WithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddChar16Array: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16) -> windows_core::HRESULT,
+    pub AddChar16ArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddChar16ArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const u16, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, bool) -> windows_core::HRESULT,
+    pub AddBooleanWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, bool, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddBooleanWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, bool, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const bool) -> windows_core::HRESULT,
+    pub AddBooleanArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const bool, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddBooleanArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const bool, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddString: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AddStringWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddStringWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AddStringArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const core::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddStringArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const core::mem::MaybeUninit<windows_core::HSTRING>, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddGuid: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID) -> windows_core::HRESULT,
+    pub AddGuidWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddGuidWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub AddGuidArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const windows_core::GUID, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddGuidArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const windows_core::GUID, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::DateTime) -> windows_core::HRESULT,
+    pub AddDateTimeWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddDateTimeWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::DateTime) -> windows_core::HRESULT,
+    pub AddDateTimeArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddDateTimeArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::TimeSpan) -> windows_core::HRESULT,
+    pub AddTimeSpanWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddTimeSpanWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::TimeSpan) -> windows_core::HRESULT,
+    pub AddTimeSpanArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddTimeSpanArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddPoint: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Point) -> windows_core::HRESULT,
+    pub AddPointWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Point, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddPointWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Point, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddPointArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Point) -> windows_core::HRESULT,
+    pub AddPointArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Point, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddPointArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Point, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddSize: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Size) -> windows_core::HRESULT,
+    pub AddSizeWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Size, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddSizeWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Size, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Size) -> windows_core::HRESULT,
+    pub AddSizeArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Size, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddSizeArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Size, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddRect: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Rect) -> windows_core::HRESULT,
+    pub AddRectWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Rect, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddRectWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::Rect, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Rect) -> windows_core::HRESULT,
+    pub AddRectArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Rect, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddRectArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *const super::Rect, LoggingFieldFormat, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingOptions, ILoggingOptions_Vtbl, 0x90bc7850_0192_4f5d_ac26_006adaca12d8);
 impl windows_core::RuntimeType for ILoggingOptions {
@@ -486,7 +486,7 @@ windows_core::imp::define_interface!(ILoggingSession, ILoggingSession_Vtbl, 0x62
 impl std::ops::Deref for ILoggingSession {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILoggingSession, windows_core::IUnknown, windows_core::IInspectable);
@@ -495,7 +495,7 @@ impl ILoggingSession {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -506,7 +506,7 @@ impl ILoggingSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveToFileAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -542,9 +542,9 @@ impl windows_core::RuntimeType for ILoggingSession {
 #[repr(C)]
 pub struct ILoggingSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Storage")]
-    pub SaveToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SaveToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     SaveToFileAsync: usize,
     pub AddLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -558,13 +558,13 @@ impl windows_core::RuntimeType for ILoggingSessionFactory {
 #[repr(C)]
 pub struct ILoggingSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingTarget, ILoggingTarget_Vtbl, 0x65f16c35_e388_4e26_b17a_f51cd3a83916);
 impl std::ops::Deref for ILoggingTarget {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILoggingTarget, windows_core::IUnknown, windows_core::IInspectable);
@@ -572,21 +572,21 @@ impl ILoggingTarget {
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
         }
     }
@@ -619,7 +619,7 @@ impl ILoggingTarget {
     pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -629,7 +629,7 @@ impl ILoggingTarget {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -639,7 +639,7 @@ impl ILoggingTarget {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -650,7 +650,7 @@ impl ILoggingTarget {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -664,14 +664,14 @@ pub struct ILoggingTarget_Vtbl {
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsEnabledWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, LoggingLevel, *mut bool) -> windows_core::HRESULT,
     pub IsEnabledWithLevelAndKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, LoggingLevel, i64, *mut bool) -> windows_core::HRESULT,
-    pub LogEvent: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub LogEventWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LogEventWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
-    pub LogEventWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivity: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivityWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LogEvent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub LogEventWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LogEventWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
+    pub LogEventWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivity: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivityWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITracingStatusChangedEventArgs, ITracingStatusChangedEventArgs_Vtbl, 0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
 impl windows_core::RuntimeType for ITracingStatusChangedEventArgs {
@@ -705,7 +705,7 @@ impl AsyncCausalityTracer {
         P0: windows_core::Param<super::EventHandler<TracingStatusChangedEventArgs>>,
     {
         Self::IAsyncCausalityTracerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TracingStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -729,27 +729,27 @@ impl ErrorDetails {
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LongDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LongDescription)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn HelpUri(&self) -> windows_core::Result<super::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HelpUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateFromHResultAsync(errorcode: i32) -> windows_core::Result<super::IAsyncOperation<ErrorDetails>> {
         Self::IErrorDetailsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromHResultAsync)(windows_core::Interface::as_raw(this), errorcode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -784,7 +784,7 @@ impl FileLoggingSession {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -813,7 +813,7 @@ impl FileLoggingSession {
     pub fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CloseAndSaveToFileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -823,7 +823,7 @@ impl FileLoggingSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LogFileGenerated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -833,7 +833,7 @@ impl FileLoggingSession {
     }
     pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<FileLoggingSession> {
         Self::IFileLoggingSessionFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -864,7 +864,7 @@ impl LogFileGeneratedEventArgs {
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -894,21 +894,21 @@ impl LoggingActivity {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Channel(&self) -> windows_core::Result<LoggingChannel> {
         let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -936,7 +936,7 @@ impl LoggingActivity {
         P0: windows_core::Param<ILoggingChannel>,
     {
         Self::ILoggingActivityFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLoggingActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityname), loggingchannel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -945,28 +945,28 @@ impl LoggingActivity {
         P0: windows_core::Param<ILoggingChannel>,
     {
         Self::ILoggingActivityFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLoggingActivityWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityname), loggingchannel.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
         }
     }
@@ -999,7 +999,7 @@ impl LoggingActivity {
     pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1009,7 +1009,7 @@ impl LoggingActivity {
     {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1019,7 +1019,7 @@ impl LoggingActivity {
     {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1030,7 +1030,7 @@ impl LoggingActivity {
     {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1065,21 +1065,21 @@ impl LoggingChannel {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Enabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Level(&self) -> windows_core::Result<LoggingLevel> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1105,7 +1105,7 @@ impl LoggingChannel {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoggingEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -1116,14 +1116,14 @@ impl LoggingChannel {
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<ILoggingChannel2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
     pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<LoggingChannel> {
         Self::ILoggingChannelFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1132,7 +1132,7 @@ impl LoggingChannel {
         P0: windows_core::Param<LoggingChannelOptions>,
     {
         Self::ILoggingChannelFactory2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1141,28 +1141,28 @@ impl LoggingChannel {
         P0: windows_core::Param<LoggingChannelOptions>,
     {
         Self::ILoggingChannelFactory2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithOptionsAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
         }
     }
@@ -1195,7 +1195,7 @@ impl LoggingChannel {
     pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1205,7 +1205,7 @@ impl LoggingChannel {
     {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1215,7 +1215,7 @@ impl LoggingChannel {
     {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1226,7 +1226,7 @@ impl LoggingChannel {
     {
         let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1268,7 +1268,7 @@ impl LoggingChannelOptions {
     pub fn Group(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1278,7 +1278,7 @@ impl LoggingChannelOptions {
     }
     pub fn Create(group: windows_core::GUID) -> windows_core::Result<LoggingChannelOptions> {
         Self::ILoggingChannelOptionsFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), group, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1800,7 +1800,7 @@ impl LoggingOptions {
     pub fn Keywords(&self) -> windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Keywords)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1811,7 +1811,7 @@ impl LoggingOptions {
     pub fn Tags(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tags)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1822,7 +1822,7 @@ impl LoggingOptions {
     pub fn Task(&self) -> windows_core::Result<i16> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Task)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1833,7 +1833,7 @@ impl LoggingOptions {
     pub fn Opcode(&self) -> windows_core::Result<LoggingOpcode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Opcode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1844,7 +1844,7 @@ impl LoggingOptions {
     pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1855,7 +1855,7 @@ impl LoggingOptions {
     pub fn RelatedActivityId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelatedActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -1865,7 +1865,7 @@ impl LoggingOptions {
     }
     pub fn CreateWithKeywords(keywords: i64) -> windows_core::Result<LoggingOptions> {
         Self::ILoggingOptionsFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithKeywords)(windows_core::Interface::as_raw(this), keywords, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1900,7 +1900,7 @@ impl LoggingSession {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1911,7 +1911,7 @@ impl LoggingSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveToFileAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -1938,7 +1938,7 @@ impl LoggingSession {
     }
     pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<LoggingSession> {
         Self::ILoggingSessionFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -1980,7 +1980,7 @@ impl RuntimeBrokerErrorSettings {
     pub fn GetErrorOptions(&self) -> windows_core::Result<ErrorOptions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetErrorOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -2005,14 +2005,14 @@ impl TracingStatusChangedEventArgs {
     pub fn Enabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TraceLevel(&self) -> windows_core::Result<CausalityTraceLevel> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TraceLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

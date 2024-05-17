@@ -10,7 +10,7 @@ windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompos
 impl std::ops::Deref for ICompositionFramePresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositionFramePresentStatistics, windows_core::IUnknown, IPresentStatistics);
@@ -40,7 +40,7 @@ windows_core::imp::define_interface!(IIndependentFlipFramePresentStatistics, IIn
 impl std::ops::Deref for IIndependentFlipFramePresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIndependentFlipFramePresentStatistics, windows_core::IUnknown, IPresentStatistics);
@@ -80,7 +80,7 @@ windows_core::imp::define_interface!(IPresentStatistics, IPresentStatistics_Vtbl
 impl std::ops::Deref for IPresentStatistics {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentStatistics, windows_core::IUnknown);
@@ -102,7 +102,7 @@ windows_core::imp::define_interface!(IPresentStatusPresentStatistics, IPresentSt
 impl std::ops::Deref for IPresentStatusPresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentStatusPresentStatistics, windows_core::IUnknown, IPresentStatistics);
@@ -124,17 +124,17 @@ windows_core::imp::define_interface!(IPresentationBuffer, IPresentationBuffer_Vt
 impl std::ops::Deref for IPresentationBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentationBuffer, windows_core::IUnknown);
 impl IPresentationBuffer {
     pub unsafe fn GetAvailableEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAvailableEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsAvailable(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -148,7 +148,7 @@ windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_
 impl std::ops::Deref for IPresentationContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentationContent, windows_core::IUnknown);
@@ -166,7 +166,7 @@ windows_core::imp::define_interface!(IPresentationFactory, IPresentationFactory_
 impl std::ops::Deref for IPresentationFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentationFactory, windows_core::IUnknown);
@@ -178,7 +178,7 @@ impl IPresentationFactory {
         (windows_core::Interface::vtable(self).IsPresentationSupportedWithIndependentFlip)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn CreatePresentationManager(&self) -> windows_core::Result<IPresentationManager> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePresentationManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -193,7 +193,7 @@ windows_core::imp::define_interface!(IPresentationManager, IPresentationManager_
 impl std::ops::Deref for IPresentationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentationManager, windows_core::IUnknown);
@@ -202,14 +202,14 @@ impl IPresentationManager {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePresentationSurface<P0>(&self, compositionsurfacehandle: P0) -> windows_core::Result<IPresentationSurface>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
@@ -228,25 +228,25 @@ impl IPresentationManager {
         (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPresentRetiringFence)(windows_core::Interface::as_raw(self), riid, &mut result__).map(|| result__)
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelPresentsFrom)(windows_core::Interface::as_raw(self), presentidtocancelfrom).ok()
     }
     pub unsafe fn GetLostEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLostEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnablePresentStatisticsKind)(windows_core::Interface::as_raw(self), presentstatisticskind, enabled).ok()
     }
     pub unsafe fn GetNextPresentStatistics(&self) -> windows_core::Result<IPresentStatistics> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNextPresentStatistics)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -271,7 +271,7 @@ windows_core::imp::define_interface!(IPresentationSurface, IPresentationSurface_
 impl std::ops::Deref for IPresentationSurface {
     type Target = IPresentationContent;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPresentationSurface, windows_core::IUnknown, IPresentationContent);

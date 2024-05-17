@@ -34,25 +34,25 @@ impl windows_core::RuntimeType for IGameServicePropertyCollection {
 #[repr(C)]
 pub struct IGameServicePropertyCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetPropertyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPropertyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub struct GameService;
 impl GameService {
     pub fn ServiceUri() -> windows_core::Result<super::super::super::super::super::Foundation::Uri> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetGamerProfileAsync() -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGamerProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetInstalledGameItemsAsync() -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInstalledGameItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -61,13 +61,13 @@ impl GameService {
         P0: windows_core::Param<super::super::super::super::super::Foundation::Uri>,
     {
         Self::IGameService(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPartnerTokenAsync)(windows_core::Interface::as_raw(this), audienceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetPrivilegesAsync() -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrivilegesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -92,7 +92,7 @@ impl GameService {
     }
     pub fn GetAuthenticationStatus() -> windows_core::Result<u32> {
         Self::IGameService2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAuthenticationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -118,7 +118,7 @@ impl GameServicePropertyCollection {
     pub fn GetPropertyAsync(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

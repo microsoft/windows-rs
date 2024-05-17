@@ -2,13 +2,13 @@ windows_core::imp::define_interface!(IWsbApplicationAsync, IWsbApplicationAsync_
 impl std::ops::Deref for IWsbApplicationAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWsbApplicationAsync, windows_core::IUnknown);
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
@@ -25,7 +25,7 @@ windows_core::imp::define_interface!(IWsbApplicationBackupSupport, IWsbApplicati
 impl std::ops::Deref for IWsbApplicationBackupSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWsbApplicationBackupSupport, windows_core::IUnknown);
@@ -36,7 +36,7 @@ impl IWsbApplicationBackupSupport {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckConsistency)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -49,7 +49,7 @@ windows_core::imp::define_interface!(IWsbApplicationRestoreSupport, IWsbApplicat
 impl std::ops::Deref for IWsbApplicationRestoreSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, windows_core::IUnknown);
@@ -76,7 +76,7 @@ impl IWsbApplicationRestoreSupport {
         (windows_core::Interface::vtable(self).OrderComponents)(windows_core::Interface::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname, prgcomponentlogicalpath).ok()
     }
     pub unsafe fn IsRollForwardSupported(&self) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsRollForwardSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }

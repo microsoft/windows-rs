@@ -38,7 +38,7 @@ windows_core::imp::define_interface!(IDtcLuConfigure, IDtcLuConfigure_Vtbl, 0x41
 impl std::ops::Deref for IDtcLuConfigure {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuConfigure, windows_core::IUnknown);
@@ -60,7 +60,7 @@ windows_core::imp::define_interface!(IDtcLuRecovery, IDtcLuRecovery_Vtbl, 0xac2b
 impl std::ops::Deref for IDtcLuRecovery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecovery, windows_core::IUnknown);
@@ -73,13 +73,13 @@ windows_core::imp::define_interface!(IDtcLuRecoveryFactory, IDtcLuRecoveryFactor
 impl std::ops::Deref for IDtcLuRecoveryFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryFactory, windows_core::IUnknown);
 impl IDtcLuRecoveryFactory {
     pub unsafe fn Create(&self, puclupair: &[u8]) -> windows_core::Result<IDtcLuRecovery> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute(puclupair.as_ptr()), puclupair.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -92,7 +92,7 @@ windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtc, IDtcLuRecover
 impl std::ops::Deref for IDtcLuRecoveryInitiatedByDtc {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, windows_core::IUnknown);
@@ -110,7 +110,7 @@ windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtcStatusWork, IDt
 impl std::ops::Deref for IDtcLuRecoveryInitiatedByDtcStatusWork {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, windows_core::IUnknown);
@@ -128,7 +128,7 @@ windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtcTransWork, IDtc
 impl std::ops::Deref for IDtcLuRecoveryInitiatedByDtcTransWork {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, windows_core::IUnknown);
@@ -194,13 +194,13 @@ windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByLu, IDtcLuRecovery
 impl std::ops::Deref for IDtcLuRecoveryInitiatedByLu {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLu {
     pub unsafe fn GetObjectToHandleWorkFromLu(&self) -> windows_core::Result<IDtcLuRecoveryInitiatedByLuWork> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetObjectToHandleWorkFromLu)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -213,7 +213,7 @@ windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByLuWork, IDtcLuReco
 impl std::ops::Deref for IDtcLuRecoveryInitiatedByLuWork {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, windows_core::IUnknown);
@@ -259,7 +259,7 @@ windows_core::imp::define_interface!(IDtcLuRmEnlistment, IDtcLuRmEnlistment_Vtbl
 impl std::ops::Deref for IDtcLuRmEnlistment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistment, windows_core::IUnknown);
@@ -300,7 +300,7 @@ windows_core::imp::define_interface!(IDtcLuRmEnlistmentFactory, IDtcLuRmEnlistme
 impl std::ops::Deref for IDtcLuRmEnlistmentFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentFactory, windows_core::IUnknown);
@@ -322,7 +322,7 @@ windows_core::imp::define_interface!(IDtcLuRmEnlistmentSink, IDtcLuRmEnlistmentS
 impl std::ops::Deref for IDtcLuRmEnlistmentSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentSink, windows_core::IUnknown);
@@ -372,7 +372,7 @@ windows_core::imp::define_interface!(IDtcLuSubordinateDtc, IDtcLuSubordinateDtc_
 impl std::ops::Deref for IDtcLuSubordinateDtc {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtc, windows_core::IUnknown);
@@ -417,7 +417,7 @@ windows_core::imp::define_interface!(IDtcLuSubordinateDtcFactory, IDtcLuSubordin
 impl std::ops::Deref for IDtcLuSubordinateDtcFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcFactory, windows_core::IUnknown);
@@ -440,7 +440,7 @@ windows_core::imp::define_interface!(IDtcLuSubordinateDtcSink, IDtcLuSubordinate
 impl std::ops::Deref for IDtcLuSubordinateDtcSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcSink, windows_core::IUnknown);
@@ -486,13 +486,13 @@ windows_core::imp::define_interface!(IDtcNetworkAccessConfig, IDtcNetworkAccessC
 impl std::ops::Deref for IDtcNetworkAccessConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig, windows_core::IUnknown);
 impl IDtcNetworkAccessConfig {
     pub unsafe fn GetAnyNetworkAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAnyNetworkAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAnyNetworkAccess<P0>(&self, banynetworkaccess: P0) -> windows_core::Result<()>
@@ -502,7 +502,7 @@ impl IDtcNetworkAccessConfig {
         (windows_core::Interface::vtable(self).SetAnyNetworkAccess)(windows_core::Interface::as_raw(self), banynetworkaccess.param().abi()).ok()
     }
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkAdministrationAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkAdministrationAccess<P0>(&self, bnetworkadministrationaccess: P0) -> windows_core::Result<()>
@@ -512,7 +512,7 @@ impl IDtcNetworkAccessConfig {
         (windows_core::Interface::vtable(self).SetNetworkAdministrationAccess)(windows_core::Interface::as_raw(self), bnetworkadministrationaccess.param().abi()).ok()
     }
     pub unsafe fn GetNetworkTransactionAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkTransactionAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkTransactionAccess<P0>(&self, bnetworktransactionaccess: P0) -> windows_core::Result<()>
@@ -522,7 +522,7 @@ impl IDtcNetworkAccessConfig {
         (windows_core::Interface::vtable(self).SetNetworkTransactionAccess)(windows_core::Interface::as_raw(self), bnetworktransactionaccess.param().abi()).ok()
     }
     pub unsafe fn GetNetworkClientAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkClientAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkClientAccess<P0>(&self, bnetworkclientaccess: P0) -> windows_core::Result<()>
@@ -532,7 +532,7 @@ impl IDtcNetworkAccessConfig {
         (windows_core::Interface::vtable(self).SetNetworkClientAccess)(windows_core::Interface::as_raw(self), bnetworkclientaccess.param().abi()).ok()
     }
     pub unsafe fn GetNetworkTIPAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkTIPAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkTIPAccess<P0>(&self, bnetworktipaccess: P0) -> windows_core::Result<()>
@@ -542,7 +542,7 @@ impl IDtcNetworkAccessConfig {
         (windows_core::Interface::vtable(self).SetNetworkTIPAccess)(windows_core::Interface::as_raw(self), bnetworktipaccess.param().abi()).ok()
     }
     pub unsafe fn GetXAAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetXAAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetXAAccess<P0>(&self, bxaaccess: P0) -> windows_core::Result<()>
@@ -576,17 +576,17 @@ windows_core::imp::define_interface!(IDtcNetworkAccessConfig2, IDtcNetworkAccess
 impl std::ops::Deref for IDtcNetworkAccessConfig2 {
     type Target = IDtcNetworkAccessConfig;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig2, windows_core::IUnknown, IDtcNetworkAccessConfig);
 impl IDtcNetworkAccessConfig2 {
     pub unsafe fn GetNetworkInboundAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkInboundAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNetworkOutboundAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkOutboundAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkInboundAccess<P0>(&self, binbound: P0) -> windows_core::Result<()>
@@ -602,7 +602,7 @@ impl IDtcNetworkAccessConfig2 {
         (windows_core::Interface::vtable(self).SetNetworkOutboundAccess)(windows_core::Interface::as_raw(self), boutbound.param().abi()).ok()
     }
     pub unsafe fn GetAuthenticationLevel(&self) -> windows_core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAuthenticationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> windows_core::Result<()> {
@@ -623,13 +623,13 @@ windows_core::imp::define_interface!(IDtcNetworkAccessConfig3, IDtcNetworkAccess
 impl std::ops::Deref for IDtcNetworkAccessConfig3 {
     type Target = IDtcNetworkAccessConfig2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig3, windows_core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
 impl IDtcNetworkAccessConfig3 {
     pub unsafe fn GetLUAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLUAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLUAccess<P0>(&self, bluaccess: P0) -> windows_core::Result<()>
@@ -649,7 +649,7 @@ windows_core::imp::define_interface!(IDtcToXaHelper, IDtcToXaHelper_Vtbl, 0xa986
 impl std::ops::Deref for IDtcToXaHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcToXaHelper, windows_core::IUnknown);
@@ -677,7 +677,7 @@ windows_core::imp::define_interface!(IDtcToXaHelperFactory, IDtcToXaHelperFactor
 impl std::ops::Deref for IDtcToXaHelperFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcToXaHelperFactory, windows_core::IUnknown);
@@ -699,7 +699,7 @@ windows_core::imp::define_interface!(IDtcToXaHelperSinglePipe, IDtcToXaHelperSin
 impl std::ops::Deref for IDtcToXaHelperSinglePipe {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcToXaHelperSinglePipe, windows_core::IUnknown);
@@ -719,7 +719,7 @@ impl IDtcToXaHelperSinglePipe {
         P0: windows_core::Param<ITransaction>,
         P1: windows_core::Param<ITransactionResourceAsync>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnlistWithRM)(windows_core::Interface::as_raw(self), dwrmcookie, i_pitransaction.param().abi(), i_pitransres.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ReleaseRMCookie<P0>(&self, i_dwrmcookie: u32, i_fnormal: P0)
@@ -741,7 +741,7 @@ windows_core::imp::define_interface!(IDtcToXaMapper, IDtcToXaMapper_Vtbl, 0x64ff
 impl std::ops::Deref for IDtcToXaMapper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDtcToXaMapper, windows_core::IUnknown);
@@ -775,7 +775,7 @@ windows_core::imp::define_interface!(IGetDispenser, IGetDispenser_Vtbl, 0xc23cc3
 impl std::ops::Deref for IGetDispenser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGetDispenser, windows_core::IUnknown);
@@ -793,13 +793,13 @@ windows_core::imp::define_interface!(IKernelTransaction, IKernelTransaction_Vtbl
 impl std::ops::Deref for IKernelTransaction {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IKernelTransaction, windows_core::IUnknown);
 impl IKernelTransaction {
     pub unsafe fn GetHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -812,7 +812,7 @@ windows_core::imp::define_interface!(ILastResourceManager, ILastResourceManager_
 impl std::ops::Deref for ILastResourceManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILastResourceManager, windows_core::IUnknown);
@@ -834,7 +834,7 @@ windows_core::imp::define_interface!(IPrepareInfo, IPrepareInfo_Vtbl, 0x80c7bfd0
 impl std::ops::Deref for IPrepareInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrepareInfo, windows_core::IUnknown);
@@ -856,13 +856,13 @@ windows_core::imp::define_interface!(IPrepareInfo2, IPrepareInfo2_Vtbl, 0x5fab25
 impl std::ops::Deref for IPrepareInfo2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPrepareInfo2, windows_core::IUnknown);
 impl IPrepareInfo2 {
     pub unsafe fn GetPrepareInfoSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPrepareInfoSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPrepareInfo(&self, pprepinfo: &mut [u8]) -> windows_core::Result<()> {
@@ -879,7 +879,7 @@ windows_core::imp::define_interface!(IRMHelper, IRMHelper_Vtbl, 0xe793f6d1_f53d_
 impl std::ops::Deref for IRMHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRMHelper, windows_core::IUnknown);
@@ -906,7 +906,7 @@ windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0x
 impl std::ops::Deref for IResourceManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IResourceManager, windows_core::IUnknown);
@@ -919,7 +919,7 @@ impl IResourceManager {
         (windows_core::Interface::vtable(self).Enlist)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), pres.param().abi(), puow, pisolevel, core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> windows_core::Result<XACTSTAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Reenlist)(windows_core::Interface::as_raw(self), core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).map(|| result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> windows_core::Result<()> {
@@ -941,7 +941,7 @@ windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 
 impl std::ops::Deref for IResourceManager2 {
     type Target = IResourceManager;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IResourceManager2, windows_core::IUnknown, IResourceManager);
@@ -954,7 +954,7 @@ impl IResourceManager2 {
         (windows_core::Interface::vtable(self).Enlist2)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), presasync.param().abi(), puow, pisolevel, pxid, core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> windows_core::Result<XACTSTAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Reenlist2)(windows_core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).map(|| result__)
     }
 }
@@ -968,7 +968,7 @@ windows_core::imp::define_interface!(IResourceManagerFactory, IResourceManagerFa
 impl std::ops::Deref for IResourceManagerFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IResourceManagerFactory, windows_core::IUnknown);
@@ -978,7 +978,7 @@ impl IResourceManagerFactory {
         P0: windows_core::Param<windows_core::PCSTR>,
         P1: windows_core::Param<IResourceManagerSink>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), pguidrm, pszrmname.param().abi(), piresmgrsink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -991,7 +991,7 @@ windows_core::imp::define_interface!(IResourceManagerFactory2, IResourceManagerF
 impl std::ops::Deref for IResourceManagerFactory2 {
     type Target = IResourceManagerFactory;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IResourceManagerFactory2, windows_core::IUnknown, IResourceManagerFactory);
@@ -1013,13 +1013,13 @@ windows_core::imp::define_interface!(IResourceManagerRejoinable, IResourceManage
 impl std::ops::Deref for IResourceManagerRejoinable {
     type Target = IResourceManager2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IResourceManagerRejoinable, windows_core::IUnknown, IResourceManager, IResourceManager2);
 impl IResourceManagerRejoinable {
     pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> windows_core::Result<XACTSTAT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Rejoin)(windows_core::Interface::as_raw(self), core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).map(|| result__)
     }
 }
@@ -1032,7 +1032,7 @@ windows_core::imp::define_interface!(IResourceManagerSink, IResourceManagerSink_
 impl std::ops::Deref for IResourceManagerSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IResourceManagerSink, windows_core::IUnknown);
@@ -1050,24 +1050,24 @@ windows_core::imp::define_interface!(ITipHelper, ITipHelper_Vtbl, 0x17cf72d1_bac
 impl std::ops::Deref for ITipHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITipHelper, windows_core::IUnknown);
 impl ITipHelper {
     pub unsafe fn Pull(&self, i_psztxurl: *const u8) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), i_psztxurl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PullAsync<P0>(&self, i_psztxurl: *const u8, i_ptippullsink: P0) -> windows_core::Result<ITransaction>
     where
         P0: windows_core::Param<ITipPullSink>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PullAsync)(windows_core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLocalTmUrl(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLocalTmUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1082,7 +1082,7 @@ windows_core::imp::define_interface!(ITipPullSink, ITipPullSink_Vtbl, 0x17cf72d2
 impl std::ops::Deref for ITipPullSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITipPullSink, windows_core::IUnknown);
@@ -1100,17 +1100,17 @@ windows_core::imp::define_interface!(ITipTransaction, ITipTransaction_Vtbl, 0x17
 impl std::ops::Deref for ITipTransaction {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITipTransaction, windows_core::IUnknown);
 impl ITipTransaction {
     pub unsafe fn Push(&self, i_pszremotetmurl: *const u8) -> windows_core::Result<windows_core::PSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), i_pszremotetmurl, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransactionUrl(&self) -> windows_core::Result<windows_core::PSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransactionUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1124,13 +1124,13 @@ windows_core::imp::define_interface!(ITmNodeName, ITmNodeName_Vtbl, 0x30274f88_6
 impl std::ops::Deref for ITmNodeName {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITmNodeName, windows_core::IUnknown);
 impl ITmNodeName {
     pub unsafe fn GetNodeNameSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNodeNameSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::Result<()> {
@@ -1147,7 +1147,7 @@ windows_core::imp::define_interface!(ITransaction, ITransaction_Vtbl, 0x0fb15084
 impl std::ops::Deref for ITransaction {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransaction, windows_core::IUnknown);
@@ -1180,7 +1180,7 @@ windows_core::imp::define_interface!(ITransaction2, ITransaction2_Vtbl, 0x340215
 impl std::ops::Deref for ITransaction2 {
     type Target = ITransactionCloner;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransaction2, windows_core::IUnknown, ITransaction, ITransactionCloner);
@@ -1198,13 +1198,13 @@ windows_core::imp::define_interface!(ITransactionCloner, ITransactionCloner_Vtbl
 impl std::ops::Deref for ITransactionCloner {
     type Target = ITransaction;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionCloner, windows_core::IUnknown, ITransaction);
 impl ITransactionCloner {
     pub unsafe fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CloneWithCommitDisabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1217,13 +1217,13 @@ windows_core::imp::define_interface!(ITransactionDispenser, ITransactionDispense
 impl std::ops::Deref for ITransactionDispenser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionDispenser, windows_core::IUnknown);
 impl ITransactionDispenser {
     pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<ITransactionOptions> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BeginTransaction<P0, P1>(&self, punkouter: P0, isolevel: i32, isoflags: u32, poptions: P1) -> windows_core::Result<ITransaction>
@@ -1231,7 +1231,7 @@ impl ITransactionDispenser {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<ITransactionOptions>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginTransaction)(windows_core::Interface::as_raw(self), punkouter.param().abi(), isolevel, isoflags, poptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1245,7 +1245,7 @@ windows_core::imp::define_interface!(ITransactionEnlistmentAsync, ITransactionEn
 impl std::ops::Deref for ITransactionEnlistmentAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionEnlistmentAsync, windows_core::IUnknown);
@@ -1278,7 +1278,7 @@ windows_core::imp::define_interface!(ITransactionExport, ITransactionExport_Vtbl
 impl std::ops::Deref for ITransactionExport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionExport, windows_core::IUnknown);
@@ -1287,7 +1287,7 @@ impl ITransactionExport {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), punktransaction.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTransactionCookie<P0>(&self, punktransaction: P0, rgbtransactioncookie: &mut [u8], pcbused: *mut u32) -> windows_core::Result<()>
@@ -1307,17 +1307,17 @@ windows_core::imp::define_interface!(ITransactionExportFactory, ITransactionExpo
 impl std::ops::Deref for ITransactionExportFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionExportFactory, windows_core::IUnknown);
 impl ITransactionExportFactory {
     pub unsafe fn GetRemoteClassId(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRemoteClassId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Create(&self, rgbwhereabouts: &[u8]) -> windows_core::Result<ITransactionExport> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rgbwhereabouts.len().try_into().unwrap(), core::mem::transmute(rgbwhereabouts.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1331,7 +1331,7 @@ windows_core::imp::define_interface!(ITransactionImport, ITransactionImport_Vtbl
 impl std::ops::Deref for ITransactionImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionImport, windows_core::IUnknown);
@@ -1353,13 +1353,13 @@ windows_core::imp::define_interface!(ITransactionImportWhereabouts, ITransaction
 impl std::ops::Deref for ITransactionImportWhereabouts {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionImportWhereabouts, windows_core::IUnknown);
 impl ITransactionImportWhereabouts {
     pub unsafe fn GetWhereaboutsSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWhereaboutsSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetWhereabouts(&self, rgbwhereabouts: &mut [u8], pcbused: *mut u32) -> windows_core::Result<()> {
@@ -1376,7 +1376,7 @@ windows_core::imp::define_interface!(ITransactionLastEnlistmentAsync, ITransacti
 impl std::ops::Deref for ITransactionLastEnlistmentAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionLastEnlistmentAsync, windows_core::IUnknown);
@@ -1394,7 +1394,7 @@ windows_core::imp::define_interface!(ITransactionLastResourceAsync, ITransaction
 impl std::ops::Deref for ITransactionLastResourceAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionLastResourceAsync, windows_core::IUnknown);
@@ -1416,7 +1416,7 @@ windows_core::imp::define_interface!(ITransactionOptions, ITransactionOptions_Vt
 impl std::ops::Deref for ITransactionOptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionOptions, windows_core::IUnknown);
@@ -1438,7 +1438,7 @@ windows_core::imp::define_interface!(ITransactionOutcomeEvents, ITransactionOutc
 impl std::ops::Deref for ITransactionOutcomeEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionOutcomeEvents, windows_core::IUnknown);
@@ -1474,7 +1474,7 @@ windows_core::imp::define_interface!(ITransactionPhase0EnlistmentAsync, ITransac
 impl std::ops::Deref for ITransactionPhase0EnlistmentAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, windows_core::IUnknown);
@@ -1492,7 +1492,7 @@ impl ITransactionPhase0EnlistmentAsync {
         (windows_core::Interface::vtable(self).Unenlist)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetTransaction(&self) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransaction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1509,7 +1509,7 @@ windows_core::imp::define_interface!(ITransactionPhase0Factory, ITransactionPhas
 impl std::ops::Deref for ITransactionPhase0Factory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionPhase0Factory, windows_core::IUnknown);
@@ -1518,7 +1518,7 @@ impl ITransactionPhase0Factory {
     where
         P0: windows_core::Param<ITransactionPhase0NotifyAsync>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), pphase0notify.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1531,7 +1531,7 @@ windows_core::imp::define_interface!(ITransactionPhase0NotifyAsync, ITransaction
 impl std::ops::Deref for ITransactionPhase0NotifyAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionPhase0NotifyAsync, windows_core::IUnknown);
@@ -1556,17 +1556,17 @@ windows_core::imp::define_interface!(ITransactionReceiver, ITransactionReceiver_
 impl std::ops::Deref for ITransactionReceiver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionReceiver, windows_core::IUnknown);
 impl ITransactionReceiver {
     pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[u8]) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UnmarshalPropagationToken)(windows_core::Interface::as_raw(self), rgbtoken.len().try_into().unwrap(), core::mem::transmute(rgbtoken.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetReturnTokenSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetReturnTokenSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MarshalReturnToken(&self, rgbreturntoken: &mut [u8], pcbused: *mut u32) -> windows_core::Result<()> {
@@ -1588,13 +1588,13 @@ windows_core::imp::define_interface!(ITransactionReceiverFactory, ITransactionRe
 impl std::ops::Deref for ITransactionReceiverFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionReceiverFactory, windows_core::IUnknown);
 impl ITransactionReceiverFactory {
     pub unsafe fn Create(&self) -> windows_core::Result<ITransactionReceiver> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1607,7 +1607,7 @@ windows_core::imp::define_interface!(ITransactionResource, ITransactionResource_
 impl std::ops::Deref for ITransactionResource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionResource, windows_core::IUnknown);
@@ -1645,7 +1645,7 @@ windows_core::imp::define_interface!(ITransactionResourceAsync, ITransactionReso
 impl std::ops::Deref for ITransactionResourceAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionResourceAsync, windows_core::IUnknown);
@@ -1683,7 +1683,7 @@ windows_core::imp::define_interface!(ITransactionTransmitter, ITransactionTransm
 impl std::ops::Deref for ITransactionTransmitter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionTransmitter, windows_core::IUnknown);
@@ -1695,7 +1695,7 @@ impl ITransactionTransmitter {
         (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), ptransaction.param().abi()).ok()
     }
     pub unsafe fn GetPropagationTokenSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPropagationTokenSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MarshalPropagationToken(&self, rgbtoken: &mut [u8], pcbused: *mut u32) -> windows_core::Result<()> {
@@ -1721,13 +1721,13 @@ windows_core::imp::define_interface!(ITransactionTransmitterFactory, ITransactio
 impl std::ops::Deref for ITransactionTransmitterFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionTransmitterFactory, windows_core::IUnknown);
 impl ITransactionTransmitterFactory {
     pub unsafe fn Create(&self) -> windows_core::Result<ITransactionTransmitter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1740,7 +1740,7 @@ windows_core::imp::define_interface!(ITransactionVoterBallotAsync2, ITransaction
 impl std::ops::Deref for ITransactionVoterBallotAsync2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionVoterBallotAsync2, windows_core::IUnknown);
@@ -1758,7 +1758,7 @@ windows_core::imp::define_interface!(ITransactionVoterFactory2, ITransactionVote
 impl std::ops::Deref for ITransactionVoterFactory2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionVoterFactory2, windows_core::IUnknown);
@@ -1768,7 +1768,7 @@ impl ITransactionVoterFactory2 {
         P0: windows_core::Param<ITransaction>,
         P1: windows_core::Param<ITransactionVoterNotifyAsync2>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), pvoternotify.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1781,7 +1781,7 @@ windows_core::imp::define_interface!(ITransactionVoterNotifyAsync2, ITransaction
 impl std::ops::Deref for ITransactionVoterNotifyAsync2 {
     type Target = ITransactionOutcomeEvents;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITransactionVoterNotifyAsync2, windows_core::IUnknown, ITransactionOutcomeEvents);
@@ -1799,7 +1799,7 @@ windows_core::imp::define_interface!(IXAConfig, IXAConfig_Vtbl, 0xc8a6e3a1_9a8c_
 impl std::ops::Deref for IXAConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAConfig, windows_core::IUnknown);
@@ -1821,7 +1821,7 @@ windows_core::imp::define_interface!(IXAObtainRMInfo, IXAObtainRMInfo_Vtbl, 0xe7
 impl std::ops::Deref for IXAObtainRMInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAObtainRMInfo, windows_core::IUnknown);
@@ -1842,13 +1842,13 @@ windows_core::imp::define_interface!(IXATransLookup, IXATransLookup_Vtbl, 0xf3b1
 impl std::ops::Deref for IXATransLookup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXATransLookup, windows_core::IUnknown);
 impl IXATransLookup {
     pub unsafe fn Lookup(&self) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Lookup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1861,13 +1861,13 @@ windows_core::imp::define_interface!(IXATransLookup2, IXATransLookup2_Vtbl, 0xbf
 impl std::ops::Deref for IXATransLookup2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXATransLookup2, windows_core::IUnknown);
 impl IXATransLookup2 {
     pub unsafe fn Lookup(&self, pxid: *const XID) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Lookup)(windows_core::Interface::as_raw(self), pxid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

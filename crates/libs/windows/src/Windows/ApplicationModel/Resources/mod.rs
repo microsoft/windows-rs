@@ -9,7 +9,7 @@ impl windows_core::RuntimeType for IResourceLoader {
 #[repr(C)]
 pub struct IResourceLoader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceLoader2, IResourceLoader2_Vtbl, 0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
 impl windows_core::RuntimeType for IResourceLoader2 {
@@ -18,7 +18,7 @@ impl windows_core::RuntimeType for IResourceLoader2 {
 #[repr(C)]
 pub struct IResourceLoader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetStringForUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetStringForUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceLoaderFactory, IResourceLoaderFactory_Vtbl, 0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
 impl windows_core::RuntimeType for IResourceLoaderFactory {
@@ -27,7 +27,7 @@ impl windows_core::RuntimeType for IResourceLoaderFactory {
 #[repr(C)]
 pub struct IResourceLoaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateResourceLoaderByName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateResourceLoaderByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceLoaderStatics, IResourceLoaderStatics_Vtbl, 0xbf777ce1_19c8_49c2_953c_47e9227b334e);
 impl windows_core::RuntimeType for IResourceLoaderStatics {
@@ -36,7 +36,7 @@ impl windows_core::RuntimeType for IResourceLoaderStatics {
 #[repr(C)]
 pub struct IResourceLoaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetStringForReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetStringForReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceLoaderStatics2, IResourceLoaderStatics2_Vtbl, 0x0cc04141_6466_4989_9494_0b82dfc53f1f);
 impl windows_core::RuntimeType for IResourceLoaderStatics2 {
@@ -46,9 +46,9 @@ impl windows_core::RuntimeType for IResourceLoaderStatics2 {
 pub struct IResourceLoaderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetForCurrentViewWithName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetForCurrentViewWithName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetForViewIndependentUseWithName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetForViewIndependentUseWithName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceLoaderStatics3, IResourceLoaderStatics3_Vtbl, 0x64609dfb_64ac_491b_8100_0e558d61c1d0);
 impl windows_core::RuntimeType for IResourceLoaderStatics3 {
@@ -69,7 +69,7 @@ impl windows_core::RuntimeType for IResourceLoaderStatics4 {
 #[repr(C)]
 pub struct IResourceLoaderStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDefaultPriPath: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub GetDefaultPriPath: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
@@ -86,7 +86,7 @@ impl ResourceLoader {
     pub fn GetString(&self, resource: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -96,13 +96,13 @@ impl ResourceLoader {
     {
         let this = &windows_core::Interface::cast::<IResourceLoader2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStringForUri)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateResourceLoaderByName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
         Self::IResourceLoaderFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateResourceLoaderByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -111,31 +111,31 @@ impl ResourceLoader {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IResourceLoaderStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStringForReference)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentView() -> windows_core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentViewWithName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentViewWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForViewIndependentUseWithName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUseWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -145,13 +145,13 @@ impl ResourceLoader {
         P0: windows_core::Param<super::super::UI::UIContext>,
     {
         Self::IResourceLoaderStatics3(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultPriPath(packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         Self::IResourceLoaderStatics4(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultPriPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

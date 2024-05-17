@@ -134,7 +134,7 @@ impl windows_core::RuntimeName for ISWbemDateTime {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemDateTime_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>() -> ISWbemDateTime_Vtbl {
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Value(this) {
@@ -145,7 +145,7 @@ impl ISWbemDateTime_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemDateTime_Impl::SetValue(this, core::mem::transmute(&strvalue)).into()
@@ -438,7 +438,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             ISWbemDateTime_Impl::SetVarDate(this, core::mem::transmute_copy(&dvardate), core::mem::transmute_copy(&bislocal)).into()
         }
-        unsafe extern "system" fn GetFileTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bislocal: super::super::Foundation::VARIANT_BOOL, strfiletime: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bislocal: super::super::Foundation::VARIANT_BOOL, strfiletime: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::GetFileTime(this, core::mem::transmute_copy(&bislocal)) {
@@ -449,7 +449,7 @@ impl ISWbemDateTime_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFileTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfiletime: std::mem::MaybeUninit<windows_core::BSTR>, bislocal: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFileTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfiletime: core::mem::MaybeUninit<windows_core::BSTR>, bislocal: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemDateTime_Impl::SetFileTime(this, core::mem::transmute(&strfiletime), core::mem::transmute_copy(&bislocal)).into()
@@ -567,7 +567,7 @@ impl windows_core::RuntimeName for ISWbemLocator {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemLocator_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemLocator_Impl, const OFFSET: isize>() -> ISWbemLocator_Vtbl {
-        unsafe extern "system" fn ConnectServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: std::mem::MaybeUninit<windows_core::BSTR>, strnamespace: std::mem::MaybeUninit<windows_core::BSTR>, struser: std::mem::MaybeUninit<windows_core::BSTR>, strpassword: std::mem::MaybeUninit<windows_core::BSTR>, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, strauthority: std::mem::MaybeUninit<windows_core::BSTR>, isecurityflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemservices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: core::mem::MaybeUninit<windows_core::BSTR>, strnamespace: core::mem::MaybeUninit<windows_core::BSTR>, struser: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, strauthority: core::mem::MaybeUninit<windows_core::BSTR>, isecurityflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemservices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemLocator_Impl::ConnectServer(this, core::mem::transmute(&strserver), core::mem::transmute(&strnamespace), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute(&strauthority), core::mem::transmute_copy(&isecurityflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -612,7 +612,7 @@ impl windows_core::RuntimeName for ISWbemMethod {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemMethod_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>() -> ISWbemMethod_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::Name(this) {
@@ -623,7 +623,7 @@ impl ISWbemMethod_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Origin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strorigin: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Origin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strorigin: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::Origin(this) {
@@ -702,7 +702,7 @@ impl ISWbemMethodSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethodSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethodSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemMethodSet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
@@ -746,7 +746,7 @@ impl windows_core::RuntimeName for ISWbemNamedValue {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemNamedValue_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>() -> ISWbemNamedValue_Vtbl {
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemNamedValue_Impl::Value(this) {
@@ -757,12 +757,12 @@ impl ISWbemNamedValue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemNamedValue_Impl::SetValue(this, core::mem::transmute_copy(&varvalue)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemNamedValue_Impl::Name(this) {
@@ -810,7 +810,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
@@ -832,7 +832,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, varvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>, iflags: i32, objwbemnamedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, iflags: i32, objwbemnamedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&varvalue), core::mem::transmute_copy(&iflags)) {
@@ -843,7 +843,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemNamedValueSet_Impl::Remove(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)).into()
@@ -970,7 +970,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             ISWbemObject_Impl::SubclassesAsync_(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn Associators_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strassocclass: std::mem::MaybeUninit<windows_core::BSTR>, strresultclass: std::mem::MaybeUninit<windows_core::BSTR>, strresultrole: std::mem::MaybeUninit<windows_core::BSTR>, strrole: std::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: std::mem::MaybeUninit<windows_core::BSTR>, strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Associators_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strassocclass: core::mem::MaybeUninit<windows_core::BSTR>, strresultclass: core::mem::MaybeUninit<windows_core::BSTR>, strresultrole: core::mem::MaybeUninit<windows_core::BSTR>, strrole: core::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: core::mem::MaybeUninit<windows_core::BSTR>, strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Associators_(this, core::mem::transmute(&strassocclass), core::mem::transmute(&strresultclass), core::mem::transmute(&strresultrole), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredassocqualifier), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -984,14 +984,14 @@ impl ISWbemObject_Vtbl {
         unsafe extern "system" fn AssociatorsAsync_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             objwbemsink: *mut core::ffi::c_void,
-            strassocclass: std::mem::MaybeUninit<windows_core::BSTR>,
-            strresultclass: std::mem::MaybeUninit<windows_core::BSTR>,
-            strresultrole: std::mem::MaybeUninit<windows_core::BSTR>,
-            strrole: std::mem::MaybeUninit<windows_core::BSTR>,
+            strassocclass: core::mem::MaybeUninit<windows_core::BSTR>,
+            strresultclass: core::mem::MaybeUninit<windows_core::BSTR>,
+            strresultrole: core::mem::MaybeUninit<windows_core::BSTR>,
+            strrole: core::mem::MaybeUninit<windows_core::BSTR>,
             bclassesonly: super::super::Foundation::VARIANT_BOOL,
             bschemaonly: super::super::Foundation::VARIANT_BOOL,
-            strrequiredassocqualifier: std::mem::MaybeUninit<windows_core::BSTR>,
-            strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>,
+            strrequiredassocqualifier: core::mem::MaybeUninit<windows_core::BSTR>,
+            strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>,
             iflags: i32,
             objwbemnamedvalueset: *mut core::ffi::c_void,
             objwbemasynccontext: *mut core::ffi::c_void,
@@ -1015,7 +1015,7 @@ impl ISWbemObject_Vtbl {
             )
             .into()
         }
-        unsafe extern "system" fn References_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strresultclass: std::mem::MaybeUninit<windows_core::BSTR>, strrole: std::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn References_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strresultclass: core::mem::MaybeUninit<windows_core::BSTR>, strrole: core::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObject_Impl::References_(this, core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -1026,12 +1026,12 @@ impl ISWbemObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferencesAsync_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strresultclass: std::mem::MaybeUninit<windows_core::BSTR>, strrole: std::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferencesAsync_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strresultclass: core::mem::MaybeUninit<windows_core::BSTR>, strrole: core::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObject_Impl::ReferencesAsync_(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn ExecMethod_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strmethodname: std::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemoutparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecMethod_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strmethodname: core::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemoutparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObject_Impl::ExecMethod_(this, core::mem::transmute(&strmethodname), windows_core::from_raw_borrowed(&objwbeminparameters), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -1042,7 +1042,7 @@ impl ISWbemObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecMethodAsync_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strmethodname: std::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecMethodAsync_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strmethodname: core::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObject_Impl::ExecMethodAsync_(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strmethodname), windows_core::from_raw_borrowed(&objwbeminparameters), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
@@ -1058,7 +1058,7 @@ impl ISWbemObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObjectText_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iflags: i32, strobjecttext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectText_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iflags: i32, strobjecttext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObject_Impl::GetObjectText_(this, core::mem::transmute_copy(&iflags)) {
@@ -1135,7 +1135,7 @@ impl ISWbemObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Derivation_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclassnamearray: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Derivation_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclassnamearray: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Derivation_(this) {
@@ -1229,7 +1229,7 @@ impl ISWbemObjectEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, bstext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, bstext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectEx_Impl::GetText_(this, core::mem::transmute_copy(&iobjecttextformat), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -1240,7 +1240,7 @@ impl ISWbemObjectEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromText_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstext: std::mem::MaybeUninit<windows_core::BSTR>, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFromText_<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstext: core::mem::MaybeUninit<windows_core::BSTR>, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectEx_Impl::SetFromText_(this, core::mem::transmute(&bstext), core::mem::transmute_copy(&iobjecttextformat), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)).into()
@@ -1288,7 +1288,7 @@ impl windows_core::RuntimeName for ISWbemObjectPath {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemObjectPath_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>() -> ISWbemObjectPath_Vtbl {
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Path(this) {
@@ -1299,12 +1299,12 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetPath(this, core::mem::transmute(&strpath)).into()
         }
-        unsafe extern "system" fn RelPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrelpath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RelPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrelpath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::RelPath(this) {
@@ -1315,12 +1315,12 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrelpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRelPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrelpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetRelPath(this, core::mem::transmute(&strrelpath)).into()
         }
-        unsafe extern "system" fn Server<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Server<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Server(this) {
@@ -1331,12 +1331,12 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetServer(this, core::mem::transmute(&strserver)).into()
         }
-        unsafe extern "system" fn Namespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Namespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Namespace(this) {
@@ -1347,12 +1347,12 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetNamespace(this, core::mem::transmute(&strnamespace)).into()
         }
-        unsafe extern "system" fn ParentNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strparentnamespace: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParentNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strparentnamespace: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::ParentNamespace(this) {
@@ -1363,7 +1363,7 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::DisplayName(this) {
@@ -1374,12 +1374,12 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetDisplayName(this, core::mem::transmute(&strdisplayname)).into()
         }
-        unsafe extern "system" fn Class<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Class<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Class(this) {
@@ -1390,7 +1390,7 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetClass(this, core::mem::transmute(&strclass)).into()
@@ -1449,7 +1449,7 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Locale<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strlocale: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Locale<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strlocale: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Locale(this) {
@@ -1460,12 +1460,12 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocale<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strlocale: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLocale<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strlocale: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetLocale(this, core::mem::transmute(&strlocale)).into()
         }
-        unsafe extern "system" fn Authority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strauthority: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Authority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strauthority: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Authority(this) {
@@ -1476,7 +1476,7 @@ impl ISWbemObjectPath_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strauthority: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAuthority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strauthority: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemObjectPath_Impl::SetAuthority(this, core::mem::transmute(&strauthority)).into()
@@ -1536,7 +1536,7 @@ impl ISWbemObjectSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemObjectSet_Impl::Item(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags)) {
@@ -1622,7 +1622,7 @@ impl ISWbemPrivilege_Vtbl {
             let this = (*this).get_impl();
             ISWbemPrivilege_Impl::SetIsEnabled(this, core::mem::transmute_copy(&bisenabled)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemPrivilege_Impl::Name(this) {
@@ -1633,7 +1633,7 @@ impl ISWbemPrivilege_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemPrivilege_Impl::DisplayName(this) {
@@ -1737,7 +1737,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             ISWbemPrivilegeSet_Impl::DeleteAll(this).into()
         }
-        unsafe extern "system" fn AddAsString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprivilege: std::mem::MaybeUninit<windows_core::BSTR>, bisenabled: super::super::Foundation::VARIANT_BOOL, objwbemprivilege: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddAsString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprivilege: core::mem::MaybeUninit<windows_core::BSTR>, bisenabled: super::super::Foundation::VARIANT_BOOL, objwbemprivilege: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemPrivilegeSet_Impl::AddAsString(this, core::mem::transmute(&strprivilege), core::mem::transmute_copy(&bisenabled)) {
@@ -1779,7 +1779,7 @@ impl windows_core::RuntimeName for ISWbemProperty {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemProperty_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>() -> ISWbemProperty_Vtbl {
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Value(this) {
@@ -1790,12 +1790,12 @@ impl ISWbemProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemProperty_Impl::SetValue(this, core::mem::transmute_copy(&varvalue)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Name(this) {
@@ -1817,7 +1817,7 @@ impl ISWbemProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Origin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strorigin: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Origin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strorigin: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Origin(this) {
@@ -1901,7 +1901,7 @@ impl ISWbemPropertySet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemPropertySet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
@@ -1923,7 +1923,7 @@ impl ISWbemPropertySet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, icimtype: WbemCimtypeEnum, bisarray: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, icimtype: WbemCimtypeEnum, bisarray: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemPropertySet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&icimtype), core::mem::transmute_copy(&bisarray), core::mem::transmute_copy(&iflags)) {
@@ -1934,7 +1934,7 @@ impl ISWbemPropertySet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemPropertySet_Impl::Remove(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)).into()
@@ -1971,7 +1971,7 @@ impl windows_core::RuntimeName for ISWbemQualifier {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemQualifier_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>() -> ISWbemQualifier_Vtbl {
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::Value(this) {
@@ -1982,12 +1982,12 @@ impl ISWbemQualifier_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemQualifier_Impl::SetValue(this, core::mem::transmute_copy(&varvalue)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::Name(this) {
@@ -2111,7 +2111,7 @@ impl ISWbemQualifierSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemqualifier: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemqualifier: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemQualifierSet_Impl::Item(this, core::mem::transmute(&name), core::mem::transmute_copy(&iflags)) {
@@ -2133,7 +2133,7 @@ impl ISWbemQualifierSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, varval: *const std::mem::MaybeUninit<windows_core::VARIANT>, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemqualifier: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varval: *const core::mem::MaybeUninit<windows_core::VARIANT>, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemqualifier: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemQualifierSet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&varval), core::mem::transmute_copy(&bpropagatestosubclass), core::mem::transmute_copy(&bpropagatestoinstance), core::mem::transmute_copy(&bisoverridable), core::mem::transmute_copy(&iflags)) {
@@ -2144,7 +2144,7 @@ impl ISWbemQualifierSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemQualifierSet_Impl::Remove(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)).into()
@@ -2301,7 +2301,7 @@ impl ISWbemRefresher_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemservices: *mut core::ffi::c_void, bsinstancepath: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemrefreshableitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemservices: *mut core::ffi::c_void, bsinstancepath: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemrefreshableitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::Add(this, windows_core::from_raw_borrowed(&objwbemservices), core::mem::transmute(&bsinstancepath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2312,7 +2312,7 @@ impl ISWbemRefresher_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemservices: *mut core::ffi::c_void, bsclassname: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemrefreshableitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemservices: *mut core::ffi::c_void, bsclassname: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemrefreshableitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::AddEnum(this, windows_core::from_raw_borrowed(&objwbemservices), core::mem::transmute(&bsclassname), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2468,7 +2468,7 @@ impl windows_core::RuntimeName for ISWbemServices {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemServices_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>() -> ISWbemServices_Vtbl {
-        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::Get(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2479,22 +2479,22 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::GetAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::Delete(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)).into()
         }
-        unsafe extern "system" fn DeleteAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::DeleteAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn InstancesOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InstancesOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::InstancesOf(this, core::mem::transmute(&strclass), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2505,12 +2505,12 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstancesOfAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strclass: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InstancesOfAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strclass: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::InstancesOfAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strclass), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn SubclassesOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubclassesOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::SubclassesOf(this, core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2521,12 +2521,12 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubclassesOfAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strsuperclass: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubclassesOfAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strsuperclass: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::SubclassesOfAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn ExecQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquery: std::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquery: core::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ExecQuery(this, core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2537,22 +2537,22 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strquery: std::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strquery: core::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::ExecQueryAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
         unsafe extern "system" fn AssociatorsOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>,
-            strassocclass: std::mem::MaybeUninit<windows_core::BSTR>,
-            strresultclass: std::mem::MaybeUninit<windows_core::BSTR>,
-            strresultrole: std::mem::MaybeUninit<windows_core::BSTR>,
-            strrole: std::mem::MaybeUninit<windows_core::BSTR>,
+            strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>,
+            strassocclass: core::mem::MaybeUninit<windows_core::BSTR>,
+            strresultclass: core::mem::MaybeUninit<windows_core::BSTR>,
+            strresultrole: core::mem::MaybeUninit<windows_core::BSTR>,
+            strrole: core::mem::MaybeUninit<windows_core::BSTR>,
             bclassesonly: super::super::Foundation::VARIANT_BOOL,
             bschemaonly: super::super::Foundation::VARIANT_BOOL,
-            strrequiredassocqualifier: std::mem::MaybeUninit<windows_core::BSTR>,
-            strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>,
+            strrequiredassocqualifier: core::mem::MaybeUninit<windows_core::BSTR>,
+            strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>,
             iflags: i32,
             objwbemnamedvalueset: *mut core::ffi::c_void,
             objwbemobjectset: *mut *mut core::ffi::c_void,
@@ -2570,15 +2570,15 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn AssociatorsOfAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             objwbemsink: *mut core::ffi::c_void,
-            strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>,
-            strassocclass: std::mem::MaybeUninit<windows_core::BSTR>,
-            strresultclass: std::mem::MaybeUninit<windows_core::BSTR>,
-            strresultrole: std::mem::MaybeUninit<windows_core::BSTR>,
-            strrole: std::mem::MaybeUninit<windows_core::BSTR>,
+            strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>,
+            strassocclass: core::mem::MaybeUninit<windows_core::BSTR>,
+            strresultclass: core::mem::MaybeUninit<windows_core::BSTR>,
+            strresultrole: core::mem::MaybeUninit<windows_core::BSTR>,
+            strrole: core::mem::MaybeUninit<windows_core::BSTR>,
             bclassesonly: super::super::Foundation::VARIANT_BOOL,
             bschemaonly: super::super::Foundation::VARIANT_BOOL,
-            strrequiredassocqualifier: std::mem::MaybeUninit<windows_core::BSTR>,
-            strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>,
+            strrequiredassocqualifier: core::mem::MaybeUninit<windows_core::BSTR>,
+            strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>,
             iflags: i32,
             objwbemnamedvalueset: *mut core::ffi::c_void,
             objwbemasynccontext: *mut core::ffi::c_void,
@@ -2603,7 +2603,7 @@ impl ISWbemServices_Vtbl {
             )
             .into()
         }
-        unsafe extern "system" fn ReferencesTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, strresultclass: std::mem::MaybeUninit<windows_core::BSTR>, strrole: std::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferencesTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, strresultclass: core::mem::MaybeUninit<windows_core::BSTR>, strrole: core::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ReferencesTo(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2614,12 +2614,12 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferencesToAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, strresultclass: std::mem::MaybeUninit<windows_core::BSTR>, strrole: std::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferencesToAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, strresultclass: core::mem::MaybeUninit<windows_core::BSTR>, strrole: core::mem::MaybeUninit<windows_core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::ReferencesToAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn ExecNotificationQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquery: std::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemeventsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecNotificationQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquery: core::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemeventsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ExecNotificationQuery(this, core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2630,12 +2630,12 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecNotificationQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strquery: std::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecNotificationQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strquery: core::mem::MaybeUninit<windows_core::BSTR>, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::ExecNotificationQueryAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn ExecMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, strmethodname: std::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemoutparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, strmethodname: core::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemoutparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ExecMethod(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), windows_core::from_raw_borrowed(&objwbeminparameters), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
@@ -2646,7 +2646,7 @@ impl ISWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecMethodAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, strmethodname: std::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecMethodAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, strmethodname: core::mem::MaybeUninit<windows_core::BSTR>, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISWbemServices_Impl::ExecMethodAsync(this, windows_core::from_raw_borrowed(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), windows_core::from_raw_borrowed(&objwbeminparameters), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset), windows_core::from_raw_borrowed(&objwbemasynccontext)).into()
@@ -2788,7 +2788,7 @@ impl windows_core::RuntimeName for IWMIExtension {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWMIExtension_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWMIExtension_Impl, const OFFSET: isize>() -> IWMIExtension_Vtbl {
-        unsafe extern "system" fn WMIObjectPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWMIExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strwmiobjectpath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn WMIObjectPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWMIExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strwmiobjectpath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWMIExtension_Impl::WMIObjectPath(this) {
@@ -2923,7 +2923,7 @@ impl IWbemCallResult_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResultString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemCallResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltimeout: i32, pstrresultstring: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetResultString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemCallResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltimeout: i32, pstrresultstring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemCallResult_Impl::GetResultString(this, core::mem::transmute_copy(&ltimeout)) {
@@ -3011,12 +3011,12 @@ impl IWbemClassObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ptype: *mut i32, plflavor: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ptype: *mut i32, plflavor: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemClassObject_Impl::Get(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pval), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&plflavor)).into()
         }
-        unsafe extern "system" fn Put<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pval: *const std::mem::MaybeUninit<windows_core::VARIANT>, r#type: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Put<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pval: *const core::mem::MaybeUninit<windows_core::VARIANT>, r#type: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemClassObject_Impl::Put(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pval), core::mem::transmute_copy(&r#type)).into()
@@ -3026,7 +3026,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             IWbemClassObject_Impl::Delete(this, core::mem::transmute(&wszname)).into()
         }
-        unsafe extern "system" fn GetNames<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszqualifiername: windows_core::PCWSTR, lflags: WBEM_CONDITION_FLAG_TYPE, pqualifierval: *const std::mem::MaybeUninit<windows_core::VARIANT>, pnames: *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNames<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszqualifiername: windows_core::PCWSTR, lflags: WBEM_CONDITION_FLAG_TYPE, pqualifierval: *const core::mem::MaybeUninit<windows_core::VARIANT>, pnames: *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetNames(this, core::mem::transmute(&wszqualifiername), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pqualifierval)) {
@@ -3042,7 +3042,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             IWbemClassObject_Impl::BeginEnumeration(this, core::mem::transmute_copy(&lenumflags)).into()
         }
-        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ptype: *mut i32, plflavor: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ptype: *mut i32, plflavor: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemClassObject_Impl::Next(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&strname), core::mem::transmute_copy(&pval), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&plflavor)).into()
@@ -3074,7 +3074,7 @@ impl IWbemClassObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObjectText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrobjecttext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrobjecttext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetObjectText(this, core::mem::transmute_copy(&lflags)) {
@@ -3112,7 +3112,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             IWbemClassObject_Impl::CompareTo(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pcompareto)).into()
         }
-        unsafe extern "system" fn GetPropertyOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, pstrclassname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, pstrclassname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetPropertyOrigin(this, core::mem::transmute(&wszname)) {
@@ -3148,7 +3148,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             IWbemClassObject_Impl::BeginMethodEnumeration(this, core::mem::transmute_copy(&lenumflags)).into()
         }
-        unsafe extern "system" fn NextMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>, ppinsignature: *mut *mut core::ffi::c_void, ppoutsignature: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>, ppinsignature: *mut *mut core::ffi::c_void, ppoutsignature: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemClassObject_Impl::NextMethod(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&ppinsignature), core::mem::transmute_copy(&ppoutsignature)).into()
@@ -3169,7 +3169,7 @@ impl IWbemClassObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMethodOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmethodname: windows_core::PCWSTR, pstrclassname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMethodOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmethodname: windows_core::PCWSTR, pstrclassname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetMethodOrigin(this, core::mem::transmute(&wszmethodname)) {
@@ -3220,12 +3220,12 @@ pub trait IWbemClientConnectionTransport_Impl: Sized {
 impl windows_core::RuntimeName for IWbemClientConnectionTransport {}
 impl IWbemClientConnectionTransport_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>() -> IWbemClientConnectionTransport_Vtbl {
-        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: std::mem::MaybeUninit<windows_core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: std::mem::MaybeUninit<windows_core::BSTR>, struser: std::mem::MaybeUninit<windows_core::BSTR>, strpassword: std::mem::MaybeUninit<windows_core::BSTR>, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void, pcallres: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: core::mem::MaybeUninit<windows_core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: core::mem::MaybeUninit<windows_core::BSTR>, struser: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void, pcallres: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemClientConnectionTransport_Impl::Open(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strobject), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pinterface), core::mem::transmute_copy(&pcallres)).into()
         }
-        unsafe extern "system" fn OpenAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: std::mem::MaybeUninit<windows_core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: std::mem::MaybeUninit<windows_core::BSTR>, struser: std::mem::MaybeUninit<windows_core::BSTR>, strpassword: std::mem::MaybeUninit<windows_core::BSTR>, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const windows_core::GUID, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: core::mem::MaybeUninit<windows_core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: core::mem::MaybeUninit<windows_core::BSTR>, struser: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const windows_core::GUID, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemClientConnectionTransport_Impl::OpenAsync(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strobject), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&presponsehandler)).into()
@@ -3252,7 +3252,7 @@ pub trait IWbemClientTransport_Impl: Sized {
 impl windows_core::RuntimeName for IWbemClientTransport {}
 impl IWbemClientTransport_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientTransport_Impl, const OFFSET: isize>() -> IWbemClientTransport_Vtbl {
-        unsafe extern "system" fn ConnectServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: std::mem::MaybeUninit<windows_core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: std::mem::MaybeUninit<windows_core::BSTR>, struser: std::mem::MaybeUninit<windows_core::BSTR>, strpassword: std::mem::MaybeUninit<windows_core::BSTR>, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, lsecurityflags: i32, strauthority: std::mem::MaybeUninit<windows_core::BSTR>, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClientTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: core::mem::MaybeUninit<windows_core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: core::mem::MaybeUninit<windows_core::BSTR>, struser: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, lsecurityflags: i32, strauthority: core::mem::MaybeUninit<windows_core::BSTR>, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemClientTransport_Impl::ConnectServer(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strnetworkresource), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lsecurityflags), core::mem::transmute(&strauthority), windows_core::from_raw_borrowed(&pctx)) {
@@ -3419,7 +3419,7 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             IWbemContext_Impl::BeginEnumeration(this, core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemContext_Impl::Next(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&pvalue)).into()
@@ -3429,12 +3429,12 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             IWbemContext_Impl::EndEnumeration(this).into()
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemContext_Impl::SetValue(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pvalue)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemContext_Impl::GetValue(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&lflags)) {
@@ -3848,7 +3848,7 @@ pub trait IWbemLocator_Impl: Sized {
 impl windows_core::RuntimeName for IWbemLocator {}
 impl IWbemLocator_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemLocator_Impl, const OFFSET: isize>() -> IWbemLocator_Vtbl {
-        unsafe extern "system" fn ConnectServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnetworkresource: std::mem::MaybeUninit<windows_core::BSTR>, struser: std::mem::MaybeUninit<windows_core::BSTR>, strpassword: std::mem::MaybeUninit<windows_core::BSTR>, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, lsecurityflags: i32, strauthority: std::mem::MaybeUninit<windows_core::BSTR>, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnetworkresource: core::mem::MaybeUninit<windows_core::BSTR>, struser: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, lsecurityflags: i32, strauthority: core::mem::MaybeUninit<windows_core::BSTR>, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemLocator_Impl::ConnectServer(this, core::mem::transmute(&strnetworkresource), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lsecurityflags), core::mem::transmute(&strauthority), windows_core::from_raw_borrowed(&pctx)) {
@@ -3930,7 +3930,7 @@ impl IWbemObjectAccess_Vtbl {
             let this = (*this).get_impl();
             IWbemObjectAccess_Impl::WriteQWORD(this, core::mem::transmute_copy(&lhandle), core::mem::transmute_copy(&pw)).into()
         }
-        unsafe extern "system" fn GetPropertyInfoByHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhandle: i32, pstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>, ptype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyInfoByHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhandle: i32, pstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>, ptype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemObjectAccess_Impl::GetPropertyInfoByHandle(this, core::mem::transmute_copy(&lhandle), core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&ptype)).into()
@@ -3975,7 +3975,7 @@ impl IWbemObjectSink_Vtbl {
             let this = (*this).get_impl();
             IWbemObjectSink_Impl::Indicate(this, core::mem::transmute_copy(&lobjectcount), core::mem::transmute_copy(&apobjarray)).into()
         }
-        unsafe extern "system" fn SetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, hresult: windows_core::HRESULT, strparam: std::mem::MaybeUninit<windows_core::BSTR>, pobjparam: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, hresult: windows_core::HRESULT, strparam: core::mem::MaybeUninit<windows_core::BSTR>, pobjparam: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemObjectSink_Impl::SetStatus(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&hresult), core::mem::transmute(&strparam), windows_core::from_raw_borrowed(&pobjparam)).into()
@@ -4000,7 +4000,7 @@ pub trait IWbemObjectSinkEx_Impl: Sized + IWbemObjectSink_Impl {
 impl windows_core::RuntimeName for IWbemObjectSinkEx {}
 impl IWbemObjectSinkEx_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>() -> IWbemObjectSinkEx_Vtbl {
-        unsafe extern "system" fn WriteMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uchannel: u32, strmessage: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uchannel: u32, strmessage: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemObjectSinkEx_Impl::WriteMessage(this, core::mem::transmute_copy(&uchannel), core::mem::transmute(&strmessage)).into()
@@ -4016,7 +4016,7 @@ impl IWbemObjectSinkEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PromptUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strmessage: std::mem::MaybeUninit<windows_core::BSTR>, uprompttype: u8, pureturned: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn PromptUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strmessage: core::mem::MaybeUninit<windows_core::BSTR>, uprompttype: u8, pureturned: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemObjectSinkEx_Impl::PromptUser(this, core::mem::transmute(&strmessage), core::mem::transmute_copy(&uprompttype)) {
@@ -4027,12 +4027,12 @@ impl IWbemObjectSinkEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteProgress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stractivity: std::mem::MaybeUninit<windows_core::BSTR>, strcurrentoperation: std::mem::MaybeUninit<windows_core::BSTR>, strstatusdescription: std::mem::MaybeUninit<windows_core::BSTR>, upercentcomplete: u32, usecondsremaining: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteProgress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stractivity: core::mem::MaybeUninit<windows_core::BSTR>, strcurrentoperation: core::mem::MaybeUninit<windows_core::BSTR>, strstatusdescription: core::mem::MaybeUninit<windows_core::BSTR>, upercentcomplete: u32, usecondsremaining: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemObjectSinkEx_Impl::WriteProgress(this, core::mem::transmute(&stractivity), core::mem::transmute(&strcurrentoperation), core::mem::transmute(&strstatusdescription), core::mem::transmute_copy(&upercentcomplete), core::mem::transmute_copy(&usecondsremaining)).into()
         }
-        unsafe extern "system" fn WriteStreamParameter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: std::mem::MaybeUninit<windows_core::BSTR>, vtvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>, ultype: u32, ulflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteStreamParameter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, vtvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, ultype: u32, ulflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemObjectSinkEx_Impl::WriteStreamParameter(this, core::mem::transmute(&strname), core::mem::transmute_copy(&vtvalue), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&ulflags)).into()
@@ -4057,7 +4057,7 @@ pub trait IWbemObjectTextSrc_Impl: Sized {
 impl windows_core::RuntimeName for IWbemObjectTextSrc {}
 impl IWbemObjectTextSrc_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectTextSrc_Impl, const OFFSET: isize>() -> IWbemObjectTextSrc_Vtbl {
-        unsafe extern "system" fn GetText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectTextSrc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pobj: *mut core::ffi::c_void, uobjtextformat: u32, pctx: *mut core::ffi::c_void, strtext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectTextSrc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pobj: *mut core::ffi::c_void, uobjtextformat: u32, pctx: *mut core::ffi::c_void, strtext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemObjectTextSrc_Impl::GetText(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pobj), core::mem::transmute_copy(&uobjtextformat), windows_core::from_raw_borrowed(&pctx)) {
@@ -4068,7 +4068,7 @@ impl IWbemObjectTextSrc_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectTextSrc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strtext: std::mem::MaybeUninit<windows_core::BSTR>, uobjtextformat: u32, pctx: *mut core::ffi::c_void, pnewobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateFromText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectTextSrc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strtext: core::mem::MaybeUninit<windows_core::BSTR>, uobjtextformat: u32, pctx: *mut core::ffi::c_void, pnewobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemObjectTextSrc_Impl::CreateFromText(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strtext), core::mem::transmute_copy(&uobjtextformat), windows_core::from_raw_borrowed(&pctx)) {
@@ -4339,7 +4339,7 @@ impl IWbemPathKeyList_Vtbl {
             let this = (*this).get_impl();
             IWbemPathKeyList_Impl::SetKey(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&ucimtype), core::mem::transmute_copy(&pkeyval)).into()
         }
-        unsafe extern "system" fn SetKey2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetKey2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemPathKeyList_Impl::SetKey2(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&ucimtype), core::mem::transmute_copy(&pkeyval)).into()
@@ -4349,7 +4349,7 @@ impl IWbemPathKeyList_Vtbl {
             let this = (*this).get_impl();
             IWbemPathKeyList_Impl::GetKey(this, core::mem::transmute_copy(&ukeyix), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&punamebufsize), core::mem::transmute_copy(&pszkeyname), core::mem::transmute_copy(&pukeyvalbufsize), core::mem::transmute_copy(&pkeyval), core::mem::transmute_copy(&puapparentcimtype)).into()
         }
-        unsafe extern "system" fn GetKey2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKey2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemPathKeyList_Impl::GetKey2(this, core::mem::transmute_copy(&ukeyix), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&punamebufsize), core::mem::transmute_copy(&pszkeyname), core::mem::transmute_copy(&pkeyvalue), core::mem::transmute_copy(&puapparentcimtype)).into()
@@ -4410,7 +4410,7 @@ pub trait IWbemPropertyProvider_Impl: Sized {
 impl windows_core::RuntimeName for IWbemPropertyProvider {}
 impl IWbemPropertyProvider_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>() -> IWbemPropertyProvider_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, strclassmapping: std::mem::MaybeUninit<windows_core::BSTR>, strinstmapping: std::mem::MaybeUninit<windows_core::BSTR>, strpropmapping: std::mem::MaybeUninit<windows_core::BSTR>, pvvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, strclassmapping: core::mem::MaybeUninit<windows_core::BSTR>, strinstmapping: core::mem::MaybeUninit<windows_core::BSTR>, strpropmapping: core::mem::MaybeUninit<windows_core::BSTR>, pvvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemPropertyProvider_Impl::GetProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping)) {
@@ -4421,7 +4421,7 @@ impl IWbemPropertyProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: std::mem::MaybeUninit<windows_core::BSTR>, strclassmapping: std::mem::MaybeUninit<windows_core::BSTR>, strinstmapping: std::mem::MaybeUninit<windows_core::BSTR>, strpropmapping: std::mem::MaybeUninit<windows_core::BSTR>, pvvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: core::mem::MaybeUninit<windows_core::BSTR>, strclassmapping: core::mem::MaybeUninit<windows_core::BSTR>, strinstmapping: core::mem::MaybeUninit<windows_core::BSTR>, strpropmapping: core::mem::MaybeUninit<windows_core::BSTR>, pvvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemPropertyProvider_Impl::PutProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping), core::mem::transmute_copy(&pvvalue)).into()
@@ -4502,12 +4502,12 @@ impl windows_core::RuntimeName for IWbemQualifierSet {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWbemQualifierSet_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>() -> IWbemQualifierSet_Vtbl {
-        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>, plflavor: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, lflags: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>, plflavor: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemQualifierSet_Impl::Get(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pval), core::mem::transmute_copy(&plflavor)).into()
         }
-        unsafe extern "system" fn Put<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, pval: *const std::mem::MaybeUninit<windows_core::VARIANT>, lflavor: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Put<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, pval: *const core::mem::MaybeUninit<windows_core::VARIANT>, lflavor: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemQualifierSet_Impl::Put(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&pval), core::mem::transmute_copy(&lflavor)).into()
@@ -4533,7 +4533,7 @@ impl IWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             IWbemQualifierSet_Impl::BeginEnumeration(this, core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>, plflavor: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>, plflavor: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemQualifierSet_Impl::Next(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&pval), core::mem::transmute_copy(&plflavor)).into()
@@ -4665,7 +4665,7 @@ pub trait IWbemServices_Impl: Sized {
 impl windows_core::RuntimeName for IWbemServices {}
 impl IWbemServices_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>() -> IWbemServices_Vtbl {
-        unsafe extern "system" fn OpenNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppworkingnamespace: *mut *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppworkingnamespace: *mut *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::OpenNamespace(this, core::mem::transmute(&strnamespace), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), core::mem::transmute_copy(&ppworkingnamespace), core::mem::transmute_copy(&ppresult)).into()
@@ -4686,12 +4686,12 @@ impl IWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::GetObject(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), core::mem::transmute_copy(&ppobject), core::mem::transmute_copy(&ppcallresult)).into()
         }
-        unsafe extern "system" fn GetObjectAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::GetObjectAsync(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
@@ -4706,17 +4706,17 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             IWbemServices_Impl::PutClassAsync(this, windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn DeleteClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::DeleteClass(this, core::mem::transmute(&strclass), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), core::mem::transmute_copy(&ppcallresult)).into()
         }
-        unsafe extern "system" fn DeleteClassAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteClassAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::DeleteClassAsync(this, core::mem::transmute(&strclass), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn CreateClassEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateClassEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemServices_Impl::CreateClassEnum(this, core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
@@ -4727,7 +4727,7 @@ impl IWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateClassEnumAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateClassEnumAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::CreateClassEnumAsync(this, core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
@@ -4742,17 +4742,17 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             IWbemServices_Impl::PutInstanceAsync(this, windows_core::from_raw_borrowed(&pinst), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn DeleteInstance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteInstance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::DeleteInstance(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), core::mem::transmute_copy(&ppcallresult)).into()
         }
-        unsafe extern "system" fn DeleteInstanceAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteInstanceAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::DeleteInstanceAsync(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn CreateInstanceEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilter: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstanceEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilter: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemServices_Impl::CreateInstanceEnum(this, core::mem::transmute(&strfilter), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
@@ -4763,12 +4763,12 @@ impl IWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInstanceEnumAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilter: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstanceEnumAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilter: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::CreateInstanceEnumAsync(this, core::mem::transmute(&strfilter), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn ExecQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, strquery: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, strquery: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemServices_Impl::ExecQuery(this, core::mem::transmute(&strquerylanguage), core::mem::transmute(&strquery), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
@@ -4779,12 +4779,12 @@ impl IWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, strquery: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, strquery: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::ExecQueryAsync(this, core::mem::transmute(&strquerylanguage), core::mem::transmute(&strquery), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn ExecNotificationQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, strquery: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecNotificationQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, strquery: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemServices_Impl::ExecNotificationQuery(this, core::mem::transmute(&strquerylanguage), core::mem::transmute(&strquery), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
@@ -4795,17 +4795,17 @@ impl IWbemServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecNotificationQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: std::mem::MaybeUninit<windows_core::BSTR>, strquery: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecNotificationQueryAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquerylanguage: core::mem::MaybeUninit<windows_core::BSTR>, strquery: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::ExecNotificationQueryAsync(this, core::mem::transmute(&strquerylanguage), core::mem::transmute(&strquery), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&presponsehandler)).into()
         }
-        unsafe extern "system" fn ExecMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, strmethodname: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, pinparams: *mut core::ffi::c_void, ppoutparams: *mut *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, strmethodname: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, pinparams: *mut core::ffi::c_void, ppoutparams: *mut *mut core::ffi::c_void, ppcallresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::ExecMethod(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&pinparams), core::mem::transmute_copy(&ppoutparams), core::mem::transmute_copy(&ppcallresult)).into()
         }
-        unsafe extern "system" fn ExecMethodAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: std::mem::MaybeUninit<windows_core::BSTR>, strmethodname: std::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, pinparams: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecMethodAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: core::mem::MaybeUninit<windows_core::BSTR>, strmethodname: core::mem::MaybeUninit<windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut core::ffi::c_void, pinparams: *mut core::ffi::c_void, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWbemServices_Impl::ExecMethodAsync(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx), windows_core::from_raw_borrowed(&pinparams), windows_core::from_raw_borrowed(&presponsehandler)).into()
@@ -4865,7 +4865,7 @@ pub trait IWbemStatusCodeText_Impl: Sized {
 impl windows_core::RuntimeName for IWbemStatusCodeText {}
 impl IWbemStatusCodeText_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemStatusCodeText_Impl, const OFFSET: isize>() -> IWbemStatusCodeText_Vtbl {
-        unsafe extern "system" fn GetErrorCodeText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemStatusCodeText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hres: windows_core::HRESULT, localeid: u32, lflags: i32, messagetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorCodeText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemStatusCodeText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hres: windows_core::HRESULT, localeid: u32, lflags: i32, messagetext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemStatusCodeText_Impl::GetErrorCodeText(this, core::mem::transmute_copy(&hres), core::mem::transmute_copy(&localeid), core::mem::transmute_copy(&lflags)) {
@@ -4876,7 +4876,7 @@ impl IWbemStatusCodeText_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFacilityCodeText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemStatusCodeText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hres: windows_core::HRESULT, localeid: u32, lflags: i32, messagetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFacilityCodeText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemStatusCodeText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hres: windows_core::HRESULT, localeid: u32, lflags: i32, messagetext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWbemStatusCodeText_Impl::GetFacilityCodeText(this, core::mem::transmute_copy(&hres), core::mem::transmute_copy(&localeid), core::mem::transmute_copy(&lflags)) {

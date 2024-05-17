@@ -4,7 +4,7 @@ windows_core::imp::define_interface!(DRendezvousSessionEvents, DRendezvousSessio
 impl std::ops::Deref for DRendezvousSessionEvents {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20,7 +20,7 @@ windows_core::imp::define_interface!(IRendezvousApplication, IRendezvousApplicat
 impl std::ops::Deref for IRendezvousApplication {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRendezvousApplication, windows_core::IUnknown);
@@ -41,21 +41,21 @@ windows_core::imp::define_interface!(IRendezvousSession, IRendezvousSession_Vtbl
 impl std::ops::Deref for IRendezvousSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRendezvousSession, windows_core::IUnknown);
 impl IRendezvousSession {
     pub unsafe fn State(&self) -> windows_core::Result<RENDEZVOUS_SESSION_STATE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoteUser(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RemoteUser)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SendContextData<P0>(&self, bstrdata: P0) -> windows_core::Result<()>
@@ -75,10 +75,10 @@ impl IRendezvousSession {
 pub struct IRendezvousSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RENDEZVOUS_SESSION_STATE) -> windows_core::HRESULT,
-    pub RemoteUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub RemoteUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SendContextData: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SendContextData: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
 pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;

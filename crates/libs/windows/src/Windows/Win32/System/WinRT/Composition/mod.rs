@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICo
 impl std::ops::Deref for ICompositionCapabilitiesInteropFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, windows_core::IUnknown, windows_core::IInspectable);
@@ -12,7 +12,7 @@ impl ICompositionCapabilitiesInteropFactory {
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -28,7 +28,7 @@ windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, IComposi
 impl std::ops::Deref for ICompositionDrawingSurfaceInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, windows_core::IUnknown);
@@ -70,7 +70,7 @@ windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop2, ICompos
 impl std::ops::Deref for ICompositionDrawingSurfaceInterop2 {
     type Target = ICompositionDrawingSurfaceInterop;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, windows_core::IUnknown, ICompositionDrawingSurfaceInterop);
@@ -91,13 +91,13 @@ windows_core::imp::define_interface!(ICompositionGraphicsDeviceInterop, IComposi
 impl std::ops::Deref for ICompositionGraphicsDeviceInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositionGraphicsDeviceInterop, windows_core::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
     pub unsafe fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRenderingDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -117,7 +117,7 @@ windows_core::imp::define_interface!(ICompositionTextureInterop, ICompositionTex
 impl std::ops::Deref for ICompositionTextureInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, windows_core::IUnknown);
@@ -135,7 +135,7 @@ windows_core::imp::define_interface!(ICompositorDesktopInterop, ICompositorDeskt
 impl std::ops::Deref for ICompositorDesktopInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, windows_core::IUnknown);
@@ -146,7 +146,7 @@ impl ICompositorDesktopInterop {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget.param().abi(), istopmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
@@ -166,7 +166,7 @@ windows_core::imp::define_interface!(ICompositorInterop, ICompositorInterop_Vtbl
 impl std::ops::Deref for ICompositorInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositorInterop, windows_core::IUnknown);
@@ -176,7 +176,7 @@ impl ICompositorInterop {
     where
         P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "UI_Composition")]
@@ -184,7 +184,7 @@ impl ICompositorInterop {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "UI_Composition")]
@@ -192,7 +192,7 @@ impl ICompositorInterop {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateGraphicsDevice)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -216,7 +216,7 @@ windows_core::imp::define_interface!(ICompositorInterop2, ICompositorInterop2_Vt
 impl std::ops::Deref for ICompositorInterop2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICompositorInterop2, windows_core::IUnknown);
@@ -225,7 +225,7 @@ impl ICompositorInterop2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "UI_Composition")]
@@ -233,7 +233,7 @@ impl ICompositorInterop2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -250,13 +250,13 @@ windows_core::imp::define_interface!(IDesktopWindowTargetInterop, IDesktopWindow
 impl std::ops::Deref for IDesktopWindowTargetInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDesktopWindowTargetInterop, windows_core::IUnknown);
 impl IDesktopWindowTargetInterop {
     pub unsafe fn Hwnd(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Hwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -269,7 +269,7 @@ windows_core::imp::define_interface!(IVisualInteractionSourceInterop, IVisualInt
 impl std::ops::Deref for IVisualInteractionSourceInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, windows_core::IUnknown);

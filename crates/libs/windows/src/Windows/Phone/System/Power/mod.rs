@@ -22,7 +22,7 @@ pub struct PowerManager;
 impl PowerManager {
     pub fn PowerSavingMode() -> windows_core::Result<PowerSavingMode> {
         Self::IPowerManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSavingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -31,7 +31,7 @@ impl PowerManager {
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IPowerManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSavingModeChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -40,7 +40,7 @@ impl PowerManager {
     }
     pub fn PowerSavingModeEnabled() -> windows_core::Result<bool> {
         Self::IPowerManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSavingModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }

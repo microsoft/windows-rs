@@ -87,7 +87,7 @@ windows_core::imp::define_interface!(IMediaProtectionServiceRequest, IMediaProte
 impl std::ops::Deref for IMediaProtectionServiceRequest {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMediaProtectionServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
@@ -95,14 +95,14 @@ impl IMediaProtectionServiceRequest {
     pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -123,7 +123,7 @@ impl windows_core::RuntimeType for IProtectionCapabilities {
 #[repr(C)]
 pub struct IProtectionCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut ProtectionCapabilityResult) -> windows_core::HRESULT,
+    pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut ProtectionCapabilityResult) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
 impl windows_core::RuntimeType for IRevocationAndRenewalInformation {
@@ -145,10 +145,10 @@ impl windows_core::RuntimeType for IRevocationAndRenewalItem {
 pub struct IRevocationAndRenewalItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reasons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RevocationAndRenewalReasons) -> windows_core::HRESULT,
-    pub HeaderHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PublicKeyHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub RenewalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub HeaderHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PublicKeyHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub RenewalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IServiceRequestedEventArgs, IServiceRequestedEventArgs_Vtbl, 0x34283baf_abb4_4fc1_bd89_93f106573a49);
 impl windows_core::RuntimeType for IServiceRequestedEventArgs {
@@ -180,14 +180,14 @@ impl ComponentLoadFailedEventArgs {
     pub fn Information(&self) -> windows_core::Result<RevocationAndRenewalInformation> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Information)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Completion(&self) -> windows_core::Result<MediaProtectionServiceCompletion> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Completion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -211,7 +211,7 @@ impl ComponentRenewal {
         P0: windows_core::Param<RevocationAndRenewalInformation>,
     {
         Self::IComponentRenewalStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -244,21 +244,21 @@ impl HdcpSession {
     pub fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEffectiveProtectionAtLeast)(windows_core::Interface::as_raw(this), protection, &mut result__).map(|| result__)
         }
     }
     pub fn GetEffectiveProtection(&self) -> windows_core::Result<super::super::Foundation::IReference<HdcpProtection>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetEffectiveProtection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetDesiredMinProtectionAsync)(windows_core::Interface::as_raw(this), protection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -268,7 +268,7 @@ impl HdcpSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -307,7 +307,7 @@ impl MediaProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -321,7 +321,7 @@ impl MediaProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RebootNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -335,7 +335,7 @@ impl MediaProtectionManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ComponentLoadFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -347,7 +347,7 @@ impl MediaProtectionManager {
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -373,7 +373,7 @@ impl MediaProtectionPMPServer {
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -383,7 +383,7 @@ impl MediaProtectionPMPServer {
         P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -442,7 +442,7 @@ impl ProtectionCapabilities {
     pub fn IsTypeSupported(&self, r#type: &windows_core::HSTRING, keysystem: &windows_core::HSTRING) -> windows_core::Result<ProtectionCapabilityResult> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTypeSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(r#type), core::mem::transmute_copy(keysystem), &mut result__).map(|| result__)
         }
     }
@@ -468,7 +468,7 @@ impl RevocationAndRenewalInformation {
     pub fn Items(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Items)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -493,35 +493,35 @@ impl RevocationAndRenewalItem {
     pub fn Reasons(&self) -> windows_core::Result<RevocationAndRenewalReasons> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Reasons)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HeaderHash(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderHash)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PublicKeyHash(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PublicKeyHash)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RenewalId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenewalId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -546,14 +546,14 @@ impl ServiceRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<IMediaProtectionServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Completion(&self) -> windows_core::Result<MediaProtectionServiceCompletion> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Completion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -561,7 +561,7 @@ impl ServiceRequestedEventArgs {
     pub fn MediaPlaybackItem(&self) -> windows_core::Result<super::Playback::MediaPlaybackItem> {
         let this = &windows_core::Interface::cast::<IServiceRequestedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaPlaybackItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

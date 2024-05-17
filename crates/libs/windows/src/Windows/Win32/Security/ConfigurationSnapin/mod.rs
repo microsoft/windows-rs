@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ISceSvcAttachmentData, ISceSvcAttachmentDat
 impl std::ops::Deref for ISceSvcAttachmentData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISceSvcAttachmentData, windows_core::IUnknown);
@@ -35,7 +35,7 @@ windows_core::imp::define_interface!(ISceSvcAttachmentPersistInfo, ISceSvcAttach
 impl std::ops::Deref for ISceSvcAttachmentPersistInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, windows_core::IUnknown);

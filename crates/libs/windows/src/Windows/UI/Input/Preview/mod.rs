@@ -20,7 +20,7 @@ impl InputActivationListenerPreview {
         P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
     {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

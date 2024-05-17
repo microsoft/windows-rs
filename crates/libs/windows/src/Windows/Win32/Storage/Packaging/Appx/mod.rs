@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ActivatePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, cookie : *mut usize) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     ActivatePackageVirtualizationContext(context.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -85,7 +85,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_core::PCWSTR, ismsixpackage : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CheckIsMSIXPackage(packagefullname.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -99,7 +99,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreatePackageVirtualizationContext(packagefamilyname : windows_core::PCWSTR, context : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreatePackageVirtualizationContext(packagefamilyname.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -121,7 +121,7 @@ where
     P0: windows_core::Param<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DuplicatePackageVirtualizationContext(sourcecontext : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, destcontext : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     DuplicatePackageVirtualizationContext(sourcecontext.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -213,7 +213,7 @@ where
     P0: windows_core::Param<PACKAGEDEPENDENCY_CONTEXT>,
 {
     windows_targets::link!("kernelbase.dll" "system" fn GetIdForPackageDependencyContext(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetIdForPackageDependencyContext(packagedependencycontext.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -319,7 +319,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernelbase.dll" "system" fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetResolvedPackageFullNameForPackageDependency(packagedependencyid.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -429,7 +429,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernelbase.dll" "system" fn TryCreatePackageDependency(user : super::super::super::Foundation:: PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     TryCreatePackageDependency(user.param().abi(), packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
 }
 #[inline]
@@ -473,14 +473,14 @@ windows_core::imp::define_interface!(IAppxAppInstallerReader, IAppxAppInstallerR
 impl std::ops::Deref for IAppxAppInstallerReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxAppInstallerReader, windows_core::IUnknown);
 impl IAppxAppInstallerReader {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetXmlDom(&self) -> windows_core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMDocument> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetXmlDom)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -496,17 +496,17 @@ windows_core::imp::define_interface!(IAppxBlockMapBlock, IAppxBlockMapBlock_Vtbl
 impl std::ops::Deref for IAppxBlockMapBlock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBlockMapBlock, windows_core::IUnknown);
 impl IAppxBlockMapBlock {
     pub unsafe fn GetHash(&self, buffersize: *mut u32) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHash)(windows_core::Interface::as_raw(self), buffersize, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCompressedSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCompressedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -520,21 +520,21 @@ windows_core::imp::define_interface!(IAppxBlockMapBlocksEnumerator, IAppxBlockMa
 impl std::ops::Deref for IAppxBlockMapBlocksEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, windows_core::IUnknown);
 impl IAppxBlockMapBlocksEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxBlockMapBlock> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -549,25 +549,25 @@ windows_core::imp::define_interface!(IAppxBlockMapFile, IAppxBlockMapFile_Vtbl, 
 impl std::ops::Deref for IAppxBlockMapFile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBlockMapFile, windows_core::IUnknown);
 impl IAppxBlockMapFile {
     pub unsafe fn GetBlocks(&self) -> windows_core::Result<IAppxBlockMapBlocksEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBlocks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLocalFileHeaderSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetUncompressedSize(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUncompressedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -575,7 +575,7 @@ impl IAppxBlockMapFile {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ValidateFileHash)(windows_core::Interface::as_raw(self), filestream.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -595,21 +595,21 @@ windows_core::imp::define_interface!(IAppxBlockMapFilesEnumerator, IAppxBlockMap
 impl std::ops::Deref for IAppxBlockMapFilesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBlockMapFilesEnumerator, windows_core::IUnknown);
 impl IAppxBlockMapFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxBlockMapFile> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -624,7 +624,7 @@ windows_core::imp::define_interface!(IAppxBlockMapReader, IAppxBlockMapReader_Vt
 impl std::ops::Deref for IAppxBlockMapReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBlockMapReader, windows_core::IUnknown);
@@ -633,21 +633,21 @@ impl IAppxBlockMapReader {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFiles(&self) -> windows_core::Result<IAppxBlockMapFilesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHashMethod(&self) -> windows_core::Result<super::super::super::System::Com::IUri> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHashMethod)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -669,7 +669,7 @@ windows_core::imp::define_interface!(IAppxBundleFactory, IAppxBundleFactory_Vtbl
 impl std::ops::Deref for IAppxBundleFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory, windows_core::IUnknown);
@@ -679,7 +679,7 @@ impl IAppxBundleFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -687,7 +687,7 @@ impl IAppxBundleFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBundleReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -695,7 +695,7 @@ impl IAppxBundleFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBundleManifestReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -719,7 +719,7 @@ windows_core::imp::define_interface!(IAppxBundleFactory2, IAppxBundleFactory2_Vt
 impl std::ops::Deref for IAppxBundleFactory2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory2, windows_core::IUnknown);
@@ -730,7 +730,7 @@ impl IAppxBundleFactory2 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBundleReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -746,21 +746,21 @@ windows_core::imp::define_interface!(IAppxBundleManifestOptionalBundleInfo, IApp
 impl std::ops::Deref for IAppxBundleManifestOptionalBundleInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfo, windows_core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfo {
     pub unsafe fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageInfoItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -775,21 +775,21 @@ windows_core::imp::define_interface!(IAppxBundleManifestOptionalBundleInfoEnumer
 impl std::ops::Deref for IAppxBundleManifestOptionalBundleInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfoEnumerator, windows_core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxBundleManifestOptionalBundleInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -804,33 +804,33 @@ windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo, IAppxBundle
 impl std::ops::Deref for IAppxBundleManifestPackageInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo {
     pub unsafe fn GetPackageType(&self) -> windows_core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOffset(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSize(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetResources(&self) -> windows_core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -848,21 +848,21 @@ windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo2, IAppxBundl
 impl std::ops::Deref for IAppxBundleManifestPackageInfo2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo2, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo2 {
     pub unsafe fn GetIsPackageReference(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsPackageReference)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsNonQualifiedResourcePackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIsDefaultApplicablePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsDefaultApplicablePackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -877,13 +877,13 @@ windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo3, IAppxBundl
 impl std::ops::Deref for IAppxBundleManifestPackageInfo3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo3, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo3 {
     pub unsafe fn GetTargetDeviceFamilies(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTargetDeviceFamilies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -896,13 +896,13 @@ windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo4, IAppxBundl
 impl std::ops::Deref for IAppxBundleManifestPackageInfo4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo4, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo4 {
     pub unsafe fn GetIsStub(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsStub)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -915,21 +915,21 @@ windows_core::imp::define_interface!(IAppxBundleManifestPackageInfoEnumerator, I
 impl std::ops::Deref for IAppxBundleManifestPackageInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfoEnumerator, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfoEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxBundleManifestPackageInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -944,22 +944,22 @@ windows_core::imp::define_interface!(IAppxBundleManifestReader, IAppxBundleManif
 impl std::ops::Deref for IAppxBundleManifestReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestReader, windows_core::IUnknown);
 impl IAppxBundleManifestReader {
     pub unsafe fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageInfoItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -977,13 +977,13 @@ windows_core::imp::define_interface!(IAppxBundleManifestReader2, IAppxBundleMani
 impl std::ops::Deref for IAppxBundleManifestReader2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestReader2, windows_core::IUnknown);
 impl IAppxBundleManifestReader2 {
     pub unsafe fn GetOptionalBundles(&self) -> windows_core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOptionalBundles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -996,32 +996,32 @@ windows_core::imp::define_interface!(IAppxBundleReader, IAppxBundleReader_Vtbl, 
 impl std::ops::Deref for IAppxBundleReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleReader, windows_core::IUnknown);
 impl IAppxBundleReader {
     pub unsafe fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> windows_core::Result<IAppxFile> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFootprintFile)(windows_core::Interface::as_raw(self), filetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetBlockMap(&self) -> windows_core::Result<IAppxBlockMapReader> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBlockMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetManifest(&self) -> windows_core::Result<IAppxBundleManifestReader> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetManifest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPayloadPackages(&self) -> windows_core::Result<IAppxFilesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPayloadPackages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPayloadPackage<P0>(&self, filename: P0) -> windows_core::Result<IAppxFile>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1038,7 +1038,7 @@ windows_core::imp::define_interface!(IAppxBundleWriter, IAppxBundleWriter_Vtbl, 
 impl std::ops::Deref for IAppxBundleWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter, windows_core::IUnknown);
@@ -1068,7 +1068,7 @@ windows_core::imp::define_interface!(IAppxBundleWriter2, IAppxBundleWriter2_Vtbl
 impl std::ops::Deref for IAppxBundleWriter2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter2, windows_core::IUnknown);
@@ -1094,7 +1094,7 @@ windows_core::imp::define_interface!(IAppxBundleWriter3, IAppxBundleWriter3_Vtbl
 impl std::ops::Deref for IAppxBundleWriter3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter3, windows_core::IUnknown);
@@ -1127,7 +1127,7 @@ windows_core::imp::define_interface!(IAppxBundleWriter4, IAppxBundleWriter4_Vtbl
 impl std::ops::Deref for IAppxBundleWriter4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter4, windows_core::IUnknown);
@@ -1180,17 +1180,17 @@ windows_core::imp::define_interface!(IAppxContentGroup, IAppxContentGroup_Vtbl, 
 impl std::ops::Deref for IAppxContentGroup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxContentGroup, windows_core::IUnknown);
 impl IAppxContentGroup {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFiles(&self) -> windows_core::Result<IAppxContentGroupFilesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1204,21 +1204,21 @@ windows_core::imp::define_interface!(IAppxContentGroupFilesEnumerator, IAppxCont
 impl std::ops::Deref for IAppxContentGroupFilesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxContentGroupFilesEnumerator, windows_core::IUnknown);
 impl IAppxContentGroupFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1233,17 +1233,17 @@ windows_core::imp::define_interface!(IAppxContentGroupMapReader, IAppxContentGro
 impl std::ops::Deref for IAppxContentGroupMapReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxContentGroupMapReader, windows_core::IUnknown);
 impl IAppxContentGroupMapReader {
     pub unsafe fn GetRequiredGroup(&self) -> windows_core::Result<IAppxContentGroup> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRequiredGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAutomaticGroups(&self) -> windows_core::Result<IAppxContentGroupsEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutomaticGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1257,7 +1257,7 @@ windows_core::imp::define_interface!(IAppxContentGroupMapWriter, IAppxContentGro
 impl std::ops::Deref for IAppxContentGroupMapWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxContentGroupMapWriter, windows_core::IUnknown);
@@ -1289,21 +1289,21 @@ windows_core::imp::define_interface!(IAppxContentGroupsEnumerator, IAppxContentG
 impl std::ops::Deref for IAppxContentGroupsEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxContentGroupsEnumerator, windows_core::IUnknown);
 impl IAppxContentGroupsEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxContentGroup> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1318,13 +1318,13 @@ windows_core::imp::define_interface!(IAppxDigestProvider, IAppxDigestProvider_Vt
 impl std::ops::Deref for IAppxDigestProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxDigestProvider, windows_core::IUnknown);
 impl IAppxDigestProvider {
     pub unsafe fn GetDigest(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDigest)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -1337,7 +1337,7 @@ windows_core::imp::define_interface!(IAppxEncryptedBundleWriter, IAppxEncryptedB
 impl std::ops::Deref for IAppxEncryptedBundleWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter, windows_core::IUnknown);
@@ -1367,7 +1367,7 @@ windows_core::imp::define_interface!(IAppxEncryptedBundleWriter2, IAppxEncrypted
 impl std::ops::Deref for IAppxEncryptedBundleWriter2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter2, windows_core::IUnknown);
@@ -1393,7 +1393,7 @@ windows_core::imp::define_interface!(IAppxEncryptedBundleWriter3, IAppxEncrypted
 impl std::ops::Deref for IAppxEncryptedBundleWriter3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter3, windows_core::IUnknown);
@@ -1433,7 +1433,7 @@ windows_core::imp::define_interface!(IAppxEncryptedPackageWriter, IAppxEncrypted
 impl std::ops::Deref for IAppxEncryptedPackageWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter, windows_core::IUnknown);
@@ -1463,7 +1463,7 @@ windows_core::imp::define_interface!(IAppxEncryptedPackageWriter2, IAppxEncrypte
 impl std::ops::Deref for IAppxEncryptedPackageWriter2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, windows_core::IUnknown);
@@ -1485,7 +1485,7 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory, IAppxEncryptionFact
 impl std::ops::Deref for IAppxEncryptionFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory, windows_core::IUnknown);
@@ -1512,7 +1512,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1520,7 +1520,7 @@ impl IAppxEncryptionFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedPackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1544,7 +1544,7 @@ impl IAppxEncryptionFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1552,7 +1552,7 @@ impl IAppxEncryptionFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedBundleReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1596,7 +1596,7 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory2, IAppxEncryptionFac
 impl std::ops::Deref for IAppxEncryptionFactory2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory2, windows_core::IUnknown);
@@ -1608,7 +1608,7 @@ impl IAppxEncryptionFactory2 {
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1624,7 +1624,7 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory3, IAppxEncryptionFac
 impl std::ops::Deref for IAppxEncryptionFactory3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory3, windows_core::IUnknown);
@@ -1644,7 +1644,7 @@ impl IAppxEncryptionFactory3 {
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1660,7 +1660,7 @@ impl IAppxEncryptionFactory3 {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1688,7 +1688,7 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory4, IAppxEncryptionFac
 impl std::ops::Deref for IAppxEncryptionFactory4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory4, windows_core::IUnknown);
@@ -1714,7 +1714,7 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory5, IAppxEncryptionFac
 impl std::ops::Deref for IAppxEncryptionFactory5 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory5, windows_core::IUnknown);
@@ -1725,7 +1725,7 @@ impl IAppxEncryptionFactory5 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedPackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1734,7 +1734,7 @@ impl IAppxEncryptionFactory5 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEncryptedBundleReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1754,7 +1754,7 @@ windows_core::imp::define_interface!(IAppxFactory, IAppxFactory_Vtbl, 0xbeb94909
 impl std::ops::Deref for IAppxFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxFactory, windows_core::IUnknown);
@@ -1764,7 +1764,7 @@ impl IAppxFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1772,7 +1772,7 @@ impl IAppxFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1780,7 +1780,7 @@ impl IAppxFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateManifestReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1788,7 +1788,7 @@ impl IAppxFactory {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBlockMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1797,7 +1797,7 @@ impl IAppxFactory {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateValidatedBlockMapReader)(windows_core::Interface::as_raw(self), blockmapstream.param().abi(), signaturefilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1829,7 +1829,7 @@ windows_core::imp::define_interface!(IAppxFactory2, IAppxFactory2_Vtbl, 0xf1346d
 impl std::ops::Deref for IAppxFactory2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxFactory2, windows_core::IUnknown);
@@ -1839,7 +1839,7 @@ impl IAppxFactory2 {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateContentGroupMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1847,7 +1847,7 @@ impl IAppxFactory2 {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSourceContentGroupMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1855,7 +1855,7 @@ impl IAppxFactory2 {
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateContentGroupMapWriter)(windows_core::Interface::as_raw(self), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1879,7 +1879,7 @@ windows_core::imp::define_interface!(IAppxFactory3, IAppxFactory3_Vtbl, 0x776b2c
 impl std::ops::Deref for IAppxFactory3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxFactory3, windows_core::IUnknown);
@@ -1890,7 +1890,7 @@ impl IAppxFactory3 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1899,7 +1899,7 @@ impl IAppxFactory3 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateManifestReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1908,7 +1908,7 @@ impl IAppxFactory3 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAppInstallerReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1932,30 +1932,30 @@ windows_core::imp::define_interface!(IAppxFile, IAppxFile_Vtbl, 0x91df827b_94fd_
 impl std::ops::Deref for IAppxFile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxFile, windows_core::IUnknown);
 impl IAppxFile {
     pub unsafe fn GetCompressionOption(&self) -> windows_core::Result<APPX_COMPRESSION_OPTION> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCompressionOption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetContentType(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetContentType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSize(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1975,21 +1975,21 @@ windows_core::imp::define_interface!(IAppxFilesEnumerator, IAppxFilesEnumerator_
 impl std::ops::Deref for IAppxFilesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxFilesEnumerator, windows_core::IUnknown);
 impl IAppxFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxFile> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2004,7 +2004,7 @@ windows_core::imp::define_interface!(IAppxManifestApplication, IAppxManifestAppl
 impl std::ops::Deref for IAppxManifestApplication {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestApplication, windows_core::IUnknown);
@@ -2013,11 +2013,11 @@ impl IAppxManifestApplication {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAppUserModelId(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAppUserModelId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2031,21 +2031,21 @@ windows_core::imp::define_interface!(IAppxManifestApplicationsEnumerator, IAppxM
 impl std::ops::Deref for IAppxManifestApplicationsEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestApplicationsEnumerator, windows_core::IUnknown);
 impl IAppxManifestApplicationsEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestApplication> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2060,21 +2060,21 @@ windows_core::imp::define_interface!(IAppxManifestCapabilitiesEnumerator, IAppxM
 impl std::ops::Deref for IAppxManifestCapabilitiesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, windows_core::IUnknown);
 impl IAppxManifestCapabilitiesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2089,21 +2089,21 @@ windows_core::imp::define_interface!(IAppxManifestDeviceCapabilitiesEnumerator, 
 impl std::ops::Deref for IAppxManifestDeviceCapabilitiesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, windows_core::IUnknown);
 impl IAppxManifestDeviceCapabilitiesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2118,21 +2118,21 @@ windows_core::imp::define_interface!(IAppxManifestDriverConstraint, IAppxManifes
 impl std::ops::Deref for IAppxManifestDriverConstraint {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestDriverConstraint, windows_core::IUnknown);
 impl IAppxManifestDriverConstraint {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMinDate(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2147,21 +2147,21 @@ windows_core::imp::define_interface!(IAppxManifestDriverConstraintsEnumerator, I
 impl std::ops::Deref for IAppxManifestDriverConstraintsEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, windows_core::IUnknown);
 impl IAppxManifestDriverConstraintsEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestDriverConstraint> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2176,21 +2176,21 @@ windows_core::imp::define_interface!(IAppxManifestDriverDependenciesEnumerator, 
 impl std::ops::Deref for IAppxManifestDriverDependenciesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestDriverDependenciesEnumerator, windows_core::IUnknown);
 impl IAppxManifestDriverDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestDriverDependency> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2205,13 +2205,13 @@ windows_core::imp::define_interface!(IAppxManifestDriverDependency, IAppxManifes
 impl std::ops::Deref for IAppxManifestDriverDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestDriverDependency, windows_core::IUnknown);
 impl IAppxManifestDriverDependency {
     pub unsafe fn GetDriverConstraints(&self) -> windows_core::Result<IAppxManifestDriverConstraintsEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDriverConstraints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2224,21 +2224,21 @@ windows_core::imp::define_interface!(IAppxManifestHostRuntimeDependenciesEnumera
 impl std::ops::Deref for IAppxManifestHostRuntimeDependenciesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependenciesEnumerator, windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestHostRuntimeDependency> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2253,21 +2253,21 @@ windows_core::imp::define_interface!(IAppxManifestHostRuntimeDependency, IAppxMa
 impl std::ops::Deref for IAppxManifestHostRuntimeDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency, windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependency {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2282,13 +2282,13 @@ windows_core::imp::define_interface!(IAppxManifestHostRuntimeDependency2, IAppxM
 impl std::ops::Deref for IAppxManifestHostRuntimeDependency2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependency2 {
     pub unsafe fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2301,21 +2301,21 @@ windows_core::imp::define_interface!(IAppxManifestMainPackageDependenciesEnumera
 impl std::ops::Deref for IAppxManifestMainPackageDependenciesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestMainPackageDependenciesEnumerator, windows_core::IUnknown);
 impl IAppxManifestMainPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestMainPackageDependency> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2330,21 +2330,21 @@ windows_core::imp::define_interface!(IAppxManifestMainPackageDependency, IAppxMa
 impl std::ops::Deref for IAppxManifestMainPackageDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestMainPackageDependency, windows_core::IUnknown);
 impl IAppxManifestMainPackageDependency {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2359,21 +2359,21 @@ windows_core::imp::define_interface!(IAppxManifestOSPackageDependenciesEnumerato
 impl std::ops::Deref for IAppxManifestOSPackageDependenciesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestOSPackageDependenciesEnumerator, windows_core::IUnknown);
 impl IAppxManifestOSPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestOSPackageDependency> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2388,17 +2388,17 @@ windows_core::imp::define_interface!(IAppxManifestOSPackageDependency, IAppxMani
 impl std::ops::Deref for IAppxManifestOSPackageDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestOSPackageDependency, windows_core::IUnknown);
 impl IAppxManifestOSPackageDependency {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetVersion(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2412,17 +2412,17 @@ windows_core::imp::define_interface!(IAppxManifestOptionalPackageInfo, IAppxMani
 impl std::ops::Deref for IAppxManifestOptionalPackageInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestOptionalPackageInfo, windows_core::IUnknown);
 impl IAppxManifestOptionalPackageInfo {
     pub unsafe fn GetIsOptionalPackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsOptionalPackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMainPackageName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMainPackageName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2436,21 +2436,21 @@ windows_core::imp::define_interface!(IAppxManifestPackageDependenciesEnumerator,
 impl std::ops::Deref for IAppxManifestPackageDependenciesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependenciesEnumerator, windows_core::IUnknown);
 impl IAppxManifestPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestPackageDependency> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2465,21 +2465,21 @@ windows_core::imp::define_interface!(IAppxManifestPackageDependency, IAppxManife
 impl std::ops::Deref for IAppxManifestPackageDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency, windows_core::IUnknown);
 impl IAppxManifestPackageDependency {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2494,13 +2494,13 @@ windows_core::imp::define_interface!(IAppxManifestPackageDependency2, IAppxManif
 impl std::ops::Deref for IAppxManifestPackageDependency2 {
     type Target = IAppxManifestPackageDependency;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency2, windows_core::IUnknown, IAppxManifestPackageDependency);
 impl IAppxManifestPackageDependency2 {
     pub unsafe fn GetMaxMajorVersionTested(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaxMajorVersionTested)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2513,13 +2513,13 @@ windows_core::imp::define_interface!(IAppxManifestPackageDependency3, IAppxManif
 impl std::ops::Deref for IAppxManifestPackageDependency3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency3, windows_core::IUnknown);
 impl IAppxManifestPackageDependency3 {
     pub unsafe fn GetIsOptional(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsOptional)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2532,44 +2532,44 @@ windows_core::imp::define_interface!(IAppxManifestPackageId, IAppxManifestPackag
 impl std::ops::Deref for IAppxManifestPackageId {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageId, windows_core::IUnknown);
 impl IAppxManifestPackageId {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetArchitecture(&self) -> windows_core::Result<APPX_PACKAGE_ARCHITECTURE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetArchitecture)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetVersion(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetResourceId(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResourceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ComparePublisher)(windows_core::Interface::as_raw(self), other.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageFullName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2589,13 +2589,13 @@ windows_core::imp::define_interface!(IAppxManifestPackageId2, IAppxManifestPacka
 impl std::ops::Deref for IAppxManifestPackageId2 {
     type Target = IAppxManifestPackageId;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageId2, windows_core::IUnknown, IAppxManifestPackageId);
 impl IAppxManifestPackageId2 {
     pub unsafe fn GetArchitecture2(&self) -> windows_core::Result<APPX_PACKAGE_ARCHITECTURE2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetArchitecture2)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2608,7 +2608,7 @@ windows_core::imp::define_interface!(IAppxManifestProperties, IAppxManifestPrope
 impl std::ops::Deref for IAppxManifestProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestProperties, windows_core::IUnknown);
@@ -2617,14 +2617,14 @@ impl IAppxManifestProperties {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBoolValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringValue<P0>(&self, name: P0) -> windows_core::Result<windows_core::PWSTR>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -2638,21 +2638,21 @@ windows_core::imp::define_interface!(IAppxManifestQualifiedResource, IAppxManife
 impl std::ops::Deref for IAppxManifestQualifiedResource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestQualifiedResource, windows_core::IUnknown);
 impl IAppxManifestQualifiedResource {
     pub unsafe fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetScale(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDXFeatureLevel(&self) -> windows_core::Result<DX_FEATURE_LEVEL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDXFeatureLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2667,21 +2667,21 @@ windows_core::imp::define_interface!(IAppxManifestQualifiedResourcesEnumerator, 
 impl std::ops::Deref for IAppxManifestQualifiedResourcesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, windows_core::IUnknown);
 impl IAppxManifestQualifiedResourcesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestQualifiedResource> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2696,49 +2696,49 @@ windows_core::imp::define_interface!(IAppxManifestReader, IAppxManifestReader_Vt
 impl std::ops::Deref for IAppxManifestReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader, windows_core::IUnknown);
 impl IAppxManifestReader {
     pub unsafe fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetProperties(&self) -> windows_core::Result<IAppxManifestProperties> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPackageDependencies(&self) -> windows_core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPackageDependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCapabilities(&self) -> windows_core::Result<APPX_CAPABILITIES> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetResources(&self) -> windows_core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> windows_core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> windows_core::Result<u64>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPrerequisite)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetApplications(&self) -> windows_core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetApplications)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2762,13 +2762,13 @@ windows_core::imp::define_interface!(IAppxManifestReader2, IAppxManifestReader2_
 impl std::ops::Deref for IAppxManifestReader2 {
     type Target = IAppxManifestReader;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader2, windows_core::IUnknown, IAppxManifestReader);
 impl IAppxManifestReader2 {
     pub unsafe fn GetQualifiedResources(&self) -> windows_core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetQualifiedResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2781,17 +2781,17 @@ windows_core::imp::define_interface!(IAppxManifestReader3, IAppxManifestReader3_
 impl std::ops::Deref for IAppxManifestReader3 {
     type Target = IAppxManifestReader2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader3, windows_core::IUnknown, IAppxManifestReader, IAppxManifestReader2);
 impl IAppxManifestReader3 {
     pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> windows_core::Result<IAppxManifestCapabilitiesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCapabilitiesByCapabilityClass)(windows_core::Interface::as_raw(self), capabilityclass, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTargetDeviceFamilies(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTargetDeviceFamilies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2805,13 +2805,13 @@ windows_core::imp::define_interface!(IAppxManifestReader4, IAppxManifestReader4_
 impl std::ops::Deref for IAppxManifestReader4 {
     type Target = IAppxManifestReader3;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader4, windows_core::IUnknown, IAppxManifestReader, IAppxManifestReader2, IAppxManifestReader3);
 impl IAppxManifestReader4 {
     pub unsafe fn GetOptionalPackageInfo(&self) -> windows_core::Result<IAppxManifestOptionalPackageInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOptionalPackageInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2824,13 +2824,13 @@ windows_core::imp::define_interface!(IAppxManifestReader5, IAppxManifestReader5_
 impl std::ops::Deref for IAppxManifestReader5 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader5, windows_core::IUnknown);
 impl IAppxManifestReader5 {
     pub unsafe fn GetMainPackageDependencies(&self) -> windows_core::Result<IAppxManifestMainPackageDependenciesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMainPackageDependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2843,13 +2843,13 @@ windows_core::imp::define_interface!(IAppxManifestReader6, IAppxManifestReader6_
 impl std::ops::Deref for IAppxManifestReader6 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader6, windows_core::IUnknown);
 impl IAppxManifestReader6 {
     pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIsNonQualifiedResourcePackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2862,21 +2862,21 @@ windows_core::imp::define_interface!(IAppxManifestReader7, IAppxManifestReader7_
 impl std::ops::Deref for IAppxManifestReader7 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestReader7, windows_core::IUnknown);
 impl IAppxManifestReader7 {
     pub unsafe fn GetDriverDependencies(&self) -> windows_core::Result<IAppxManifestDriverDependenciesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDriverDependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetOSPackageDependencies(&self) -> windows_core::Result<IAppxManifestOSPackageDependenciesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOSPackageDependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHostRuntimeDependencies(&self) -> windows_core::Result<IAppxManifestHostRuntimeDependenciesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHostRuntimeDependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2891,21 +2891,21 @@ windows_core::imp::define_interface!(IAppxManifestResourcesEnumerator, IAppxMani
 impl std::ops::Deref for IAppxManifestResourcesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestResourcesEnumerator, windows_core::IUnknown);
 impl IAppxManifestResourcesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2920,21 +2920,21 @@ windows_core::imp::define_interface!(IAppxManifestTargetDeviceFamiliesEnumerator
 impl std::ops::Deref for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamiliesEnumerator, windows_core::IUnknown);
 impl IAppxManifestTargetDeviceFamiliesEnumerator {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamily> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2949,21 +2949,21 @@ windows_core::imp::define_interface!(IAppxManifestTargetDeviceFamily, IAppxManif
 impl std::ops::Deref for IAppxManifestTargetDeviceFamily {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamily, windows_core::IUnknown);
 impl IAppxManifestTargetDeviceFamily {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMaxVersionTested(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaxVersionTested)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2978,7 +2978,7 @@ windows_core::imp::define_interface!(IAppxPackageEditor, IAppxPackageEditor_Vtbl
 impl std::ops::Deref for IAppxPackageEditor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackageEditor, windows_core::IUnknown);
@@ -3063,32 +3063,32 @@ windows_core::imp::define_interface!(IAppxPackageReader, IAppxPackageReader_Vtbl
 impl std::ops::Deref for IAppxPackageReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackageReader, windows_core::IUnknown);
 impl IAppxPackageReader {
     pub unsafe fn GetBlockMap(&self) -> windows_core::Result<IAppxBlockMapReader> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBlockMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> windows_core::Result<IAppxFile> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFootprintFile)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPayloadFile<P0>(&self, filename: P0) -> windows_core::Result<IAppxFile>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPayloadFile)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPayloadFiles(&self) -> windows_core::Result<IAppxFilesEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPayloadFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetManifest(&self) -> windows_core::Result<IAppxManifestReader> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetManifest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -3105,7 +3105,7 @@ windows_core::imp::define_interface!(IAppxPackageWriter, IAppxPackageWriter_Vtbl
 impl std::ops::Deref for IAppxPackageWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter, windows_core::IUnknown);
@@ -3143,7 +3143,7 @@ windows_core::imp::define_interface!(IAppxPackageWriter2, IAppxPackageWriter2_Vt
 impl std::ops::Deref for IAppxPackageWriter2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter2, windows_core::IUnknown);
@@ -3169,7 +3169,7 @@ windows_core::imp::define_interface!(IAppxPackageWriter3, IAppxPackageWriter3_Vt
 impl std::ops::Deref for IAppxPackageWriter3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, windows_core::IUnknown);
@@ -3191,7 +3191,7 @@ windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSink, IAppxPac
 impl std::ops::Deref for IAppxPackagingDiagnosticEventSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, windows_core::IUnknown);
@@ -3221,7 +3221,7 @@ windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSinkManager, I
 impl std::ops::Deref for IAppxPackagingDiagnosticEventSinkManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, windows_core::IUnknown);
@@ -3242,17 +3242,17 @@ windows_core::imp::define_interface!(IAppxSourceContentGroupMapReader, IAppxSour
 impl std::ops::Deref for IAppxSourceContentGroupMapReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAppxSourceContentGroupMapReader, windows_core::IUnknown);
 impl IAppxSourceContentGroupMapReader {
     pub unsafe fn GetRequiredGroup(&self) -> windows_core::Result<IAppxContentGroup> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRequiredGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAutomaticGroups(&self) -> windows_core::Result<IAppxContentGroupsEnumerator> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutomaticGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -3950,7 +3950,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
     pub useDiffusion: super::super::super::Foundation::BOOL,
-    pub blockMapHashAlgorithm: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
+    pub blockMapHashAlgorithm: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -3974,7 +3974,7 @@ impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
-    pub blockMapHashAlgorithm: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
+    pub blockMapHashAlgorithm: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
     pub options: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4014,7 +4014,7 @@ impl Default for APPX_KEY_INFO {
 #[derive(Debug, Eq, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
-    pub hashMethod: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
+    pub hashMethod: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Clone for APPX_PACKAGE_SETTINGS {
@@ -4036,7 +4036,7 @@ impl Default for APPX_PACKAGE_SETTINGS {
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: std::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
+    pub inputStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
     pub fileName: windows_core::PCWSTR,
     pub contentType: windows_core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,

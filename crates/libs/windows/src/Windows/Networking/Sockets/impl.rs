@@ -121,7 +121,7 @@ impl IWebSocket_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: std::mem::MaybeUninit<windows_core::HSTRING>, headervalue: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: core::mem::MaybeUninit<windows_core::HSTRING>, headervalue: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebSocket_Impl::SetRequestHeader(this, core::mem::transmute(&headername), core::mem::transmute(&headervalue)).into()
@@ -142,7 +142,7 @@ impl IWebSocket_Vtbl {
             let this = (*this).get_impl();
             IWebSocket_Impl::RemoveClosed(this, core::mem::transmute(&eventcookie)).into()
         }
-        unsafe extern "system" fn CloseWithStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, reason: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CloseWithStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, reason: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebSocket_Impl::CloseWithStatus(this, code, core::mem::transmute(&reason)).into()
@@ -320,7 +320,7 @@ impl IWebSocketInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebSocketInformation_Impl::Protocol(this) {

@@ -1,8 +1,7 @@
 use super::*;
 use core::marker::PhantomData;
-use core::mem::{transmute_copy, size_of};
+use core::mem::{size_of, transmute_copy};
 use core::ptr::null_mut;
-use core::sync::*;
 use std::sync::Mutex;
 
 /// A type that you can use to declare and implement an event of a specified delegate type.

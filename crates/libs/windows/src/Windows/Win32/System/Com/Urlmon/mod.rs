@@ -174,7 +174,7 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super:
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> windows_core::Result<super::STGMEDIUM> {
     windows_targets::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super:: STGMEDIUM, pstgmeddest : *mut super:: STGMEDIUM) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CopyStgMedium(pcstgmedsrc, &mut result__).map(|| result__)
 }
 #[inline]
@@ -184,7 +184,7 @@ where
     P1: windows_core::Param<super::IEnumFORMATETC>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : u32, pbscb : * mut core::ffi::c_void, pefetc : * mut core::ffi::c_void, ppbc : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateAsyncBindCtx(reserved, pbscb.param().abi(), pefetc.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -200,7 +200,7 @@ where
 #[inline]
 pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC]) -> windows_core::Result<super::IEnumFORMATETC> {
     windows_targets::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super:: FORMATETC, ppenumfmtetc : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), core::mem::transmute(rgfmtetc.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -210,7 +210,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : * mut core::ffi::c_void, szurl : windows_core::PCWSTR, ppmk : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateURLMoniker(pmkctx.param().abi(), szurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -245,7 +245,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn FindMediaType(rgsztypes : windows_core::PCSTR, rgcftypes : *mut u16) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FindMediaType(rgsztypes.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
@@ -275,7 +275,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : * mut core::ffi::c_void, szfilename : windows_core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, szmime : windows_core::PCWSTR, dwreserved : u32, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetClassFileOrMime(pbc.param().abi(), szfilename.param().abi(), core::mem::transmute(pbuffer.unwrap_or(std::ptr::null())), cbsize, szmime.param().abi(), dwreserved, &mut result__).map(|| result__)
 }
 #[inline]
@@ -284,13 +284,13 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn GetClassURL(szurl : windows_core::PCWSTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetClassURL(szurl.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> windows_core::Result<windows_core::PSTR> {
     windows_targets::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super:: uCLSSPEC, ppszcomponentid : *mut windows_core::PSTR) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetComponentIDFromCLSSPEC(pclassspec, &mut result__).map(|| result__)
 }
 #[inline]
@@ -369,7 +369,7 @@ pub unsafe fn IEGetUserPrivateNamespaceName() -> windows_core::PWSTR {
 #[inline]
 pub unsafe fn IEInstallScope() -> windows_core::Result<u32> {
     windows_targets::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     IEInstallScope(&mut result__).map(|| result__)
 }
 #[inline]
@@ -611,7 +611,7 @@ windows_core::imp::define_interface!(IBindCallbackRedirect, IBindCallbackRedirec
 impl std::ops::Deref for IBindCallbackRedirect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBindCallbackRedirect, windows_core::IUnknown);
@@ -620,7 +620,7 @@ impl IBindCallbackRedirect {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), lpcurl.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -633,13 +633,13 @@ windows_core::imp::define_interface!(IBindHttpSecurity, IBindHttpSecurity_Vtbl, 
 impl std::ops::Deref for IBindHttpSecurity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBindHttpSecurity, windows_core::IUnknown);
 impl IBindHttpSecurity {
     pub unsafe fn GetIgnoreCertMask(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIgnoreCertMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -652,7 +652,7 @@ windows_core::imp::define_interface!(IBindProtocol, IBindProtocol_Vtbl, 0x79eac9
 impl std::ops::Deref for IBindProtocol {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IBindProtocol, windows_core::IUnknown);
@@ -662,7 +662,7 @@ impl IBindProtocol {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::IBindCtx>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateBinding)(windows_core::Interface::as_raw(self), szurl.param().abi(), pbc.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -675,13 +675,13 @@ windows_core::imp::define_interface!(ICatalogFileInfo, ICatalogFileInfo_Vtbl, 0x
 impl std::ops::Deref for ICatalogFileInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICatalogFileInfo, windows_core::IUnknown);
 impl ICatalogFileInfo {
     pub unsafe fn GetCatalogFile(&self) -> windows_core::Result<windows_core::PSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCatalogFile)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetJavaTrust(&self, ppjavatrust: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -698,7 +698,7 @@ windows_core::imp::define_interface!(ICodeInstall, ICodeInstall_Vtbl, 0x79eac9d1
 impl std::ops::Deref for ICodeInstall {
     type Target = IWindowForBindingUI;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICodeInstall, windows_core::IUnknown, IWindowForBindingUI);
@@ -720,7 +720,7 @@ windows_core::imp::define_interface!(IDataFilter, IDataFilter_Vtbl, 0x69d14c80_c
 impl std::ops::Deref for IDataFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDataFilter, windows_core::IUnknown);
@@ -746,7 +746,7 @@ windows_core::imp::define_interface!(IEncodingFilterFactory, IEncodingFilterFact
 impl std::ops::Deref for IEncodingFilterFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEncodingFilterFactory, windows_core::IUnknown);
@@ -756,7 +756,7 @@ impl IEncodingFilterFactory {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindBestFilter)(windows_core::Interface::as_raw(self), pwzcodein.param().abi(), pwzcodeout.param().abi(), core::mem::transmute(info), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDefaultFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> windows_core::Result<IDataFilter>
@@ -764,7 +764,7 @@ impl IEncodingFilterFactory {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultFilter)(windows_core::Interface::as_raw(self), pwzcodein.param().abi(), pwzcodeout.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -778,13 +778,13 @@ windows_core::imp::define_interface!(IGetBindHandle, IGetBindHandle_Vtbl, 0xaf0f
 impl std::ops::Deref for IGetBindHandle {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGetBindHandle, windows_core::IUnknown);
 impl IGetBindHandle {
     pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> windows_core::Result<super::super::super::Foundation::HANDLE> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBindHandle)(windows_core::Interface::as_raw(self), enumrequestedhandle, &mut result__).map(|| result__)
     }
 }
@@ -797,7 +797,7 @@ windows_core::imp::define_interface!(IHttpNegotiate, IHttpNegotiate_Vtbl, 0x79ea
 impl std::ops::Deref for IHttpNegotiate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHttpNegotiate, windows_core::IUnknown);
@@ -807,7 +807,7 @@ impl IHttpNegotiate {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BeginningTransaction)(windows_core::Interface::as_raw(self), szurl.param().abi(), szheaders.param().abi(), dwreserved, &mut result__).map(|| result__)
     }
     pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> windows_core::Result<windows_core::PWSTR>
@@ -815,7 +815,7 @@ impl IHttpNegotiate {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OnResponse)(windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.param().abi(), szrequestheaders.param().abi(), &mut result__).map(|| result__)
     }
 }
@@ -829,7 +829,7 @@ windows_core::imp::define_interface!(IHttpNegotiate2, IHttpNegotiate2_Vtbl, 0x4f
 impl std::ops::Deref for IHttpNegotiate2 {
     type Target = IHttpNegotiate;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHttpNegotiate2, windows_core::IUnknown, IHttpNegotiate);
@@ -847,7 +847,7 @@ windows_core::imp::define_interface!(IHttpNegotiate3, IHttpNegotiate3_Vtbl, 0x57
 impl std::ops::Deref for IHttpNegotiate3 {
     type Target = IHttpNegotiate2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHttpNegotiate3, windows_core::IUnknown, IHttpNegotiate, IHttpNegotiate2);
@@ -865,7 +865,7 @@ windows_core::imp::define_interface!(IHttpSecurity, IHttpSecurity_Vtbl, 0x79eac9
 impl std::ops::Deref for IHttpSecurity {
     type Target = IWindowForBindingUI;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHttpSecurity, windows_core::IUnknown, IWindowForBindingUI);
@@ -883,7 +883,7 @@ windows_core::imp::define_interface!(IInternet, IInternet_Vtbl, 0x79eac9e0_baf9_
 impl std::ops::Deref for IInternet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternet, windows_core::IUnknown);
@@ -896,7 +896,7 @@ windows_core::imp::define_interface!(IInternetBindInfo, IInternetBindInfo_Vtbl, 
 impl std::ops::Deref for IInternetBindInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetBindInfo, windows_core::IUnknown);
@@ -922,7 +922,7 @@ windows_core::imp::define_interface!(IInternetBindInfoEx, IInternetBindInfoEx_Vt
 impl std::ops::Deref for IInternetBindInfoEx {
     type Target = IInternetBindInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetBindInfoEx, windows_core::IUnknown, IInternetBindInfo);
@@ -944,7 +944,7 @@ windows_core::imp::define_interface!(IInternetHostSecurityManager, IInternetHost
 impl std::ops::Deref for IInternetHostSecurityManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetHostSecurityManager, windows_core::IUnknown);
@@ -970,7 +970,7 @@ windows_core::imp::define_interface!(IInternetPriority, IInternetPriority_Vtbl, 
 impl std::ops::Deref for IInternetPriority {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetPriority, windows_core::IUnknown);
@@ -979,7 +979,7 @@ impl IInternetPriority {
         (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), npriority).ok()
     }
     pub unsafe fn GetPriority(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -993,7 +993,7 @@ windows_core::imp::define_interface!(IInternetProtocol, IInternetProtocol_Vtbl, 
 impl std::ops::Deref for IInternetProtocol {
     type Target = IInternetProtocolRoot;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocol, windows_core::IUnknown, IInternetProtocolRoot);
@@ -1002,7 +1002,7 @@ impl IInternetProtocol {
         (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pv.as_ptr()), pv.len().try_into().unwrap(), pcbread).ok()
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), dlibmove, dworigin, &mut result__).map(|| result__)
     }
     pub unsafe fn LockRequest(&self, dwoptions: u32) -> windows_core::Result<()> {
@@ -1024,7 +1024,7 @@ windows_core::imp::define_interface!(IInternetProtocolEx, IInternetProtocolEx_Vt
 impl std::ops::Deref for IInternetProtocolEx {
     type Target = IInternetProtocol;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolEx, windows_core::IUnknown, IInternetProtocolRoot, IInternetProtocol);
@@ -1048,7 +1048,7 @@ windows_core::imp::define_interface!(IInternetProtocolInfo, IInternetProtocolInf
 impl std::ops::Deref for IInternetProtocolInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolInfo, windows_core::IUnknown);
@@ -1093,7 +1093,7 @@ windows_core::imp::define_interface!(IInternetProtocolRoot, IInternetProtocolRoo
 impl std::ops::Deref for IInternetProtocolRoot {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolRoot, windows_core::IUnknown);
@@ -1137,7 +1137,7 @@ windows_core::imp::define_interface!(IInternetProtocolSink, IInternetProtocolSin
 impl std::ops::Deref for IInternetProtocolSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolSink, windows_core::IUnknown);
@@ -1173,7 +1173,7 @@ windows_core::imp::define_interface!(IInternetProtocolSinkStackable, IInternetPr
 impl std::ops::Deref for IInternetProtocolSinkStackable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolSinkStackable, windows_core::IUnknown);
@@ -1202,7 +1202,7 @@ windows_core::imp::define_interface!(IInternetSecurityManager, IInternetSecurity
 impl std::ops::Deref for IInternetSecurityManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetSecurityManager, windows_core::IUnknown);
@@ -1214,7 +1214,7 @@ impl IInternetSecurityManager {
         (windows_core::Interface::vtable(self).SetSecuritySite)(windows_core::Interface::as_raw(self), psite.param().abi()).ok()
     }
     pub unsafe fn GetSecuritySite(&self) -> windows_core::Result<IInternetSecurityMgrSite> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSecuritySite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> windows_core::Result<()>
@@ -1267,7 +1267,7 @@ windows_core::imp::define_interface!(IInternetSecurityManagerEx, IInternetSecuri
 impl std::ops::Deref for IInternetSecurityManagerEx {
     type Target = IInternetSecurityManager;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetSecurityManagerEx, windows_core::IUnknown, IInternetSecurityManager);
@@ -1288,7 +1288,7 @@ windows_core::imp::define_interface!(IInternetSecurityManagerEx2, IInternetSecur
 impl std::ops::Deref for IInternetSecurityManagerEx2 {
     type Target = IInternetSecurityManagerEx;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetSecurityManagerEx2, windows_core::IUnknown, IInternetSecurityManager, IInternetSecurityManagerEx);
@@ -1330,13 +1330,13 @@ windows_core::imp::define_interface!(IInternetSecurityMgrSite, IInternetSecurity
 impl std::ops::Deref for IInternetSecurityMgrSite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetSecurityMgrSite, windows_core::IUnknown);
 impl IInternetSecurityMgrSite {
     pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> windows_core::Result<()>
@@ -1356,7 +1356,7 @@ windows_core::imp::define_interface!(IInternetSession, IInternetSession_Vtbl, 0x
 impl std::ops::Deref for IInternetSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetSession, windows_core::IUnknown);
@@ -1419,7 +1419,7 @@ windows_core::imp::define_interface!(IInternetThreadSwitch, IInternetThreadSwitc
 impl std::ops::Deref for IInternetThreadSwitch {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetThreadSwitch, windows_core::IUnknown);
@@ -1441,7 +1441,7 @@ windows_core::imp::define_interface!(IInternetZoneManager, IInternetZoneManager_
 impl std::ops::Deref for IInternetZoneManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetZoneManager, windows_core::IUnknown);
@@ -1483,7 +1483,7 @@ impl IInternetZoneManager {
         (windows_core::Interface::vtable(self).CreateZoneEnumerator)(windows_core::Interface::as_raw(self), pdwenum, pdwcount, dwflags).ok()
     }
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetZoneAt)(windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> windows_core::Result<()> {
@@ -1513,7 +1513,7 @@ windows_core::imp::define_interface!(IInternetZoneManagerEx, IInternetZoneManage
 impl std::ops::Deref for IInternetZoneManagerEx {
     type Target = IInternetZoneManager;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetZoneManagerEx, windows_core::IUnknown, IInternetZoneManager);
@@ -1535,7 +1535,7 @@ windows_core::imp::define_interface!(IInternetZoneManagerEx2, IInternetZoneManag
 impl std::ops::Deref for IInternetZoneManagerEx2 {
     type Target = IInternetZoneManagerEx;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IInternetZoneManagerEx2, windows_core::IUnknown, IInternetZoneManager, IInternetZoneManagerEx);
@@ -1572,7 +1572,7 @@ windows_core::imp::define_interface!(IMonikerProp, IMonikerProp_Vtbl, 0xa5ca5f7f
 impl std::ops::Deref for IMonikerProp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IMonikerProp, windows_core::IUnknown);
@@ -1593,13 +1593,13 @@ windows_core::imp::define_interface!(IPersistMoniker, IPersistMoniker_Vtbl, 0x79
 impl std::ops::Deref for IPersistMoniker {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPersistMoniker, windows_core::IUnknown);
 impl IPersistMoniker {
     pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsDirty(&self) -> windows_core::HRESULT {
@@ -1629,7 +1629,7 @@ impl IPersistMoniker {
         (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), pimkname.param().abi(), pibc.param().abi()).ok()
     }
     pub unsafe fn GetCurMoniker(&self) -> windows_core::Result<super::IMoniker> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurMoniker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1647,7 +1647,7 @@ windows_core::imp::define_interface!(ISoftDistExt, ISoftDistExt_Vtbl, 0xb15b8dc1
 impl std::ops::Deref for ISoftDistExt {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISoftDistExt, windows_core::IUnknown);
@@ -1688,17 +1688,17 @@ windows_core::imp::define_interface!(IUriBuilderFactory, IUriBuilderFactory_Vtbl
 impl std::ops::Deref for IUriBuilderFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUriBuilderFactory, windows_core::IUnknown);
 impl IUriBuilderFactory {
     pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> windows_core::Result<super::IUriBuilder> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateIUriBuilder)(windows_core::Interface::as_raw(self), dwflags, dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> windows_core::Result<super::IUriBuilder> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateInitializedIUriBuilder)(windows_core::Interface::as_raw(self), dwflags, dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1712,13 +1712,13 @@ windows_core::imp::define_interface!(IUriContainer, IUriContainer_Vtbl, 0xa158a6
 impl std::ops::Deref for IUriContainer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUriContainer, windows_core::IUnknown);
 impl IUriContainer {
     pub unsafe fn GetIUri(&self) -> windows_core::Result<super::IUri> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1731,7 +1731,7 @@ windows_core::imp::define_interface!(IWinInetCacheHints, IWinInetCacheHints_Vtbl
 impl std::ops::Deref for IWinInetCacheHints {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWinInetCacheHints, windows_core::IUnknown);
@@ -1752,7 +1752,7 @@ windows_core::imp::define_interface!(IWinInetCacheHints2, IWinInetCacheHints2_Vt
 impl std::ops::Deref for IWinInetCacheHints2 {
     type Target = IWinInetCacheHints;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWinInetCacheHints2, windows_core::IUnknown, IWinInetCacheHints);
@@ -1773,7 +1773,7 @@ windows_core::imp::define_interface!(IWinInetFileStream, IWinInetFileStream_Vtbl
 impl std::ops::Deref for IWinInetFileStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWinInetFileStream, windows_core::IUnknown);
@@ -1795,7 +1795,7 @@ windows_core::imp::define_interface!(IWinInetHttpInfo, IWinInetHttpInfo_Vtbl, 0x
 impl std::ops::Deref for IWinInetHttpInfo {
     type Target = IWinInetInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWinInetHttpInfo, windows_core::IUnknown, IWinInetInfo);
@@ -1813,7 +1813,7 @@ windows_core::imp::define_interface!(IWinInetHttpTimeouts, IWinInetHttpTimeouts_
 impl std::ops::Deref for IWinInetHttpTimeouts {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWinInetHttpTimeouts, windows_core::IUnknown);
@@ -1831,7 +1831,7 @@ windows_core::imp::define_interface!(IWinInetInfo, IWinInetInfo_Vtbl, 0x79eac9d6
 impl std::ops::Deref for IWinInetInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWinInetInfo, windows_core::IUnknown);
@@ -1849,13 +1849,13 @@ windows_core::imp::define_interface!(IWindowForBindingUI, IWindowForBindingUI_Vt
 impl std::ops::Deref for IWindowForBindingUI {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWindowForBindingUI, windows_core::IUnknown);
 impl IWindowForBindingUI {
     pub unsafe fn GetWindow(&self, rguidreason: *const windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), rguidreason, &mut result__).map(|| result__)
     }
 }
@@ -1868,7 +1868,7 @@ windows_core::imp::define_interface!(IWrappedProtocol, IWrappedProtocol_Vtbl, 0x
 impl std::ops::Deref for IWrappedProtocol {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWrappedProtocol, windows_core::IUnknown);
@@ -1886,13 +1886,13 @@ windows_core::imp::define_interface!(IZoneIdentifier, IZoneIdentifier_Vtbl, 0xcd
 impl std::ops::Deref for IZoneIdentifier {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IZoneIdentifier, windows_core::IUnknown);
 impl IZoneIdentifier {
     pub unsafe fn GetId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetId(&self, dwzone: u32) -> windows_core::Result<()> {
@@ -1913,13 +1913,13 @@ windows_core::imp::define_interface!(IZoneIdentifier2, IZoneIdentifier2_Vtbl, 0x
 impl std::ops::Deref for IZoneIdentifier2 {
     type Target = IZoneIdentifier;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IZoneIdentifier2, windows_core::IUnknown, IZoneIdentifier);
 impl IZoneIdentifier2 {
     pub unsafe fn GetLastWriterPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLastWriterPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLastWriterPackageFamilyName<P0>(&self, packagefamilyname: P0) -> windows_core::Result<()>
@@ -1932,7 +1932,7 @@ impl IZoneIdentifier2 {
         (windows_core::Interface::vtable(self).RemoveLastWriterPackageFamilyName)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetAppZoneId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAppZoneId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAppZoneId(&self, zone: u32) -> windows_core::Result<()> {
@@ -2957,7 +2957,7 @@ impl Default for CODEBASEHOLD {
 #[derive(Debug, Eq, PartialEq)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_core::GUID,
-    pub pUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwFlags: u32,
 }
 impl Clone for CONFIRMSAFETY {
@@ -3026,9 +3026,9 @@ impl Default for PROTOCOLDATA {
 #[derive(Debug, Eq, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
-    pub pProtocolSink: std::mem::ManuallyDrop<Option<IInternetProtocolSink>>,
-    pub pProtocol: std::mem::ManuallyDrop<Option<IInternetProtocol>>,
-    pub pUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pProtocolSink: core::mem::ManuallyDrop<Option<IInternetProtocolSink>>,
+    pub pProtocol: core::mem::ManuallyDrop<Option<IInternetProtocol>>,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwFilterFlags: u32,
 }
 impl Clone for PROTOCOLFILTERDATA {
@@ -3087,7 +3087,7 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: windows_core::GUID,
-    pub pUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwReserved: u32,
 }
 impl Clone for RemBINDINFO {
@@ -3149,8 +3149,8 @@ impl Default for SOFTDISTINFO {
 #[derive(Debug, Eq, PartialEq)]
 pub struct StartParam {
     pub iid: windows_core::GUID,
-    pub pIBindCtx: std::mem::ManuallyDrop<Option<super::IBindCtx>>,
-    pub pItf: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pIBindCtx: core::mem::ManuallyDrop<Option<super::IBindCtx>>,
+    pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 impl Clone for StartParam {
     fn clone(&self) -> Self {

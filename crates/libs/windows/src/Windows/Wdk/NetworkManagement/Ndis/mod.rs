@@ -15,7 +15,7 @@ pub unsafe fn NdisAllocateMemoryWithTag(virtualaddress: *mut *mut core::ffi::c_v
 #[inline]
 pub unsafe fn NdisCancelTimer(timer: *const NDIS_TIMER) -> super::super::super::Win32::Foundation::BOOLEAN {
     windows_targets::link!("ndis.sys" "system" fn NdisCancelTimer(timer : *const NDIS_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     NdisCancelTimer(timer, &mut result__);
     result__
 }
@@ -217,7 +217,7 @@ pub unsafe fn NdisGetCurrentProcessorCounts(pidlecount: *mut u32, pkernelanduser
 #[inline]
 pub unsafe fn NdisGetCurrentProcessorCpuUsage() -> u32 {
     windows_targets::link!("ndis.sys" "system" fn NdisGetCurrentProcessorCpuUsage(pcpuusage : *mut u32));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     NdisGetCurrentProcessorCpuUsage(&mut result__);
     result__
 }
@@ -265,7 +265,7 @@ pub unsafe fn NdisIMInitializeDeviceInstanceEx(driverhandle: *const core::ffi::c
 #[inline]
 pub unsafe fn NdisInitializeEvent() -> NDIS_EVENT {
     windows_targets::link!("ndis.sys" "system" fn NdisInitializeEvent(event : *mut NDIS_EVENT));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     NdisInitializeEvent(&mut result__);
     result__
 }
@@ -305,7 +305,7 @@ where
 #[inline]
 pub unsafe fn NdisMCancelTimer(timer: *const NDIS_MINIPORT_TIMER) -> super::super::super::Win32::Foundation::BOOLEAN {
     windows_targets::link!("ndis.sys" "system" fn NdisMCancelTimer(timer : *const NDIS_MINIPORT_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     NdisMCancelTimer(timer, &mut result__);
     result__
 }

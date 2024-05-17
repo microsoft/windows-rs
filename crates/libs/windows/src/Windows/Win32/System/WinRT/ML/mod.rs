@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ILearningModelDeviceFactoryNative, ILearnin
 impl std::ops::Deref for ILearningModelDeviceFactoryNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILearningModelDeviceFactoryNative, windows_core::IUnknown);
@@ -12,7 +12,7 @@ impl ILearningModelDeviceFactoryNative {
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateFromD3D12CommandQueue)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -28,14 +28,14 @@ windows_core::imp::define_interface!(ILearningModelOperatorProviderNative, ILear
 impl std::ops::Deref for ILearningModelOperatorProviderNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILearningModelOperatorProviderNative, windows_core::IUnknown);
 impl ILearningModelOperatorProviderNative {
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub unsafe fn GetRegistry(&self) -> windows_core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRegistry)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -51,7 +51,7 @@ windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearni
 impl std::ops::Deref for ILearningModelSessionOptionsNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
@@ -69,7 +69,7 @@ windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearn
 impl std::ops::Deref for ILearningModelSessionOptionsNative1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
@@ -87,7 +87,7 @@ windows_core::imp::define_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547
 impl std::ops::Deref for ITensorNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITensorNative, windows_core::IUnknown);
@@ -97,7 +97,7 @@ impl ITensorNative {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetD3D12Resource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -114,7 +114,7 @@ windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_
 impl std::ops::Deref for ITensorStaticsNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITensorStaticsNative, windows_core::IUnknown);

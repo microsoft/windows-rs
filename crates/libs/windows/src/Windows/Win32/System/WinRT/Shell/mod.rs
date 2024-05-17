@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30
 impl std::ops::Deref for IDDEInitializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDDEInitializer, windows_core::IUnknown);

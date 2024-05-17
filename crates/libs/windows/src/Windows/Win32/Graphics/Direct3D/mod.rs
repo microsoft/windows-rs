@@ -6,7 +6,7 @@ windows_core::imp::define_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40
 impl std::ops::Deref for ID3DBlob {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3DBlob, windows_core::IUnknown);
@@ -30,13 +30,13 @@ windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNot
 impl std::ops::Deref for ID3DDestructionNotifier {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackfn, pdata, &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()> {

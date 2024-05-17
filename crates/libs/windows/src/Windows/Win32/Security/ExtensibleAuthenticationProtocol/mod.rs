@@ -198,7 +198,7 @@ windows_core::imp::define_interface!(IAccountingProviderConfig, IAccountingProvi
 impl std::ops::Deref for IAccountingProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAccountingProviderConfig, windows_core::IUnknown);
@@ -207,7 +207,7 @@ impl IAccountingProviderConfig {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
@@ -239,7 +239,7 @@ windows_core::imp::define_interface!(IAuthenticationProviderConfig, IAuthenticat
 impl std::ops::Deref for IAuthenticationProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, windows_core::IUnknown);
@@ -248,7 +248,7 @@ impl IAuthenticationProviderConfig {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
@@ -280,7 +280,7 @@ windows_core::imp::define_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl
 impl std::ops::Deref for IEAPProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig, windows_core::IUnknown);
@@ -289,7 +289,7 @@ impl IEAPProviderConfig {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dweaptypeid, &mut result__).map(|| result__)
     }
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()> {
@@ -327,7 +327,7 @@ windows_core::imp::define_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vt
 impl std::ops::Deref for IEAPProviderConfig2 {
     type Target = IEAPProviderConfig;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, windows_core::IUnknown, IEAPProviderConfig);
@@ -352,7 +352,7 @@ windows_core::imp::define_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vt
 impl std::ops::Deref for IEAPProviderConfig3 {
     type Target = IEAPProviderConfig2;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
@@ -373,7 +373,7 @@ windows_core::imp::define_interface!(IRouterProtocolConfig, IRouterProtocolConfi
 impl std::ops::Deref for IRouterProtocolConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, windows_core::IUnknown);

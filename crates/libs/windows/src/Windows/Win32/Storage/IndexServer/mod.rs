@@ -39,7 +39,7 @@ windows_core::imp::define_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a
 impl std::ops::Deref for IFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
@@ -81,7 +81,7 @@ windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c
 impl std::ops::Deref for IPhraseSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);

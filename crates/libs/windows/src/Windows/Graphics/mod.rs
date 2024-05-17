@@ -18,7 +18,7 @@ windows_core::imp::define_interface!(IGeometrySource2D, IGeometrySource2D_Vtbl, 
 impl std::ops::Deref for IGeometrySource2D {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IGeometrySource2D, windows_core::IUnknown, windows_core::IInspectable);

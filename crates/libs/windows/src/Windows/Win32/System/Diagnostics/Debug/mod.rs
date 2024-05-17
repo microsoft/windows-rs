@@ -2609,7 +2609,7 @@ windows_core::imp::define_interface!(IDebugExtendedProperty, IDebugExtendedPrope
 impl std::ops::Deref for IDebugExtendedProperty {
     type Target = IDebugProperty;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IUnknown, IDebugProperty);
@@ -2619,7 +2619,7 @@ impl IDebugExtendedProperty {
         (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2636,7 +2636,7 @@ windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x5197
 impl std::ops::Deref for IDebugProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
@@ -2654,11 +2654,11 @@ impl IDebugProperty {
         (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix).ok()
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IDebugProperty> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2666,7 +2666,7 @@ impl IDebugProperty {
 pub struct IDebugProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> windows_core::HRESULT,
-    pub GetExtendedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub GetExtendedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub SetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub EnumMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2675,26 +2675,26 @@ windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyE
 impl std::ops::Deref for IDebugPropertyEnumType_All {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
 impl IDebugPropertyEnumType_All {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Arguments, IDebugPropertyEnumType_Arguments_Vtbl, 0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
 impl std::ops::Deref for IDebugPropertyEnumType_Arguments {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, windows_core::IUnknown, IDebugPropertyEnumType_All);
@@ -2707,7 +2707,7 @@ windows_core::imp::define_interface!(IDebugPropertyEnumType_Locals, IDebugProper
 impl std::ops::Deref for IDebugPropertyEnumType_Locals {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Locals, windows_core::IUnknown, IDebugPropertyEnumType_All);
@@ -2720,7 +2720,7 @@ windows_core::imp::define_interface!(IDebugPropertyEnumType_LocalsPlusArgs, IDeb
 impl std::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, windows_core::IUnknown, IDebugPropertyEnumType_All);
@@ -2733,7 +2733,7 @@ windows_core::imp::define_interface!(IDebugPropertyEnumType_Registers, IDebugPro
 impl std::ops::Deref for IDebugPropertyEnumType_Registers {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Registers, windows_core::IUnknown, IDebugPropertyEnumType_All);
@@ -2746,7 +2746,7 @@ windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugE
 impl std::ops::Deref for IEnumDebugExtendedPropertyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_core::IUnknown);
@@ -2762,11 +2762,11 @@ impl IEnumDebugExtendedPropertyInfo {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2786,7 +2786,7 @@ windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyI
 impl std::ops::Deref for IEnumDebugPropertyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
@@ -2801,11 +2801,11 @@ impl IEnumDebugPropertyInfo {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2822,7 +2822,7 @@ windows_core::imp::define_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc
 impl std::ops::Deref for IObjectSafety {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IObjectSafety, windows_core::IUnknown);
@@ -2844,17 +2844,17 @@ windows_core::imp::define_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing
 impl std::ops::Deref for IPerPropertyBrowsing2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, windows_core::IUnknown);
 impl IPerPropertyBrowsing2 {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
@@ -2868,7 +2868,7 @@ impl IPerPropertyBrowsing2 {
 #[repr(C)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetPredefinedStrings: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Ole::CALPOLESTR, *mut super::super::Ole::CADWORD) -> windows_core::HRESULT,
@@ -6463,12 +6463,12 @@ impl Default for DUMP_HEADER64_0 {
 #[derive(Debug, Eq, PartialEq)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
-    pub m_bstrName: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub m_bstrType: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub m_bstrValue: std::mem::ManuallyDrop<windows_core::BSTR>,
-    pub m_bstrFullName: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrType: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrFullName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub m_dwAttrib: u32,
-    pub m_pDebugProp: std::mem::ManuallyDrop<Option<IDebugProperty>>,
+    pub m_pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
 }
 impl Clone for DebugPropertyInfo {
     fn clone(&self) -> Self {
@@ -6605,12 +6605,12 @@ pub struct ExtendedDebugPropertyInfo {
     pub pszValue: windows_core::PWSTR,
     pub pszFullName: windows_core::PWSTR,
     pub dwAttrib: u32,
-    pub pDebugProp: std::mem::ManuallyDrop<Option<IDebugProperty>>,
+    pub pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
     pub nDISPID: u32,
     pub nType: u32,
-    pub varValue: std::mem::ManuallyDrop<windows_core::VARIANT>,
-    pub plbValue: std::mem::ManuallyDrop<Option<super::super::Com::StructuredStorage::ILockBytes>>,
-    pub pDebugExtProp: std::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
+    pub varValue: core::mem::ManuallyDrop<windows_core::VARIANT>,
+    pub plbValue: core::mem::ManuallyDrop<Option<super::super::Com::StructuredStorage::ILockBytes>>,
+    pub pDebugExtProp: core::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Clone for ExtendedDebugPropertyInfo {

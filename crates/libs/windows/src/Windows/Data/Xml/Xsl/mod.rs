@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for IXsltProcessor {
 pub struct IXsltProcessor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
-    pub TransformToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TransformToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     TransformToString: usize,
 }
@@ -46,7 +46,7 @@ impl XsltProcessor {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -57,7 +57,7 @@ impl XsltProcessor {
     {
         let this = &windows_core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -67,7 +67,7 @@ impl XsltProcessor {
         P0: windows_core::Param<super::Dom::XmlDocument>,
     {
         Self::IXsltProcessorFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

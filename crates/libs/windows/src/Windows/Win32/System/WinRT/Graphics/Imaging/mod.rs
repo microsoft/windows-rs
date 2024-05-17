@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ISoftwareBitmapNative, ISoftwareBitmapNativ
 impl std::ops::Deref for ISoftwareBitmapNative {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISoftwareBitmapNative, windows_core::IUnknown, windows_core::IInspectable);
@@ -24,7 +24,7 @@ windows_core::imp::define_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitm
 impl std::ops::Deref for ISoftwareBitmapNativeFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, windows_core::IUnknown, windows_core::IInspectable);

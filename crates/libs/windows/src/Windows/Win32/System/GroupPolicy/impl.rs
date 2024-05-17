@@ -97,7 +97,7 @@ impl windows_core::RuntimeName for IGPM {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPM_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>() -> IGPM_Vtbl {
-        unsafe extern "system" fn GetDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdomain: std::mem::MaybeUninit<windows_core::BSTR>, bstrdomaincontroller: std::mem::MaybeUninit<windows_core::BSTR>, ldcflags: i32, pigpmdomain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdomain: core::mem::MaybeUninit<windows_core::BSTR>, bstrdomaincontroller: core::mem::MaybeUninit<windows_core::BSTR>, ldcflags: i32, pigpmdomain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::GetDomain(this, core::mem::transmute(&bstrdomain), core::mem::transmute(&bstrdomaincontroller), core::mem::transmute_copy(&ldcflags)) {
@@ -108,7 +108,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, pigpmbackupdir: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: core::mem::MaybeUninit<windows_core::BSTR>, pigpmbackupdir: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::GetBackupDir(this, core::mem::transmute(&bstrbackupdir)) {
@@ -119,7 +119,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSitesContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrforest: std::mem::MaybeUninit<windows_core::BSTR>, bstrdomain: std::mem::MaybeUninit<windows_core::BSTR>, bstrdomaincontroller: std::mem::MaybeUninit<windows_core::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSitesContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrforest: core::mem::MaybeUninit<windows_core::BSTR>, bstrdomain: core::mem::MaybeUninit<windows_core::BSTR>, bstrdomaincontroller: core::mem::MaybeUninit<windows_core::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::GetSitesContainer(this, core::mem::transmute(&bstrforest), core::mem::transmute(&bstrdomain), core::mem::transmute(&bstrdomaincontroller), core::mem::transmute_copy(&ldcflags)) {
@@ -130,7 +130,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRSOP<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: std::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, ppigpmrsop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRSOP<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: core::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, ppigpmrsop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::GetRSOP(this, core::mem::transmute_copy(&gpmrsopmode), core::mem::transmute(&bstrnamespace), core::mem::transmute_copy(&lflags)) {
@@ -141,7 +141,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePermission<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: std::mem::MaybeUninit<windows_core::BSTR>, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL, ppperm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePermission<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: core::mem::MaybeUninit<windows_core::BSTR>, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL, ppperm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::CreatePermission(this, core::mem::transmute(&bstrtrustee), core::mem::transmute_copy(&perm), core::mem::transmute_copy(&binheritable)) {
@@ -163,7 +163,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTrustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmtrustee: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTrustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: core::mem::MaybeUninit<windows_core::BSTR>, ppigpmtrustee: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::CreateTrustee(this, core::mem::transmute(&bstrtrustee)) {
@@ -196,7 +196,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMigrationTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmigrationtablepath: std::mem::MaybeUninit<windows_core::BSTR>, ppmigrationtable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMigrationTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmigrationtablepath: core::mem::MaybeUninit<windows_core::BSTR>, ppmigrationtable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM_Impl::GetMigrationTable(this, core::mem::transmute(&bstrmigrationtablepath)) {
@@ -218,7 +218,7 @@ impl IGPM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitializeReporting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeReporting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPM_Impl::InitializeReporting(this, core::mem::transmute(&bstradmpath)).into()
@@ -253,7 +253,7 @@ impl windows_core::RuntimeName for IGPM2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPM2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>() -> IGPM2_Vtbl {
-        unsafe extern "system" fn GetBackupDirEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackupDirEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: core::mem::MaybeUninit<windows_core::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPM2_Impl::GetBackupDirEx(this, core::mem::transmute(&bstrbackupdir), core::mem::transmute_copy(&backupdirtype)) {
@@ -264,7 +264,7 @@ impl IGPM2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitializeReportingEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmpath: std::mem::MaybeUninit<windows_core::BSTR>, reportingoptions: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeReportingEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmpath: core::mem::MaybeUninit<windows_core::BSTR>, reportingoptions: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPM2_Impl::InitializeReportingEx(this, core::mem::transmute(&bstradmpath), core::mem::transmute_copy(&reportingoptions)).into()
@@ -308,7 +308,7 @@ impl windows_core::RuntimeName for IGPMAsyncProgress {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMAsyncProgress_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMAsyncProgress_Impl, const OFFSET: isize>() -> IGPMAsyncProgress_Vtbl {
-        unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMAsyncProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmstatusmsgcollection: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMAsyncProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmstatusmsgcollection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMAsyncProgress_Impl::Status(this, core::mem::transmute_copy(&lprogressnumerator), core::mem::transmute_copy(&lprogressdenominator), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&presult), windows_core::from_raw_borrowed(&ppigpmstatusmsgcollection)).into()
@@ -337,7 +337,7 @@ impl windows_core::RuntimeName for IGPMBackup {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMBackup_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>() -> IGPMBackup_Vtbl {
-        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::ID(this) {
@@ -348,7 +348,7 @@ impl IGPMBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::GPOID(this) {
@@ -359,7 +359,7 @@ impl IGPMBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::GPODomain(this) {
@@ -370,7 +370,7 @@ impl IGPMBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPODisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GPODisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::GPODisplayName(this) {
@@ -392,7 +392,7 @@ impl IGPMBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Comment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::Comment(this) {
@@ -403,7 +403,7 @@ impl IGPMBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::BackupDir(this) {
@@ -419,7 +419,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             IGPMBackup_Impl::Delete(this).into()
         }
-        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -430,7 +430,7 @@ impl IGPMBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: core::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackup_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
@@ -481,7 +481,7 @@ impl IGPMBackupCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackupCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -525,7 +525,7 @@ impl windows_core::RuntimeName for IGPMBackupDir {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMBackupDir_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>() -> IGPMBackupDir_Vtbl {
-        unsafe extern "system" fn BackupDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BackupDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackupDir_Impl::BackupDirectory(this) {
@@ -536,7 +536,7 @@ impl IGPMBackupDir_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrid: std::mem::MaybeUninit<windows_core::BSTR>, ppbackup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrid: core::mem::MaybeUninit<windows_core::BSTR>, ppbackup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackupDir_Impl::GetBackup(this, core::mem::transmute(&bstrid)) {
@@ -581,7 +581,7 @@ impl windows_core::RuntimeName for IGPMBackupDirEx {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMBackupDirEx_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>() -> IGPMBackupDirEx_Vtbl {
-        unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbackupdir: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbackupdir: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackupDirEx_Impl::BackupDir(this) {
@@ -603,7 +603,7 @@ impl IGPMBackupDirEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrid: std::mem::MaybeUninit<windows_core::BSTR>, pvarbackup: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrid: core::mem::MaybeUninit<windows_core::BSTR>, pvarbackup: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackupDirEx_Impl::GetBackup(this, core::mem::transmute(&bstrid)) {
@@ -614,7 +614,7 @@ impl IGPMBackupDirEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchBackups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, pvarbackupcollection: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchBackups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, pvarbackupcollection: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMBackupDirEx_Impl::SearchBackups(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
@@ -659,7 +659,7 @@ impl IGPMCSECollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMCSECollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -704,7 +704,7 @@ impl windows_core::RuntimeName for IGPMClientSideExtension {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMClientSideExtension_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>() -> IGPMClientSideExtension_Vtbl {
-        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMClientSideExtension_Impl::ID(this) {
@@ -715,7 +715,7 @@ impl IGPMClientSideExtension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMClientSideExtension_Impl::DisplayName(this) {
@@ -1785,7 +1785,7 @@ impl windows_core::RuntimeName for IGPMDomain {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMDomain_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>() -> IGPMDomain_Vtbl {
-        unsafe extern "system" fn DomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain_Impl::DomainController(this) {
@@ -1796,7 +1796,7 @@ impl IGPMDomain_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain_Impl::Domain(this) {
@@ -1818,7 +1818,7 @@ impl IGPMDomain_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, ppgpo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, ppgpo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain_Impl::GetGPO(this, core::mem::transmute(&bstrguid)) {
@@ -1840,7 +1840,7 @@ impl IGPMDomain_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestoreGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmbackup: *mut core::ffi::c_void, ldcflags: i32, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RestoreGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmbackup: *mut core::ffi::c_void, ldcflags: i32, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain_Impl::RestoreGPO(this, windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&ldcflags), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -1851,7 +1851,7 @@ impl IGPMDomain_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpath: std::mem::MaybeUninit<windows_core::BSTR>, ppsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpath: core::mem::MaybeUninit<windows_core::BSTR>, ppsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain_Impl::GetSOM(this, core::mem::transmute(&bstrpath)) {
@@ -1873,7 +1873,7 @@ impl IGPMDomain_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWMIFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpath: std::mem::MaybeUninit<windows_core::BSTR>, ppwmifilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWMIFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpath: core::mem::MaybeUninit<windows_core::BSTR>, ppwmifilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain_Impl::GetWMIFilter(this, core::mem::transmute(&bstrpath)) {
@@ -1949,7 +1949,7 @@ impl IGPMDomain2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, pptemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, pptemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain2_Impl::GetStarterGPO(this, core::mem::transmute(&bstrguid)) {
@@ -1971,7 +1971,7 @@ impl IGPMDomain2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrloadfile: std::mem::MaybeUninit<windows_core::BSTR>, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrloadfile: core::mem::MaybeUninit<windows_core::BSTR>, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain2_Impl::LoadStarterGPO(this, core::mem::transmute(&bstrloadfile), core::mem::transmute_copy(&boverwrite), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -1982,7 +1982,7 @@ impl IGPMDomain2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestoreStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmtmplbackup: *mut core::ffi::c_void, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RestoreStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmtmplbackup: *mut core::ffi::c_void, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain2_Impl::RestoreStarterGPO(this, windows_core::from_raw_borrowed(&pigpmtmplbackup), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -2019,7 +2019,7 @@ impl windows_core::RuntimeName for IGPMDomain3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMDomain3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>() -> IGPMDomain3_Vtbl {
-        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain3_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -2030,7 +2030,7 @@ impl IGPMDomain3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMDomain3_Impl::InfrastructureDC(this) {
@@ -2041,7 +2041,7 @@ impl IGPMDomain3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMDomain3_Impl::SetInfrastructureDC(this, core::mem::transmute(&newval)).into()
@@ -2100,7 +2100,7 @@ impl windows_core::RuntimeName for IGPMGPO {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPO_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>() -> IGPMGPO_Vtbl {
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::DisplayName(this) {
@@ -2111,12 +2111,12 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMGPO_Impl::SetDisplayName(this, core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::Path(this) {
@@ -2127,7 +2127,7 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::ID(this) {
@@ -2138,7 +2138,7 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DomainName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DomainName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::DomainName(this) {
@@ -2284,7 +2284,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             IGPMGPO_Impl::Delete(this).into()
         }
-        unsafe extern "system" fn Backup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, bstrcomment: std::mem::MaybeUninit<windows_core::BSTR>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Backup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: core::mem::MaybeUninit<windows_core::BSTR>, bstrcomment: core::mem::MaybeUninit<windows_core::BSTR>, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::Backup(this, core::mem::transmute(&bstrbackupdir), core::mem::transmute(&bstrcomment), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -2295,7 +2295,7 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Import<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmbackup: *mut core::ffi::c_void, pvarmigrationtable: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Import<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmbackup: *mut core::ffi::c_void, pvarmigrationtable: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::Import(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -2306,7 +2306,7 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -2317,7 +2317,7 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: core::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
@@ -2328,7 +2328,7 @@ impl IGPMGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmdomain: *mut core::ffi::c_void, pvarnewdisplayname: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarmigrationtable: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmdomain: *mut core::ffi::c_void, pvarnewdisplayname: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarmigrationtable: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO_Impl::CopyTo(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmdomain), core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -2418,7 +2418,7 @@ impl windows_core::RuntimeName for IGPMGPO2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPO2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>() -> IGPMGPO2_Vtbl {
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO2_Impl::Description(this) {
@@ -2429,7 +2429,7 @@ impl IGPMGPO2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMGPO2_Impl::SetDescription(this, core::mem::transmute(&newval)).into()
@@ -2455,7 +2455,7 @@ impl windows_core::RuntimeName for IGPMGPO3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPO3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>() -> IGPMGPO3_Vtbl {
-        unsafe extern "system" fn InfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPO3_Impl::InfrastructureDC(this) {
@@ -2466,7 +2466,7 @@ impl IGPMGPO3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMGPO3_Impl::SetInfrastructureDC(this, core::mem::transmute(&newval)).into()
@@ -2509,7 +2509,7 @@ impl IGPMGPOCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPOCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -2559,7 +2559,7 @@ impl windows_core::RuntimeName for IGPMGPOLink {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPOLink_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>() -> IGPMGPOLink_Vtbl {
-        unsafe extern "system" fn GPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPOLink_Impl::GPOID(this) {
@@ -2570,7 +2570,7 @@ impl IGPMGPOLink_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPOLink_Impl::GPODomain(this) {
@@ -2679,7 +2679,7 @@ impl IGPMGPOLinksCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMGPOLinksCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -2724,7 +2724,7 @@ impl windows_core::RuntimeName for IGPMMapEntry {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMMapEntry_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>() -> IGPMMapEntry_Vtbl {
-        unsafe extern "system" fn Source<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsource: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Source<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsource: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMMapEntry_Impl::Source(this) {
@@ -2735,7 +2735,7 @@ impl IGPMMapEntry_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Destination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdestination: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Destination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdestination: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMMapEntry_Impl::Destination(this) {
@@ -2802,7 +2802,7 @@ impl IGPMMapEntryCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMMapEntryCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -2851,17 +2851,17 @@ impl windows_core::RuntimeName for IGPMMigrationTable {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMMigrationTable_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>() -> IGPMMigrationTable_Vtbl {
-        unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmigrationtablepath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmigrationtablepath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMMigrationTable_Impl::Save(this, core::mem::transmute(&bstrmigrationtablepath)).into()
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, var: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, var: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMMigrationTable_Impl::Add(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&var)).into()
         }
-        unsafe extern "system" fn AddEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: core::mem::MaybeUninit<windows_core::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMMigrationTable_Impl::AddEntry(this, core::mem::transmute(&bstrsource), core::mem::transmute_copy(&gpmentrytype), core::mem::transmute_copy(&pvardestination)) {
@@ -2872,7 +2872,7 @@ impl IGPMMigrationTable_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: core::mem::MaybeUninit<windows_core::BSTR>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMMigrationTable_Impl::GetEntry(this, core::mem::transmute(&bstrsource)) {
@@ -2883,12 +2883,12 @@ impl IGPMMigrationTable_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMMigrationTable_Impl::DeleteEntry(this, core::mem::transmute(&bstrsource)).into()
         }
-        unsafe extern "system" fn UpdateDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>, pvardestination: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: core::mem::MaybeUninit<windows_core::BSTR>, pvardestination: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMMigrationTable_Impl::UpdateDestination(this, core::mem::transmute(&bstrsource), core::mem::transmute_copy(&pvardestination)) {
@@ -3072,7 +3072,7 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Namespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Namespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::Namespace(this) {
@@ -3083,12 +3083,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoggingComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLoggingComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetLoggingComputer(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn LoggingComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoggingComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::LoggingComputer(this) {
@@ -3099,12 +3099,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoggingUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLoggingUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetLoggingUser(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn LoggingUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoggingUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::LoggingUser(this) {
@@ -3147,12 +3147,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningDomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningDomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningDomainController(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningDomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningDomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningDomainController(this) {
@@ -3163,12 +3163,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningSiteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningSiteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningSiteName(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningSiteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningSiteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningSiteName(this) {
@@ -3179,12 +3179,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningUser(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningUser(this) {
@@ -3195,12 +3195,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUserSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningUserSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningUserSOM(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningUserSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningUserSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningUserSOM(this) {
@@ -3211,12 +3211,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUserWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningUserWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningUserWMIFilters(this, core::mem::transmute(&varval)).into()
         }
-        unsafe extern "system" fn PlanningUserWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningUserWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningUserWMIFilters(this) {
@@ -3227,12 +3227,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUserSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningUserSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningUserSecurityGroups(this, core::mem::transmute(&varval)).into()
         }
-        unsafe extern "system" fn PlanningUserSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningUserSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningUserSecurityGroups(this) {
@@ -3243,12 +3243,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningComputer(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningComputer(this) {
@@ -3259,12 +3259,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputerSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputerSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningComputerSOM(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningComputerSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningComputerSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningComputerSOM(this) {
@@ -3275,12 +3275,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputerWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputerWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningComputerWMIFilters(this, core::mem::transmute(&varval)).into()
         }
-        unsafe extern "system" fn PlanningComputerWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningComputerWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningComputerWMIFilters(this) {
@@ -3291,12 +3291,12 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputerSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputerSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMRSOP_Impl::SetPlanningComputerSecurityGroups(this, core::mem::transmute(&varval)).into()
         }
-        unsafe extern "system" fn PlanningComputerSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlanningComputerSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::PlanningComputerSecurityGroups(this) {
@@ -3307,7 +3307,7 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoggingEnumerateUsers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoggingEnumerateUsers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::LoggingEnumerateUsers(this) {
@@ -3328,7 +3328,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             IGPMRSOP_Impl::ReleaseQueryResults(this).into()
         }
-        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -3339,7 +3339,7 @@ impl IGPMRSOP_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: core::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMRSOP_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
@@ -3415,7 +3415,7 @@ impl IGPMResult_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Result<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMResult_Impl::Result(this) {
@@ -3476,7 +3476,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             IGPMSOM_Impl::SetGPOInheritanceBlocked(this, core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSOM_Impl::Name(this) {
@@ -3487,7 +3487,7 @@ impl IGPMSOM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSOM_Impl::Path(this) {
@@ -3598,7 +3598,7 @@ impl IGPMSOMCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSOMCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -3640,7 +3640,7 @@ impl windows_core::RuntimeName for IGPMSearchCriteria {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSearchCriteria_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>() -> IGPMSearchCriteria_Vtbl {
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMSearchCriteria_Impl::Add(this, core::mem::transmute_copy(&searchproperty), core::mem::transmute_copy(&searchoperation), core::mem::transmute(&varvalue)).into()
@@ -3676,7 +3676,7 @@ impl IGPMSecurityInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSecurityInfo_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -3708,7 +3708,7 @@ impl IGPMSecurityInfo_Vtbl {
             let this = (*this).get_impl();
             IGPMSecurityInfo_Impl::Remove(this, windows_core::from_raw_borrowed(&pperm)).into()
         }
-        unsafe extern "system" fn RemoveTrustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveTrustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMSecurityInfo_Impl::RemoveTrustee(this, core::mem::transmute(&bstrtrustee)).into()
@@ -3740,7 +3740,7 @@ impl windows_core::RuntimeName for IGPMSitesContainer {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSitesContainer_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>() -> IGPMSitesContainer_Vtbl {
-        unsafe extern "system" fn DomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSitesContainer_Impl::DomainController(this) {
@@ -3751,7 +3751,7 @@ impl IGPMSitesContainer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSitesContainer_Impl::Domain(this) {
@@ -3762,7 +3762,7 @@ impl IGPMSitesContainer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Forest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Forest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSitesContainer_Impl::Forest(this) {
@@ -3773,7 +3773,7 @@ impl IGPMSitesContainer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSite<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsitename: std::mem::MaybeUninit<windows_core::BSTR>, ppsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSite<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsitename: core::mem::MaybeUninit<windows_core::BSTR>, ppsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMSitesContainer_Impl::GetSite(this, core::mem::transmute(&bstrsitename)) {
@@ -3837,7 +3837,7 @@ impl windows_core::RuntimeName for IGPMStarterGPO {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStarterGPO_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>() -> IGPMStarterGPO_Vtbl {
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::DisplayName(this) {
@@ -3848,12 +3848,12 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMStarterGPO_Impl::SetDisplayName(this, core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::Description(this) {
@@ -3864,12 +3864,12 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMStarterGPO_Impl::SetDescription(this, core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn Author<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Author<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::Author(this) {
@@ -3880,7 +3880,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Product<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Product<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::Product(this) {
@@ -3902,7 +3902,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::ID(this) {
@@ -3957,7 +3957,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StarterGPOVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StarterGPOVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::StarterGPOVersion(this) {
@@ -3975,16 +3975,16 @@ impl IGPMStarterGPO_Vtbl {
         }
         unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            bstrsavefile: std::mem::MaybeUninit<windows_core::BSTR>,
+            bstrsavefile: core::mem::MaybeUninit<windows_core::BSTR>,
             boverwrite: super::super::Foundation::VARIANT_BOOL,
             bsaveassystem: super::super::Foundation::VARIANT_BOOL,
-            bstrlanguage: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            bstrauthor: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            bstrproduct: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            bstruniqueid: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            bstrversion: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>,
-            pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>,
+            bstrlanguage: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            bstrauthor: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            bstrproduct: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            bstruniqueid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            bstrversion: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>,
             ppigpmresult: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3997,7 +3997,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Backup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, bstrcomment: std::mem::MaybeUninit<windows_core::BSTR>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Backup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: core::mem::MaybeUninit<windows_core::BSTR>, bstrcomment: core::mem::MaybeUninit<windows_core::BSTR>, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::Backup(this, core::mem::transmute(&bstrbackupdir), core::mem::transmute(&bstrcomment), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -4008,7 +4008,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarnewdisplayname: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarnewdisplayname: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::CopyTo(this, core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -4019,7 +4019,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -4030,7 +4030,7 @@ impl IGPMStarterGPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: core::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPO_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
@@ -4105,7 +4105,7 @@ impl windows_core::RuntimeName for IGPMStarterGPOBackup {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStarterGPOBackup_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>() -> IGPMStarterGPOBackup_Vtbl {
-        unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbackupdir: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbackupdir: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::BackupDir(this) {
@@ -4116,7 +4116,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcomment: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Comment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcomment: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::Comment(this) {
@@ -4127,7 +4127,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdisplayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdisplayname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::DisplayName(this) {
@@ -4138,7 +4138,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplatedomain: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplatedomain: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::Domain(this) {
@@ -4149,7 +4149,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StarterGPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplateid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StarterGPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplateid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::StarterGPOID(this) {
@@ -4160,7 +4160,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::ID(this) {
@@ -4198,7 +4198,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             IGPMStarterGPOBackup_Impl::Delete(this).into()
         }
-        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut core::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
@@ -4209,7 +4209,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: core::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackup_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
@@ -4261,7 +4261,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOBackupCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -4316,7 +4316,7 @@ impl IGPMStarterGPOCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStarterGPOCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -4363,7 +4363,7 @@ impl windows_core::RuntimeName for IGPMStatusMessage {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStatusMessage_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>() -> IGPMStatusMessage_Vtbl {
-        unsafe extern "system" fn ObjectPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ObjectPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStatusMessage_Impl::ObjectPath(this) {
@@ -4379,7 +4379,7 @@ impl IGPMStatusMessage_Vtbl {
             let this = (*this).get_impl();
             IGPMStatusMessage_Impl::ErrorCode(this).into()
         }
-        unsafe extern "system" fn ExtensionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtensionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStatusMessage_Impl::ExtensionName(this) {
@@ -4390,7 +4390,7 @@ impl IGPMStatusMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SettingsName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SettingsName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStatusMessage_Impl::SettingsName(this) {
@@ -4406,7 +4406,7 @@ impl IGPMStatusMessage_Vtbl {
             let this = (*this).get_impl();
             IGPMStatusMessage_Impl::OperationCode(this).into()
         }
-        unsafe extern "system" fn Message<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Message<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStatusMessage_Impl::Message(this) {
@@ -4453,7 +4453,7 @@ impl IGPMStatusMsgCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMStatusMsgCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
@@ -4499,7 +4499,7 @@ impl windows_core::RuntimeName for IGPMTrustee {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMTrustee_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>() -> IGPMTrustee_Vtbl {
-        unsafe extern "system" fn TrusteeSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TrusteeSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMTrustee_Impl::TrusteeSid(this) {
@@ -4510,7 +4510,7 @@ impl IGPMTrustee_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TrusteeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMTrustee_Impl::TrusteeName(this) {
@@ -4521,7 +4521,7 @@ impl IGPMTrustee_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TrusteeDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMTrustee_Impl::TrusteeDomain(this) {
@@ -4532,7 +4532,7 @@ impl IGPMTrustee_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeDSPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TrusteeDSPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMTrustee_Impl::TrusteeDSPath(this) {
@@ -4583,7 +4583,7 @@ impl windows_core::RuntimeName for IGPMWMIFilter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMWMIFilter_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>() -> IGPMWMIFilter_Vtbl {
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMWMIFilter_Impl::Path(this) {
@@ -4594,12 +4594,12 @@ impl IGPMWMIFilter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMWMIFilter_Impl::SetName(this, core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMWMIFilter_Impl::Name(this) {
@@ -4610,12 +4610,12 @@ impl IGPMWMIFilter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IGPMWMIFilter_Impl::SetDescription(this, core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMWMIFilter_Impl::Description(this) {
@@ -4626,7 +4626,7 @@ impl IGPMWMIFilter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetQueryList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqrylist: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetQueryList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqrylist: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMWMIFilter_Impl::GetQueryList(this) {
@@ -4691,7 +4691,7 @@ impl IGPMWMIFilterCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IGPMWMIFilterCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {

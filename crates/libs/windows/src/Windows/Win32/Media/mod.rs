@@ -63,27 +63,27 @@ windows_core::imp::define_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56
 impl std::ops::Deref for IReferenceClock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IReferenceClock, windows_core::IUnknown);
 impl IReferenceClock {
     pub unsafe fn GetTime(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> windows_core::Result<usize>
     where
         P0: windows_core::Param<super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> windows_core::Result<usize>
     where
         P0: windows_core::Param<super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
@@ -102,7 +102,7 @@ windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x
 impl std::ops::Deref for IReferenceClock2 {
     type Target = IReferenceClock;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IReferenceClock2, windows_core::IUnknown, IReferenceClock);
@@ -115,7 +115,7 @@ windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceCloc
 impl std::ops::Deref for IReferenceClockTimerControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, windows_core::IUnknown);
@@ -124,7 +124,7 @@ impl IReferenceClockTimerControl {
         (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution).ok()
     }
     pub unsafe fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultTimerResolution)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }

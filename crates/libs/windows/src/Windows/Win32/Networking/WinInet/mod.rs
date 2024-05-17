@@ -2138,7 +2138,7 @@ windows_core::imp::define_interface!(IDialBranding, IDialBranding_Vtbl, 0x8aecaf
 impl std::ops::Deref for IDialBranding {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialBranding, windows_core::IUnknown);
@@ -2151,7 +2151,7 @@ impl IDialBranding {
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
     }
 }
@@ -2168,7 +2168,7 @@ windows_core::imp::define_interface!(IDialEngine, IDialEngine_Vtbl, 0x39fd782b_7
 impl std::ops::Deref for IDialEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialEngine, windows_core::IUnknown);
@@ -2201,11 +2201,11 @@ impl IDialEngine {
         (windows_core::Interface::vtable(self).HangUp)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetConnectedState(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConnectedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetConnectHandle(&self) -> windows_core::Result<usize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConnectHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2224,7 +2224,7 @@ windows_core::imp::define_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86
 impl std::ops::Deref for IDialEventSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialEventSink, windows_core::IUnknown);
@@ -2242,7 +2242,7 @@ windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager, IProof
 impl std::ops::Deref for IProofOfPossessionCookieInfoManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, windows_core::IUnknown);
@@ -2263,7 +2263,7 @@ windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager2, IProo
 impl std::ops::Deref for IProofOfPossessionCookieInfoManager2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, windows_core::IUnknown);

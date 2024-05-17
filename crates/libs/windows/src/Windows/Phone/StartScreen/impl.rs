@@ -9,7 +9,7 @@ impl windows_core::RuntimeName for IToastNotificationManagerStatics3 {
 #[cfg(feature = "UI_Notifications")]
 impl IToastNotificationManagerStatics3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl {
-        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IToastNotificationManagerStatics3_Impl::CreateToastNotifierForSecondaryTile(this, core::mem::transmute(&tileid)) {

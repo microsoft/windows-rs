@@ -27,7 +27,7 @@ impl windows_core::RuntimeName for ISideShowCapabilities {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISideShowCapabilities_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>() -> ISideShowCapabilities_Vtbl {
-        unsafe extern "system" fn GetCapability<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCapability<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISideShowCapabilities_Impl::GetCapability(this, core::mem::transmute_copy(&in_keycapability), core::mem::transmute_copy(&inout_pvalue)).into()
@@ -435,7 +435,7 @@ pub trait ISideShowPropVariantCollection_Impl: Sized {
 impl windows_core::RuntimeName for ISideShowPropVariantCollection {}
 impl ISideShowPropVariantCollection_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>() -> ISideShowPropVariantCollection_Vtbl {
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISideShowPropVariantCollection_Impl::Add(this, core::mem::transmute_copy(&pvalue)).into()
@@ -445,7 +445,7 @@ impl ISideShowPropVariantCollection_Vtbl {
             let this = (*this).get_impl();
             ISideShowPropVariantCollection_Impl::Clear(this).into()
         }
-        unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISideShowPropVariantCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pvalue)).into()

@@ -48,7 +48,7 @@ windows_core::imp::define_interface!(IDDVideoPortContainer, IDDVideoPortContaine
 impl std::ops::Deref for IDDVideoPortContainer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDDVideoPortContainer, windows_core::IUnknown);
@@ -81,7 +81,7 @@ windows_core::imp::define_interface!(IDirectDraw, IDirectDraw_Vtbl, 0x6c14db80_a
 impl std::ops::Deref for IDirectDraw {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDraw, windows_core::IUnknown);
@@ -112,7 +112,7 @@ impl IDirectDraw {
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()> {
@@ -134,7 +134,7 @@ impl IDirectDraw {
         (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
@@ -199,7 +199,7 @@ windows_core::imp::define_interface!(IDirectDraw2, IDirectDraw2_Vtbl, 0xb3a6f3e0
 impl std::ops::Deref for IDirectDraw2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDraw2, windows_core::IUnknown);
@@ -230,7 +230,7 @@ impl IDirectDraw2 {
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()> {
@@ -252,7 +252,7 @@ impl IDirectDraw2 {
         (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
@@ -321,7 +321,7 @@ windows_core::imp::define_interface!(IDirectDraw4, IDirectDraw4_Vtbl, 0x9c59509a
 impl std::ops::Deref for IDirectDraw4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDraw4, windows_core::IUnknown);
@@ -352,7 +352,7 @@ impl IDirectDraw4 {
     where
         P0: windows_core::Param<IDirectDrawSurface4>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()> {
@@ -374,7 +374,7 @@ impl IDirectDraw4 {
         (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface4> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
@@ -415,7 +415,7 @@ impl IDirectDraw4 {
     where
         P0: windows_core::Param<super::Gdi::HDC>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::Result<()> {
@@ -467,7 +467,7 @@ windows_core::imp::define_interface!(IDirectDraw7, IDirectDraw7_Vtbl, 0x15e65ec0
 impl std::ops::Deref for IDirectDraw7 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDraw7, windows_core::IUnknown);
@@ -498,7 +498,7 @@ impl IDirectDraw7 {
     where
         P0: windows_core::Param<IDirectDrawSurface7>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()> {
@@ -520,7 +520,7 @@ impl IDirectDraw7 {
         (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface7> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
@@ -561,7 +561,7 @@ impl IDirectDraw7 {
     where
         P0: windows_core::Param<super::Gdi::HDC>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::Result<()> {
@@ -621,7 +621,7 @@ windows_core::imp::define_interface!(IDirectDrawClipper, IDirectDrawClipper_Vtbl
 impl std::ops::Deref for IDirectDrawClipper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawClipper, windows_core::IUnknown);
@@ -673,7 +673,7 @@ windows_core::imp::define_interface!(IDirectDrawColorControl, IDirectDrawColorCo
 impl std::ops::Deref for IDirectDrawColorControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, windows_core::IUnknown);
@@ -695,7 +695,7 @@ windows_core::imp::define_interface!(IDirectDrawGammaControl, IDirectDrawGammaCo
 impl std::ops::Deref for IDirectDrawGammaControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawGammaControl, windows_core::IUnknown);
@@ -717,7 +717,7 @@ windows_core::imp::define_interface!(IDirectDrawKernel, IDirectDrawKernel_Vtbl, 
 impl std::ops::Deref for IDirectDrawKernel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawKernel, windows_core::IUnknown);
@@ -743,7 +743,7 @@ windows_core::imp::define_interface!(IDirectDrawPalette, IDirectDrawPalette_Vtbl
 impl std::ops::Deref for IDirectDrawPalette {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawPalette, windows_core::IUnknown);
@@ -788,7 +788,7 @@ windows_core::imp::define_interface!(IDirectDrawSurface, IDirectDrawSurface_Vtbl
 impl std::ops::Deref for IDirectDrawSurface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface, windows_core::IUnknown);
@@ -845,7 +845,7 @@ impl IDirectDrawSurface {
         (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
@@ -862,7 +862,7 @@ impl IDirectDrawSurface {
         (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
@@ -980,7 +980,7 @@ windows_core::imp::define_interface!(IDirectDrawSurface2, IDirectDrawSurface2_Vt
 impl std::ops::Deref for IDirectDrawSurface2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, windows_core::IUnknown);
@@ -1037,7 +1037,7 @@ impl IDirectDrawSurface2 {
         (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
@@ -1054,7 +1054,7 @@ impl IDirectDrawSurface2 {
         (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
@@ -1184,7 +1184,7 @@ windows_core::imp::define_interface!(IDirectDrawSurface3, IDirectDrawSurface3_Vt
 impl std::ops::Deref for IDirectDrawSurface3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, windows_core::IUnknown);
@@ -1241,7 +1241,7 @@ impl IDirectDrawSurface3 {
         (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
@@ -1258,7 +1258,7 @@ impl IDirectDrawSurface3 {
         (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
@@ -1392,7 +1392,7 @@ windows_core::imp::define_interface!(IDirectDrawSurface4, IDirectDrawSurface4_Vt
 impl std::ops::Deref for IDirectDrawSurface4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, windows_core::IUnknown);
@@ -1449,7 +1449,7 @@ impl IDirectDrawSurface4 {
         (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
@@ -1466,7 +1466,7 @@ impl IDirectDrawSurface4 {
         (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
@@ -1620,7 +1620,7 @@ windows_core::imp::define_interface!(IDirectDrawSurface7, IDirectDrawSurface7_Vt
 impl std::ops::Deref for IDirectDrawSurface7 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, windows_core::IUnknown);
@@ -1677,7 +1677,7 @@ impl IDirectDrawSurface7 {
         (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
@@ -1694,7 +1694,7 @@ impl IDirectDrawSurface7 {
         (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
@@ -1864,7 +1864,7 @@ windows_core::imp::define_interface!(IDirectDrawSurfaceKernel, IDirectDrawSurfac
 impl std::ops::Deref for IDirectDrawSurfaceKernel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, windows_core::IUnknown);
@@ -1886,7 +1886,7 @@ windows_core::imp::define_interface!(IDirectDrawVideoPort, IDirectDrawVideoPort_
 impl std::ops::Deref for IDirectDrawVideoPort {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawVideoPort, windows_core::IUnknown);
@@ -1962,7 +1962,7 @@ windows_core::imp::define_interface!(IDirectDrawVideoPortNotify, IDirectDrawVide
 impl std::ops::Deref for IDirectDrawVideoPortNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, windows_core::IUnknown);
@@ -3015,7 +3015,7 @@ impl Default for DDARGB {
 #[derive(Debug, Eq, PartialEq)]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
-    pub lpDDSSrc: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
     pub lprSrc: *mut super::super::Foundation::RECT,
     pub dwFlags: u32,
     pub lpDDBltFx: *mut DDBLTFX,
@@ -3075,7 +3075,7 @@ impl Default for DDBLTFX {
 #[repr(C)]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
-    pub lpDDSZBufferDest: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSZBufferDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDBLTFX_0 {
     fn clone(&self) -> Self {
@@ -3093,7 +3093,7 @@ impl Default for DDBLTFX_0 {
 #[repr(C)]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
-    pub lpDDSZBufferSrc: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSZBufferSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDBLTFX_1 {
     fn clone(&self) -> Self {
@@ -3111,7 +3111,7 @@ impl Default for DDBLTFX_1 {
 #[repr(C)]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDBLTFX_2 {
     fn clone(&self) -> Self {
@@ -3129,7 +3129,7 @@ impl Default for DDBLTFX_2 {
 #[repr(C)]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDBLTFX_3 {
     fn clone(&self) -> Self {
@@ -3149,7 +3149,7 @@ pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
     pub dwFillPixel: u32,
-    pub lpDDSPattern: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSPattern: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDBLTFX_4 {
     fn clone(&self) -> Self {
@@ -5780,7 +5780,7 @@ impl Default for DDOVERLAYFX {
 #[repr(C)]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDOVERLAYFX_0 {
     fn clone(&self) -> Self {
@@ -5798,7 +5798,7 @@ impl Default for DDOVERLAYFX_0 {
 #[repr(C)]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: std::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
 }
 impl Clone for DDOVERLAYFX_1 {
     fn clone(&self) -> Self {
@@ -6032,10 +6032,10 @@ pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub lpDD_int: *mut DDRAWI_DIRECTDRAW_INT,
     pub dwReserved1: usize,
-    pub pAddrefedThisOwner: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pAddrefedThisOwner: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Clone for DDRAWI_DDRAWCLIPPER_LCL {
@@ -6122,7 +6122,7 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub dwUnused0: usize,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwReserved1: usize,
     pub dwDDRAWReserved1: usize,
@@ -6598,7 +6598,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub dwLocalFlags: u32,
     pub dwLocalRefCnt: u32,
     pub dwProcessId: u32,
-    pub pUnkOuter: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwObsolete1: u32,
     pub hWnd: usize,
     pub hDC: usize,
@@ -6607,7 +6607,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
     pub hD3DInstance: super::super::Foundation::HINSTANCE,
-    pub pD3DIUnknown: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pD3DIUnknown: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,
     pub dwAppHackFlags: u32,
@@ -9064,7 +9064,7 @@ impl Default for HEAPALIGNMENT {
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut windows_core::GUID,
-    pub lpIUnknown: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub lpIUnknown: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 impl Clone for IUNKNOWN_LIST {
     fn clone(&self) -> Self {

@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(INotificationActivationCallback, INotificat
 impl std::ops::Deref for INotificationActivationCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(INotificationActivationCallback, windows_core::IUnknown);

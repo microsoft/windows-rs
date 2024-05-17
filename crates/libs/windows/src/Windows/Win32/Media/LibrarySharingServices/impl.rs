@@ -10,7 +10,7 @@ impl windows_core::RuntimeName for IWindowsMediaLibrarySharingDevice {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevice_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDevice_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDevice_Vtbl {
-        unsafe extern "system" fn DeviceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevice_Impl::DeviceID(this) {
@@ -93,7 +93,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperties_Impl::GetProperty(this, core::mem::transmute(&name)) {
@@ -125,7 +125,7 @@ impl windows_core::RuntimeName for IWindowsMediaLibrarySharingDeviceProperty {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperty_Impl::Name(this) {
@@ -136,7 +136,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperty_Impl::Value(this) {
@@ -190,7 +190,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: std::mem::MaybeUninit<windows_core::BSTR>, device: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: core::mem::MaybeUninit<windows_core::BSTR>, device: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevices_Impl::GetDevice(this, core::mem::transmute(&deviceid)) {
@@ -239,7 +239,7 @@ impl windows_core::RuntimeName for IWindowsMediaLibrarySharingServices {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingServices_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingServices_Vtbl {
-        unsafe extern "system" fn showShareMediaCPL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn showShareMediaCPL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::showShareMediaCPL(this, core::mem::transmute(&device)).into()
@@ -260,7 +260,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::SetuserHomeMediaSharingState(this, core::mem::transmute_copy(&sharingenabled)).into()
         }
-        unsafe extern "system" fn userHomeMediaSharingLibraryName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libraryname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn userHomeMediaSharingLibraryName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libraryname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::userHomeMediaSharingLibraryName(this) {
@@ -271,7 +271,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetuserHomeMediaSharingLibraryName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libraryname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetuserHomeMediaSharingLibraryName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libraryname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::SetuserHomeMediaSharingLibraryName(this, core::mem::transmute(&libraryname)).into()
@@ -324,7 +324,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::SetcomputerInternetMediaSharingAllowedState(this, core::mem::transmute_copy(&sharingallowed)).into()
         }
-        unsafe extern "system" fn internetMediaSharingSecurityGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securitygroup: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn internetMediaSharingSecurityGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securitygroup: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::internetMediaSharingSecurityGroup(this) {
@@ -335,7 +335,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetinternetMediaSharingSecurityGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securitygroup: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetinternetMediaSharingSecurityGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securitygroup: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::SetinternetMediaSharingSecurityGroup(this, core::mem::transmute(&securitygroup)).into()
@@ -356,12 +356,12 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::SetallowSharingToAllDevices(this, core::mem::transmute_copy(&sharingenabled)).into()
         }
-        unsafe extern "system" fn setDefaultAuthorization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, macaddresses: std::mem::MaybeUninit<windows_core::BSTR>, friendlyname: std::mem::MaybeUninit<windows_core::BSTR>, authorization: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn setDefaultAuthorization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, macaddresses: core::mem::MaybeUninit<windows_core::BSTR>, friendlyname: core::mem::MaybeUninit<windows_core::BSTR>, authorization: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::setDefaultAuthorization(this, core::mem::transmute(&macaddresses), core::mem::transmute(&friendlyname), core::mem::transmute_copy(&authorization)).into()
         }
-        unsafe extern "system" fn setAuthorizationState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, macaddress: std::mem::MaybeUninit<windows_core::BSTR>, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAuthorizationState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, macaddress: core::mem::MaybeUninit<windows_core::BSTR>, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsMediaLibrarySharingServices_Impl::setAuthorizationState(this, core::mem::transmute(&macaddress), core::mem::transmute_copy(&authorizationstate)).into()

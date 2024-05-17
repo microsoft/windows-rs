@@ -10,7 +10,7 @@ impl windows_core::RuntimeName for IFaxAccount {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccount_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccount_Impl, const OFFSET: isize>() -> IFaxAccount_Vtbl {
-        unsafe extern "system" fn AccountName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraccountname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AccountName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraccountname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccount_Impl::AccountName(this) {
@@ -179,7 +179,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccountIncomingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
@@ -224,7 +224,7 @@ impl IFaxAccountIncomingQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccountIncomingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
@@ -264,52 +264,52 @@ impl windows_core::RuntimeName for IFaxAccountNotify {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountNotify_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>() -> IFaxAccountNotify_Vtbl {
-        unsafe extern "system" fn OnIncomingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnIncomingJobAdded(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnIncomingJobRemoved(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnIncomingJobChanged(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrjobid), windows_core::from_raw_borrowed(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnOutgoingJobAdded(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnOutgoingJobRemoved(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnOutgoingJobChanged(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrjobid), windows_core::from_raw_borrowed(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnIncomingMessageAdded(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&faddedtoreceivefolder)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnIncomingMessageRemoved(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnOutgoingMessageAdded(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountNotify_Impl::OnOutgoingMessageRemoved(this, windows_core::from_raw_borrowed(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
@@ -389,7 +389,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccountOutgoingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
@@ -434,7 +434,7 @@ impl IFaxAccountOutgoingQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccountOutgoingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
@@ -478,7 +478,7 @@ impl IFaxAccountSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraccountname: std::mem::MaybeUninit<windows_core::BSTR>, pfaxaccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraccountname: core::mem::MaybeUninit<windows_core::BSTR>, pfaxaccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccountSet_Impl::GetAccount(this, core::mem::transmute(&bstraccountname)) {
@@ -489,7 +489,7 @@ impl IFaxAccountSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraccountname: std::mem::MaybeUninit<windows_core::BSTR>, pfaxaccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraccountname: core::mem::MaybeUninit<windows_core::BSTR>, pfaxaccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccountSet_Impl::AddAccount(this, core::mem::transmute(&bstraccountname)) {
@@ -500,7 +500,7 @@ impl IFaxAccountSet_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraccountname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraccountname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxAccountSet_Impl::RemoveAccount(this, core::mem::transmute(&bstraccountname)).into()
@@ -539,7 +539,7 @@ impl IFaxAccounts_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccounts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxaccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccounts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxaccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxAccounts_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -695,7 +695,7 @@ impl IFaxActivityLogging_Vtbl {
             let this = (*this).get_impl();
             IFaxActivityLogging_Impl::SetLogOutgoing(this, core::mem::transmute_copy(&blogoutgoing)).into()
         }
-        unsafe extern "system" fn DatabasePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdatabasepath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DatabasePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdatabasepath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxActivityLogging_Impl::DatabasePath(this) {
@@ -706,7 +706,7 @@ impl IFaxActivityLogging_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDatabasePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdatabasepath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDatabasePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdatabasepath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxActivityLogging_Impl::SetDatabasePath(this, core::mem::transmute(&bstrdatabasepath)).into()
@@ -803,7 +803,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             IFaxConfiguration_Impl::SetUseArchive(this, core::mem::transmute_copy(&busearchive)).into()
         }
-        unsafe extern "system" fn ArchiveLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrarchivelocation: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArchiveLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrarchivelocation: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::ArchiveLocation(this) {
@@ -814,7 +814,7 @@ impl IFaxConfiguration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArchiveLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrarchivelocation: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetArchiveLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrarchivelocation: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxConfiguration_Impl::SetArchiveLocation(this, core::mem::transmute(&bstrarchivelocation)).into()
@@ -1218,7 +1218,7 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::DeviceName(this) {
@@ -1229,7 +1229,7 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderUniqueName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprovideruniquename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProviderUniqueName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprovideruniquename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::ProviderUniqueName(this) {
@@ -1273,7 +1273,7 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsedRoutingMethods<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvusedroutingmethods: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UsedRoutingMethods<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvusedroutingmethods: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::UsedRoutingMethods(this) {
@@ -1284,7 +1284,7 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::Description(this) {
@@ -1295,7 +1295,7 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDevice_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
@@ -1348,7 +1348,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             IFaxDevice_Impl::SetRingsBeforeAnswer(this, core::mem::transmute_copy(&lringsbeforeanswer)).into()
         }
-        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::CSID(this) {
@@ -1359,12 +1359,12 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcsid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcsid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDevice_Impl::SetCSID(this, core::mem::transmute(&bstrcsid)).into()
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::TSID(this) {
@@ -1375,7 +1375,7 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtsid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtsid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDevice_Impl::SetTSID(this, core::mem::transmute(&bstrtsid)).into()
@@ -1390,7 +1390,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             IFaxDevice_Impl::Save(this).into()
         }
-        unsafe extern "system" fn GetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevice_Impl::GetExtensionProperty(this, core::mem::transmute(&bstrguid)) {
@@ -1401,12 +1401,12 @@ impl IFaxDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, vproperty: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, vproperty: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDevice_Impl::SetExtensionProperty(this, core::mem::transmute(&bstrguid), core::mem::transmute(&vproperty)).into()
         }
-        unsafe extern "system" fn UseRoutingMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethodguid: std::mem::MaybeUninit<windows_core::BSTR>, buse: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn UseRoutingMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethodguid: core::mem::MaybeUninit<windows_core::BSTR>, buse: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDevice_Impl::UseRoutingMethod(this, core::mem::transmute(&bstrmethodguid), core::mem::transmute_copy(&buse)).into()
@@ -1557,7 +1557,7 @@ impl windows_core::RuntimeName for IFaxDeviceProvider {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxDeviceProvider_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>() -> IFaxDeviceProvider_Vtbl {
-        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfriendlyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfriendlyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::FriendlyName(this) {
@@ -1568,7 +1568,7 @@ impl IFaxDeviceProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrimagename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrimagename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::ImageName(this) {
@@ -1579,7 +1579,7 @@ impl IFaxDeviceProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UniqueName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruniquename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UniqueName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruniquename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::UniqueName(this) {
@@ -1590,7 +1590,7 @@ impl IFaxDeviceProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TapiProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtapiprovidername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TapiProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtapiprovidername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::TapiProviderName(this) {
@@ -1678,7 +1678,7 @@ impl IFaxDeviceProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdeviceids: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdeviceids: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::DeviceIds(this) {
@@ -1731,7 +1731,7 @@ impl IFaxDeviceProviders_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxdeviceprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxdeviceprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDeviceProviders_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -1787,7 +1787,7 @@ impl IFaxDevices_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDevices_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -1874,7 +1874,7 @@ impl windows_core::RuntimeName for IFaxDocument {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxDocument_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>() -> IFaxDocument_Vtbl {
-        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbody: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbody: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Body(this) {
@@ -1885,7 +1885,7 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbody: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbody: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetBody(this, core::mem::transmute(&bstrbody)).into()
@@ -1912,7 +1912,7 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CoverPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcoverpage: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoverPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcoverpage: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::CoverPage(this) {
@@ -1923,12 +1923,12 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCoverPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcoverpage: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoverPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcoverpage: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetCoverPage(this, core::mem::transmute(&bstrcoverpage)).into()
         }
-        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Subject(this) {
@@ -1939,12 +1939,12 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsubject: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsubject: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetSubject(this, core::mem::transmute(&bstrsubject)).into()
         }
-        unsafe extern "system" fn Note<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnote: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Note<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnote: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Note(this) {
@@ -1955,7 +1955,7 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNote<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnote: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNote<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnote: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetNote(this, core::mem::transmute(&bstrnote)).into()
@@ -1976,7 +1976,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetScheduleTime(this, core::mem::transmute_copy(&datescheduletime)).into()
         }
-        unsafe extern "system" fn ReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreceiptaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreceiptaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ReceiptAddress(this) {
@@ -1987,12 +1987,12 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreceiptaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreceiptaddress: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetReceiptAddress(this, core::mem::transmute(&bstrreceiptaddress)).into()
         }
-        unsafe extern "system" fn DocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdocumentname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdocumentname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::DocumentName(this) {
@@ -2003,7 +2003,7 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdocumentname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdocumentname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument_Impl::SetDocumentName(this, core::mem::transmute(&bstrdocumentname)).into()
@@ -2120,7 +2120,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             IFaxDocument_Impl::putref_TapiConnection(this, windows_core::from_raw_borrowed(&ptapiconnection)).into()
         }
-        unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxservername: std::mem::MaybeUninit<windows_core::BSTR>, pvfaxoutgoingjobids: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxservername: core::mem::MaybeUninit<windows_core::BSTR>, pvfaxoutgoingjobids: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Submit(this, core::mem::transmute(&bstrfaxservername)) {
@@ -2131,7 +2131,7 @@ impl IFaxDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectedSubmit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectedSubmit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ConnectedSubmit(this, windows_core::from_raw_borrowed(&pfaxserver)) {
@@ -2213,7 +2213,7 @@ impl windows_core::RuntimeName for IFaxDocument2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxDocument2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>() -> IFaxDocument2_Vtbl {
-        unsafe extern "system" fn SubmissionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmissionid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubmissionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmissionid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument2_Impl::SubmissionId(this) {
@@ -2224,7 +2224,7 @@ impl IFaxDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bodies<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbodies: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Bodies<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbodies: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxDocument2_Impl::Bodies(this) {
@@ -2235,17 +2235,17 @@ impl IFaxDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBodies<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbodies: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBodies<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbodies: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument2_Impl::SetBodies(this, core::mem::transmute(&vbodies)).into()
         }
-        unsafe extern "system" fn Submit2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxservername: std::mem::MaybeUninit<windows_core::BSTR>, pvfaxoutgoingjobids: *mut std::mem::MaybeUninit<windows_core::VARIANT>, plerrorbodyfile: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Submit2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxservername: core::mem::MaybeUninit<windows_core::BSTR>, pvfaxoutgoingjobids: *mut core::mem::MaybeUninit<windows_core::VARIANT>, plerrorbodyfile: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument2_Impl::Submit2(this, core::mem::transmute(&bstrfaxservername), core::mem::transmute_copy(&pvfaxoutgoingjobids), core::mem::transmute_copy(&plerrorbodyfile)).into()
         }
-        unsafe extern "system" fn ConnectedSubmit2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut std::mem::MaybeUninit<windows_core::VARIANT>, plerrorbodyfile: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectedSubmit2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut core::mem::MaybeUninit<windows_core::VARIANT>, plerrorbodyfile: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxDocument2_Impl::ConnectedSubmit2(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute_copy(&pvfaxoutgoingjobids), core::mem::transmute_copy(&plerrorbodyfile)).into()
@@ -2502,7 +2502,7 @@ impl windows_core::RuntimeName for IFaxInboundRoutingExtension {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxInboundRoutingExtension_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>() -> IFaxInboundRoutingExtension_Vtbl {
-        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfriendlyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfriendlyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::FriendlyName(this) {
@@ -2513,7 +2513,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrimagename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrimagename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::ImageName(this) {
@@ -2524,7 +2524,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UniqueName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruniquename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UniqueName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruniquename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::UniqueName(this) {
@@ -2612,7 +2612,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Methods<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvmethods: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Methods<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvmethods: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::Methods(this) {
@@ -2664,7 +2664,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxinboundroutingextension: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxinboundroutingextension: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtensions_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -2714,7 +2714,7 @@ impl windows_core::RuntimeName for IFaxInboundRoutingMethod {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxInboundRoutingMethod_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>() -> IFaxInboundRoutingMethod_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::Name(this) {
@@ -2725,7 +2725,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GUID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GUID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::GUID(this) {
@@ -2736,7 +2736,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FunctionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfunctionname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FunctionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfunctionname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::FunctionName(this) {
@@ -2747,7 +2747,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtensionFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextensionfriendlyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtensionFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextensionfriendlyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::ExtensionFriendlyName(this) {
@@ -2758,7 +2758,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtensionImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextensionimagename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtensionImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextensionimagename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::ExtensionImageName(this) {
@@ -2834,7 +2834,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxinboundroutingmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxinboundroutingmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethods_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -2909,7 +2909,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             IFaxIncomingArchive_Impl::SetUseArchive(this, core::mem::transmute_copy(&busearchive)).into()
         }
-        unsafe extern "system" fn ArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrarchivefolder: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrarchivefolder: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::ArchiveFolder(this) {
@@ -2920,7 +2920,7 @@ impl IFaxIncomingArchive_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrarchivefolder: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrarchivefolder: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingArchive_Impl::SetArchiveFolder(this, core::mem::transmute(&bstrarchivefolder)).into()
@@ -3032,7 +3032,7 @@ impl IFaxIncomingArchive_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
@@ -3107,7 +3107,7 @@ impl IFaxIncomingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::Id(this) {
@@ -3162,7 +3162,7 @@ impl IFaxIncomingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextendedstatus: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextendedstatus: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::ExtendedStatus(this) {
@@ -3217,7 +3217,7 @@ impl IFaxIncomingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::CSID(this) {
@@ -3228,7 +3228,7 @@ impl IFaxIncomingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::TSID(this) {
@@ -3239,7 +3239,7 @@ impl IFaxIncomingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallerId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcallerid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcallerid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::CallerId(this) {
@@ -3250,7 +3250,7 @@ impl IFaxIncomingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrroutinginformation: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoutingInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrroutinginformation: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::RoutingInformation(this) {
@@ -3282,7 +3282,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             IFaxIncomingJob_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingJob_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
@@ -3336,7 +3336,7 @@ impl IFaxIncomingJobs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxincomingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxincomingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingJobs_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -3390,7 +3390,7 @@ impl windows_core::RuntimeName for IFaxIncomingMessage {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxIncomingMessage_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>() -> IFaxIncomingMessage_Vtbl {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::Id(this) {
@@ -3423,7 +3423,7 @@ impl IFaxIncomingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::DeviceName(this) {
@@ -3467,7 +3467,7 @@ impl IFaxIncomingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::CSID(this) {
@@ -3478,7 +3478,7 @@ impl IFaxIncomingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::TSID(this) {
@@ -3489,7 +3489,7 @@ impl IFaxIncomingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallerId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcallerid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcallerid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::CallerId(this) {
@@ -3500,7 +3500,7 @@ impl IFaxIncomingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrroutinginformation: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoutingInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrroutinginformation: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::RoutingInformation(this) {
@@ -3511,7 +3511,7 @@ impl IFaxIncomingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingMessage_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
@@ -3566,7 +3566,7 @@ impl windows_core::RuntimeName for IFaxIncomingMessage2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxIncomingMessage2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>() -> IFaxIncomingMessage2_Vtbl {
-        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::Subject(this) {
@@ -3577,12 +3577,12 @@ impl IFaxIncomingMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsubject: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsubject: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingMessage2_Impl::SetSubject(this, core::mem::transmute(&bstrsubject)).into()
         }
-        unsafe extern "system" fn SenderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsendername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsendername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::SenderName(this) {
@@ -3593,12 +3593,12 @@ impl IFaxIncomingMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsendername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsendername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingMessage2_Impl::SetSenderName(this, core::mem::transmute(&bstrsendername)).into()
         }
-        unsafe extern "system" fn SenderFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsenderfaxnumber: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsenderfaxnumber: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::SenderFaxNumber(this) {
@@ -3609,7 +3609,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsenderfaxnumber: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsenderfaxnumber: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingMessage2_Impl::SetSenderFaxNumber(this, core::mem::transmute(&bstrsenderfaxnumber)).into()
@@ -3630,7 +3630,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             IFaxIncomingMessage2_Impl::SetHasCoverPage(this, core::mem::transmute_copy(&bhascoverpage)).into()
         }
-        unsafe extern "system" fn Recipients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrecipients: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Recipients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrecipients: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::Recipients(this) {
@@ -3641,7 +3641,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRecipients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrecipients: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRecipients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrecipients: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxIncomingMessage2_Impl::SetRecipients(this, core::mem::transmute(&bstrrecipients)).into()
@@ -3839,7 +3839,7 @@ impl IFaxIncomingQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxincomingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxIncomingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
@@ -3944,7 +3944,7 @@ impl IFaxJobStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::CSID(this) {
@@ -3955,7 +3955,7 @@ impl IFaxJobStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::TSID(this) {
@@ -3977,7 +3977,7 @@ impl IFaxJobStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextendedstatus: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextendedstatus: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::ExtendedStatus(this) {
@@ -4054,7 +4054,7 @@ impl IFaxJobStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallerId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcallerid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallerId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcallerid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::CallerId(this) {
@@ -4065,7 +4065,7 @@ impl IFaxJobStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrroutinginformation: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoutingInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrroutinginformation: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::RoutingInformation(this) {
@@ -4196,7 +4196,7 @@ impl windows_core::RuntimeName for IFaxOutboundRoutingGroup {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxOutboundRoutingGroup_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>() -> IFaxOutboundRoutingGroup_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroup_Impl::Name(this) {
@@ -4264,7 +4264,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxoutboundroutinggroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxoutboundroutinggroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroups_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -4286,7 +4286,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, pfaxoutboundroutinggroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pfaxoutboundroutinggroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroups_Impl::Add(this, core::mem::transmute(&bstrname)) {
@@ -4297,7 +4297,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxOutboundRoutingGroups_Impl::Remove(this, core::mem::transmute(&vindex)).into()
@@ -4399,7 +4399,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             IFaxOutboundRoutingRule_Impl::SetDeviceId(this, core::mem::transmute_copy(&deviceid)).into()
         }
-        unsafe extern "system" fn GroupName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgroupname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GroupName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgroupname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::GroupName(this) {
@@ -4410,7 +4410,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroupName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGroupName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxOutboundRoutingRule_Impl::SetGroupName(this, core::mem::transmute(&bstrgroupname)).into()
@@ -4513,7 +4513,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             IFaxOutboundRoutingRules_Impl::Remove(this, core::mem::transmute_copy(&lindex)).into()
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcountrycode: i32, lareacode: i32, busedevice: super::super::Foundation::VARIANT_BOOL, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, ldeviceid: i32, pfaxoutboundroutingrule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcountrycode: i32, lareacode: i32, busedevice: super::super::Foundation::VARIANT_BOOL, bstrgroupname: core::mem::MaybeUninit<windows_core::BSTR>, ldeviceid: i32, pfaxoutboundroutingrule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRules_Impl::Add(this, core::mem::transmute_copy(&lcountrycode), core::mem::transmute_copy(&lareacode), core::mem::transmute_copy(&busedevice), core::mem::transmute(&bstrgroupname), core::mem::transmute_copy(&ldeviceid)) {
@@ -4581,7 +4581,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             IFaxOutgoingArchive_Impl::SetUseArchive(this, core::mem::transmute_copy(&busearchive)).into()
         }
-        unsafe extern "system" fn ArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrarchivefolder: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrarchivefolder: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::ArchiveFolder(this) {
@@ -4592,7 +4592,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrarchivefolder: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetArchiveFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrarchivefolder: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxOutgoingArchive_Impl::SetArchiveFolder(this, core::mem::transmute(&bstrarchivefolder)).into()
@@ -4704,7 +4704,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
@@ -4780,7 +4780,7 @@ impl windows_core::RuntimeName for IFaxOutgoingJob {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxOutgoingJob_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>() -> IFaxOutgoingJob_Vtbl {
-        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Subject(this) {
@@ -4791,7 +4791,7 @@ impl IFaxOutgoingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdocumentname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdocumentname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::DocumentName(this) {
@@ -4824,7 +4824,7 @@ impl IFaxOutgoingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubmissionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmissionid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubmissionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmissionid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::SubmissionId(this) {
@@ -4835,7 +4835,7 @@ impl IFaxOutgoingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Id(this) {
@@ -4956,7 +4956,7 @@ impl IFaxOutgoingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextendedstatus: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrextendedstatus: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::ExtendedStatus(this) {
@@ -5022,7 +5022,7 @@ impl IFaxOutgoingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::CSID(this) {
@@ -5033,7 +5033,7 @@ impl IFaxOutgoingJob_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::TSID(this) {
@@ -5070,7 +5070,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             IFaxOutgoingJob_Impl::Restart(this).into()
         }
-        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxOutgoingJob_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
@@ -5146,7 +5146,7 @@ impl IFaxOutgoingJob2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreceiptaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreceiptaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJob2_Impl::ReceiptAddress(this) {
@@ -5201,7 +5201,7 @@ impl IFaxOutgoingJobs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: std::mem::MaybeUninit<windows_core::VARIANT>, pfaxoutgoingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vindex: core::mem::MaybeUninit<windows_core::VARIANT>, pfaxoutgoingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingJobs_Impl::get_Item(this, core::mem::transmute(&vindex)) {
@@ -5261,7 +5261,7 @@ impl windows_core::RuntimeName for IFaxOutgoingMessage {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxOutgoingMessage_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>() -> IFaxOutgoingMessage_Vtbl {
-        unsafe extern "system" fn SubmissionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmissionid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubmissionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubmissionid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::SubmissionId(this) {
@@ -5272,7 +5272,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Id(this) {
@@ -5283,7 +5283,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubject: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Subject(this) {
@@ -5294,7 +5294,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdocumentname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdocumentname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::DocumentName(this) {
@@ -5393,7 +5393,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::DeviceName(this) {
@@ -5426,7 +5426,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::CSID(this) {
@@ -5437,7 +5437,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::TSID(this) {
@@ -5448,7 +5448,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtiffpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxOutgoingMessage_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
@@ -5522,7 +5522,7 @@ impl IFaxOutgoingMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreceiptaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiptAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreceiptaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingMessage2_Impl::ReceiptAddress(this) {
@@ -5863,7 +5863,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pfaxoutgoingjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
@@ -5948,7 +5948,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetAuthenticationType(this, core::mem::transmute_copy(&r#type)).into()
         }
-        unsafe extern "system" fn SMTPServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtpserver: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SMTPServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtpserver: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPServer(this) {
@@ -5959,7 +5959,7 @@ impl IFaxReceiptOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtpserver: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSMTPServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtpserver: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetSMTPServer(this, core::mem::transmute(&bstrsmtpserver)).into()
@@ -5980,7 +5980,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetSMTPPort(this, core::mem::transmute_copy(&lsmtpport)).into()
         }
-        unsafe extern "system" fn SMTPSender<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtpsender: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SMTPSender<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtpsender: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPSender(this) {
@@ -5991,12 +5991,12 @@ impl IFaxReceiptOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPSender<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtpsender: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSMTPSender<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtpsender: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetSMTPSender(this, core::mem::transmute(&bstrsmtpsender)).into()
         }
-        unsafe extern "system" fn SMTPUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtpuser: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SMTPUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtpuser: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPUser(this) {
@@ -6007,7 +6007,7 @@ impl IFaxReceiptOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtpuser: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSMTPUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtpuser: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetSMTPUser(this, core::mem::transmute(&bstrsmtpuser)).into()
@@ -6028,7 +6028,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetAllowedReceipts(this, core::mem::transmute_copy(&allowedreceipts)).into()
         }
-        unsafe extern "system" fn SMTPPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtppassword: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SMTPPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsmtppassword: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPPassword(this) {
@@ -6039,7 +6039,7 @@ impl IFaxReceiptOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtppassword: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSMTPPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsmtppassword: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxReceiptOptions_Impl::SetSMTPPassword(this, core::mem::transmute(&bstrsmtppassword)).into()
@@ -6108,7 +6108,7 @@ impl windows_core::RuntimeName for IFaxRecipient {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxRecipient_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>() -> IFaxRecipient_Vtbl {
-        unsafe extern "system" fn FaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfaxnumber: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfaxnumber: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxRecipient_Impl::FaxNumber(this) {
@@ -6119,12 +6119,12 @@ impl IFaxRecipient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxnumber: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxnumber: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxRecipient_Impl::SetFaxNumber(this, core::mem::transmute(&bstrfaxnumber)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxRecipient_Impl::Name(this) {
@@ -6135,7 +6135,7 @@ impl IFaxRecipient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxRecipient_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
@@ -6198,7 +6198,7 @@ impl IFaxRecipients_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxnumber: std::mem::MaybeUninit<windows_core::BSTR>, bstrrecipientname: std::mem::MaybeUninit<windows_core::BSTR>, ppfaxrecipient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxnumber: core::mem::MaybeUninit<windows_core::BSTR>, bstrrecipientname: core::mem::MaybeUninit<windows_core::BSTR>, ppfaxrecipient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxRecipients_Impl::Add(this, core::mem::transmute(&bstrfaxnumber), core::mem::transmute(&bstrrecipientname)) {
@@ -6242,7 +6242,7 @@ impl windows_core::RuntimeName for IFaxSecurity {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxSecurity_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity_Impl, const OFFSET: isize>() -> IFaxSecurity_Vtbl {
-        unsafe extern "system" fn Descriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdescriptor: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Descriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdescriptor: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSecurity_Impl::Descriptor(this) {
@@ -6253,7 +6253,7 @@ impl IFaxSecurity_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdescriptor: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdescriptor: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSecurity_Impl::SetDescriptor(this, core::mem::transmute(&vdescriptor)).into()
@@ -6325,7 +6325,7 @@ impl windows_core::RuntimeName for IFaxSecurity2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxSecurity2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity2_Impl, const OFFSET: isize>() -> IFaxSecurity2_Vtbl {
-        unsafe extern "system" fn Descriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdescriptor: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Descriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdescriptor: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSecurity2_Impl::Descriptor(this) {
@@ -6336,7 +6336,7 @@ impl IFaxSecurity2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdescriptor: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSecurity2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdescriptor: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSecurity2_Impl::SetDescriptor(this, core::mem::transmute(&vdescriptor)).into()
@@ -6435,7 +6435,7 @@ impl windows_core::RuntimeName for IFaxSender {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxSender_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>() -> IFaxSender_Vtbl {
-        unsafe extern "system" fn BillingCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbillingcode: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BillingCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbillingcode: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::BillingCode(this) {
@@ -6446,12 +6446,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBillingCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbillingcode: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBillingCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbillingcode: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetBillingCode(this, core::mem::transmute(&bstrbillingcode)).into()
         }
-        unsafe extern "system" fn City<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcity: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn City<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcity: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::City(this) {
@@ -6462,12 +6462,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcity: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcity: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetCity(this, core::mem::transmute(&bstrcity)).into()
         }
-        unsafe extern "system" fn Company<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcompany: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Company<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcompany: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::Company(this) {
@@ -6478,12 +6478,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCompany<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcompany: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCompany<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcompany: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetCompany(this, core::mem::transmute(&bstrcompany)).into()
         }
-        unsafe extern "system" fn Country<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcountry: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Country<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcountry: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::Country(this) {
@@ -6494,12 +6494,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCountry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcountry: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCountry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcountry: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetCountry(this, core::mem::transmute(&bstrcountry)).into()
         }
-        unsafe extern "system" fn Department<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdepartment: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Department<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdepartment: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::Department(this) {
@@ -6510,12 +6510,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDepartment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdepartment: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDepartment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdepartment: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetDepartment(this, core::mem::transmute(&bstrdepartment)).into()
         }
-        unsafe extern "system" fn Email<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstremail: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Email<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstremail: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::Email(this) {
@@ -6526,12 +6526,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEmail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstremail: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEmail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstremail: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetEmail(this, core::mem::transmute(&bstremail)).into()
         }
-        unsafe extern "system" fn FaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfaxnumber: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfaxnumber: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::FaxNumber(this) {
@@ -6542,12 +6542,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxnumber: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFaxNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxnumber: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetFaxNumber(this, core::mem::transmute(&bstrfaxnumber)).into()
         }
-        unsafe extern "system" fn HomePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrhomephone: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn HomePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrhomephone: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::HomePhone(this) {
@@ -6558,12 +6558,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHomePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrhomephone: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHomePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrhomephone: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetHomePhone(this, core::mem::transmute(&bstrhomephone)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::Name(this) {
@@ -6574,12 +6574,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
-        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::TSID(this) {
@@ -6590,12 +6590,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtsid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtsid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetTSID(this, core::mem::transmute(&bstrtsid)).into()
         }
-        unsafe extern "system" fn OfficePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrofficephone: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OfficePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrofficephone: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::OfficePhone(this) {
@@ -6606,12 +6606,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOfficePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrofficephone: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOfficePhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrofficephone: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetOfficePhone(this, core::mem::transmute(&bstrofficephone)).into()
         }
-        unsafe extern "system" fn OfficeLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrofficelocation: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OfficeLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrofficelocation: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::OfficeLocation(this) {
@@ -6622,12 +6622,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOfficeLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrofficelocation: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOfficeLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrofficelocation: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetOfficeLocation(this, core::mem::transmute(&bstrofficelocation)).into()
         }
-        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstate: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstate: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::State(this) {
@@ -6638,12 +6638,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrstate: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrstate: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetState(this, core::mem::transmute(&bstrstate)).into()
         }
-        unsafe extern "system" fn StreetAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstreetaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StreetAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstreetaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::StreetAddress(this) {
@@ -6654,12 +6654,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreetAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrstreetaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStreetAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrstreetaddress: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetStreetAddress(this, core::mem::transmute(&bstrstreetaddress)).into()
         }
-        unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtitle: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtitle: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::Title(this) {
@@ -6670,12 +6670,12 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtitle: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtitle: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetTitle(this, core::mem::transmute(&bstrtitle)).into()
         }
-        unsafe extern "system" fn ZipCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrzipcode: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ZipCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrzipcode: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxSender_Impl::ZipCode(this) {
@@ -6686,7 +6686,7 @@ impl IFaxSender_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetZipCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrzipcode: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetZipCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrzipcode: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxSender_Impl::SetZipCode(this, core::mem::transmute(&bstrzipcode)).into()
@@ -6777,12 +6777,12 @@ impl windows_core::RuntimeName for IFaxServer {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxServer_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>() -> IFaxServer_Vtbl {
-        unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServer_Impl::Connect(this, core::mem::transmute(&bstrservername)).into()
         }
-        unsafe extern "system" fn ServerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrservername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrservername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxServer_Impl::ServerName(this) {
@@ -6952,7 +6952,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             IFaxServer_Impl::Disconnect(this).into()
         }
-        unsafe extern "system" fn GetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFaxServer_Impl::GetExtensionProperty(this, core::mem::transmute(&bstrguid)) {
@@ -6963,7 +6963,7 @@ impl IFaxServer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, vproperty: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtensionProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, vproperty: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServer_Impl::SetExtensionProperty(this, core::mem::transmute(&bstrguid), core::mem::transmute(&vproperty)).into()
@@ -6973,22 +6973,22 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             IFaxServer_Impl::ListenToServerEvents(this, core::mem::transmute_copy(&eventtypes)).into()
         }
-        unsafe extern "system" fn RegisterDeviceProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, bstrfriendlyname: std::mem::MaybeUninit<windows_core::BSTR>, bstrimagename: std::mem::MaybeUninit<windows_core::BSTR>, tspname: std::mem::MaybeUninit<windows_core::BSTR>, lfspiversion: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterDeviceProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: core::mem::MaybeUninit<windows_core::BSTR>, bstrfriendlyname: core::mem::MaybeUninit<windows_core::BSTR>, bstrimagename: core::mem::MaybeUninit<windows_core::BSTR>, tspname: core::mem::MaybeUninit<windows_core::BSTR>, lfspiversion: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServer_Impl::RegisterDeviceProvider(this, core::mem::transmute(&bstrguid), core::mem::transmute(&bstrfriendlyname), core::mem::transmute(&bstrimagename), core::mem::transmute(&tspname), core::mem::transmute_copy(&lfspiversion)).into()
         }
-        unsafe extern "system" fn UnregisterDeviceProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruniquename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterDeviceProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruniquename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServer_Impl::UnregisterDeviceProvider(this, core::mem::transmute(&bstruniquename)).into()
         }
-        unsafe extern "system" fn RegisterInboundRoutingExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrextensionname: std::mem::MaybeUninit<windows_core::BSTR>, bstrfriendlyname: std::mem::MaybeUninit<windows_core::BSTR>, bstrimagename: std::mem::MaybeUninit<windows_core::BSTR>, vmethods: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterInboundRoutingExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrextensionname: core::mem::MaybeUninit<windows_core::BSTR>, bstrfriendlyname: core::mem::MaybeUninit<windows_core::BSTR>, bstrimagename: core::mem::MaybeUninit<windows_core::BSTR>, vmethods: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServer_Impl::RegisterInboundRoutingExtension(this, core::mem::transmute(&bstrextensionname), core::mem::transmute(&bstrfriendlyname), core::mem::transmute(&bstrimagename), core::mem::transmute(&vmethods)).into()
         }
-        unsafe extern "system" fn UnregisterInboundRoutingExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrextensionuniquename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterInboundRoutingExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrextensionuniquename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServer_Impl::UnregisterInboundRoutingExtension(this, core::mem::transmute(&bstrextensionuniquename)).into()
@@ -7164,52 +7164,52 @@ impl windows_core::RuntimeName for IFaxServerNotify2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxServerNotify2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>() -> IFaxServerNotify2_Vtbl {
-        unsafe extern "system" fn OnIncomingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnIncomingJobAdded(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnIncomingJobRemoved(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnIncomingJobChanged(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrjobid), windows_core::from_raw_borrowed(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnOutgoingJobAdded(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnOutgoingJobRemoved(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: std::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: core::mem::MaybeUninit<windows_core::BSTR>, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnOutgoingJobChanged(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrjobid), windows_core::from_raw_borrowed(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnIncomingMessageAdded(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnIncomingMessageRemoved(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnOutgoingMessageAdded(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnOutgoingMessageRemoved(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
@@ -7274,7 +7274,7 @@ impl IFaxServerNotify2_Vtbl {
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnQueuesStatusChange(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute_copy(&boutgoingqueueblocked), core::mem::transmute_copy(&boutgoingqueuepaused), core::mem::transmute_copy(&bincomingqueueblocked)).into()
         }
-        unsafe extern "system" fn OnNewCall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, lcallid: i32, ldeviceid: i32, bstrcallerid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnNewCall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, lcallid: i32, ldeviceid: i32, bstrcallerid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFaxServerNotify2_Impl::OnNewCall(this, windows_core::from_raw_borrowed(&pfaxserver), core::mem::transmute_copy(&lcallid), core::mem::transmute_copy(&ldeviceid), core::mem::transmute(&bstrcallerid)).into()

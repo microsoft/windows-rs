@@ -514,7 +514,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
             let this = (*this).get_impl();
             IFunctionInstanceCollectionQuery_Impl::AddQueryConstraint(this, core::mem::transmute(&pszconstraintname), core::mem::transmute(&pszconstraintvalue)).into()
         }
-        unsafe extern "system" fn AddPropertyConstraint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPropertyConstraint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFunctionInstanceCollectionQuery_Impl::AddPropertyConstraint(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&enumpropertyconstraint)).into()
@@ -752,7 +752,7 @@ impl IProviderProperties_Vtbl {
             let this = (*this).get_impl();
             IProviderProperties_Impl::GetAt(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IProviderProperties_Impl::GetValue(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key)) {
@@ -763,7 +763,7 @@ impl IProviderProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IProviderProperties_Impl::SetValue(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar)).into()
@@ -805,17 +805,17 @@ impl IProviderPropertyConstraintCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IProviderPropertyConstraintCollection_Impl::Get(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&pdwpropertyconstraint)).into()
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IProviderPropertyConstraintCollection_Impl::Item(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&pdwpropertyconstraint)).into()
         }
-        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IProviderPropertyConstraintCollection_Impl::Next(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&pdwpropertyconstraint)).into()

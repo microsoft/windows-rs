@@ -148,14 +148,14 @@ impl SpatialSurfaceInfo {
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -166,14 +166,14 @@ impl SpatialSurfaceInfo {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetBounds)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryComputeLatestMeshAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -183,7 +183,7 @@ impl SpatialSurfaceInfo {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -208,28 +208,28 @@ impl SpatialSurfaceMesh {
     pub fn SurfaceInfo(&self) -> windows_core::Result<SpatialSurfaceInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SurfaceInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CoordinateSystem(&self) -> windows_core::Result<super::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TriangleIndices(&self) -> windows_core::Result<SpatialSurfaceMeshBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TriangleIndices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn VertexPositions(&self) -> windows_core::Result<SpatialSurfaceMeshBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VertexPositions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -237,14 +237,14 @@ impl SpatialSurfaceMesh {
     pub fn VertexPositionScale(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VertexPositionScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn VertexNormals(&self) -> windows_core::Result<SpatialSurfaceMeshBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VertexNormals)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -270,21 +270,21 @@ impl SpatialSurfaceMeshBuffer {
     pub fn Format(&self) -> windows_core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Stride(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stride)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ElementCount(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ElementCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -292,7 +292,7 @@ impl SpatialSurfaceMeshBuffer {
     pub fn Data(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -325,7 +325,7 @@ impl SpatialSurfaceMeshOptions {
     pub fn VertexPositionFormat(&self) -> windows_core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VertexPositionFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -338,7 +338,7 @@ impl SpatialSurfaceMeshOptions {
     pub fn TriangleIndexFormat(&self) -> windows_core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TriangleIndexFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -351,7 +351,7 @@ impl SpatialSurfaceMeshOptions {
     pub fn VertexNormalFormat(&self) -> windows_core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VertexNormalFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -363,7 +363,7 @@ impl SpatialSurfaceMeshOptions {
     pub fn IncludeVertexNormals(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncludeVertexNormals)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -374,21 +374,21 @@ impl SpatialSurfaceMeshOptions {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedVertexPositionFormats() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedVertexPositionFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedTriangleIndexFormats() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedTriangleIndexFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedVertexNormalFormats() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedVertexNormalFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -426,7 +426,7 @@ impl SpatialSurfaceObserver {
     pub fn GetObservedSurfaces(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, SpatialSurfaceInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetObservedSurfaces)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -451,7 +451,7 @@ impl SpatialSurfaceObserver {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -461,13 +461,13 @@ impl SpatialSurfaceObserver {
     }
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::ISpatialSurfaceObserverStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }

@@ -307,7 +307,7 @@ where
 #[inline]
 pub unsafe fn EngQueryLocalTime() -> ENG_TIME_FIELDS {
     windows_targets::link!("gdi32.dll" "system" fn EngQueryLocalTime(param0 : *mut ENG_TIME_FIELDS));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     EngQueryLocalTime(&mut result__);
     result__
 }
@@ -524,7 +524,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
     windows_targets::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut core::ffi::c_void, pdwnumberofphysicalmonitors : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.param().abi(), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -771,7 +771,7 @@ windows_core::imp::define_interface!(ICloneViewHelper, ICloneViewHelper_Vtbl, 0x
 impl std::ops::Deref for ICloneViewHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICloneViewHelper, windows_core::IUnknown);
@@ -813,7 +813,7 @@ windows_core::imp::define_interface!(IViewHelper, IViewHelper_Vtbl, 0xe85ccef5_a
 impl std::ops::Deref for IViewHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IViewHelper, windows_core::IUnknown);
@@ -844,7 +844,7 @@ impl IViewHelper {
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), pistream.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()> {

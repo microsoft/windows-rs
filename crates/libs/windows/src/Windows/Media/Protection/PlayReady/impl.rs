@@ -891,7 +891,7 @@ impl INDTransmitterProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelManufacturerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelManufacturerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ModelManufacturerName(this) {
@@ -903,7 +903,7 @@ impl INDTransmitterProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ModelName(this) {
@@ -915,7 +915,7 @@ impl INDTransmitterProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ModelNumber(this) {
@@ -991,7 +991,7 @@ impl IPlayReadyDomain_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPlayReadyDomain_Impl::FriendlyName(this) {
@@ -1374,7 +1374,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             IPlayReadyServiceRequest_Impl::SetUri(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::ResponseCustomData(this) {
@@ -1386,7 +1386,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::ChallengeCustomData(this) {
@@ -1398,7 +1398,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IPlayReadyServiceRequest_Impl::SetChallengeCustomData(this, core::mem::transmute(&value)).into()

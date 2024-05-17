@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IDummyHICONIncluder, IDummyHICONIncluder_Vt
 impl std::ops::Deref for IDummyHICONIncluder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDummyHICONIncluder, windows_core::IUnknown);
@@ -28,7 +28,7 @@ windows_core::imp::define_interface!(IThumbnailExtractor, IThumbnailExtractor_Vt
 impl std::ops::Deref for IThumbnailExtractor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IThumbnailExtractor, windows_core::IUnknown);

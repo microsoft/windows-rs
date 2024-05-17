@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IAsynchronousDataRetriever, IAsynchronousDa
 impl std::ops::Deref for IAsynchronousDataRetriever {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IAsynchronousDataRetriever, windows_core::IUnknown);
@@ -41,25 +41,25 @@ windows_core::imp::define_interface!(IChangeConflict, IChangeConflict_Vtbl, 0x01
 impl std::ops::Deref for IChangeConflict {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IChangeConflict, windows_core::IUnknown);
 impl IChangeConflict {
     pub unsafe fn GetDestinationProviderConflictingChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDestinationProviderConflictingChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSourceProviderConflictingChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceProviderConflictingChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDestinationProviderConflictingData(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDestinationProviderConflictingData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSourceProviderConflictingData(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceProviderConflictingData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetResolveActionForChange(&self, presolveaction: *mut SYNC_RESOLVE_ACTION) -> windows_core::Result<()> {
@@ -97,7 +97,7 @@ windows_core::imp::define_interface!(IChangeUnitException, IChangeUnitException_
 impl std::ops::Deref for IChangeUnitException {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IChangeUnitException, windows_core::IUnknown);
@@ -123,7 +123,7 @@ windows_core::imp::define_interface!(IChangeUnitListFilterInfo, IChangeUnitListF
 impl std::ops::Deref for IChangeUnitListFilterInfo {
     type Target = ISyncFilterInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IChangeUnitListFilterInfo, windows_core::IUnknown, ISyncFilterInfo);
@@ -149,7 +149,7 @@ windows_core::imp::define_interface!(IClockVector, IClockVector_Vtbl, 0x14b2274a
 impl std::ops::Deref for IClockVector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IClockVector, windows_core::IUnknown);
@@ -171,7 +171,7 @@ windows_core::imp::define_interface!(IClockVectorElement, IClockVectorElement_Vt
 impl std::ops::Deref for IClockVectorElement {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IClockVectorElement, windows_core::IUnknown);
@@ -193,7 +193,7 @@ windows_core::imp::define_interface!(ICombinedFilterInfo, ICombinedFilterInfo_Vt
 impl std::ops::Deref for ICombinedFilterInfo {
     type Target = ISyncFilterInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICombinedFilterInfo, windows_core::IUnknown, ISyncFilterInfo);
@@ -202,7 +202,7 @@ impl ICombinedFilterInfo {
         (windows_core::Interface::vtable(self).GetFilterCount)(windows_core::Interface::as_raw(self), pdwfiltercount).ok()
     }
     pub unsafe fn GetFilterInfo(&self, dwfilterindex: u32) -> windows_core::Result<ISyncFilterInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilterInfo)(windows_core::Interface::as_raw(self), dwfilterindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilterCombinationType(&self, pfiltercombinationtype: *mut FILTER_COMBINATION_TYPE) -> windows_core::Result<()> {
@@ -220,33 +220,33 @@ windows_core::imp::define_interface!(IConstraintConflict, IConstraintConflict_Vt
 impl std::ops::Deref for IConstraintConflict {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IConstraintConflict, windows_core::IUnknown);
 impl IConstraintConflict {
     pub unsafe fn GetDestinationProviderConflictingChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDestinationProviderConflictingChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSourceProviderConflictingChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceProviderConflictingChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDestinationProviderOriginalChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDestinationProviderOriginalChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDestinationProviderConflictingData(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDestinationProviderConflictingData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSourceProviderConflictingData(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceProviderConflictingData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDestinationProviderOriginalData(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDestinationProviderOriginalData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetConstraintResolveActionForChange(&self, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> windows_core::Result<()> {
@@ -294,7 +294,7 @@ windows_core::imp::define_interface!(IConstructReplicaKeyMap, IConstructReplicaK
 impl std::ops::Deref for IConstructReplicaKeyMap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IConstructReplicaKeyMap, windows_core::IUnknown);
@@ -312,7 +312,7 @@ windows_core::imp::define_interface!(ICoreFragment, ICoreFragment_Vtbl, 0x613b2a
 impl std::ops::Deref for ICoreFragment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreFragment, windows_core::IUnknown);
@@ -346,7 +346,7 @@ windows_core::imp::define_interface!(ICoreFragmentInspector, ICoreFragmentInspec
 impl std::ops::Deref for ICoreFragmentInspector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICoreFragmentInspector, windows_core::IUnknown);
@@ -368,13 +368,13 @@ windows_core::imp::define_interface!(ICustomFilterInfo, ICustomFilterInfo_Vtbl, 
 impl std::ops::Deref for ICustomFilterInfo {
     type Target = ISyncFilterInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ICustomFilterInfo, windows_core::IUnknown, ISyncFilterInfo);
 impl ICustomFilterInfo {
     pub unsafe fn GetSyncFilter(&self) -> windows_core::Result<ISyncFilter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -387,7 +387,7 @@ windows_core::imp::define_interface!(IDataRetrieverCallback, IDataRetrieverCallb
 impl std::ops::Deref for IDataRetrieverCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDataRetrieverCallback, windows_core::IUnknown);
@@ -412,7 +412,7 @@ windows_core::imp::define_interface!(IEnumChangeUnitExceptions, IEnumChangeUnitE
 impl std::ops::Deref for IEnumChangeUnitExceptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumChangeUnitExceptions, windows_core::IUnknown);
@@ -427,7 +427,7 @@ impl IEnumChangeUnitExceptions {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumChangeUnitExceptions> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -443,7 +443,7 @@ windows_core::imp::define_interface!(IEnumClockVector, IEnumClockVector_Vtbl, 0x
 impl std::ops::Deref for IEnumClockVector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumClockVector, windows_core::IUnknown);
@@ -458,7 +458,7 @@ impl IEnumClockVector {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumClockVector> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -474,7 +474,7 @@ windows_core::imp::define_interface!(IEnumFeedClockVector, IEnumFeedClockVector_
 impl std::ops::Deref for IEnumFeedClockVector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumFeedClockVector, windows_core::IUnknown);
@@ -489,7 +489,7 @@ impl IEnumFeedClockVector {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumFeedClockVector> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -505,7 +505,7 @@ windows_core::imp::define_interface!(IEnumItemIds, IEnumItemIds_Vtbl, 0x43aa3f61
 impl std::ops::Deref for IEnumItemIds {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumItemIds, windows_core::IUnknown);
@@ -523,7 +523,7 @@ windows_core::imp::define_interface!(IEnumRangeExceptions, IEnumRangeExceptions_
 impl std::ops::Deref for IEnumRangeExceptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumRangeExceptions, windows_core::IUnknown);
@@ -538,7 +538,7 @@ impl IEnumRangeExceptions {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRangeExceptions> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -554,7 +554,7 @@ windows_core::imp::define_interface!(IEnumSingleItemExceptions, IEnumSingleItemE
 impl std::ops::Deref for IEnumSingleItemExceptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumSingleItemExceptions, windows_core::IUnknown);
@@ -569,7 +569,7 @@ impl IEnumSingleItemExceptions {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSingleItemExceptions> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -585,7 +585,7 @@ windows_core::imp::define_interface!(IEnumSyncChangeUnits, IEnumSyncChangeUnits_
 impl std::ops::Deref for IEnumSyncChangeUnits {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumSyncChangeUnits, windows_core::IUnknown);
@@ -600,7 +600,7 @@ impl IEnumSyncChangeUnits {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncChangeUnits> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -616,7 +616,7 @@ windows_core::imp::define_interface!(IEnumSyncChanges, IEnumSyncChanges_Vtbl, 0x
 impl std::ops::Deref for IEnumSyncChanges {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumSyncChanges, windows_core::IUnknown);
@@ -631,7 +631,7 @@ impl IEnumSyncChanges {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncChanges> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -647,7 +647,7 @@ windows_core::imp::define_interface!(IEnumSyncProviderConfigUIInfos, IEnumSyncPr
 impl std::ops::Deref for IEnumSyncProviderConfigUIInfos {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumSyncProviderConfigUIInfos, windows_core::IUnknown);
@@ -663,7 +663,7 @@ impl IEnumSyncProviderConfigUIInfos {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncProviderConfigUIInfos> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -682,7 +682,7 @@ windows_core::imp::define_interface!(IEnumSyncProviderInfos, IEnumSyncProviderIn
 impl std::ops::Deref for IEnumSyncProviderInfos {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IEnumSyncProviderInfos, windows_core::IUnknown);
@@ -698,7 +698,7 @@ impl IEnumSyncProviderInfos {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncProviderInfos> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -717,7 +717,7 @@ windows_core::imp::define_interface!(IFeedClockVector, IFeedClockVector_Vtbl, 0x
 impl std::ops::Deref for IFeedClockVector {
     type Target = IClockVector;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFeedClockVector, windows_core::IUnknown, IClockVector);
@@ -739,7 +739,7 @@ windows_core::imp::define_interface!(IFeedClockVectorElement, IFeedClockVectorEl
 impl std::ops::Deref for IFeedClockVectorElement {
     type Target = IClockVectorElement;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFeedClockVectorElement, windows_core::IUnknown, IClockVectorElement);
@@ -761,7 +761,7 @@ windows_core::imp::define_interface!(IFilterKeyMap, IFilterKeyMap_Vtbl, 0xca1696
 impl std::ops::Deref for IFilterKeyMap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFilterKeyMap, windows_core::IUnknown);
@@ -776,7 +776,7 @@ impl IFilterKeyMap {
         (windows_core::Interface::vtable(self).AddFilter)(windows_core::Interface::as_raw(self), pisyncfilter.param().abi(), pdwfilterkey).ok()
     }
     pub unsafe fn GetFilter(&self, dwfilterkey: u32) -> windows_core::Result<ISyncFilter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilter)(windows_core::Interface::as_raw(self), dwfilterkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Serialize(&self, pbfilterkeymap: *mut u8, pcbfilterkeymap: *mut u32) -> windows_core::Result<()> {
@@ -795,7 +795,7 @@ windows_core::imp::define_interface!(IFilterRequestCallback, IFilterRequestCallb
 impl std::ops::Deref for IFilterRequestCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFilterRequestCallback, windows_core::IUnknown);
@@ -816,7 +816,7 @@ windows_core::imp::define_interface!(IFilterTrackingProvider, IFilterTrackingPro
 impl std::ops::Deref for IFilterTrackingProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFilterTrackingProvider, windows_core::IUnknown);
@@ -844,7 +844,7 @@ windows_core::imp::define_interface!(IFilterTrackingRequestCallback, IFilterTrac
 impl std::ops::Deref for IFilterTrackingRequestCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFilterTrackingRequestCallback, windows_core::IUnknown);
@@ -865,7 +865,7 @@ windows_core::imp::define_interface!(IFilterTrackingSyncChangeBuilder, IFilterTr
 impl std::ops::Deref for IFilterTrackingSyncChangeBuilder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IFilterTrackingSyncChangeBuilder, windows_core::IUnknown);
@@ -887,7 +887,7 @@ windows_core::imp::define_interface!(IForgottenKnowledge, IForgottenKnowledge_Vt
 impl std::ops::Deref for IForgottenKnowledge {
     type Target = ISyncKnowledge;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IForgottenKnowledge, windows_core::IUnknown, ISyncKnowledge);
@@ -908,7 +908,7 @@ windows_core::imp::define_interface!(IKnowledgeSyncProvider, IKnowledgeSyncProvi
 impl std::ops::Deref for IKnowledgeSyncProvider {
     type Target = ISyncProvider;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IKnowledgeSyncProvider, windows_core::IUnknown, ISyncProvider);
@@ -972,13 +972,13 @@ windows_core::imp::define_interface!(ILoadChangeContext, ILoadChangeContext_Vtbl
 impl std::ops::Deref for ILoadChangeContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILoadChangeContext, windows_core::IUnknown);
 impl ILoadChangeContext {
     pub unsafe fn GetSyncChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetRecoverableErrorOnChange<P0>(&self, hrerror: windows_core::HRESULT, perrordata: P0) -> windows_core::Result<()>
@@ -1006,7 +1006,7 @@ windows_core::imp::define_interface!(IProviderConverter, IProviderConverter_Vtbl
 impl std::ops::Deref for IProviderConverter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProviderConverter, windows_core::IUnknown);
@@ -1027,7 +1027,7 @@ windows_core::imp::define_interface!(IRangeException, IRangeException_Vtbl, 0x75
 impl std::ops::Deref for IRangeException {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRangeException, windows_core::IUnknown);
@@ -1053,7 +1053,7 @@ windows_core::imp::define_interface!(IRecoverableError, IRecoverableError_Vtbl, 
 impl std::ops::Deref for IRecoverableError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRecoverableError, windows_core::IUnknown);
@@ -1065,7 +1065,7 @@ impl IRecoverableError {
         (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), pproviderrole).ok()
     }
     pub unsafe fn GetChangeWithRecoverableError(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChangeWithRecoverableError)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRecoverableErrorDataForChange(&self, phrerror: *mut windows_core::HRESULT, pperrordata: *mut Option<IRecoverableErrorData>) -> windows_core::Result<()> {
@@ -1091,7 +1091,7 @@ windows_core::imp::define_interface!(IRecoverableErrorData, IRecoverableErrorDat
 impl std::ops::Deref for IRecoverableErrorData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRecoverableErrorData, windows_core::IUnknown);
@@ -1127,7 +1127,7 @@ windows_core::imp::define_interface!(IRegisteredSyncProvider, IRegisteredSyncPro
 impl std::ops::Deref for IRegisteredSyncProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRegisteredSyncProvider, windows_core::IUnknown);
@@ -1140,7 +1140,7 @@ impl IRegisteredSyncProvider {
         (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pguidinstanceid, pguidcontenttype, pcontextpropertystore.param().abi()).ok()
     }
     pub unsafe fn GetInstanceId(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInstanceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
@@ -1161,7 +1161,7 @@ windows_core::imp::define_interface!(IReplicaKeyMap, IReplicaKeyMap_Vtbl, 0x2209
 impl std::ops::Deref for IReplicaKeyMap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IReplicaKeyMap, windows_core::IUnknown);
@@ -1187,7 +1187,7 @@ windows_core::imp::define_interface!(IRequestFilteredSync, IRequestFilteredSync_
 impl std::ops::Deref for IRequestFilteredSync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IRequestFilteredSync, windows_core::IUnknown);
@@ -1208,7 +1208,7 @@ windows_core::imp::define_interface!(ISingleItemException, ISingleItemException_
 impl std::ops::Deref for ISingleItemException {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISingleItemException, windows_core::IUnknown);
@@ -1230,7 +1230,7 @@ windows_core::imp::define_interface!(ISupportFilteredSync, ISupportFilteredSync_
 impl std::ops::Deref for ISupportFilteredSync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISupportFilteredSync, windows_core::IUnknown);
@@ -1251,7 +1251,7 @@ windows_core::imp::define_interface!(ISupportLastWriteTime, ISupportLastWriteTim
 impl std::ops::Deref for ISupportLastWriteTime {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISupportLastWriteTime, windows_core::IUnknown);
@@ -1273,7 +1273,7 @@ windows_core::imp::define_interface!(ISyncCallback, ISyncCallback_Vtbl, 0x059979
 impl std::ops::Deref for ISyncCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncCallback, windows_core::IUnknown);
@@ -1316,7 +1316,7 @@ windows_core::imp::define_interface!(ISyncCallback2, ISyncCallback2_Vtbl, 0x47ce
 impl std::ops::Deref for ISyncCallback2 {
     type Target = ISyncCallback;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncCallback2, windows_core::IUnknown, ISyncCallback);
@@ -1338,7 +1338,7 @@ windows_core::imp::define_interface!(ISyncChange, ISyncChange_Vtbl, 0xa1952beb_0
 impl std::ops::Deref for ISyncChange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChange, windows_core::IUnknown);
@@ -1362,15 +1362,15 @@ impl ISyncChange {
         (windows_core::Interface::vtable(self).GetWorkEstimate)(windows_core::Interface::as_raw(self), pdwwork).ok()
     }
     pub unsafe fn GetChangeUnits(&self) -> windows_core::Result<IEnumSyncChangeUnits> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChangeUnits)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMadeWithKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMadeWithKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetWorkEstimate(&self, dwwork: u32) -> windows_core::Result<()> {
@@ -1395,7 +1395,7 @@ windows_core::imp::define_interface!(ISyncChangeBatch, ISyncChangeBatch_Vtbl, 0x
 impl std::ops::Deref for ISyncChangeBatch {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatch, windows_core::IUnknown, ISyncChangeBatchBase);
@@ -1414,7 +1414,7 @@ impl ISyncChangeBatch {
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddLoggedConflict)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbitemid, pchangeversion, pcreationversion, dwflags, dwworkforchange, pconflictknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1429,20 +1429,20 @@ windows_core::imp::define_interface!(ISyncChangeBatch2, ISyncChangeBatch2_Vtbl, 
 impl std::ops::Deref for ISyncChangeBatch2 {
     type Target = ISyncChangeBatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatch2, windows_core::IUnknown, ISyncChangeBatchBase, ISyncChangeBatch);
 impl ISyncChangeBatch2 {
     pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddMergeTombstoneLoggedConflict<P0>(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: P0) -> windows_core::Result<ISyncChangeBuilder>
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddMergeTombstoneLoggedConflict)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, pconflictknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1456,17 +1456,17 @@ windows_core::imp::define_interface!(ISyncChangeBatchAdvanced, ISyncChangeBatchA
 impl std::ops::Deref for ISyncChangeBatchAdvanced {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchAdvanced, windows_core::IUnknown);
 impl ISyncChangeBatchAdvanced {
     pub unsafe fn GetFilterInfo(&self) -> windows_core::Result<ISyncFilterInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilterInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ConvertFullEnumerationChangeBatchToRegularChangeBatch(&self) -> windows_core::Result<ISyncChangeBatch> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ConvertFullEnumerationChangeBatchToRegularChangeBatch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetUpperBoundItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
@@ -1488,13 +1488,13 @@ windows_core::imp::define_interface!(ISyncChangeBatchBase, ISyncChangeBatchBase_
 impl std::ops::Deref for ISyncChangeBatchBase {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchBase, windows_core::IUnknown);
 impl ISyncChangeBatchBase {
     pub unsafe fn GetChangeEnumerator(&self) -> windows_core::Result<IEnumSyncChanges> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChangeEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
@@ -1516,19 +1516,19 @@ impl ISyncChangeBatchBase {
         (windows_core::Interface::vtable(self).EndOrderedGroup)(windows_core::Interface::as_raw(self), pbupperbound, pmadewithknowledge.param().abi()).ok()
     }
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddItemMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbitemid, pchangeversion, pcreationversion, dwflags, dwworkforchange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPrerequisiteKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> windows_core::Result<IForgottenKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSourceForgottenKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetLastBatch(&self) -> windows_core::Result<()> {
@@ -1566,7 +1566,7 @@ windows_core::imp::define_interface!(ISyncChangeBatchBase2, ISyncChangeBatchBase
 impl std::ops::Deref for ISyncChangeBatchBase2 {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchBase2, windows_core::IUnknown, ISyncChangeBatchBase);
@@ -1584,13 +1584,13 @@ windows_core::imp::define_interface!(ISyncChangeBatchWithFilterKeyMap, ISyncChan
 impl std::ops::Deref for ISyncChangeBatchWithFilterKeyMap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchWithFilterKeyMap, windows_core::IUnknown);
 impl ISyncChangeBatchWithFilterKeyMap {
     pub unsafe fn GetFilterKeyMap(&self) -> windows_core::Result<IFilterKeyMap> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilterKeyMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFilterKeyMap<P0>(&self, pifilterkeymap: P0) -> windows_core::Result<()>
@@ -1610,7 +1610,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedFilterForgottenKnowledge<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1, dwfilterkey: u32) -> windows_core::Result<ISyncKnowledge>
@@ -1618,7 +1618,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), dwfilterkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1) -> windows_core::Result<ISyncKnowledge>
@@ -1626,7 +1626,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1) -> windows_core::Result<ISyncKnowledge>
@@ -1634,7 +1634,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1, dwfilterkey: u32) -> windows_core::Result<ISyncKnowledge>
@@ -1642,7 +1642,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), dwfilterkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1662,7 +1662,7 @@ windows_core::imp::define_interface!(ISyncChangeBatchWithPrerequisite, ISyncChan
 impl std::ops::Deref for ISyncChangeBatchWithPrerequisite {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchWithPrerequisite, windows_core::IUnknown, ISyncChangeBatchBase);
@@ -1677,11 +1677,11 @@ impl ISyncChangeBatchWithPrerequisite {
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedForgottenKnowledge(&self) -> windows_core::Result<IForgottenKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedForgottenKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1696,7 +1696,7 @@ windows_core::imp::define_interface!(ISyncChangeBuilder, ISyncChangeBuilder_Vtbl
 impl std::ops::Deref for ISyncChangeBuilder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBuilder, windows_core::IUnknown);
@@ -1714,13 +1714,13 @@ windows_core::imp::define_interface!(ISyncChangeUnit, ISyncChangeUnit_Vtbl, 0x60
 impl std::ops::Deref for ISyncChangeUnit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeUnit, windows_core::IUnknown);
 impl ISyncChangeUnit {
     pub unsafe fn GetItemChange(&self) -> windows_core::Result<ISyncChange> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemChange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetChangeUnitId(&self, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
@@ -1741,7 +1741,7 @@ windows_core::imp::define_interface!(ISyncChangeWithFilterKeyMap, ISyncChangeWit
 impl std::ops::Deref for ISyncChangeWithFilterKeyMap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeWithFilterKeyMap, windows_core::IUnknown);
@@ -1756,7 +1756,7 @@ impl ISyncChangeWithFilterKeyMap {
         (windows_core::Interface::vtable(self).GetAllChangeUnitsPresentFlag)(windows_core::Interface::as_raw(self), pfallchangeunitspresent).ok()
     }
     pub unsafe fn GetFilterForgottenKnowledge(&self, dwfilterkey: u32) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilterForgottenKnowledge)(windows_core::Interface::as_raw(self), dwfilterkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilteredReplicaLearnedKnowledge<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1) -> windows_core::Result<ISyncKnowledge>
@@ -1764,7 +1764,7 @@ impl ISyncChangeWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedFilterForgottenKnowledge<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1, dwfilterkey: u32) -> windows_core::Result<ISyncKnowledge>
@@ -1772,7 +1772,7 @@ impl ISyncChangeWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), dwfilterkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1) -> windows_core::Result<ISyncKnowledge>
@@ -1780,7 +1780,7 @@ impl ISyncChangeWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1) -> windows_core::Result<ISyncKnowledge>
@@ -1788,7 +1788,7 @@ impl ISyncChangeWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<P0, P1>(&self, pdestinationknowledge: P0, pnewmoveins: P1, dwfilterkey: u32) -> windows_core::Result<ISyncKnowledge>
@@ -1796,7 +1796,7 @@ impl ISyncChangeWithFilterKeyMap {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<IEnumItemIds>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), pnewmoveins.param().abi(), dwfilterkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1817,20 +1817,20 @@ windows_core::imp::define_interface!(ISyncChangeWithPrerequisite, ISyncChangeWit
 impl std::ops::Deref for ISyncChangeWithPrerequisite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeWithPrerequisite, windows_core::IUnknown);
 impl ISyncChangeWithPrerequisite {
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPrerequisiteKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedKnowledgeWithPrerequisite<P0>(&self, pdestinationknowledge: P0) -> windows_core::Result<ISyncKnowledge>
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(windows_core::Interface::as_raw(self), pdestinationknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1844,7 +1844,7 @@ windows_core::imp::define_interface!(ISyncConstraintCallback, ISyncConstraintCal
 impl std::ops::Deref for ISyncConstraintCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncConstraintCallback, windows_core::IUnknown);
@@ -1865,7 +1865,7 @@ windows_core::imp::define_interface!(ISyncDataConverter, ISyncDataConverter_Vtbl
 impl std::ops::Deref for ISyncDataConverter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncDataConverter, windows_core::IUnknown);
@@ -1875,7 +1875,7 @@ impl ISyncDataConverter {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IEnumSyncChanges>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ConvertDataRetrieverFromProviderFormat)(windows_core::Interface::as_raw(self), punkdataretrieverin.param().abi(), penumsyncchanges.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ConvertDataRetrieverToProviderFormat<P0, P1>(&self, punkdataretrieverin: P0, penumsyncchanges: P1) -> windows_core::Result<windows_core::IUnknown>
@@ -1883,7 +1883,7 @@ impl ISyncDataConverter {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IEnumSyncChanges>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ConvertDataRetrieverToProviderFormat)(windows_core::Interface::as_raw(self), punkdataretrieverin.param().abi(), penumsyncchanges.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ConvertDataFromProviderFormat<P0, P1>(&self, pdatacontext: P0, punkdatain: P1) -> windows_core::Result<windows_core::IUnknown>
@@ -1891,7 +1891,7 @@ impl ISyncDataConverter {
         P0: windows_core::Param<ILoadChangeContext>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ConvertDataFromProviderFormat)(windows_core::Interface::as_raw(self), pdatacontext.param().abi(), punkdatain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ConvertDataToProviderFormat<P0, P1>(&self, pdatacontext: P0, punkdataout: P1) -> windows_core::Result<windows_core::IUnknown>
@@ -1899,7 +1899,7 @@ impl ISyncDataConverter {
         P0: windows_core::Param<ILoadChangeContext>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ConvertDataToProviderFormat)(windows_core::Interface::as_raw(self), pdatacontext.param().abi(), punkdataout.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1915,7 +1915,7 @@ windows_core::imp::define_interface!(ISyncFilter, ISyncFilter_Vtbl, 0x087a3f15_0
 impl std::ops::Deref for ISyncFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFilter, windows_core::IUnknown);
@@ -1940,13 +1940,13 @@ windows_core::imp::define_interface!(ISyncFilterDeserializer, ISyncFilterDeseria
 impl std::ops::Deref for ISyncFilterDeserializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFilterDeserializer, windows_core::IUnknown);
 impl ISyncFilterDeserializer {
     pub unsafe fn DeserializeSyncFilter(&self, pbsyncfilter: *const u8, dwcbsyncfilter: u32) -> windows_core::Result<ISyncFilter> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DeserializeSyncFilter)(windows_core::Interface::as_raw(self), pbsyncfilter, dwcbsyncfilter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1959,7 +1959,7 @@ windows_core::imp::define_interface!(ISyncFilterInfo, ISyncFilterInfo_Vtbl, 0x79
 impl std::ops::Deref for ISyncFilterInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFilterInfo, windows_core::IUnknown);
@@ -1977,7 +1977,7 @@ windows_core::imp::define_interface!(ISyncFilterInfo2, ISyncFilterInfo2_Vtbl, 0x
 impl std::ops::Deref for ISyncFilterInfo2 {
     type Target = ISyncFilterInfo;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFilterInfo2, windows_core::IUnknown, ISyncFilterInfo);
@@ -1995,17 +1995,17 @@ windows_core::imp::define_interface!(ISyncFullEnumerationChange, ISyncFullEnumer
 impl std::ops::Deref for ISyncFullEnumerationChange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFullEnumerationChange, windows_core::IUnknown);
 impl ISyncFullEnumerationChange {
     pub unsafe fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedKnowledgeAfterRecoveryComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLearnedForgottenKnowledge(&self) -> windows_core::Result<IForgottenKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedForgottenKnowledge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2019,13 +2019,13 @@ windows_core::imp::define_interface!(ISyncFullEnumerationChangeBatch, ISyncFullE
 impl std::ops::Deref for ISyncFullEnumerationChangeBatch {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFullEnumerationChangeBatch, windows_core::IUnknown, ISyncChangeBatchBase);
 impl ISyncFullEnumerationChangeBatch {
     pub unsafe fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLearnedKnowledgeAfterRecoveryComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetClosedLowerBoundItemId(&self, pbclosedlowerbounditemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
@@ -2046,13 +2046,13 @@ windows_core::imp::define_interface!(ISyncFullEnumerationChangeBatch2, ISyncFull
 impl std::ops::Deref for ISyncFullEnumerationChangeBatch2 {
     type Target = ISyncFullEnumerationChangeBatch;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncFullEnumerationChangeBatch2, windows_core::IUnknown, ISyncChangeBatchBase, ISyncFullEnumerationChangeBatch);
 impl ISyncFullEnumerationChangeBatch2 {
     pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2065,7 +2065,7 @@ windows_core::imp::define_interface!(ISyncKnowledge, ISyncKnowledge_Vtbl, 0x615b
 impl std::ops::Deref for ISyncKnowledge {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncKnowledge, windows_core::IUnknown);
@@ -2092,11 +2092,11 @@ impl ISyncKnowledge {
         (windows_core::Interface::vtable(self).GetScopeVector)(windows_core::Interface::as_raw(self), riid, ppunk).ok()
     }
     pub unsafe fn GetReplicaKeyMap(&self) -> windows_core::Result<IReplicaKeyMap> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetReplicaKeyMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ConvertVersion<P0>(&self, pknowledgein: P0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> windows_core::Result<()>
@@ -2109,7 +2109,7 @@ impl ISyncKnowledge {
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MapRemoteToLocal)(windows_core::Interface::as_raw(self), premoteknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Union<P0>(&self, pknowledge: P0) -> windows_core::Result<()>
@@ -2119,15 +2119,15 @@ impl ISyncKnowledge {
         (windows_core::Interface::vtable(self).Union)(windows_core::Interface::as_raw(self), pknowledge.param().abi()).ok()
     }
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProjectOntoItem)(windows_core::Interface::as_raw(self), pbitemid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProjectOntoChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProjectOntoChangeUnit)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProjectOntoRange(&self, psrngsyncrange: *const SYNC_RANGE) -> windows_core::Result<ISyncKnowledge> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProjectOntoRange)(windows_core::Interface::as_raw(self), psrngsyncrange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExcludeItem(&self, pbitemid: *const u8) -> windows_core::Result<()> {
@@ -2196,7 +2196,7 @@ windows_core::imp::define_interface!(ISyncKnowledge2, ISyncKnowledge2_Vtbl, 0xed
 impl std::ops::Deref for ISyncKnowledge2 {
     type Target = ISyncKnowledge;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncKnowledge2, windows_core::IUnknown, ISyncKnowledge);
@@ -2205,7 +2205,7 @@ impl ISyncKnowledge2 {
         (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters).ok()
     }
     pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> windows_core::Result<ISyncKnowledge2> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProjectOntoColumnSet)(windows_core::Interface::as_raw(self), ppcolumns, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> windows_core::Result<()> {
@@ -2243,14 +2243,14 @@ impl ISyncKnowledge2 {
         P0: windows_core::Param<ISyncKnowledge>,
         P1: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProjectOntoKnowledgeWithPrerequisite)(windows_core::Interface::as_raw(self), pprerequisiteknowledge.param().abi(), ptemplateknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Complement<P0>(&self, psyncknowledge: P0) -> windows_core::Result<ISyncKnowledge>
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Complement)(windows_core::Interface::as_raw(self), psyncknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IntersectsWithKnowledge<P0>(&self, psyncknowledge: P0) -> windows_core::Result<()>
@@ -2260,7 +2260,7 @@ impl ISyncKnowledge2 {
         (windows_core::Interface::vtable(self).IntersectsWithKnowledge)(windows_core::Interface::as_raw(self), psyncknowledge.param().abi()).ok()
     }
     pub unsafe fn GetKnowledgeCookie(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetKnowledgeCookie)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CompareToKnowledgeCookie<P0>(&self, pknowledgecookie: P0, presult: *mut KNOWLEDGE_COOKIE_COMPARISON_RESULT) -> windows_core::Result<()>
@@ -2292,7 +2292,7 @@ windows_core::imp::define_interface!(ISyncMergeTombstoneChange, ISyncMergeTombst
 impl std::ops::Deref for ISyncMergeTombstoneChange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncMergeTombstoneChange, windows_core::IUnknown);
@@ -2310,7 +2310,7 @@ windows_core::imp::define_interface!(ISyncProvider, ISyncProvider_Vtbl, 0x8f6570
 impl std::ops::Deref for ISyncProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncProvider, windows_core::IUnknown);
@@ -2328,7 +2328,7 @@ windows_core::imp::define_interface!(ISyncProviderConfigUI, ISyncProviderConfigU
 impl std::ops::Deref for ISyncProviderConfigUI {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncProviderConfigUI, windows_core::IUnknown);
@@ -2342,7 +2342,7 @@ impl ISyncProviderConfigUI {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetRegisteredProperties(&self) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRegisteredProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2351,7 +2351,7 @@ impl ISyncProviderConfigUI {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), punkcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2390,7 +2390,7 @@ windows_core::imp::define_interface!(ISyncProviderConfigUIInfo, ISyncProviderCon
 impl std::ops::Deref for ISyncProviderConfigUIInfo {
     type Target = super::super::UI::Shell::PropertiesSystem::IPropertyStore;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2398,7 +2398,7 @@ windows_core::imp::interface_hierarchy!(ISyncProviderConfigUIInfo, windows_core:
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISyncProviderConfigUIInfo {
     pub unsafe fn GetSyncProviderConfigUI(&self, dwclscontext: u32) -> windows_core::Result<ISyncProviderConfigUI> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderConfigUI)(windows_core::Interface::as_raw(self), dwclscontext, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2414,7 +2414,7 @@ windows_core::imp::define_interface!(ISyncProviderInfo, ISyncProviderInfo_Vtbl, 
 impl std::ops::Deref for ISyncProviderInfo {
     type Target = super::super::UI::Shell::PropertiesSystem::IPropertyStore;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2422,7 +2422,7 @@ windows_core::imp::interface_hierarchy!(ISyncProviderInfo, windows_core::IUnknow
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISyncProviderInfo {
     pub unsafe fn GetSyncProvider(&self, dwclscontext: u32) -> windows_core::Result<IRegisteredSyncProvider> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProvider)(windows_core::Interface::as_raw(self), dwclscontext, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2436,26 +2436,26 @@ windows_core::imp::define_interface!(ISyncProviderRegistration, ISyncProviderReg
 impl std::ops::Deref for ISyncProviderRegistration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncProviderRegistration, windows_core::IUnknown);
 impl ISyncProviderRegistration {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateSyncProviderConfigUIRegistrationInstance(&self, pconfiguiconfig: *const SyncProviderConfigUIConfiguration) -> windows_core::Result<ISyncProviderConfigUIInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSyncProviderConfigUIRegistrationInstance)(windows_core::Interface::as_raw(self), pconfiguiconfig, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UnregisterSyncProviderConfigUI(&self, pguidinstanceid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterSyncProviderConfigUI)(windows_core::Interface::as_raw(self), pguidinstanceid).ok()
     }
     pub unsafe fn EnumerateSyncProviderConfigUIs(&self, pguidcontenttype: Option<*const windows_core::GUID>, dwsupportedarchitecture: u32) -> windows_core::Result<IEnumSyncProviderConfigUIInfos> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumerateSyncProviderConfigUIs)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(std::ptr::null())), dwsupportedarchitecture, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateSyncProviderRegistrationInstance(&self, pproviderconfiguration: *const SyncProviderConfiguration) -> windows_core::Result<ISyncProviderInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSyncProviderRegistrationInstance)(windows_core::Interface::as_raw(self), pproviderconfiguration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UnregisterSyncProvider(&self, pguidinstanceid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -2463,33 +2463,33 @@ impl ISyncProviderRegistration {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderConfigUIInfoforProvider(&self, pguidproviderinstanceid: *const windows_core::GUID) -> windows_core::Result<ISyncProviderConfigUIInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderConfigUIInfoforProvider)(windows_core::Interface::as_raw(self), pguidproviderinstanceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateSyncProviders(&self, pguidcontenttype: Option<*const windows_core::GUID>, dwstateflagstofiltermask: u32, dwstateflagstofilter: u32, refproviderclsid: *const windows_core::GUID, dwsupportedarchitecture: u32) -> windows_core::Result<IEnumSyncProviderInfos> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumerateSyncProviders)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(std::ptr::null())), dwstateflagstofiltermask, dwstateflagstofilter, refproviderclsid, dwsupportedarchitecture, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderInfo(&self, pguidinstanceid: *const windows_core::GUID) -> windows_core::Result<ISyncProviderInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderInfo)(windows_core::Interface::as_raw(self), pguidinstanceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSyncProviderFromInstanceId(&self, pguidinstanceid: *const windows_core::GUID, dwclscontext: u32) -> windows_core::Result<IRegisteredSyncProvider> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderFromInstanceId)(windows_core::Interface::as_raw(self), pguidinstanceid, dwclscontext, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderConfigUIInfo(&self, pguidinstanceid: *const windows_core::GUID) -> windows_core::Result<ISyncProviderConfigUIInfo> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderConfigUIInfo)(windows_core::Interface::as_raw(self), pguidinstanceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSyncProviderConfigUIFromInstanceId(&self, pguidinstanceid: *const windows_core::GUID, dwclscontext: u32) -> windows_core::Result<ISyncProviderConfigUI> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderConfigUIFromInstanceId)(windows_core::Interface::as_raw(self), pguidinstanceid, dwclscontext, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSyncProviderState(&self, pguidinstanceid: *const windows_core::GUID) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderState)(windows_core::Interface::as_raw(self), pguidinstanceid, &mut result__).map(|| result__)
     }
     pub unsafe fn SetSyncProviderState(&self, pguidinstanceid: *const windows_core::GUID, dwstateflagsmask: u32, dwstateflags: u32) -> windows_core::Result<()> {
@@ -2508,7 +2508,7 @@ impl ISyncProviderRegistration {
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChange)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2551,17 +2551,17 @@ windows_core::imp::define_interface!(ISyncRegistrationChange, ISyncRegistrationC
 impl std::ops::Deref for ISyncRegistrationChange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncRegistrationChange, windows_core::IUnknown);
 impl ISyncRegistrationChange {
     pub unsafe fn GetEvent(&self) -> windows_core::Result<SYNC_REGISTRATION_EVENT> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetInstanceId(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInstanceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2575,13 +2575,13 @@ windows_core::imp::define_interface!(ISyncSessionExtendedErrorInfo, ISyncSession
 impl std::ops::Deref for ISyncSessionExtendedErrorInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncSessionExtendedErrorInfo, windows_core::IUnknown);
 impl ISyncSessionExtendedErrorInfo {
     pub unsafe fn GetSyncProviderWithError(&self) -> windows_core::Result<ISyncProvider> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSyncProviderWithError)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2594,7 +2594,7 @@ windows_core::imp::define_interface!(ISyncSessionState, ISyncSessionState_Vtbl, 
 impl std::ops::Deref for ISyncSessionState {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncSessionState, windows_core::IUnknown);
@@ -2636,7 +2636,7 @@ windows_core::imp::define_interface!(ISyncSessionState2, ISyncSessionState2_Vtbl
 impl std::ops::Deref for ISyncSessionState2 {
     type Target = ISyncSessionState;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISyncSessionState2, windows_core::IUnknown, ISyncSessionState);
@@ -2661,7 +2661,7 @@ windows_core::imp::define_interface!(ISynchronousDataRetriever, ISynchronousData
 impl std::ops::Deref for ISynchronousDataRetriever {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ISynchronousDataRetriever, windows_core::IUnknown);
@@ -2673,7 +2673,7 @@ impl ISynchronousDataRetriever {
     where
         P0: windows_core::Param<ILoadChangeContext>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LoadChangeData)(windows_core::Interface::as_raw(self), ploadchangecontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IHolographicCameraInterop, IHolographicCame
 impl std::ops::Deref for IHolographicCameraInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHolographicCameraInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -12,7 +12,7 @@ impl IHolographicCameraInterop {
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -21,7 +21,7 @@ impl IHolographicCameraInterop {
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
         P1: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, pprotectedresourcesession.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -76,7 +76,7 @@ windows_core::imp::define_interface!(IHolographicCameraRenderingParametersIntero
 impl std::ops::Deref for IHolographicCameraRenderingParametersInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -116,7 +116,7 @@ windows_core::imp::define_interface!(IHolographicQuadLayerInterop, IHolographicQ
 impl std::ops::Deref for IHolographicQuadLayerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHolographicQuadLayerInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -126,7 +126,7 @@ impl IHolographicQuadLayerInterop {
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -135,7 +135,7 @@ impl IHolographicQuadLayerInterop {
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
         P1: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, pprotectedresourcesession.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -190,7 +190,7 @@ windows_core::imp::define_interface!(IHolographicQuadLayerUpdateParametersIntero
 impl std::ops::Deref for IHolographicQuadLayerUpdateParametersInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, windows_core::IUnknown, windows_core::IInspectable);

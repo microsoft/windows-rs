@@ -134,7 +134,7 @@ windows_core::imp::define_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x
 impl std::ops::Deref for ILampArrayEffect {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ILampArrayEffect, windows_core::IUnknown, windows_core::IInspectable);
@@ -142,7 +142,7 @@ impl ILampArrayEffect {
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -264,7 +264,7 @@ impl LampArrayBitmapEffect {
     pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -275,7 +275,7 @@ impl LampArrayBitmapEffect {
     pub fn StartDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -286,7 +286,7 @@ impl LampArrayBitmapEffect {
     pub fn UpdateInterval(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -297,7 +297,7 @@ impl LampArrayBitmapEffect {
     pub fn SuggestedBitmapSize(&self) -> windows_core::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SuggestedBitmapSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -307,7 +307,7 @@ impl LampArrayBitmapEffect {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitmapRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -320,14 +320,14 @@ impl LampArrayBitmapEffect {
         P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -361,7 +361,7 @@ impl LampArrayBitmapRequestedEventArgs {
     pub fn SinceStarted(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SinceStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -396,7 +396,7 @@ impl LampArrayBlinkEffect {
     pub fn Color(&self) -> windows_core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -408,7 +408,7 @@ impl LampArrayBlinkEffect {
     pub fn AttackDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttackDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -419,7 +419,7 @@ impl LampArrayBlinkEffect {
     pub fn SustainDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SustainDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -430,7 +430,7 @@ impl LampArrayBlinkEffect {
     pub fn DecayDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DecayDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -441,7 +441,7 @@ impl LampArrayBlinkEffect {
     pub fn RepetitionDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RepetitionDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -452,7 +452,7 @@ impl LampArrayBlinkEffect {
     pub fn StartDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -463,7 +463,7 @@ impl LampArrayBlinkEffect {
     pub fn Occurrences(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occurrences)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -474,7 +474,7 @@ impl LampArrayBlinkEffect {
     pub fn RepetitionMode(&self) -> windows_core::Result<LampArrayRepetitionMode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RepetitionMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -487,14 +487,14 @@ impl LampArrayBlinkEffect {
         P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -530,7 +530,7 @@ impl LampArrayColorRampEffect {
     pub fn Color(&self) -> windows_core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -542,7 +542,7 @@ impl LampArrayColorRampEffect {
     pub fn RampDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RampDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -553,7 +553,7 @@ impl LampArrayColorRampEffect {
     pub fn StartDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -564,7 +564,7 @@ impl LampArrayColorRampEffect {
     pub fn CompletionBehavior(&self) -> windows_core::Result<LampArrayEffectCompletionBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompletionBehavior)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -577,14 +577,14 @@ impl LampArrayColorRampEffect {
         P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -619,7 +619,7 @@ impl LampArrayCustomEffect {
     pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -630,7 +630,7 @@ impl LampArrayCustomEffect {
     pub fn UpdateInterval(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -644,7 +644,7 @@ impl LampArrayCustomEffect {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -657,14 +657,14 @@ impl LampArrayCustomEffect {
         P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -708,7 +708,7 @@ impl LampArrayEffectPlaylist {
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -738,7 +738,7 @@ impl LampArrayEffectPlaylist {
     pub fn EffectStartMode(&self) -> windows_core::Result<LampArrayEffectStartMode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EffectStartMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -749,7 +749,7 @@ impl LampArrayEffectPlaylist {
     pub fn Occurrences(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occurrences)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -760,7 +760,7 @@ impl LampArrayEffectPlaylist {
     pub fn RepetitionMode(&self) -> windows_core::Result<LampArrayRepetitionMode> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RepetitionMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -793,7 +793,7 @@ impl LampArrayEffectPlaylist {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<ILampArrayEffect> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -801,7 +801,7 @@ impl LampArrayEffectPlaylist {
     pub fn Size(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -812,7 +812,7 @@ impl LampArrayEffectPlaylist {
     {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
@@ -820,7 +820,7 @@ impl LampArrayEffectPlaylist {
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<ILampArrayEffect>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
@@ -867,7 +867,7 @@ impl LampArraySolidEffect {
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -879,7 +879,7 @@ impl LampArraySolidEffect {
     pub fn Color(&self) -> windows_core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -891,7 +891,7 @@ impl LampArraySolidEffect {
     pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -902,7 +902,7 @@ impl LampArraySolidEffect {
     pub fn StartDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -913,7 +913,7 @@ impl LampArraySolidEffect {
     pub fn CompletionBehavior(&self) -> windows_core::Result<LampArrayEffectCompletionBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompletionBehavior)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -926,7 +926,7 @@ impl LampArraySolidEffect {
         P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -956,7 +956,7 @@ impl LampArrayUpdateRequestedEventArgs {
     pub fn SinceStarted(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SinceStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

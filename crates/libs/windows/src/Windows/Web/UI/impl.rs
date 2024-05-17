@@ -82,7 +82,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             IWebViewControl_Impl::SetSource(this, windows_core::from_raw_borrowed(&source)).into()
         }
-        unsafe extern "system" fn DocumentTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DocumentTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebViewControl_Impl::DocumentTitle(this) {
@@ -192,7 +192,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             IWebViewControl_Impl::Navigate(this, windows_core::from_raw_borrowed(&source)).into()
         }
-        unsafe extern "system" fn NavigateToString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NavigateToString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebViewControl_Impl::NavigateToString(this, core::mem::transmute(&text)).into()
@@ -207,7 +207,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             IWebViewControl_Impl::NavigateWithHttpRequestMessage(this, windows_core::from_raw_borrowed(&requestmessage)).into()
         }
-        unsafe extern "system" fn InvokeScriptAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: std::mem::MaybeUninit<windows_core::HSTRING>, arguments: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeScriptAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: core::mem::MaybeUninit<windows_core::HSTRING>, arguments: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebViewControl_Impl::InvokeScriptAsync(this, core::mem::transmute(&scriptname), windows_core::from_raw_borrowed(&arguments)) {
@@ -243,7 +243,7 @@ impl IWebViewControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BuildLocalStreamUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentidentifier: std::mem::MaybeUninit<windows_core::HSTRING>, relativepath: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BuildLocalStreamUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentidentifier: core::mem::MaybeUninit<windows_core::HSTRING>, relativepath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebViewControl_Impl::BuildLocalStreamUri(this, core::mem::transmute(&contentidentifier), core::mem::transmute(&relativepath)) {
@@ -605,7 +605,7 @@ impl windows_core::RuntimeName for IWebViewControl2 {
 }
 impl IWebViewControl2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl2_Impl, const OFFSET: isize>() -> IWebViewControl2_Vtbl {
-        unsafe extern "system" fn AddInitializeScript<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, script: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddInitializeScript<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, script: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebViewControl2_Impl::AddInitializeScript(this, core::mem::transmute(&script)).into()

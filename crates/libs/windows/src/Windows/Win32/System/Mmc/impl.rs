@@ -28,7 +28,7 @@ impl windows_core::RuntimeName for Column {}
 #[cfg(feature = "Win32_System_Com")]
 impl Column_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>() -> Column_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Column_Impl::Name(this) {
@@ -197,7 +197,7 @@ impl ContextMenu_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexorpath: std::mem::MaybeUninit<windows_core::VARIANT>, menuitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexorpath: core::mem::MaybeUninit<windows_core::VARIANT>, menuitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ContextMenu_Impl::get_Item(this, core::mem::transmute(&indexorpath)) {
@@ -259,7 +259,7 @@ impl Document_Vtbl {
             let this = (*this).get_impl();
             Document_Impl::Save(this).into()
         }
-        unsafe extern "system" fn SaveAs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveAs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Document_Impl::SaveAs(this, core::mem::transmute(&filename)).into()
@@ -302,7 +302,7 @@ impl Document_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Document_Impl::Name(this) {
@@ -313,12 +313,12 @@ impl Document_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Document_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
-        unsafe extern "system" fn Location<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Location<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Document_Impl::Location(this) {
@@ -439,7 +439,7 @@ impl windows_core::RuntimeName for Extension {}
 #[cfg(feature = "Win32_System_Com")]
 impl Extension_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>() -> Extension_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Extension_Impl::Name(this) {
@@ -450,7 +450,7 @@ impl Extension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Vendor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendor: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Vendor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendor: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Extension_Impl::Vendor(this) {
@@ -461,7 +461,7 @@ impl Extension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Extension_Impl::Version(this) {
@@ -483,7 +483,7 @@ impl Extension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SnapinCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapinclsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SnapinCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapinclsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Extension_Impl::SnapinCLSID(this) {
@@ -1648,7 +1648,7 @@ impl windows_core::RuntimeName for IExtendTaskPad {}
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendTaskPad_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendTaskPad_Impl, const OFFSET: isize>() -> IExtendTaskPad_Vtbl {
-        unsafe extern "system" fn TaskNotify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdo: *mut core::ffi::c_void, arg: *const std::mem::MaybeUninit<windows_core::VARIANT>, param2: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TaskNotify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdo: *mut core::ffi::c_void, arg: *const core::mem::MaybeUninit<windows_core::VARIANT>, param2: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IExtendTaskPad_Impl::TaskNotify(this, windows_core::from_raw_borrowed(&pdo), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param2)).into()
@@ -1971,7 +1971,7 @@ impl windows_core::RuntimeName for INodeProperties {}
 #[cfg(feature = "Win32_System_Com")]
 impl INodeProperties_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INodeProperties_Impl, const OFFSET: isize>() -> INodeProperties_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INodeProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, szpropertyname: std::mem::MaybeUninit<windows_core::BSTR>, pbstrproperty: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INodeProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, szpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, pbstrproperty: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INodeProperties_Impl::GetProperty(this, windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute(&szpropertyname)) {
@@ -2701,7 +2701,7 @@ impl windows_core::RuntimeName for MenuItem {}
 #[cfg(feature = "Win32_System_Com")]
 impl MenuItem_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>() -> MenuItem_Vtbl {
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match MenuItem_Impl::DisplayName(this) {
@@ -2712,7 +2712,7 @@ impl MenuItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LanguageIndependentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageindependentname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LanguageIndependentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageindependentname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match MenuItem_Impl::LanguageIndependentName(this) {
@@ -2723,7 +2723,7 @@ impl MenuItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match MenuItem_Impl::Path(this) {
@@ -2734,7 +2734,7 @@ impl MenuItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LanguageIndependentPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageindependentpath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LanguageIndependentPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageindependentpath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match MenuItem_Impl::LanguageIndependentPath(this) {
@@ -2788,7 +2788,7 @@ impl windows_core::RuntimeName for Node {}
 #[cfg(feature = "Win32_System_Com")]
 impl Node_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>() -> Node_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Node_Impl::Name(this) {
@@ -2799,7 +2799,7 @@ impl Node_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Node_Impl::get_Property(this, core::mem::transmute(&propertyname)) {
@@ -2810,7 +2810,7 @@ impl Node_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bookmark<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bookmark: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Bookmark<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bookmark: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Node_Impl::Bookmark(this) {
@@ -2832,7 +2832,7 @@ impl Node_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Nodetype<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Nodetype<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodetype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Node_Impl::Nodetype(this) {
@@ -2934,7 +2934,7 @@ impl Properties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Properties_Impl::Item(this, core::mem::transmute(&name)) {
@@ -2956,7 +2956,7 @@ impl Properties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Properties_Impl::Remove(this, core::mem::transmute(&name)).into()
@@ -2984,7 +2984,7 @@ impl windows_core::RuntimeName for Property {}
 #[cfg(feature = "Win32_System_Com")]
 impl Property_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>() -> Property_Vtbl {
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Property_Impl::Value(this) {
@@ -2995,12 +2995,12 @@ impl Property_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Property_Impl::SetValue(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Property_Impl::Name(this) {
@@ -3112,7 +3112,7 @@ impl windows_core::RuntimeName for SnapIn {}
 #[cfg(feature = "Win32_System_Com")]
 impl SnapIn_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>() -> SnapIn_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match SnapIn_Impl::Name(this) {
@@ -3123,7 +3123,7 @@ impl SnapIn_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Vendor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendor: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Vendor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendor: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match SnapIn_Impl::Vendor(this) {
@@ -3134,7 +3134,7 @@ impl SnapIn_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match SnapIn_Impl::Version(this) {
@@ -3156,7 +3156,7 @@ impl SnapIn_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SnapinCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapinclsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SnapinCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapinclsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match SnapIn_Impl::SnapinCLSID(this) {
@@ -3244,7 +3244,7 @@ impl SnapIns_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIns_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapinnameorclsid: std::mem::MaybeUninit<windows_core::BSTR>, parentsnapin: std::mem::MaybeUninit<windows_core::VARIANT>, properties: std::mem::MaybeUninit<windows_core::VARIANT>, snapin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIns_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapinnameorclsid: core::mem::MaybeUninit<windows_core::BSTR>, parentsnapin: core::mem::MaybeUninit<windows_core::VARIANT>, properties: core::mem::MaybeUninit<windows_core::VARIANT>, snapin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match SnapIns_Impl::Add(this, core::mem::transmute(&snapinnameorclsid), core::mem::transmute(&parentsnapin), core::mem::transmute(&properties)) {
@@ -3361,7 +3361,7 @@ impl View_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SnapinScopeObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>, scopenodeobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SnapinScopeObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>, scopenodeobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match View_Impl::SnapinScopeObject(this, core::mem::transmute(&scopenode)) {
@@ -3431,7 +3431,7 @@ impl View_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayScopeNodePropertySheet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayScopeNodePropertySheet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::DisplayScopeNodePropertySheet(this, core::mem::transmute(&scopenode)).into()
@@ -3441,7 +3441,7 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             View_Impl::DisplaySelectionPropertySheet(this).into()
         }
-        unsafe extern "system" fn CopyScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::CopyScopeNode(this, core::mem::transmute(&scopenode)).into()
@@ -3451,7 +3451,7 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             View_Impl::CopySelection(this).into()
         }
-        unsafe extern "system" fn DeleteScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::DeleteScopeNode(this, core::mem::transmute(&scopenode)).into()
@@ -3461,17 +3461,17 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             View_Impl::DeleteSelection(this).into()
         }
-        unsafe extern "system" fn RenameScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newname: std::mem::MaybeUninit<windows_core::BSTR>, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenameScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newname: core::mem::MaybeUninit<windows_core::BSTR>, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::RenameScopeNode(this, core::mem::transmute(&newname), core::mem::transmute(&scopenode)).into()
         }
-        unsafe extern "system" fn RenameSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenameSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::RenameSelectedItem(this, core::mem::transmute(&newname)).into()
         }
-        unsafe extern "system" fn get_ScopeNodeContextMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>, contextmenu: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ScopeNodeContextMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>, contextmenu: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match View_Impl::get_ScopeNodeContextMenu(this, core::mem::transmute(&scopenode)) {
@@ -3493,7 +3493,7 @@ impl View_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RefreshScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RefreshScopeNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::RefreshScopeNode(this, core::mem::transmute(&scopenode)).into()
@@ -3503,17 +3503,17 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             View_Impl::RefreshSelection(this).into()
         }
-        unsafe extern "system" fn ExecuteSelectionMenuItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, menuitempath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecuteSelectionMenuItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, menuitempath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::ExecuteSelectionMenuItem(this, core::mem::transmute(&menuitempath)).into()
         }
-        unsafe extern "system" fn ExecuteScopeNodeMenuItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, menuitempath: std::mem::MaybeUninit<windows_core::BSTR>, scopenode: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecuteScopeNodeMenuItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, menuitempath: core::mem::MaybeUninit<windows_core::BSTR>, scopenode: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::ExecuteScopeNodeMenuItem(this, core::mem::transmute(&menuitempath), core::mem::transmute(&scopenode)).into()
         }
-        unsafe extern "system" fn ExecuteShellCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: std::mem::MaybeUninit<windows_core::BSTR>, directory: std::mem::MaybeUninit<windows_core::BSTR>, parameters: std::mem::MaybeUninit<windows_core::BSTR>, windowstate: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecuteShellCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: core::mem::MaybeUninit<windows_core::BSTR>, directory: core::mem::MaybeUninit<windows_core::BSTR>, parameters: core::mem::MaybeUninit<windows_core::BSTR>, windowstate: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::ExecuteShellCommand(this, core::mem::transmute(&command), core::mem::transmute(&directory), core::mem::transmute(&parameters), core::mem::transmute(&windowstate)).into()
@@ -3560,12 +3560,12 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             View_Impl::Forward(this).into()
         }
-        unsafe extern "system" fn SetStatusBarText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statusbartext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStatusBarText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statusbartext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::SetStatusBarText(this, core::mem::transmute(&statusbartext)).into()
         }
-        unsafe extern "system" fn Memento<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memento: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Memento<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memento: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match View_Impl::Memento(this) {
@@ -3576,7 +3576,7 @@ impl View_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ViewMemento<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memento: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ViewMemento<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memento: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::ViewMemento(this, core::mem::transmute(&memento)).into()
@@ -3592,7 +3592,7 @@ impl View_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_CellContents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, column: i32, cellcontents: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CellContents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, column: i32, cellcontents: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match View_Impl::get_CellContents(this, windows_core::from_raw_borrowed(&node), core::mem::transmute_copy(&column)) {
@@ -3603,7 +3603,7 @@ impl View_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: std::mem::MaybeUninit<windows_core::BSTR>, exportoptions: _ExportListOptions) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: core::mem::MaybeUninit<windows_core::BSTR>, exportoptions: _ExportListOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             View_Impl::ExportList(this, core::mem::transmute(&file), core::mem::transmute_copy(&exportoptions)).into()
@@ -3888,7 +3888,7 @@ impl _Application_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Load<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: _Application_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Load<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: _Application_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             _Application_Impl::Load(this, core::mem::transmute(&filename)).into()

@@ -24,7 +24,7 @@ impl ISdo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdo_Impl::GetProperty(this, core::mem::transmute_copy(&id)) {
@@ -35,7 +35,7 @@ impl ISdo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISdo_Impl::PutProperty(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalue)).into()
@@ -108,7 +108,7 @@ impl ISdoCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISdoCollection_Impl::Add(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&ppitem)).into()
@@ -128,7 +128,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             ISdoCollection_Impl::Reload(this).into()
         }
-        unsafe extern "system" fn IsNameUnique<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsNameUnique<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoCollection_Impl::IsNameUnique(this, core::mem::transmute(&bstrname)) {
@@ -139,7 +139,7 @@ impl ISdoCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const std::mem::MaybeUninit<windows_core::VARIANT>, pitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const core::mem::MaybeUninit<windows_core::VARIANT>, pitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoCollection_Impl::Item(this, core::mem::transmute_copy(&name)) {
@@ -190,7 +190,7 @@ impl windows_core::RuntimeName for ISdoDictionaryOld {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoDictionaryOld_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>() -> ISdoDictionaryOld_Vtbl {
-        unsafe extern "system" fn EnumAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvalues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pvalues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::EnumAttributes(this, core::mem::transmute_copy(&id)) {
@@ -201,7 +201,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const std::mem::MaybeUninit<windows_core::VARIANT>, pinfovalues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributeInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const core::mem::MaybeUninit<windows_core::VARIANT>, pinfovalues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pinfoids)) {
@@ -212,7 +212,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumAttributeValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvaluesdesc: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAttributeValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pvaluesdesc: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::EnumAttributeValues(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalueids)) {
@@ -234,7 +234,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattributename: std::mem::MaybeUninit<windows_core::BSTR>, pid: *mut ATTRIBUTEID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributeID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattributename: core::mem::MaybeUninit<windows_core::BSTR>, pid: *mut ATTRIBUTEID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::GetAttributeID(this, core::mem::transmute(&bstrattributename)) {
@@ -275,7 +275,7 @@ impl windows_core::RuntimeName for ISdoMachine {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>() -> ISdoMachine_Vtbl {
-        unsafe extern "system" fn Attach<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcomputername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Attach<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcomputername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISdoMachine_Impl::Attach(this, core::mem::transmute(&bstrcomputername)).into()
@@ -291,7 +291,7 @@ impl ISdoMachine_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetServiceSDO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edatastore: IASDATASTORE, bstrservicename: std::mem::MaybeUninit<windows_core::BSTR>, ppservicesdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetServiceSDO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edatastore: IASDATASTORE, bstrservicename: core::mem::MaybeUninit<windows_core::BSTR>, ppservicesdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetServiceSDO(this, core::mem::transmute_copy(&edatastore), core::mem::transmute(&bstrservicename)) {
@@ -302,7 +302,7 @@ impl ISdoMachine_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUserSDO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edatastore: IASDATASTORE, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, ppusersdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUserSDO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edatastore: IASDATASTORE, bstrusername: core::mem::MaybeUninit<windows_core::BSTR>, ppusersdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetUserSDO(this, core::mem::transmute_copy(&edatastore), core::mem::transmute(&bstrusername)) {
@@ -346,7 +346,7 @@ impl ISdoMachine_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttachedComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcomputername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttachedComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcomputername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetAttachedComputer(this) {
@@ -398,7 +398,7 @@ impl windows_core::RuntimeName for ISdoMachine2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>() -> ISdoMachine2_Vtbl {
-        unsafe extern "system" fn GetTemplatesSDO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservicename: std::mem::MaybeUninit<windows_core::BSTR>, pptemplatessdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTemplatesSDO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservicename: core::mem::MaybeUninit<windows_core::BSTR>, pptemplatessdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISdoMachine2_Impl::GetTemplatesSDO(this, core::mem::transmute(&bstrservicename)) {
@@ -414,12 +414,12 @@ impl ISdoMachine2_Vtbl {
             let this = (*this).get_impl();
             ISdoMachine2_Impl::EnableTemplates(this).into()
         }
-        unsafe extern "system" fn SyncConfigAgainstTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservicename: std::mem::MaybeUninit<windows_core::BSTR>, ppconfigroot: *mut *mut core::ffi::c_void, pptemplatesroot: *mut *mut core::ffi::c_void, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SyncConfigAgainstTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservicename: core::mem::MaybeUninit<windows_core::BSTR>, ppconfigroot: *mut *mut core::ffi::c_void, pptemplatesroot: *mut *mut core::ffi::c_void, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISdoMachine2_Impl::SyncConfigAgainstTemplates(this, core::mem::transmute(&bstrservicename), core::mem::transmute_copy(&ppconfigroot), core::mem::transmute_copy(&pptemplatesroot), core::mem::transmute_copy(&bforcedsync)).into()
         }
-        unsafe extern "system" fn ImportRemoteTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocaltemplatesroot: *mut core::ffi::c_void, bstrremotemachinename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportRemoteTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocaltemplatesroot: *mut core::ffi::c_void, bstrremotemachinename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISdoMachine2_Impl::ImportRemoteTemplates(this, windows_core::from_raw_borrowed(&plocaltemplatesroot), core::mem::transmute(&bstrremotemachinename)).into()
@@ -503,12 +503,12 @@ impl windows_core::RuntimeName for ITemplateSdo {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITemplateSdo_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>() -> ITemplateSdo_Vtbl {
-        unsafe extern "system" fn AddToCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, pcollection: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddToCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pcollection: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ITemplateSdo_Impl::AddToCollection(this, core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pcollection), core::mem::transmute_copy(&ppitem)).into()
         }
-        unsafe extern "system" fn AddToSdo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, psdotarget: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddToSdo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, psdotarget: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ITemplateSdo_Impl::AddToSdo(this, core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&psdotarget), core::mem::transmute_copy(&ppitem)).into()

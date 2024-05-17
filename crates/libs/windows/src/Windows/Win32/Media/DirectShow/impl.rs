@@ -547,32 +547,32 @@ impl windows_core::RuntimeName for IAMChannelInfo {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAMChannelInfo_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>() -> IAMChannelInfo_Vtbl {
-        unsafe extern "system" fn ChannelName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrchannelname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChannelName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrchannelname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMChannelInfo_Impl::ChannelName(this, core::mem::transmute_copy(&pbstrchannelname)).into()
         }
-        unsafe extern "system" fn ChannelDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrchanneldescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChannelDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrchanneldescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMChannelInfo_Impl::ChannelDescription(this, core::mem::transmute_copy(&pbstrchanneldescription)).into()
         }
-        unsafe extern "system" fn ChannelURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrchannelurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChannelURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrchannelurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMChannelInfo_Impl::ChannelURL(this, core::mem::transmute_copy(&pbstrchannelurl)).into()
         }
-        unsafe extern "system" fn ContactAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontactaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContactAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontactaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMChannelInfo_Impl::ContactAddress(this, core::mem::transmute_copy(&pbstrcontactaddress)).into()
         }
-        unsafe extern "system" fn ContactPhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontactphone: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContactPhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontactphone: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMChannelInfo_Impl::ContactPhone(this, core::mem::transmute_copy(&pbstrcontactphone)).into()
         }
-        unsafe extern "system" fn ContactEmail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontactemail: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContactEmail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontactemail: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMChannelInfo_Impl::ContactEmail(this, core::mem::transmute_copy(&pbstrcontactemail)).into()
@@ -1451,7 +1451,7 @@ impl IAMExtendedErrorInfo_Vtbl {
             let this = (*this).get_impl();
             IAMExtendedErrorInfo_Impl::HasError(this, core::mem::transmute_copy(&phaserror)).into()
         }
-        unsafe extern "system" fn ErrorDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrerrordescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ErrorDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrerrordescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMExtendedErrorInfo_Impl::ErrorDescription(this, core::mem::transmute_copy(&pbstrerrordescription)).into()
@@ -1507,7 +1507,7 @@ impl IAMExtendedSeeking_Vtbl {
             let this = (*this).get_impl();
             IAMExtendedSeeking_Impl::GetMarkerTime(this, core::mem::transmute_copy(&markernum), core::mem::transmute_copy(&pmarkertime)).into()
         }
-        unsafe extern "system" fn GetMarkerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedSeeking_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, markernum: i32, pbstrmarkername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMarkerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedSeeking_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, markernum: i32, pbstrmarkername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMExtendedSeeking_Impl::GetMarkerName(this, core::mem::transmute_copy(&markernum), core::mem::transmute_copy(&pbstrmarkername)).into()
@@ -1786,67 +1786,67 @@ impl windows_core::RuntimeName for IAMMediaContent {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAMMediaContent_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>() -> IAMMediaContent_Vtbl {
-        unsafe extern "system" fn AuthorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthorname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AuthorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthorname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::AuthorName(this, core::mem::transmute_copy(&pbstrauthorname)).into()
         }
-        unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtitle: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtitle: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::Title(this, core::mem::transmute_copy(&pbstrtitle)).into()
         }
-        unsafe extern "system" fn Rating<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrating: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Rating<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrating: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::Rating(this, core::mem::transmute_copy(&pbstrrating)).into()
         }
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::Description(this, core::mem::transmute_copy(&pbstrdescription)).into()
         }
-        unsafe extern "system" fn Copyright<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcopyright: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Copyright<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcopyright: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::Copyright(this, core::mem::transmute_copy(&pbstrcopyright)).into()
         }
-        unsafe extern "system" fn BaseURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbaseurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BaseURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbaseurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::BaseURL(this, core::mem::transmute_copy(&pbstrbaseurl)).into()
         }
-        unsafe extern "system" fn LogoURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlogourl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogoURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlogourl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::LogoURL(this, core::mem::transmute_copy(&pbstrlogourl)).into()
         }
-        unsafe extern "system" fn LogoIconURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlogourl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogoIconURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlogourl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::LogoIconURL(this, core::mem::transmute_copy(&pbstrlogourl)).into()
         }
-        unsafe extern "system" fn WatermarkURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrwatermarkurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn WatermarkURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrwatermarkurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::WatermarkURL(this, core::mem::transmute_copy(&pbstrwatermarkurl)).into()
         }
-        unsafe extern "system" fn MoreInfoURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfourl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoreInfoURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfourl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::MoreInfoURL(this, core::mem::transmute_copy(&pbstrmoreinfourl)).into()
         }
-        unsafe extern "system" fn MoreInfoBannerImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfobannerimage: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoreInfoBannerImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfobannerimage: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::MoreInfoBannerImage(this, core::mem::transmute_copy(&pbstrmoreinfobannerimage)).into()
         }
-        unsafe extern "system" fn MoreInfoBannerURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfobannerurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoreInfoBannerURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfobannerurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::MoreInfoBannerURL(this, core::mem::transmute_copy(&pbstrmoreinfobannerurl)).into()
         }
-        unsafe extern "system" fn MoreInfoText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfotext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoreInfoText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmoreinfotext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent_Impl::MoreInfoText(this, core::mem::transmute_copy(&pbstrmoreinfotext)).into()
@@ -1883,12 +1883,12 @@ impl windows_core::RuntimeName for IAMMediaContent2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAMMediaContent2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>() -> IAMMediaContent2_Vtbl {
-        unsafe extern "system" fn get_MediaParameter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrynum: i32, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, pbstrvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MediaParameter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrynum: i32, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pbstrvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent2_Impl::get_MediaParameter(this, core::mem::transmute_copy(&entrynum), core::mem::transmute(&bstrname), core::mem::transmute_copy(&pbstrvalue)).into()
         }
-        unsafe extern "system" fn get_MediaParameterName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MediaParameterName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMMediaContent2_Impl::get_MediaParameterName(this, core::mem::transmute_copy(&entrynum), core::mem::transmute_copy(&index), core::mem::transmute_copy(&pbstrname)).into()
@@ -2333,12 +2333,12 @@ impl IAMNetShowConfig_Vtbl {
             let this = (*this).get_impl();
             IAMNetShowConfig_Impl::SetEnableAutoProxy(this, core::mem::transmute_copy(&enableautoproxy)).into()
         }
-        unsafe extern "system" fn HTTPProxyHost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrhttpproxyhost: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn HTTPProxyHost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrhttpproxyhost: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMNetShowConfig_Impl::HTTPProxyHost(this, core::mem::transmute_copy(&pbstrhttpproxyhost)).into()
         }
-        unsafe extern "system" fn SetHTTPProxyHost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrhttpproxyhost: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHTTPProxyHost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrhttpproxyhost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMNetShowConfig_Impl::SetHTTPProxyHost(this, core::mem::transmute(&bstrhttpproxyhost)).into()
@@ -2450,7 +2450,7 @@ impl IAMNetShowExProps_Vtbl {
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::Bandwidth(this, core::mem::transmute_copy(&pbandwidth)).into()
         }
-        unsafe extern "system" fn ErrorCorrection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrerrorcorrection: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ErrorCorrection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrerrorcorrection: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::ErrorCorrection(this, core::mem::transmute_copy(&pbstrerrorcorrection)).into()
@@ -2465,12 +2465,12 @@ impl IAMNetShowExProps_Vtbl {
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::GetCodecInstalled(this, core::mem::transmute_copy(&codecnum), core::mem::transmute_copy(&pcodecinstalled)).into()
         }
-        unsafe extern "system" fn GetCodecDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codecnum: i32, pbstrcodecdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCodecDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codecnum: i32, pbstrcodecdescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::GetCodecDescription(this, core::mem::transmute_copy(&codecnum), core::mem::transmute_copy(&pbstrcodecdescription)).into()
         }
-        unsafe extern "system" fn GetCodecURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codecnum: i32, pbstrcodecurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCodecURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codecnum: i32, pbstrcodecurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::GetCodecURL(this, core::mem::transmute_copy(&codecnum), core::mem::transmute_copy(&pbstrcodecurl)).into()
@@ -2480,7 +2480,7 @@ impl IAMNetShowExProps_Vtbl {
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::CreationDate(this, core::mem::transmute_copy(&pcreationdate)).into()
         }
-        unsafe extern "system" fn SourceLink<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsourcelink: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SourceLink<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsourcelink: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMNetShowExProps_Impl::SourceLink(this, core::mem::transmute_copy(&pbstrsourcelink)).into()
@@ -2831,7 +2831,7 @@ impl IAMPlayListItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourceindex: u32, pbstrurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourceindex: u32, pbstrurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAMPlayListItem_Impl::GetSourceURL(this, core::mem::transmute_copy(&dwsourceindex)) {
@@ -2886,7 +2886,7 @@ impl IAMPlayListItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceStartMarkerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourceindex: u32, pbstrstartmarker: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceStartMarkerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourceindex: u32, pbstrstartmarker: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAMPlayListItem_Impl::GetSourceStartMarkerName(this, core::mem::transmute_copy(&dwsourceindex)) {
@@ -2897,7 +2897,7 @@ impl IAMPlayListItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceEndMarkerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourceindex: u32, pbstrendmarker: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceEndMarkerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourceindex: u32, pbstrendmarker: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAMPlayListItem_Impl::GetSourceEndMarkerName(this, core::mem::transmute_copy(&dwsourceindex)) {
@@ -2908,7 +2908,7 @@ impl IAMPlayListItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLinkURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLinkURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMPlayListItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAMPlayListItem_Impl::GetLinkURL(this) {
@@ -3160,17 +3160,17 @@ impl IAMStats_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, szname: *mut std::mem::MaybeUninit<windows_core::BSTR>, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, szname: *mut core::mem::MaybeUninit<windows_core::BSTR>, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMStats_Impl::GetValueByIndex(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax)).into()
         }
-        unsafe extern "system" fn GetValueByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: std::mem::MaybeUninit<windows_core::BSTR>, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: core::mem::MaybeUninit<windows_core::BSTR>, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IAMStats_Impl::GetValueByName(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax)).into()
         }
-        unsafe extern "system" fn GetIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: std::mem::MaybeUninit<windows_core::BSTR>, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: core::mem::MaybeUninit<windows_core::BSTR>, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAMStats_Impl::GetIndex(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lcreate)) {
@@ -4848,12 +4848,12 @@ pub trait IBDA_ConditionalAccess_Impl: Sized {
 impl windows_core::RuntimeName for IBDA_ConditionalAccess {}
 impl IBDA_ConditionalAccess_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>() -> IBDA_ConditionalAccess_Vtbl {
-        unsafe extern "system" fn get_SmartCardStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut std::mem::MaybeUninit<windows_core::BSTR>, pfooblocked: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SmartCardStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut core::mem::MaybeUninit<windows_core::BSTR>, pfooblocked: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_ConditionalAccess_Impl::get_SmartCardStatus(this, core::mem::transmute_copy(&pcardstatus), core::mem::transmute_copy(&pcardassociation), core::mem::transmute_copy(&pbstrcarderror), core::mem::transmute_copy(&pfooblocked)).into()
         }
-        unsafe extern "system" fn get_SmartCardInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcardname: *mut std::mem::MaybeUninit<windows_core::BSTR>, pbstrcardmanufacturer: *mut std::mem::MaybeUninit<windows_core::BSTR>, pfdaylightsavings: *mut super::super::Foundation::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut std::mem::MaybeUninit<windows_core::BSTR>, pealocationcode: *mut EALocationCodeType) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SmartCardInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcardname: *mut core::mem::MaybeUninit<windows_core::BSTR>, pbstrcardmanufacturer: *mut core::mem::MaybeUninit<windows_core::BSTR>, pfdaylightsavings: *mut super::super::Foundation::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut core::mem::MaybeUninit<windows_core::BSTR>, pealocationcode: *mut EALocationCodeType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_ConditionalAccess_Impl::get_SmartCardInfo(this, core::mem::transmute_copy(&pbstrcardname), core::mem::transmute_copy(&pbstrcardmanufacturer), core::mem::transmute_copy(&pfdaylightsavings), core::mem::transmute_copy(&pbyratingregion), core::mem::transmute_copy(&pltimezoneoffsetminutes), core::mem::transmute_copy(&pbstrlanguage), core::mem::transmute_copy(&pealocationcode)).into()
@@ -4894,7 +4894,7 @@ impl IBDA_ConditionalAccess_Vtbl {
             let this = (*this).get_impl();
             IBDA_ConditionalAccess_Impl::RemoveProgram(this, core::mem::transmute_copy(&usprogramnumber)).into()
         }
-        unsafe extern "system" fn GetModuleUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bydialognumber: u8, pbstrurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetModuleUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bydialognumber: u8, pbstrurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_ConditionalAccess_Impl::GetModuleUI(this, core::mem::transmute_copy(&bydialognumber)) {
@@ -4938,7 +4938,7 @@ pub trait IBDA_ConditionalAccessEx_Impl: Sized {
 impl windows_core::RuntimeName for IBDA_ConditionalAccessEx {}
 impl IBDA_ConditionalAccessEx_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>() -> IBDA_ConditionalAccessEx_Vtbl {
-        unsafe extern "system" fn CheckEntitlementToken<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: std::mem::MaybeUninit<windows_core::BSTR>, requesttype: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8, puldescramblestatus: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckEntitlementToken<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: core::mem::MaybeUninit<windows_core::BSTR>, requesttype: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8, puldescramblestatus: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_ConditionalAccessEx_Impl::CheckEntitlementToken(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&ulcbentitlementtokenlen), core::mem::transmute_copy(&pbentitlementtoken)) {
@@ -4954,12 +4954,12 @@ impl IBDA_ConditionalAccessEx_Vtbl {
             let this = (*this).get_impl();
             IBDA_ConditionalAccessEx_Impl::SetCaptureToken(this, core::mem::transmute_copy(&ulcbcapturetokenlen), core::mem::transmute_copy(&pbcapturetoken)).into()
         }
-        unsafe extern "system" fn OpenBroadcastMmi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: std::mem::MaybeUninit<windows_core::BSTR>, eventid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenBroadcastMmi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: core::mem::MaybeUninit<windows_core::BSTR>, eventid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_ConditionalAccessEx_Impl::OpenBroadcastMmi(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&eventid)).into()
         }
-        unsafe extern "system" fn CloseMmiDialog<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: std::mem::MaybeUninit<windows_core::BSTR>, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CloseMmiDialog<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: core::mem::MaybeUninit<windows_core::BSTR>, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_ConditionalAccessEx_Impl::CloseMmiDialog(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&uldialognumber), core::mem::transmute_copy(&reasoncode)) {
@@ -5002,12 +5002,12 @@ pub trait IBDA_DRIDRMService_Impl: Sized {
 impl windows_core::RuntimeName for IBDA_DRIDRMService {}
 impl IBDA_DRIDRMService_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRIDRMService_Impl, const OFFSET: isize>() -> IBDA_DRIDRMService_Vtbl {
-        unsafe extern "system" fn SetDRM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRIDRMService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnewdrm: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDRM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRIDRMService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnewdrm: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_DRIDRMService_Impl::SetDRM(this, core::mem::transmute(&bstrnewdrm)).into()
         }
-        unsafe extern "system" fn GetDRMStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRIDRMService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdrmuuidlist: *mut std::mem::MaybeUninit<windows_core::BSTR>, drmuuid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDRMStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRIDRMService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdrmuuidlist: *mut core::mem::MaybeUninit<windows_core::BSTR>, drmuuid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_DRIDRMService_Impl::GetDRMStatus(this, core::mem::transmute_copy(&pbstrdrmuuidlist), core::mem::transmute_copy(&drmuuid)).into()
@@ -5129,7 +5129,7 @@ impl IBDA_DRMService_Vtbl {
             let this = (*this).get_impl();
             IBDA_DRMService_Impl::SetDRM(this, core::mem::transmute_copy(&puuidnewdrm)).into()
         }
-        unsafe extern "system" fn GetDRMStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRMService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdrmuuidlist: *mut std::mem::MaybeUninit<windows_core::BSTR>, drmuuid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDRMStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DRMService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdrmuuidlist: *mut core::mem::MaybeUninit<windows_core::BSTR>, drmuuid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_DRMService_Impl::GetDRMStatus(this, core::mem::transmute_copy(&pbstrdrmuuidlist), core::mem::transmute_copy(&drmuuid)).into()
@@ -5644,17 +5644,17 @@ pub trait IBDA_FDC_Impl: Sized {
 impl windows_core::RuntimeName for IBDA_FDC {}
 impl IBDA_FDC_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>() -> IBDA_FDC_Vtbl {
-        unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut std::mem::MaybeUninit<windows_core::BSTR>, currenttidlist: *mut std::mem::MaybeUninit<windows_core::BSTR>, overflow: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut core::mem::MaybeUninit<windows_core::BSTR>, currenttidlist: *mut core::mem::MaybeUninit<windows_core::BSTR>, overflow: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_FDC_Impl::GetStatus(this, core::mem::transmute_copy(&currentbitrate), core::mem::transmute_copy(&carrierlock), core::mem::transmute_copy(&currentfrequency), core::mem::transmute_copy(&currentspectruminversion), core::mem::transmute_copy(&currentpidlist), core::mem::transmute_copy(&currenttidlist), core::mem::transmute_copy(&overflow)).into()
         }
-        unsafe extern "system" fn RequestTables<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tableids: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestTables<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tableids: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_FDC_Impl::RequestTables(this, core::mem::transmute(&tableids)).into()
         }
-        unsafe extern "system" fn AddPid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstoadd: std::mem::MaybeUninit<windows_core::BSTR>, remainingfilterentries: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstoadd: core::mem::MaybeUninit<windows_core::BSTR>, remainingfilterentries: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_FDC_Impl::AddPid(this, core::mem::transmute(&pidstoadd)) {
@@ -5665,12 +5665,12 @@ impl IBDA_FDC_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstoremove: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstoremove: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_FDC_Impl::RemovePid(this, core::mem::transmute(&pidstoremove)).into()
         }
-        unsafe extern "system" fn AddTid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidstoadd: std::mem::MaybeUninit<windows_core::BSTR>, currenttidlist: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddTid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidstoadd: core::mem::MaybeUninit<windows_core::BSTR>, currenttidlist: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_FDC_Impl::AddTid(this, core::mem::transmute(&tidstoadd)) {
@@ -5681,7 +5681,7 @@ impl IBDA_FDC_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidstoremove: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveTid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidstoremove: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_FDC_Impl::RemoveTid(this, core::mem::transmute(&tidstoremove)).into()
@@ -5835,7 +5835,7 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
             let this = (*this).get_impl();
             IBDA_GuideDataDeliveryService_Impl::RequestGuideDataUpdate(this).into()
         }
-        unsafe extern "system" fn GetTuneXmlFromServiceIdx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ul64serviceidx: u64, pbstrtunexml: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTuneXmlFromServiceIdx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ul64serviceidx: u64, pbstrtunexml: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_GuideDataDeliveryService_Impl::GetTuneXmlFromServiceIdx(this, core::mem::transmute_copy(&ul64serviceidx)) {
@@ -5851,7 +5851,7 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
             let this = (*this).get_impl();
             IBDA_GuideDataDeliveryService_Impl::GetServices(this, core::mem::transmute_copy(&pulcbbufferlen), core::mem::transmute_copy(&pbbuffer)).into()
         }
-        unsafe extern "system" fn GetServiceInfoFromTuneXml<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtunexml: std::mem::MaybeUninit<windows_core::BSTR>, pbstrservicedescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetServiceInfoFromTuneXml<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtunexml: core::mem::MaybeUninit<windows_core::BSTR>, pbstrservicedescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_GuideDataDeliveryService_Impl::GetServiceInfoFromTuneXml(this, core::mem::transmute(&bstrtunexml)) {
@@ -5916,7 +5916,7 @@ impl IBDA_IPSinkInfo_Vtbl {
             let this = (*this).get_impl();
             IBDA_IPSinkInfo_Impl::get_MulticastList(this, core::mem::transmute_copy(&pulcbaddresses), core::mem::transmute_copy(&ppbaddresslist)).into()
         }
-        unsafe extern "system" fn AdapterIPAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbuffer: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdapterIPAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbuffer: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_IPSinkInfo_Impl::AdapterIPAddress(this) {
@@ -5927,7 +5927,7 @@ impl IBDA_IPSinkInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdapterDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbuffer: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdapterDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbuffer: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_IPSinkInfo_Impl::AdapterDescription(this) {
@@ -6164,7 +6164,7 @@ pub trait IBDA_NameValueService_Impl: Sized {
 impl windows_core::RuntimeName for IBDA_NameValueService {}
 impl IBDA_NameValueService_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>() -> IBDA_NameValueService_Vtbl {
-        unsafe extern "system" fn GetValueNameByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulindex: u32, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueNameByIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulindex: u32, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_NameValueService_Impl::GetValueNameByIndex(this, core::mem::transmute_copy(&ulindex)) {
@@ -6175,7 +6175,7 @@ impl IBDA_NameValueService_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrlanguage: std::mem::MaybeUninit<windows_core::BSTR>, pbstrvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrlanguage: core::mem::MaybeUninit<windows_core::BSTR>, pbstrvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBDA_NameValueService_Impl::GetValue(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrlanguage)) {
@@ -6186,7 +6186,7 @@ impl IBDA_NameValueService_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: std::mem::MaybeUninit<windows_core::BSTR>, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrvalue: std::mem::MaybeUninit<windows_core::BSTR>, ulreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: core::mem::MaybeUninit<windows_core::BSTR>, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrvalue: core::mem::MaybeUninit<windows_core::BSTR>, ulreserved: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_NameValueService_Impl::SetValue(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute(&bstrname), core::mem::transmute(&bstrvalue), core::mem::transmute_copy(&ulreserved)).into()
@@ -6745,7 +6745,7 @@ pub trait IBDA_WMDRMTuner_Impl: Sized {
 impl windows_core::RuntimeName for IBDA_WMDRMTuner {}
 impl IBDA_WMDRMTuner_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_WMDRMTuner_Impl, const OFFSET: isize>() -> IBDA_WMDRMTuner_Vtbl {
-        unsafe extern "system" fn PurchaseEntitlement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_WMDRMTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: std::mem::MaybeUninit<windows_core::BSTR>, ulpurchasetokenlen: u32, pbpurchasetoken: *const u8, puldescramblestatus: *mut u32, pulcapturetokenlen: *mut u32, pbcapturetoken: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn PurchaseEntitlement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_WMDRMTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: core::mem::MaybeUninit<windows_core::BSTR>, ulpurchasetokenlen: u32, pbpurchasetoken: *const u8, puldescramblestatus: *mut u32, pulcapturetokenlen: *mut u32, pbcapturetoken: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBDA_WMDRMTuner_Impl::PurchaseEntitlement(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&ulpurchasetokenlen), core::mem::transmute_copy(&pbpurchasetoken), core::mem::transmute_copy(&puldescramblestatus), core::mem::transmute_copy(&pulcapturetokenlen), core::mem::transmute_copy(&pbcapturetoken)).into()
@@ -8400,12 +8400,12 @@ pub trait IDShowPlugin_Impl: Sized {
 impl windows_core::RuntimeName for IDShowPlugin {}
 impl IDShowPlugin_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDShowPlugin_Impl, const OFFSET: isize>() -> IDShowPlugin_Vtbl {
-        unsafe extern "system" fn URL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDShowPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn URL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDShowPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDShowPlugin_Impl::URL(this, core::mem::transmute_copy(&purl)).into()
         }
-        unsafe extern "system" fn UserAgent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDShowPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puseragent: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserAgent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDShowPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puseragent: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDShowPlugin_Impl::UserAgent(this, core::mem::transmute_copy(&puseragent)).into()
@@ -10461,7 +10461,7 @@ impl IESEvent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IESEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStringData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IESEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IESEvent_Impl::GetStringData(this) {
@@ -10524,7 +10524,7 @@ impl IEncoderAPI_Vtbl {
             let this = (*this).get_impl();
             IEncoderAPI_Impl::IsAvailable(this, core::mem::transmute_copy(&api)).into()
         }
-        unsafe extern "system" fn GetParameterRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, valuemin: *mut std::mem::MaybeUninit<windows_core::VARIANT>, valuemax: *mut std::mem::MaybeUninit<windows_core::VARIANT>, steppingdelta: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetParameterRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, valuemin: *mut core::mem::MaybeUninit<windows_core::VARIANT>, valuemax: *mut core::mem::MaybeUninit<windows_core::VARIANT>, steppingdelta: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IEncoderAPI_Impl::GetParameterRange(this, core::mem::transmute_copy(&api), core::mem::transmute_copy(&valuemin), core::mem::transmute_copy(&valuemax), core::mem::transmute_copy(&steppingdelta)).into()
@@ -10534,7 +10534,7 @@ impl IEncoderAPI_Vtbl {
             let this = (*this).get_impl();
             IEncoderAPI_Impl::GetParameterValues(this, core::mem::transmute_copy(&api), core::mem::transmute_copy(&values), core::mem::transmute_copy(&valuescount)).into()
         }
-        unsafe extern "system" fn GetDefaultValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDefaultValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IEncoderAPI_Impl::GetDefaultValue(this, core::mem::transmute_copy(&api)) {
@@ -10545,7 +10545,7 @@ impl IEncoderAPI_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IEncoderAPI_Impl::GetValue(this, core::mem::transmute_copy(&api)) {
@@ -10556,7 +10556,7 @@ impl IEncoderAPI_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, value: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID, value: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IEncoderAPI_Impl::SetValue(this, core::mem::transmute_copy(&api), core::mem::transmute_copy(&value)).into()
@@ -11167,7 +11167,7 @@ impl windows_core::RuntimeName for IFilterInfo {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFilterInfo_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>() -> IFilterInfo_Vtbl {
-        unsafe extern "system" fn FindPin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: std::mem::MaybeUninit<windows_core::BSTR>, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindPin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: core::mem::MaybeUninit<windows_core::BSTR>, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFilterInfo_Impl::FindPin(this, core::mem::transmute(&strpinid)) {
@@ -11178,7 +11178,7 @@ impl IFilterInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFilterInfo_Impl::Name(this) {
@@ -11189,7 +11189,7 @@ impl IFilterInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VendorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvendorinfo: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn VendorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvendorinfo: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFilterInfo_Impl::VendorInfo(this) {
@@ -11233,7 +11233,7 @@ impl IFilterInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Filename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrfilename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Filename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrfilename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFilterInfo_Impl::Filename(this) {
@@ -11244,7 +11244,7 @@ impl IFilterInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFilterInfo_Impl::SetFilename(this, core::mem::transmute(&strfilename)).into()
@@ -11611,12 +11611,12 @@ impl IFullScreenVideo_Vtbl {
             let this = (*this).get_impl();
             IFullScreenVideo_Impl::IsHideOnDeactivate(this).into()
         }
-        unsafe extern "system" fn SetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFullScreenVideo_Impl::SetCaption(this, core::mem::transmute(&strcaption)).into()
         }
-        unsafe extern "system" fn GetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcaption: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcaption: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFullScreenVideo_Impl::GetCaption(this) {
@@ -12104,12 +12104,12 @@ impl IMediaControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenderFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMediaControl_Impl::RenderFile(this, core::mem::transmute(&strfilename)).into()
         }
-        unsafe extern "system" fn AddSourceFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: std::mem::MaybeUninit<windows_core::BSTR>, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddSourceFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: core::mem::MaybeUninit<windows_core::BSTR>, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMediaControl_Impl::AddSourceFilter(this, core::mem::transmute(&strfilename)) {
@@ -12641,7 +12641,7 @@ impl windows_core::RuntimeName for IMediaPropertyBag {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IMediaPropertyBag_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPropertyBag_Impl, const OFFSET: isize>() -> IMediaPropertyBag_Vtbl {
-        unsafe extern "system" fn EnumProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvarpropertyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMediaPropertyBag_Impl::EnumProperty(this, core::mem::transmute_copy(&iproperty), core::mem::transmute_copy(&pvarpropertyname), core::mem::transmute_copy(&pvarpropertyvalue)).into()
@@ -13208,7 +13208,7 @@ impl windows_core::RuntimeName for IMediaTypeInfo {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMediaTypeInfo_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>() -> IMediaTypeInfo_Vtbl {
-        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMediaTypeInfo_Impl::Type(this) {
@@ -13219,7 +13219,7 @@ impl IMediaTypeInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subtype<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Subtype<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMediaTypeInfo_Impl::Subtype(this) {
@@ -14471,7 +14471,7 @@ impl IPinInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPinInfo_Impl::Name(this) {
@@ -14493,7 +14493,7 @@ impl IPinInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PinID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PinID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IPinInfo_Impl::PinID(this) {
@@ -14689,12 +14689,12 @@ pub trait IQueueCommand_Impl: Sized {
 impl windows_core::RuntimeName for IQueueCommand {}
 impl IQueueCommand_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>() -> IQueueCommand_Vtbl {
-        unsafe extern "system" fn InvokeAtStreamTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>, puargerr: *mut i16) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeAtStreamTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>, puargerr: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IQueueCommand_Impl::InvokeAtStreamTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr)).into()
         }
-        unsafe extern "system" fn InvokeAtPresentationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>, puargerr: *mut i16) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeAtPresentationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>, puargerr: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IQueueCommand_Impl::InvokeAtPresentationTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr)).into()
@@ -14719,7 +14719,7 @@ impl windows_core::RuntimeName for IRegFilterInfo {}
 #[cfg(feature = "Win32_System_Com")]
 impl IRegFilterInfo_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRegFilterInfo_Impl, const OFFSET: isize>() -> IRegFilterInfo_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IRegFilterInfo_Impl::Name(this) {
@@ -17448,12 +17448,12 @@ impl windows_core::RuntimeName for IVideoWindow {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVideoWindow_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>() -> IVideoWindow_Vtbl {
-        unsafe extern "system" fn SetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IVideoWindow_Impl::SetCaption(this, core::mem::transmute(&strcaption)).into()
         }
-        unsafe extern "system" fn Caption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Caption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IVideoWindow_Impl::Caption(this) {
