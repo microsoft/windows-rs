@@ -14,13 +14,13 @@ extern "C" {
         auto library = LoadLibraryExW(L"sample_component_json_validator.dll", 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
         assert(library != 0);
 
-        auto create = reinterpret_cast<CreateJsonValidator>(GetProcAddress(library, "CreateJsonValidator"));
+        auto create = (CreateJsonValidator)GetProcAddress(library, "CreateJsonValidator");
         assert(create);
 
-        auto validate = reinterpret_cast<ValidateJson>(GetProcAddress(library, "ValidateJson"));
+        auto validate = (ValidateJson)GetProcAddress(library, "ValidateJson");
         assert(validate);
 
-        auto close = reinterpret_cast<CloseJsonValidator>(GetProcAddress(library, "CloseJsonValidator"));
+        auto close = (CloseJsonValidator)GetProcAddress(library, "CloseJsonValidator");
         assert(close);
 
         std::string_view schema = "{\"maxLength\": 5}";
