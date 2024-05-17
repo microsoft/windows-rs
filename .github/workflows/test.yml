@@ -258,10 +258,10 @@ jobs:
         run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_targets
         run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_unions
-        run:  cargo test -p test_unions --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_unions
+        run:  cargo test -p test_unions --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_variant
         run:  cargo test -p test_variant --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_wdk
