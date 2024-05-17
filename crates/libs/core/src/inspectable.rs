@@ -1,7 +1,7 @@
 use super::*;
+use core::ffi::c_void;
 use core::mem::{transmute, transmute_copy};
 use core::ptr::null_mut;
-use core::ffi::c_void;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// [`IInspectable`] represents the

@@ -31,7 +31,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<T> #where_clause {
-                    let mut result__ = std::ptr::null_mut();
+                    let mut result__ = core::ptr::null_mut();
                     (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).and_then(||windows_core::Type::from_abi(result__))
                 }
             }

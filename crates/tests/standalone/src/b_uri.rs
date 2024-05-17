@@ -10,7 +10,7 @@
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterable<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -83,7 +83,7 @@ where
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterator<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -200,7 +200,7 @@ windows_core::imp::define_interface!(
     IStringable_Vtbl,
     0x96369f54_8eb6_48f0_abce_c1b211e627c3
 );
-impl std::ops::Deref for IStringable {
+impl core::ops::Deref for IStringable {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -387,7 +387,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
 pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVectorView<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IVectorView<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -558,7 +558,7 @@ windows_core::imp::define_interface!(
     IWwwFormUrlDecoderEntry_Vtbl,
     0x125e7431_f678_4e8e_b670_20a9b06c512d
 );
-impl std::ops::Deref for IWwwFormUrlDecoderEntry {
+impl core::ops::Deref for IWwwFormUrlDecoderEntry {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

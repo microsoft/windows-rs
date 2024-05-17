@@ -1,9 +1,10 @@
 use super::*;
+use core::ptr::null_mut;
 
 /// An iterator of registry values.
 pub struct ValueIterator<'a> {
     key: &'a Key,
-    range: std::ops::Range<usize>,
+    range: core::ops::Range<usize>,
     name: Vec<u16>,
     value: Vec<u8>,
 }
@@ -17,17 +18,17 @@ impl<'a> ValueIterator<'a> {
         let result = unsafe {
             RegQueryInfoKeyW(
                 key.0,
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
                 &mut count,
                 &mut name_max_len,
                 &mut value_max_len,
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
+                null_mut(),
+                null_mut(),
             )
         };
 
@@ -55,7 +56,7 @@ impl<'a> Iterator for ValueIterator<'a> {
                     index as u32,
                     self.name.as_mut_ptr(),
                     &mut name_len,
-                    std::ptr::null(),
+                    core::ptr::null(),
                     &mut ty,
                     self.value.as_mut_ptr(),
                     &mut value_len,
@@ -79,7 +80,8 @@ impl<'a> Iterator for ValueIterator<'a> {
                             Value::String(String::new())
                         } else {
                             let value = unsafe {
-                                std::slice::from_raw_parts(
+                                // TODO: Vec<u8> does not guarantee alignment for u16
+                                core::slice::from_raw_parts(
                                     self.value.as_ptr() as *const u16,
                                     value_len as usize / 2,
                                 )
@@ -93,7 +95,8 @@ impl<'a> Iterator for ValueIterator<'a> {
                             Value::MultiString(vec![])
                         } else {
                             let value = unsafe {
-                                std::slice::from_raw_parts(
+                                // TODO: Vec<u8> does not guarantee alignment for u16
+                                core::slice::from_raw_parts(
                                     self.value.as_ptr() as *const u16,
                                     value_len as usize / 2,
                                 )

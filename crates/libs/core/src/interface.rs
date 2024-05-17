@@ -1,7 +1,7 @@
 use super::*;
-use core::mem::{transmute_copy, forget};
 use core::ffi::c_void;
 use core::marker::PhantomData;
+use core::mem::{forget, transmute_copy};
 use core::ptr::NonNull;
 
 /// Provides low-level access to an interface vtable.

@@ -57,7 +57,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> windows_core::Result<T> #where_clause {
                     #link
-                    let mut result__ = std::ptr::null_mut();
+                    let mut result__ = core::ptr::null_mut();
                     #name(#args).and_then(||windows_core::Type::from_abi(result__))
                 }
             }

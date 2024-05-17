@@ -1,9 +1,10 @@
 use super::*;
+use core::ptr::{null, null_mut};
 
 /// An iterator of registry key names.
 pub struct KeyIterator<'a> {
     key: &'a Key,
-    range: std::ops::Range<usize>,
+    range: core::ops::Range<usize>,
     name: Vec<u16>,
 }
 
@@ -15,17 +16,17 @@ impl<'a> KeyIterator<'a> {
         let result = unsafe {
             RegQueryInfoKeyW(
                 key.0,
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
                 &mut count,
                 &mut max_len,
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
-                std::ptr::null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
             )
         };
 
@@ -50,10 +51,10 @@ impl<'a> Iterator for KeyIterator<'a> {
                     index as u32,
                     self.name.as_mut_ptr(),
                     &mut len,
-                    std::ptr::null(),
-                    std::ptr::null_mut(),
-                    std::ptr::null_mut(),
-                    std::ptr::null_mut(),
+                    null(),
+                    null_mut(),
+                    null_mut(),
+                    null_mut(),
                 )
             };
 

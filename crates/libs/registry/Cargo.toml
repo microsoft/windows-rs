@@ -11,6 +11,10 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 exclude = ["tests"]
 
+[features]
+default = []
+std = []
+
 [lints]
 workspace = true
 

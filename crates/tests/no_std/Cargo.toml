@@ -12,6 +12,10 @@ path = "../../libs/windows"
 default-features = false
 features = ["implement"]
 
+[dependencies.windows-registry]
+path = "../../libs/registry"
+default-features = false
+
 [dependencies.windows-result]
 path = "../../libs/result"
 default-features = false

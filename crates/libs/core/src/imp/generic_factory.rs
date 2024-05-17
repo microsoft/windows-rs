@@ -1,6 +1,6 @@
 use crate::Interface;
 use core::ffi::c_void;
-use core::mem::{zeroed, transmute_copy};
+use core::mem::{transmute_copy, zeroed};
 
 // A streamlined version of the IActivationFactory interface used by WinRT class factories used internally by the windows crate
 // to simplify code generation. Components should implement the `IActivationFactory` interface published by the windows crate.

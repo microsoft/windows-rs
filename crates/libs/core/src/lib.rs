@@ -11,7 +11,6 @@ extern crate self as windows_core;
 
 #[macro_use]
 extern crate alloc;
-// use alloc::vec;
 
 use alloc::{boxed::Box, string::String, vec::Vec};
 
