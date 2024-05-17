@@ -1,6 +1,6 @@
 fn main() {
     println!("cargo:rerun-if-changed=src/client.cpp");
-    println!("cargo:rustc-link-lib=ole32");
+    println!("cargo:rustc-link-lib=windows.0.52.0");
 
     cc::Build::new()
         .cpp(true)
