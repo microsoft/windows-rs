@@ -2,7 +2,6 @@
 #include <assert.h>
 #include <windows.h>
 #include <string_view>
-#pragma comment(lib, "ole32")
 
 typedef HRESULT (__stdcall *CreateJsonValidator)(char const* schema, size_t schema_len, uintptr_t* handle);
 
