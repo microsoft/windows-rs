@@ -325,7 +325,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWinHttpRequest, IWinHttpRequest_Vtbl, 0x016fe2ec_b2c8_45f8_b23b_39e53a75396b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWinHttpRequest {
+impl core::ops::Deref for IWinHttpRequest {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -459,7 +459,7 @@ pub struct IWinHttpRequest_Vtbl {
     pub SetAutoLogonPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, WinHttpRequestAutoLogonPolicy) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinHttpRequestEvents, IWinHttpRequestEvents_Vtbl, 0xf97f4e15_b787_4212_80d1_d380cbbf982e);
-impl std::ops::Deref for IWinHttpRequestEvents {
+impl core::ops::Deref for IWinHttpRequestEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

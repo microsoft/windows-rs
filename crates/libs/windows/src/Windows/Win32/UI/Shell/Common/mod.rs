@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
-impl std::ops::Deref for IObjectArray {
+impl core::ops::Deref for IObjectArray {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15,7 +15,7 @@ impl IObjectArray {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -26,7 +26,7 @@ pub struct IObjectArray_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectCollection, IObjectCollection_Vtbl, 0x5632b1a4_e38a_400a_928a_d4cd63230295);
-impl std::ops::Deref for IObjectCollection {
+impl core::ops::Deref for IObjectCollection {
     type Target = IObjectArray;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

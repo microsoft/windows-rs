@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DIFsrmClassificationEvents, DIFsrmClassificationEvents_Vtbl, 0x26942db0_dabf_41d8_bbdd_b129a9f70424);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DIFsrmClassificationEvents {
+impl core::ops::Deref for DIFsrmClassificationEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -19,7 +19,7 @@ pub struct DIFsrmClassificationEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmAccessDeniedRemediationClient, IFsrmAccessDeniedRemediationClient_Vtbl, 0x40002314_590b_45a5_8e1b_8c05da527e52);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmAccessDeniedRemediationClient {
+impl core::ops::Deref for IFsrmAccessDeniedRemediationClient {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -48,7 +48,7 @@ pub struct IFsrmAccessDeniedRemediationClient_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmAction, IFsrmAction_Vtbl, 0x6cd6408a_ae60_463b_9ef1_e117534d69dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmAction {
+impl core::ops::Deref for IFsrmAction {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -90,7 +90,7 @@ pub struct IFsrmAction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmActionCommand, IFsrmActionCommand_Vtbl, 0x12937789_e247_4917_9c20_f3ee9c7ee783);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmActionCommand {
+impl core::ops::Deref for IFsrmActionCommand {
     type Target = IFsrmAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -187,7 +187,7 @@ pub struct IFsrmActionCommand_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmActionEmail, IFsrmActionEmail_Vtbl, 0xd646567d_26ae_4caa_9f84_4e0aad207fca);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmActionEmail {
+impl core::ops::Deref for IFsrmActionEmail {
     type Target = IFsrmAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -290,7 +290,7 @@ pub struct IFsrmActionEmail_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmActionEmail2, IFsrmActionEmail2_Vtbl, 0x8276702f_2532_4839_89bf_4872609a2ea4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmActionEmail2 {
+impl core::ops::Deref for IFsrmActionEmail2 {
     type Target = IFsrmActionEmail;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -318,7 +318,7 @@ pub struct IFsrmActionEmail2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmActionEventLog, IFsrmActionEventLog_Vtbl, 0x4c8f96c3_5d94_4f37_a4f4_f56ab463546f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmActionEventLog {
+impl core::ops::Deref for IFsrmActionEventLog {
     type Target = IFsrmAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -358,7 +358,7 @@ pub struct IFsrmActionEventLog_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmActionReport, IFsrmActionReport_Vtbl, 0x2dbe63c4_b340_48a0_a5b0_158e07fc567e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmActionReport {
+impl core::ops::Deref for IFsrmActionReport {
     type Target = IFsrmAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -406,7 +406,7 @@ pub struct IFsrmActionReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmAutoApplyQuota, IFsrmAutoApplyQuota_Vtbl, 0xf82e5729_6aba_4740_bfc7_c7f58f75fb7b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmAutoApplyQuota {
+impl core::ops::Deref for IFsrmAutoApplyQuota {
     type Target = IFsrmQuotaObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -451,7 +451,7 @@ pub struct IFsrmAutoApplyQuota_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmClassificationManager, IFsrmClassificationManager_Vtbl, 0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmClassificationManager {
+impl core::ops::Deref for IFsrmClassificationManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -683,7 +683,7 @@ pub struct IFsrmClassificationManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmClassificationManager2, IFsrmClassificationManager2_Vtbl, 0x0004c1c9_127e_4765_ba07_6a3147bca112);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmClassificationManager2 {
+impl core::ops::Deref for IFsrmClassificationManager2 {
     type Target = IFsrmClassificationManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -710,7 +710,7 @@ pub struct IFsrmClassificationManager2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmClassificationRule, IFsrmClassificationRule_Vtbl, 0xafc052c2_5315_45ab_841b_c6db0e120148);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmClassificationRule {
+impl core::ops::Deref for IFsrmClassificationRule {
     type Target = IFsrmRule;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -762,7 +762,7 @@ pub struct IFsrmClassificationRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmClassifierModuleDefinition, IFsrmClassifierModuleDefinition_Vtbl, 0xbb36ea26_6318_4b8c_8592_f72dd602e7a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmClassifierModuleDefinition {
+impl core::ops::Deref for IFsrmClassifierModuleDefinition {
     type Target = IFsrmPipelineModuleDefinition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -827,7 +827,7 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmClassifierModuleImplementation, IFsrmClassifierModuleImplementation_Vtbl, 0x4c968fc6_6edb_4051_9c18_73b7291ae106);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmClassifierModuleImplementation {
+impl core::ops::Deref for IFsrmClassifierModuleImplementation {
     type Target = IFsrmPipelineModuleImplementation;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -893,7 +893,7 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmCollection, IFsrmCollection_Vtbl, 0xf76fbf3b_8ddd_4b42_b05a_cb1c3ff1fee8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmCollection {
+impl core::ops::Deref for IFsrmCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -946,7 +946,7 @@ pub struct IFsrmCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmCommittableCollection, IFsrmCommittableCollection_Vtbl, 0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmCommittableCollection {
+impl core::ops::Deref for IFsrmCommittableCollection {
     type Target = IFsrmMutableCollection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -974,7 +974,7 @@ pub struct IFsrmCommittableCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmDerivedObjectsResult, IFsrmDerivedObjectsResult_Vtbl, 0x39322a2d_38ee_4d0d_8095_421a80849a82);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmDerivedObjectsResult {
+impl core::ops::Deref for IFsrmDerivedObjectsResult {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1011,7 +1011,7 @@ pub struct IFsrmDerivedObjectsResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmExportImport, IFsrmExportImport_Vtbl, 0xefcb0ab1_16c4_4a79_812c_725614c3306b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmExportImport {
+impl core::ops::Deref for IFsrmExportImport {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1093,7 +1093,7 @@ pub struct IFsrmExportImport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileCondition, IFsrmFileCondition_Vtbl, 0x70684ffc_691a_4a1a_b922_97752e138cc1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileCondition {
+impl core::ops::Deref for IFsrmFileCondition {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1121,7 +1121,7 @@ pub struct IFsrmFileCondition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileConditionProperty, IFsrmFileConditionProperty_Vtbl, 0x81926775_b981_4479_988f_da171d627360);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileConditionProperty {
+impl core::ops::Deref for IFsrmFileConditionProperty {
     type Target = IFsrmFileCondition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1191,7 +1191,7 @@ pub struct IFsrmFileConditionProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileGroup, IFsrmFileGroup_Vtbl, 0x8dd04909_0e34_4d55_afaa_89e1f1a1bbb9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileGroup {
+impl core::ops::Deref for IFsrmFileGroup {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1262,7 +1262,7 @@ pub struct IFsrmFileGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileGroupImported, IFsrmFileGroupImported_Vtbl, 0xad55f10b_5f11_4be7_94ef_d9ee2e470ded);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileGroupImported {
+impl core::ops::Deref for IFsrmFileGroupImported {
     type Target = IFsrmFileGroup;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1293,7 +1293,7 @@ pub struct IFsrmFileGroupImported_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileGroupManager, IFsrmFileGroupManager_Vtbl, 0x426677d5_018c_485c_8a51_20b86d00bdc4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileGroupManager {
+impl core::ops::Deref for IFsrmFileGroupManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1359,7 +1359,7 @@ pub struct IFsrmFileGroupManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileManagementJob, IFsrmFileManagementJob_Vtbl, 0x0770687e_9f36_4d6f_8778_599d188461c9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileManagementJob {
+impl core::ops::Deref for IFsrmFileManagementJob {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1678,7 +1678,7 @@ pub struct IFsrmFileManagementJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileManagementJobManager, IFsrmFileManagementJobManager_Vtbl, 0xee321ecb_d95e_48e9_907c_c7685a013235);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileManagementJobManager {
+impl core::ops::Deref for IFsrmFileManagementJobManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1745,7 +1745,7 @@ pub struct IFsrmFileManagementJobManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreen, IFsrmFileScreen_Vtbl, 0x5f6325d3_ce88_4733_84c1_2d6aefc5ea07);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreen {
+impl core::ops::Deref for IFsrmFileScreen {
     type Target = IFsrmFileScreenBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1796,7 +1796,7 @@ pub struct IFsrmFileScreen_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreenBase, IFsrmFileScreenBase_Vtbl, 0xf3637e80_5b22_4a2b_a637_bbb642b41cfc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreenBase {
+impl core::ops::Deref for IFsrmFileScreenBase {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1862,7 +1862,7 @@ pub struct IFsrmFileScreenBase_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreenException, IFsrmFileScreenException_Vtbl, 0xbee7ce02_df77_4515_9389_78f01c5afc1a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreenException {
+impl core::ops::Deref for IFsrmFileScreenException {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1906,7 +1906,7 @@ pub struct IFsrmFileScreenException_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreenManager, IFsrmFileScreenManager_Vtbl, 0xff4fa04e_5a94_4bda_a3a0_d5b4d3c52eba);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreenManager {
+impl core::ops::Deref for IFsrmFileScreenManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2024,7 +2024,7 @@ pub struct IFsrmFileScreenManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreenTemplate, IFsrmFileScreenTemplate_Vtbl, 0x205bebf8_dd93_452a_95a6_32b566b35828);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreenTemplate {
+impl core::ops::Deref for IFsrmFileScreenTemplate {
     type Target = IFsrmFileScreenBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2071,7 +2071,7 @@ pub struct IFsrmFileScreenTemplate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreenTemplateImported, IFsrmFileScreenTemplateImported_Vtbl, 0xe1010359_3e5d_4ecd_9fe4_ef48622fdf30);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreenTemplateImported {
+impl core::ops::Deref for IFsrmFileScreenTemplateImported {
     type Target = IFsrmFileScreenTemplate;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2102,7 +2102,7 @@ pub struct IFsrmFileScreenTemplateImported_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileScreenTemplateManager, IFsrmFileScreenTemplateManager_Vtbl, 0xcfe36cba_1949_4e74_a14f_f1d580ceaf13);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmFileScreenTemplateManager {
+impl core::ops::Deref for IFsrmFileScreenTemplateManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2168,7 +2168,7 @@ pub struct IFsrmFileScreenTemplateManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmMutableCollection, IFsrmMutableCollection_Vtbl, 0x1bb617b8_3886_49dc_af82_a6c90fa35dda);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmMutableCollection {
+impl core::ops::Deref for IFsrmMutableCollection {
     type Target = IFsrmCollection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2211,7 +2211,7 @@ pub struct IFsrmMutableCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmObject, IFsrmObject_Vtbl, 0x22bcef93_4a3f_4183_89f9_2f8b8a628aee);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmObject {
+impl core::ops::Deref for IFsrmObject {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2255,7 +2255,7 @@ pub struct IFsrmObject_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPathMapper, IFsrmPathMapper_Vtbl, 0x6f4dbfff_6920_4821_a6c3_b7e94c1fd60c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPathMapper {
+impl core::ops::Deref for IFsrmPathMapper {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2286,7 +2286,7 @@ pub struct IFsrmPathMapper_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleConnector, IFsrmPipelineModuleConnector_Vtbl, 0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPipelineModuleConnector {
+impl core::ops::Deref for IFsrmPipelineModuleConnector {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2341,7 +2341,7 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleDefinition, IFsrmPipelineModuleDefinition_Vtbl, 0x515c1277_2c81_440e_8fcf_367921ed4f59);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPipelineModuleDefinition {
+impl core::ops::Deref for IFsrmPipelineModuleDefinition {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2480,7 +2480,7 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleImplementation, IFsrmPipelineModuleImplementation_Vtbl, 0xb7907906_2b02_4cb5_84a9_fdf54613d6cd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPipelineModuleImplementation {
+impl core::ops::Deref for IFsrmPipelineModuleImplementation {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2515,7 +2515,7 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmProperty, IFsrmProperty_Vtbl, 0x4a73fee4_4102_4fcc_9ffb_38614f9ee768);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmProperty {
+impl core::ops::Deref for IFsrmProperty {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2558,7 +2558,7 @@ pub struct IFsrmProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyBag, IFsrmPropertyBag_Vtbl, 0x774589d1_d300_4f7a_9a24_f7b766800250);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPropertyBag {
+impl core::ops::Deref for IFsrmPropertyBag {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2702,7 +2702,7 @@ pub struct IFsrmPropertyBag_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyBag2, IFsrmPropertyBag2_Vtbl, 0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPropertyBag2 {
+impl core::ops::Deref for IFsrmPropertyBag2 {
     type Target = IFsrmPropertyBag;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2735,7 +2735,7 @@ pub struct IFsrmPropertyBag2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyCondition, IFsrmPropertyCondition_Vtbl, 0x326af66f_2ac0_4f68_bf8c_4759f054fa29);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPropertyCondition {
+impl core::ops::Deref for IFsrmPropertyCondition {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2791,7 +2791,7 @@ pub struct IFsrmPropertyCondition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyDefinition, IFsrmPropertyDefinition_Vtbl, 0xede0150f_e9a3_419c_877c_01fe5d24c5d3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPropertyDefinition {
+impl core::ops::Deref for IFsrmPropertyDefinition {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2882,7 +2882,7 @@ pub struct IFsrmPropertyDefinition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyDefinition2, IFsrmPropertyDefinition2_Vtbl, 0x47782152_d16c_4229_b4e1_0ddfe308b9f6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPropertyDefinition2 {
+impl core::ops::Deref for IFsrmPropertyDefinition2 {
     type Target = IFsrmPropertyDefinition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2932,7 +2932,7 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyDefinitionValue, IFsrmPropertyDefinitionValue_Vtbl, 0xe946d148_bd67_4178_8e22_1c44925ed710);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmPropertyDefinitionValue {
+impl core::ops::Deref for IFsrmPropertyDefinitionValue {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2971,7 +2971,7 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuota, IFsrmQuota_Vtbl, 0x377f739d_9647_4b8e_97d2_5ffce6d759cd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuota {
+impl core::ops::Deref for IFsrmQuota {
     type Target = IFsrmQuotaObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3013,7 +3013,7 @@ pub struct IFsrmQuota_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaBase, IFsrmQuotaBase_Vtbl, 0x1568a795_3924_4118_b74b_68d8f0fa5daf);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaBase {
+impl core::ops::Deref for IFsrmQuotaBase {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3092,7 +3092,7 @@ pub struct IFsrmQuotaBase_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaManager, IFsrmQuotaManager_Vtbl, 0x8bb68c7d_19d8_4ffb_809e_be4fc1734014);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaManager {
+impl core::ops::Deref for IFsrmQuotaManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3242,7 +3242,7 @@ pub struct IFsrmQuotaManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaManagerEx, IFsrmQuotaManagerEx_Vtbl, 0x4846cb01_d430_494f_abb4_b1054999fb09);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaManagerEx {
+impl core::ops::Deref for IFsrmQuotaManagerEx {
     type Target = IFsrmQuotaManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3269,7 +3269,7 @@ pub struct IFsrmQuotaManagerEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaObject, IFsrmQuotaObject_Vtbl, 0x42dc3511_61d5_48ae_b6dc_59fc00c0a8d6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaObject {
+impl core::ops::Deref for IFsrmQuotaObject {
     type Target = IFsrmQuotaBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3320,7 +3320,7 @@ pub struct IFsrmQuotaObject_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaTemplate, IFsrmQuotaTemplate_Vtbl, 0xa2efab31_295e_46bb_b976_e86d58b52e8b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaTemplate {
+impl core::ops::Deref for IFsrmQuotaTemplate {
     type Target = IFsrmQuotaBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3367,7 +3367,7 @@ pub struct IFsrmQuotaTemplate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaTemplateImported, IFsrmQuotaTemplateImported_Vtbl, 0x9a2bf113_a329_44cc_809a_5c00fce8da40);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaTemplateImported {
+impl core::ops::Deref for IFsrmQuotaTemplateImported {
     type Target = IFsrmQuotaTemplate;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3398,7 +3398,7 @@ pub struct IFsrmQuotaTemplateImported_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmQuotaTemplateManager, IFsrmQuotaTemplateManager_Vtbl, 0x4173ac41_172d_4d52_963c_fdc7e415f717);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmQuotaTemplateManager {
+impl core::ops::Deref for IFsrmQuotaTemplateManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3464,7 +3464,7 @@ pub struct IFsrmQuotaTemplateManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmReport, IFsrmReport_Vtbl, 0xd8cc81d9_46b8_4fa4_bfa5_4aa9dec9b638);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmReport {
+impl core::ops::Deref for IFsrmReport {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3533,7 +3533,7 @@ pub struct IFsrmReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmReportJob, IFsrmReportJob_Vtbl, 0x38e87280_715c_4c7d_a280_ea1651a19fef);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmReportJob {
+impl core::ops::Deref for IFsrmReportJob {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3661,7 +3661,7 @@ pub struct IFsrmReportJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmReportManager, IFsrmReportManager_Vtbl, 0x27b899fe_6ffa_4481_a184_d3daade8a02b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmReportManager {
+impl core::ops::Deref for IFsrmReportManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3751,7 +3751,7 @@ pub struct IFsrmReportManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmReportScheduler, IFsrmReportScheduler_Vtbl, 0x6879caf9_6617_4484_8719_71c3d8645f94);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmReportScheduler {
+impl core::ops::Deref for IFsrmReportScheduler {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3797,7 +3797,7 @@ pub struct IFsrmReportScheduler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmRule, IFsrmRule_Vtbl, 0xcb0df960_16f5_4495_9079_3f9360d831df);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmRule {
+impl core::ops::Deref for IFsrmRule {
     type Target = IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3893,7 +3893,7 @@ pub struct IFsrmRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmSetting, IFsrmSetting_Vtbl, 0xf411d4fd_14be_4260_8c40_03b7c95e608a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmSetting {
+impl core::ops::Deref for IFsrmSetting {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3988,7 +3988,7 @@ pub struct IFsrmSetting_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmStorageModuleDefinition, IFsrmStorageModuleDefinition_Vtbl, 0x15a81350_497d_4aba_80e9_d4dbcc5521fe);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmStorageModuleDefinition {
+impl core::ops::Deref for IFsrmStorageModuleDefinition {
     type Target = IFsrmPipelineModuleDefinition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4037,7 +4037,7 @@ pub struct IFsrmStorageModuleDefinition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmStorageModuleImplementation, IFsrmStorageModuleImplementation_Vtbl, 0x0af4a0da_895a_4e50_8712_a96724bcec64);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsrmStorageModuleImplementation {
+impl core::ops::Deref for IFsrmStorageModuleImplementation {
     type Target = IFsrmPipelineModuleImplementation;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DRendezvousSessionEvents, DRendezvousSessionEvents_Vtbl, 0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DRendezvousSessionEvents {
+impl core::ops::Deref for DRendezvousSessionEvents {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -17,7 +17,7 @@ pub struct DRendezvousSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 windows_core::imp::define_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
-impl std::ops::Deref for IRendezvousApplication {
+impl core::ops::Deref for IRendezvousApplication {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -38,7 +38,7 @@ pub struct IRendezvousApplication_Vtbl {
     pub SetRendezvousSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
-impl std::ops::Deref for IRendezvousSession {
+impl core::ops::Deref for IRendezvousSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

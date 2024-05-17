@@ -94,7 +94,7 @@ where
     UnprotectFile(fileorfolderpath.param().abi(), core::mem::transmute(options.unwrap_or(std::ptr::null()))).ok()
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop, IProtectionPolicyManagerInterop_Vtbl, 0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
-impl std::ops::Deref for IProtectionPolicyManagerInterop {
+impl core::ops::Deref for IProtectionPolicyManagerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -107,7 +107,7 @@ impl IProtectionPolicyManagerInterop {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
@@ -115,7 +115,7 @@ impl IProtectionPolicyManagerInterop {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -126,7 +126,7 @@ pub struct IProtectionPolicyManagerInterop_Vtbl {
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop2, IProtectionPolicyManagerInterop2_Vtbl, 0x157cfbe4_a78d_4156_b384_61fdac41e686);
-impl std::ops::Deref for IProtectionPolicyManagerInterop2 {
+impl core::ops::Deref for IProtectionPolicyManagerInterop2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -139,7 +139,7 @@ impl IProtectionPolicyManagerInterop2 {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessForAppWithWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P1) -> windows_core::Result<T>
@@ -148,7 +148,7 @@ impl IProtectionPolicyManagerInterop2 {
         P1: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessWithAuditingInfoForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessWithMessageForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P1, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<T>
@@ -157,7 +157,7 @@ impl IProtectionPolicyManagerInterop2 {
         P1: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessWithMessageForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P1) -> windows_core::Result<T>
@@ -166,7 +166,7 @@ impl IProtectionPolicyManagerInterop2 {
         P1: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessForAppWithAuditingInfoForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P1, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<T>
@@ -175,7 +175,7 @@ impl IProtectionPolicyManagerInterop2 {
         P1: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -189,7 +189,7 @@ pub struct IProtectionPolicyManagerInterop2_Vtbl {
     pub RequestAccessForAppWithMessageForWindowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop3, IProtectionPolicyManagerInterop3_Vtbl, 0xc1c03933_b398_4d93_b0fd_2972adf802c2);
-impl std::ops::Deref for IProtectionPolicyManagerInterop3 {
+impl core::ops::Deref for IProtectionPolicyManagerInterop3 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -203,7 +203,7 @@ impl IProtectionPolicyManagerInterop3 {
         P1: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessWithBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), behavior, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P1, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
@@ -212,7 +212,7 @@ impl IProtectionPolicyManagerInterop3 {
         P1: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessForAppWithBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), behavior, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessToFilesForAppForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P2) -> windows_core::Result<T>
@@ -222,7 +222,7 @@ impl IProtectionPolicyManagerInterop3 {
         P2: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessToFilesForAppForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P2, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
@@ -232,7 +232,7 @@ impl IProtectionPolicyManagerInterop3 {
         P2: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), behavior, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P2) -> windows_core::Result<T>
@@ -242,7 +242,7 @@ impl IProtectionPolicyManagerInterop3 {
         P2: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessToFilesForProcessForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), processid, auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P2, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
@@ -252,7 +252,7 @@ impl IProtectionPolicyManagerInterop3 {
         P2: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), processid, auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), behavior, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

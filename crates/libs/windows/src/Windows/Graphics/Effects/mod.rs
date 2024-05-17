@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IGraphicsEffect, IGraphicsEffect_Vtbl, 0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
-impl std::ops::Deref for IGraphicsEffect {
+impl core::ops::Deref for IGraphicsEffect {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -30,7 +30,7 @@ pub struct IGraphicsEffect_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGraphicsEffectSource, IGraphicsEffectSource_Vtbl, 0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
-impl std::ops::Deref for IGraphicsEffectSource {
+impl core::ops::Deref for IGraphicsEffectSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

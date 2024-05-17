@@ -24,7 +24,7 @@ pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderOperation, IUserDataAccountProviderOperation_Vtbl, 0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
-impl std::ops::Deref for IUserDataAccountProviderOperation {
+impl core::ops::Deref for IUserDataAccountProviderOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

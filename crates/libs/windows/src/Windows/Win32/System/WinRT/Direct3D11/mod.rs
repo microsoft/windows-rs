@@ -19,7 +19,7 @@ where
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
-impl std::ops::Deref for IDirect3DDxgiInterfaceAccess {
+impl core::ops::Deref for IDirect3DDxgiInterfaceAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -31,7 +31,7 @@ impl IDirect3DDxgiInterfaceAccess {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

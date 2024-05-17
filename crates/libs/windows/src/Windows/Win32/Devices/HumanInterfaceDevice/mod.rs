@@ -366,7 +366,7 @@ pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
     joyConfigChanged(dwflags)
 }
 windows_core::imp::define_interface!(IDirectInput2A, IDirectInput2A_Vtbl, 0x5944e662_aa8a_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInput2A {
+impl core::ops::Deref for IDirectInput2A {
     type Target = IDirectInputA;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -387,7 +387,7 @@ pub struct IDirectInput2A_Vtbl {
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInput2W, IDirectInput2W_Vtbl, 0x5944e663_aa8a_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInput2W {
+impl core::ops::Deref for IDirectInput2W {
     type Target = IDirectInputW;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -408,7 +408,7 @@ pub struct IDirectInput2W_Vtbl {
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInput7A, IDirectInput7A_Vtbl, 0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
-impl std::ops::Deref for IDirectInput7A {
+impl core::ops::Deref for IDirectInput7A {
     type Target = IDirectInput2A;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -429,7 +429,7 @@ pub struct IDirectInput7A_Vtbl {
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInput7W, IDirectInput7W_Vtbl, 0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
-impl std::ops::Deref for IDirectInput7W {
+impl core::ops::Deref for IDirectInput7W {
     type Target = IDirectInput2W;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -450,7 +450,7 @@ pub struct IDirectInput7W_Vtbl {
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInput8A, IDirectInput8A_Vtbl, 0xbf798030_483a_4da2_aa99_5d64ed369700);
-impl std::ops::Deref for IDirectInput8A {
+impl core::ops::Deref for IDirectInput8A {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -511,7 +511,7 @@ pub struct IDirectInput8A_Vtbl {
     pub ConfigureDevices: unsafe extern "system" fn(*mut core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSA, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInput8W, IDirectInput8W_Vtbl, 0xbf798031_483a_4da2_aa99_5d64ed369700);
-impl std::ops::Deref for IDirectInput8W {
+impl core::ops::Deref for IDirectInput8W {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -572,7 +572,7 @@ pub struct IDirectInput8W_Vtbl {
     pub ConfigureDevices: unsafe extern "system" fn(*mut core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSW, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputA, IDirectInputA_Vtbl, 0x89521360_aa8a_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputA {
+impl core::ops::Deref for IDirectInputA {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -615,7 +615,7 @@ pub struct IDirectInputA_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDevice2A, IDirectInputDevice2A_Vtbl, 0x5944e682_c92e_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputDevice2A {
+impl core::ops::Deref for IDirectInputDevice2A {
     type Target = IDirectInputDeviceA;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -668,7 +668,7 @@ pub struct IDirectInputDevice2A_Vtbl {
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDevice2W, IDirectInputDevice2W_Vtbl, 0x5944e683_c92e_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputDevice2W {
+impl core::ops::Deref for IDirectInputDevice2W {
     type Target = IDirectInputDeviceW;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -721,7 +721,7 @@ pub struct IDirectInputDevice2W_Vtbl {
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDevice7A, IDirectInputDevice7A_Vtbl, 0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
-impl std::ops::Deref for IDirectInputDevice7A {
+impl core::ops::Deref for IDirectInputDevice7A {
     type Target = IDirectInputDevice2A;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -749,7 +749,7 @@ pub struct IDirectInputDevice7A_Vtbl {
     pub WriteEffectToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DIFILEEFFECT, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDevice7W, IDirectInputDevice7W_Vtbl, 0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
-impl std::ops::Deref for IDirectInputDevice7W {
+impl core::ops::Deref for IDirectInputDevice7W {
     type Target = IDirectInputDevice2W;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -777,7 +777,7 @@ pub struct IDirectInputDevice7W_Vtbl {
     pub WriteEffectToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut DIFILEEFFECT, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDevice8A, IDirectInputDevice8A_Vtbl, 0x54d41080_dc15_4833_a41b_748f73a38179);
-impl std::ops::Deref for IDirectInputDevice8A {
+impl core::ops::Deref for IDirectInputDevice8A {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -934,7 +934,7 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEIMAGEINFOHEADERA) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDevice8W, IDirectInputDevice8W_Vtbl, 0x54d41081_dc15_4833_a41b_748f73a38179);
-impl std::ops::Deref for IDirectInputDevice8W {
+impl core::ops::Deref for IDirectInputDevice8W {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1091,7 +1091,7 @@ pub struct IDirectInputDevice8W_Vtbl {
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEIMAGEINFOHEADERW) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDeviceA, IDirectInputDeviceA_Vtbl, 0x5944e680_c92e_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputDeviceA {
+impl core::ops::Deref for IDirectInputDeviceA {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1177,7 +1177,7 @@ pub struct IDirectInputDeviceA_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputDeviceW, IDirectInputDeviceW_Vtbl, 0x5944e681_c92e_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputDeviceW {
+impl core::ops::Deref for IDirectInputDeviceW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1263,7 +1263,7 @@ pub struct IDirectInputDeviceW_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputEffect, IDirectInputEffect_Vtbl, 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
-impl std::ops::Deref for IDirectInputEffect {
+impl core::ops::Deref for IDirectInputEffect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1320,7 +1320,7 @@ pub struct IDirectInputEffect_Vtbl {
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputEffectDriver, IDirectInputEffectDriver_Vtbl, 0x02538130_898f_11d0_9ad0_00a0c9a06e35);
-impl std::ops::Deref for IDirectInputEffectDriver {
+impl core::ops::Deref for IDirectInputEffectDriver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1378,7 +1378,7 @@ pub struct IDirectInputEffectDriver_Vtbl {
     pub GetEffectStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectInputJoyConfig, IDirectInputJoyConfig_Vtbl, 0x1de12ab1_c9f5_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputJoyConfig {
+impl core::ops::Deref for IDirectInputJoyConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1482,7 +1482,7 @@ pub struct IDirectInputJoyConfig_Vtbl {
     OpenConfigKey: usize,
 }
 windows_core::imp::define_interface!(IDirectInputJoyConfig8, IDirectInputJoyConfig8_Vtbl, 0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
-impl std::ops::Deref for IDirectInputJoyConfig8 {
+impl core::ops::Deref for IDirectInputJoyConfig8 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1587,7 +1587,7 @@ pub struct IDirectInputJoyConfig8_Vtbl {
     OpenAppStatusKey: usize,
 }
 windows_core::imp::define_interface!(IDirectInputW, IDirectInputW_Vtbl, 0x89521361_aa8a_11cf_bfc7_444553540000);
-impl std::ops::Deref for IDirectInputW {
+impl core::ops::Deref for IDirectInputW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

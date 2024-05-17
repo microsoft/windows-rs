@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IDisplayDeviceInterop, IDisplayDeviceInterop_Vtbl, 0x64338358_366a_471b_bd56_dd8ef48e439b);
-impl std::ops::Deref for IDisplayDeviceInterop {
+impl core::ops::Deref for IDisplayDeviceInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -33,7 +33,7 @@ pub struct IDisplayDeviceInterop_Vtbl {
     pub OpenSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HANDLE, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayPathInterop, IDisplayPathInterop_Vtbl, 0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
-impl std::ops::Deref for IDisplayPathInterop {
+impl core::ops::Deref for IDisplayPathInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

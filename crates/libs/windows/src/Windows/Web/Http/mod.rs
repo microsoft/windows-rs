@@ -89,7 +89,7 @@ pub struct IHttpClientFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IHttpContent, IHttpContent_Vtbl, 0x6b14a441_fba7_4bd2_af0a_839de7c295da);
-impl std::ops::Deref for IHttpContent {
+impl core::ops::Deref for IHttpContent {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

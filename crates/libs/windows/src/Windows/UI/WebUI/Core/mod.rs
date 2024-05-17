@@ -65,7 +65,7 @@ pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub RemoveItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarElement, IWebUICommandBarElement_Vtbl, 0xc9069ec2_284a_4633_8aad_637a27e282c3);
-impl std::ops::Deref for IWebUICommandBarElement {
+impl core::ops::Deref for IWebUICommandBarElement {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -81,7 +81,7 @@ pub struct IWebUICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
-impl std::ops::Deref for IWebUICommandBarIcon {
+impl core::ops::Deref for IWebUICommandBarIcon {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

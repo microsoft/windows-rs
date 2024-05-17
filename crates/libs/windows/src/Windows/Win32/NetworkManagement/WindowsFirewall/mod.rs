@@ -96,7 +96,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDynamicPortMapping, IDynamicPortMapping_Vtbl, 0x4fc80282_23b6_4378_9a27_cd8f17c9400c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDynamicPortMapping {
+impl core::ops::Deref for IDynamicPortMapping {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -190,7 +190,7 @@ pub struct IDynamicPortMapping_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDynamicPortMappingCollection, IDynamicPortMappingCollection_Vtbl, 0xb60de00f_156e_4e8d_9ec1_3a2342c10899);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDynamicPortMappingCollection {
+impl core::ops::Deref for IDynamicPortMappingCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -254,7 +254,7 @@ pub struct IDynamicPortMappingCollection_Vtbl {
     Add: usize,
 }
 windows_core::imp::define_interface!(IEnumNetConnection, IEnumNetConnection_Vtbl, 0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for IEnumNetConnection {
+impl core::ops::Deref for IEnumNetConnection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -285,7 +285,7 @@ pub struct IEnumNetConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingEveryConnection, IEnumNetSharingEveryConnection_Vtbl, 0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for IEnumNetSharingEveryConnection {
+impl core::ops::Deref for IEnumNetSharingEveryConnection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -316,7 +316,7 @@ pub struct IEnumNetSharingEveryConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingPortMapping, IEnumNetSharingPortMapping_Vtbl, 0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for IEnumNetSharingPortMapping {
+impl core::ops::Deref for IEnumNetSharingPortMapping {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -347,7 +347,7 @@ pub struct IEnumNetSharingPortMapping_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingPrivateConnection, IEnumNetSharingPrivateConnection_Vtbl, 0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for IEnumNetSharingPrivateConnection {
+impl core::ops::Deref for IEnumNetSharingPrivateConnection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -378,7 +378,7 @@ pub struct IEnumNetSharingPrivateConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingPublicConnection, IEnumNetSharingPublicConnection_Vtbl, 0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for IEnumNetSharingPublicConnection {
+impl core::ops::Deref for IEnumNetSharingPublicConnection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -411,7 +411,7 @@ pub struct IEnumNetSharingPublicConnection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INATEventManager, INATEventManager_Vtbl, 0x624bd588_9060_4109_b0b0_1adbbcac32df);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INATEventManager {
+impl core::ops::Deref for INATEventManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -442,7 +442,7 @@ pub struct INATEventManager_Vtbl {
     pub SetNumberOfEntriesCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INATExternalIPAddressCallback, INATExternalIPAddressCallback_Vtbl, 0x9c416740_a34e_446f_ba06_abd04c3149ae);
-impl std::ops::Deref for INATExternalIPAddressCallback {
+impl core::ops::Deref for INATExternalIPAddressCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -463,7 +463,7 @@ pub struct INATExternalIPAddressCallback_Vtbl {
     pub NewExternalIPAddress: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INATNumberOfEntriesCallback, INATNumberOfEntriesCallback_Vtbl, 0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
-impl std::ops::Deref for INATNumberOfEntriesCallback {
+impl core::ops::Deref for INATNumberOfEntriesCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -481,7 +481,7 @@ pub struct INATNumberOfEntriesCallback_Vtbl {
     pub NewNumberOfEntries: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetConnection, INetConnection_Vtbl, 0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for INetConnection {
+impl core::ops::Deref for INetConnection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -532,7 +532,7 @@ pub struct INetConnection_Vtbl {
     pub Rename: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetConnectionConnectUi, INetConnectionConnectUi_Vtbl, 0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for INetConnectionConnectUi {
+impl core::ops::Deref for INetConnectionConnectUi {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -567,7 +567,7 @@ pub struct INetConnectionConnectUi_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetConnectionManager, INetConnectionManager_Vtbl, 0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
-impl std::ops::Deref for INetConnectionManager {
+impl core::ops::Deref for INetConnectionManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -588,7 +588,7 @@ pub struct INetConnectionManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetConnectionProps, INetConnectionProps_Vtbl, 0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetConnectionProps {
+impl core::ops::Deref for INetConnectionProps {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -637,7 +637,7 @@ pub struct INetConnectionProps_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwAuthorizedApplication, INetFwAuthorizedApplication_Vtbl, 0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwAuthorizedApplication {
+impl core::ops::Deref for INetFwAuthorizedApplication {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -722,7 +722,7 @@ pub struct INetFwAuthorizedApplication_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwAuthorizedApplications, INetFwAuthorizedApplications_Vtbl, 0x644efd52_ccf9_486c_97a2_39f352570b30);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwAuthorizedApplications {
+impl core::ops::Deref for INetFwAuthorizedApplications {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -781,7 +781,7 @@ pub struct INetFwAuthorizedApplications_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwIcmpSettings, INetFwIcmpSettings_Vtbl, 0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwIcmpSettings {
+impl core::ops::Deref for INetFwIcmpSettings {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -920,7 +920,7 @@ pub struct INetFwIcmpSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwMgr, INetFwMgr_Vtbl, 0xf7898af5_cac4_4632_a2ec_da06e5111af2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwMgr {
+impl core::ops::Deref for INetFwMgr {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -972,7 +972,7 @@ pub struct INetFwMgr_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwOpenPort, INetFwOpenPort_Vtbl, 0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwOpenPort {
+impl core::ops::Deref for INetFwOpenPort {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1068,7 +1068,7 @@ pub struct INetFwOpenPort_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwOpenPorts, INetFwOpenPorts_Vtbl, 0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwOpenPorts {
+impl core::ops::Deref for INetFwOpenPorts {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1121,7 +1121,7 @@ pub struct INetFwOpenPorts_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwPolicy, INetFwPolicy_Vtbl, 0xd46d2478_9ac9_4008_9dc7_5563ce5536cc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwPolicy {
+impl core::ops::Deref for INetFwPolicy {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1158,7 +1158,7 @@ pub struct INetFwPolicy_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwPolicy2, INetFwPolicy2_Vtbl, 0x98325047_c671_4174_8d81_defcd3f03186);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwPolicy2 {
+impl core::ops::Deref for INetFwPolicy2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1311,7 +1311,7 @@ pub struct INetFwPolicy2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwProduct, INetFwProduct_Vtbl, 0x71881699_18f4_458b_b892_3ffce5e07f75);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwProduct {
+impl core::ops::Deref for INetFwProduct {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1359,7 +1359,7 @@ pub struct INetFwProduct_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwProducts, INetFwProducts_Vtbl, 0x39eb36e0_2097_40bd_8af2_63a13b525362);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwProducts {
+impl core::ops::Deref for INetFwProducts {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1409,7 +1409,7 @@ pub struct INetFwProducts_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwProfile, INetFwProfile_Vtbl, 0x174a0dda_e9f9_449d_993b_21ab667ca456);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwProfile {
+impl core::ops::Deref for INetFwProfile {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1526,7 +1526,7 @@ pub struct INetFwProfile_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRemoteAdminSettings, INetFwRemoteAdminSettings_Vtbl, 0xd4becddf_6f73_4a83_b832_9c66874cd20e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwRemoteAdminSettings {
+impl core::ops::Deref for INetFwRemoteAdminSettings {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1587,7 +1587,7 @@ pub struct INetFwRemoteAdminSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRule, INetFwRule_Vtbl, 0xaf230d27_baba_4e42_aced_f524f22cfce2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwRule {
+impl core::ops::Deref for INetFwRule {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1810,7 +1810,7 @@ pub struct INetFwRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRule2, INetFwRule2_Vtbl, 0x9c27c8da_189b_4dde_89f7_8b39a316782c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwRule2 {
+impl core::ops::Deref for INetFwRule2 {
     type Target = INetFwRule;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1838,7 +1838,7 @@ pub struct INetFwRule2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRule3, INetFwRule3_Vtbl, 0xb21563ff_d696_4222_ab46_4e89b73ab34a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwRule3 {
+impl core::ops::Deref for INetFwRule3 {
     type Target = INetFwRule2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1926,7 +1926,7 @@ pub struct INetFwRule3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRules, INetFwRules_Vtbl, 0x9c4c6277_5027_441e_afae_ca1f542da009);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwRules {
+impl core::ops::Deref for INetFwRules {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1985,7 +1985,7 @@ pub struct INetFwRules_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwService, INetFwService_Vtbl, 0x79fd57c8_908e_4a36_9888_d5b3f0a444cf);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwService {
+impl core::ops::Deref for INetFwService {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2070,7 +2070,7 @@ pub struct INetFwService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwServiceRestriction, INetFwServiceRestriction_Vtbl, 0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwServiceRestriction {
+impl core::ops::Deref for INetFwServiceRestriction {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2117,7 +2117,7 @@ pub struct INetFwServiceRestriction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwServices, INetFwServices_Vtbl, 0x79649bb4_903e_421b_94c9_79848e79f6ee);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetFwServices {
+impl core::ops::Deref for INetFwServices {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2155,7 +2155,7 @@ pub struct INetFwServices_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingConfiguration, INetSharingConfiguration_Vtbl, 0xc08956b6_1cd3_11d1_b1c5_00805fc1270e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingConfiguration {
+impl core::ops::Deref for INetSharingConfiguration {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2238,7 +2238,7 @@ pub struct INetSharingConfiguration_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingEveryConnectionCollection, INetSharingEveryConnectionCollection_Vtbl, 0x33c4643c_7811_46fa_a89a_768597bd7223);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingEveryConnectionCollection {
+impl core::ops::Deref for INetSharingEveryConnectionCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2267,7 +2267,7 @@ pub struct INetSharingEveryConnectionCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingManager, INetSharingManager_Vtbl, 0xc08956b7_1cd3_11d1_b1c5_00805fc1270e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingManager {
+impl core::ops::Deref for INetSharingManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2342,7 +2342,7 @@ pub struct INetSharingManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPortMapping, INetSharingPortMapping_Vtbl, 0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingPortMapping {
+impl core::ops::Deref for INetSharingPortMapping {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2382,7 +2382,7 @@ pub struct INetSharingPortMapping_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPortMappingCollection, INetSharingPortMappingCollection_Vtbl, 0x02e4a2de_da20_4e34_89c8_ac22275a010b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingPortMappingCollection {
+impl core::ops::Deref for INetSharingPortMappingCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2411,7 +2411,7 @@ pub struct INetSharingPortMappingCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPortMappingProps, INetSharingPortMappingProps_Vtbl, 0x24b7e9b5_e38f_4685_851b_00892cf5f940);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingPortMappingProps {
+impl core::ops::Deref for INetSharingPortMappingProps {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2470,7 +2470,7 @@ pub struct INetSharingPortMappingProps_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPrivateConnectionCollection, INetSharingPrivateConnectionCollection_Vtbl, 0x38ae69e0_4409_402a_a2cb_e965c727f840);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingPrivateConnectionCollection {
+impl core::ops::Deref for INetSharingPrivateConnectionCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2499,7 +2499,7 @@ pub struct INetSharingPrivateConnectionCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPublicConnectionCollection, INetSharingPublicConnectionCollection_Vtbl, 0x7d7a6355_f372_4971_a149_bfc927be762a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetSharingPublicConnectionCollection {
+impl core::ops::Deref for INetSharingPublicConnectionCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2528,7 +2528,7 @@ pub struct INetSharingPublicConnectionCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStaticPortMapping, IStaticPortMapping_Vtbl, 0x6f10711f_729b_41e5_93b8_f21d0f818df1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IStaticPortMapping {
+impl core::ops::Deref for IStaticPortMapping {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2607,7 +2607,7 @@ pub struct IStaticPortMapping_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStaticPortMappingCollection, IStaticPortMappingCollection_Vtbl, 0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IStaticPortMappingCollection {
+impl core::ops::Deref for IStaticPortMappingCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2670,7 +2670,7 @@ pub struct IStaticPortMappingCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPNAT, IUPnPNAT_Vtbl, 0xb171c812_cc76_485a_94d8_b6b3a2794e99);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPNAT {
+impl core::ops::Deref for IUPnPNAT {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

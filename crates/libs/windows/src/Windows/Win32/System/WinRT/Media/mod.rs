@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 0x20be1e2e_930f_4746_9335_3c332f255093);
-impl std::ops::Deref for IAudioFrameNative {
+impl core::ops::Deref for IAudioFrameNative {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11,7 +11,7 @@ impl IAudioFrameNative {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -21,7 +21,7 @@ pub struct IAudioFrameNative_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
-impl std::ops::Deref for IAudioFrameNativeFactory {
+impl core::ops::Deref for IAudioFrameNativeFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -36,7 +36,7 @@ impl IAudioFrameNativeFactory {
         P1: windows_core::Param<super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -49,7 +49,7 @@ pub struct IAudioFrameNativeFactory_Vtbl {
     CreateFromMFSample: usize,
 }
 windows_core::imp::define_interface!(IVideoFrameNative, IVideoFrameNative_Vtbl, 0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
-impl std::ops::Deref for IVideoFrameNative {
+impl core::ops::Deref for IVideoFrameNative {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -61,14 +61,14 @@ impl IVideoFrameNative {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDevice<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -79,7 +79,7 @@ pub struct IVideoFrameNative_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
-impl std::ops::Deref for IVideoFrameNativeFactory {
+impl core::ops::Deref for IVideoFrameNativeFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -95,7 +95,7 @@ impl IVideoFrameNativeFactory {
         P2: windows_core::Param<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(std::ptr::null())), device.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

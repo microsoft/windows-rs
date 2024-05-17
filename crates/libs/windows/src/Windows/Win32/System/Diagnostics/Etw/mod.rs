@@ -540,7 +540,7 @@ where
     UpdateTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 windows_core::imp::define_interface!(ITraceEvent, ITraceEvent_Vtbl, 0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
-impl std::ops::Deref for ITraceEvent {
+impl core::ops::Deref for ITraceEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -605,7 +605,7 @@ pub struct ITraceEvent_Vtbl {
     pub SetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
-impl std::ops::Deref for ITraceEventCallback {
+impl core::ops::Deref for ITraceEventCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -642,7 +642,7 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITraceRelogger, ITraceRelogger_Vtbl, 0xf754ad43_3bcc_4286_8009_9c5da214e84e);
-impl std::ops::Deref for ITraceRelogger {
+impl core::ops::Deref for ITraceRelogger {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

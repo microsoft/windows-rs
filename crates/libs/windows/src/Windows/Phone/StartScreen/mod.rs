@@ -47,7 +47,7 @@ pub struct IDualSimTileStatics_Vtbl {
     CreateToastNotifierForSim2: usize,
 }
 windows_core::imp::define_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
-impl std::ops::Deref for IToastNotificationManagerStatics3 {
+impl core::ops::Deref for IToastNotificationManagerStatics3 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

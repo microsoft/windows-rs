@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IWCNConnectNotify, IWCNConnectNotify_Vtbl, 0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
-impl std::ops::Deref for IWCNConnectNotify {
+impl core::ops::Deref for IWCNConnectNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -21,7 +21,7 @@ pub struct IWCNConnectNotify_Vtbl {
     pub ConnectFailed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
-impl std::ops::Deref for IWCNDevice {
+impl core::ops::Deref for IWCNDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

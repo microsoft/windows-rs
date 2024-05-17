@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(ICoreFrameworkInputViewInterop, ICoreFrameworkInputViewInterop_Vtbl, 0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
-impl std::ops::Deref for ICoreFrameworkInputViewInterop {
+impl core::ops::Deref for ICoreFrameworkInputViewInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12,7 +12,7 @@ impl ICoreFrameworkInputViewInterop {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

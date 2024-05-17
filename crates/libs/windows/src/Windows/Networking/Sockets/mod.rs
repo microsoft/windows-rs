@@ -33,7 +33,7 @@ pub struct IControlChannelTrigger2_Vtbl {
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IControlChannelTriggerEventDetails, IControlChannelTriggerEventDetails_Vtbl, 0x1b36e047_89bb_4236_96ac_71d012bb4869);
-impl std::ops::Deref for IControlChannelTriggerEventDetails {
+impl core::ops::Deref for IControlChannelTriggerEventDetails {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -68,7 +68,7 @@ pub struct IControlChannelTriggerFactory_Vtbl {
     pub CreateControlChannelTriggerEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, ControlChannelTriggerResourceType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IControlChannelTriggerResetEventDetails, IControlChannelTriggerResetEventDetails_Vtbl, 0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1);
-impl std::ops::Deref for IControlChannelTriggerResetEventDetails {
+impl core::ops::Deref for IControlChannelTriggerResetEventDetails {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -785,7 +785,7 @@ pub struct IStreamWebSocketControl2_Vtbl {
     SetClientCertificate: usize,
 }
 windows_core::imp::define_interface!(IWebSocket, IWebSocket_Vtbl, 0xf877396f_99b1_4e18_bc08_850c9adf156e);
-impl std::ops::Deref for IWebSocket {
+impl core::ops::Deref for IWebSocket {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -866,7 +866,7 @@ pub struct IWebSocketClosedEventArgs_Vtbl {
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebSocketControl, IWebSocketControl_Vtbl, 0x2ec4bdc3_d9a5_455a_9811_de24d45337e9);
-impl std::ops::Deref for IWebSocketControl {
+impl core::ops::Deref for IWebSocketControl {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -956,7 +956,7 @@ pub struct IWebSocketControl_Vtbl {
     SupportedProtocols: usize,
 }
 windows_core::imp::define_interface!(IWebSocketControl2, IWebSocketControl2_Vtbl, 0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
-impl std::ops::Deref for IWebSocketControl2 {
+impl core::ops::Deref for IWebSocketControl2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1049,7 +1049,7 @@ pub struct IWebSocketErrorStatics_Vtbl {
     GetStatus: usize,
 }
 windows_core::imp::define_interface!(IWebSocketInformation, IWebSocketInformation_Vtbl, 0x5e01e316_c92a_47a5_b25f_07847639d181);
-impl std::ops::Deref for IWebSocketInformation {
+impl core::ops::Deref for IWebSocketInformation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1090,7 +1090,7 @@ pub struct IWebSocketInformation_Vtbl {
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebSocketInformation2, IWebSocketInformation2_Vtbl, 0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
-impl std::ops::Deref for IWebSocketInformation2 {
+impl core::ops::Deref for IWebSocketInformation2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -58,7 +58,7 @@ pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> window
     MoInitMediaType(pmt, cbformat).ok()
 }
 windows_core::imp::define_interface!(IDMOQualityControl, IDMOQualityControl_Vtbl, 0x65abea96_cf36_453f_af8a_705e98f16260);
-impl std::ops::Deref for IDMOQualityControl {
+impl core::ops::Deref for IDMOQualityControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -85,7 +85,7 @@ pub struct IDMOQualityControl_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDMOVideoOutputOptimizations, IDMOVideoOutputOptimizations_Vtbl, 0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
-impl std::ops::Deref for IDMOVideoOutputOptimizations {
+impl core::ops::Deref for IDMOVideoOutputOptimizations {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -118,7 +118,7 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
     pub GetCurrentSampleRequirements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDMO, IEnumDMO_Vtbl, 0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
-impl std::ops::Deref for IEnumDMO {
+impl core::ops::Deref for IEnumDMO {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -149,7 +149,7 @@ pub struct IEnumDMO_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBuffer, IMediaBuffer_Vtbl, 0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
-impl std::ops::Deref for IMediaBuffer {
+impl core::ops::Deref for IMediaBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -176,7 +176,7 @@ pub struct IMediaBuffer_Vtbl {
     pub GetBufferAndLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaObject, IMediaObject_Vtbl, 0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
-impl std::ops::Deref for IMediaObject {
+impl core::ops::Deref for IMediaObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -281,7 +281,7 @@ pub struct IMediaObject_Vtbl {
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaObjectInPlace, IMediaObjectInPlace_Vtbl, 0x651b9ad0_0fc7_4aa9_9538_d89931010741);
-impl std::ops::Deref for IMediaObjectInPlace {
+impl core::ops::Deref for IMediaObjectInPlace {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

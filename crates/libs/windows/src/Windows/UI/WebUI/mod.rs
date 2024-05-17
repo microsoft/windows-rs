@@ -10,7 +10,7 @@ pub struct IActivatedDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivatedEventArgsDeferral, IActivatedEventArgsDeferral_Vtbl, 0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
-impl std::ops::Deref for IActivatedEventArgsDeferral {
+impl core::ops::Deref for IActivatedEventArgsDeferral {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -157,7 +157,7 @@ pub struct IWebUIActivationStatics4_Vtbl {
     pub RemoveBackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstance_Vtbl, 0x23f12c25_e2f7_4741_bc9c_394595de24dc);
-impl std::ops::Deref for IWebUIBackgroundTaskInstance {
+impl core::ops::Deref for IWebUIBackgroundTaskInstance {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -205,7 +205,7 @@ pub struct IWebUINavigatedDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUINavigatedEventArgs, IWebUINavigatedEventArgs_Vtbl, 0xa75841b8_2499_4030_a69d_15d2d9cfe524);
-impl std::ops::Deref for IWebUINavigatedEventArgs {
+impl core::ops::Deref for IWebUINavigatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -7,7 +7,7 @@ where
     CreatePresentationFactory(d3ddevice.param().abi(), riid, presentationfactory).ok()
 }
 windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
-impl std::ops::Deref for ICompositionFramePresentStatistics {
+impl core::ops::Deref for ICompositionFramePresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -37,7 +37,7 @@ pub struct ICompositionFramePresentStatistics_Vtbl {
     GetDisplayInstanceArray: usize,
 }
 windows_core::imp::define_interface!(IIndependentFlipFramePresentStatistics, IIndependentFlipFramePresentStatistics_Vtbl, 0x8c93be27_ad94_4da0_8fd4_2413132d124e);
-impl std::ops::Deref for IIndependentFlipFramePresentStatistics {
+impl core::ops::Deref for IIndependentFlipFramePresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -77,7 +77,7 @@ pub struct IIndependentFlipFramePresentStatistics_Vtbl {
     pub GetPresentDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemInterruptTime),
 }
 windows_core::imp::define_interface!(IPresentStatistics, IPresentStatistics_Vtbl, 0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
-impl std::ops::Deref for IPresentStatistics {
+impl core::ops::Deref for IPresentStatistics {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -99,7 +99,7 @@ pub struct IPresentStatistics_Vtbl {
     pub GetKind: unsafe extern "system" fn(*mut core::ffi::c_void) -> PresentStatisticsKind,
 }
 windows_core::imp::define_interface!(IPresentStatusPresentStatistics, IPresentStatusPresentStatistics_Vtbl, 0xc9ed2a41_79cb_435e_964e_c8553055420c);
-impl std::ops::Deref for IPresentStatusPresentStatistics {
+impl core::ops::Deref for IPresentStatusPresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -121,7 +121,7 @@ pub struct IPresentStatusPresentStatistics_Vtbl {
     pub GetPresentStatus: unsafe extern "system" fn(*mut core::ffi::c_void) -> PresentStatus,
 }
 windows_core::imp::define_interface!(IPresentationBuffer, IPresentationBuffer_Vtbl, 0x2e217d3a_5abb_4138_9a13_a775593c89ca);
-impl std::ops::Deref for IPresentationBuffer {
+impl core::ops::Deref for IPresentationBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -145,7 +145,7 @@ pub struct IPresentationBuffer_Vtbl {
     pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_Vtbl, 0x5668bb79_3d8e_415c_b215_f38020f2d252);
-impl std::ops::Deref for IPresentationContent {
+impl core::ops::Deref for IPresentationContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -163,7 +163,7 @@ pub struct IPresentationContent_Vtbl {
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, usize),
 }
 windows_core::imp::define_interface!(IPresentationFactory, IPresentationFactory_Vtbl, 0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
-impl std::ops::Deref for IPresentationFactory {
+impl core::ops::Deref for IPresentationFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -190,7 +190,7 @@ pub struct IPresentationFactory_Vtbl {
     pub CreatePresentationManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPresentationManager, IPresentationManager_Vtbl, 0xfb562f82_6292_470a_88b1_843661e7f20c);
-impl std::ops::Deref for IPresentationManager {
+impl core::ops::Deref for IPresentationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -268,7 +268,7 @@ pub struct IPresentationManager_Vtbl {
     pub GetNextPresentStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPresentationSurface, IPresentationSurface_Vtbl, 0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
-impl std::ops::Deref for IPresentationSurface {
+impl core::ops::Deref for IPresentationSurface {
     type Target = IPresentationContent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

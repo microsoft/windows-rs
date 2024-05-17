@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IRichEditOle, IRichEditOle_Vtbl, 0x00020d00_0000_0000_c000_000000000046);
-impl std::ops::Deref for IRichEditOle {
+impl core::ops::Deref for IRichEditOle {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -122,7 +122,7 @@ pub struct IRichEditOle_Vtbl {
     ImportDataObject: usize,
 }
 windows_core::imp::define_interface!(IRichEditOleCallback, IRichEditOleCallback_Vtbl, 0x00020d03_0000_0000_c000_000000000046);
-impl std::ops::Deref for IRichEditOleCallback {
+impl core::ops::Deref for IRichEditOleCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -232,7 +232,7 @@ pub struct IRichEditOleCallback_Vtbl {
     GetContextMenu: usize,
 }
 windows_core::imp::define_interface!(IRicheditUiaOverrides, IRicheditUiaOverrides_Vtbl, 0);
-impl std::ops::Deref for IRicheditUiaOverrides {
+impl core::ops::Deref for IRicheditUiaOverrides {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -252,7 +252,7 @@ pub struct IRicheditUiaOverrides_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDisplays, ITextDisplays_Vtbl, 0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextDisplays {
+impl core::ops::Deref for ITextDisplays {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -270,7 +270,7 @@ pub struct ITextDisplays_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDocument, ITextDocument_Vtbl, 0x8cc497c0_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextDocument {
+impl core::ops::Deref for ITextDocument {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -393,7 +393,7 @@ pub struct ITextDocument_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDocument2, ITextDocument2_Vtbl, 0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextDocument2 {
+impl core::ops::Deref for ITextDocument2 {
     type Target = ITextDocument;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -667,7 +667,7 @@ pub struct ITextDocument2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDocument2Old, ITextDocument2Old_Vtbl, 0x01c25500_4268_11d1_883a_3c8b00c10000);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextDocument2Old {
+impl core::ops::Deref for ITextDocument2Old {
     type Target = ITextDocument;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -813,7 +813,7 @@ pub struct ITextDocument2Old_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextFont, ITextFont_Vtbl, 0x8cc497c3_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextFont {
+impl core::ops::Deref for ITextFont {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1101,7 +1101,7 @@ pub struct ITextFont_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextFont2, ITextFont2_Vtbl, 0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextFont2 {
+impl core::ops::Deref for ITextFont2 {
     type Target = ITextFont;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1342,7 +1342,7 @@ pub struct ITextFont2_Vtbl {
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextHost, ITextHost_Vtbl, 0);
-impl std::ops::Deref for ITextHost {
+impl core::ops::Deref for ITextHost {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1594,7 +1594,7 @@ pub struct ITextHost_Vtbl {
     pub TxGetSelectionBarWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextHost2, ITextHost2_Vtbl, 0);
-impl std::ops::Deref for ITextHost2 {
+impl core::ops::Deref for ITextHost2 {
     type Target = ITextHost;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1678,7 +1678,7 @@ pub struct ITextHost2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextPara, ITextPara_Vtbl, 0x8cc497c4_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextPara {
+impl core::ops::Deref for ITextPara {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1931,7 +1931,7 @@ pub struct ITextPara_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextPara2, ITextPara2_Vtbl, 0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextPara2 {
+impl core::ops::Deref for ITextPara2 {
     type Target = ITextPara;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2040,7 +2040,7 @@ pub struct ITextPara2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextRange, ITextRange_Vtbl, 0x8cc497c2_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextRange {
+impl core::ops::Deref for ITextRange {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2368,7 +2368,7 @@ pub struct ITextRange_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextRange2, ITextRange2_Vtbl, 0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextRange2 {
+impl core::ops::Deref for ITextRange2 {
     type Target = ITextSelection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2629,7 +2629,7 @@ pub struct ITextRange2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextRow, ITextRow_Vtbl, 0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextRow {
+impl core::ops::Deref for ITextRow {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2860,7 +2860,7 @@ pub struct ITextRow_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextSelection, ITextSelection_Vtbl, 0x8cc497c1_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextSelection {
+impl core::ops::Deref for ITextSelection {
     type Target = ITextRange;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2930,7 +2930,7 @@ pub struct ITextSelection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextSelection2, ITextSelection2_Vtbl, 0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextSelection2 {
+impl core::ops::Deref for ITextSelection2 {
     type Target = ITextRange2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2946,7 +2946,7 @@ pub struct ITextSelection2_Vtbl {
     pub base__: ITextRange2_Vtbl,
 }
 windows_core::imp::define_interface!(ITextServices, ITextServices_Vtbl, 0);
-impl std::ops::Deref for ITextServices {
+impl core::ops::Deref for ITextServices {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3076,7 +3076,7 @@ pub struct ITextServices_Vtbl {
     pub TxGetCachedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextServices2, ITextServices2_Vtbl, 0);
-impl std::ops::Deref for ITextServices2 {
+impl core::ops::Deref for ITextServices2 {
     type Target = ITextServices;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3113,7 +3113,7 @@ pub struct ITextServices2_Vtbl {
     TxDrawD2D: usize,
 }
 windows_core::imp::define_interface!(ITextStory, ITextStory_Vtbl, 0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
-impl std::ops::Deref for ITextStory {
+impl core::ops::Deref for ITextStory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3194,7 +3194,7 @@ pub struct ITextStory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextStoryRanges, ITextStoryRanges_Vtbl, 0x8cc497c5_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextStoryRanges {
+impl core::ops::Deref for ITextStoryRanges {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3232,7 +3232,7 @@ pub struct ITextStoryRanges_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextStoryRanges2, ITextStoryRanges2_Vtbl, 0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextStoryRanges2 {
+impl core::ops::Deref for ITextStoryRanges2 {
     type Target = ITextStoryRanges;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3260,7 +3260,7 @@ pub struct ITextStoryRanges2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextStrings, ITextStrings_Vtbl, 0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITextStrings {
+impl core::ops::Deref for ITextStrings {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -31,7 +31,7 @@ pub struct IContactChangeRecord_Vtbl {
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactInformation, IContactInformation_Vtbl, 0xe2b51ffc_e792_4ab7_b15b_f2e078664dea);
-impl std::ops::Deref for IContactInformation {
+impl core::ops::Deref for IContactInformation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -188,7 +188,7 @@ pub struct IContactInformation_Vtbl {
     ToVcardWithOptionsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactInformation2, IContactInformation2_Vtbl, 0x3198b20c_621e_4668_ac38_d667b87d06d5);
-impl std::ops::Deref for IContactInformation2 {
+impl core::ops::Deref for IContactInformation2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -2852,7 +2852,7 @@ where
     ZombifyActCtx(hactctx.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IAssemblyCache, IAssemblyCache_Vtbl, 0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
-impl std::ops::Deref for IAssemblyCache {
+impl core::ops::Deref for IAssemblyCache {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2899,7 +2899,7 @@ pub struct IAssemblyCache_Vtbl {
     pub InstallAssembly: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut FUSION_INSTALL_REFERENCE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAssemblyCacheItem, IAssemblyCacheItem_Vtbl, 0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
-impl std::ops::Deref for IAssemblyCacheItem {
+impl core::ops::Deref for IAssemblyCacheItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2932,7 +2932,7 @@ pub struct IAssemblyCacheItem_Vtbl {
     pub AbortItem: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAssemblyName, IAssemblyName_Vtbl, 0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
-impl std::ops::Deref for IAssemblyName {
+impl core::ops::Deref for IAssemblyName {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2991,7 +2991,7 @@ pub struct IAssemblyName_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumMsmDependency, IEnumMsmDependency_Vtbl, 0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
-impl std::ops::Deref for IEnumMsmDependency {
+impl core::ops::Deref for IEnumMsmDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3026,7 +3026,7 @@ pub struct IEnumMsmDependency_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumMsmError, IEnumMsmError_Vtbl, 0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
-impl std::ops::Deref for IEnumMsmError {
+impl core::ops::Deref for IEnumMsmError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3061,7 +3061,7 @@ pub struct IEnumMsmError_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumMsmString, IEnumMsmString_Vtbl, 0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
-impl std::ops::Deref for IEnumMsmString {
+impl core::ops::Deref for IEnumMsmString {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3094,7 +3094,7 @@ pub struct IEnumMsmString_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmDependencies, IMsmDependencies_Vtbl, 0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmDependencies {
+impl core::ops::Deref for IMsmDependencies {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3131,7 +3131,7 @@ pub struct IMsmDependencies_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmDependency, IMsmDependency_Vtbl, 0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmDependency {
+impl core::ops::Deref for IMsmDependency {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3162,7 +3162,7 @@ pub struct IMsmDependency_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmError, IMsmError_Vtbl, 0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmError {
+impl core::ops::Deref for IMsmError {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3219,7 +3219,7 @@ pub struct IMsmError_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmErrors, IMsmErrors_Vtbl, 0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmErrors {
+impl core::ops::Deref for IMsmErrors {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3256,7 +3256,7 @@ pub struct IMsmErrors_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmGetFiles, IMsmGetFiles_Vtbl, 0x7041ae26_2d78_11d2_888a_00a0c981b015);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmGetFiles {
+impl core::ops::Deref for IMsmGetFiles {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3284,7 +3284,7 @@ pub struct IMsmGetFiles_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmMerge, IMsmMerge_Vtbl, 0x0adda82e_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmMerge {
+impl core::ops::Deref for IMsmMerge {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3393,7 +3393,7 @@ pub struct IMsmMerge_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMsmStrings, IMsmStrings_Vtbl, 0x0adda827_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMsmStrings {
+impl core::ops::Deref for IMsmStrings {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3423,7 +3423,7 @@ pub struct IMsmStrings_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMApplicationInfo, IPMApplicationInfo_Vtbl, 0x50afb58a_438c_4088_9789_f8c4899829c7);
-impl std::ops::Deref for IPMApplicationInfo {
+impl core::ops::Deref for IPMApplicationInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3716,7 +3716,7 @@ pub struct IPMApplicationInfo_Vtbl {
     pub set_Title: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMApplicationInfoEnumerator, IPMApplicationInfoEnumerator_Vtbl, 0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
-impl std::ops::Deref for IPMApplicationInfoEnumerator {
+impl core::ops::Deref for IPMApplicationInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3735,7 +3735,7 @@ pub struct IPMApplicationInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMBackgroundServiceAgentInfo, IPMBackgroundServiceAgentInfo_Vtbl, 0x3a8b46da_928c_4879_998c_09dc96f3d490);
-impl std::ops::Deref for IPMBackgroundServiceAgentInfo {
+impl core::ops::Deref for IPMBackgroundServiceAgentInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3817,7 +3817,7 @@ pub struct IPMBackgroundServiceAgentInfo_Vtbl {
     pub set_IsScheduleAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMBackgroundServiceAgentInfoEnumerator, IPMBackgroundServiceAgentInfoEnumerator_Vtbl, 0x18eb2072_ab56_43b3_872c_beafb7a6b391);
-impl std::ops::Deref for IPMBackgroundServiceAgentInfoEnumerator {
+impl core::ops::Deref for IPMBackgroundServiceAgentInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3836,7 +3836,7 @@ pub struct IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMBackgroundWorkerInfo, IPMBackgroundWorkerInfo_Vtbl, 0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
-impl std::ops::Deref for IPMBackgroundWorkerInfo {
+impl core::ops::Deref for IPMBackgroundWorkerInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3878,7 +3878,7 @@ pub struct IPMBackgroundWorkerInfo_Vtbl {
     pub IsBootWorker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMBackgroundWorkerInfoEnumerator, IPMBackgroundWorkerInfoEnumerator_Vtbl, 0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
-impl std::ops::Deref for IPMBackgroundWorkerInfoEnumerator {
+impl core::ops::Deref for IPMBackgroundWorkerInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3897,7 +3897,7 @@ pub struct IPMBackgroundWorkerInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMDeploymentManager, IPMDeploymentManager_Vtbl, 0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
-impl std::ops::Deref for IPMDeploymentManager {
+impl core::ops::Deref for IPMDeploymentManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4104,7 +4104,7 @@ pub struct IPMDeploymentManager_Vtbl {
     pub FixJunctionsForAppsOnSDCard: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMEnumerationManager, IPMEnumerationManager_Vtbl, 0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
-impl std::ops::Deref for IPMEnumerationManager {
+impl core::ops::Deref for IPMEnumerationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4218,7 +4218,7 @@ pub struct IPMEnumerationManager_Vtbl {
     pub get_StartAppEnumeratorBlob: unsafe extern "system" fn(*mut core::ffi::c_void, PM_ENUM_FILTER, *mut u32, *mut *mut PM_STARTAPPBLOB) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionCachedFileUpdaterInfo, IPMExtensionCachedFileUpdaterInfo_Vtbl, 0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
-impl std::ops::Deref for IPMExtensionCachedFileUpdaterInfo {
+impl core::ops::Deref for IPMExtensionCachedFileUpdaterInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4237,7 +4237,7 @@ pub struct IPMExtensionCachedFileUpdaterInfo_Vtbl {
     pub SupportsUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionContractInfo, IPMExtensionContractInfo_Vtbl, 0xe5666373_7ba1_467c_b819_b175db1c295b);
-impl std::ops::Deref for IPMExtensionContractInfo {
+impl core::ops::Deref for IPMExtensionContractInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4255,7 +4255,7 @@ pub struct IPMExtensionContractInfo_Vtbl {
     pub get_InvocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionFileExtensionInfo, IPMExtensionFileExtensionInfo_Vtbl, 0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
-impl std::ops::Deref for IPMExtensionFileExtensionInfo {
+impl core::ops::Deref for IPMExtensionFileExtensionInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4303,7 +4303,7 @@ pub struct IPMExtensionFileExtensionInfo_Vtbl {
     pub get_AllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::BSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionFileOpenPickerInfo, IPMExtensionFileOpenPickerInfo_Vtbl, 0x6dc91d25_9606_420c_9a78_e034a3418345);
-impl std::ops::Deref for IPMExtensionFileOpenPickerInfo {
+impl core::ops::Deref for IPMExtensionFileOpenPickerInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4326,7 +4326,7 @@ pub struct IPMExtensionFileOpenPickerInfo_Vtbl {
     pub SupportsAllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionFileSavePickerInfo, IPMExtensionFileSavePickerInfo_Vtbl, 0x38005cba_f81a_493e_a0f8_922c8680da43);
-impl std::ops::Deref for IPMExtensionFileSavePickerInfo {
+impl core::ops::Deref for IPMExtensionFileSavePickerInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4349,7 +4349,7 @@ pub struct IPMExtensionFileSavePickerInfo_Vtbl {
     pub SupportsAllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionInfo, IPMExtensionInfo_Vtbl, 0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
-impl std::ops::Deref for IPMExtensionInfo {
+impl core::ops::Deref for IPMExtensionInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4388,7 +4388,7 @@ pub struct IPMExtensionInfo_Vtbl {
     pub get_InvocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionInfoEnumerator, IPMExtensionInfoEnumerator_Vtbl, 0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
-impl std::ops::Deref for IPMExtensionInfoEnumerator {
+impl core::ops::Deref for IPMExtensionInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4407,7 +4407,7 @@ pub struct IPMExtensionInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionProtocolInfo, IPMExtensionProtocolInfo_Vtbl, 0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
-impl std::ops::Deref for IPMExtensionProtocolInfo {
+impl core::ops::Deref for IPMExtensionProtocolInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4429,7 +4429,7 @@ pub struct IPMExtensionProtocolInfo_Vtbl {
     pub get_InvocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMExtensionShareTargetInfo, IPMExtensionShareTargetInfo_Vtbl, 0x5471f48b_c65c_4656_8c70_242e31195fea);
-impl std::ops::Deref for IPMExtensionShareTargetInfo {
+impl core::ops::Deref for IPMExtensionShareTargetInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4456,7 +4456,7 @@ pub struct IPMExtensionShareTargetInfo_Vtbl {
     pub SupportsAllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMLiveTileJobInfo, IPMLiveTileJobInfo_Vtbl, 0x6009a81f_4710_4697_b5f6_2208f6057b8e);
-impl std::ops::Deref for IPMLiveTileJobInfo {
+impl core::ops::Deref for IPMLiveTileJobInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4579,7 +4579,7 @@ pub struct IPMLiveTileJobInfo_Vtbl {
     pub set_DownloadState: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMLiveTileJobInfoEnumerator, IPMLiveTileJobInfoEnumerator_Vtbl, 0xbc042582_9415_4f36_9f99_06f104c07c03);
-impl std::ops::Deref for IPMLiveTileJobInfoEnumerator {
+impl core::ops::Deref for IPMLiveTileJobInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4598,7 +4598,7 @@ pub struct IPMLiveTileJobInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMTaskInfo, IPMTaskInfo_Vtbl, 0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
-impl std::ops::Deref for IPMTaskInfo {
+impl core::ops::Deref for IPMTaskInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4708,7 +4708,7 @@ pub struct IPMTaskInfo_Vtbl {
     pub IsOptedForExtendedMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMTaskInfoEnumerator, IPMTaskInfoEnumerator_Vtbl, 0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
-impl std::ops::Deref for IPMTaskInfoEnumerator {
+impl core::ops::Deref for IPMTaskInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4727,7 +4727,7 @@ pub struct IPMTaskInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMTileInfo, IPMTileInfo_Vtbl, 0xd1604833_2b08_4001_82cd_183ad734f752);
-impl std::ops::Deref for IPMTileInfo {
+impl core::ops::Deref for IPMTileInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4866,7 +4866,7 @@ pub struct IPMTileInfo_Vtbl {
     pub set_IsAutoRestoreDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMTileInfoEnumerator, IPMTileInfoEnumerator_Vtbl, 0xded83065_e462_4b2c_acb5_e39cea61c874);
-impl std::ops::Deref for IPMTileInfoEnumerator {
+impl core::ops::Deref for IPMTileInfoEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4885,7 +4885,7 @@ pub struct IPMTileInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMTilePropertyEnumerator, IPMTilePropertyEnumerator_Vtbl, 0xcc4cd629_9047_4250_aac8_930e47812421);
-impl std::ops::Deref for IPMTilePropertyEnumerator {
+impl core::ops::Deref for IPMTilePropertyEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4904,7 +4904,7 @@ pub struct IPMTilePropertyEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPMTilePropertyInfo, IPMTilePropertyInfo_Vtbl, 0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
-impl std::ops::Deref for IPMTilePropertyInfo {
+impl core::ops::Deref for IPMTilePropertyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4934,7 +4934,7 @@ pub struct IPMTilePropertyInfo_Vtbl {
     pub set_Property: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IValidate, IValidate_Vtbl, 0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);
-impl std::ops::Deref for IValidate {
+impl core::ops::Deref for IValidate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

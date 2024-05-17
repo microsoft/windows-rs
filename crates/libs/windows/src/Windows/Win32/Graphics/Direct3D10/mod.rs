@@ -226,7 +226,7 @@ pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *c
     D3D10StateBlockMaskUnion(pa, pb, presult).ok()
 }
 windows_core::imp::define_interface!(ID3D10Asynchronous, ID3D10Asynchronous_Vtbl, 0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Asynchronous {
+impl core::ops::Deref for ID3D10Asynchronous {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -258,7 +258,7 @@ pub struct ID3D10Asynchronous_Vtbl {
     pub GetDataSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(ID3D10BlendState, ID3D10BlendState_Vtbl, 0xedad8d19_8a35_4d6d_8566_2ea276cde161);
-impl std::ops::Deref for ID3D10BlendState {
+impl core::ops::Deref for ID3D10BlendState {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -278,7 +278,7 @@ pub struct ID3D10BlendState_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_BLEND_DESC),
 }
 windows_core::imp::define_interface!(ID3D10BlendState1, ID3D10BlendState1_Vtbl, 0xedad8d99_8a35_4d6d_8566_2ea276cde161);
-impl std::ops::Deref for ID3D10BlendState1 {
+impl core::ops::Deref for ID3D10BlendState1 {
     type Target = ID3D10BlendState;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -298,7 +298,7 @@ pub struct ID3D10BlendState1_Vtbl {
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_BLEND_DESC1),
 }
 windows_core::imp::define_interface!(ID3D10Buffer, ID3D10Buffer_Vtbl, 0x9b7e4c02_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Buffer {
+impl core::ops::Deref for ID3D10Buffer {
     type Target = ID3D10Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -326,7 +326,7 @@ pub struct ID3D10Buffer_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_BUFFER_DESC),
 }
 windows_core::imp::define_interface!(ID3D10Counter, ID3D10Counter_Vtbl, 0x9b7e4c11_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Counter {
+impl core::ops::Deref for ID3D10Counter {
     type Target = ID3D10Asynchronous;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -348,7 +348,7 @@ pub struct ID3D10Counter_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_COUNTER_DESC),
 }
 windows_core::imp::define_interface!(ID3D10Debug, ID3D10Debug_Vtbl, 0x9b7e4e01_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Debug {
+impl core::ops::Deref for ID3D10Debug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -404,7 +404,7 @@ pub struct ID3D10Debug_Vtbl {
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10DepthStencilState, ID3D10DepthStencilState_Vtbl, 0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675);
-impl std::ops::Deref for ID3D10DepthStencilState {
+impl core::ops::Deref for ID3D10DepthStencilState {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -424,7 +424,7 @@ pub struct ID3D10DepthStencilState_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_DEPTH_STENCIL_DESC),
 }
 windows_core::imp::define_interface!(ID3D10DepthStencilView, ID3D10DepthStencilView_Vtbl, 0x9b7e4c09_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10DepthStencilView {
+impl core::ops::Deref for ID3D10DepthStencilView {
     type Target = ID3D10View;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -448,7 +448,7 @@ pub struct ID3D10DepthStencilView_Vtbl {
     GetDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10Device, ID3D10Device_Vtbl, 0x9b7e4c0f_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Device {
+impl core::ops::Deref for ID3D10Device {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -989,7 +989,7 @@ pub struct ID3D10Device_Vtbl {
     pub GetTextFilterSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32),
 }
 windows_core::imp::define_interface!(ID3D10Device1, ID3D10Device1_Vtbl, 0x9b7e4c8f_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Device1 {
+impl core::ops::Deref for ID3D10Device1 {
     type Target = ID3D10Device;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1024,7 +1024,7 @@ pub struct ID3D10Device1_Vtbl {
     pub GetFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D10_FEATURE_LEVEL1,
 }
 windows_core::imp::define_interface!(ID3D10DeviceChild, ID3D10DeviceChild_Vtbl, 0x9b7e4c00_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10DeviceChild {
+impl core::ops::Deref for ID3D10DeviceChild {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1061,7 +1061,7 @@ pub struct ID3D10DeviceChild_Vtbl {
     pub SetPrivateDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10Effect, ID3D10Effect_Vtbl, 0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
-impl std::ops::Deref for ID3D10Effect {
+impl core::ops::Deref for ID3D10Effect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1142,7 +1142,7 @@ pub struct ID3D10Effect_Vtbl {
     pub IsOptimized: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D10EffectBlendVariable, ID3D10EffectBlendVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectBlendVariable {
+impl core::ops::Deref for ID3D10EffectBlendVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1167,7 +1167,7 @@ pub struct ID3D10EffectBlendVariable_Vtbl {
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_BLEND_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectConstantBuffer, ID3D10EffectConstantBuffer_Vtbl);
-impl std::ops::Deref for ID3D10EffectConstantBuffer {
+impl core::ops::Deref for ID3D10EffectConstantBuffer {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1207,7 +1207,7 @@ pub struct ID3D10EffectConstantBuffer_Vtbl {
     pub GetTextureBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectDepthStencilVariable, ID3D10EffectDepthStencilVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectDepthStencilVariable {
+impl core::ops::Deref for ID3D10EffectDepthStencilVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1232,7 +1232,7 @@ pub struct ID3D10EffectDepthStencilVariable_Vtbl {
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_DEPTH_STENCIL_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectDepthStencilViewVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectDepthStencilViewVariable {
+impl core::ops::Deref for ID3D10EffectDepthStencilViewVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1268,7 +1268,7 @@ pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
     pub GetDepthStencilArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectMatrixVariable, ID3D10EffectMatrixVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectMatrixVariable {
+impl core::ops::Deref for ID3D10EffectMatrixVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1363,7 +1363,7 @@ pub struct ID3D10EffectPass_Vtbl {
     pub ComputeStateBlockMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectPool, ID3D10EffectPool_Vtbl, 0x9537ab04_3250_412e_8213_fcd2f8677933);
-impl std::ops::Deref for ID3D10EffectPool {
+impl core::ops::Deref for ID3D10EffectPool {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1383,7 +1383,7 @@ pub struct ID3D10EffectPool_Vtbl {
     pub AsEffect: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D10Effect>,
 }
 windows_core::imp::define_interface!(ID3D10EffectRasterizerVariable, ID3D10EffectRasterizerVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectRasterizerVariable {
+impl core::ops::Deref for ID3D10EffectRasterizerVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1408,7 +1408,7 @@ pub struct ID3D10EffectRasterizerVariable_Vtbl {
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_RASTERIZER_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectRenderTargetViewVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectRenderTargetViewVariable {
+impl core::ops::Deref for ID3D10EffectRenderTargetViewVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1444,7 +1444,7 @@ pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
     pub GetRenderTargetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectSamplerVariable, ID3D10EffectSamplerVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectSamplerVariable {
+impl core::ops::Deref for ID3D10EffectSamplerVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1469,7 +1469,7 @@ pub struct ID3D10EffectSamplerVariable_Vtbl {
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_SAMPLER_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectScalarVariable, ID3D10EffectScalarVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectScalarVariable {
+impl core::ops::Deref for ID3D10EffectScalarVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1539,7 +1539,7 @@ pub struct ID3D10EffectScalarVariable_Vtbl {
     pub GetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectShaderResourceVariable, ID3D10EffectShaderResourceVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectShaderResourceVariable {
+impl core::ops::Deref for ID3D10EffectShaderResourceVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1575,7 +1575,7 @@ pub struct ID3D10EffectShaderResourceVariable_Vtbl {
     pub GetResourceArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectShaderVariable, ID3D10EffectShaderVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectShaderVariable {
+impl core::ops::Deref for ID3D10EffectShaderVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1626,7 +1626,7 @@ pub struct ID3D10EffectShaderVariable_Vtbl {
     GetOutputSignatureElementDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10EffectStringVariable, ID3D10EffectStringVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectStringVariable {
+impl core::ops::Deref for ID3D10EffectStringVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1856,7 +1856,7 @@ pub struct ID3D10EffectVariable_Vtbl {
     pub GetRawValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10EffectVectorVariable, ID3D10EffectVectorVariable_Vtbl);
-impl std::ops::Deref for ID3D10EffectVectorVariable {
+impl core::ops::Deref for ID3D10EffectVectorVariable {
     type Target = ID3D10EffectVariable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1920,7 +1920,7 @@ pub struct ID3D10EffectVectorVariable_Vtbl {
     pub GetFloatVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10GeometryShader, ID3D10GeometryShader_Vtbl, 0x6316be88_54cd_4040_ab44_20461bc81f68);
-impl std::ops::Deref for ID3D10GeometryShader {
+impl core::ops::Deref for ID3D10GeometryShader {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1935,7 +1935,7 @@ pub struct ID3D10GeometryShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D10InfoQueue, ID3D10InfoQueue_Vtbl, 0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
-impl std::ops::Deref for ID3D10InfoQueue {
+impl core::ops::Deref for ID3D10InfoQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2109,7 +2109,7 @@ pub struct ID3D10InfoQueue_Vtbl {
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D10InputLayout, ID3D10InputLayout_Vtbl, 0x9b7e4c0b_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10InputLayout {
+impl core::ops::Deref for ID3D10InputLayout {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2124,7 +2124,7 @@ pub struct ID3D10InputLayout_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D10Multithread, ID3D10Multithread_Vtbl, 0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Multithread {
+impl core::ops::Deref for ID3D10Multithread {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2159,7 +2159,7 @@ pub struct ID3D10Multithread_Vtbl {
     pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D10PixelShader, ID3D10PixelShader_Vtbl, 0x4968b601_9d00_4cde_8346_8e7f675819b6);
-impl std::ops::Deref for ID3D10PixelShader {
+impl core::ops::Deref for ID3D10PixelShader {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2174,7 +2174,7 @@ pub struct ID3D10PixelShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D10Predicate, ID3D10Predicate_Vtbl, 0x9b7e4c10_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Predicate {
+impl core::ops::Deref for ID3D10Predicate {
     type Target = ID3D10Query;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2189,7 +2189,7 @@ pub struct ID3D10Predicate_Vtbl {
     pub base__: ID3D10Query_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D10Query, ID3D10Query_Vtbl, 0x9b7e4c0e_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Query {
+impl core::ops::Deref for ID3D10Query {
     type Target = ID3D10Asynchronous;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2211,7 +2211,7 @@ pub struct ID3D10Query_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_QUERY_DESC),
 }
 windows_core::imp::define_interface!(ID3D10RasterizerState, ID3D10RasterizerState_Vtbl, 0xa2a07292_89af_4345_be2e_c53d9fbb6e9f);
-impl std::ops::Deref for ID3D10RasterizerState {
+impl core::ops::Deref for ID3D10RasterizerState {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2231,7 +2231,7 @@ pub struct ID3D10RasterizerState_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_RASTERIZER_DESC),
 }
 windows_core::imp::define_interface!(ID3D10RenderTargetView, ID3D10RenderTargetView_Vtbl, 0x9b7e4c08_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10RenderTargetView {
+impl core::ops::Deref for ID3D10RenderTargetView {
     type Target = ID3D10View;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2255,7 +2255,7 @@ pub struct ID3D10RenderTargetView_Vtbl {
     GetDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10Resource, ID3D10Resource_Vtbl, 0x9b7e4c01_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Resource {
+impl core::ops::Deref for ID3D10Resource {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2285,7 +2285,7 @@ pub struct ID3D10Resource_Vtbl {
     pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(ID3D10SamplerState, ID3D10SamplerState_Vtbl, 0x9b7e4c0c_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10SamplerState {
+impl core::ops::Deref for ID3D10SamplerState {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2305,7 +2305,7 @@ pub struct ID3D10SamplerState_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_SAMPLER_DESC),
 }
 windows_core::imp::define_interface!(ID3D10ShaderReflection, ID3D10ShaderReflection_Vtbl, 0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa);
-impl std::ops::Deref for ID3D10ShaderReflection {
+impl core::ops::Deref for ID3D10ShaderReflection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2364,7 +2364,7 @@ pub struct ID3D10ShaderReflection_Vtbl {
     GetOutputParameterDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10ShaderReflection1, ID3D10ShaderReflection1_Vtbl, 0xc3457783_a846_47ce_9520_cea6f66e7447);
-impl std::ops::Deref for ID3D10ShaderReflection1 {
+impl core::ops::Deref for ID3D10ShaderReflection1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2554,7 +2554,7 @@ pub struct ID3D10ShaderReflectionVariable_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D10ShaderReflectionType>,
 }
 windows_core::imp::define_interface!(ID3D10ShaderResourceView, ID3D10ShaderResourceView_Vtbl, 0x9b7e4c07_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10ShaderResourceView {
+impl core::ops::Deref for ID3D10ShaderResourceView {
     type Target = ID3D10View;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2578,7 +2578,7 @@ pub struct ID3D10ShaderResourceView_Vtbl {
     GetDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10ShaderResourceView1, ID3D10ShaderResourceView1_Vtbl, 0x9b7e4c87_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10ShaderResourceView1 {
+impl core::ops::Deref for ID3D10ShaderResourceView1 {
     type Target = ID3D10ShaderResourceView;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2602,7 +2602,7 @@ pub struct ID3D10ShaderResourceView1_Vtbl {
     GetDesc1: usize,
 }
 windows_core::imp::define_interface!(ID3D10StateBlock, ID3D10StateBlock_Vtbl, 0x0803425a_57f5_4dd6_9465_a87570834a08);
-impl std::ops::Deref for ID3D10StateBlock {
+impl core::ops::Deref for ID3D10StateBlock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2635,7 +2635,7 @@ pub struct ID3D10StateBlock_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D10SwitchToRef, ID3D10SwitchToRef_Vtbl, 0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10SwitchToRef {
+impl core::ops::Deref for ID3D10SwitchToRef {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2662,7 +2662,7 @@ pub struct ID3D10SwitchToRef_Vtbl {
     pub GetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D10Texture1D, ID3D10Texture1D_Vtbl, 0x9b7e4c03_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Texture1D {
+impl core::ops::Deref for ID3D10Texture1D {
     type Target = ID3D10Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2694,7 +2694,7 @@ pub struct ID3D10Texture1D_Vtbl {
     GetDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10Texture2D, ID3D10Texture2D_Vtbl, 0x9b7e4c04_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Texture2D {
+impl core::ops::Deref for ID3D10Texture2D {
     type Target = ID3D10Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2727,7 +2727,7 @@ pub struct ID3D10Texture2D_Vtbl {
     GetDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10Texture3D, ID3D10Texture3D_Vtbl, 0x9b7e4c05_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10Texture3D {
+impl core::ops::Deref for ID3D10Texture3D {
     type Target = ID3D10Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2760,7 +2760,7 @@ pub struct ID3D10Texture3D_Vtbl {
     GetDesc: usize,
 }
 windows_core::imp::define_interface!(ID3D10VertexShader, ID3D10VertexShader_Vtbl, 0x9b7e4c0a_342c_4106_a19f_4f2704f689f0);
-impl std::ops::Deref for ID3D10VertexShader {
+impl core::ops::Deref for ID3D10VertexShader {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2775,7 +2775,7 @@ pub struct ID3D10VertexShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D10View, ID3D10View_Vtbl, 0xc902b03f_60a7_49ba_9936_2a3ab37a7e33);
-impl std::ops::Deref for ID3D10View {
+impl core::ops::Deref for ID3D10View {
     type Target = ID3D10DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

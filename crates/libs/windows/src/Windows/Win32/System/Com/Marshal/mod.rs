@@ -154,7 +154,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     CoUnmarshalInterface(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -654,7 +654,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, p
     STGMEDIUM_UserUnmarshal64(param0, param1, param2)
 }
 windows_core::imp::define_interface!(IMarshal, IMarshal_Vtbl, 0x00000003_0000_0000_c000_000000000046);
-impl std::ops::Deref for IMarshal {
+impl core::ops::Deref for IMarshal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -703,7 +703,7 @@ pub struct IMarshal_Vtbl {
     pub DisconnectObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMarshal2, IMarshal2_Vtbl, 0x000001cf_0000_0000_c000_000000000046);
-impl std::ops::Deref for IMarshal2 {
+impl core::ops::Deref for IMarshal2 {
     type Target = IMarshal;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -716,7 +716,7 @@ pub struct IMarshal2_Vtbl {
     pub base__: IMarshal_Vtbl,
 }
 windows_core::imp::define_interface!(IMarshalingStream, IMarshalingStream_Vtbl, 0xd8f2f5e6_6102_4863_9f26_389a4676efde);
-impl std::ops::Deref for IMarshalingStream {
+impl core::ops::Deref for IMarshalingStream {
     type Target = super::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

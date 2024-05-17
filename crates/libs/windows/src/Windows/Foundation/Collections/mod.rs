@@ -3,7 +3,7 @@
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterable<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -55,7 +55,7 @@ where
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterator<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -128,7 +128,7 @@ pub struct IKeyValuePair<K, V>(windows_core::IUnknown, core::marker::PhantomData
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IKeyValuePair<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> core::ops::Deref for IKeyValuePair<K, V> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -177,7 +177,7 @@ pub struct IMap<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IMap<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> core::ops::Deref for IMap<K, V> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -296,7 +296,7 @@ where
 pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
 where
     K: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static> std::ops::Deref for IMapChangedEventArgs<K> {
+impl<K: windows_core::RuntimeType + 'static> core::ops::Deref for IMapChangedEventArgs<K> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -343,7 +343,7 @@ pub struct IMapView<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, 
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IMapView<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> core::ops::Deref for IMapView<K, V> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -435,7 +435,7 @@ pub struct IObservableMap<K, V>(windows_core::IUnknown, core::marker::PhantomDat
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IObservableMap<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> core::ops::Deref for IObservableMap<K, V> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -566,7 +566,7 @@ where
 pub struct IObservableVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IObservableVector<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IObservableVector<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -710,7 +710,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
-impl std::ops::Deref for IPropertySet {
+impl core::ops::Deref for IPropertySet {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -813,7 +813,7 @@ pub struct IPropertySet_Vtbl {
 pub struct IVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVector<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IVector<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -968,7 +968,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
-impl std::ops::Deref for IVectorChangedEventArgs {
+impl core::ops::Deref for IVectorChangedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1005,7 +1005,7 @@ pub struct IVectorChangedEventArgs_Vtbl {
 pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVectorView<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IVectorView<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

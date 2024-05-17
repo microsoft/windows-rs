@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IADesktopP2, IADesktopP2_Vtbl, 0xb22754e2_4574_11d1_9888_006097deacf9);
-impl std::ops::Deref for IADesktopP2 {
+impl core::ops::Deref for IADesktopP2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -36,7 +36,7 @@ pub struct IADesktopP2_Vtbl {
     MakeDynamicChanges: usize,
 }
 windows_core::imp::define_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
-impl std::ops::Deref for IActiveDesktopP {
+impl core::ops::Deref for IActiveDesktopP {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -69,7 +69,7 @@ pub struct IActiveDesktopP_Vtbl {
     pub GetScheme: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBriefcaseInitiator, IBriefcaseInitiator_Vtbl, 0x99180164_da16_101a_935c_444553540000);
-impl std::ops::Deref for IBriefcaseInitiator {
+impl core::ops::Deref for IBriefcaseInitiator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -94,7 +94,7 @@ pub struct IBriefcaseInitiator_Vtbl {
     IsMonikerInBriefcase: usize,
 }
 windows_core::imp::define_interface!(IEmptyVolumeCache, IEmptyVolumeCache_Vtbl, 0x8fce5227_04da_11d1_a004_00805f8abe06);
-impl std::ops::Deref for IEmptyVolumeCache {
+impl core::ops::Deref for IEmptyVolumeCache {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -146,7 +146,7 @@ pub struct IEmptyVolumeCache_Vtbl {
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEmptyVolumeCache2, IEmptyVolumeCache2_Vtbl, 0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
-impl std::ops::Deref for IEmptyVolumeCache2 {
+impl core::ops::Deref for IEmptyVolumeCache2 {
     type Target = IEmptyVolumeCache;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -173,7 +173,7 @@ pub struct IEmptyVolumeCache2_Vtbl {
     InitializeEx: usize,
 }
 windows_core::imp::define_interface!(IEmptyVolumeCacheCallBack, IEmptyVolumeCacheCallBack_Vtbl, 0x6e793361_73c6_11d0_8469_00aa00442901);
-impl std::ops::Deref for IEmptyVolumeCacheCallBack {
+impl core::ops::Deref for IEmptyVolumeCacheCallBack {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -201,7 +201,7 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
     pub PurgeProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IReconcilableObject, IReconcilableObject_Vtbl, 0x99180162_da16_101a_935c_444553540000);
-impl std::ops::Deref for IReconcilableObject {
+impl core::ops::Deref for IReconcilableObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -234,7 +234,7 @@ pub struct IReconcilableObject_Vtbl {
     pub GetProgressFeedbackMaxEstimate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IReconcileInitiator, IReconcileInitiator_Vtbl, 0x99180161_da16_101a_935c_444553540000);
-impl std::ops::Deref for IReconcileInitiator {
+impl core::ops::Deref for IReconcileInitiator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -4,11 +4,11 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxcore.dll" "system" fn DXCoreCreateAdapterFactory(riid : *const windows_core::GUID, ppvfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DXCoreCreateAdapterFactory(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IDXCoreAdapter, IDXCoreAdapter_Vtbl, 0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
-impl std::ops::Deref for IDXCoreAdapter {
+impl core::ops::Deref for IDXCoreAdapter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -48,7 +48,7 @@ impl IDXCoreAdapter {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetFactory)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -67,7 +67,7 @@ pub struct IDXCoreAdapter_Vtbl {
     pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXCoreAdapterFactory, IDXCoreAdapterFactory_Vtbl, 0x78ee5945_c36e_4b13_a669_005dd11c0f06);
-impl std::ops::Deref for IDXCoreAdapterFactory {
+impl core::ops::Deref for IDXCoreAdapterFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -79,14 +79,14 @@ impl IDXCoreAdapterFactory {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), core::mem::transmute(filterattributes.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::super::Foundation::LUID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetAdapterByLuid)(windows_core::Interface::as_raw(self), adapterluid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool {
@@ -113,7 +113,7 @@ pub struct IDXCoreAdapterFactory_Vtbl {
     pub UnregisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl, 0x526c7776_40e9_459b_b711_f32ad76dfc28);
-impl std::ops::Deref for IDXCoreAdapterList {
+impl core::ops::Deref for IDXCoreAdapterList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -125,7 +125,7 @@ impl IDXCoreAdapterList {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetAdapter)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAdapterCount(&self) -> u32 {
@@ -138,7 +138,7 @@ impl IDXCoreAdapterList {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetFactory)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> windows_core::Result<()> {

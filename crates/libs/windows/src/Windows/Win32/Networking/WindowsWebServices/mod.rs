@@ -1088,7 +1088,7 @@ pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const W
     WsXmlStringEquals(string1, string2, core::mem::transmute(error.unwrap_or(std::ptr::null()))).ok()
 }
 windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
-impl std::ops::Deref for IContentPrefetcherTaskTrigger {
+impl core::ops::Deref for IContentPrefetcherTaskTrigger {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

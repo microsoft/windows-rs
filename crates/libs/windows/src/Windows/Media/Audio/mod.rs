@@ -302,7 +302,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl {
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioGraphUnrecoverableError) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioInputNode, IAudioInputNode_Vtbl, 0xd148005c_8428_4784_b7fd_a99d468c5d20);
-impl std::ops::Deref for IAudioInputNode {
+impl core::ops::Deref for IAudioInputNode {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -426,7 +426,7 @@ pub struct IAudioInputNode_Vtbl {
     pub RemoveOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioInputNode2, IAudioInputNode2_Vtbl, 0x905156b7_ca68_4c6d_a8bc_e3ee17fe3fd2);
-impl std::ops::Deref for IAudioInputNode2 {
+impl core::ops::Deref for IAudioInputNode2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -551,7 +551,7 @@ pub struct IAudioInputNode2_Vtbl {
     pub Emitter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioNode, IAudioNode_Vtbl, 0x15389d7f_dbd8_4819_bf03_668e9357cd6d);
-impl std::ops::Deref for IAudioNode {
+impl core::ops::Deref for IAudioNode {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -819,7 +819,7 @@ pub struct IAudioNodeListener_Vtbl {
     SetDopplerVelocity: usize,
 }
 windows_core::imp::define_interface!(IAudioNodeWithListener, IAudioNodeWithListener_Vtbl, 0x0e0f907c_79ff_4544_9eeb_01257b15105a);
-impl std::ops::Deref for IAudioNodeWithListener {
+impl core::ops::Deref for IAudioNodeWithListener {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

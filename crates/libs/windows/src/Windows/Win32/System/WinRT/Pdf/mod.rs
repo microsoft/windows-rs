@@ -9,7 +9,7 @@ where
     PdfCreateRenderer(pdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
-impl std::ops::Deref for IPdfRendererNative {
+impl core::ops::Deref for IPdfRendererNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

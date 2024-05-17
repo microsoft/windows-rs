@@ -122,7 +122,7 @@ pub struct IBackgroundDownloaderUserConsent_Vtbl {
     RequestUnconstrainedDownloadsAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferBase, IBackgroundTransferBase_Vtbl, 0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
-impl std::ops::Deref for IBackgroundTransferBase {
+impl core::ops::Deref for IBackgroundTransferBase {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -283,7 +283,7 @@ pub struct IBackgroundTransferContentPart_Vtbl {
     SetFile: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferContentPartFactory, IBackgroundTransferContentPartFactory_Vtbl, 0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d);
-impl std::ops::Deref for IBackgroundTransferContentPartFactory {
+impl core::ops::Deref for IBackgroundTransferContentPartFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -348,7 +348,7 @@ pub struct IBackgroundTransferGroupStatics_Vtbl {
     pub CreateGroup: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferOperation, IBackgroundTransferOperation_Vtbl, 0xded06846_90ca_44fb_8fb1_124154c0d539);
-impl std::ops::Deref for IBackgroundTransferOperation {
+impl core::ops::Deref for IBackgroundTransferOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -434,7 +434,7 @@ pub struct IBackgroundTransferOperation_Vtbl {
     pub GetResponseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferOperationPriority, IBackgroundTransferOperationPriority_Vtbl, 0x04854327_5254_4b3a_915e_0aa49275c0f9);
-impl std::ops::Deref for IBackgroundTransferOperationPriority {
+impl core::ops::Deref for IBackgroundTransferOperationPriority {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

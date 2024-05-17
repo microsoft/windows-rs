@@ -193,7 +193,7 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     TryCancelPendingGameUI()
 }
 windows_core::imp::define_interface!(IGameExplorer, IGameExplorer_Vtbl, 0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
-impl std::ops::Deref for IGameExplorer {
+impl core::ops::Deref for IGameExplorer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -231,7 +231,7 @@ pub struct IGameExplorer_Vtbl {
     pub VerifyAccess: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameExplorer2, IGameExplorer2_Vtbl, 0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
-impl std::ops::Deref for IGameExplorer2 {
+impl core::ops::Deref for IGameExplorer2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -268,7 +268,7 @@ pub struct IGameExplorer2_Vtbl {
     pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameStatistics, IGameStatistics_Vtbl, 0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
-impl std::ops::Deref for IGameStatistics {
+impl core::ops::Deref for IGameStatistics {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -347,7 +347,7 @@ pub struct IGameStatistics_Vtbl {
     pub GetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameStatisticsMgr, IGameStatisticsMgr_Vtbl, 0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
-impl std::ops::Deref for IGameStatisticsMgr {
+impl core::ops::Deref for IGameStatisticsMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -375,7 +375,7 @@ pub struct IGameStatisticsMgr_Vtbl {
     pub RemoveGameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXblIdpAuthManager, IXblIdpAuthManager_Vtbl, 0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
-impl std::ops::Deref for IXblIdpAuthManager {
+impl core::ops::Deref for IXblIdpAuthManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -434,7 +434,7 @@ pub struct IXblIdpAuthManager_Vtbl {
     pub GetTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXblIdpAuthManager2, IXblIdpAuthManager2_Vtbl, 0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
-impl std::ops::Deref for IXblIdpAuthManager2 {
+impl core::ops::Deref for IXblIdpAuthManager2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -462,7 +462,7 @@ pub struct IXblIdpAuthManager2_Vtbl {
     pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXblIdpAuthTokenResult, IXblIdpAuthTokenResult_Vtbl, 0x46ce0225_f267_4d68_b299_b2762552dec1);
-impl std::ops::Deref for IXblIdpAuthTokenResult {
+impl core::ops::Deref for IXblIdpAuthTokenResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -576,7 +576,7 @@ pub struct IXblIdpAuthTokenResult_Vtbl {
     pub GetTitleRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXblIdpAuthTokenResult2, IXblIdpAuthTokenResult2_Vtbl, 0x75d760b0_60b9_412d_994f_26b2cd5f7812);
-impl std::ops::Deref for IXblIdpAuthTokenResult2 {
+impl core::ops::Deref for IXblIdpAuthTokenResult2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

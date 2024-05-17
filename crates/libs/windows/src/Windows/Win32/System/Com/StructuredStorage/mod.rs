@@ -28,7 +28,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     CoGetInterfaceAndReleaseStream(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -578,7 +578,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const core::mem::MaybeUninit < windows_core::PROPVARIANT >, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     PropVariantToWinRTPropertyValue(core::mem::transmute(propvar), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -834,7 +834,7 @@ where
     WriteFmtUserTypeStg(pstg.param().abi(), cf, lpszusertype.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IDirectWriterLock, IDirectWriterLock_Vtbl, 0x0e6d4d92_6738_11cf_9608_00aa00680db4);
-impl std::ops::Deref for IDirectWriterLock {
+impl core::ops::Deref for IDirectWriterLock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -860,7 +860,7 @@ pub struct IDirectWriterLock_Vtbl {
     pub HaveWriteAccess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATPROPSETSTG, IEnumSTATPROPSETSTG_Vtbl, 0x0000013b_0000_0000_c000_000000000046);
-impl std::ops::Deref for IEnumSTATPROPSETSTG {
+impl core::ops::Deref for IEnumSTATPROPSETSTG {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -891,7 +891,7 @@ pub struct IEnumSTATPROPSETSTG_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATPROPSTG, IEnumSTATPROPSTG_Vtbl, 0x00000139_0000_0000_c000_000000000046);
-impl std::ops::Deref for IEnumSTATPROPSTG {
+impl core::ops::Deref for IEnumSTATPROPSTG {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -926,7 +926,7 @@ pub struct IEnumSTATPROPSTG_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATSTG, IEnumSTATSTG_Vtbl, 0x0000000d_0000_0000_c000_000000000046);
-impl std::ops::Deref for IEnumSTATSTG {
+impl core::ops::Deref for IEnumSTATSTG {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -957,7 +957,7 @@ pub struct IEnumSTATSTG_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFillLockBytes, IFillLockBytes_Vtbl, 0x99caf010_415e_11cf_8814_00aa00b569f5);
-impl std::ops::Deref for IFillLockBytes {
+impl core::ops::Deref for IFillLockBytes {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -992,7 +992,7 @@ pub struct IFillLockBytes_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILayoutStorage, ILayoutStorage_Vtbl, 0x0e6d4d90_6738_11cf_9608_00aa00680db4);
-impl std::ops::Deref for ILayoutStorage {
+impl core::ops::Deref for ILayoutStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1032,7 +1032,7 @@ pub struct ILayoutStorage_Vtbl {
     pub ReLayoutDocfileOnILockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockBytes, ILockBytes_Vtbl, 0x0000000a_0000_0000_c000_000000000046);
-impl std::ops::Deref for ILockBytes {
+impl core::ops::Deref for ILockBytes {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1088,7 +1088,7 @@ pub struct IMemoryAllocator_Vtbl {
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IPersistStorage, IPersistStorage_Vtbl, 0x0000010a_0000_0000_c000_000000000046);
-impl std::ops::Deref for IPersistStorage {
+impl core::ops::Deref for IPersistStorage {
     type Target = super::IPersist;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1139,7 +1139,7 @@ pub struct IPersistStorage_Vtbl {
     pub HandsOffStorage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyBag, IPropertyBag_Vtbl, 0x55272a00_42cb_11ce_8135_00aa004bb851);
-impl std::ops::Deref for IPropertyBag {
+impl core::ops::Deref for IPropertyBag {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1168,7 +1168,7 @@ pub struct IPropertyBag_Vtbl {
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyBag2, IPropertyBag2_Vtbl, 0x22f55882_280b_11d0_a8a9_00a0c90c2004);
-impl std::ops::Deref for IPropertyBag2 {
+impl core::ops::Deref for IPropertyBag2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1223,7 +1223,7 @@ pub struct IPropertyBag2_Vtbl {
     pub LoadObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertySetStorage, IPropertySetStorage_Vtbl, 0x0000013a_0000_0000_c000_000000000046);
-impl std::ops::Deref for IPropertySetStorage {
+impl core::ops::Deref for IPropertySetStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1256,7 +1256,7 @@ pub struct IPropertySetStorage_Vtbl {
     pub Enum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyStorage, IPropertyStorage_Vtbl, 0x00000138_0000_0000_c000_000000000046);
-impl std::ops::Deref for IPropertyStorage {
+impl core::ops::Deref for IPropertyStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1319,7 +1319,7 @@ pub struct IPropertyStorage_Vtbl {
     pub Stat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STATPROPSETSTG) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRootStorage, IRootStorage_Vtbl, 0x00000012_0000_0000_c000_000000000046);
-impl std::ops::Deref for IRootStorage {
+impl core::ops::Deref for IRootStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1340,7 +1340,7 @@ pub struct IRootStorage_Vtbl {
     pub SwitchToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorage, IStorage_Vtbl, 0x0000000b_0000_0000_c000_000000000046);
-impl std::ops::Deref for IStorage {
+impl core::ops::Deref for IStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

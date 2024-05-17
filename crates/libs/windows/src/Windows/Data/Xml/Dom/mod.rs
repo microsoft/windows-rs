@@ -40,7 +40,7 @@ pub struct IXmlCDataSection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IXmlCharacterData, IXmlCharacterData_Vtbl, 0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26);
-impl std::ops::Deref for IXmlCharacterData {
+impl core::ops::Deref for IXmlCharacterData {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -503,7 +503,7 @@ pub struct IXmlNamedNodeMap_Vtbl {
     pub SetNamedItemNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlNode, IXmlNode_Vtbl, 0x1c741d59_2122_47d5_a856_83f3d4214875);
-impl std::ops::Deref for IXmlNode {
+impl core::ops::Deref for IXmlNode {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -778,7 +778,7 @@ pub struct IXmlNodeList_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlNodeSelector, IXmlNodeSelector_Vtbl, 0x63dbba8b_d0db_4fe1_b745_f9433afdc25b);
-impl std::ops::Deref for IXmlNodeSelector {
+impl core::ops::Deref for IXmlNodeSelector {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -833,7 +833,7 @@ pub struct IXmlNodeSelector_Vtbl {
     pub SelectNodesNS: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlNodeSerializer, IXmlNodeSerializer_Vtbl, 0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
-impl std::ops::Deref for IXmlNodeSerializer {
+impl core::ops::Deref for IXmlNodeSerializer {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -882,7 +882,7 @@ pub struct IXmlProcessingInstruction_Vtbl {
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlText, IXmlText_Vtbl, 0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
-impl std::ops::Deref for IXmlText {
+impl core::ops::Deref for IXmlText {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(ICivicAddressReport, ICivicAddressReport_Vtbl, 0xc0b19f70_4adf_445d_87f2_cad8fd711792);
-impl std::ops::Deref for ICivicAddressReport {
+impl core::ops::Deref for ICivicAddressReport {
     type Target = ILocationReport;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -50,7 +50,7 @@ pub struct ICivicAddressReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICivicAddressReportFactory, ICivicAddressReportFactory_Vtbl, 0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ICivicAddressReportFactory {
+impl core::ops::Deref for ICivicAddressReportFactory {
     type Target = ILocationReportFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -76,7 +76,7 @@ pub struct ICivicAddressReportFactory_Vtbl {
     CivicAddressReport: usize,
 }
 windows_core::imp::define_interface!(IDefaultLocation, IDefaultLocation_Vtbl, 0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
-impl std::ops::Deref for IDefaultLocation {
+impl core::ops::Deref for IDefaultLocation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -104,7 +104,7 @@ pub struct IDefaultLocation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDispCivicAddressReport, IDispCivicAddressReport_Vtbl, 0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDispCivicAddressReport {
+impl core::ops::Deref for IDispCivicAddressReport {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -163,7 +163,7 @@ pub struct IDispCivicAddressReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDispLatLongReport, IDispLatLongReport_Vtbl, 0x8ae32723_389b_4a11_9957_5bdd48fc9617);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDispLatLongReport {
+impl core::ops::Deref for IDispLatLongReport {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -210,7 +210,7 @@ pub struct IDispLatLongReport_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILatLongReport, ILatLongReport_Vtbl, 0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
-impl std::ops::Deref for ILatLongReport {
+impl core::ops::Deref for ILatLongReport {
     type Target = ILocationReport;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -251,7 +251,7 @@ pub struct ILatLongReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILatLongReportFactory, ILatLongReportFactory_Vtbl, 0x3f0804cb_b114_447d_83dd_390174ebb082);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ILatLongReportFactory {
+impl core::ops::Deref for ILatLongReportFactory {
     type Target = ILocationReportFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -277,7 +277,7 @@ pub struct ILatLongReportFactory_Vtbl {
     LatLongReport: usize,
 }
 windows_core::imp::define_interface!(ILocation, ILocation_Vtbl, 0xab2ece69_56d9_4f28_b525_de1b0ee44237);
-impl std::ops::Deref for ILocation {
+impl core::ops::Deref for ILocation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -346,7 +346,7 @@ pub struct ILocation_Vtbl {
     pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationEvents, ILocationEvents_Vtbl, 0xcae02bbf_798b_4508_a207_35a7906dc73d);
-impl std::ops::Deref for ILocationEvents {
+impl core::ops::Deref for ILocationEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -371,7 +371,7 @@ pub struct ILocationEvents_Vtbl {
     pub OnStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationPower, ILocationPower_Vtbl, 0x193e7729_ab6b_4b12_8617_7596e1bb191c);
-impl std::ops::Deref for ILocationPower {
+impl core::ops::Deref for ILocationPower {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -393,7 +393,7 @@ pub struct ILocationPower_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationReport, ILocationReport_Vtbl, 0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
-impl std::ops::Deref for ILocationReport {
+impl core::ops::Deref for ILocationReport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -428,7 +428,7 @@ pub struct ILocationReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILocationReportFactory, ILocationReportFactory_Vtbl, 0x2daec322_90b2_47e4_bb08_0da841935a6b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ILocationReportFactory {
+impl core::ops::Deref for ILocationReportFactory {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -482,7 +482,7 @@ pub struct ILocationReportFactory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_ICivicAddressReportFactoryEvents, _ICivicAddressReportFactoryEvents_Vtbl, 0xc96039ff_72ec_4617_89bd_84d88bedc722);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for _ICivicAddressReportFactoryEvents {
+impl core::ops::Deref for _ICivicAddressReportFactoryEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -500,7 +500,7 @@ pub struct _ICivicAddressReportFactoryEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_ILatLongReportFactoryEvents, _ILatLongReportFactoryEvents_Vtbl, 0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for _ILatLongReportFactoryEvents {
+impl core::ops::Deref for _ILatLongReportFactoryEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

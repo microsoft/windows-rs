@@ -239,7 +239,7 @@ where
     WSDXMLGetValueFromAny(psznamespace.param().abi(), pszname.param().abi(), pany, ppszvalue).ok()
 }
 windows_core::imp::define_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_12a6_4f74_93a1_3318ff605759);
-impl std::ops::Deref for IWSDAddress {
+impl core::ops::Deref for IWSDAddress {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -267,7 +267,7 @@ pub struct IWSDAddress_Vtbl {
     pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDAsyncCallback, IWSDAsyncCallback_Vtbl, 0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
-impl std::ops::Deref for IWSDAsyncCallback {
+impl core::ops::Deref for IWSDAsyncCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -289,7 +289,7 @@ pub struct IWSDAsyncCallback_Vtbl {
     pub AsyncOperationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDAsyncResult, IWSDAsyncResult_Vtbl, 0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
-impl std::ops::Deref for IWSDAsyncResult {
+impl core::ops::Deref for IWSDAsyncResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -340,7 +340,7 @@ pub struct IWSDAsyncResult_Vtbl {
     pub GetEndpointProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDAttachment, IWSDAttachment_Vtbl, 0x5d55a616_9df8_4b09_b156_9ba351a48b76);
-impl std::ops::Deref for IWSDAttachment {
+impl core::ops::Deref for IWSDAttachment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -353,7 +353,7 @@ pub struct IWSDAttachment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
 windows_core::imp::define_interface!(IWSDDeviceHost, IWSDDeviceHost_Vtbl, 0x917fe891_3d13_4138_9809_934c8abeb12c);
-impl std::ops::Deref for IWSDDeviceHost {
+impl core::ops::Deref for IWSDDeviceHost {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -444,7 +444,7 @@ pub struct IWSDDeviceHost_Vtbl {
     pub SignalEvent: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, *const WSD_OPERATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDDeviceHostNotify, IWSDDeviceHostNotify_Vtbl, 0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
-impl std::ops::Deref for IWSDDeviceHostNotify {
+impl core::ops::Deref for IWSDDeviceHostNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -466,7 +466,7 @@ pub struct IWSDDeviceHostNotify_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDDeviceProxy, IWSDDeviceProxy_Vtbl, 0xeee0c031_c578_4c0e_9a3b_973c35f409db);
-impl std::ops::Deref for IWSDDeviceProxy {
+impl core::ops::Deref for IWSDDeviceProxy {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -541,7 +541,7 @@ pub struct IWSDDeviceProxy_Vtbl {
     pub GetEndpointProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDEndpointProxy, IWSDEndpointProxy_Vtbl, 0x1860d430_b24c_4975_9f90_dbb39baa24ec);
-impl std::ops::Deref for IWSDEndpointProxy {
+impl core::ops::Deref for IWSDEndpointProxy {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -593,7 +593,7 @@ pub struct IWSDEndpointProxy_Vtbl {
     pub GetFaultInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut WSD_SOAP_FAULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDEventingStatus, IWSDEventingStatus_Vtbl, 0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
-impl std::ops::Deref for IWSDEventingStatus {
+impl core::ops::Deref for IWSDEventingStatus {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -628,7 +628,7 @@ pub struct IWSDEventingStatus_Vtbl {
     pub SubscriptionEnded: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR),
 }
 windows_core::imp::define_interface!(IWSDHttpAddress, IWSDHttpAddress_Vtbl, 0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
-impl std::ops::Deref for IWSDHttpAddress {
+impl core::ops::Deref for IWSDHttpAddress {
     type Target = IWSDTransportAddress;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -665,7 +665,7 @@ pub struct IWSDHttpAddress_Vtbl {
     pub SetPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDHttpAuthParameters, IWSDHttpAuthParameters_Vtbl, 0x0b476df0_8dac_480d_b05c_99781a5884aa);
-impl std::ops::Deref for IWSDHttpAuthParameters {
+impl core::ops::Deref for IWSDHttpAuthParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -689,7 +689,7 @@ pub struct IWSDHttpAuthParameters_Vtbl {
     pub GetAuthType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDHttpMessageParameters, IWSDHttpMessageParameters_Vtbl, 0x540bd122_5c83_4dec_b396_ea62a2697fdf);
-impl std::ops::Deref for IWSDHttpMessageParameters {
+impl core::ops::Deref for IWSDHttpMessageParameters {
     type Target = IWSDMessageParameters;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -755,7 +755,7 @@ pub struct IWSDHttpMessageParameters_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDInboundAttachment, IWSDInboundAttachment_Vtbl, 0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
-impl std::ops::Deref for IWSDInboundAttachment {
+impl core::ops::Deref for IWSDInboundAttachment {
     type Target = IWSDAttachment;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -777,7 +777,7 @@ pub struct IWSDInboundAttachment_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDMessageParameters, IWSDMessageParameters_Vtbl, 0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
-impl std::ops::Deref for IWSDMessageParameters {
+impl core::ops::Deref for IWSDMessageParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -820,7 +820,7 @@ pub struct IWSDMessageParameters_Vtbl {
     pub GetLowerParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDMetadataExchange, IWSDMetadataExchange_Vtbl, 0x06996d57_1d67_4928_9307_3d7833fdb846);
-impl std::ops::Deref for IWSDMetadataExchange {
+impl core::ops::Deref for IWSDMetadataExchange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -839,7 +839,7 @@ pub struct IWSDMetadataExchange_Vtbl {
     pub GetMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut WSD_METADATA_SECTION_LIST) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDOutboundAttachment, IWSDOutboundAttachment_Vtbl, 0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
-impl std::ops::Deref for IWSDOutboundAttachment {
+impl core::ops::Deref for IWSDOutboundAttachment {
     type Target = IWSDAttachment;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -866,7 +866,7 @@ pub struct IWSDOutboundAttachment_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDSSLClientCertificate, IWSDSSLClientCertificate_Vtbl, 0xde105e87_a0da_418e_98ad_27b9eed87bdc);
-impl std::ops::Deref for IWSDSSLClientCertificate {
+impl core::ops::Deref for IWSDSSLClientCertificate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -894,7 +894,7 @@ pub struct IWSDSSLClientCertificate_Vtbl {
     pub GetMappedAccessToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDScopeMatchingRule, IWSDScopeMatchingRule_Vtbl, 0xfcafe424_fef5_481a_bd9f_33ce0574256f);
-impl std::ops::Deref for IWSDScopeMatchingRule {
+impl core::ops::Deref for IWSDScopeMatchingRule {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -922,7 +922,7 @@ pub struct IWSDScopeMatchingRule_Vtbl {
     pub MatchScopes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDServiceMessaging, IWSDServiceMessaging_Vtbl, 0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
-impl std::ops::Deref for IWSDServiceMessaging {
+impl core::ops::Deref for IWSDServiceMessaging {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -950,7 +950,7 @@ pub struct IWSDServiceMessaging_Vtbl {
     pub FaultRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const WSD_SOAP_HEADER, *mut core::ffi::c_void, *const WSD_SOAP_FAULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDServiceProxy, IWSDServiceProxy_Vtbl, 0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
-impl std::ops::Deref for IWSDServiceProxy {
+impl core::ops::Deref for IWSDServiceProxy {
     type Target = IWSDMetadataExchange;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1005,7 +1005,7 @@ pub struct IWSDServiceProxy_Vtbl {
     pub GetEndpointProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDServiceProxyEventing, IWSDServiceProxyEventing_Vtbl, 0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
-impl std::ops::Deref for IWSDServiceProxyEventing {
+impl core::ops::Deref for IWSDServiceProxyEventing {
     type Target = IWSDServiceProxy;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1103,7 +1103,7 @@ pub struct IWSDServiceProxyEventing_Vtbl {
     pub EndGetStatusForMultipleOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *const WSD_OPERATION, u32, *mut core::ffi::c_void, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDSignatureProperty, IWSDSignatureProperty_Vtbl, 0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
-impl std::ops::Deref for IWSDSignatureProperty {
+impl core::ops::Deref for IWSDSignatureProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1139,7 +1139,7 @@ pub struct IWSDSignatureProperty_Vtbl {
     pub GetSignedInfoHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDTransportAddress, IWSDTransportAddress_Vtbl, 0x70d23498_4ee6_4340_a3df_d845d2235467);
-impl std::ops::Deref for IWSDTransportAddress {
+impl core::ops::Deref for IWSDTransportAddress {
     type Target = IWSDAddress;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1182,7 +1182,7 @@ pub struct IWSDTransportAddress_Vtbl {
     pub SetTransportAddress: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDUdpAddress, IWSDUdpAddress_Vtbl, 0x74d6124a_a441_4f78_a1eb_97a8d1996893);
-impl std::ops::Deref for IWSDUdpAddress {
+impl core::ops::Deref for IWSDUdpAddress {
     type Target = IWSDTransportAddress;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1250,7 +1250,7 @@ pub struct IWSDUdpAddress_Vtbl {
     pub GetAlias: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDUdpMessageParameters, IWSDUdpMessageParameters_Vtbl, 0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
-impl std::ops::Deref for IWSDUdpMessageParameters {
+impl core::ops::Deref for IWSDUdpMessageParameters {
     type Target = IWSDMessageParameters;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1272,7 +1272,7 @@ pub struct IWSDUdpMessageParameters_Vtbl {
     pub GetRetransmitParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WSDUdpRetransmitParams) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDXMLContext, IWSDXMLContext_Vtbl, 0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
-impl std::ops::Deref for IWSDXMLContext {
+impl core::ops::Deref for IWSDXMLContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1310,7 +1310,7 @@ pub struct IWSDXMLContext_Vtbl {
     pub SetTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const WSDXML_TYPE, u32, u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDiscoveredService, IWSDiscoveredService_Vtbl, 0x4bad8a3b_b374_4420_9632_aac945b374aa);
-impl std::ops::Deref for IWSDiscoveredService {
+impl core::ops::Deref for IWSDiscoveredService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1378,7 +1378,7 @@ pub struct IWSDiscoveredService_Vtbl {
     pub GetInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDiscoveryProvider, IWSDiscoveryProvider_Vtbl, 0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
-impl std::ops::Deref for IWSDiscoveryProvider {
+impl core::ops::Deref for IWSDiscoveryProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1436,7 +1436,7 @@ pub struct IWSDiscoveryProvider_Vtbl {
     pub GetXMLContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDiscoveryProviderNotify, IWSDiscoveryProviderNotify_Vtbl, 0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
-impl std::ops::Deref for IWSDiscoveryProviderNotify {
+impl core::ops::Deref for IWSDiscoveryProviderNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1478,7 +1478,7 @@ pub struct IWSDiscoveryProviderNotify_Vtbl {
     pub SearchComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDiscoveryPublisher, IWSDiscoveryPublisher_Vtbl, 0xae01e1a8_3ff9_4148_8116_057cc616fe13);
-impl std::ops::Deref for IWSDiscoveryPublisher {
+impl core::ops::Deref for IWSDiscoveryPublisher {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1641,7 +1641,7 @@ pub struct IWSDiscoveryPublisher_Vtbl {
     pub GetXMLContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSDiscoveryPublisherNotify, IWSDiscoveryPublisherNotify_Vtbl, 0xe67651b0_337a_4b3c_9758_733388568251);
-impl std::ops::Deref for IWSDiscoveryPublisherNotify {
+impl core::ops::Deref for IWSDiscoveryPublisherNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

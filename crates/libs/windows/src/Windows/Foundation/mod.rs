@@ -7,7 +7,7 @@ pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
 windows_core::imp::define_interface!(IAsyncAction, IAsyncAction_Vtbl, 0x5a648006_843a_4da9_865b_9d26e5dfad7b);
-impl std::ops::Deref for IAsyncAction {
+impl core::ops::Deref for IAsyncAction {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -110,7 +110,7 @@ pub struct IAsyncAction_Vtbl {
 pub struct IAsyncActionWithProgress<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
 where
     TProgress: windows_core::RuntimeType + 'static;
-impl<TProgress: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncActionWithProgress<TProgress> {
+impl<TProgress: windows_core::RuntimeType + 'static> core::ops::Deref for IAsyncActionWithProgress<TProgress> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -236,7 +236,7 @@ where
     pub TProgress: core::marker::PhantomData<TProgress>,
 }
 windows_core::imp::define_interface!(IAsyncInfo, IAsyncInfo_Vtbl, 0x00000036_0000_0000_c000_000000000046);
-impl std::ops::Deref for IAsyncInfo {
+impl core::ops::Deref for IAsyncInfo {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -291,7 +291,7 @@ pub struct IAsyncInfo_Vtbl {
 pub struct IAsyncOperation<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
 where
     TResult: windows_core::RuntimeType + 'static;
-impl<TResult: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncOperation<TResult> {
+impl<TResult: windows_core::RuntimeType + 'static> core::ops::Deref for IAsyncOperation<TResult> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -409,7 +409,7 @@ pub struct IAsyncOperationWithProgress<TResult, TProgress>(windows_core::IUnknow
 where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncOperationWithProgress<TResult, TProgress> {
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> core::ops::Deref for IAsyncOperationWithProgress<TResult, TProgress> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -540,7 +540,7 @@ where
     pub TProgress: core::marker::PhantomData<TProgress>,
 }
 windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
-impl std::ops::Deref for IClosable {
+impl core::ops::Deref for IClosable {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -580,7 +580,7 @@ pub struct IDeferralFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGetActivationFactory, IGetActivationFactory_Vtbl, 0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
-impl std::ops::Deref for IGetActivationFactory {
+impl core::ops::Deref for IGetActivationFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -616,7 +616,7 @@ pub struct IGuidHelperStatics_Vtbl {
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, &windows_core::GUID, &windows_core::GUID, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMemoryBuffer, IMemoryBuffer_Vtbl, 0xfbc4dd2a_245b_11e4_af98_689423260cf8);
-impl std::ops::Deref for IMemoryBuffer {
+impl core::ops::Deref for IMemoryBuffer {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -655,7 +655,7 @@ pub struct IMemoryBufferFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMemoryBufferReference, IMemoryBufferReference_Vtbl, 0xfbc4dd29_245b_11e4_af98_689423260cf8);
-impl std::ops::Deref for IMemoryBufferReference {
+impl core::ops::Deref for IMemoryBufferReference {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -701,7 +701,7 @@ pub struct IMemoryBufferReference_Vtbl {
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
-impl std::ops::Deref for IPropertyValue {
+impl core::ops::Deref for IPropertyValue {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1024,7 +1024,7 @@ pub struct IPropertyValueStatics_Vtbl {
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReference<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IReference<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1281,7 +1281,7 @@ where
 pub struct IReferenceArray<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReferenceArray<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IReferenceArray<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1534,7 +1534,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
-impl std::ops::Deref for IStringable {
+impl core::ops::Deref for IStringable {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1614,7 +1614,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub DisplayIri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry_Vtbl, 0x125e7431_f678_4e8e_b670_20a9b06c512d);
-impl std::ops::Deref for IWwwFormUrlDecoderEntry {
+impl core::ops::Deref for IWwwFormUrlDecoderEntry {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

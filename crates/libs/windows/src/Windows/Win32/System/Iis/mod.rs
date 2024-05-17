@@ -19,7 +19,7 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
     HttpFilterProc(pfc, notificationtype, pvnotification)
 }
 windows_core::imp::define_interface!(AsyncIFtpAuthenticationProvider, AsyncIFtpAuthenticationProvider_Vtbl, 0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
-impl std::ops::Deref for AsyncIFtpAuthenticationProvider {
+impl core::ops::Deref for AsyncIFtpAuthenticationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -47,7 +47,7 @@ pub struct AsyncIFtpAuthenticationProvider_Vtbl {
     pub Finish_AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIFtpAuthorizationProvider, AsyncIFtpAuthorizationProvider_Vtbl, 0x860dc339_07e5_4a5c_9c61_8820cea012bc);
-impl std::ops::Deref for AsyncIFtpAuthorizationProvider {
+impl core::ops::Deref for AsyncIFtpAuthorizationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -76,7 +76,7 @@ pub struct AsyncIFtpAuthorizationProvider_Vtbl {
     pub Finish_GetUserAccessPermission: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FTP_ACCESS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIFtpHomeDirectoryProvider, AsyncIFtpHomeDirectoryProvider_Vtbl, 0x73f81638_6295_42bd_a2be_4a657f7c479c);
-impl std::ops::Deref for AsyncIFtpHomeDirectoryProvider {
+impl core::ops::Deref for AsyncIFtpHomeDirectoryProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -104,7 +104,7 @@ pub struct AsyncIFtpHomeDirectoryProvider_Vtbl {
     pub Finish_GetUserHomeDirectoryData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_Vtbl, 0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
-impl std::ops::Deref for AsyncIFtpLogProvider {
+impl core::ops::Deref for AsyncIFtpLogProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -126,7 +126,7 @@ pub struct AsyncIFtpLogProvider_Vtbl {
     pub Finish_Log: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPostprocessProvider_Vtbl, 0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
-impl std::ops::Deref for AsyncIFtpPostprocessProvider {
+impl core::ops::Deref for AsyncIFtpPostprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -149,7 +149,7 @@ pub struct AsyncIFtpPostprocessProvider_Vtbl {
     pub Finish_HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIFtpPreprocessProvider, AsyncIFtpPreprocessProvider_Vtbl, 0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
-impl std::ops::Deref for AsyncIFtpPreprocessProvider {
+impl core::ops::Deref for AsyncIFtpPreprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -172,7 +172,7 @@ pub struct AsyncIFtpPreprocessProvider_Vtbl {
     pub Finish_HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIFtpRoleProvider, AsyncIFtpRoleProvider_Vtbl, 0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
-impl std::ops::Deref for AsyncIFtpRoleProvider {
+impl core::ops::Deref for AsyncIFtpRoleProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -201,7 +201,7 @@ pub struct AsyncIFtpRoleProvider_Vtbl {
     pub Finish_IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIMSAdminBaseSinkW, AsyncIMSAdminBaseSinkW_Vtbl, 0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
-impl std::ops::Deref for AsyncIMSAdminBaseSinkW {
+impl core::ops::Deref for AsyncIMSAdminBaseSinkW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -231,7 +231,7 @@ pub struct AsyncIMSAdminBaseSinkW_Vtbl {
     pub Finish_ShutdownNotify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IADMEXT, IADMEXT_Vtbl, 0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
-impl std::ops::Deref for IADMEXT {
+impl core::ops::Deref for IADMEXT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -257,7 +257,7 @@ pub struct IADMEXT_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpAuthenticationProvider, IFtpAuthenticationProvider_Vtbl, 0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
-impl std::ops::Deref for IFtpAuthenticationProvider {
+impl core::ops::Deref for IFtpAuthenticationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -281,7 +281,7 @@ pub struct IFtpAuthenticationProvider_Vtbl {
     pub AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpAuthorizationProvider, IFtpAuthorizationProvider_Vtbl, 0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
-impl std::ops::Deref for IFtpAuthorizationProvider {
+impl core::ops::Deref for IFtpAuthorizationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -306,7 +306,7 @@ pub struct IFtpAuthorizationProvider_Vtbl {
     pub GetUserAccessPermission: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut FTP_ACCESS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpHomeDirectoryProvider, IFtpHomeDirectoryProvider_Vtbl, 0x0933b392_18dd_4097_8b9c_83325c35d9a6);
-impl std::ops::Deref for IFtpHomeDirectoryProvider {
+impl core::ops::Deref for IFtpHomeDirectoryProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -330,7 +330,7 @@ pub struct IFtpHomeDirectoryProvider_Vtbl {
     pub GetUserHomeDirectoryData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xa18a94cc_8299_4408_816c_7c3baca1a40e);
-impl std::ops::Deref for IFtpLogProvider {
+impl core::ops::Deref for IFtpLogProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -348,7 +348,7 @@ pub struct IFtpLogProvider_Vtbl {
     pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpPostprocessProvider, IFtpPostprocessProvider_Vtbl, 0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
-impl std::ops::Deref for IFtpPostprocessProvider {
+impl core::ops::Deref for IFtpPostprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -367,7 +367,7 @@ pub struct IFtpPostprocessProvider_Vtbl {
     pub HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpPreprocessProvider, IFtpPreprocessProvider_Vtbl, 0xa3c19b60_5a28_471a_8f93_ab30411cee82);
-impl std::ops::Deref for IFtpPreprocessProvider {
+impl core::ops::Deref for IFtpPreprocessProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -386,7 +386,7 @@ pub struct IFtpPreprocessProvider_Vtbl {
     pub HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const PRE_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFtpProviderConstruct, IFtpProviderConstruct_Vtbl, 0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
-impl std::ops::Deref for IFtpProviderConstruct {
+impl core::ops::Deref for IFtpProviderConstruct {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -408,7 +408,7 @@ pub struct IFtpProviderConstruct_Vtbl {
     Construct: usize,
 }
 windows_core::imp::define_interface!(IFtpRoleProvider, IFtpRoleProvider_Vtbl, 0x909c850d_8ca0_4674_96b8_cc2941535725);
-impl std::ops::Deref for IFtpRoleProvider {
+impl core::ops::Deref for IFtpRoleProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -433,7 +433,7 @@ pub struct IFtpRoleProvider_Vtbl {
     pub IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMSAdminBase2W, IMSAdminBase2W_Vtbl, 0x8298d101_f992_43b7_8eca_5052d885b995);
-impl std::ops::Deref for IMSAdminBase2W {
+impl core::ops::Deref for IMSAdminBase2W {
     type Target = IMSAdminBaseW;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -493,7 +493,7 @@ pub struct IMSAdminBase2W_Vtbl {
     pub EnumHistory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, *mut u32, *mut super::super::Foundation::FILETIME, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMSAdminBase3W, IMSAdminBase3W_Vtbl, 0xf612954d_3b0b_4c56_9563_227b7be624b4);
-impl std::ops::Deref for IMSAdminBase3W {
+impl core::ops::Deref for IMSAdminBase3W {
     type Target = IMSAdminBase2W;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -514,7 +514,7 @@ pub struct IMSAdminBase3W_Vtbl {
     pub GetChildPaths: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMSAdminBaseSinkW, IMSAdminBaseSinkW_Vtbl, 0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
-impl std::ops::Deref for IMSAdminBaseSinkW {
+impl core::ops::Deref for IMSAdminBaseSinkW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -536,7 +536,7 @@ pub struct IMSAdminBaseSinkW_Vtbl {
     pub ShutdownNotify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMSAdminBaseW, IMSAdminBaseW_Vtbl, 0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
-impl std::ops::Deref for IMSAdminBaseW {
+impl core::ops::Deref for IMSAdminBaseW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -750,7 +750,7 @@ pub struct IMSAdminBaseW_Vtbl {
     pub GetServerGuid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMSImpExpHelpW, IMSImpExpHelpW_Vtbl, 0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
-impl std::ops::Deref for IMSImpExpHelpW {
+impl core::ops::Deref for IMSImpExpHelpW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

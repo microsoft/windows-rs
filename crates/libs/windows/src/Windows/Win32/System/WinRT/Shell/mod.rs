@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
-impl std::ops::Deref for IDDEInitializer {
+impl core::ops::Deref for IDDEInitializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

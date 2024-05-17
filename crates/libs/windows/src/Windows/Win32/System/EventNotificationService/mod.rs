@@ -22,7 +22,7 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::Result<()> {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensLogon, ISensLogon_Vtbl, 0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISensLogon {
+impl core::ops::Deref for ISensLogon {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -90,7 +90,7 @@ pub struct ISensLogon_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensLogon2, ISensLogon2_Vtbl, 0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISensLogon2 {
+impl core::ops::Deref for ISensLogon2 {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -144,7 +144,7 @@ pub struct ISensLogon2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensNetwork, ISensNetwork_Vtbl, 0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISensNetwork {
+impl core::ops::Deref for ISensNetwork {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -200,7 +200,7 @@ pub struct ISensNetwork_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensOnNow, ISensOnNow_Vtbl, 0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISensOnNow {
+impl core::ops::Deref for ISensOnNow {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

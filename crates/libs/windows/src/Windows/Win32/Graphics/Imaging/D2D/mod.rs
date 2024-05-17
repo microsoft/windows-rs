@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
-impl std::ops::Deref for IWICImageEncoder {
+impl core::ops::Deref for IWICImageEncoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -49,7 +49,7 @@ pub struct IWICImageEncoder_Vtbl {
     WriteThumbnail: usize,
 }
 windows_core::imp::define_interface!(IWICImagingFactory2, IWICImagingFactory2_Vtbl, 0x7b816b45_1996_4476_b132_de9e247c8af0);
-impl std::ops::Deref for IWICImagingFactory2 {
+impl core::ops::Deref for IWICImagingFactory2 {
     type Target = super::IWICImagingFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

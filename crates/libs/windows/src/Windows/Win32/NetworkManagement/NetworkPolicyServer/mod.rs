@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdo, ISdo_Vtbl, 0x56bc53de_96db_11d1_bf3f_000000000000);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISdo {
+impl core::ops::Deref for ISdo {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -51,7 +51,7 @@ pub struct ISdo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoCollection, ISdoCollection_Vtbl, 0x56bc53e2_96db_11d1_bf3f_000000000000);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISdoCollection {
+impl core::ops::Deref for ISdoCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -127,7 +127,7 @@ pub struct ISdoCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoDictionaryOld, ISdoDictionaryOld_Vtbl, 0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISdoDictionaryOld {
+impl core::ops::Deref for ISdoDictionaryOld {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -178,7 +178,7 @@ pub struct ISdoDictionaryOld_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoMachine, ISdoMachine_Vtbl, 0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISdoMachine {
+impl core::ops::Deref for ISdoMachine {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -250,7 +250,7 @@ pub struct ISdoMachine_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoMachine2, ISdoMachine2_Vtbl, 0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISdoMachine2 {
+impl core::ops::Deref for ISdoMachine2 {
     type Target = ISdoMachine;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -301,7 +301,7 @@ pub struct ISdoMachine2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoServiceControl, ISdoServiceControl_Vtbl, 0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISdoServiceControl {
+impl core::ops::Deref for ISdoServiceControl {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -337,7 +337,7 @@ pub struct ISdoServiceControl_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITemplateSdo, ITemplateSdo_Vtbl, 0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITemplateSdo {
+impl core::ops::Deref for ITemplateSdo {
     type Target = ISdo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

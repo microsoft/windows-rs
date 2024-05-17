@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(INotificationActivationCallback, INotificationActivationCallback_Vtbl, 0x53e31837_6600_4a81_9395_75cffe746f94);
-impl std::ops::Deref for INotificationActivationCallback {
+impl core::ops::Deref for INotificationActivationCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

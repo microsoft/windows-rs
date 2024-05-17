@@ -57,7 +57,7 @@ pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
 windows_core::imp::define_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0xa73e561c_aac1_4ec7_a852_479f7060d01f);
-impl std::ops::Deref for ILowLevelDevicesAggregateProvider {
+impl core::ops::Deref for ILowLevelDevicesAggregateProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -54,7 +54,7 @@ pub struct IInkAnalysisListItem_Vtbl {
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisNode, IInkAnalysisNode_Vtbl, 0x30831f05_5f64_4a2c_ba37_4f4887879574);
-impl std::ops::Deref for IInkAnalysisNode {
+impl core::ops::Deref for IInkAnalysisNode {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -203,7 +203,7 @@ pub struct IInkAnalyzer_Vtbl {
     pub AnalyzeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalyzerFactory, IInkAnalyzerFactory_Vtbl, 0x29138686_1963_49d8_9589_e14384c769e3);
-impl std::ops::Deref for IInkAnalyzerFactory {
+impl core::ops::Deref for IInkAnalyzerFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -6,7 +6,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxgi.dll" "system" fn CreateDXGIFactory(riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     CreateDXGIFactory(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -15,7 +15,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxgi.dll" "system" fn CreateDXGIFactory1(riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     CreateDXGIFactory1(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -24,7 +24,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : u32, riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     CreateDXGIFactory2(flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -43,11 +43,11 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxgi.dll" "system" fn DXGIGetDebugInterface1(flags : u32, riid : *const windows_core::GUID, pdebug : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DXGIGetDebugInterface1(flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IDXGIAdapter, IDXGIAdapter_Vtbl, 0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
-impl std::ops::Deref for IDXGIAdapter {
+impl core::ops::Deref for IDXGIAdapter {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -77,7 +77,7 @@ pub struct IDXGIAdapter_Vtbl {
     pub CheckInterfaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIAdapter1, IDXGIAdapter1_Vtbl, 0x29038f61_3839_4626_91fd_086879011a05);
-impl std::ops::Deref for IDXGIAdapter1 {
+impl core::ops::Deref for IDXGIAdapter1 {
     type Target = IDXGIAdapter;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -97,7 +97,7 @@ pub struct IDXGIAdapter1_Vtbl {
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC1) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIAdapter2, IDXGIAdapter2_Vtbl, 0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
-impl std::ops::Deref for IDXGIAdapter2 {
+impl core::ops::Deref for IDXGIAdapter2 {
     type Target = IDXGIAdapter1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -117,7 +117,7 @@ pub struct IDXGIAdapter2_Vtbl {
     pub GetDesc2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIAdapter3, IDXGIAdapter3_Vtbl, 0x645967a4_1392_4310_a798_8053ce3e93fd);
-impl std::ops::Deref for IDXGIAdapter3 {
+impl core::ops::Deref for IDXGIAdapter3 {
     type Target = IDXGIAdapter2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -165,7 +165,7 @@ pub struct IDXGIAdapter3_Vtbl {
     pub UnregisterVideoMemoryBudgetChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 windows_core::imp::define_interface!(IDXGIAdapter4, IDXGIAdapter4_Vtbl, 0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
-impl std::ops::Deref for IDXGIAdapter4 {
+impl core::ops::Deref for IDXGIAdapter4 {
     type Target = IDXGIAdapter3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -185,7 +185,7 @@ pub struct IDXGIAdapter4_Vtbl {
     pub GetDesc3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9e_40fe_8806_88f90c12b441);
-impl std::ops::Deref for IDXGIDebug {
+impl core::ops::Deref for IDXGIDebug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -205,7 +205,7 @@ pub struct IDXGIDebug_Vtbl {
     pub ReportLiveObjects: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDebug1, IDXGIDebug1_Vtbl, 0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
-impl std::ops::Deref for IDXGIDebug1 {
+impl core::ops::Deref for IDXGIDebug1 {
     type Target = IDXGIDebug;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -233,7 +233,7 @@ pub struct IDXGIDebug1_Vtbl {
     pub IsLeakTrackingEnabledForThread: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IDXGIDecodeSwapChain, IDXGIDecodeSwapChain_Vtbl, 0x2633066b_4514_4c7a_8fd8_12ea98059d18);
-impl std::ops::Deref for IDXGIDecodeSwapChain {
+impl core::ops::Deref for IDXGIDecodeSwapChain {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -287,7 +287,7 @@ pub struct IDXGIDecodeSwapChain_Vtbl {
     pub GetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS,
 }
 windows_core::imp::define_interface!(IDXGIDevice, IDXGIDevice_Vtbl, 0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
-impl std::ops::Deref for IDXGIDevice {
+impl core::ops::Deref for IDXGIDevice {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -329,7 +329,7 @@ pub struct IDXGIDevice_Vtbl {
     pub GetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDevice1, IDXGIDevice1_Vtbl, 0x77db970f_6276_48ba_ba28_070143b4392c);
-impl std::ops::Deref for IDXGIDevice1 {
+impl core::ops::Deref for IDXGIDevice1 {
     type Target = IDXGIDevice;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -354,7 +354,7 @@ pub struct IDXGIDevice1_Vtbl {
     pub GetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDevice2, IDXGIDevice2_Vtbl, 0x05008617_fbfd_4051_a790_144884b4f6a9);
-impl std::ops::Deref for IDXGIDevice2 {
+impl core::ops::Deref for IDXGIDevice2 {
     type Target = IDXGIDevice1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -385,7 +385,7 @@ pub struct IDXGIDevice2_Vtbl {
     pub EnqueueSetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDevice3, IDXGIDevice3_Vtbl, 0x6007896c_3244_4afd_bf18_a6d3beda5023);
-impl std::ops::Deref for IDXGIDevice3 {
+impl core::ops::Deref for IDXGIDevice3 {
     type Target = IDXGIDevice2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -405,7 +405,7 @@ pub struct IDXGIDevice3_Vtbl {
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IDXGIDevice4, IDXGIDevice4_Vtbl, 0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
-impl std::ops::Deref for IDXGIDevice4 {
+impl core::ops::Deref for IDXGIDevice4 {
     type Target = IDXGIDevice3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -429,7 +429,7 @@ pub struct IDXGIDevice4_Vtbl {
     pub ReclaimResources1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDeviceSubObject, IDXGIDeviceSubObject_Vtbl, 0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
-impl std::ops::Deref for IDXGIDeviceSubObject {
+impl core::ops::Deref for IDXGIDeviceSubObject {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -441,7 +441,7 @@ impl IDXGIDeviceSubObject {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -453,7 +453,7 @@ pub struct IDXGIDeviceSubObject_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vtbl, 0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
-impl std::ops::Deref for IDXGIDisplayControl {
+impl core::ops::Deref for IDXGIDisplayControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -480,7 +480,7 @@ pub struct IDXGIDisplayControl_Vtbl {
     pub SetStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(IDXGIFactory, IDXGIFactory_Vtbl, 0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
-impl std::ops::Deref for IDXGIFactory {
+impl core::ops::Deref for IDXGIFactory {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -532,7 +532,7 @@ pub struct IDXGIFactory_Vtbl {
     pub CreateSoftwareAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HMODULE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIFactory1, IDXGIFactory1_Vtbl, 0x770aae78_f26f_4dba_a829_253c83d1b387);
-impl std::ops::Deref for IDXGIFactory1 {
+impl core::ops::Deref for IDXGIFactory1 {
     type Target = IDXGIFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -557,7 +557,7 @@ pub struct IDXGIFactory1_Vtbl {
     pub IsCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IDXGIFactory2, IDXGIFactory2_Vtbl, 0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
-impl std::ops::Deref for IDXGIFactory2 {
+impl core::ops::Deref for IDXGIFactory2 {
     type Target = IDXGIFactory1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -666,7 +666,7 @@ pub struct IDXGIFactory2_Vtbl {
     CreateSwapChainForComposition: usize,
 }
 windows_core::imp::define_interface!(IDXGIFactory3, IDXGIFactory3_Vtbl, 0x25483823_cd46_4c7d_86ca_47aa95b837bd);
-impl std::ops::Deref for IDXGIFactory3 {
+impl core::ops::Deref for IDXGIFactory3 {
     type Target = IDXGIFactory2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -686,7 +686,7 @@ pub struct IDXGIFactory3_Vtbl {
     pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(IDXGIFactory4, IDXGIFactory4_Vtbl, 0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
-impl std::ops::Deref for IDXGIFactory4 {
+impl core::ops::Deref for IDXGIFactory4 {
     type Target = IDXGIFactory3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -698,14 +698,14 @@ impl IDXGIFactory4 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).EnumAdapterByLuid)(windows_core::Interface::as_raw(self), core::mem::transmute(adapterluid), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumWarpAdapter<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).EnumWarpAdapter)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -718,7 +718,7 @@ pub struct IDXGIFactory4_Vtbl {
     pub EnumWarpAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIFactory5, IDXGIFactory5_Vtbl, 0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
-impl std::ops::Deref for IDXGIFactory5 {
+impl core::ops::Deref for IDXGIFactory5 {
     type Target = IDXGIFactory4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -738,7 +738,7 @@ pub struct IDXGIFactory5_Vtbl {
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FEATURE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIFactory6, IDXGIFactory6_Vtbl, 0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
-impl std::ops::Deref for IDXGIFactory6 {
+impl core::ops::Deref for IDXGIFactory6 {
     type Target = IDXGIFactory5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -750,7 +750,7 @@ impl IDXGIFactory6 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).EnumAdapterByGpuPreference)(windows_core::Interface::as_raw(self), adapter, gpupreference, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -762,7 +762,7 @@ pub struct IDXGIFactory6_Vtbl {
     pub EnumAdapterByGpuPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_GPU_PREFERENCE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIFactory7, IDXGIFactory7_Vtbl, 0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
-impl std::ops::Deref for IDXGIFactory7 {
+impl core::ops::Deref for IDXGIFactory7 {
     type Target = IDXGIFactory6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -790,7 +790,7 @@ pub struct IDXGIFactory7_Vtbl {
     pub UnregisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIFactoryMedia, IDXGIFactoryMedia_Vtbl, 0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
-impl std::ops::Deref for IDXGIFactoryMedia {
+impl core::ops::Deref for IDXGIFactoryMedia {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -831,7 +831,7 @@ pub struct IDXGIFactoryMedia_Vtbl {
     pub CreateDecodeSwapChainForCompositionSurfaceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HANDLE, *const DXGI_DECODE_SWAP_CHAIN_DESC, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIInfoQueue, IDXGIInfoQueue_Vtbl, 0xd67441c7_672a_476f_9e82_cd55b44949ce);
-impl std::ops::Deref for IDXGIInfoQueue {
+impl core::ops::Deref for IDXGIInfoQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1013,7 +1013,7 @@ pub struct IDXGIInfoQueue_Vtbl {
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IDXGIKeyedMutex, IDXGIKeyedMutex_Vtbl, 0x9d8e1289_d7b3_465f_8126_250e349af85d);
-impl std::ops::Deref for IDXGIKeyedMutex {
+impl core::ops::Deref for IDXGIKeyedMutex {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1037,7 +1037,7 @@ pub struct IDXGIKeyedMutex_Vtbl {
     pub ReleaseSync: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIObject, IDXGIObject_Vtbl, 0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
-impl std::ops::Deref for IDXGIObject {
+impl core::ops::Deref for IDXGIObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1061,7 +1061,7 @@ impl IDXGIObject {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1076,7 +1076,7 @@ pub struct IDXGIObject_Vtbl {
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIOutput, IDXGIOutput_Vtbl, 0xae02eedb_c735_4690_8d52_5a8dc20213aa);
-impl std::ops::Deref for IDXGIOutput {
+impl core::ops::Deref for IDXGIOutput {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1177,7 +1177,7 @@ pub struct IDXGIOutput_Vtbl {
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIOutput1, IDXGIOutput1_Vtbl, 0x00cddea8_939b_4b83_a340_a685226666cc);
-impl std::ops::Deref for IDXGIOutput1 {
+impl core::ops::Deref for IDXGIOutput1 {
     type Target = IDXGIOutput;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1227,7 +1227,7 @@ pub struct IDXGIOutput1_Vtbl {
     pub DuplicateOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIOutput2, IDXGIOutput2_Vtbl, 0x595e39d1_2724_4663_99b1_da969de28364);
-impl std::ops::Deref for IDXGIOutput2 {
+impl core::ops::Deref for IDXGIOutput2 {
     type Target = IDXGIOutput1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1247,7 +1247,7 @@ pub struct IDXGIOutput2_Vtbl {
     pub SupportsOverlays: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IDXGIOutput3, IDXGIOutput3_Vtbl, 0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
-impl std::ops::Deref for IDXGIOutput3 {
+impl core::ops::Deref for IDXGIOutput3 {
     type Target = IDXGIOutput2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1275,7 +1275,7 @@ pub struct IDXGIOutput3_Vtbl {
     CheckOverlaySupport: usize,
 }
 windows_core::imp::define_interface!(IDXGIOutput4, IDXGIOutput4_Vtbl, 0xdc7dca35_2196_414d_9f53_617884032a60);
-impl std::ops::Deref for IDXGIOutput4 {
+impl core::ops::Deref for IDXGIOutput4 {
     type Target = IDXGIOutput3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1303,7 +1303,7 @@ pub struct IDXGIOutput4_Vtbl {
     CheckOverlayColorSpaceSupport: usize,
 }
 windows_core::imp::define_interface!(IDXGIOutput5, IDXGIOutput5_Vtbl, 0x80a07424_ab52_42eb_833c_0c42fd282d98);
-impl std::ops::Deref for IDXGIOutput5 {
+impl core::ops::Deref for IDXGIOutput5 {
     type Target = IDXGIOutput4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1331,7 +1331,7 @@ pub struct IDXGIOutput5_Vtbl {
     DuplicateOutput1: usize,
 }
 windows_core::imp::define_interface!(IDXGIOutput6, IDXGIOutput6_Vtbl, 0x068346e8_aaec_4b84_add7_137f513f77a1);
-impl std::ops::Deref for IDXGIOutput6 {
+impl core::ops::Deref for IDXGIOutput6 {
     type Target = IDXGIOutput5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1360,7 +1360,7 @@ pub struct IDXGIOutput6_Vtbl {
     pub CheckHardwareCompositionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIOutputDuplication, IDXGIOutputDuplication_Vtbl, 0x191cfac3_a341_470d_b26e_a864f428319c);
-impl std::ops::Deref for IDXGIOutputDuplication {
+impl core::ops::Deref for IDXGIOutputDuplication {
     type Target = IDXGIObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1413,7 +1413,7 @@ pub struct IDXGIOutputDuplication_Vtbl {
     pub ReleaseFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIResource, IDXGIResource_Vtbl, 0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
-impl std::ops::Deref for IDXGIResource {
+impl core::ops::Deref for IDXGIResource {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1448,7 +1448,7 @@ pub struct IDXGIResource_Vtbl {
     pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x30961379_4609_4a41_998e_54fe567ee0c1);
-impl std::ops::Deref for IDXGIResource1 {
+impl core::ops::Deref for IDXGIResource1 {
     type Target = IDXGIResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1481,7 +1481,7 @@ pub struct IDXGIResource1_Vtbl {
     CreateSharedHandle: usize,
 }
 windows_core::imp::define_interface!(IDXGISurface, IDXGISurface_Vtbl, 0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
-impl std::ops::Deref for IDXGISurface {
+impl core::ops::Deref for IDXGISurface {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1513,7 +1513,7 @@ pub struct IDXGISurface_Vtbl {
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
-impl std::ops::Deref for IDXGISurface1 {
+impl core::ops::Deref for IDXGISurface1 {
     type Target = IDXGISurface;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1545,7 +1545,7 @@ pub struct IDXGISurface1_Vtbl {
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISurface2, IDXGISurface2_Vtbl, 0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
-impl std::ops::Deref for IDXGISurface2 {
+impl core::ops::Deref for IDXGISurface2 {
     type Target = IDXGISurface1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1557,7 +1557,7 @@ impl IDXGISurface2 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), &T::IID, &mut result__, psubresourceindex).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1569,7 +1569,7 @@ pub struct IDXGISurface2_Vtbl {
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISwapChain, IDXGISwapChain_Vtbl, 0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
-impl std::ops::Deref for IDXGISwapChain {
+impl core::ops::Deref for IDXGISwapChain {
     type Target = IDXGIDeviceSubObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1584,7 +1584,7 @@ impl IDXGISwapChain {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), buffer, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> windows_core::Result<()>
@@ -1647,7 +1647,7 @@ pub struct IDXGISwapChain_Vtbl {
     pub GetLastPresentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISwapChain1, IDXGISwapChain1_Vtbl, 0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
-impl std::ops::Deref for IDXGISwapChain1 {
+impl core::ops::Deref for IDXGISwapChain1 {
     type Target = IDXGISwapChain;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1671,7 +1671,7 @@ impl IDXGISwapChain1 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetCoreWindow)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
@@ -1731,7 +1731,7 @@ pub struct IDXGISwapChain1_Vtbl {
     GetRotation: usize,
 }
 windows_core::imp::define_interface!(IDXGISwapChain2, IDXGISwapChain2_Vtbl, 0xa8be2ac4_199f_4946_b331_79599fb98de7);
-impl std::ops::Deref for IDXGISwapChain2 {
+impl core::ops::Deref for IDXGISwapChain2 {
     type Target = IDXGISwapChain1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1776,7 +1776,7 @@ pub struct IDXGISwapChain2_Vtbl {
     pub GetMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MATRIX_3X2_F) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISwapChain3, IDXGISwapChain3_Vtbl, 0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
-impl std::ops::Deref for IDXGISwapChain3 {
+impl core::ops::Deref for IDXGISwapChain3 {
     type Target = IDXGISwapChain2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1821,7 +1821,7 @@ pub struct IDXGISwapChain3_Vtbl {
     ResizeBuffers1: usize,
 }
 windows_core::imp::define_interface!(IDXGISwapChain4, IDXGISwapChain4_Vtbl, 0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
-impl std::ops::Deref for IDXGISwapChain4 {
+impl core::ops::Deref for IDXGISwapChain4 {
     type Target = IDXGISwapChain3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1841,7 +1841,7 @@ pub struct IDXGISwapChain4_Vtbl {
     pub SetHDRMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_HDR_METADATA_TYPE, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISwapChainMedia, IDXGISwapChainMedia_Vtbl, 0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
-impl std::ops::Deref for IDXGISwapChainMedia {
+impl core::ops::Deref for IDXGISwapChainMedia {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1869,7 +1869,7 @@ pub struct IDXGISwapChainMedia_Vtbl {
     pub CheckPresentDurationSupport: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGraphicsAnalysis, IDXGraphicsAnalysis_Vtbl, 0x9f251514_9d4d_4902_9d60_18988ab7d4b5);
-impl std::ops::Deref for IDXGraphicsAnalysis {
+impl core::ops::Deref for IDXGraphicsAnalysis {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

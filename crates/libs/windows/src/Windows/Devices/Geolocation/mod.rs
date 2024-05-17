@@ -303,7 +303,7 @@ pub struct IGeoposition2_Vtbl {
     pub VenueData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeoshape, IGeoshape_Vtbl, 0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
-impl std::ops::Deref for IGeoshape {
+impl core::ops::Deref for IGeoshape {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

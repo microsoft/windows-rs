@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IWsbApplicationAsync, IWsbApplicationAsync_Vtbl, 0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
-impl std::ops::Deref for IWsbApplicationAsync {
+impl core::ops::Deref for IWsbApplicationAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -22,7 +22,7 @@ pub struct IWsbApplicationAsync_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWsbApplicationBackupSupport, IWsbApplicationBackupSupport_Vtbl, 0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
-impl std::ops::Deref for IWsbApplicationBackupSupport {
+impl core::ops::Deref for IWsbApplicationBackupSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -46,7 +46,7 @@ pub struct IWsbApplicationBackupSupport_Vtbl {
     pub CheckConsistency: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWsbApplicationRestoreSupport, IWsbApplicationRestoreSupport_Vtbl, 0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
-impl std::ops::Deref for IWsbApplicationRestoreSupport {
+impl core::ops::Deref for IWsbApplicationRestoreSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

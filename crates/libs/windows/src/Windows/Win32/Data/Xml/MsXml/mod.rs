@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXAttributes, IMXAttributes_Vtbl, 0xf10d27cc_3ec0_415c_8ed8_77ab1c5e7262);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMXAttributes {
+impl core::ops::Deref for IMXAttributes {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -97,7 +97,7 @@ pub struct IMXAttributes_Vtbl {
     pub setValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMXNamespaceManager, IMXNamespaceManager_Vtbl, 0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
-impl std::ops::Deref for IMXNamespaceManager {
+impl core::ops::Deref for IMXNamespaceManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -180,7 +180,7 @@ pub struct IMXNamespaceManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXNamespacePrefixes, IMXNamespacePrefixes_Vtbl, 0xc90352f4_643c_4fbc_bb23_e996eb2d51fd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMXNamespacePrefixes {
+impl core::ops::Deref for IMXNamespacePrefixes {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -214,7 +214,7 @@ pub struct IMXNamespacePrefixes_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXReaderControl, IMXReaderControl_Vtbl, 0x808f4e35_8d5a_4fbe_8466_33a41279ed30);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMXReaderControl {
+impl core::ops::Deref for IMXReaderControl {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -245,7 +245,7 @@ pub struct IMXReaderControl_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXSchemaDeclHandler, IMXSchemaDeclHandler_Vtbl, 0xfa4bb38c_faf9_4cca_9302_d1dd0fe520db);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMXSchemaDeclHandler {
+impl core::ops::Deref for IMXSchemaDeclHandler {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -275,7 +275,7 @@ pub struct IMXSchemaDeclHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXWriter, IMXWriter_Vtbl, 0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMXWriter {
+impl core::ops::Deref for IMXWriter {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -394,7 +394,7 @@ pub struct IMXWriter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXXMLFilter, IMXXMLFilter_Vtbl, 0xc90352f7_643c_4fbc_bb23_e996eb2d51fd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMXXMLFilter {
+impl core::ops::Deref for IMXXMLFilter {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -491,7 +491,7 @@ pub struct IMXXMLFilter_Vtbl {
     pub putref_errorHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXAttributes, ISAXAttributes_Vtbl, 0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
-impl std::ops::Deref for ISAXAttributes {
+impl core::ops::Deref for ISAXAttributes {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -581,7 +581,7 @@ pub struct ISAXAttributes_Vtbl {
     pub getValueFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXContentHandler, ISAXContentHandler_Vtbl, 0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
-impl std::ops::Deref for ISAXContentHandler {
+impl core::ops::Deref for ISAXContentHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -673,7 +673,7 @@ pub struct ISAXContentHandler_Vtbl {
     pub skippedEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXDTDHandler, ISAXDTDHandler_Vtbl, 0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
-impl std::ops::Deref for ISAXDTDHandler {
+impl core::ops::Deref for ISAXDTDHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -706,7 +706,7 @@ pub struct ISAXDTDHandler_Vtbl {
     pub unparsedEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXDeclHandler, ISAXDeclHandler_Vtbl, 0x862629ac_771a_47b2_8337_4e6843c1be90);
-impl std::ops::Deref for ISAXDeclHandler {
+impl core::ops::Deref for ISAXDeclHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -756,7 +756,7 @@ pub struct ISAXDeclHandler_Vtbl {
     pub externalEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXEntityResolver, ISAXEntityResolver_Vtbl, 0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
-impl std::ops::Deref for ISAXEntityResolver {
+impl core::ops::Deref for ISAXEntityResolver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -779,7 +779,7 @@ pub struct ISAXEntityResolver_Vtbl {
     pub resolveEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXErrorHandler, ISAXErrorHandler_Vtbl, 0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
-impl std::ops::Deref for ISAXErrorHandler {
+impl core::ops::Deref for ISAXErrorHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -817,7 +817,7 @@ pub struct ISAXErrorHandler_Vtbl {
     pub ignorableWarning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXLexicalHandler, ISAXLexicalHandler_Vtbl, 0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
-impl std::ops::Deref for ISAXLexicalHandler {
+impl core::ops::Deref for ISAXLexicalHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -873,7 +873,7 @@ pub struct ISAXLexicalHandler_Vtbl {
     pub comment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXLocator, ISAXLocator_Vtbl, 0x9b7e472a_0de4_4640_bff3_84d38a051c31);
-impl std::ops::Deref for ISAXLocator {
+impl core::ops::Deref for ISAXLocator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -907,7 +907,7 @@ pub struct ISAXLocator_Vtbl {
     pub getSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXXMLFilter, ISAXXMLFilter_Vtbl, 0x70409222_ca09_4475_acb8_40312fe8d145);
-impl std::ops::Deref for ISAXXMLFilter {
+impl core::ops::Deref for ISAXXMLFilter {
     type Target = ISAXXMLReader;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -933,7 +933,7 @@ pub struct ISAXXMLFilter_Vtbl {
     pub putParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISAXXMLReader, ISAXXMLReader_Vtbl, 0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802);
-impl std::ops::Deref for ISAXXMLReader {
+impl core::ops::Deref for ISAXXMLReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1067,7 +1067,7 @@ pub struct ISAXXMLReader_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchema, ISchema_Vtbl, 0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchema {
+impl core::ops::Deref for ISchema {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1159,7 +1159,7 @@ pub struct ISchema_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaAny, ISchemaAny_Vtbl, 0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaAny {
+impl core::ops::Deref for ISchemaAny {
     type Target = ISchemaParticle;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1192,7 +1192,7 @@ pub struct ISchemaAny_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaAttribute, ISchemaAttribute_Vtbl, 0x50ea08b6_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaAttribute {
+impl core::ops::Deref for ISchemaAttribute {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1249,7 +1249,7 @@ pub struct ISchemaAttribute_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaAttributeGroup, ISchemaAttributeGroup_Vtbl, 0x50ea08ba_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaAttributeGroup {
+impl core::ops::Deref for ISchemaAttributeGroup {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1286,7 +1286,7 @@ pub struct ISchemaAttributeGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaComplexType, ISchemaComplexType_Vtbl, 0x50ea08b9_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaComplexType {
+impl core::ops::Deref for ISchemaComplexType {
     type Target = ISchemaType;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1347,7 +1347,7 @@ pub struct ISchemaComplexType_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaElement, ISchemaElement_Vtbl, 0x50ea08b7_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaElement {
+impl core::ops::Deref for ISchemaElement {
     type Target = ISchemaParticle;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1437,7 +1437,7 @@ pub struct ISchemaElement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaIdentityConstraint, ISchemaIdentityConstraint_Vtbl, 0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaIdentityConstraint {
+impl core::ops::Deref for ISchemaIdentityConstraint {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1479,7 +1479,7 @@ pub struct ISchemaIdentityConstraint_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaItem, ISchemaItem_Vtbl, 0x50ea08b3_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaItem {
+impl core::ops::Deref for ISchemaItem {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1544,7 +1544,7 @@ pub struct ISchemaItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaItemCollection, ISchemaItemCollection_Vtbl, 0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaItemCollection {
+impl core::ops::Deref for ISchemaItemCollection {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1607,7 +1607,7 @@ pub struct ISchemaItemCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaModelGroup, ISchemaModelGroup_Vtbl, 0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaModelGroup {
+impl core::ops::Deref for ISchemaModelGroup {
     type Target = ISchemaParticle;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1635,7 +1635,7 @@ pub struct ISchemaModelGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaNotation, ISchemaNotation_Vtbl, 0x50ea08be_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaNotation {
+impl core::ops::Deref for ISchemaNotation {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1664,7 +1664,7 @@ pub struct ISchemaNotation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaParticle, ISchemaParticle_Vtbl, 0x50ea08b5_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaParticle {
+impl core::ops::Deref for ISchemaParticle {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1693,7 +1693,7 @@ pub struct ISchemaParticle_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaStringCollection, ISchemaStringCollection_Vtbl, 0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaStringCollection {
+impl core::ops::Deref for ISchemaStringCollection {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1727,7 +1727,7 @@ pub struct ISchemaStringCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaType, ISchemaType_Vtbl, 0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchemaType {
+impl core::ops::Deref for ISchemaType {
     type Target = ISchemaItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1846,7 +1846,7 @@ pub struct ISchemaType_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IServerXMLHTTPRequest, IServerXMLHTTPRequest_Vtbl, 0x2e9196bf_13ba_4dd4_91ca_6c571f281495);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IServerXMLHTTPRequest {
+impl core::ops::Deref for IServerXMLHTTPRequest {
     type Target = IXMLHTTPRequest;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1889,7 +1889,7 @@ pub struct IServerXMLHTTPRequest_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IServerXMLHTTPRequest2, IServerXMLHTTPRequest2_Vtbl, 0x2e01311b_c322_4b0a_bd77_b90cfdc8dce7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IServerXMLHTTPRequest2 {
+impl core::ops::Deref for IServerXMLHTTPRequest2 {
     type Target = IServerXMLHTTPRequest;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1924,7 +1924,7 @@ pub struct IServerXMLHTTPRequest2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBMXNamespaceManager, IVBMXNamespaceManager_Vtbl, 0xc90352f5_643c_4fbc_bb23_e996eb2d51fd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBMXNamespaceManager {
+impl core::ops::Deref for IVBMXNamespaceManager {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2029,7 +2029,7 @@ pub struct IVBMXNamespaceManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXAttributes, IVBSAXAttributes_Vtbl, 0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXAttributes {
+impl core::ops::Deref for IVBSAXAttributes {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2129,7 +2129,7 @@ pub struct IVBSAXAttributes_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXContentHandler, IVBSAXContentHandler_Vtbl, 0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXContentHandler {
+impl core::ops::Deref for IVBSAXContentHandler {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2206,7 +2206,7 @@ pub struct IVBSAXContentHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXDTDHandler, IVBSAXDTDHandler_Vtbl, 0x24fb3297_302d_4620_ba39_3a732d850558);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXDTDHandler {
+impl core::ops::Deref for IVBSAXDTDHandler {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2233,7 +2233,7 @@ pub struct IVBSAXDTDHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXDeclHandler, IVBSAXDeclHandler_Vtbl, 0xe8917260_7579_4be1_b5dd_7afbfa6f077b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXDeclHandler {
+impl core::ops::Deref for IVBSAXDeclHandler {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2268,7 +2268,7 @@ pub struct IVBSAXDeclHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXEntityResolver, IVBSAXEntityResolver_Vtbl, 0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXEntityResolver {
+impl core::ops::Deref for IVBSAXEntityResolver {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2292,7 +2292,7 @@ pub struct IVBSAXEntityResolver_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXErrorHandler, IVBSAXErrorHandler_Vtbl, 0xd963d3fe_173c_4862_9095_b92f66995f52);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXErrorHandler {
+impl core::ops::Deref for IVBSAXErrorHandler {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2344,7 +2344,7 @@ pub struct IVBSAXErrorHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXLexicalHandler, IVBSAXLexicalHandler_Vtbl, 0x032aac35_8c0e_4d9d_979f_e3b702935576);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXLexicalHandler {
+impl core::ops::Deref for IVBSAXLexicalHandler {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2391,7 +2391,7 @@ pub struct IVBSAXLexicalHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXLocator, IVBSAXLocator_Vtbl, 0x796e7ac5_5aa2_4eff_acad_3faaf01a3288);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXLocator {
+impl core::ops::Deref for IVBSAXLocator {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2430,7 +2430,7 @@ pub struct IVBSAXLocator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXXMLFilter, IVBSAXXMLFilter_Vtbl, 0x1299eb1b_5b88_433e_82de_82ca75ad4e04);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXXMLFilter {
+impl core::ops::Deref for IVBSAXXMLFilter {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2469,7 +2469,7 @@ pub struct IVBSAXXMLFilter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXXMLReader, IVBSAXXMLReader_Vtbl, 0x8c033caa_6cd6_4f73_b728_4531af74945f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IVBSAXXMLReader {
+impl core::ops::Deref for IVBSAXXMLReader {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2638,7 +2638,7 @@ pub struct IVBSAXXMLReader_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLAttribute, IXMLAttribute_Vtbl, 0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLAttribute {
+impl core::ops::Deref for IXMLAttribute {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2667,7 +2667,7 @@ pub struct IXMLAttribute_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMAttribute, IXMLDOMAttribute_Vtbl, 0x2933bf85_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMAttribute {
+impl core::ops::Deref for IXMLDOMAttribute {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2703,7 +2703,7 @@ pub struct IXMLDOMAttribute_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMCDATASection, IXMLDOMCDATASection_Vtbl, 0x2933bf8a_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMCDATASection {
+impl core::ops::Deref for IXMLDOMCDATASection {
     type Target = IXMLDOMText;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2721,7 +2721,7 @@ pub struct IXMLDOMCDATASection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMCharacterData, IXMLDOMCharacterData_Vtbl, 0x2933bf84_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMCharacterData {
+impl core::ops::Deref for IXMLDOMCharacterData {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2787,7 +2787,7 @@ pub struct IXMLDOMCharacterData_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMComment, IXMLDOMComment_Vtbl, 0x2933bf88_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMComment {
+impl core::ops::Deref for IXMLDOMComment {
     type Target = IXMLDOMCharacterData;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2805,7 +2805,7 @@ pub struct IXMLDOMComment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocument, IXMLDOMDocument_Vtbl, 0x2933bf81_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMDocument {
+impl core::ops::Deref for IXMLDOMDocument {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3109,7 +3109,7 @@ pub struct IXMLDOMDocument_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocument2, IXMLDOMDocument2_Vtbl, 0x2933bf95_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMDocument2 {
+impl core::ops::Deref for IXMLDOMDocument2 {
     type Target = IXMLDOMDocument;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3174,7 +3174,7 @@ pub struct IXMLDOMDocument2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocument3, IXMLDOMDocument3_Vtbl, 0x2933bf96_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMDocument3 {
+impl core::ops::Deref for IXMLDOMDocument3 {
     type Target = IXMLDOMDocument2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3218,7 +3218,7 @@ pub struct IXMLDOMDocument3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocumentFragment, IXMLDOMDocumentFragment_Vtbl, 0x3efaa413_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMDocumentFragment {
+impl core::ops::Deref for IXMLDOMDocumentFragment {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3236,7 +3236,7 @@ pub struct IXMLDOMDocumentFragment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocumentType, IXMLDOMDocumentType_Vtbl, 0x2933bf8b_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMDocumentType {
+impl core::ops::Deref for IXMLDOMDocumentType {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3278,7 +3278,7 @@ pub struct IXMLDOMDocumentType_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMElement, IXMLDOMElement_Vtbl, 0x2933bf86_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMElement {
+impl core::ops::Deref for IXMLDOMElement {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3377,7 +3377,7 @@ pub struct IXMLDOMElement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMEntity, IXMLDOMEntity_Vtbl, 0x2933bf8d_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMEntity {
+impl core::ops::Deref for IXMLDOMEntity {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3411,7 +3411,7 @@ pub struct IXMLDOMEntity_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMEntityReference, IXMLDOMEntityReference_Vtbl, 0x2933bf8e_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMEntityReference {
+impl core::ops::Deref for IXMLDOMEntityReference {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3429,7 +3429,7 @@ pub struct IXMLDOMEntityReference_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMImplementation, IXMLDOMImplementation_Vtbl, 0x2933bf8f_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMImplementation {
+impl core::ops::Deref for IXMLDOMImplementation {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3457,7 +3457,7 @@ pub struct IXMLDOMImplementation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNamedNodeMap, IXMLDOMNamedNodeMap_Vtbl, 0x2933bf83_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMNamedNodeMap {
+impl core::ops::Deref for IXMLDOMNamedNodeMap {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3570,7 +3570,7 @@ pub struct IXMLDOMNamedNodeMap_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNode, IXMLDOMNode_Vtbl, 0x2933bf80_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMNode {
+impl core::ops::Deref for IXMLDOMNode {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3878,7 +3878,7 @@ pub struct IXMLDOMNode_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNodeList, IXMLDOMNodeList_Vtbl, 0x2933bf82_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMNodeList {
+impl core::ops::Deref for IXMLDOMNodeList {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3929,7 +3929,7 @@ pub struct IXMLDOMNodeList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNotation, IXMLDOMNotation_Vtbl, 0x2933bf8c_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMNotation {
+impl core::ops::Deref for IXMLDOMNotation {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3958,7 +3958,7 @@ pub struct IXMLDOMNotation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMParseError, IXMLDOMParseError_Vtbl, 0x3efaa426_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMParseError {
+impl core::ops::Deref for IXMLDOMParseError {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4012,7 +4012,7 @@ pub struct IXMLDOMParseError_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMParseError2, IXMLDOMParseError2_Vtbl, 0x3efaa428_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMParseError2 {
+impl core::ops::Deref for IXMLDOMParseError2 {
     type Target = IXMLDOMParseError;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4055,7 +4055,7 @@ pub struct IXMLDOMParseError2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMParseErrorCollection, IXMLDOMParseErrorCollection_Vtbl, 0x3efaa429_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMParseErrorCollection {
+impl core::ops::Deref for IXMLDOMParseErrorCollection {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4106,7 +4106,7 @@ pub struct IXMLDOMParseErrorCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMProcessingInstruction, IXMLDOMProcessingInstruction_Vtbl, 0x2933bf89_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMProcessingInstruction {
+impl core::ops::Deref for IXMLDOMProcessingInstruction {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4142,7 +4142,7 @@ pub struct IXMLDOMProcessingInstruction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMSchemaCollection, IXMLDOMSchemaCollection_Vtbl, 0x373984c8_b845_449b_91e7_45ac83036ade);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMSchemaCollection {
+impl core::ops::Deref for IXMLDOMSchemaCollection {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4214,7 +4214,7 @@ pub struct IXMLDOMSchemaCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMSchemaCollection2, IXMLDOMSchemaCollection2_Vtbl, 0x50ea08b0_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMSchemaCollection2 {
+impl core::ops::Deref for IXMLDOMSchemaCollection2 {
     type Target = IXMLDOMSchemaCollection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4273,7 +4273,7 @@ pub struct IXMLDOMSchemaCollection2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMSelection, IXMLDOMSelection_Vtbl, 0xaa634fc7_5888_44a7_a257_3a47150d3a0e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMSelection {
+impl core::ops::Deref for IXMLDOMSelection {
     type Target = IXMLDOMNodeList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4383,7 +4383,7 @@ pub struct IXMLDOMSelection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMText, IXMLDOMText_Vtbl, 0x2933bf87_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDOMText {
+impl core::ops::Deref for IXMLDOMText {
     type Target = IXMLDOMCharacterData;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4411,7 +4411,7 @@ pub struct IXMLDOMText_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDSOControl, IXMLDSOControl_Vtbl, 0x310afa62_0575_11d2_9ca9_0060b0ec3d39);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDSOControl {
+impl core::ops::Deref for IXMLDSOControl {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4467,7 +4467,7 @@ pub struct IXMLDSOControl_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDocument, IXMLDocument_Vtbl, 0xf52e2b61_18a1_11d1_b105_00805f49916b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDocument {
+impl core::ops::Deref for IXMLDocument {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4572,7 +4572,7 @@ pub struct IXMLDocument_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDocument2, IXMLDocument2_Vtbl, 0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLDocument2 {
+impl core::ops::Deref for IXMLDocument2 {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4689,7 +4689,7 @@ pub struct IXMLDocument2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLElement, IXMLElement_Vtbl, 0x3f7f31ac_e15f_11d0_9c25_00c04fc99c8e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLElement {
+impl core::ops::Deref for IXMLElement {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4800,7 +4800,7 @@ pub struct IXMLElement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLElement2, IXMLElement2_Vtbl, 0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLElement2 {
+impl core::ops::Deref for IXMLElement2 {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4920,7 +4920,7 @@ pub struct IXMLElement2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLElementCollection, IXMLElementCollection_Vtbl, 0x65725580_9b5d_11d0_9bfe_00c04fc99c8e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLElementCollection {
+impl core::ops::Deref for IXMLElementCollection {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4964,7 +4964,7 @@ pub struct IXMLElementCollection_Vtbl {
     item: usize,
 }
 windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
-impl std::ops::Deref for IXMLError {
+impl core::ops::Deref for IXMLError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4984,7 +4984,7 @@ pub struct IXMLError_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLHTTPRequest, IXMLHTTPRequest_Vtbl, 0xed8c108d_4349_11d2_91a4_00c04f7969e8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXMLHTTPRequest {
+impl core::ops::Deref for IXMLHTTPRequest {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5094,7 +5094,7 @@ pub struct IXMLHTTPRequest_Vtbl {
     Setonreadystatechange: usize,
 }
 windows_core::imp::define_interface!(IXMLHTTPRequest2, IXMLHTTPRequest2_Vtbl, 0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
-impl std::ops::Deref for IXMLHTTPRequest2 {
+impl core::ops::Deref for IXMLHTTPRequest2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5185,7 +5185,7 @@ pub struct IXMLHTTPRequest2_Vtbl {
     pub GetResponseHeader: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXMLHTTPRequest2Callback, IXMLHTTPRequest2Callback_Vtbl, 0xa44a9299_e321_40de_8866_341b41669162);
-impl std::ops::Deref for IXMLHTTPRequest2Callback {
+impl core::ops::Deref for IXMLHTTPRequest2Callback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5246,7 +5246,7 @@ pub struct IXMLHTTPRequest2Callback_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXMLHTTPRequest3, IXMLHTTPRequest3_Vtbl, 0xa1c9feee_0617_4f23_9d58_8961ea43567c);
-impl std::ops::Deref for IXMLHTTPRequest3 {
+impl core::ops::Deref for IXMLHTTPRequest3 {
     type Target = IXMLHTTPRequest2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5267,7 +5267,7 @@ pub struct IXMLHTTPRequest3_Vtbl {
     pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXMLHTTPRequest3Callback, IXMLHTTPRequest3Callback_Vtbl, 0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
-impl std::ops::Deref for IXMLHTTPRequest3Callback {
+impl core::ops::Deref for IXMLHTTPRequest3Callback {
     type Target = IXMLHTTPRequest2Callback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5297,7 +5297,7 @@ pub struct IXMLHTTPRequest3Callback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXSLProcessor, IXSLProcessor_Vtbl, 0x2933bf92_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXSLProcessor {
+impl core::ops::Deref for IXSLProcessor {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5411,7 +5411,7 @@ pub struct IXSLProcessor_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXSLTemplate, IXSLTemplate_Vtbl, 0x2933bf93_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXSLTemplate {
+impl core::ops::Deref for IXSLTemplate {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5459,7 +5459,7 @@ pub struct IXSLTemplate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXTLRuntime, IXTLRuntime_Vtbl, 0x3efaa425_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IXTLRuntime {
+impl core::ops::Deref for IXTLRuntime {
     type Target = IXMLDOMNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5575,7 +5575,7 @@ pub struct IXTLRuntime_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(XMLDOMDocumentEvents, XMLDOMDocumentEvents_Vtbl, 0x3efaa427_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for XMLDOMDocumentEvents {
+impl core::ops::Deref for XMLDOMDocumentEvents {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -7055,7 +7055,7 @@ pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
     utrans_unregisterID(id, idlength)
 }
 windows_core::imp::define_interface!(IComprehensiveSpellCheckProvider, IComprehensiveSpellCheckProvider_Vtbl, 0x0c58f8de_8e94_479e_9717_70c42c4ad2c3);
-impl std::ops::Deref for IComprehensiveSpellCheckProvider {
+impl core::ops::Deref for IComprehensiveSpellCheckProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7077,7 +7077,7 @@ pub struct IComprehensiveSpellCheckProvider_Vtbl {
     pub ComprehensiveCheck: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumCodePage, IEnumCodePage_Vtbl, 0x275c23e3_3747_11d0_9fea_00aa003f8646);
-impl std::ops::Deref for IEnumCodePage {
+impl core::ops::Deref for IEnumCodePage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7107,7 +7107,7 @@ pub struct IEnumCodePage_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumRfc1766, IEnumRfc1766_Vtbl, 0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f);
-impl std::ops::Deref for IEnumRfc1766 {
+impl core::ops::Deref for IEnumRfc1766 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7137,7 +7137,7 @@ pub struct IEnumRfc1766_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumScript, IEnumScript_Vtbl, 0xae5f1430_388b_11d2_8380_00c04f8f5da1);
-impl std::ops::Deref for IEnumScript {
+impl core::ops::Deref for IEnumScript {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7167,7 +7167,7 @@ pub struct IEnumScript_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSpellingError, IEnumSpellingError_Vtbl, 0x803e3bd4_2828_4410_8290_418d1d73c762);
-impl std::ops::Deref for IEnumSpellingError {
+impl core::ops::Deref for IEnumSpellingError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7185,7 +7185,7 @@ pub struct IEnumSpellingError_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangCodePages, IMLangCodePages_Vtbl, 0x359f3443_bd4a_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangCodePages {
+impl core::ops::Deref for IMLangCodePages {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7218,7 +7218,7 @@ pub struct IMLangCodePages_Vtbl {
     pub CodePagesToCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangConvertCharset, IMLangConvertCharset_Vtbl, 0xd66d6f98_cdaa_11d0_b822_00c04fc9b31f);
-impl std::ops::Deref for IMLangConvertCharset {
+impl core::ops::Deref for IMLangConvertCharset {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7269,7 +7269,7 @@ pub struct IMLangConvertCharset_Vtbl {
     pub DoConversionFromUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, windows_core::PSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangFontLink, IMLangFontLink_Vtbl, 0x359f3441_bd4a_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangFontLink {
+impl core::ops::Deref for IMLangFontLink {
     type Target = IMLangCodePages;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7322,7 +7322,7 @@ pub struct IMLangFontLink_Vtbl {
     pub ResetFontMapping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangFontLink2, IMLangFontLink2_Vtbl, 0xdccfc162_2b38_11d2_b7ec_00c04f8f5d9a);
-impl std::ops::Deref for IMLangFontLink2 {
+impl core::ops::Deref for IMLangFontLink2 {
     type Target = IMLangCodePages;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7394,7 +7394,7 @@ pub struct IMLangFontLink2_Vtbl {
     pub CodePageToScriptID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangLineBreakConsole, IMLangLineBreakConsole_Vtbl, 0xf5be2ee1_bfd7_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangLineBreakConsole {
+impl core::ops::Deref for IMLangLineBreakConsole {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7423,7 +7423,7 @@ pub struct IMLangLineBreakConsole_Vtbl {
     pub BreakLineA: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, i32, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangString, IMLangString_Vtbl, 0xc04d65ce_b70d_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangString {
+impl core::ops::Deref for IMLangString {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7462,7 +7462,7 @@ pub struct IMLangString_Vtbl {
     pub GetMLStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangStringAStr, IMLangStringAStr_Vtbl, 0xc04d65d2_b70d_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangStringAStr {
+impl core::ops::Deref for IMLangStringAStr {
     type Target = IMLangString;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7511,7 +7511,7 @@ pub struct IMLangStringAStr_Vtbl {
     pub GetLocale: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangStringBufA, IMLangStringBufA_Vtbl, 0xd24acd23_ba72_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangStringBufA {
+impl core::ops::Deref for IMLangStringBufA {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7548,7 +7548,7 @@ pub struct IMLangStringBufA_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangStringBufW, IMLangStringBufW_Vtbl, 0xd24acd21_ba72_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangStringBufW {
+impl core::ops::Deref for IMLangStringBufW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7585,7 +7585,7 @@ pub struct IMLangStringBufW_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLangStringWStr, IMLangStringWStr_Vtbl, 0xc04d65d0_b70d_11d0_b188_00aa0038c969);
-impl std::ops::Deref for IMLangStringWStr {
+impl core::ops::Deref for IMLangStringWStr {
     type Target = IMLangString;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7634,7 +7634,7 @@ pub struct IMLangStringWStr_Vtbl {
     pub GetLocale: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMultiLanguage, IMultiLanguage_Vtbl, 0x275c23e1_3747_11d0_9fea_00aa003f8646);
-impl std::ops::Deref for IMultiLanguage {
+impl core::ops::Deref for IMultiLanguage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7726,7 +7726,7 @@ pub struct IMultiLanguage_Vtbl {
     pub CreateConvertCharset: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMultiLanguage2, IMultiLanguage2_Vtbl, 0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a);
-impl std::ops::Deref for IMultiLanguage2 {
+impl core::ops::Deref for IMultiLanguage2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7901,7 +7901,7 @@ pub struct IMultiLanguage2_Vtbl {
     pub ValidateCodePageEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMultiLanguage3, IMultiLanguage3_Vtbl, 0x4e5868ab_b157_4623_9acc_6a1d9caebe04);
-impl std::ops::Deref for IMultiLanguage3 {
+impl core::ops::Deref for IMultiLanguage3 {
     type Target = IMultiLanguage2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7934,7 +7934,7 @@ pub struct IMultiLanguage3_Vtbl {
     DetectOutboundCodePageInIStream: usize,
 }
 windows_core::imp::define_interface!(IOptionDescription, IOptionDescription_Vtbl, 0x432e5f85_35cf_4606_a801_6f70277e1d7a);
-impl std::ops::Deref for IOptionDescription {
+impl core::ops::Deref for IOptionDescription {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7972,7 +7972,7 @@ pub struct IOptionDescription_Vtbl {
     Labels: usize,
 }
 windows_core::imp::define_interface!(ISpellCheckProvider, ISpellCheckProvider_Vtbl, 0x73e976e0_8ed4_4eb1_80d7_1be0a16b0c38);
-impl std::ops::Deref for ISpellCheckProvider {
+impl core::ops::Deref for ISpellCheckProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8064,7 +8064,7 @@ pub struct ISpellCheckProvider_Vtbl {
     InitializeWordlist: usize,
 }
 windows_core::imp::define_interface!(ISpellCheckProviderFactory, ISpellCheckProviderFactory_Vtbl, 0x9f671e11_77d6_4c92_aefb_615215e3a4be);
-impl std::ops::Deref for ISpellCheckProviderFactory {
+impl core::ops::Deref for ISpellCheckProviderFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8103,7 +8103,7 @@ pub struct ISpellCheckProviderFactory_Vtbl {
     pub CreateSpellCheckProvider: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpellChecker, ISpellChecker_Vtbl, 0xb6fd0b71_e2bc_4653_8d05_f197e412770b);
-impl std::ops::Deref for ISpellChecker {
+impl core::ops::Deref for ISpellChecker {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8219,7 +8219,7 @@ pub struct ISpellChecker_Vtbl {
     pub ComprehensiveCheck: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpellChecker2, ISpellChecker2_Vtbl, 0xe7ed1c71_87f7_4378_a840_c9200dacee47);
-impl std::ops::Deref for ISpellChecker2 {
+impl core::ops::Deref for ISpellChecker2 {
     type Target = ISpellChecker;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8240,7 +8240,7 @@ pub struct ISpellChecker2_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpellCheckerChangedEventHandler, ISpellCheckerChangedEventHandler_Vtbl, 0x0b83a5b0_792f_4eab_9799_acf52c5ed08a);
-impl std::ops::Deref for ISpellCheckerChangedEventHandler {
+impl core::ops::Deref for ISpellCheckerChangedEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8261,7 +8261,7 @@ pub struct ISpellCheckerChangedEventHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpellCheckerFactory, ISpellCheckerFactory_Vtbl, 0x8e018a9d_2415_4677_bf08_794ea61f94bb);
-impl std::ops::Deref for ISpellCheckerFactory {
+impl core::ops::Deref for ISpellCheckerFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8300,7 +8300,7 @@ pub struct ISpellCheckerFactory_Vtbl {
     pub CreateSpellChecker: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpellingError, ISpellingError_Vtbl, 0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3);
-impl std::ops::Deref for ISpellingError {
+impl core::ops::Deref for ISpellingError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8334,7 +8334,7 @@ pub struct ISpellingError_Vtbl {
     pub Replacement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDictionariesRegistrar, IUserDictionariesRegistrar_Vtbl, 0xaa176b85_0e12_4844_8e1a_eef1da77f586);
-impl std::ops::Deref for IUserDictionariesRegistrar {
+impl core::ops::Deref for IUserDictionariesRegistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

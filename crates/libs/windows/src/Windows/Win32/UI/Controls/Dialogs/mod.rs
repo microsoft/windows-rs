@@ -116,7 +116,7 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
     ReplaceTextW(param0)
 }
 windows_core::imp::define_interface!(IPrintDialogCallback, IPrintDialogCallback_Vtbl, 0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
-impl std::ops::Deref for IPrintDialogCallback {
+impl core::ops::Deref for IPrintDialogCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -147,7 +147,7 @@ pub struct IPrintDialogCallback_Vtbl {
     pub HandleMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, u32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM, *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintDialogServices, IPrintDialogServices_Vtbl, 0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
-impl std::ops::Deref for IPrintDialogServices {
+impl core::ops::Deref for IPrintDialogServices {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

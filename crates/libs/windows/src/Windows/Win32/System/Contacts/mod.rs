@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IContact, IContact_Vtbl, 0xf941b671_bda7_4f77_884a_f46462f226a7);
-impl std::ops::Deref for IContact {
+impl core::ops::Deref for IContact {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -25,7 +25,7 @@ pub struct IContact_Vtbl {
     pub CommitChanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationAggregate, IContactAggregationAggregate_Vtbl, 0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
-impl std::ops::Deref for IContactAggregationAggregate {
+impl core::ops::Deref for IContactAggregationAggregate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -86,7 +86,7 @@ pub struct IContactAggregationAggregate_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationAggregateCollection, IContactAggregationAggregateCollection_Vtbl, 0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
-impl std::ops::Deref for IContactAggregationAggregateCollection {
+impl core::ops::Deref for IContactAggregationAggregateCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -123,7 +123,7 @@ pub struct IContactAggregationAggregateCollection_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationContact, IContactAggregationContact_Vtbl, 0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
-impl std::ops::Deref for IContactAggregationContact {
+impl core::ops::Deref for IContactAggregationContact {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -227,7 +227,7 @@ pub struct IContactAggregationContact_Vtbl {
     pub SetSyncIdentityHash: unsafe extern "system" fn(*mut core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationContactCollection, IContactAggregationContactCollection_Vtbl, 0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
-impl std::ops::Deref for IContactAggregationContactCollection {
+impl core::ops::Deref for IContactAggregationContactCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -274,7 +274,7 @@ pub struct IContactAggregationContactCollection_Vtbl {
     pub FindFirstByRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const CONTACT_AGGREGATION_BLOB, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationGroup, IContactAggregationGroup_Vtbl, 0xc93c545f_1284_499b_96af_07372af473e0);
-impl std::ops::Deref for IContactAggregationGroup {
+impl core::ops::Deref for IContactAggregationGroup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -341,7 +341,7 @@ pub struct IContactAggregationGroup_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationGroupCollection, IContactAggregationGroupCollection_Vtbl, 0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
-impl std::ops::Deref for IContactAggregationGroupCollection {
+impl core::ops::Deref for IContactAggregationGroupCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -375,7 +375,7 @@ pub struct IContactAggregationGroupCollection_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationLink, IContactAggregationLink_Vtbl, 0xb6813323_a183_4654_8627_79b30de3a0ec);
-impl std::ops::Deref for IContactAggregationLink {
+impl core::ops::Deref for IContactAggregationLink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -480,7 +480,7 @@ pub struct IContactAggregationLink_Vtbl {
     pub SetSyncIdentityHash: unsafe extern "system" fn(*mut core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationLinkCollection, IContactAggregationLinkCollection_Vtbl, 0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
-impl std::ops::Deref for IContactAggregationLinkCollection {
+impl core::ops::Deref for IContactAggregationLinkCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -518,7 +518,7 @@ pub struct IContactAggregationLinkCollection_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationManager, IContactAggregationManager_Vtbl, 0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
-impl std::ops::Deref for IContactAggregationManager {
+impl core::ops::Deref for IContactAggregationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -623,7 +623,7 @@ pub struct IContactAggregationManager_Vtbl {
     pub get_ServerContactLinks: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationServerPerson, IContactAggregationServerPerson_Vtbl, 0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
-impl std::ops::Deref for IContactAggregationServerPerson {
+impl core::ops::Deref for IContactAggregationServerPerson {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -758,7 +758,7 @@ pub struct IContactAggregationServerPerson_Vtbl {
     pub SetObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAggregationServerPersonCollection, IContactAggregationServerPersonCollection_Vtbl, 0x4f730a4a_6604_47b6_a987_669ecf1e5751);
-impl std::ops::Deref for IContactAggregationServerPersonCollection {
+impl core::ops::Deref for IContactAggregationServerPersonCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -811,7 +811,7 @@ pub struct IContactAggregationServerPersonCollection_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCollection, IContactCollection_Vtbl, 0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
-impl std::ops::Deref for IContactCollection {
+impl core::ops::Deref for IContactCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -838,7 +838,7 @@ pub struct IContactCollection_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManager, IContactManager_Vtbl, 0xad553d98_deb1_474a_8e17_fc0c2075b738);
-impl std::ops::Deref for IContactManager {
+impl core::ops::Deref for IContactManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -893,7 +893,7 @@ pub struct IContactManager_Vtbl {
     pub GetContactCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactProperties, IContactProperties_Vtbl, 0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
-impl std::ops::Deref for IContactProperties {
+impl core::ops::Deref for IContactProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1011,7 +1011,7 @@ pub struct IContactProperties_Vtbl {
     pub GetPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPropertyCollection, IContactPropertyCollection_Vtbl, 0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
-impl std::ops::Deref for IContactPropertyCollection {
+impl core::ops::Deref for IContactPropertyCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

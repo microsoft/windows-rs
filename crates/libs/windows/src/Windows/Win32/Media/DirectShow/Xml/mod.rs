@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x1bb05960_5fbf_11d2_a521_44df07c10000);
-impl std::ops::Deref for IXMLGraphBuilder {
+impl core::ops::Deref for IXMLGraphBuilder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAction, IAction_Vtbl, 0xbae54997_48b1_4cbe_9965_d6be263ebea4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAction {
+impl core::ops::Deref for IAction {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -35,7 +35,7 @@ pub struct IAction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IActionCollection, IActionCollection_Vtbl, 0x02820e19_7b98_4ed2_b2e8_fdccceff619b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IActionCollection {
+impl core::ops::Deref for IActionCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -114,7 +114,7 @@ pub struct IActionCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBootTrigger, IBootTrigger_Vtbl, 0x2a9c35da_d357_41f4_bbc1_207ac1b1f3cb);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IBootTrigger {
+impl core::ops::Deref for IBootTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -144,7 +144,7 @@ pub struct IBootTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IComHandlerAction, IComHandlerAction_Vtbl, 0x6d2fd252_75c5_4f66_90ba_2a7d8cc3039f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IComHandlerAction {
+impl core::ops::Deref for IComHandlerAction {
     type Target = IAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -185,7 +185,7 @@ pub struct IComHandlerAction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDailyTrigger, IDailyTrigger_Vtbl, 0x126c5cd8_b288_41d5_8dbf_e491446adc5c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDailyTrigger {
+impl core::ops::Deref for IDailyTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -223,7 +223,7 @@ pub struct IDailyTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IEmailAction, IEmailAction_Vtbl, 0x10f62c64_7e16_4314_a0c2_0c3683f99d40);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IEmailAction {
+impl core::ops::Deref for IEmailAction {
     type Target = IAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -364,7 +364,7 @@ pub struct IEmailAction_Vtbl {
     SetAttachments: usize,
 }
 windows_core::imp::define_interface!(IEnumWorkItems, IEnumWorkItems_Vtbl, 0x148bd528_a2ab_11ce_b11f_00aa00530503);
-impl std::ops::Deref for IEnumWorkItems {
+impl core::ops::Deref for IEnumWorkItems {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -397,7 +397,7 @@ pub struct IEnumWorkItems_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IEventTrigger, IEventTrigger_Vtbl, 0xd45b0167_9653_4eef_b94f_0732ca7af251);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IEventTrigger {
+impl core::ops::Deref for IEventTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -458,7 +458,7 @@ pub struct IEventTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IExecAction, IExecAction_Vtbl, 0x4c3d624d_fd6b_49a3_b9b7_09cb3cd3f047);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IExecAction {
+impl core::ops::Deref for IExecAction {
     type Target = IAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -510,7 +510,7 @@ pub struct IExecAction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IExecAction2, IExecAction2_Vtbl, 0xf2a82542_bda5_4e6b_9143_e2bf4f8987b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IExecAction2 {
+impl core::ops::Deref for IExecAction2 {
     type Target = IExecAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -540,7 +540,7 @@ pub struct IExecAction2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IIdleSettings, IIdleSettings_Vtbl, 0x84594461_0053_4342_a8fd_088fabf11f32);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IIdleSettings {
+impl core::ops::Deref for IIdleSettings {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -603,7 +603,7 @@ pub struct IIdleSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IIdleTrigger, IIdleTrigger_Vtbl, 0xd537d2b0_9fb3_4d34_9739_1ff5ce7b1ef3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IIdleTrigger {
+impl core::ops::Deref for IIdleTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -621,7 +621,7 @@ pub struct IIdleTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILogonTrigger, ILogonTrigger_Vtbl, 0x72dade38_fae4_4b3e_baf4_5d009af02b1c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ILogonTrigger {
+impl core::ops::Deref for ILogonTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -662,7 +662,7 @@ pub struct ILogonTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMaintenanceSettings, IMaintenanceSettings_Vtbl, 0xa6024fa8_9652_4adb_a6bf_5cfcd877a7ba);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMaintenanceSettings {
+impl core::ops::Deref for IMaintenanceSettings {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -714,7 +714,7 @@ pub struct IMaintenanceSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMonthlyDOWTrigger, IMonthlyDOWTrigger_Vtbl, 0x77d025a3_90fa_43aa_b52e_cda5499b946a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMonthlyDOWTrigger {
+impl core::ops::Deref for IMonthlyDOWTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -779,7 +779,7 @@ pub struct IMonthlyDOWTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMonthlyTrigger, IMonthlyTrigger_Vtbl, 0x97c45ef1_6b02_4a1a_9c0e_1ebfba1500ac);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMonthlyTrigger {
+impl core::ops::Deref for IMonthlyTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -836,7 +836,7 @@ pub struct IMonthlyTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetworkSettings, INetworkSettings_Vtbl, 0x9f7dea84_c30b_4245_80b6_00e9f646f1b4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetworkSettings {
+impl core::ops::Deref for INetworkSettings {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -877,7 +877,7 @@ pub struct INetworkSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPrincipal, IPrincipal_Vtbl, 0xd98d51e5_c9b4_496a_a9c1_18980261cf0f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IPrincipal {
+impl core::ops::Deref for IPrincipal {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -956,7 +956,7 @@ pub struct IPrincipal_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPrincipal2, IPrincipal2_Vtbl, 0x248919ae_e345_4a6d_8aeb_e0d3165c904e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IPrincipal2 {
+impl core::ops::Deref for IPrincipal2 {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -996,7 +996,7 @@ pub struct IPrincipal2_Vtbl {
     pub AddRequiredPrivilege: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProvideTaskPage, IProvideTaskPage_Vtbl, 0x4086658a_cbbb_11cf_b604_00c04fd8d565);
-impl std::ops::Deref for IProvideTaskPage {
+impl core::ops::Deref for IProvideTaskPage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1024,7 +1024,7 @@ pub struct IProvideTaskPage_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRegisteredTask, IRegisteredTask_Vtbl, 0x9c86f320_dee3_4dd1_b972_a303f26b061e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRegisteredTask {
+impl core::ops::Deref for IRegisteredTask {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1158,7 +1158,7 @@ pub struct IRegisteredTask_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRegisteredTaskCollection, IRegisteredTaskCollection_Vtbl, 0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRegisteredTaskCollection {
+impl core::ops::Deref for IRegisteredTaskCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1199,7 +1199,7 @@ pub struct IRegisteredTaskCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRegistrationInfo, IRegistrationInfo_Vtbl, 0x416d8b73_cb41_4ea1_805c_9be9a5ac4a74);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRegistrationInfo {
+impl core::ops::Deref for IRegistrationInfo {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1317,7 +1317,7 @@ pub struct IRegistrationInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRegistrationTrigger, IRegistrationTrigger_Vtbl, 0x4c8fec3a_c218_4e0c_b23d_629024db91a2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRegistrationTrigger {
+impl core::ops::Deref for IRegistrationTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1347,7 +1347,7 @@ pub struct IRegistrationTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRepetitionPattern, IRepetitionPattern_Vtbl, 0x7fb9acf1_26be_400e_85b5_294b9c75dfd6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRepetitionPattern {
+impl core::ops::Deref for IRepetitionPattern {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1399,7 +1399,7 @@ pub struct IRepetitionPattern_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRunningTask, IRunningTask_Vtbl, 0x653758fb_7b9a_4f1e_a471_beeb8e9b834e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRunningTask {
+impl core::ops::Deref for IRunningTask {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1456,7 +1456,7 @@ pub struct IRunningTask_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRunningTaskCollection, IRunningTaskCollection_Vtbl, 0x6a67614b_6828_4fec_aa54_6d52e8f1f2db);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRunningTaskCollection {
+impl core::ops::Deref for IRunningTaskCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1495,7 +1495,7 @@ pub struct IRunningTaskCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScheduledWorkItem, IScheduledWorkItem_Vtbl, 0xa6b952f0_a4b1_11d0_997d_00aa006887ec);
-impl std::ops::Deref for IScheduledWorkItem {
+impl core::ops::Deref for IScheduledWorkItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1652,7 +1652,7 @@ pub struct IScheduledWorkItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISessionStateChangeTrigger, ISessionStateChangeTrigger_Vtbl, 0x754da71b_4385_4475_9dd9_598294fa3641);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISessionStateChangeTrigger {
+impl core::ops::Deref for ISessionStateChangeTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1701,7 +1701,7 @@ pub struct ISessionStateChangeTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShowMessageAction, IShowMessageAction_Vtbl, 0x505e9e68_af89_46b8_a30f_56162a83d537);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IShowMessageAction {
+impl core::ops::Deref for IShowMessageAction {
     type Target = IAction;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1740,7 +1740,7 @@ pub struct IShowMessageAction_Vtbl {
     pub SetMessageBody: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITask, ITask_Vtbl, 0x148bd524_a2ab_11ce_b11f_00aa00530503);
-impl std::ops::Deref for ITask {
+impl core::ops::Deref for ITask {
     type Target = IScheduledWorkItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1819,7 +1819,7 @@ pub struct ITask_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskDefinition, ITaskDefinition_Vtbl, 0xf5bc8fc5_536d_4f77_b852_fbc1356fdeb6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskDefinition {
+impl core::ops::Deref for ITaskDefinition {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1960,7 +1960,7 @@ pub struct ITaskDefinition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskFolder, ITaskFolder_Vtbl, 0x8cfac062_a080_4c15_9a88_aa7c2af80dfc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskFolder {
+impl core::ops::Deref for ITaskFolder {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2102,7 +2102,7 @@ pub struct ITaskFolder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskFolderCollection, ITaskFolderCollection_Vtbl, 0x79184a66_8664_423f_97f1_637356a5d812);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskFolderCollection {
+impl core::ops::Deref for ITaskFolderCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2141,7 +2141,7 @@ pub struct ITaskFolderCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskHandler, ITaskHandler_Vtbl, 0x839d7762_5121_4009_9234_4f0d19394f04);
-impl std::ops::Deref for ITaskHandler {
+impl core::ops::Deref for ITaskHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2176,7 +2176,7 @@ pub struct ITaskHandler_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskHandlerStatus, ITaskHandlerStatus_Vtbl, 0xeaec7a8f_27a0_4ddc_8675_14726a01a38a);
-impl std::ops::Deref for ITaskHandlerStatus {
+impl core::ops::Deref for ITaskHandlerStatus {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2203,7 +2203,7 @@ pub struct ITaskHandlerStatus_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskNamedValueCollection, ITaskNamedValueCollection_Vtbl, 0xb4ef826b_63c3_46e4_a504_ef69e4f7ea4d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskNamedValueCollection {
+impl core::ops::Deref for ITaskNamedValueCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2261,7 +2261,7 @@ pub struct ITaskNamedValueCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskNamedValuePair, ITaskNamedValuePair_Vtbl, 0x39038068_2b46_4afd_8662_7bb6f868d221);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskNamedValuePair {
+impl core::ops::Deref for ITaskNamedValuePair {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2300,7 +2300,7 @@ pub struct ITaskNamedValuePair_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskScheduler, ITaskScheduler_Vtbl, 0x148bd527_a2ab_11ce_b11f_00aa00530503);
-impl std::ops::Deref for ITaskScheduler {
+impl core::ops::Deref for ITaskScheduler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2371,7 +2371,7 @@ pub struct ITaskScheduler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskService, ITaskService_Vtbl, 0x2faba4c7_4da9_4013_9697_20cc3fd40f85);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskService {
+impl core::ops::Deref for ITaskService {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2455,7 +2455,7 @@ pub struct ITaskService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskSettings, ITaskSettings_Vtbl, 0x8fd4711d_2d02_4c8c_87e3_eff699de127e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskSettings {
+impl core::ops::Deref for ITaskSettings {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2700,7 +2700,7 @@ pub struct ITaskSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskSettings2, ITaskSettings2_Vtbl, 0x2c05c3f0_6eed_4c05_a15f_ed7d7a98a369);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskSettings2 {
+impl core::ops::Deref for ITaskSettings2 {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2741,7 +2741,7 @@ pub struct ITaskSettings2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITaskSettings3, ITaskSettings3_Vtbl, 0x0ad9d0d7_0c7f_4ebb_9a5f_d1c648dca528);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITaskSettings3 {
+impl core::ops::Deref for ITaskSettings3 {
     type Target = ITaskSettings;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2820,7 +2820,7 @@ pub struct ITaskSettings3_Vtbl {
     pub SetVolatile: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskTrigger, ITaskTrigger_Vtbl, 0x148bd52b_a2ab_11ce_b11f_00aa00530503);
-impl std::ops::Deref for ITaskTrigger {
+impl core::ops::Deref for ITaskTrigger {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2847,7 +2847,7 @@ pub struct ITaskTrigger_Vtbl {
     pub GetTriggerString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskVariables, ITaskVariables_Vtbl, 0x3e4c9351_d966_4b8b_bb87_ceba68bb0107);
-impl std::ops::Deref for ITaskVariables {
+impl core::ops::Deref for ITaskVariables {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2880,7 +2880,7 @@ pub struct ITaskVariables_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0xb45747e0_eba7_4276_9f29_85c5bb300006);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITimeTrigger {
+impl core::ops::Deref for ITimeTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2910,7 +2910,7 @@ pub struct ITimeTrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITrigger, ITrigger_Vtbl, 0x09941815_ea89_4b5b_89e0_2a773801fac3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITrigger {
+impl core::ops::Deref for ITrigger {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3008,7 +3008,7 @@ pub struct ITrigger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITriggerCollection, ITriggerCollection_Vtbl, 0x85df5081_1b24_4f32_878a_d9d14df4cb77);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITriggerCollection {
+impl core::ops::Deref for ITriggerCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3065,7 +3065,7 @@ pub struct ITriggerCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWeeklyTrigger, IWeeklyTrigger_Vtbl, 0x5038fc98_82ff_436d_8728_a512a57c9dc1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWeeklyTrigger {
+impl core::ops::Deref for IWeeklyTrigger {
     type Target = ITrigger;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

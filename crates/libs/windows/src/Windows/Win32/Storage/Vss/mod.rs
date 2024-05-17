@@ -5,7 +5,7 @@ pub unsafe fn CreateVssExpressWriterInternal() -> windows_core::Result<IVssExpre
     CreateVssExpressWriterInternal(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IVssAdmin, IVssAdmin_Vtbl, 0x77ed5996_2f63_11d3_8a39_00c04f72d8e3);
-impl std::ops::Deref for IVssAdmin {
+impl core::ops::Deref for IVssAdmin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -36,7 +36,7 @@ pub struct IVssAdmin_Vtbl {
     pub AbortAllSnapshotsInProgress: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssAdminEx, IVssAdminEx_Vtbl, 0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
-impl std::ops::Deref for IVssAdminEx {
+impl core::ops::Deref for IVssAdminEx {
     type Target = IVssAdmin;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -64,7 +64,7 @@ pub struct IVssAdminEx_Vtbl {
     pub SetProviderContext: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssAsync, IVssAsync_Vtbl, 0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
-impl std::ops::Deref for IVssAsync {
+impl core::ops::Deref for IVssAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -90,7 +90,7 @@ pub struct IVssAsync_Vtbl {
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssComponent, IVssComponent_Vtbl, 0xd2c72c96_c121_4518_b627_e5a93d010ead);
-impl std::ops::Deref for IVssComponent {
+impl core::ops::Deref for IVssComponent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -298,7 +298,7 @@ pub struct IVssComponent_Vtbl {
     pub GetDifferencedFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssComponentEx, IVssComponentEx_Vtbl, 0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
-impl std::ops::Deref for IVssComponentEx {
+impl core::ops::Deref for IVssComponentEx {
     type Target = IVssComponent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -350,7 +350,7 @@ pub struct IVssComponentEx_Vtbl {
     pub GetRestoreName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssComponentEx2, IVssComponentEx2_Vtbl, 0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
-impl std::ops::Deref for IVssComponentEx2 {
+impl core::ops::Deref for IVssComponentEx2 {
     type Target = IVssComponentEx;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -375,7 +375,7 @@ pub struct IVssComponentEx2_Vtbl {
     pub GetFailure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut windows_core::HRESULT, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssCreateExpressWriterMetadata, IVssCreateExpressWriterMetadata_Vtbl, 0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
-impl std::ops::Deref for IVssCreateExpressWriterMetadata {
+impl core::ops::Deref for IVssCreateExpressWriterMetadata {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -551,7 +551,7 @@ pub struct IVssCreateWriterMetadata_Vtbl {
     pub SaveAsXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt_Vtbl, 0x214a0f28_b737_4026_b847_4f9e37d79529);
-impl std::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt {
+impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -593,7 +593,7 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
     pub QueryDiffAreasForSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt2, IVssDifferentialSoftwareSnapshotMgmt2_Vtbl, 0x949d7353_675f_4275_8969_f044c6277815);
-impl std::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt2 {
+impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt2 {
     type Target = IVssDifferentialSoftwareSnapshotMgmt;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -627,7 +627,7 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     pub SetSnapshotPriority: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt3, IVssDifferentialSoftwareSnapshotMgmt3_Vtbl, 0x383f7e71_a4c5_401f_b27f_f826289f8458);
-impl std::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt3 {
+impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt3 {
     type Target = IVssDifferentialSoftwareSnapshotMgmt2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -661,7 +661,7 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
     pub QuerySnapshotDeltaBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut u32, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssEnumMgmtObject, IVssEnumMgmtObject_Vtbl, 0x01954e6b_9254_4e6e_808c_c9e05d007696);
-impl std::ops::Deref for IVssEnumMgmtObject {
+impl core::ops::Deref for IVssEnumMgmtObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -691,7 +691,7 @@ pub struct IVssEnumMgmtObject_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssEnumObject, IVssEnumObject_Vtbl, 0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
-impl std::ops::Deref for IVssEnumObject {
+impl core::ops::Deref for IVssEnumObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -721,7 +721,7 @@ pub struct IVssEnumObject_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssExpressWriter, IVssExpressWriter_Vtbl, 0xe33affdc_59c7_47b1_97d5_4266598f6235);
-impl std::ops::Deref for IVssExpressWriter {
+impl core::ops::Deref for IVssExpressWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -758,7 +758,7 @@ pub struct IVssExpressWriter_Vtbl {
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssFileShareSnapshotProvider, IVssFileShareSnapshotProvider_Vtbl, 0xc8636060_7c2e_11df_8c4a_0800200c9a66);
-impl std::ops::Deref for IVssFileShareSnapshotProvider {
+impl core::ops::Deref for IVssFileShareSnapshotProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -812,7 +812,7 @@ pub struct IVssFileShareSnapshotProvider_Vtbl {
     pub SetSnapshotProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssHardwareSnapshotProvider, IVssHardwareSnapshotProvider_Vtbl, 0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
-impl std::ops::Deref for IVssHardwareSnapshotProvider {
+impl core::ops::Deref for IVssHardwareSnapshotProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -874,7 +874,7 @@ pub struct IVssHardwareSnapshotProvider_Vtbl {
     OnLunEmpty: usize,
 }
 windows_core::imp::define_interface!(IVssHardwareSnapshotProviderEx, IVssHardwareSnapshotProviderEx_Vtbl, 0x7f5ba925_cdb1_4d11_a71f_339eb7e709fd);
-impl std::ops::Deref for IVssHardwareSnapshotProviderEx {
+impl core::ops::Deref for IVssHardwareSnapshotProviderEx {
     type Target = IVssHardwareSnapshotProvider;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -918,7 +918,7 @@ pub struct IVssHardwareSnapshotProviderEx_Vtbl {
     OnReuseLuns: usize,
 }
 windows_core::imp::define_interface!(IVssProviderCreateSnapshotSet, IVssProviderCreateSnapshotSet_Vtbl, 0x5f894e5b_1e39_4778_8e23_9abad9f0e08c);
-impl std::ops::Deref for IVssProviderCreateSnapshotSet {
+impl core::ops::Deref for IVssProviderCreateSnapshotSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -960,7 +960,7 @@ pub struct IVssProviderCreateSnapshotSet_Vtbl {
     pub AbortSnapshots: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssProviderNotifications, IVssProviderNotifications_Vtbl, 0xe561901f_03a5_4afe_86d0_72baeece7004);
-impl std::ops::Deref for IVssProviderNotifications {
+impl core::ops::Deref for IVssProviderNotifications {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -988,7 +988,7 @@ pub struct IVssProviderNotifications_Vtbl {
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssSnapshotMgmt, IVssSnapshotMgmt_Vtbl, 0xfa7df749_66e7_4986_a27f_e2f04ae53772);
-impl std::ops::Deref for IVssSnapshotMgmt {
+impl core::ops::Deref for IVssSnapshotMgmt {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1017,7 +1017,7 @@ pub struct IVssSnapshotMgmt_Vtbl {
     pub QuerySnapshotsByVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssSnapshotMgmt2, IVssSnapshotMgmt2_Vtbl, 0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
-impl std::ops::Deref for IVssSnapshotMgmt2 {
+impl core::ops::Deref for IVssSnapshotMgmt2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1036,7 +1036,7 @@ pub struct IVssSnapshotMgmt2_Vtbl {
     pub GetMinDiffAreaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssSoftwareSnapshotProvider, IVssSoftwareSnapshotProvider_Vtbl, 0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
-impl std::ops::Deref for IVssSoftwareSnapshotProvider {
+impl core::ops::Deref for IVssSoftwareSnapshotProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1099,7 +1099,7 @@ pub struct IVssSoftwareSnapshotProvider_Vtbl {
     pub QueryRevertStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssWMDependency, IVssWMDependency_Vtbl, 0);
-impl std::ops::Deref for IVssWMDependency {
+impl core::ops::Deref for IVssWMDependency {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1125,7 +1125,7 @@ pub struct IVssWMDependency_Vtbl {
     pub GetComponentName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVssWMFiledesc, IVssWMFiledesc_Vtbl, 0);
-impl std::ops::Deref for IVssWMFiledesc {
+impl core::ops::Deref for IVssWMFiledesc {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

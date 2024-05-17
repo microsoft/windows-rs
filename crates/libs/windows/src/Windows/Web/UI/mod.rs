@@ -1,7 +1,7 @@
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
 windows_core::imp::define_interface!(IWebViewControl, IWebViewControl_Vtbl, 0x3f921316_bc70_4bda_9136_c94370899fab);
-impl std::ops::Deref for IWebViewControl {
+impl core::ops::Deref for IWebViewControl {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -488,7 +488,7 @@ pub struct IWebViewControl_Vtbl {
     pub RemoveWebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebViewControl2, IWebViewControl2_Vtbl, 0x4d3c06f9_c8df_41cc_8bd5_2a947b204503);
-impl std::ops::Deref for IWebViewControl2 {
+impl core::ops::Deref for IWebViewControl2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

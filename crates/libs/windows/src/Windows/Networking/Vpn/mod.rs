@@ -176,7 +176,7 @@ pub struct IVpnChannelConfiguration2_Vtbl {
     ServerUris: usize,
 }
 windows_core::imp::define_interface!(IVpnChannelStatics, IVpnChannelStatics_Vtbl, 0x88eb062d_e818_4ffd_98a6_363e3736c95d);
-impl std::ops::Deref for IVpnChannelStatics {
+impl core::ops::Deref for IVpnChannelStatics {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -202,7 +202,7 @@ pub struct IVpnChannelStatics_Vtbl {
     pub ProcessEventAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVpnCredential, IVpnCredential_Vtbl, 0xb7e78af3_a46d_404b_8729_1832522853ac);
-impl std::ops::Deref for IVpnCredential {
+impl core::ops::Deref for IVpnCredential {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -312,7 +312,7 @@ pub struct IVpnCustomErrorBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IVpnCustomPrompt, IVpnCustomPrompt_Vtbl, 0x9b2ebe7b_87d5_433c_b4f6_eee6aa68a244);
-impl std::ops::Deref for IVpnCustomPrompt {
+impl core::ops::Deref for IVpnCustomPrompt {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -379,7 +379,7 @@ pub struct IVpnCustomPromptBooleanInput_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVpnCustomPromptElement, IVpnCustomPromptElement_Vtbl, 0x73bd5638_6f04_404d_93dd_50a44924a38b);
-impl std::ops::Deref for IVpnCustomPromptElement {
+impl core::ops::Deref for IVpnCustomPromptElement {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -527,7 +527,7 @@ pub struct IVpnDomainNameInfo2_Vtbl {
     WebProxyUris: usize,
 }
 windows_core::imp::define_interface!(IVpnDomainNameInfoFactory, IVpnDomainNameInfoFactory_Vtbl, 0x2507bb75_028f_4688_8d3a_c4531df37da8);
-impl std::ops::Deref for IVpnDomainNameInfoFactory {
+impl core::ops::Deref for IVpnDomainNameInfoFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -595,7 +595,7 @@ pub struct IVpnInterfaceId_Vtbl {
     pub GetAddressInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVpnInterfaceIdFactory, IVpnInterfaceIdFactory_Vtbl, 0x9e2ddca2_1712_4ce4_b179_8c652c6d1000);
-impl std::ops::Deref for IVpnInterfaceIdFactory {
+impl core::ops::Deref for IVpnInterfaceIdFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -687,7 +687,7 @@ pub struct IVpnNamespaceInfo_Vtbl {
     WebProxyServers: usize,
 }
 windows_core::imp::define_interface!(IVpnNamespaceInfoFactory, IVpnNamespaceInfoFactory_Vtbl, 0xcb3e951a_b0ce_442b_acbb_5f99b202c31c);
-impl std::ops::Deref for IVpnNamespaceInfoFactory {
+impl core::ops::Deref for IVpnNamespaceInfoFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -788,7 +788,7 @@ pub struct IVpnPacketBuffer3_Vtbl {
     pub TransportContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVpnPacketBufferFactory, IVpnPacketBufferFactory_Vtbl, 0x9e2ddca2_1712_4ce4_b179_8c652c6d9999);
-impl std::ops::Deref for IVpnPacketBufferFactory {
+impl core::ops::Deref for IVpnPacketBufferFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -861,7 +861,7 @@ pub struct IVpnPickedCredential_Vtbl {
     OldPasswordCredential: usize,
 }
 windows_core::imp::define_interface!(IVpnPlugIn, IVpnPlugIn_Vtbl, 0xceb78d07_d0a8_4703_a091_c8c2c0915bc4);
-impl std::ops::Deref for IVpnPlugIn {
+impl core::ops::Deref for IVpnPlugIn {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -950,7 +950,7 @@ pub struct IVpnPlugInProfile2_Vtbl {
     pub ConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnManagementConnectionStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVpnProfile, IVpnProfile_Vtbl, 0x7875b751_b0d7_43db_8a93_d3fe2479e56a);
-impl std::ops::Deref for IVpnProfile {
+impl core::ops::Deref for IVpnProfile {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1108,7 +1108,7 @@ pub struct IVpnRouteAssignment_Vtbl {
     pub ExcludeLocalSubnets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVpnRouteFactory, IVpnRouteFactory_Vtbl, 0xbdeab5ff_45cf_4b99_83fb_db3bc2672b02);
-impl std::ops::Deref for IVpnRouteFactory {
+impl core::ops::Deref for IVpnRouteFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

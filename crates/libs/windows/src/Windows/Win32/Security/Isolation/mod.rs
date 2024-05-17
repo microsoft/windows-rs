@@ -86,7 +86,7 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> wi
     IsProcessInWDAGContainer(reserved, &mut result__).map(|| result__)
 }
 windows_core::imp::define_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
-impl std::ops::Deref for IIsolatedAppLauncher {
+impl core::ops::Deref for IIsolatedAppLauncher {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -108,7 +108,7 @@ pub struct IIsolatedAppLauncher_Vtbl {
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
-impl std::ops::Deref for IIsolatedProcessLauncher {
+impl core::ops::Deref for IIsolatedProcessLauncher {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -154,7 +154,7 @@ pub struct IIsolatedProcessLauncher_Vtbl {
     pub IsContainerRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
-impl std::ops::Deref for IIsolatedProcessLauncher2 {
+impl core::ops::Deref for IIsolatedProcessLauncher2 {
     type Target = IIsolatedProcessLauncher;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

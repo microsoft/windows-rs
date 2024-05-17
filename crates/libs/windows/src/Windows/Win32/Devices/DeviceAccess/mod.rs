@@ -8,7 +8,7 @@ where
     CreateDeviceAccessInstance(deviceinterfacepath.param().abi(), desiredaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(ICreateDeviceAccessAsync, ICreateDeviceAccessAsync_Vtbl, 0x3474628f_683d_42d2_abcb_db018c6503bc);
-impl std::ops::Deref for ICreateDeviceAccessAsync {
+impl core::ops::Deref for ICreateDeviceAccessAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -29,7 +29,7 @@ impl ICreateDeviceAccessAsync {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -42,7 +42,7 @@ pub struct ICreateDeviceAccessAsync_Vtbl {
     pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceIoControl, IDeviceIoControl_Vtbl, 0x9eefe161_23ab_4f18_9b49_991b586ae970);
-impl std::ops::Deref for IDeviceIoControl {
+impl core::ops::Deref for IDeviceIoControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -81,7 +81,7 @@ pub struct IDeviceIoControl_Vtbl {
     pub CancelOperation: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceRequestCompletionCallback, IDeviceRequestCompletionCallback_Vtbl, 0x999bad24_9acd_45bb_8669_2a2fc0288b04);
-impl std::ops::Deref for IDeviceRequestCompletionCallback {
+impl core::ops::Deref for IDeviceRequestCompletionCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

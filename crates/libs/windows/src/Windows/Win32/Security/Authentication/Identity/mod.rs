@@ -1514,7 +1514,7 @@ pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHa
     VerifySignature(phcontext, pmessage, messageseqno, &mut result__).map(|| result__)
 }
 windows_core::imp::define_interface!(ICcgDomainAuthCredentials, ICcgDomainAuthCredentials_Vtbl, 0x6ecda518_2010_4437_8bc3_46e752b7b172);
-impl std::ops::Deref for ICcgDomainAuthCredentials {
+impl core::ops::Deref for ICcgDomainAuthCredentials {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

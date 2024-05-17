@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IItemEnumerator, IItemEnumerator_Vtbl, 0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for IItemEnumerator {
+impl core::ops::Deref for IItemEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -27,7 +27,7 @@ pub struct IItemEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISettingsContext, ISettingsContext_Vtbl, 0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ISettingsContext {
+impl core::ops::Deref for ISettingsContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -95,7 +95,7 @@ pub struct ISettingsContext_Vtbl {
     pub RevertSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISettingsEngine, ISettingsEngine_Vtbl, 0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ISettingsEngine {
+impl core::ops::Deref for ISettingsEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -209,7 +209,7 @@ pub struct ISettingsEngine_Vtbl {
     pub GetSettingsContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISettingsIdentity, ISettingsIdentity_Vtbl, 0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ISettingsIdentity {
+impl core::ops::Deref for ISettingsIdentity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -248,7 +248,7 @@ pub struct ISettingsIdentity_Vtbl {
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISettingsItem, ISettingsItem_Vtbl, 0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ISettingsItem {
+impl core::ops::Deref for ISettingsItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -386,7 +386,7 @@ pub struct ISettingsItem_Vtbl {
     pub GetKeyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISettingsNamespace, ISettingsNamespace_Vtbl, 0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ISettingsNamespace {
+impl core::ops::Deref for ISettingsNamespace {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -449,7 +449,7 @@ pub struct ISettingsNamespace_Vtbl {
     pub GetAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISettingsResult, ISettingsResult_Vtbl, 0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ISettingsResult {
+impl core::ops::Deref for ISettingsResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -493,7 +493,7 @@ pub struct ISettingsResult_Vtbl {
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetInfo, ITargetInfo_Vtbl, 0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);
-impl std::ops::Deref for ITargetInfo {
+impl core::ops::Deref for ITargetInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -112,7 +112,7 @@ where
     KsSynchronousDeviceControl(handle.param().abi(), iocontrol, core::mem::transmute(inbuffer.unwrap_or(std::ptr::null())), inlength, core::mem::transmute(outbuffer.unwrap_or(std::ptr::null_mut())), outlength, core::mem::transmute(bytesreturned.unwrap_or(std::ptr::null_mut()))).ok()
 }
 windows_core::imp::define_interface!(IKsAggregateControl, IKsAggregateControl_Vtbl, 0x7f40eac0_3947_11d2_874e_00a0c9223196);
-impl std::ops::Deref for IKsAggregateControl {
+impl core::ops::Deref for IKsAggregateControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -134,7 +134,7 @@ pub struct IKsAggregateControl_Vtbl {
     pub KsRemoveAggregate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
-impl std::ops::Deref for IKsAllocator {
+impl core::ops::Deref for IKsAllocator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -164,7 +164,7 @@ pub struct IKsAllocator_Vtbl {
     pub KsSetAllocatorMode: unsafe extern "system" fn(*mut core::ffi::c_void, KSALLOCATORMODE),
 }
 windows_core::imp::define_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
-impl std::ops::Deref for IKsAllocatorEx {
+impl core::ops::Deref for IKsAllocatorEx {
     type Target = IKsAllocator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -200,7 +200,7 @@ pub struct IKsAllocatorEx_Vtbl {
     pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 windows_core::imp::define_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
-impl std::ops::Deref for IKsClockPropertySet {
+impl core::ops::Deref for IKsClockPropertySet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -260,7 +260,7 @@ pub struct IKsClockPropertySet_Vtbl {
     pub KsGetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
-impl std::ops::Deref for IKsControl {
+impl core::ops::Deref for IKsControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -286,7 +286,7 @@ pub struct IKsControl_Vtbl {
     pub KsEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
-impl std::ops::Deref for IKsDataTypeCompletion {
+impl core::ops::Deref for IKsDataTypeCompletion {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -311,7 +311,7 @@ pub struct IKsDataTypeCompletion_Vtbl {
     KsCompleteMediaType: usize,
 }
 windows_core::imp::define_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl, 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
-impl std::ops::Deref for IKsDataTypeHandler {
+impl core::ops::Deref for IKsDataTypeHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -365,7 +365,7 @@ pub struct IKsDataTypeHandler_Vtbl {
     KsSetMediaType: usize,
 }
 windows_core::imp::define_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
-impl std::ops::Deref for IKsFormatSupport {
+impl core::ops::Deref for IKsFormatSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -388,7 +388,7 @@ pub struct IKsFormatSupport_Vtbl {
     pub GetDevicePreferredFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut KSDATAFORMAT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
-impl std::ops::Deref for IKsInterfaceHandler {
+impl core::ops::Deref for IKsInterfaceHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -424,7 +424,7 @@ pub struct IKsInterfaceHandler_Vtbl {
     pub KsCompleteIo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTREAM_SEGMENT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
-impl std::ops::Deref for IKsJackContainerId {
+impl core::ops::Deref for IKsJackContainerId {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -443,7 +443,7 @@ pub struct IKsJackContainerId_Vtbl {
     pub GetJackContainerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
-impl std::ops::Deref for IKsJackDescription {
+impl core::ops::Deref for IKsJackDescription {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -466,7 +466,7 @@ pub struct IKsJackDescription_Vtbl {
     pub GetJackDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
-impl std::ops::Deref for IKsJackDescription2 {
+impl core::ops::Deref for IKsJackDescription2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -490,7 +490,7 @@ pub struct IKsJackDescription2_Vtbl {
     pub GetJackDescription2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
-impl std::ops::Deref for IKsJackDescription3 {
+impl core::ops::Deref for IKsJackDescription3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -514,7 +514,7 @@ pub struct IKsJackDescription3_Vtbl {
     pub GetJackDescription3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
-impl std::ops::Deref for IKsJackSinkInformation {
+impl core::ops::Deref for IKsJackSinkInformation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -532,7 +532,7 @@ pub struct IKsJackSinkInformation_Vtbl {
     pub GetJackSinkInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSJACK_SINK_INFORMATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
-impl std::ops::Deref for IKsNodeControl {
+impl core::ops::Deref for IKsNodeControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -554,7 +554,7 @@ pub struct IKsNodeControl_Vtbl {
     pub SetKsControl: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
-impl std::ops::Deref for IKsNotifyEvent {
+impl core::ops::Deref for IKsNotifyEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -572,7 +572,7 @@ pub struct IKsNotifyEvent_Vtbl {
     pub KsNotifyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
-impl std::ops::Deref for IKsObject {
+impl core::ops::Deref for IKsObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -590,7 +590,7 @@ pub struct IKsObject_Vtbl {
     pub KsGetObjectHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 windows_core::imp::define_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
-impl std::ops::Deref for IKsPin {
+impl core::ops::Deref for IKsPin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -676,7 +676,7 @@ pub struct IKsPin_Vtbl {
     pub KsQualityNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
-impl std::ops::Deref for IKsPinEx {
+impl core::ops::Deref for IKsPinEx {
     type Target = IKsPin;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -701,7 +701,7 @@ pub struct IKsPinEx_Vtbl {
     KsNotifyError: usize,
 }
 windows_core::imp::define_interface!(IKsPinFactory, IKsPinFactory_Vtbl, 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
-impl std::ops::Deref for IKsPinFactory {
+impl core::ops::Deref for IKsPinFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -720,7 +720,7 @@ pub struct IKsPinFactory_Vtbl {
     pub KsPinFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
-impl std::ops::Deref for IKsPinPipe {
+impl core::ops::Deref for IKsPinPipe {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -787,7 +787,7 @@ pub struct IKsPinPipe_Vtbl {
     pub KsGetFilterName: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PWSTR,
 }
 windows_core::imp::define_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
-impl std::ops::Deref for IKsPropertySet {
+impl core::ops::Deref for IKsPropertySet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -814,7 +814,7 @@ pub struct IKsPropertySet_Vtbl {
     pub QuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
-impl std::ops::Deref for IKsQualityForwarder {
+impl core::ops::Deref for IKsQualityForwarder {
     type Target = IKsObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -835,7 +835,7 @@ pub struct IKsQualityForwarder_Vtbl {
     pub KsFlushClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
-impl std::ops::Deref for IKsTopology {
+impl core::ops::Deref for IKsTopology {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -856,7 +856,7 @@ pub struct IKsTopology_Vtbl {
     pub CreateNodeInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
-impl std::ops::Deref for IKsTopologyInfo {
+impl core::ops::Deref for IKsTopologyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

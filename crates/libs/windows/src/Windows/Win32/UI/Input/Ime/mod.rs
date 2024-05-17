@@ -742,7 +742,7 @@ where
     ImmUnregisterWordW(param0.param().abi(), lpszreading.param().abi(), param2, lpszunregister.param().abi())
 }
 windows_core::imp::define_interface!(IActiveIME, IActiveIME_Vtbl, 0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
-impl std::ops::Deref for IActiveIME {
+impl core::ops::Deref for IActiveIME {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -906,7 +906,7 @@ pub struct IActiveIME_Vtbl {
     pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIME2, IActiveIME2_Vtbl, 0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
-impl std::ops::Deref for IActiveIME2 {
+impl core::ops::Deref for IActiveIME2 {
     type Target = IActiveIME;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -931,7 +931,7 @@ pub struct IActiveIME2_Vtbl {
     pub Unsleep: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMApp, IActiveIMMApp_Vtbl, 0x08c0e040_62d1_11d1_9326_0060b067b86e);
-impl std::ops::Deref for IActiveIMMApp {
+impl core::ops::Deref for IActiveIMMApp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1681,7 +1681,7 @@ pub struct IActiveIMMApp_Vtbl {
     pub EnumInputContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMIME, IActiveIMMIME_Vtbl, 0x08c03411_f96b_11d0_a475_00aa006bcc59);
-impl std::ops::Deref for IActiveIMMIME {
+impl core::ops::Deref for IActiveIMMIME {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2635,7 +2635,7 @@ pub struct IActiveIMMIME_Vtbl {
     pub IsSleeping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMMessagePumpOwner, IActiveIMMMessagePumpOwner_Vtbl, 0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
-impl std::ops::Deref for IActiveIMMMessagePumpOwner {
+impl core::ops::Deref for IActiveIMMMessagePumpOwner {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2674,7 +2674,7 @@ pub struct IActiveIMMMessagePumpOwner_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMRegistrar, IActiveIMMRegistrar_Vtbl, 0xb3458082_bd00_11d1_939b_0060b067b86e);
-impl std::ops::Deref for IActiveIMMRegistrar {
+impl core::ops::Deref for IActiveIMMRegistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2700,7 +2700,7 @@ pub struct IActiveIMMRegistrar_Vtbl {
     pub UnregisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumInputContext, IEnumInputContext_Vtbl, 0x09b5eab0_f997_11d1_93d4_0060b067b86e);
-impl std::ops::Deref for IEnumInputContext {
+impl core::ops::Deref for IEnumInputContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2735,7 +2735,7 @@ pub struct IEnumInputContext_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumRegisterWordA, IEnumRegisterWordA_Vtbl, 0x08c03412_f96b_11d0_a475_00aa006bcc59);
-impl std::ops::Deref for IEnumRegisterWordA {
+impl core::ops::Deref for IEnumRegisterWordA {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2766,7 +2766,7 @@ pub struct IEnumRegisterWordA_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumRegisterWordW, IEnumRegisterWordW_Vtbl, 0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
-impl std::ops::Deref for IEnumRegisterWordW {
+impl core::ops::Deref for IEnumRegisterWordW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2799,7 +2799,7 @@ pub struct IEnumRegisterWordW_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFEClassFactory {
+impl core::ops::Deref for IFEClassFactory {
     type Target = super::super::super::System::Com::IClassFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2815,7 +2815,7 @@ pub struct IFEClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IClassFactory_Vtbl,
 }
 windows_core::imp::define_interface!(IFECommon, IFECommon_Vtbl, 0x019f7151_e6db_11d0_83c3_00c04fddb82e);
-impl std::ops::Deref for IFECommon {
+impl core::ops::Deref for IFECommon {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2845,7 +2845,7 @@ pub struct IFECommon_Vtbl {
     pub InvokeDictToolDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMEDLG) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFEDictionary, IFEDictionary_Vtbl, 0x019f7153_e6db_11d0_83c3_00c04fddb82e);
-impl std::ops::Deref for IFEDictionary {
+impl core::ops::Deref for IFEDictionary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2947,7 +2947,7 @@ pub struct IFEDictionary_Vtbl {
     pub ConvertFromUserToSys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFELanguage, IFELanguage_Vtbl, 0x019f7152_e6db_11d0_83c3_00c04fddb82e);
-impl std::ops::Deref for IFELanguage {
+impl core::ops::Deref for IFELanguage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2994,7 +2994,7 @@ pub struct IFELanguage_Vtbl {
     pub GetConversion: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImePad, IImePad_Vtbl, 0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
-impl std::ops::Deref for IImePad {
+impl core::ops::Deref for IImePad {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3017,7 +3017,7 @@ pub struct IImePad_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImePadApplet, IImePadApplet_Vtbl, 0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
-impl std::ops::Deref for IImePadApplet {
+impl core::ops::Deref for IImePadApplet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3066,7 +3066,7 @@ pub struct IImePadApplet_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImePlugInDictDictionaryList, IImePlugInDictDictionaryList_Vtbl, 0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
-impl std::ops::Deref for IImePlugInDictDictionaryList {
+impl core::ops::Deref for IImePlugInDictDictionaryList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3095,7 +3095,7 @@ pub struct IImePlugInDictDictionaryList_Vtbl {
     pub DeleteDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImeSpecifyApplets, IImeSpecifyApplets_Vtbl, 0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
-impl std::ops::Deref for IImeSpecifyApplets {
+impl core::ops::Deref for IImeSpecifyApplets {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

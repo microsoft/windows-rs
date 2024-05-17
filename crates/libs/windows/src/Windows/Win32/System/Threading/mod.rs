@@ -2440,7 +2440,7 @@ where
     Wow64SuspendThread(hthread.param().abi())
 }
 windows_core::imp::define_interface!(IRtwqAsyncCallback, IRtwqAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
-impl std::ops::Deref for IRtwqAsyncCallback {
+impl core::ops::Deref for IRtwqAsyncCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2465,7 +2465,7 @@ pub struct IRtwqAsyncCallback_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
-impl std::ops::Deref for IRtwqAsyncResult {
+impl core::ops::Deref for IRtwqAsyncResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2501,7 +2501,7 @@ pub struct IRtwqAsyncResult_Vtbl {
     pub GetStateNoAddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<windows_core::IUnknown>,
 }
 windows_core::imp::define_interface!(IRtwqPlatformEvents, IRtwqPlatformEvents_Vtbl, 0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
-impl std::ops::Deref for IRtwqPlatformEvents {
+impl core::ops::Deref for IRtwqPlatformEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2527,7 +2527,7 @@ pub struct IRtwqPlatformEvents_Vtbl {
     pub ShutdownComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(RTWQASYNCRESULT, RTWQASYNCRESULT_Vtbl, 0);
-impl std::ops::Deref for RTWQASYNCRESULT {
+impl core::ops::Deref for RTWQASYNCRESULT {
     type Target = IRtwqAsyncResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

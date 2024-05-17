@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IUIAnimationInterpolator, IUIAnimationInterpolator_Vtbl, 0x7815cbba_ddf7_478c_a46c_7b6c738b7978);
-impl std::ops::Deref for IUIAnimationInterpolator {
+impl core::ops::Deref for IUIAnimationInterpolator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -45,7 +45,7 @@ pub struct IUIAnimationInterpolator_Vtbl {
     pub GetDependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationInterpolator2, IUIAnimationInterpolator2_Vtbl, 0xea76aff8_ea22_4a23_a0ef_a6a966703518);
-impl std::ops::Deref for IUIAnimationInterpolator2 {
+impl core::ops::Deref for IUIAnimationInterpolator2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -100,7 +100,7 @@ pub struct IUIAnimationInterpolator2_Vtbl {
     pub GetDependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationLoopIterationChangeHandler2, IUIAnimationLoopIterationChangeHandler2_Vtbl, 0x2d3b15a4_4762_47ab_a030_b23221df3ae0);
-impl std::ops::Deref for IUIAnimationLoopIterationChangeHandler2 {
+impl core::ops::Deref for IUIAnimationLoopIterationChangeHandler2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -121,7 +121,7 @@ pub struct IUIAnimationLoopIterationChangeHandler2_Vtbl {
     pub OnLoopIterationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationManager, IUIAnimationManager_Vtbl, 0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8);
-impl std::ops::Deref for IUIAnimationManager {
+impl core::ops::Deref for IUIAnimationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -241,7 +241,7 @@ pub struct IUIAnimationManager_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationManager2, IUIAnimationManager2_Vtbl, 0xd8b6f7d4_4109_4d3f_acee_879926968cb1);
-impl std::ops::Deref for IUIAnimationManager2 {
+impl core::ops::Deref for IUIAnimationManager2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -372,7 +372,7 @@ pub struct IUIAnimationManager2_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationManagerEventHandler, IUIAnimationManagerEventHandler_Vtbl, 0x783321ed_78a3_4366_b574_6af607a64788);
-impl std::ops::Deref for IUIAnimationManagerEventHandler {
+impl core::ops::Deref for IUIAnimationManagerEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -390,7 +390,7 @@ pub struct IUIAnimationManagerEventHandler_Vtbl {
     pub OnManagerStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationManagerEventHandler2, IUIAnimationManagerEventHandler2_Vtbl, 0xf6e022ba_bff3_42ec_9033_e073f33e83c3);
-impl std::ops::Deref for IUIAnimationManagerEventHandler2 {
+impl core::ops::Deref for IUIAnimationManagerEventHandler2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -408,7 +408,7 @@ pub struct IUIAnimationManagerEventHandler2_Vtbl {
     pub OnManagerStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationPrimitiveInterpolation, IUIAnimationPrimitiveInterpolation_Vtbl, 0xbab20d63_4361_45da_a24f_ab8508846b5b);
-impl std::ops::Deref for IUIAnimationPrimitiveInterpolation {
+impl core::ops::Deref for IUIAnimationPrimitiveInterpolation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -430,7 +430,7 @@ pub struct IUIAnimationPrimitiveInterpolation_Vtbl {
     pub AddSinusoidal: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f64, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationPriorityComparison, IUIAnimationPriorityComparison_Vtbl, 0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44);
-impl std::ops::Deref for IUIAnimationPriorityComparison {
+impl core::ops::Deref for IUIAnimationPriorityComparison {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -452,7 +452,7 @@ pub struct IUIAnimationPriorityComparison_Vtbl {
     pub HasPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationPriorityComparison2, IUIAnimationPriorityComparison2_Vtbl, 0x5b6d7a37_4621_467c_8b05_70131de62ddb);
-impl std::ops::Deref for IUIAnimationPriorityComparison2 {
+impl core::ops::Deref for IUIAnimationPriorityComparison2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -474,7 +474,7 @@ pub struct IUIAnimationPriorityComparison2_Vtbl {
     pub HasPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationStoryboard, IUIAnimationStoryboard_Vtbl, 0xa8ff128f_9bf9_4af1_9e67_e5e410defb84);
-impl std::ops::Deref for IUIAnimationStoryboard {
+impl core::ops::Deref for IUIAnimationStoryboard {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -594,7 +594,7 @@ pub struct IUIAnimationStoryboard_Vtbl {
     pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationStoryboard2, IUIAnimationStoryboard2_Vtbl, 0xae289cd2_12d4_4945_9419_9e41be034df2);
-impl std::ops::Deref for IUIAnimationStoryboard2 {
+impl core::ops::Deref for IUIAnimationStoryboard2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -722,7 +722,7 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationStoryboardEventHandler, IUIAnimationStoryboardEventHandler_Vtbl, 0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6);
-impl std::ops::Deref for IUIAnimationStoryboardEventHandler {
+impl core::ops::Deref for IUIAnimationStoryboardEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -750,7 +750,7 @@ pub struct IUIAnimationStoryboardEventHandler_Vtbl {
     pub OnStoryboardUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationStoryboardEventHandler2, IUIAnimationStoryboardEventHandler2_Vtbl, 0xbac5f55a_ba7c_414c_b599_fbf850f553c6);
-impl std::ops::Deref for IUIAnimationStoryboardEventHandler2 {
+impl core::ops::Deref for IUIAnimationStoryboardEventHandler2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -778,7 +778,7 @@ pub struct IUIAnimationStoryboardEventHandler2_Vtbl {
     pub OnStoryboardUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTimer, IUIAnimationTimer_Vtbl, 0x6b0efad1_a053_41d6_9085_33a689144665);
-impl std::ops::Deref for IUIAnimationTimer {
+impl core::ops::Deref for IUIAnimationTimer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -827,7 +827,7 @@ pub struct IUIAnimationTimer_Vtbl {
     pub SetFrameRateThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTimerClientEventHandler, IUIAnimationTimerClientEventHandler_Vtbl, 0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25);
-impl std::ops::Deref for IUIAnimationTimerClientEventHandler {
+impl core::ops::Deref for IUIAnimationTimerClientEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -845,7 +845,7 @@ pub struct IUIAnimationTimerClientEventHandler_Vtbl {
     pub OnTimerClientStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_TIMER_CLIENT_STATUS, UI_ANIMATION_TIMER_CLIENT_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTimerEventHandler, IUIAnimationTimerEventHandler_Vtbl, 0x274a7dea_d771_4095_abbd_8df7abd23ce3);
-impl std::ops::Deref for IUIAnimationTimerEventHandler {
+impl core::ops::Deref for IUIAnimationTimerEventHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -871,7 +871,7 @@ pub struct IUIAnimationTimerEventHandler_Vtbl {
     pub OnRenderingTooSlow: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTimerUpdateHandler, IUIAnimationTimerUpdateHandler_Vtbl, 0x195509b7_5d5e_4e3e_b278_ee3759b367ad);
-impl std::ops::Deref for IUIAnimationTimerUpdateHandler {
+impl core::ops::Deref for IUIAnimationTimerUpdateHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -901,7 +901,7 @@ pub struct IUIAnimationTimerUpdateHandler_Vtbl {
     pub ClearTimerClientEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTransition, IUIAnimationTransition_Vtbl, 0xdc6ce252_f731_41cf_b610_614b6ca049ad);
-impl std::ops::Deref for IUIAnimationTransition {
+impl core::ops::Deref for IUIAnimationTransition {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -932,7 +932,7 @@ pub struct IUIAnimationTransition_Vtbl {
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTransition2, IUIAnimationTransition2_Vtbl, 0x62ff9123_a85a_4e9b_a218_435a93e268fd);
-impl std::ops::Deref for IUIAnimationTransition2 {
+impl core::ops::Deref for IUIAnimationTransition2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -976,7 +976,7 @@ pub struct IUIAnimationTransition2_Vtbl {
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTransitionFactory, IUIAnimationTransitionFactory_Vtbl, 0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d);
-impl std::ops::Deref for IUIAnimationTransitionFactory {
+impl core::ops::Deref for IUIAnimationTransitionFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -998,7 +998,7 @@ pub struct IUIAnimationTransitionFactory_Vtbl {
     pub CreateTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTransitionFactory2, IUIAnimationTransitionFactory2_Vtbl, 0x937d4916_c1a6_42d5_88d8_30344d6efe31);
-impl std::ops::Deref for IUIAnimationTransitionFactory2 {
+impl core::ops::Deref for IUIAnimationTransitionFactory2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1020,7 +1020,7 @@ pub struct IUIAnimationTransitionFactory2_Vtbl {
     pub CreateTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTransitionLibrary, IUIAnimationTransitionLibrary_Vtbl, 0xca5a14b1_d24f_48b8_8fe4_c78169ba954e);
-impl std::ops::Deref for IUIAnimationTransitionLibrary {
+impl core::ops::Deref for IUIAnimationTransitionLibrary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1094,7 +1094,7 @@ pub struct IUIAnimationTransitionLibrary_Vtbl {
     pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationTransitionLibrary2, IUIAnimationTransitionLibrary2_Vtbl, 0x03cfae53_9580_4ee3_b363_2ece51b4af6a);
-impl std::ops::Deref for IUIAnimationTransitionLibrary2 {
+impl core::ops::Deref for IUIAnimationTransitionLibrary2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1203,7 +1203,7 @@ pub struct IUIAnimationTransitionLibrary2_Vtbl {
     pub CreateCubicBezierLinearVectorTransition: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *const f64, u32, f64, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariable, IUIAnimationVariable_Vtbl, 0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9);
-impl std::ops::Deref for IUIAnimationVariable {
+impl core::ops::Deref for IUIAnimationVariable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1289,7 +1289,7 @@ pub struct IUIAnimationVariable_Vtbl {
     pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariable2, IUIAnimationVariable2_Vtbl, 0x4914b304_96ab_44d9_9e77_d5109b7e7466);
-impl std::ops::Deref for IUIAnimationVariable2 {
+impl core::ops::Deref for IUIAnimationVariable2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1440,7 +1440,7 @@ pub struct IUIAnimationVariable2_Vtbl {
     pub SetVariableCurveChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariableChangeHandler, IUIAnimationVariableChangeHandler_Vtbl, 0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
-impl std::ops::Deref for IUIAnimationVariableChangeHandler {
+impl core::ops::Deref for IUIAnimationVariableChangeHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1462,7 +1462,7 @@ pub struct IUIAnimationVariableChangeHandler_Vtbl {
     pub OnValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariableChangeHandler2, IUIAnimationVariableChangeHandler2_Vtbl, 0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42);
-impl std::ops::Deref for IUIAnimationVariableChangeHandler2 {
+impl core::ops::Deref for IUIAnimationVariableChangeHandler2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1484,7 +1484,7 @@ pub struct IUIAnimationVariableChangeHandler2_Vtbl {
     pub OnValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const f64, *const f64, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariableCurveChangeHandler2, IUIAnimationVariableCurveChangeHandler2_Vtbl, 0x72895e91_0145_4c21_9192_5aab40eddf80);
-impl std::ops::Deref for IUIAnimationVariableCurveChangeHandler2 {
+impl core::ops::Deref for IUIAnimationVariableCurveChangeHandler2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1505,7 +1505,7 @@ pub struct IUIAnimationVariableCurveChangeHandler2_Vtbl {
     pub OnCurveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariableIntegerChangeHandler, IUIAnimationVariableIntegerChangeHandler_Vtbl, 0xbb3e1550_356e_44b0_99da_85ac6017865e);
-impl std::ops::Deref for IUIAnimationVariableIntegerChangeHandler {
+impl core::ops::Deref for IUIAnimationVariableIntegerChangeHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1527,7 +1527,7 @@ pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
     pub OnIntegerValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIAnimationVariableIntegerChangeHandler2, IUIAnimationVariableIntegerChangeHandler2_Vtbl, 0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58);
-impl std::ops::Deref for IUIAnimationVariableIntegerChangeHandler2 {
+impl core::ops::Deref for IUIAnimationVariableIntegerChangeHandler2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

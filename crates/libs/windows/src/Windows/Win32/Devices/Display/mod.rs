@@ -768,7 +768,7 @@ pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
     XLATEOBJ_piVector(pxlo)
 }
 windows_core::imp::define_interface!(ICloneViewHelper, ICloneViewHelper_Vtbl, 0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
-impl std::ops::Deref for ICloneViewHelper {
+impl core::ops::Deref for ICloneViewHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -810,7 +810,7 @@ pub struct ICloneViewHelper_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IViewHelper, IViewHelper_Vtbl, 0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
-impl std::ops::Deref for IViewHelper {
+impl core::ops::Deref for IViewHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

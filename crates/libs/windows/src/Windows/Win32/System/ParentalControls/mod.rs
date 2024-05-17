@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IWPCGamesSettings, IWPCGamesSettings_Vtbl, 0x95e87780_e158_489e_b452_bbb850790715);
-impl std::ops::Deref for IWPCGamesSettings {
+impl core::ops::Deref for IWPCGamesSettings {
     type Target = IWPCSettings;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -18,7 +18,7 @@ pub struct IWPCGamesSettings_Vtbl {
     pub IsBlocked: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
-impl std::ops::Deref for IWPCProviderConfig {
+impl core::ops::Deref for IWPCProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -56,7 +56,7 @@ pub struct IWPCProviderConfig_Vtbl {
     pub RequestOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, core::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x50b6a267_c4bd_450b_adb5_759073837c9e);
-impl std::ops::Deref for IWPCProviderState {
+impl core::ops::Deref for IWPCProviderState {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -78,7 +78,7 @@ pub struct IWPCProviderState_Vtbl {
     pub Disable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWPCProviderSupport, IWPCProviderSupport_Vtbl, 0x41eba572_23ed_4779_bec1_8df96206c44c);
-impl std::ops::Deref for IWPCProviderSupport {
+impl core::ops::Deref for IWPCProviderSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -97,7 +97,7 @@ pub struct IWPCProviderSupport_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
-impl std::ops::Deref for IWPCSettings {
+impl core::ops::Deref for IWPCSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -126,7 +126,7 @@ pub struct IWPCSettings_Vtbl {
     pub GetRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_RESTRICTION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
-impl std::ops::Deref for IWPCWebSettings {
+impl core::ops::Deref for IWPCWebSettings {
     type Target = IWPCSettings;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -154,7 +154,7 @@ pub struct IWPCWebSettings_Vtbl {
     pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
-impl std::ops::Deref for IWindowsParentalControls {
+impl core::ops::Deref for IWindowsParentalControls {
     type Target = IWindowsParentalControlsCore;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -176,7 +176,7 @@ pub struct IWindowsParentalControls_Vtbl {
     pub GetGamesSettings: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsParentalControlsCore, IWindowsParentalControlsCore_Vtbl, 0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
-impl std::ops::Deref for IWindowsParentalControlsCore {
+impl core::ops::Deref for IWindowsParentalControlsCore {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

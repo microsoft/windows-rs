@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IOpcCertificateEnumerator, IOpcCertificateEnumerator_Vtbl, 0x85131937_8f24_421f_b439_59ab24d140b8);
-impl std::ops::Deref for IOpcCertificateEnumerator {
+impl core::ops::Deref for IOpcCertificateEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -37,7 +37,7 @@ pub struct IOpcCertificateEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcCertificateSet, IOpcCertificateSet_Vtbl, 0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7);
-impl std::ops::Deref for IOpcCertificateSet {
+impl core::ops::Deref for IOpcCertificateSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -72,7 +72,7 @@ pub struct IOpcCertificateSet_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcDigitalSignature, IOpcDigitalSignature_Vtbl, 0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4);
-impl std::ops::Deref for IOpcDigitalSignature {
+impl core::ops::Deref for IOpcDigitalSignature {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -162,7 +162,7 @@ pub struct IOpcDigitalSignature_Vtbl {
     pub GetSignatureXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcDigitalSignatureEnumerator, IOpcDigitalSignatureEnumerator_Vtbl, 0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
-impl std::ops::Deref for IOpcDigitalSignatureEnumerator {
+impl core::ops::Deref for IOpcDigitalSignatureEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -196,7 +196,7 @@ pub struct IOpcDigitalSignatureEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcDigitalSignatureManager, IOpcDigitalSignatureManager_Vtbl, 0xd5e62a0b_696d_462f_94df_72e33cef2659);
-impl std::ops::Deref for IOpcDigitalSignatureManager {
+impl core::ops::Deref for IOpcDigitalSignatureManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -287,7 +287,7 @@ pub struct IOpcDigitalSignatureManager_Vtbl {
     ReplaceSignatureXml: usize,
 }
 windows_core::imp::define_interface!(IOpcFactory, IOpcFactory_Vtbl, 0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154);
-impl std::ops::Deref for IOpcFactory {
+impl core::ops::Deref for IOpcFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -371,7 +371,7 @@ pub struct IOpcFactory_Vtbl {
     pub CreateDigitalSignatureManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcPackage, IOpcPackage_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee70);
-impl std::ops::Deref for IOpcPackage {
+impl core::ops::Deref for IOpcPackage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -395,7 +395,7 @@ pub struct IOpcPackage_Vtbl {
     pub GetRelationshipSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcPart, IOpcPart_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee71);
-impl std::ops::Deref for IOpcPart {
+impl core::ops::Deref for IOpcPart {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -442,7 +442,7 @@ pub struct IOpcPart_Vtbl {
     pub GetCompressionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPC_COMPRESSION_OPTIONS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcPartEnumerator, IOpcPartEnumerator_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
-impl std::ops::Deref for IOpcPartEnumerator {
+impl core::ops::Deref for IOpcPartEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -476,7 +476,7 @@ pub struct IOpcPartEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcPartSet, IOpcPartSet_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee73);
-impl std::ops::Deref for IOpcPartSet {
+impl core::ops::Deref for IOpcPartSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -545,7 +545,7 @@ pub struct IOpcPartSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IOpcPartUri, IOpcPartUri_Vtbl, 0x7d3babe7_88b2_46ba_85cb_4203cb016c87);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IOpcPartUri {
+impl core::ops::Deref for IOpcPartUri {
     type Target = IOpcUri;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -588,7 +588,7 @@ pub struct IOpcPartUri_Vtbl {
     pub IsRelationshipsPartUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcRelationship, IOpcRelationship_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee72);
-impl std::ops::Deref for IOpcRelationship {
+impl core::ops::Deref for IOpcRelationship {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -635,7 +635,7 @@ pub struct IOpcRelationship_Vtbl {
     pub GetTargetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPC_URI_TARGET_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcRelationshipEnumerator, IOpcRelationshipEnumerator_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
-impl std::ops::Deref for IOpcRelationshipEnumerator {
+impl core::ops::Deref for IOpcRelationshipEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -669,7 +669,7 @@ pub struct IOpcRelationshipEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcRelationshipSelector, IOpcRelationshipSelector_Vtbl, 0xf8f26c7f_b28f_4899_84c8_5d5639ede75f);
-impl std::ops::Deref for IOpcRelationshipSelector {
+impl core::ops::Deref for IOpcRelationshipSelector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -693,7 +693,7 @@ pub struct IOpcRelationshipSelector_Vtbl {
     pub GetSelectionCriterion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcRelationshipSelectorEnumerator, IOpcRelationshipSelectorEnumerator_Vtbl, 0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
-impl std::ops::Deref for IOpcRelationshipSelectorEnumerator {
+impl core::ops::Deref for IOpcRelationshipSelectorEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -727,7 +727,7 @@ pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcRelationshipSelectorSet, IOpcRelationshipSelectorSet_Vtbl, 0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136);
-impl std::ops::Deref for IOpcRelationshipSelectorSet {
+impl core::ops::Deref for IOpcRelationshipSelectorSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -761,7 +761,7 @@ pub struct IOpcRelationshipSelectorSet_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcRelationshipSet, IOpcRelationshipSet_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee74);
-impl std::ops::Deref for IOpcRelationshipSet {
+impl core::ops::Deref for IOpcRelationshipSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -834,7 +834,7 @@ pub struct IOpcRelationshipSet_Vtbl {
     GetRelationshipsContentStream: usize,
 }
 windows_core::imp::define_interface!(IOpcSignatureCustomObject, IOpcSignatureCustomObject_Vtbl, 0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
-impl std::ops::Deref for IOpcSignatureCustomObject {
+impl core::ops::Deref for IOpcSignatureCustomObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -852,7 +852,7 @@ pub struct IOpcSignatureCustomObject_Vtbl {
     pub GetXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureCustomObjectEnumerator, IOpcSignatureCustomObjectEnumerator_Vtbl, 0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
-impl std::ops::Deref for IOpcSignatureCustomObjectEnumerator {
+impl core::ops::Deref for IOpcSignatureCustomObjectEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -886,7 +886,7 @@ pub struct IOpcSignatureCustomObjectEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureCustomObjectSet, IOpcSignatureCustomObjectSet_Vtbl, 0x8f792ac5_7947_4e11_bc3d_2659ff046ae1);
-impl std::ops::Deref for IOpcSignatureCustomObjectSet {
+impl core::ops::Deref for IOpcSignatureCustomObjectSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -917,7 +917,7 @@ pub struct IOpcSignatureCustomObjectSet_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignaturePartReference, IOpcSignaturePartReference_Vtbl, 0xe24231ca_59f4_484e_b64b_36eeda36072c);
-impl std::ops::Deref for IOpcSignaturePartReference {
+impl core::ops::Deref for IOpcSignaturePartReference {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -959,7 +959,7 @@ pub struct IOpcSignaturePartReference_Vtbl {
     pub GetTransformMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPC_CANONICALIZATION_METHOD) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignaturePartReferenceEnumerator, IOpcSignaturePartReferenceEnumerator_Vtbl, 0x80eb1561_8c77_49cf_8266_459b356ee99a);
-impl std::ops::Deref for IOpcSignaturePartReferenceEnumerator {
+impl core::ops::Deref for IOpcSignaturePartReferenceEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -993,7 +993,7 @@ pub struct IOpcSignaturePartReferenceEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignaturePartReferenceSet, IOpcSignaturePartReferenceSet_Vtbl, 0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0);
-impl std::ops::Deref for IOpcSignaturePartReferenceSet {
+impl core::ops::Deref for IOpcSignaturePartReferenceSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1032,7 +1032,7 @@ pub struct IOpcSignaturePartReferenceSet_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureReference, IOpcSignatureReference_Vtbl, 0x1b47005e_3011_4edc_be6f_0f65e5ab0342);
-impl std::ops::Deref for IOpcSignatureReference {
+impl core::ops::Deref for IOpcSignatureReference {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1079,7 +1079,7 @@ pub struct IOpcSignatureReference_Vtbl {
     pub GetDigestValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureReferenceEnumerator, IOpcSignatureReferenceEnumerator_Vtbl, 0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
-impl std::ops::Deref for IOpcSignatureReferenceEnumerator {
+impl core::ops::Deref for IOpcSignatureReferenceEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1113,7 +1113,7 @@ pub struct IOpcSignatureReferenceEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureReferenceSet, IOpcSignatureReferenceSet_Vtbl, 0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e);
-impl std::ops::Deref for IOpcSignatureReferenceSet {
+impl core::ops::Deref for IOpcSignatureReferenceSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1154,7 +1154,7 @@ pub struct IOpcSignatureReferenceSet_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureRelationshipReference, IOpcSignatureRelationshipReference_Vtbl, 0x57babac6_9d4a_4e50_8b86_e5d4051eae7c);
-impl std::ops::Deref for IOpcSignatureRelationshipReference {
+impl core::ops::Deref for IOpcSignatureRelationshipReference {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1201,7 +1201,7 @@ pub struct IOpcSignatureRelationshipReference_Vtbl {
     pub GetRelationshipSelectorEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureRelationshipReferenceEnumerator, IOpcSignatureRelationshipReferenceEnumerator_Vtbl, 0x773ba3e4_f021_48e4_aa04_9816db5d3495);
-impl std::ops::Deref for IOpcSignatureRelationshipReferenceEnumerator {
+impl core::ops::Deref for IOpcSignatureRelationshipReferenceEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1235,7 +1235,7 @@ pub struct IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSignatureRelationshipReferenceSet, IOpcSignatureRelationshipReferenceSet_Vtbl, 0x9f863ca5_3631_404c_828d_807e0715069b);
-impl std::ops::Deref for IOpcSignatureRelationshipReferenceSet {
+impl core::ops::Deref for IOpcSignatureRelationshipReferenceSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1280,7 +1280,7 @@ pub struct IOpcSignatureRelationshipReferenceSet_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpcSigningOptions, IOpcSigningOptions_Vtbl, 0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e);
-impl std::ops::Deref for IOpcSigningOptions {
+impl core::ops::Deref for IOpcSigningOptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1395,7 +1395,7 @@ pub struct IOpcSigningOptions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IOpcUri, IOpcUri_Vtbl, 0xbc9c1b9b_d62c_49eb_aef0_3b4e0b28ebed);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IOpcUri {
+impl core::ops::Deref for IOpcUri {
     type Target = super::super::super::System::Com::IUri;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

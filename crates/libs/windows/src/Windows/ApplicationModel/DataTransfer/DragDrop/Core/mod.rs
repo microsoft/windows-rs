@@ -96,7 +96,7 @@ pub struct ICoreDragUIOverride_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDropOperationTarget, ICoreDropOperationTarget_Vtbl, 0xd9126196_4c5b_417d_bb37_76381def8db4);
-impl std::ops::Deref for ICoreDropOperationTarget {
+impl core::ops::Deref for ICoreDropOperationTarget {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

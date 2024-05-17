@@ -387,7 +387,7 @@ pub struct ISetVersionRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFile, IStorageFile_Vtbl, 0xfa3f6186_4214_428c_a64c_14c9ac7315ea);
-impl std::ops::Deref for IStorageFile {
+impl core::ops::Deref for IStorageFile {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -617,7 +617,7 @@ pub struct IStorageFile_Vtbl {
     pub MoveAndReplaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFile2, IStorageFile2_Vtbl, 0x954e4bcf_0a77_42fb_b777_c2ed58a52e44);
-impl std::ops::Deref for IStorageFile2 {
+impl core::ops::Deref for IStorageFile2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -654,7 +654,7 @@ pub struct IStorageFile2_Vtbl {
     pub OpenTransactedWriteWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, StorageOpenOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFilePropertiesWithAvailability, IStorageFilePropertiesWithAvailability_Vtbl, 0xafcbbe9b_582b_4133_9648_e44ca46ee491);
-impl std::ops::Deref for IStorageFilePropertiesWithAvailability {
+impl core::ops::Deref for IStorageFilePropertiesWithAvailability {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -717,7 +717,7 @@ pub struct IStorageFileStatics2_Vtbl {
     GetFileFromPathForUserAsync: usize,
 }
 windows_core::imp::define_interface!(IStorageFolder, IStorageFolder_Vtbl, 0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
-impl std::ops::Deref for IStorageFolder {
+impl core::ops::Deref for IStorageFolder {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -898,7 +898,7 @@ pub struct IStorageFolder_Vtbl {
     GetItemsAsyncOverloadDefaultStartAndCount: usize,
 }
 windows_core::imp::define_interface!(IStorageFolder2, IStorageFolder2_Vtbl, 0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3);
-impl std::ops::Deref for IStorageFolder2 {
+impl core::ops::Deref for IStorageFolder2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -953,7 +953,7 @@ pub struct IStorageFolderStatics2_Vtbl {
     GetFolderFromPathForUserAsync: usize,
 }
 windows_core::imp::define_interface!(IStorageItem, IStorageItem_Vtbl, 0x4207a996_ca2f_42f7_bde8_8b10457a7f30);
-impl std::ops::Deref for IStorageItem {
+impl core::ops::Deref for IStorageItem {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1054,7 +1054,7 @@ pub struct IStorageItem_Vtbl {
     pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, StorageItemTypes, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItem2, IStorageItem2_Vtbl, 0x53f926d2_083c_4283_b45b_81c007237e44);
-impl std::ops::Deref for IStorageItem2 {
+impl core::ops::Deref for IStorageItem2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1162,7 +1162,7 @@ pub struct IStorageItem2_Vtbl {
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemProperties, IStorageItemProperties_Vtbl, 0x86664478_8029_46fe_a789_1c2f3e2ffb5c);
-impl std::ops::Deref for IStorageItemProperties {
+impl core::ops::Deref for IStorageItemProperties {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1251,7 +1251,7 @@ pub struct IStorageItemProperties_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IStorageItemProperties2, IStorageItemProperties2_Vtbl, 0x8e86a951_04b9_4bd2_929d_fef3f71621d0);
-impl std::ops::Deref for IStorageItemProperties2 {
+impl core::ops::Deref for IStorageItemProperties2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1358,7 +1358,7 @@ pub struct IStorageItemProperties2_Vtbl {
     GetScaledImageAsThumbnailAsync: usize,
 }
 windows_core::imp::define_interface!(IStorageItemPropertiesWithProvider, IStorageItemPropertiesWithProvider_Vtbl, 0x861bf39b_6368_4dee_b40e_74684a5ce714);
-impl std::ops::Deref for IStorageItemPropertiesWithProvider {
+impl core::ops::Deref for IStorageItemPropertiesWithProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1608,7 +1608,7 @@ pub struct IStorageStreamTransaction_Vtbl {
     pub CommitAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStreamedFileDataRequest, IStreamedFileDataRequest_Vtbl, 0x1673fcce_dabd_4d50_beee_180b8a8191b6);
-impl std::ops::Deref for IStreamedFileDataRequest {
+impl core::ops::Deref for IStreamedFileDataRequest {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

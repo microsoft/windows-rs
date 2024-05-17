@@ -2606,7 +2606,7 @@ where
     WriteProcessMemory(hprocess.param().abi(), lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbyteswritten.unwrap_or(std::ptr::null_mut()))).ok()
 }
 windows_core::imp::define_interface!(IDebugExtendedProperty, IDebugExtendedProperty_Vtbl, 0x51973c52_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugExtendedProperty {
+impl core::ops::Deref for IDebugExtendedProperty {
     type Target = IDebugProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2633,7 +2633,7 @@ pub struct IDebugExtendedProperty_Vtbl {
     pub EnumExtendedMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugProperty {
+impl core::ops::Deref for IDebugProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2672,7 +2672,7 @@ pub struct IDebugProperty_Vtbl {
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugPropertyEnumType_All {
+impl core::ops::Deref for IDebugPropertyEnumType_All {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2691,7 +2691,7 @@ pub struct IDebugPropertyEnumType_All_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Arguments, IDebugPropertyEnumType_Arguments_Vtbl, 0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugPropertyEnumType_Arguments {
+impl core::ops::Deref for IDebugPropertyEnumType_Arguments {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2704,7 +2704,7 @@ pub struct IDebugPropertyEnumType_Arguments_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Locals, IDebugPropertyEnumType_Locals_Vtbl, 0x51973c56_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugPropertyEnumType_Locals {
+impl core::ops::Deref for IDebugPropertyEnumType_Locals {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2717,7 +2717,7 @@ pub struct IDebugPropertyEnumType_Locals_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
 windows_core::imp::define_interface!(IDebugPropertyEnumType_LocalsPlusArgs, IDebugPropertyEnumType_LocalsPlusArgs_Vtbl, 0x51973c58_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
+impl core::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2730,7 +2730,7 @@ pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Registers, IDebugPropertyEnumType_Registers_Vtbl, 0x51973c59_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IDebugPropertyEnumType_Registers {
+impl core::ops::Deref for IDebugPropertyEnumType_Registers {
     type Target = IDebugPropertyEnumType_All;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2743,7 +2743,7 @@ pub struct IDebugPropertyEnumType_Registers_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
 windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugExtendedPropertyInfo_Vtbl, 0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IEnumDebugExtendedPropertyInfo {
+impl core::ops::Deref for IEnumDebugExtendedPropertyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2783,7 +2783,7 @@ pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IEnumDebugPropertyInfo {
+impl core::ops::Deref for IEnumDebugPropertyInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2819,7 +2819,7 @@ pub struct IEnumDebugPropertyInfo_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc81_93c1_11cf_8f20_00805f2cd064);
-impl std::ops::Deref for IObjectSafety {
+impl core::ops::Deref for IObjectSafety {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2841,7 +2841,7 @@ pub struct IObjectSafety_Vtbl {
     pub SetInterfaceSafetyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing2_Vtbl, 0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a);
-impl std::ops::Deref for IPerPropertyBrowsing2 {
+impl core::ops::Deref for IPerPropertyBrowsing2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -33,7 +33,7 @@ pub struct ICustomDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, DeviceAccessMode, DeviceSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIOControlCode, IIOControlCode_Vtbl, 0x0e9559e7_60c8_4375_a761_7f8808066c60);
-impl std::ops::Deref for IIOControlCode {
+impl core::ops::Deref for IIOControlCode {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

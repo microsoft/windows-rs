@@ -150,7 +150,7 @@ pub struct ILearningModelEvaluationResult_Vtbl {
     Outputs: usize,
 }
 windows_core::imp::define_interface!(ILearningModelFeatureDescriptor, ILearningModelFeatureDescriptor_Vtbl, 0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
-impl std::ops::Deref for ILearningModelFeatureDescriptor {
+impl core::ops::Deref for ILearningModelFeatureDescriptor {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -199,7 +199,7 @@ pub struct ILearningModelFeatureDescriptor_Vtbl {
     pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelFeatureValue, ILearningModelFeatureValue_Vtbl, 0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
-impl std::ops::Deref for ILearningModelFeatureValue {
+impl core::ops::Deref for ILearningModelFeatureValue {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -224,7 +224,7 @@ pub struct ILearningModelFeatureValue_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
-impl std::ops::Deref for ILearningModelOperatorProvider {
+impl core::ops::Deref for ILearningModelOperatorProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -365,7 +365,7 @@ pub struct ISequenceFeatureDescriptor_Vtbl {
     pub ElementDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITensor, ITensor_Vtbl, 0x05489593_a305_4a25_ad09_440119b4b7f6);
-impl std::ops::Deref for ITensor {
+impl core::ops::Deref for ITensor {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

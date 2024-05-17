@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IGeometrySource2DInterop, IGeometrySource2DInterop_Vtbl, 0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
-impl std::ops::Deref for IGeometrySource2DInterop {
+impl core::ops::Deref for IGeometrySource2DInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -34,7 +34,7 @@ pub struct IGeometrySource2DInterop_Vtbl {
     TryGetGeometryUsingFactory: usize,
 }
 windows_core::imp::define_interface!(IGraphicsEffectD2D1Interop, IGraphicsEffectD2D1Interop_Vtbl, 0x2fc57384_a068_44d7_a331_30982fcf7177);
-impl std::ops::Deref for IGraphicsEffectD2D1Interop {
+impl core::ops::Deref for IGraphicsEffectD2D1Interop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

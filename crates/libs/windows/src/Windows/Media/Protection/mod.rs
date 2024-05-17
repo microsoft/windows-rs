@@ -84,7 +84,7 @@ pub struct IMediaProtectionServiceCompletion_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaProtectionServiceRequest, IMediaProtectionServiceRequest_Vtbl, 0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
-impl std::ops::Deref for IMediaProtectionServiceRequest {
+impl core::ops::Deref for IMediaProtectionServiceRequest {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

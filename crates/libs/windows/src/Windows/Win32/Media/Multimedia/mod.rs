@@ -1236,7 +1236,7 @@ where
     sndOpenSound(eventname.param().abi(), appname.param().abi(), flags, filehandle)
 }
 windows_core::imp::define_interface!(IAVIEditStream, IAVIEditStream_Vtbl, 0x00020024_0000_0000_c000_000000000046);
-impl std::ops::Deref for IAVIEditStream {
+impl core::ops::Deref for IAVIEditStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1274,7 +1274,7 @@ pub struct IAVIEditStream_Vtbl {
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
-impl std::ops::Deref for IAVIFile {
+impl core::ops::Deref for IAVIFile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1318,7 +1318,7 @@ pub struct IAVIFile_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAVIPersistFile, IAVIPersistFile_Vtbl, 0x00020025_0000_0000_c000_000000000046);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAVIPersistFile {
+impl core::ops::Deref for IAVIPersistFile {
     type Target = super::super::System::Com::IPersistFile;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1339,7 +1339,7 @@ pub struct IAVIPersistFile_Vtbl {
     pub Reserved1: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
-impl std::ops::Deref for IAVIStream {
+impl core::ops::Deref for IAVIStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1401,7 +1401,7 @@ pub struct IAVIStream_Vtbl {
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
-impl std::ops::Deref for IAVIStreaming {
+impl core::ops::Deref for IAVIStreaming {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1423,7 +1423,7 @@ pub struct IAVIStreaming_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGetFrame, IGetFrame_Vtbl, 0x00020023_0000_0000_c000_000000000046);
-impl std::ops::Deref for IGetFrame {
+impl core::ops::Deref for IGetFrame {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

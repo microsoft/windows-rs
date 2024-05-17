@@ -265,7 +265,7 @@ pub struct IDevicePairingResult_Vtbl {
     pub ProtectionLevelUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DevicePairingProtectionLevel) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePairingSettings, IDevicePairingSettings_Vtbl, 0x482cb27c_83bb_420e_be51_6602b222de54);
-impl std::ops::Deref for IDevicePairingSettings {
+impl core::ops::Deref for IDevicePairingSettings {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -112,7 +112,7 @@ where
     StartPage(hdc.param().abi())
 }
 windows_core::imp::define_interface!(IXpsDocumentPackageTarget, IXpsDocumentPackageTarget_Vtbl, 0x3b0b6d38_53ad_41da_b212_d37637a6714e);
-impl std::ops::Deref for IXpsDocumentPackageTarget {
+impl core::ops::Deref for IXpsDocumentPackageTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -149,7 +149,7 @@ pub struct IXpsDocumentPackageTarget_Vtbl {
     pub GetXpsType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsDocumentPackageTarget3D, IXpsDocumentPackageTarget3D_Vtbl, 0x60ba71b8_3101_4984_9199_f4ea775ff01d);
-impl std::ops::Deref for IXpsDocumentPackageTarget3D {
+impl core::ops::Deref for IXpsDocumentPackageTarget3D {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -183,7 +183,7 @@ pub struct IXpsDocumentPackageTarget3D_Vtbl {
     pub GetXpsOMFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMBrush, IXpsOMBrush_Vtbl, 0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
-impl std::ops::Deref for IXpsOMBrush {
+impl core::ops::Deref for IXpsOMBrush {
     type Target = IXpsOMShareable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -206,7 +206,7 @@ pub struct IXpsOMBrush_Vtbl {
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMCanvas, IXpsOMCanvas_Vtbl, 0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
-impl std::ops::Deref for IXpsOMCanvas {
+impl core::ops::Deref for IXpsOMCanvas {
     type Target = IXpsOMVisual;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -295,7 +295,7 @@ pub struct IXpsOMCanvas_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMColorProfileResource, IXpsOMColorProfileResource_Vtbl, 0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
-impl std::ops::Deref for IXpsOMColorProfileResource {
+impl core::ops::Deref for IXpsOMColorProfileResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -330,7 +330,7 @@ pub struct IXpsOMColorProfileResource_Vtbl {
     SetContent: usize,
 }
 windows_core::imp::define_interface!(IXpsOMColorProfileResourceCollection, IXpsOMColorProfileResourceCollection_Vtbl, 0x12759630_5fba_4283_8f7d_cca849809edb);
-impl std::ops::Deref for IXpsOMColorProfileResourceCollection {
+impl core::ops::Deref for IXpsOMColorProfileResourceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -391,7 +391,7 @@ pub struct IXpsOMColorProfileResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 windows_core::imp::define_interface!(IXpsOMCoreProperties, IXpsOMCoreProperties_Vtbl, 0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
-impl std::ops::Deref for IXpsOMCoreProperties {
+impl core::ops::Deref for IXpsOMCoreProperties {
     type Target = IXpsOMPart;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -598,7 +598,7 @@ pub struct IXpsOMCoreProperties_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMDashCollection, IXpsOMDashCollection_Vtbl, 0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
-impl std::ops::Deref for IXpsOMDashCollection {
+impl core::ops::Deref for IXpsOMDashCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -638,7 +638,7 @@ pub struct IXpsOMDashCollection_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_DASH) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMDictionary, IXpsOMDictionary_Vtbl, 0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
-impl std::ops::Deref for IXpsOMDictionary {
+impl core::ops::Deref for IXpsOMDictionary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -717,7 +717,7 @@ pub struct IXpsOMDictionary_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMDocument, IXpsOMDocument_Vtbl, 0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
-impl std::ops::Deref for IXpsOMDocument {
+impl core::ops::Deref for IXpsOMDocument {
     type Target = IXpsOMPart;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -775,7 +775,7 @@ pub struct IXpsOMDocument_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMDocumentCollection, IXpsOMDocumentCollection_Vtbl, 0xd1c87f0d_e947_4754_8a25_971478f7e83e);
-impl std::ops::Deref for IXpsOMDocumentCollection {
+impl core::ops::Deref for IXpsOMDocumentCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -824,7 +824,7 @@ pub struct IXpsOMDocumentCollection_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMDocumentSequence, IXpsOMDocumentSequence_Vtbl, 0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
-impl std::ops::Deref for IXpsOMDocumentSequence {
+impl core::ops::Deref for IXpsOMDocumentSequence {
     type Target = IXpsOMPart;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -860,7 +860,7 @@ pub struct IXpsOMDocumentSequence_Vtbl {
     pub SetPrintTicketResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMDocumentStructureResource, IXpsOMDocumentStructureResource_Vtbl, 0x85febc8a_6b63_48a9_af07_7064e4ecff30);
-impl std::ops::Deref for IXpsOMDocumentStructureResource {
+impl core::ops::Deref for IXpsOMDocumentStructureResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -900,7 +900,7 @@ pub struct IXpsOMDocumentStructureResource_Vtbl {
     SetContent: usize,
 }
 windows_core::imp::define_interface!(IXpsOMFontResource, IXpsOMFontResource_Vtbl, 0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
-impl std::ops::Deref for IXpsOMFontResource {
+impl core::ops::Deref for IXpsOMFontResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -940,7 +940,7 @@ pub struct IXpsOMFontResource_Vtbl {
     pub GetEmbeddingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_FONT_EMBEDDING) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMFontResourceCollection, IXpsOMFontResourceCollection_Vtbl, 0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
-impl std::ops::Deref for IXpsOMFontResourceCollection {
+impl core::ops::Deref for IXpsOMFontResourceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1001,7 +1001,7 @@ pub struct IXpsOMFontResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 windows_core::imp::define_interface!(IXpsOMGeometry, IXpsOMGeometry_Vtbl, 0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
-impl std::ops::Deref for IXpsOMGeometry {
+impl core::ops::Deref for IXpsOMGeometry {
     type Target = IXpsOMShareable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1063,7 +1063,7 @@ pub struct IXpsOMGeometry_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGeometryFigure, IXpsOMGeometryFigure_Vtbl, 0xd410dc83_908c_443e_8947_b1795d3c165a);
-impl std::ops::Deref for IXpsOMGeometryFigure {
+impl core::ops::Deref for IXpsOMGeometryFigure {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1151,7 +1151,7 @@ pub struct IXpsOMGeometryFigure_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGeometryFigureCollection, IXpsOMGeometryFigureCollection_Vtbl, 0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
-impl std::ops::Deref for IXpsOMGeometryFigureCollection {
+impl core::ops::Deref for IXpsOMGeometryFigureCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1200,7 +1200,7 @@ pub struct IXpsOMGeometryFigureCollection_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGlyphs, IXpsOMGlyphs_Vtbl, 0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
-impl std::ops::Deref for IXpsOMGlyphs {
+impl core::ops::Deref for IXpsOMGlyphs {
     type Target = IXpsOMVisual;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1348,7 +1348,7 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGlyphsEditor, IXpsOMGlyphsEditor_Vtbl, 0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
-impl std::ops::Deref for IXpsOMGlyphsEditor {
+impl core::ops::Deref for IXpsOMGlyphsEditor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1450,7 +1450,7 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
     pub SetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGradientBrush, IXpsOMGradientBrush_Vtbl, 0xedb59622_61a2_42c3_bace_acf2286c06bf);
-impl std::ops::Deref for IXpsOMGradientBrush {
+impl core::ops::Deref for IXpsOMGradientBrush {
     type Target = IXpsOMBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1516,7 +1516,7 @@ pub struct IXpsOMGradientBrush_Vtbl {
     pub SetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGradientStop, IXpsOMGradientStop_Vtbl, 0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
-impl std::ops::Deref for IXpsOMGradientStop {
+impl core::ops::Deref for IXpsOMGradientStop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1561,7 +1561,7 @@ pub struct IXpsOMGradientStop_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMGradientStopCollection, IXpsOMGradientStopCollection_Vtbl, 0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
-impl std::ops::Deref for IXpsOMGradientStopCollection {
+impl core::ops::Deref for IXpsOMGradientStopCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1610,7 +1610,7 @@ pub struct IXpsOMGradientStopCollection_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMImageBrush, IXpsOMImageBrush_Vtbl, 0x3df0b466_d382_49ef_8550_dd94c80242e4);
-impl std::ops::Deref for IXpsOMImageBrush {
+impl core::ops::Deref for IXpsOMImageBrush {
     type Target = IXpsOMTileBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1653,7 +1653,7 @@ pub struct IXpsOMImageBrush_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMImageResource, IXpsOMImageResource_Vtbl, 0x3db8417d_ae50_485e_9a44_d7758f78a23f);
-impl std::ops::Deref for IXpsOMImageResource {
+impl core::ops::Deref for IXpsOMImageResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1693,7 +1693,7 @@ pub struct IXpsOMImageResource_Vtbl {
     pub GetImageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_IMAGE_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMImageResourceCollection, IXpsOMImageResourceCollection_Vtbl, 0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
-impl std::ops::Deref for IXpsOMImageResourceCollection {
+impl core::ops::Deref for IXpsOMImageResourceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1754,7 +1754,7 @@ pub struct IXpsOMImageResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 windows_core::imp::define_interface!(IXpsOMLinearGradientBrush, IXpsOMLinearGradientBrush_Vtbl, 0x005e279f_c30d_40ff_93ec_1950d3c528db);
-impl std::ops::Deref for IXpsOMLinearGradientBrush {
+impl core::ops::Deref for IXpsOMLinearGradientBrush {
     type Target = IXpsOMGradientBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1791,7 +1791,7 @@ pub struct IXpsOMLinearGradientBrush_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMMatrixTransform, IXpsOMMatrixTransform_Vtbl, 0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
-impl std::ops::Deref for IXpsOMMatrixTransform {
+impl core::ops::Deref for IXpsOMMatrixTransform {
     type Target = IXpsOMShareable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1819,7 +1819,7 @@ pub struct IXpsOMMatrixTransform_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMNameCollection, IXpsOMNameCollection_Vtbl, 0x4bddf8ec_c915_421b_a166_d173d25653d2);
-impl std::ops::Deref for IXpsOMNameCollection {
+impl core::ops::Deref for IXpsOMNameCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1843,7 +1843,7 @@ pub struct IXpsOMNameCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMObjectFactory, IXpsOMObjectFactory_Vtbl, 0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
-impl std::ops::Deref for IXpsOMObjectFactory {
+impl core::ops::Deref for IXpsOMObjectFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2227,7 +2227,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
     CreateReadOnlyStreamOnFile: usize,
 }
 windows_core::imp::define_interface!(IXpsOMObjectFactory1, IXpsOMObjectFactory1_Vtbl, 0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
-impl std::ops::Deref for IXpsOMObjectFactory1 {
+impl core::ops::Deref for IXpsOMObjectFactory1 {
     type Target = IXpsOMObjectFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2380,7 +2380,7 @@ pub struct IXpsOMObjectFactory1_Vtbl {
     CreateRemoteDictionaryResourceFromStream1: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPackage, IXpsOMPackage_Vtbl, 0x18c3df65_81e1_4674_91dc_fc452f5a416f);
-impl std::ops::Deref for IXpsOMPackage {
+impl core::ops::Deref for IXpsOMPackage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2474,7 +2474,7 @@ pub struct IXpsOMPackage_Vtbl {
     WriteToStream: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPackage1, IXpsOMPackage1_Vtbl, 0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
-impl std::ops::Deref for IXpsOMPackage1 {
+impl core::ops::Deref for IXpsOMPackage1 {
     type Target = IXpsOMPackage;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2517,7 +2517,7 @@ pub struct IXpsOMPackage1_Vtbl {
     WriteToStream1: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPackageTarget, IXpsOMPackageTarget_Vtbl, 0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
-impl std::ops::Deref for IXpsOMPackageTarget {
+impl core::ops::Deref for IXpsOMPackageTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2545,7 +2545,7 @@ pub struct IXpsOMPackageTarget_Vtbl {
     CreateXpsOMPackageWriter: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPackageWriter, IXpsOMPackageWriter_Vtbl, 0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
-impl std::ops::Deref for IXpsOMPackageWriter {
+impl core::ops::Deref for IXpsOMPackageWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2601,7 +2601,7 @@ pub struct IXpsOMPackageWriter_Vtbl {
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMPackageWriter3D, IXpsOMPackageWriter3D_Vtbl, 0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
-impl std::ops::Deref for IXpsOMPackageWriter3D {
+impl core::ops::Deref for IXpsOMPackageWriter3D {
     type Target = IXpsOMPackageWriter;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2639,7 +2639,7 @@ pub struct IXpsOMPackageWriter3D_Vtbl {
     SetModelPrintTicket: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPage, IXpsOMPage_Vtbl, 0xd3e18888_f120_4fee_8c68_35296eae91d4);
-impl std::ops::Deref for IXpsOMPage {
+impl core::ops::Deref for IXpsOMPage {
     type Target = IXpsOMPart;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2777,7 +2777,7 @@ pub struct IXpsOMPage_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMPage1, IXpsOMPage1_Vtbl, 0x305b60ef_6892_4dda_9cbb_3aa65974508a);
-impl std::ops::Deref for IXpsOMPage1 {
+impl core::ops::Deref for IXpsOMPage1 {
     type Target = IXpsOMPage;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2808,7 +2808,7 @@ pub struct IXpsOMPage1_Vtbl {
     Write1: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPageReference, IXpsOMPageReference_Vtbl, 0xed360180_6f92_4998_890d_2f208531a0a0);
-impl std::ops::Deref for IXpsOMPageReference {
+impl core::ops::Deref for IXpsOMPageReference {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2913,7 +2913,7 @@ pub struct IXpsOMPageReference_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMPageReferenceCollection, IXpsOMPageReferenceCollection_Vtbl, 0xca16ba4d_e7b9_45c5_958b_f98022473745);
-impl std::ops::Deref for IXpsOMPageReferenceCollection {
+impl core::ops::Deref for IXpsOMPageReferenceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2962,7 +2962,7 @@ pub struct IXpsOMPageReferenceCollection_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMPart, IXpsOMPart_Vtbl, 0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
-impl std::ops::Deref for IXpsOMPart {
+impl core::ops::Deref for IXpsOMPart {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2996,7 +2996,7 @@ pub struct IXpsOMPart_Vtbl {
     SetPartName: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPartResources, IXpsOMPartResources_Vtbl, 0xf4cf7729_4864_4275_99b3_a8717163ecaf);
-impl std::ops::Deref for IXpsOMPartResources {
+impl core::ops::Deref for IXpsOMPartResources {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3030,7 +3030,7 @@ pub struct IXpsOMPartResources_Vtbl {
     pub GetRemoteDictionaryResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMPartUriCollection, IXpsOMPartUriCollection_Vtbl, 0x57c650d4_067c_4893_8c33_f62a0633730f);
-impl std::ops::Deref for IXpsOMPartUriCollection {
+impl core::ops::Deref for IXpsOMPartUriCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3095,7 +3095,7 @@ pub struct IXpsOMPartUriCollection_Vtbl {
     Append: usize,
 }
 windows_core::imp::define_interface!(IXpsOMPath, IXpsOMPath_Vtbl, 0x37d38bb6_3ee9_4110_9312_14b194163337);
-impl std::ops::Deref for IXpsOMPath {
+impl core::ops::Deref for IXpsOMPath {
     type Target = IXpsOMVisual;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3305,7 +3305,7 @@ pub struct IXpsOMPath_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMPrintTicketResource, IXpsOMPrintTicketResource_Vtbl, 0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
-impl std::ops::Deref for IXpsOMPrintTicketResource {
+impl core::ops::Deref for IXpsOMPrintTicketResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3340,7 +3340,7 @@ pub struct IXpsOMPrintTicketResource_Vtbl {
     SetContent: usize,
 }
 windows_core::imp::define_interface!(IXpsOMRadialGradientBrush, IXpsOMRadialGradientBrush_Vtbl, 0x75f207e5_08bf_413c_96b1_b82b4064176b);
-impl std::ops::Deref for IXpsOMRadialGradientBrush {
+impl core::ops::Deref for IXpsOMRadialGradientBrush {
     type Target = IXpsOMGradientBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3386,7 +3386,7 @@ pub struct IXpsOMRadialGradientBrush_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResource, IXpsOMRemoteDictionaryResource_Vtbl, 0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
-impl std::ops::Deref for IXpsOMRemoteDictionaryResource {
+impl core::ops::Deref for IXpsOMRemoteDictionaryResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3412,7 +3412,7 @@ pub struct IXpsOMRemoteDictionaryResource_Vtbl {
     pub SetDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResource1, IXpsOMRemoteDictionaryResource1_Vtbl, 0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
-impl std::ops::Deref for IXpsOMRemoteDictionaryResource1 {
+impl core::ops::Deref for IXpsOMRemoteDictionaryResource1 {
     type Target = IXpsOMRemoteDictionaryResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3442,7 +3442,7 @@ pub struct IXpsOMRemoteDictionaryResource1_Vtbl {
     Write1: usize,
 }
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResourceCollection, IXpsOMRemoteDictionaryResourceCollection_Vtbl, 0x5c38db61_7fec_464a_87bd_41e3bef018be);
-impl std::ops::Deref for IXpsOMRemoteDictionaryResourceCollection {
+impl core::ops::Deref for IXpsOMRemoteDictionaryResourceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3503,7 +3503,7 @@ pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 windows_core::imp::define_interface!(IXpsOMResource, IXpsOMResource_Vtbl, 0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
-impl std::ops::Deref for IXpsOMResource {
+impl core::ops::Deref for IXpsOMResource {
     type Target = IXpsOMPart;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3516,7 +3516,7 @@ pub struct IXpsOMResource_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
 }
 windows_core::imp::define_interface!(IXpsOMShareable, IXpsOMShareable_Vtbl, 0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
-impl std::ops::Deref for IXpsOMShareable {
+impl core::ops::Deref for IXpsOMShareable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3540,7 +3540,7 @@ pub struct IXpsOMShareable_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_OBJECT_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMSignatureBlockResource, IXpsOMSignatureBlockResource_Vtbl, 0x4776ad35_2e04_4357_8743_ebf6c171a905);
-impl std::ops::Deref for IXpsOMSignatureBlockResource {
+impl core::ops::Deref for IXpsOMSignatureBlockResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3580,7 +3580,7 @@ pub struct IXpsOMSignatureBlockResource_Vtbl {
     SetContent: usize,
 }
 windows_core::imp::define_interface!(IXpsOMSignatureBlockResourceCollection, IXpsOMSignatureBlockResourceCollection_Vtbl, 0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
-impl std::ops::Deref for IXpsOMSignatureBlockResourceCollection {
+impl core::ops::Deref for IXpsOMSignatureBlockResourceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3641,7 +3641,7 @@ pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 windows_core::imp::define_interface!(IXpsOMSolidColorBrush, IXpsOMSolidColorBrush_Vtbl, 0xa06f9f05_3be9_4763_98a8_094fc672e488);
-impl std::ops::Deref for IXpsOMSolidColorBrush {
+impl core::ops::Deref for IXpsOMSolidColorBrush {
     type Target = IXpsOMBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3672,7 +3672,7 @@ pub struct IXpsOMSolidColorBrush_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMStoryFragmentsResource, IXpsOMStoryFragmentsResource_Vtbl, 0xc2b3ca09_0473_4282_87ae_1780863223f0);
-impl std::ops::Deref for IXpsOMStoryFragmentsResource {
+impl core::ops::Deref for IXpsOMStoryFragmentsResource {
     type Target = IXpsOMResource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3712,7 +3712,7 @@ pub struct IXpsOMStoryFragmentsResource_Vtbl {
     SetContent: usize,
 }
 windows_core::imp::define_interface!(IXpsOMThumbnailGenerator, IXpsOMThumbnailGenerator_Vtbl, 0x15b873d5_1971_41e8_83a3_6578403064c7);
-impl std::ops::Deref for IXpsOMThumbnailGenerator {
+impl core::ops::Deref for IXpsOMThumbnailGenerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3739,7 +3739,7 @@ pub struct IXpsOMThumbnailGenerator_Vtbl {
     GenerateThumbnail: usize,
 }
 windows_core::imp::define_interface!(IXpsOMTileBrush, IXpsOMTileBrush_Vtbl, 0x0fc2328d_d722_4a54_b2ec_be90218a789e);
-impl std::ops::Deref for IXpsOMTileBrush {
+impl core::ops::Deref for IXpsOMTileBrush {
     type Target = IXpsOMBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3809,7 +3809,7 @@ pub struct IXpsOMTileBrush_Vtbl {
     pub SetTileMode: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_TILE_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMVisual, IXpsOMVisual_Vtbl, 0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
-impl std::ops::Deref for IXpsOMVisual {
+impl core::ops::Deref for IXpsOMVisual {
     type Target = IXpsOMShareable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3975,7 +3975,7 @@ pub struct IXpsOMVisual_Vtbl {
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMVisualBrush, IXpsOMVisualBrush_Vtbl, 0x97e294af_5b37_46b4_8057_874d2f64119b);
-impl std::ops::Deref for IXpsOMVisualBrush {
+impl core::ops::Deref for IXpsOMVisualBrush {
     type Target = IXpsOMTileBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4023,7 +4023,7 @@ pub struct IXpsOMVisualBrush_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsOMVisualCollection, IXpsOMVisualCollection_Vtbl, 0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
-impl std::ops::Deref for IXpsOMVisualCollection {
+impl core::ops::Deref for IXpsOMVisualCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4072,7 +4072,7 @@ pub struct IXpsOMVisualCollection_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSignature, IXpsSignature_Vtbl, 0x6ae4c93e_1ade_42fb_898b_3a5658284857);
-impl std::ops::Deref for IXpsSignature {
+impl core::ops::Deref for IXpsSignature {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4167,7 +4167,7 @@ pub struct IXpsSignature_Vtbl {
     pub SetSignatureXml: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSignatureBlock, IXpsSignatureBlock_Vtbl, 0x151fac09_0b97_4ac6_a323_5e4297d4322b);
-impl std::ops::Deref for IXpsSignatureBlock {
+impl core::ops::Deref for IXpsSignatureBlock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4217,7 +4217,7 @@ pub struct IXpsSignatureBlock_Vtbl {
     pub CreateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSignatureBlockCollection, IXpsSignatureBlockCollection_Vtbl, 0x23397050_fe99_467a_8dce_9237f074ffe4);
-impl std::ops::Deref for IXpsSignatureBlockCollection {
+impl core::ops::Deref for IXpsSignatureBlockCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4245,7 +4245,7 @@ pub struct IXpsSignatureBlockCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSignatureCollection, IXpsSignatureCollection_Vtbl, 0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
-impl std::ops::Deref for IXpsSignatureCollection {
+impl core::ops::Deref for IXpsSignatureCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4273,7 +4273,7 @@ pub struct IXpsSignatureCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSignatureManager, IXpsSignatureManager_Vtbl, 0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
-impl std::ops::Deref for IXpsSignatureManager {
+impl core::ops::Deref for IXpsSignatureManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4386,7 +4386,7 @@ pub struct IXpsSignatureManager_Vtbl {
     SavePackageToStream: usize,
 }
 windows_core::imp::define_interface!(IXpsSignatureRequest, IXpsSignatureRequest_Vtbl, 0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
-impl std::ops::Deref for IXpsSignatureRequest {
+impl core::ops::Deref for IXpsSignatureRequest {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4470,7 +4470,7 @@ pub struct IXpsSignatureRequest_Vtbl {
     pub GetSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSignatureRequestCollection, IXpsSignatureRequestCollection_Vtbl, 0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
-impl std::ops::Deref for IXpsSignatureRequestCollection {
+impl core::ops::Deref for IXpsSignatureRequestCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4498,7 +4498,7 @@ pub struct IXpsSignatureRequestCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXpsSigningOptions, IXpsSigningOptions_Vtbl, 0x7718eae4_3215_49be_af5b_594fef7fcfa6);
-impl std::ops::Deref for IXpsSigningOptions {
+impl core::ops::Deref for IXpsSigningOptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

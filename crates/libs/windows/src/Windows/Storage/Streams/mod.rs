@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IBuffer, IBuffer_Vtbl, 0x905a0fe0_bc53_11df_8c49_001e4fc686da);
-impl std::ops::Deref for IBuffer {
+impl core::ops::Deref for IBuffer {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -56,7 +56,7 @@ pub struct IBufferStatics_Vtbl {
     pub CreateMemoryBufferOverIBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContentTypeProvider, IContentTypeProvider_Vtbl, 0x97d098a5_3b99_4de9_88a5_e11d2f50c795);
-impl std::ops::Deref for IContentTypeProvider {
+impl core::ops::Deref for IContentTypeProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -81,7 +81,7 @@ pub struct IContentTypeProvider_Vtbl {
     pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataReader, IDataReader_Vtbl, 0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
-impl std::ops::Deref for IDataReader {
+impl core::ops::Deref for IDataReader {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -312,7 +312,7 @@ pub struct IDataReaderStatics_Vtbl {
     pub FromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataWriter, IDataWriter_Vtbl, 0x64b89265_d341_4922_b38a_dd4af8808c4e);
-impl std::ops::Deref for IDataWriter {
+impl core::ops::Deref for IDataWriter {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -534,7 +534,7 @@ pub struct IFileRandomAccessStreamStatics_Vtbl {
     OpenTransactedWriteForUserWithOptionsAsync: usize,
 }
 windows_core::imp::define_interface!(IInputStream, IInputStream_Vtbl, 0x905a0fe2_bc53_11df_8c49_001e4fc686da);
-impl std::ops::Deref for IInputStream {
+impl core::ops::Deref for IInputStream {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -567,7 +567,7 @@ pub struct IInputStream_Vtbl {
     pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, InputStreamOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputStreamReference, IInputStreamReference_Vtbl, 0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
-impl std::ops::Deref for IInputStreamReference {
+impl core::ops::Deref for IInputStreamReference {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -592,7 +592,7 @@ pub struct IInputStreamReference_Vtbl {
     pub OpenSequentialReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOutputStream, IOutputStream_Vtbl, 0x905a0fe6_bc53_11df_8c49_001e4fc686da);
-impl std::ops::Deref for IOutputStream {
+impl core::ops::Deref for IOutputStream {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -633,7 +633,7 @@ pub struct IOutputStream_Vtbl {
     pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertySetSerializer, IPropertySetSerializer_Vtbl, 0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
-impl std::ops::Deref for IPropertySetSerializer {
+impl core::ops::Deref for IPropertySetSerializer {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -678,7 +678,7 @@ pub struct IPropertySetSerializer_Vtbl {
     Deserialize: usize,
 }
 windows_core::imp::define_interface!(IRandomAccessStream, IRandomAccessStream_Vtbl, 0x905a0fe1_bc53_11df_8c49_001e4fc686da);
-impl std::ops::Deref for IRandomAccessStream {
+impl core::ops::Deref for IRandomAccessStream {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -793,7 +793,7 @@ pub struct IRandomAccessStream_Vtbl {
     pub CanWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamReference, IRandomAccessStreamReference_Vtbl, 0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
-impl std::ops::Deref for IRandomAccessStreamReference {
+impl core::ops::Deref for IRandomAccessStreamReference {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -840,7 +840,7 @@ pub struct IRandomAccessStreamStatics_Vtbl {
     pub CopyAndCloseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamWithContentType, IRandomAccessStreamWithContentType_Vtbl, 0xcc254827_4b3d_438f_9232_10c76bc7e038);
-impl std::ops::Deref for IRandomAccessStreamWithContentType {
+impl core::ops::Deref for IRandomAccessStreamWithContentType {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

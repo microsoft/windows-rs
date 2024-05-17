@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 windows_core::imp::define_interface!(IAccessibleWinSAT, IAccessibleWinSAT_Vtbl, 0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl std::ops::Deref for IAccessibleWinSAT {
+impl core::ops::Deref for IAccessibleWinSAT {
     type Target = super::super::UI::Accessibility::IAccessible;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -27,7 +27,7 @@ pub struct IAccessibleWinSAT_Vtbl {
     pub SetAccessiblityData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
-impl std::ops::Deref for IInitiateWinSATAssessment {
+impl core::ops::Deref for IInitiateWinSATAssessment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -64,7 +64,7 @@ pub struct IInitiateWinSATAssessment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProvideWinSATAssessmentInfo, IProvideWinSATAssessmentInfo_Vtbl, 0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IProvideWinSATAssessmentInfo {
+impl core::ops::Deref for IProvideWinSATAssessmentInfo {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -98,7 +98,7 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProvideWinSATResultsInfo, IProvideWinSATResultsInfo_Vtbl, 0xf8334d5d_568e_4075_875f_9df341506640);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IProvideWinSATResultsInfo {
+impl core::ops::Deref for IProvideWinSATResultsInfo {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -144,7 +144,7 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     pub RatingStateDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
-impl std::ops::Deref for IProvideWinSATVisuals {
+impl core::ops::Deref for IProvideWinSATVisuals {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -169,7 +169,7 @@ pub struct IProvideWinSATVisuals_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IQueryAllWinSATAssessments, IQueryAllWinSATAssessments_Vtbl, 0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IQueryAllWinSATAssessments {
+impl core::ops::Deref for IQueryAllWinSATAssessments {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -199,7 +199,7 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
     get_AllXML: usize,
 }
 windows_core::imp::define_interface!(IQueryOEMWinSATCustomization, IQueryOEMWinSATCustomization_Vtbl, 0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
-impl std::ops::Deref for IQueryOEMWinSATCustomization {
+impl core::ops::Deref for IQueryOEMWinSATCustomization {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -220,7 +220,7 @@ pub struct IQueryOEMWinSATCustomization_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IQueryRecentWinSATAssessment, IQueryRecentWinSATAssessment_Vtbl, 0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IQueryRecentWinSATAssessment {
+impl core::ops::Deref for IQueryRecentWinSATAssessment {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -259,7 +259,7 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
     Info: usize,
 }
 windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
-impl std::ops::Deref for IWinSATInitiateEvents {
+impl core::ops::Deref for IWinSATInitiateEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

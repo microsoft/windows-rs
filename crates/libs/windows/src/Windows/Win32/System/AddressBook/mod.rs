@@ -355,7 +355,7 @@ pub unsafe fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry
     WrapStoreEntryID(ulflags, lpszdllname, cborigentry, lporigentry, lpcbwrappedentry, lppwrappedentry).ok()
 }
 windows_core::imp::define_interface!(IABContainer, IABContainer_Vtbl, 0);
-impl std::ops::Deref for IABContainer {
+impl core::ops::Deref for IABContainer {
     type Target = IMAPIContainer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -394,7 +394,7 @@ pub struct IABContainer_Vtbl {
     ResolveNames: usize,
 }
 windows_core::imp::define_interface!(IAddrBook, IAddrBook_Vtbl, 0);
-impl std::ops::Deref for IAddrBook {
+impl core::ops::Deref for IAddrBook {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -511,7 +511,7 @@ pub struct IAddrBook_Vtbl {
     PrepareRecips: usize,
 }
 windows_core::imp::define_interface!(IAttach, IAttach_Vtbl, 0);
-impl std::ops::Deref for IAttach {
+impl core::ops::Deref for IAttach {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -524,7 +524,7 @@ pub struct IAttach_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
 windows_core::imp::define_interface!(IDistList, IDistList_Vtbl, 0);
-impl std::ops::Deref for IDistList {
+impl core::ops::Deref for IDistList {
     type Target = IMAPIContainer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -563,7 +563,7 @@ pub struct IDistList_Vtbl {
     ResolveNames: usize,
 }
 windows_core::imp::define_interface!(IMAPIAdviseSink, IMAPIAdviseSink_Vtbl, 0);
-impl std::ops::Deref for IMAPIAdviseSink {
+impl core::ops::Deref for IMAPIAdviseSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -585,7 +585,7 @@ pub struct IMAPIAdviseSink_Vtbl {
     OnNotify: usize,
 }
 windows_core::imp::define_interface!(IMAPIContainer, IMAPIContainer_Vtbl, 0);
-impl std::ops::Deref for IMAPIContainer {
+impl core::ops::Deref for IMAPIContainer {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -629,7 +629,7 @@ pub struct IMAPIContainer_Vtbl {
     GetSearchCriteria: usize,
 }
 windows_core::imp::define_interface!(IMAPIControl, IMAPIControl_Vtbl, 0);
-impl std::ops::Deref for IMAPIControl {
+impl core::ops::Deref for IMAPIControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -656,7 +656,7 @@ pub struct IMAPIControl_Vtbl {
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMAPIFolder, IMAPIFolder_Vtbl, 0);
-impl std::ops::Deref for IMAPIFolder {
+impl core::ops::Deref for IMAPIFolder {
     type Target = IMAPIContainer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -735,7 +735,7 @@ pub struct IMAPIFolder_Vtbl {
     pub EmptyFolder: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMAPIProgress, IMAPIProgress_Vtbl, 0);
-impl std::ops::Deref for IMAPIProgress {
+impl core::ops::Deref for IMAPIProgress {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -769,7 +769,7 @@ pub struct IMAPIProgress_Vtbl {
     pub SetLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMAPIProp, IMAPIProp_Vtbl, 0);
-impl std::ops::Deref for IMAPIProp {
+impl core::ops::Deref for IMAPIProp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -841,7 +841,7 @@ pub struct IMAPIProp_Vtbl {
     pub GetIDsFromNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut MAPINAMEID, u32, *mut *mut SPropTagArray) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMAPIStatus, IMAPIStatus_Vtbl, 0);
-impl std::ops::Deref for IMAPIStatus {
+impl core::ops::Deref for IMAPIStatus {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -871,7 +871,7 @@ pub struct IMAPIStatus_Vtbl {
     pub FlushQueues: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const ENTRYID, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMAPITable, IMAPITable_Vtbl, 0);
-impl std::ops::Deref for IMAPITable {
+impl core::ops::Deref for IMAPITable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -996,7 +996,7 @@ pub struct IMAPITable_Vtbl {
     pub SetCollapseState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMailUser, IMailUser_Vtbl, 0);
-impl std::ops::Deref for IMailUser {
+impl core::ops::Deref for IMailUser {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1009,7 +1009,7 @@ pub struct IMailUser_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
 windows_core::imp::define_interface!(IMessage, IMessage_Vtbl, 0);
-impl std::ops::Deref for IMessage {
+impl core::ops::Deref for IMessage {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1065,7 +1065,7 @@ pub struct IMessage_Vtbl {
     pub SetReadFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMsgStore, IMsgStore_Vtbl, 0);
-impl std::ops::Deref for IMsgStore {
+impl core::ops::Deref for IMsgStore {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1145,7 +1145,7 @@ pub struct IMsgStore_Vtbl {
     NotifyNewMail: usize,
 }
 windows_core::imp::define_interface!(IProfSect, IProfSect_Vtbl, 0);
-impl std::ops::Deref for IProfSect {
+impl core::ops::Deref for IProfSect {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1158,7 +1158,7 @@ pub struct IProfSect_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
 windows_core::imp::define_interface!(IPropData, IPropData_Vtbl, 0);
-impl std::ops::Deref for IPropData {
+impl core::ops::Deref for IPropData {
     type Target = IMAPIProp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1188,7 +1188,7 @@ pub struct IPropData_Vtbl {
     pub HrAddObjProps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPropTagArray, *mut *mut SPropProblemArray) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderAdmin, IProviderAdmin_Vtbl, 0);
-impl std::ops::Deref for IProviderAdmin {
+impl core::ops::Deref for IProviderAdmin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1230,7 +1230,7 @@ pub struct IProviderAdmin_Vtbl {
     pub OpenProfileSection: unsafe extern "system" fn(*mut core::ffi::c_void, *const MAPIUID, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITableData, ITableData_Vtbl, 0);
-impl std::ops::Deref for ITableData {
+impl core::ops::Deref for ITableData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1312,7 +1312,7 @@ pub struct ITableData_Vtbl {
     HrDeleteRows: usize,
 }
 windows_core::imp::define_interface!(IWABExtInit, IWABExtInit_Vtbl, 0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
-impl std::ops::Deref for IWABExtInit {
+impl core::ops::Deref for IWABExtInit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1330,7 +1330,7 @@ pub struct IWABExtInit_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WABEXTDISPLAY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWABObject, IWABObject_Vtbl, 0);
-impl std::ops::Deref for IWABObject {
+impl core::ops::Deref for IWABObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

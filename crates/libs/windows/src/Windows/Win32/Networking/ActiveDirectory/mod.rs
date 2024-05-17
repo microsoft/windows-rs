@@ -1302,7 +1302,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADs, IADs_Vtbl, 0xfd8256d0_fd15_11ce_abc4_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADs {
+impl core::ops::Deref for IADs {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1398,7 +1398,7 @@ pub struct IADs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsADSystemInfo, IADsADSystemInfo_Vtbl, 0x5bb11929_afd1_11d2_9cb9_0000f87a369e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsADSystemInfo {
+impl core::ops::Deref for IADsADSystemInfo {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1484,7 +1484,7 @@ pub struct IADsADSystemInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsAccessControlEntry, IADsAccessControlEntry_Vtbl, 0xb4f3a14c_9bdd_11d0_852c_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsAccessControlEntry {
+impl core::ops::Deref for IADsAccessControlEntry {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1575,7 +1575,7 @@ pub struct IADsAccessControlEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsAccessControlList, IADsAccessControlList_Vtbl, 0xb7ee91cc_9bdd_11d0_852c_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsAccessControlList {
+impl core::ops::Deref for IADsAccessControlList {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1648,7 +1648,7 @@ pub struct IADsAccessControlList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsAcl, IADsAcl_Vtbl, 0x8452d3ab_0869_11d1_a377_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsAcl {
+impl core::ops::Deref for IADsAcl {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1707,7 +1707,7 @@ pub struct IADsAcl_Vtbl {
     CopyAcl: usize,
 }
 windows_core::imp::define_interface!(IADsAggregatee, IADsAggregatee_Vtbl, 0x1346ce8c_9039_11d0_8528_00c04fd8d503);
-impl std::ops::Deref for IADsAggregatee {
+impl core::ops::Deref for IADsAggregatee {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1740,7 +1740,7 @@ pub struct IADsAggregatee_Vtbl {
     pub RestoreInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IADsAggregator, IADsAggregator_Vtbl, 0x52db5fb0_941f_11d0_8529_00c04fd8d503);
-impl std::ops::Deref for IADsAggregator {
+impl core::ops::Deref for IADsAggregator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1767,7 +1767,7 @@ pub struct IADsAggregator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsBackLink, IADsBackLink_Vtbl, 0xfd1302bd_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsBackLink {
+impl core::ops::Deref for IADsBackLink {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1807,7 +1807,7 @@ pub struct IADsBackLink_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsCaseIgnoreList, IADsCaseIgnoreList_Vtbl, 0x7b66b533_4680_11d1_a3b4_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsCaseIgnoreList {
+impl core::ops::Deref for IADsCaseIgnoreList {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1838,7 +1838,7 @@ pub struct IADsCaseIgnoreList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsClass, IADsClass_Vtbl, 0xc8f93dd0_4ae0_11cf_9e73_00aa004a5691);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsClass {
+impl core::ops::Deref for IADsClass {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2036,7 +2036,7 @@ pub struct IADsClass_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsCollection, IADsCollection_Vtbl, 0x72b945e0_253b_11cf_a988_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsCollection {
+impl core::ops::Deref for IADsCollection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2083,7 +2083,7 @@ pub struct IADsCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsComputer, IADsComputer_Vtbl, 0xefe3cc70_1d9f_11cf_b1f3_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsComputer {
+impl core::ops::Deref for IADsComputer {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2292,7 +2292,7 @@ pub struct IADsComputer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsComputerOperations, IADsComputerOperations_Vtbl, 0xef497680_1d9f_11cf_b1f3_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsComputerOperations {
+impl core::ops::Deref for IADsComputerOperations {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2327,7 +2327,7 @@ pub struct IADsComputerOperations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsContainer, IADsContainer_Vtbl, 0x001677d0_fd16_11ce_abc4_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsContainer {
+impl core::ops::Deref for IADsContainer {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2440,7 +2440,7 @@ pub struct IADsContainer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsDNWithBinary, IADsDNWithBinary_Vtbl, 0x7e99c0a2_f935_11d2_ba96_00c04fb6d0d1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsDNWithBinary {
+impl core::ops::Deref for IADsDNWithBinary {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2483,7 +2483,7 @@ pub struct IADsDNWithBinary_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsDNWithString, IADsDNWithString_Vtbl, 0x370df02e_f934_11d2_ba96_00c04fb6d0d1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsDNWithString {
+impl core::ops::Deref for IADsDNWithString {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2526,7 +2526,7 @@ pub struct IADsDNWithString_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsDeleteOps, IADsDeleteOps_Vtbl, 0xb2bd0902_8878_11d1_8c21_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsDeleteOps {
+impl core::ops::Deref for IADsDeleteOps {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2549,7 +2549,7 @@ pub struct IADsDeleteOps_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsDomain, IADsDomain_Vtbl, 0x00e4c220_fd16_11ce_abc4_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsDomain {
+impl core::ops::Deref for IADsDomain {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2645,7 +2645,7 @@ pub struct IADsDomain_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsEmail, IADsEmail_Vtbl, 0x97af011a_478e_11d1_a3b4_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsEmail {
+impl core::ops::Deref for IADsEmail {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2683,7 +2683,7 @@ pub struct IADsEmail_Vtbl {
     pub SetAddress: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IADsExtension, IADsExtension_Vtbl, 0x3d35553c_d2b0_11d1_b17b_0000f87593a0);
-impl std::ops::Deref for IADsExtension {
+impl core::ops::Deref for IADsExtension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2721,7 +2721,7 @@ pub struct IADsExtension_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsFaxNumber, IADsFaxNumber_Vtbl, 0xa910dea9_4680_11d1_a3b4_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsFaxNumber {
+impl core::ops::Deref for IADsFaxNumber {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2764,7 +2764,7 @@ pub struct IADsFaxNumber_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsFileService, IADsFileService_Vtbl, 0xa89d1900_31ca_11cf_a98a_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsFileService {
+impl core::ops::Deref for IADsFileService {
     type Target = IADsService;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2804,7 +2804,7 @@ pub struct IADsFileService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsFileServiceOperations, IADsFileServiceOperations_Vtbl, 0xa02ded10_31ca_11cf_a98a_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsFileServiceOperations {
+impl core::ops::Deref for IADsFileServiceOperations {
     type Target = IADsServiceOperations;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2841,7 +2841,7 @@ pub struct IADsFileServiceOperations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsFileShare, IADsFileShare_Vtbl, 0xeb6dcaf0_4b83_11cf_a995_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsFileShare {
+impl core::ops::Deref for IADsFileShare {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2910,7 +2910,7 @@ pub struct IADsFileShare_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsGroup, IADsGroup_Vtbl, 0x27636b00_410f_11cf_b1ff_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsGroup {
+impl core::ops::Deref for IADsGroup {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2972,7 +2972,7 @@ pub struct IADsGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsHold, IADsHold_Vtbl, 0xb3eb3b37_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsHold {
+impl core::ops::Deref for IADsHold {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3012,7 +3012,7 @@ pub struct IADsHold_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsLargeInteger, IADsLargeInteger_Vtbl, 0x9068270b_0939_11d1_8be1_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsLargeInteger {
+impl core::ops::Deref for IADsLargeInteger {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3049,7 +3049,7 @@ pub struct IADsLargeInteger_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsLocality, IADsLocality_Vtbl, 0xa05e03a2_effe_11cf_8abc_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsLocality {
+impl core::ops::Deref for IADsLocality {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3116,7 +3116,7 @@ pub struct IADsLocality_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsMembers, IADsMembers_Vtbl, 0x451a0030_72ec_11cf_b03b_00aa006e0975);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsMembers {
+impl core::ops::Deref for IADsMembers {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3157,7 +3157,7 @@ pub struct IADsMembers_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsNameTranslate, IADsNameTranslate_Vtbl, 0xb1b272a3_3625_11d1_a3a4_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsNameTranslate {
+impl core::ops::Deref for IADsNameTranslate {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3221,7 +3221,7 @@ pub struct IADsNameTranslate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsNamespaces, IADsNamespaces_Vtbl, 0x28b96ba0_b330_11cf_a9ad_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsNamespaces {
+impl core::ops::Deref for IADsNamespaces {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3252,7 +3252,7 @@ pub struct IADsNamespaces_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsNetAddress, IADsNetAddress_Vtbl, 0xb21a50a9_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsNetAddress {
+impl core::ops::Deref for IADsNetAddress {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3292,7 +3292,7 @@ pub struct IADsNetAddress_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsO, IADsO_Vtbl, 0xa1cd2dc6_effe_11cf_8abc_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsO {
+impl core::ops::Deref for IADsO {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3383,7 +3383,7 @@ pub struct IADsO_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsOU, IADsOU_Vtbl, 0xa2f733b8_effe_11cf_8abc_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsOU {
+impl core::ops::Deref for IADsOU {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3486,7 +3486,7 @@ pub struct IADsOU_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsObjectOptions, IADsObjectOptions_Vtbl, 0x46f14fda_232b_11d1_a808_00c04fd8d5a8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsObjectOptions {
+impl core::ops::Deref for IADsObjectOptions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3517,7 +3517,7 @@ pub struct IADsObjectOptions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsOctetList, IADsOctetList_Vtbl, 0x7b28b80f_4680_11d1_a3b4_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsOctetList {
+impl core::ops::Deref for IADsOctetList {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3548,7 +3548,7 @@ pub struct IADsOctetList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsOpenDSObject, IADsOpenDSObject_Vtbl, 0xddf2891e_0f9c_11d0_8ad4_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsOpenDSObject {
+impl core::ops::Deref for IADsOpenDSObject {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3581,7 +3581,7 @@ pub struct IADsOpenDSObject_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPath, IADsPath_Vtbl, 0xb287fcd5_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPath {
+impl core::ops::Deref for IADsPath {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3633,7 +3633,7 @@ pub struct IADsPath_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPathname, IADsPathname_Vtbl, 0xd592aed4_f420_11d0_a36e_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPathname {
+impl core::ops::Deref for IADsPathname {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3715,7 +3715,7 @@ pub struct IADsPathname_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPostalAddress, IADsPostalAddress_Vtbl, 0x7adecf29_4680_11d1_a3b4_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPostalAddress {
+impl core::ops::Deref for IADsPostalAddress {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3746,7 +3746,7 @@ pub struct IADsPostalAddress_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPrintJob, IADsPrintJob_Vtbl, 0x32fb6780_1ed0_11cf_a988_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPrintJob {
+impl core::ops::Deref for IADsPrintJob {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3858,7 +3858,7 @@ pub struct IADsPrintJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPrintJobOperations, IADsPrintJobOperations_Vtbl, 0x9a52db30_1ecf_11cf_a988_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPrintJobOperations {
+impl core::ops::Deref for IADsPrintJobOperations {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3909,7 +3909,7 @@ pub struct IADsPrintJobOperations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPrintQueue, IADsPrintQueue_Vtbl, 0xb15160d0_1226_11cf_a985_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPrintQueue {
+impl core::ops::Deref for IADsPrintQueue {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4072,7 +4072,7 @@ pub struct IADsPrintQueue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPrintQueueOperations, IADsPrintQueueOperations_Vtbl, 0x124be5c0_156e_11cf_a986_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPrintQueueOperations {
+impl core::ops::Deref for IADsPrintQueueOperations {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4117,7 +4117,7 @@ pub struct IADsPrintQueueOperations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsProperty, IADsProperty_Vtbl, 0xc8f93dd3_4ae0_11cf_9e73_00aa004a5691);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsProperty {
+impl core::ops::Deref for IADsProperty {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4199,7 +4199,7 @@ pub struct IADsProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPropertyEntry, IADsPropertyEntry_Vtbl, 0x05792c8e_941f_11d0_8529_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPropertyEntry {
+impl core::ops::Deref for IADsPropertyEntry {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4264,7 +4264,7 @@ pub struct IADsPropertyEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPropertyList, IADsPropertyList_Vtbl, 0xc6f602b6_8f69_11d0_8528_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPropertyList {
+impl core::ops::Deref for IADsPropertyList {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4334,7 +4334,7 @@ pub struct IADsPropertyList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPropertyValue, IADsPropertyValue_Vtbl, 0x79fa9ad0_a97c_11d0_8534_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPropertyValue {
+impl core::ops::Deref for IADsPropertyValue {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4505,7 +4505,7 @@ pub struct IADsPropertyValue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsPropertyValue2, IADsPropertyValue2_Vtbl, 0x306e831c_5bc7_11d1_a3b8_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsPropertyValue2 {
+impl core::ops::Deref for IADsPropertyValue2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4535,7 +4535,7 @@ pub struct IADsPropertyValue2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsReplicaPointer, IADsReplicaPointer_Vtbl, 0xf60fb803_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsReplicaPointer {
+impl core::ops::Deref for IADsReplicaPointer {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4605,7 +4605,7 @@ pub struct IADsReplicaPointer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsResource, IADsResource_Vtbl, 0x34a05b20_4aab_11cf_ae2c_00aa006ebfb9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsResource {
+impl core::ops::Deref for IADsResource {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4644,7 +4644,7 @@ pub struct IADsResource_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsSecurityDescriptor, IADsSecurityDescriptor_Vtbl, 0xb8c787ca_9bdd_11d0_852c_00c04fd8d503);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsSecurityDescriptor {
+impl core::ops::Deref for IADsSecurityDescriptor {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4802,7 +4802,7 @@ pub struct IADsSecurityDescriptor_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsSecurityUtility, IADsSecurityUtility_Vtbl, 0xa63251b2_5f21_474b_ab52_4a8efad10895);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsSecurityUtility {
+impl core::ops::Deref for IADsSecurityUtility {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4854,7 +4854,7 @@ pub struct IADsSecurityUtility_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsService, IADsService_Vtbl, 0x68af66e0_31ca_11cf_a98a_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsService {
+impl core::ops::Deref for IADsService {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5008,7 +5008,7 @@ pub struct IADsService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsServiceOperations, IADsServiceOperations_Vtbl, 0x5d7b33f0_31ca_11cf_a98a_00aa006bc149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsServiceOperations {
+impl core::ops::Deref for IADsServiceOperations {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5055,7 +5055,7 @@ pub struct IADsServiceOperations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsSession, IADsSession_Vtbl, 0x398b7da0_4aab_11cf_ae2c_00aa006ebfb9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsSession {
+impl core::ops::Deref for IADsSession {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5104,7 +5104,7 @@ pub struct IADsSession_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsSyntax, IADsSyntax_Vtbl, 0xc8f93dd2_4ae0_11cf_9e73_00aa004a5691);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsSyntax {
+impl core::ops::Deref for IADsSyntax {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5132,7 +5132,7 @@ pub struct IADsSyntax_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsTimestamp, IADsTimestamp_Vtbl, 0xb2f5a901_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsTimestamp {
+impl core::ops::Deref for IADsTimestamp {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5169,7 +5169,7 @@ pub struct IADsTimestamp_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsTypedName, IADsTypedName_Vtbl, 0xb371a349_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsTypedName {
+impl core::ops::Deref for IADsTypedName {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5218,7 +5218,7 @@ pub struct IADsTypedName_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsUser, IADsUser_Vtbl, 0x3e37e320_17e2_11cf_abc4_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsUser {
+impl core::ops::Deref for IADsUser {
     type Target = IADs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5762,7 +5762,7 @@ pub struct IADsUser_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADsWinNTSystemInfo, IADsWinNTSystemInfo_Vtbl, 0x6c6d65dc_afd1_11d2_9cb9_0000f87a369e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IADsWinNTSystemInfo {
+impl core::ops::Deref for IADsWinNTSystemInfo {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5799,7 +5799,7 @@ pub struct IADsWinNTSystemInfo_Vtbl {
     pub PDC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommonQuery, ICommonQuery_Vtbl, 0xab50dec0_6f1d_11d0_a1c4_00aa00c16e65);
-impl std::ops::Deref for ICommonQuery {
+impl core::ops::Deref for ICommonQuery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5824,7 +5824,7 @@ pub struct ICommonQuery_Vtbl {
     OpenQueryWindow: usize,
 }
 windows_core::imp::define_interface!(IDirectoryObject, IDirectoryObject_Vtbl, 0xe798de2c_22e4_11d0_84fe_00c04fd8d503);
-impl std::ops::Deref for IDirectoryObject {
+impl core::ops::Deref for IDirectoryObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5871,7 +5871,7 @@ pub struct IDirectoryObject_Vtbl {
     pub DeleteDSObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectorySchemaMgmt, IDirectorySchemaMgmt_Vtbl, 0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8);
-impl std::ops::Deref for IDirectorySchemaMgmt {
+impl core::ops::Deref for IDirectorySchemaMgmt {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5935,7 +5935,7 @@ pub struct IDirectorySchemaMgmt_Vtbl {
     pub DeleteClassDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectorySearch, IDirectorySearch_Vtbl, 0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8);
-impl std::ops::Deref for IDirectorySearch {
+impl core::ops::Deref for IDirectorySearch {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6015,7 +6015,7 @@ pub struct IDirectorySearch_Vtbl {
     pub CloseSearchHandle: unsafe extern "system" fn(*mut core::ffi::c_void, ADS_SEARCH_HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDsAdminCreateObj, IDsAdminCreateObj_Vtbl, 0x53554a38_f902_11d2_82b9_00c04f68928b);
-impl std::ops::Deref for IDsAdminCreateObj {
+impl core::ops::Deref for IDsAdminCreateObj {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6054,7 +6054,7 @@ pub struct IDsAdminCreateObj_Vtbl {
     CreateModal: usize,
 }
 windows_core::imp::define_interface!(IDsAdminNewObj, IDsAdminNewObj_Vtbl, 0xf2573587_e6fc_11d2_82af_00c04f68928b);
-impl std::ops::Deref for IDsAdminNewObj {
+impl core::ops::Deref for IDsAdminNewObj {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6079,7 +6079,7 @@ pub struct IDsAdminNewObj_Vtbl {
     pub GetPageCounts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDsAdminNewObjExt, IDsAdminNewObjExt_Vtbl, 0x6088eae2_e7bf_11d2_82af_00c04f68928b);
-impl std::ops::Deref for IDsAdminNewObjExt {
+impl core::ops::Deref for IDsAdminNewObjExt {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6147,7 +6147,7 @@ pub struct IDsAdminNewObjExt_Vtbl {
     pub GetSummaryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDsAdminNewObjPrimarySite, IDsAdminNewObjPrimarySite_Vtbl, 0xbe2b487e_f904_11d2_82b9_00c04f68928b);
-impl std::ops::Deref for IDsAdminNewObjPrimarySite {
+impl core::ops::Deref for IDsAdminNewObjPrimarySite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6172,7 +6172,7 @@ pub struct IDsAdminNewObjPrimarySite_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDsAdminNotifyHandler, IDsAdminNotifyHandler_Vtbl, 0xe4a2b8b3_5a18_11d2_97c1_00a0c9a06d2d);
-impl std::ops::Deref for IDsAdminNotifyHandler {
+impl core::ops::Deref for IDsAdminNotifyHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6217,7 +6217,7 @@ pub struct IDsAdminNotifyHandler_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDsBrowseDomainTree, IDsBrowseDomainTree_Vtbl, 0x7cabcf1e_78f5_11d2_960c_00c04fa31a86);
-impl std::ops::Deref for IDsBrowseDomainTree {
+impl core::ops::Deref for IDsBrowseDomainTree {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6259,7 +6259,7 @@ pub struct IDsBrowseDomainTree_Vtbl {
     pub SetComputer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDsDisplaySpecifier, IDsDisplaySpecifier_Vtbl, 0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
-impl std::ops::Deref for IDsDisplaySpecifier {
+impl core::ops::Deref for IDsDisplaySpecifier {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6356,7 +6356,7 @@ pub struct IDsDisplaySpecifier_Vtbl {
     pub GetAttributeADsType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> ADSTYPE,
 }
 windows_core::imp::define_interface!(IDsObjectPicker, IDsObjectPicker_Vtbl, 0x0c87e64e_3b7a_11d2_b9e0_00c04fd8dbf7);
-impl std::ops::Deref for IDsObjectPicker {
+impl core::ops::Deref for IDsObjectPicker {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6386,7 +6386,7 @@ pub struct IDsObjectPicker_Vtbl {
     InvokeDialog: usize,
 }
 windows_core::imp::define_interface!(IDsObjectPickerCredentials, IDsObjectPickerCredentials_Vtbl, 0xe2d3ec9b_d041_445a_8f16_4748de8fb1cf);
-impl std::ops::Deref for IDsObjectPickerCredentials {
+impl core::ops::Deref for IDsObjectPickerCredentials {
     type Target = IDsObjectPicker;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6410,7 +6410,7 @@ pub struct IDsObjectPickerCredentials_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistQuery, IPersistQuery_Vtbl, 0x1a3114b8_a62e_11d0_a6c5_00a0c906af45);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IPersistQuery {
+impl core::ops::Deref for IPersistQuery {
     type Target = super::super::System::Com::IPersist;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6480,7 +6480,7 @@ pub struct IPersistQuery_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrivateDispatch, IPrivateDispatch_Vtbl, 0x86ab4bbe_65f6_11d1_8c13_00c04fd8d503);
-impl std::ops::Deref for IPrivateDispatch {
+impl core::ops::Deref for IPrivateDispatch {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6525,7 +6525,7 @@ pub struct IPrivateDispatch_Vtbl {
     ADSIInvoke: usize,
 }
 windows_core::imp::define_interface!(IPrivateUnknown, IPrivateUnknown_Vtbl, 0x89126bab_6ead_11d1_8c18_00c04fd8d503);
-impl std::ops::Deref for IPrivateUnknown {
+impl core::ops::Deref for IPrivateUnknown {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6551,7 +6551,7 @@ pub struct IPrivateUnknown_Vtbl {
     pub ADSIReleaseObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryForm, IQueryForm_Vtbl, 0x8cfcee30_39bd_11d0_b8d1_00a024ab2dbb);
-impl std::ops::Deref for IQueryForm {
+impl core::ops::Deref for IQueryForm {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

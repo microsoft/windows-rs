@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
-impl std::ops::Deref for IIsolatedEnvironmentInterop {
+impl core::ops::Deref for IIsolatedEnvironmentInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

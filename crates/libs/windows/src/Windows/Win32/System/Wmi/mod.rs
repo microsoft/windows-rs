@@ -4,7 +4,7 @@ pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*con
     MI_Application_InitializeV1(flags, core::mem::transmute(applicationid.unwrap_or(std::ptr::null())), core::mem::transmute(extendederror.unwrap_or(std::ptr::null_mut())), application)
 }
 windows_core::imp::define_interface!(IEnumWbemClassObject, IEnumWbemClassObject_Vtbl, 0x027947e1_d731_11ce_a357_000000000001);
-impl std::ops::Deref for IEnumWbemClassObject {
+impl core::ops::Deref for IEnumWbemClassObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -42,7 +42,7 @@ pub struct IEnumWbemClassObject_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMofCompiler, IMofCompiler_Vtbl, 0x6daf974e_2e37_11d2_aec9_00c04fb68820);
-impl std::ops::Deref for IMofCompiler {
+impl core::ops::Deref for IMofCompiler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -88,7 +88,7 @@ pub struct IMofCompiler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemDateTime, ISWbemDateTime_Vtbl, 0x5e97458a_cf77_11d3_b38f_00105a1f473a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemDateTime {
+impl core::ops::Deref for ISWbemDateTime {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -330,7 +330,7 @@ pub struct ISWbemDateTime_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemEventSource, ISWbemEventSource_Vtbl, 0x27d54d92_0ebe_11d2_8b22_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemEventSource {
+impl core::ops::Deref for ISWbemEventSource {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -367,7 +367,7 @@ pub struct ISWbemEventSource_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemLastError, ISWbemLastError_Vtbl, 0xd962db84_d4bb_11d1_8b09_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemLastError {
+impl core::ops::Deref for ISWbemLastError {
     type Target = ISWbemObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -385,7 +385,7 @@ pub struct ISWbemLastError_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemLocator, ISWbemLocator_Vtbl, 0x76a6415b_cb41_11d1_8b02_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemLocator {
+impl core::ops::Deref for ISWbemLocator {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -431,7 +431,7 @@ pub struct ISWbemLocator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemMethod, ISWbemMethod_Vtbl, 0x422e8e90_d955_11d1_8b09_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemMethod {
+impl core::ops::Deref for ISWbemMethod {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -487,7 +487,7 @@ pub struct ISWbemMethod_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemMethodSet, ISWbemMethodSet_Vtbl, 0xc93ba292_d955_11d1_8b09_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemMethodSet {
+impl core::ops::Deref for ISWbemMethodSet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -528,7 +528,7 @@ pub struct ISWbemMethodSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemNamedValue, ISWbemNamedValue_Vtbl, 0x76a64164_cb41_11d1_8b02_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemNamedValue {
+impl core::ops::Deref for ISWbemNamedValue {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -561,7 +561,7 @@ pub struct ISWbemNamedValue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemNamedValueSet, ISWbemNamedValueSet_Vtbl, 0xcf2376ea_ce8c_11d1_8b05_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemNamedValueSet {
+impl core::ops::Deref for ISWbemNamedValueSet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -634,7 +634,7 @@ pub struct ISWbemNamedValueSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemObject, ISWbemObject_Vtbl, 0x76a6415a_cb41_11d1_8b02_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemObject {
+impl core::ops::Deref for ISWbemObject {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -951,7 +951,7 @@ pub struct ISWbemObject_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemObjectEx, ISWbemObjectEx_Vtbl, 0x269ad56a_8a67_4129_bc8c_0506dcfe9880);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemObjectEx {
+impl core::ops::Deref for ISWbemObjectEx {
     type Target = ISWbemObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1014,7 +1014,7 @@ pub struct ISWbemObjectEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemObjectPath, ISWbemObjectPath_Vtbl, 0x5791bc27_ce9c_11d1_97bf_0000f81e849c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemObjectPath {
+impl core::ops::Deref for ISWbemObjectPath {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1170,7 +1170,7 @@ pub struct ISWbemObjectPath_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemObjectSet, ISWbemObjectSet_Vtbl, 0x76a6415f_cb41_11d1_8b02_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemObjectSet {
+impl core::ops::Deref for ISWbemObjectSet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1229,7 +1229,7 @@ pub struct ISWbemObjectSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemPrivilege, ISWbemPrivilege_Vtbl, 0x26ee67bd_5804_11d2_8b4a_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemPrivilege {
+impl core::ops::Deref for ISWbemPrivilege {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1275,7 +1275,7 @@ pub struct ISWbemPrivilege_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemPrivilegeSet, ISWbemPrivilegeSet_Vtbl, 0x26ee67bf_5804_11d2_8b4a_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemPrivilegeSet {
+impl core::ops::Deref for ISWbemPrivilegeSet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1346,7 +1346,7 @@ pub struct ISWbemPrivilegeSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemProperty, ISWbemProperty_Vtbl, 0x1a388f98_d4ba_11d1_8b09_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemProperty {
+impl core::ops::Deref for ISWbemProperty {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1408,7 +1408,7 @@ pub struct ISWbemProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemPropertySet, ISWbemPropertySet_Vtbl, 0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemPropertySet {
+impl core::ops::Deref for ISWbemPropertySet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1469,7 +1469,7 @@ pub struct ISWbemPropertySet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemQualifier, ISWbemQualifier_Vtbl, 0x79b05932_d3b7_11d1_8b06_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemQualifier {
+impl core::ops::Deref for ISWbemQualifier {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1548,7 +1548,7 @@ pub struct ISWbemQualifier_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemQualifierSet, ISWbemQualifierSet_Vtbl, 0x9b16ed16_d3df_11d1_8b08_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemQualifierSet {
+impl core::ops::Deref for ISWbemQualifierSet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1611,7 +1611,7 @@ pub struct ISWbemQualifierSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemRefreshableItem, ISWbemRefreshableItem_Vtbl, 0x5ad4bf92_daab_11d3_b38f_00105a1f473a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemRefreshableItem {
+impl core::ops::Deref for ISWbemRefreshableItem {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1671,7 +1671,7 @@ pub struct ISWbemRefreshableItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemRefresher, ISWbemRefresher_Vtbl, 0x14d8250e_d9c2_11d3_b38f_00105a1f473a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemRefresher {
+impl core::ops::Deref for ISWbemRefresher {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1761,7 +1761,7 @@ pub struct ISWbemRefresher_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemSecurity, ISWbemSecurity_Vtbl, 0xb54d66e6_2287_11d2_8b33_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemSecurity {
+impl core::ops::Deref for ISWbemSecurity {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1807,7 +1807,7 @@ pub struct ISWbemSecurity_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemServices, ISWbemServices_Vtbl, 0x76a6415c_cb41_11d1_8b02_00600806d9b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemServices {
+impl core::ops::Deref for ISWbemServices {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2111,7 +2111,7 @@ pub struct ISWbemServices_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemServicesEx, ISWbemServicesEx_Vtbl, 0xd2f68443_85dc_427e_91d8_366554cc754c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemServicesEx {
+impl core::ops::Deref for ISWbemServicesEx {
     type Target = ISWbemServices;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2157,7 +2157,7 @@ pub struct ISWbemServicesEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemSink, ISWbemSink_Vtbl, 0x75718c9f_f029_11d1_a1ac_00c04fb6c223);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemSink {
+impl core::ops::Deref for ISWbemSink {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2180,7 +2180,7 @@ pub struct ISWbemSink_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISWbemSinkEvents, ISWbemSinkEvents_Vtbl, 0x75718ca0_f029_11d1_a1ac_00c04fb6c223);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISWbemSinkEvents {
+impl core::ops::Deref for ISWbemSinkEvents {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2196,7 +2196,7 @@ pub struct ISWbemSinkEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 windows_core::imp::define_interface!(IUnsecuredApartment, IUnsecuredApartment_Vtbl, 0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff);
-impl std::ops::Deref for IUnsecuredApartment {
+impl core::ops::Deref for IUnsecuredApartment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2220,7 +2220,7 @@ pub struct IUnsecuredApartment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMIExtension, IWMIExtension_Vtbl, 0xadc1f06e_5c7e_11d2_8b74_00104b2afb41);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWMIExtension {
+impl core::ops::Deref for IWMIExtension {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2260,7 +2260,7 @@ pub struct IWMIExtension_Vtbl {
     GetWMIServices: usize,
 }
 windows_core::imp::define_interface!(IWbemAddressResolution, IWbemAddressResolution_Vtbl, 0xf7ce2e12_8c90_11d1_9e7b_00c04fc324a8);
-impl std::ops::Deref for IWbemAddressResolution {
+impl core::ops::Deref for IWbemAddressResolution {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2281,7 +2281,7 @@ pub struct IWbemAddressResolution_Vtbl {
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PWSTR, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemBackupRestore, IWbemBackupRestore_Vtbl, 0xc49e32c7_bc8b_11d2_85d4_00105a1f8304);
-impl std::ops::Deref for IWbemBackupRestore {
+impl core::ops::Deref for IWbemBackupRestore {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2309,7 +2309,7 @@ pub struct IWbemBackupRestore_Vtbl {
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemBackupRestoreEx, IWbemBackupRestoreEx_Vtbl, 0xa359dec5_e813_4834_8a2a_ba7f1d777d76);
-impl std::ops::Deref for IWbemBackupRestoreEx {
+impl core::ops::Deref for IWbemBackupRestoreEx {
     type Target = IWbemBackupRestore;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2331,7 +2331,7 @@ pub struct IWbemBackupRestoreEx_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemCallResult, IWbemCallResult_Vtbl, 0x44aca675_e8fc_11d0_a07c_00c04fb68820);
-impl std::ops::Deref for IWbemCallResult {
+impl core::ops::Deref for IWbemCallResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2365,7 +2365,7 @@ pub struct IWbemCallResult_Vtbl {
     pub GetCallStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemClassObject, IWbemClassObject_Vtbl, 0xdc12a681_737f_11cf_884d_00aa004b2e24);
-impl std::ops::Deref for IWbemClassObject {
+impl core::ops::Deref for IWbemClassObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2530,7 +2530,7 @@ pub struct IWbemClassObject_Vtbl {
     pub GetMethodOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemClientConnectionTransport, IWbemClientConnectionTransport_Vtbl, 0xa889c72a_fcc1_4a9e_af61_ed071333fb5b);
-impl std::ops::Deref for IWbemClientConnectionTransport {
+impl core::ops::Deref for IWbemClientConnectionTransport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2548,7 +2548,7 @@ impl IWbemClientConnectionTransport {
         P5: windows_core::Param<IWbemContext>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), straddresstype.param().abi(), abbinaryaddress.len().try_into().unwrap(), core::mem::transmute(abbinaryaddress.as_ptr()), strobject.param().abi(), struser.param().abi(), strpassword.param().abi(), strlocale.param().abi(), lflags, pctx.param().abi(), &T::IID, &mut result__, core::mem::transmute(pcallres)).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OpenAsync<P0, P1, P2, P3, P4, P5, P6>(&self, straddresstype: P0, abbinaryaddress: &[u8], strobject: P1, struser: P2, strpassword: P3, strlocale: P4, lflags: i32, pctx: P5, riid: *const windows_core::GUID, presponsehandler: P6) -> windows_core::Result<()>
@@ -2578,7 +2578,7 @@ pub struct IWbemClientConnectionTransport_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemClientTransport, IWbemClientTransport_Vtbl, 0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8);
-impl std::ops::Deref for IWbemClientTransport {
+impl core::ops::Deref for IWbemClientTransport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2606,7 +2606,7 @@ pub struct IWbemClientTransport_Vtbl {
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32, *const u8, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemConfigureRefresher, IWbemConfigureRefresher_Vtbl, 0x49353c92_516b_11d1_aea6_00c04fb68820);
-impl std::ops::Deref for IWbemConfigureRefresher {
+impl core::ops::Deref for IWbemConfigureRefresher {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2658,7 +2658,7 @@ pub struct IWbemConfigureRefresher_Vtbl {
     pub AddEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemConnectorLogin, IWbemConnectorLogin_Vtbl, 0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186);
-impl std::ops::Deref for IWbemConnectorLogin {
+impl core::ops::Deref for IWbemConnectorLogin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2673,7 +2673,7 @@ impl IWbemConnectorLogin {
         P2: windows_core::Param<IWbemContext>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).ConnectorLogin)(windows_core::Interface::as_raw(self), wsznetworkresource.param().abi(), wszpreferredlocale.param().abi(), lflags, pctx.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2683,7 +2683,7 @@ pub struct IWbemConnectorLogin_Vtbl {
     pub ConnectorLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemConstructClassObject, IWbemConstructClassObject_Vtbl, 0x9ef76194_70d5_11d1_ad90_00c04fd8fdff);
-impl std::ops::Deref for IWbemConstructClassObject {
+impl core::ops::Deref for IWbemConstructClassObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2723,7 +2723,7 @@ pub struct IWbemConstructClassObject_Vtbl {
     pub SetServerNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemContext, IWbemContext_Vtbl, 0x44aca674_e8fc_11d0_a07c_00c04fb68820);
-impl std::ops::Deref for IWbemContext {
+impl core::ops::Deref for IWbemContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2789,7 +2789,7 @@ pub struct IWbemContext_Vtbl {
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemDecoupledBasicEventProvider, IWbemDecoupledBasicEventProvider_Vtbl, 0x86336d20_ca11_4786_9ef1_bc8a946b42fc);
-impl std::ops::Deref for IWbemDecoupledBasicEventProvider {
+impl core::ops::Deref for IWbemDecoupledBasicEventProvider {
     type Target = IWbemDecoupledRegistrar;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2819,7 +2819,7 @@ pub struct IWbemDecoupledBasicEventProvider_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemDecoupledRegistrar, IWbemDecoupledRegistrar_Vtbl, 0x1005cbcf_e64f_4646_bcd3_3a089d8a84b4);
-impl std::ops::Deref for IWbemDecoupledRegistrar {
+impl core::ops::Deref for IWbemDecoupledRegistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2849,7 +2849,7 @@ pub struct IWbemDecoupledRegistrar_Vtbl {
     pub UnRegister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemEventConsumerProvider, IWbemEventConsumerProvider_Vtbl, 0xe246107a_b06e_11d0_ad61_00c04fd8fdff);
-impl std::ops::Deref for IWbemEventConsumerProvider {
+impl core::ops::Deref for IWbemEventConsumerProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2871,7 +2871,7 @@ pub struct IWbemEventConsumerProvider_Vtbl {
     pub FindConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemEventProvider, IWbemEventProvider_Vtbl, 0xe245105b_b06e_11d0_ad61_00c04fd8fdff);
-impl std::ops::Deref for IWbemEventProvider {
+impl core::ops::Deref for IWbemEventProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2892,7 +2892,7 @@ pub struct IWbemEventProvider_Vtbl {
     pub ProvideEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemEventProviderQuerySink, IWbemEventProviderQuerySink_Vtbl, 0x580acaf8_fa1c_11d0_ad72_00c04fd8fdff);
-impl std::ops::Deref for IWbemEventProviderQuerySink {
+impl core::ops::Deref for IWbemEventProviderQuerySink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2914,7 +2914,7 @@ pub struct IWbemEventProviderQuerySink_Vtbl {
     pub CancelQuery: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemEventProviderSecurity, IWbemEventProviderSecurity_Vtbl, 0x631f7d96_d993_11d2_b339_00105a1f4aaf);
-impl std::ops::Deref for IWbemEventProviderSecurity {
+impl core::ops::Deref for IWbemEventProviderSecurity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2932,7 +2932,7 @@ pub struct IWbemEventProviderSecurity_Vtbl {
     pub AccessCheck: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16, i32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemEventSink, IWbemEventSink_Vtbl, 0x3ae0080a_7e3a_4366_bf89_0feedc931659);
-impl std::ops::Deref for IWbemEventSink {
+impl core::ops::Deref for IWbemEventSink {
     type Target = IWbemObjectSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2966,7 +2966,7 @@ pub struct IWbemEventSink_Vtbl {
     pub SetBatchingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemHiPerfEnum, IWbemHiPerfEnum_Vtbl, 0x2705c288_79ae_11d2_b348_00105a1f8177);
-impl std::ops::Deref for IWbemHiPerfEnum {
+impl core::ops::Deref for IWbemHiPerfEnum {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2996,7 +2996,7 @@ pub struct IWbemHiPerfEnum_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemHiPerfProvider, IWbemHiPerfProvider_Vtbl, 0x49353c93_516b_11d1_aea6_00c04fb68820);
-impl std::ops::Deref for IWbemHiPerfProvider {
+impl core::ops::Deref for IWbemHiPerfProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3065,7 +3065,7 @@ pub struct IWbemHiPerfProvider_Vtbl {
     pub GetObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemLevel1Login, IWbemLevel1Login_Vtbl, 0xf309ad18_d86a_11d0_a075_00c04fb68820);
-impl std::ops::Deref for IWbemLevel1Login {
+impl core::ops::Deref for IWbemLevel1Login {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3115,7 +3115,7 @@ pub struct IWbemLevel1Login_Vtbl {
     pub NTLMLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemLocator, IWbemLocator_Vtbl, 0xdc12a687_737f_11cf_884d_00aa004b2e24);
-impl std::ops::Deref for IWbemLocator {
+impl core::ops::Deref for IWbemLocator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3142,7 +3142,7 @@ pub struct IWbemLocator_Vtbl {
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemObjectAccess, IWbemObjectAccess_Vtbl, 0x49353c9a_516b_11d1_aea6_00c04fb68820);
-impl std::ops::Deref for IWbemObjectAccess {
+impl core::ops::Deref for IWbemObjectAccess {
     type Target = IWbemClassObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3201,7 +3201,7 @@ pub struct IWbemObjectAccess_Vtbl {
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemObjectSink, IWbemObjectSink_Vtbl, 0x7c857801_7381_11cf_884d_00aa004b2e24);
-impl std::ops::Deref for IWbemObjectSink {
+impl core::ops::Deref for IWbemObjectSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3227,7 +3227,7 @@ pub struct IWbemObjectSink_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::HRESULT, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemObjectSinkEx, IWbemObjectSinkEx_Vtbl, 0xe7d35cfa_348b_485e_b524_252725d697ca);
-impl std::ops::Deref for IWbemObjectSinkEx {
+impl core::ops::Deref for IWbemObjectSinkEx {
     type Target = IWbemObjectSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3280,7 +3280,7 @@ pub struct IWbemObjectSinkEx_Vtbl {
     pub WriteStreamParameter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemObjectTextSrc, IWbemObjectTextSrc_Vtbl, 0xbfbf883a_cad7_11d3_a11b_00105a1f515a);
-impl std::ops::Deref for IWbemObjectTextSrc {
+impl core::ops::Deref for IWbemObjectTextSrc {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3312,7 +3312,7 @@ pub struct IWbemObjectTextSrc_Vtbl {
     pub CreateFromText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemPath, IWbemPath_Vtbl, 0x3bc15af2_736c_477e_9e51_238af8667dcc);
-impl std::ops::Deref for IWbemPath {
+impl core::ops::Deref for IWbemPath {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3469,7 +3469,7 @@ pub struct IWbemPath_Vtbl {
     pub IsSameClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IWbemPathKeyList, IWbemPathKeyList_Vtbl, 0x9ae62877_7544_4bb0_aa26_a13824659ed6);
-impl std::ops::Deref for IWbemPathKeyList {
+impl core::ops::Deref for IWbemPathKeyList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3534,7 +3534,7 @@ pub struct IWbemPathKeyList_Vtbl {
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemPropertyProvider, IWbemPropertyProvider_Vtbl, 0xce61e841_65bc_11d0_b6bd_00aa003240c7);
-impl std::ops::Deref for IWbemPropertyProvider {
+impl core::ops::Deref for IWbemPropertyProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3569,7 +3569,7 @@ pub struct IWbemPropertyProvider_Vtbl {
     pub PutProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemProviderIdentity, IWbemProviderIdentity_Vtbl, 0x631f7d97_d993_11d2_b339_00105a1f4aaf);
-impl std::ops::Deref for IWbemProviderIdentity {
+impl core::ops::Deref for IWbemProviderIdentity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3590,7 +3590,7 @@ pub struct IWbemProviderIdentity_Vtbl {
     pub SetRegistrationObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemProviderInit, IWbemProviderInit_Vtbl, 0x1be41572_91dd_11d1_aeb2_00c04fb68820);
-impl std::ops::Deref for IWbemProviderInit {
+impl core::ops::Deref for IWbemProviderInit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3616,7 +3616,7 @@ pub struct IWbemProviderInit_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemProviderInitSink, IWbemProviderInitSink_Vtbl, 0x1be41571_91dd_11d1_aeb2_00c04fb68820);
-impl std::ops::Deref for IWbemProviderInitSink {
+impl core::ops::Deref for IWbemProviderInitSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3634,7 +3634,7 @@ pub struct IWbemProviderInitSink_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemQualifierSet, IWbemQualifierSet_Vtbl, 0xdc12a680_737f_11cf_884d_00aa004b2e24);
-impl std::ops::Deref for IWbemQualifierSet {
+impl core::ops::Deref for IWbemQualifierSet {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3690,7 +3690,7 @@ pub struct IWbemQualifierSet_Vtbl {
     pub EndEnumeration: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemQuery, IWbemQuery_Vtbl, 0x81166f58_dd98_11d3_a120_00105a1f515a);
-impl std::ops::Deref for IWbemQuery {
+impl core::ops::Deref for IWbemQuery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3736,7 +3736,7 @@ pub struct IWbemQuery_Vtbl {
     pub GetQueryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemRefresher, IWbemRefresher_Vtbl, 0x49353c99_516b_11d1_aea6_00c04fb68820);
-impl std::ops::Deref for IWbemRefresher {
+impl core::ops::Deref for IWbemRefresher {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3754,7 +3754,7 @@ pub struct IWbemRefresher_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemServices, IWbemServices_Vtbl, 0x9556dc99_828c_11cf_a37e_00aa003240c7);
-impl std::ops::Deref for IWbemServices {
+impl core::ops::Deref for IWbemServices {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3970,7 +3970,7 @@ pub struct IWbemServices_Vtbl {
     pub ExecMethodAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, WBEM_GENERIC_FLAG_TYPE, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemShutdown, IWbemShutdown_Vtbl, 0xb7b31df9_d515_11d3_a11c_00105a1f515a);
-impl std::ops::Deref for IWbemShutdown {
+impl core::ops::Deref for IWbemShutdown {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3991,7 +3991,7 @@ pub struct IWbemShutdown_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemStatusCodeText, IWbemStatusCodeText_Vtbl, 0xeb87e1bc_3233_11d2_aec9_00c04fb68820);
-impl std::ops::Deref for IWbemStatusCodeText {
+impl core::ops::Deref for IWbemStatusCodeText {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4015,7 +4015,7 @@ pub struct IWbemStatusCodeText_Vtbl {
     pub GetFacilityCodeText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemTransport, IWbemTransport_Vtbl, 0x553fe584_2156_11d0_b6ae_00aa003240c7);
-impl std::ops::Deref for IWbemTransport {
+impl core::ops::Deref for IWbemTransport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4033,7 +4033,7 @@ pub struct IWbemTransport_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemUnboundObjectSink, IWbemUnboundObjectSink_Vtbl, 0xe246107b_b06e_11d0_ad61_00c04fd8fdff);
-impl std::ops::Deref for IWbemUnboundObjectSink {
+impl core::ops::Deref for IWbemUnboundObjectSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4054,7 +4054,7 @@ pub struct IWbemUnboundObjectSink_Vtbl {
     pub IndicateToConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWbemUnsecuredApartment, IWbemUnsecuredApartment_Vtbl, 0x31739d04_3471_4cf4_9a7c_57a44ae71956);
-impl std::ops::Deref for IWbemUnsecuredApartment {
+impl core::ops::Deref for IWbemUnsecuredApartment {
     type Target = IUnsecuredApartment;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

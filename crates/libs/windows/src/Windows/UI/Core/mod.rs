@@ -68,7 +68,7 @@ pub struct IClosestInteractiveBoundsRequestedEventArgs_Vtbl {
     pub SetClosestInteractiveBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreAcceleratorKeys, ICoreAcceleratorKeys_Vtbl, 0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
-impl std::ops::Deref for ICoreAcceleratorKeys {
+impl core::ops::Deref for ICoreAcceleratorKeys {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -209,7 +209,7 @@ pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
     CreateForIVisualElement: usize,
 }
 windows_core::imp::define_interface!(ICoreInputSourceBase, ICoreInputSourceBase_Vtbl, 0x9f488807_4580_4be8_be68_92a9311713bb);
-impl std::ops::Deref for ICoreInputSourceBase {
+impl core::ops::Deref for ICoreInputSourceBase {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -290,7 +290,7 @@ pub struct ICoreKeyboardInputSource2_Vtbl {
     pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorePointerInputSource, ICorePointerInputSource_Vtbl, 0xbbf1bb18_e47a_48eb_8807_f8f8d3ea4551);
-impl std::ops::Deref for ICorePointerInputSource {
+impl core::ops::Deref for ICorePointerInputSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -461,7 +461,7 @@ pub struct ICorePointerInputSource_Vtbl {
     pub RemovePointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorePointerInputSource2, ICorePointerInputSource2_Vtbl, 0xd703708a_4516_4786_b1e5_2751d563f997);
-impl std::ops::Deref for ICorePointerInputSource2 {
+impl core::ops::Deref for ICorePointerInputSource2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -625,7 +625,7 @@ pub struct ICorePointerInputSource2_Vtbl {
     DispatcherQueue: usize,
 }
 windows_core::imp::define_interface!(ICorePointerRedirector, ICorePointerRedirector_Vtbl, 0x8f9d0c94_5688_4b0c_a9f1_f931f7fa3dc3);
-impl std::ops::Deref for ICorePointerRedirector {
+impl core::ops::Deref for ICorePointerRedirector {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -700,7 +700,7 @@ pub struct ICoreTouchHitTesting_Vtbl {
     pub RemoveTouchHitTesting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindow, ICoreWindow_Vtbl, 0x79b9d5f2_879e_4b89_b798_79e47598030c);
-impl std::ops::Deref for ICoreWindow {
+impl core::ops::Deref for ICoreWindow {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1217,7 +1217,7 @@ pub struct ICoreWindowDialogFactory_Vtbl {
     pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindowEventArgs, ICoreWindowEventArgs_Vtbl, 0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
-impl std::ops::Deref for ICoreWindowEventArgs {
+impl core::ops::Deref for ICoreWindowEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1355,7 +1355,7 @@ pub struct IIdleDispatchedHandlerArgs_Vtbl {
     pub IsDispatcherIdle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInitializeWithCoreWindow, IInitializeWithCoreWindow_Vtbl, 0x188f20d6_9873_464a_ace5_57e010f465e6);
-impl std::ops::Deref for IInitializeWithCoreWindow {
+impl core::ops::Deref for IInitializeWithCoreWindow {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

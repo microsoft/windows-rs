@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IEnumNetworkConnections, IEnumNetworkConnections_Vtbl, 0xdcb00006_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IEnumNetworkConnections {
+impl core::ops::Deref for IEnumNetworkConnections {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -54,7 +54,7 @@ pub struct IEnumNetworkConnections_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IEnumNetworks, IEnumNetworks_Vtbl, 0xdcb00003_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IEnumNetworks {
+impl core::ops::Deref for IEnumNetworks {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -107,7 +107,7 @@ pub struct IEnumNetworks_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetwork, INetwork_Vtbl, 0xdcb00002_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetwork {
+impl core::ops::Deref for INetwork {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -197,7 +197,7 @@ pub struct INetwork_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetwork2, INetwork2_Vtbl, 0xb5550abb_3391_4310_804f_25dcc325ed81);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetwork2 {
+impl core::ops::Deref for INetwork2 {
     type Target = INetwork;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -221,7 +221,7 @@ pub struct INetwork2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetworkConnection, INetworkConnection_Vtbl, 0xdcb00005_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetworkConnection {
+impl core::ops::Deref for INetworkConnection {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -279,7 +279,7 @@ pub struct INetworkConnection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetworkConnection2, INetworkConnection2_Vtbl, 0x00e676ed_5a35_4738_92eb_8581738d0f0a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetworkConnection2 {
+impl core::ops::Deref for INetworkConnection2 {
     type Target = INetworkConnection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -301,7 +301,7 @@ pub struct INetworkConnection2_Vtbl {
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkConnectionCost {
+impl core::ops::Deref for INetworkConnectionCost {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -324,7 +324,7 @@ pub struct INetworkConnectionCost_Vtbl {
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkConnectionCostEvents {
+impl core::ops::Deref for INetworkConnectionCostEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -346,7 +346,7 @@ pub struct INetworkConnectionCostEvents_Vtbl {
     pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkConnectionEvents, INetworkConnectionEvents_Vtbl, 0xdcb00007_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkConnectionEvents {
+impl core::ops::Deref for INetworkConnectionEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -368,7 +368,7 @@ pub struct INetworkConnectionEvents_Vtbl {
     pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkCostManager, INetworkCostManager_Vtbl, 0xdcb00008_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkCostManager {
+impl core::ops::Deref for INetworkCostManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -397,7 +397,7 @@ pub struct INetworkCostManager_Vtbl {
     pub SetDestinationAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkCostManagerEvents, INetworkCostManagerEvents_Vtbl, 0xdcb00009_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkCostManagerEvents {
+impl core::ops::Deref for INetworkCostManagerEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -419,7 +419,7 @@ pub struct INetworkCostManagerEvents_Vtbl {
     pub DataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SOCKADDR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb00004_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkEvents {
+impl core::ops::Deref for INetworkEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -451,7 +451,7 @@ pub struct INetworkEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetworkListManager, INetworkListManager_Vtbl, 0xdcb00000_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for INetworkListManager {
+impl core::ops::Deref for INetworkListManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -527,7 +527,7 @@ pub struct INetworkListManager_Vtbl {
     pub ClearSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
-impl std::ops::Deref for INetworkListManagerEvents {
+impl core::ops::Deref for INetworkListManagerEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

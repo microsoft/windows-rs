@@ -703,7 +703,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplication, IAzApplication_Vtbl, 0x987bc7c7_b813_4d27_bede_6ba5ae867e95);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplication {
+impl core::ops::Deref for IAzApplication {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1230,7 +1230,7 @@ pub struct IAzApplication_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplication2, IAzApplication2_Vtbl, 0x086a68af_a249_437c_b18d_d4d86d6a9660);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplication2 {
+impl core::ops::Deref for IAzApplication2 {
     type Target = IAzApplication;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1274,7 +1274,7 @@ pub struct IAzApplication2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplication3, IAzApplication3_Vtbl, 0x181c845e_7196_4a7d_ac2e_020c0bb7a303);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplication3 {
+impl core::ops::Deref for IAzApplication3 {
     type Target = IAzApplication2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1424,7 +1424,7 @@ pub struct IAzApplication3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplicationGroup, IAzApplicationGroup_Vtbl, 0xf1b744cd_58a6_4e06_9fbf_36f6d779e21e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplicationGroup {
+impl core::ops::Deref for IAzApplicationGroup {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1658,7 +1658,7 @@ pub struct IAzApplicationGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplicationGroup2, IAzApplicationGroup2_Vtbl, 0x3f0613fc_b71a_464e_a11d_5b881a56cefa);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplicationGroup2 {
+impl core::ops::Deref for IAzApplicationGroup2 {
     type Target = IAzApplicationGroup;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1726,7 +1726,7 @@ pub struct IAzApplicationGroup2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplicationGroups, IAzApplicationGroups_Vtbl, 0x4ce66ad5_9f3c_469d_a911_b99887a7e685);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplicationGroups {
+impl core::ops::Deref for IAzApplicationGroups {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1760,7 +1760,7 @@ pub struct IAzApplicationGroups_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplications, IAzApplications_Vtbl, 0x929b11a9_95c5_4a84_a29a_20ad42c2f16c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzApplications {
+impl core::ops::Deref for IAzApplications {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1794,7 +1794,7 @@ pub struct IAzApplications_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzAuthorizationStore, IAzAuthorizationStore_Vtbl, 0xedbd9ca9_9b82_4f6a_9e8b_98301e450f14);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzAuthorizationStore {
+impl core::ops::Deref for IAzAuthorizationStore {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2178,7 +2178,7 @@ pub struct IAzAuthorizationStore_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzAuthorizationStore2, IAzAuthorizationStore2_Vtbl, 0xb11e5584_d577_4273_b6c5_0973e0f8e80d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzAuthorizationStore2 {
+impl core::ops::Deref for IAzAuthorizationStore2 {
     type Target = IAzAuthorizationStore;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2223,7 +2223,7 @@ pub struct IAzAuthorizationStore2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzAuthorizationStore3, IAzAuthorizationStore3_Vtbl, 0xabc08425_0c86_4fa0_9be3_7189956c926e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzAuthorizationStore3 {
+impl core::ops::Deref for IAzAuthorizationStore3 {
     type Target = IAzAuthorizationStore2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2265,7 +2265,7 @@ pub struct IAzAuthorizationStore3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzBizRuleContext, IAzBizRuleContext_Vtbl, 0xe192f17d_d59f_455e_a152_940316cd77b2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzBizRuleContext {
+impl core::ops::Deref for IAzBizRuleContext {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2311,7 +2311,7 @@ pub struct IAzBizRuleContext_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzBizRuleInterfaces, IAzBizRuleInterfaces_Vtbl, 0xe94128c7_e9da_44cc_b0bd_53036f3aab3d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzBizRuleInterfaces {
+impl core::ops::Deref for IAzBizRuleInterfaces {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2370,7 +2370,7 @@ pub struct IAzBizRuleInterfaces_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzBizRuleParameters, IAzBizRuleParameters_Vtbl, 0xfc17685f_e25d_4dcd_bae1_276ec9533cb5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzBizRuleParameters {
+impl core::ops::Deref for IAzBizRuleParameters {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2429,7 +2429,7 @@ pub struct IAzBizRuleParameters_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzClientContext, IAzClientContext_Vtbl, 0xeff1f00b_488a_466d_afd9_a401c5f9eef5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzClientContext {
+impl core::ops::Deref for IAzClientContext {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2531,7 +2531,7 @@ pub struct IAzClientContext_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzClientContext2, IAzClientContext2_Vtbl, 0x2b0c92b8_208a_488a_8f81_e4edb22111cd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzClientContext2 {
+impl core::ops::Deref for IAzClientContext2 {
     type Target = IAzClientContext;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2588,7 +2588,7 @@ pub struct IAzClientContext2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzClientContext3, IAzClientContext3_Vtbl, 0x11894fde_1deb_4b4b_8907_6d1cda1f5d4f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzClientContext3 {
+impl core::ops::Deref for IAzClientContext3 {
     type Target = IAzClientContext2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2680,7 +2680,7 @@ pub struct IAzClientContext3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzNameResolver, IAzNameResolver_Vtbl, 0x504d0f15_73e2_43df_a870_a64f40714f53);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzNameResolver {
+impl core::ops::Deref for IAzNameResolver {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2713,7 +2713,7 @@ pub struct IAzNameResolver_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzObjectPicker, IAzObjectPicker_Vtbl, 0x63130a48_699a_42d8_bf01_c62ac3fb79f9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzObjectPicker {
+impl core::ops::Deref for IAzObjectPicker {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2745,7 +2745,7 @@ pub struct IAzObjectPicker_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzOperation, IAzOperation_Vtbl, 0x5e56b24f_ea01_4d61_be44_c49b5e4eaf74);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzOperation {
+impl core::ops::Deref for IAzOperation {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2837,7 +2837,7 @@ pub struct IAzOperation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzOperation2, IAzOperation2_Vtbl, 0x1f5ea01f_44a2_4184_9c48_a75b4dcc8ccc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzOperation2 {
+impl core::ops::Deref for IAzOperation2 {
     type Target = IAzOperation;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2869,7 +2869,7 @@ pub struct IAzOperation2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzOperations, IAzOperations_Vtbl, 0x90ef9c07_9706_49d9_af80_0438a5f3ec35);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzOperations {
+impl core::ops::Deref for IAzOperations {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2903,7 +2903,7 @@ pub struct IAzOperations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzPrincipalLocator, IAzPrincipalLocator_Vtbl, 0xe5c3507d_ad6a_4992_9c7f_74ab480b44cc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzPrincipalLocator {
+impl core::ops::Deref for IAzPrincipalLocator {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2940,7 +2940,7 @@ pub struct IAzPrincipalLocator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzRole, IAzRole_Vtbl, 0x859e0d8d_62d7_41d8_a034_c0cd5d43fdfa);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzRole {
+impl core::ops::Deref for IAzRole {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3144,7 +3144,7 @@ pub struct IAzRole_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzRoleAssignment, IAzRoleAssignment_Vtbl, 0x55647d31_0d5a_4fa3_b4ac_2b5f9ad5ab76);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzRoleAssignment {
+impl core::ops::Deref for IAzRoleAssignment {
     type Target = IAzRole;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3195,7 +3195,7 @@ pub struct IAzRoleAssignment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzRoleAssignments, IAzRoleAssignments_Vtbl, 0x9c80b900_fceb_4d73_a0f4_c83b0bbf2481);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzRoleAssignments {
+impl core::ops::Deref for IAzRoleAssignments {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3229,7 +3229,7 @@ pub struct IAzRoleAssignments_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzRoleDefinition, IAzRoleDefinition_Vtbl, 0xd97fcea1_2599_44f1_9fc3_58e9fbe09466);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzRoleDefinition {
+impl core::ops::Deref for IAzRoleDefinition {
     type Target = IAzTask;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3284,7 +3284,7 @@ pub struct IAzRoleDefinition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzRoleDefinitions, IAzRoleDefinitions_Vtbl, 0x881f25a5_d755_4550_957a_d503a3b34001);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzRoleDefinitions {
+impl core::ops::Deref for IAzRoleDefinitions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3318,7 +3318,7 @@ pub struct IAzRoleDefinitions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzRoles, IAzRoles_Vtbl, 0x95e0f119_13b4_4dae_b65f_2f7d60d822e4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzRoles {
+impl core::ops::Deref for IAzRoles {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3352,7 +3352,7 @@ pub struct IAzRoles_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzScope, IAzScope_Vtbl, 0x00e52487_e08d_4514_b62e_877d5645f5ab);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzScope {
+impl core::ops::Deref for IAzScope {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3674,7 +3674,7 @@ pub struct IAzScope_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzScope2, IAzScope2_Vtbl, 0xee9fe8c9_c9f3_40e2_aa12_d1d8599727fd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzScope2 {
+impl core::ops::Deref for IAzScope2 {
     type Target = IAzScope;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3773,7 +3773,7 @@ pub struct IAzScope2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzScopes, IAzScopes_Vtbl, 0x78e14853_9f5e_406d_9b91_6bdba6973510);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzScopes {
+impl core::ops::Deref for IAzScopes {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3807,7 +3807,7 @@ pub struct IAzScopes_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzTask, IAzTask_Vtbl, 0xcb94e592_2e0e_4a6c_a336_b89a6dc1e388);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzTask {
+impl core::ops::Deref for IAzTask {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3996,7 +3996,7 @@ pub struct IAzTask_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzTask2, IAzTask2_Vtbl, 0x03a9a5ee_48c8_4832_9025_aad503c46526);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzTask2 {
+impl core::ops::Deref for IAzTask2 {
     type Target = IAzTask;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4028,7 +4028,7 @@ pub struct IAzTask2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzTasks, IAzTasks_Vtbl, 0xb338ccab_4c85_4388_8c0a_c58592bad398);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAzTasks {
+impl core::ops::Deref for IAzTasks {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

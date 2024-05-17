@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IOplockBreakingHandler, IOplockBreakingHandler_Vtbl, 0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
-impl std::ops::Deref for IOplockBreakingHandler {
+impl core::ops::Deref for IOplockBreakingHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -17,7 +17,7 @@ pub struct IOplockBreakingHandler_Vtbl {
     pub OplockBreaking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomAccessStreamFileAccessMode_Vtbl, 0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
-impl std::ops::Deref for IRandomAccessStreamFileAccessMode {
+impl core::ops::Deref for IRandomAccessStreamFileAccessMode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -36,7 +36,7 @@ pub struct IRandomAccessStreamFileAccessMode_Vtbl {
     pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xdf19938f_5462_48a0_be65_d2a3271a08d6);
-impl std::ops::Deref for IStorageFolderHandleAccess {
+impl core::ops::Deref for IStorageFolderHandleAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -59,7 +59,7 @@ pub struct IStorageFolderHandleAccess_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, HANDLE_CREATION_OPTIONS, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemHandleAccess, IStorageItemHandleAccess_Vtbl, 0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
-impl std::ops::Deref for IStorageItemHandleAccess {
+impl core::ops::Deref for IStorageItemHandleAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -81,7 +81,7 @@ pub struct IStorageItemHandleAccess_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUnbufferedFileHandleOplockCallback, IUnbufferedFileHandleOplockCallback_Vtbl, 0xd1019a0e_6243_4329_8497_2e75894d7710);
-impl std::ops::Deref for IUnbufferedFileHandleOplockCallback {
+impl core::ops::Deref for IUnbufferedFileHandleOplockCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -99,7 +99,7 @@ pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
     pub OnBrokenCallback: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUnbufferedFileHandleProvider, IUnbufferedFileHandleProvider_Vtbl, 0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
-impl std::ops::Deref for IUnbufferedFileHandleProvider {
+impl core::ops::Deref for IUnbufferedFileHandleProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

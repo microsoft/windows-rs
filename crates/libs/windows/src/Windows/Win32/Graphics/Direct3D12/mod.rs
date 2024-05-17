@@ -52,7 +52,7 @@ pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_
     D3D12SerializeVersionedRootSignature(prootsignature, core::mem::transmute(ppblob), core::mem::transmute(pperrorblob.unwrap_or(std::ptr::null_mut()))).ok()
 }
 windows_core::imp::define_interface!(ID3D12CommandAllocator, ID3D12CommandAllocator_Vtbl, 0x6102dee4_af59_4b09_b999_b44d73f09b24);
-impl std::ops::Deref for ID3D12CommandAllocator {
+impl core::ops::Deref for ID3D12CommandAllocator {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -72,7 +72,7 @@ pub struct ID3D12CommandAllocator_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12CommandList, ID3D12CommandList_Vtbl, 0x7116d91c_e7e4_47ce_b8c6_ec8168f437e5);
-impl std::ops::Deref for ID3D12CommandList {
+impl core::ops::Deref for ID3D12CommandList {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -92,7 +92,7 @@ pub struct ID3D12CommandList_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_COMMAND_LIST_TYPE,
 }
 windows_core::imp::define_interface!(ID3D12CommandQueue, ID3D12CommandQueue_Vtbl, 0x0ec870a6_5d7e_4c22_8cfc_5baae07616ed);
-impl std::ops::Deref for ID3D12CommandQueue {
+impl core::ops::Deref for ID3D12CommandQueue {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -181,7 +181,7 @@ pub struct ID3D12CommandQueue_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_COMMAND_QUEUE_DESC),
 }
 windows_core::imp::define_interface!(ID3D12CommandSignature, ID3D12CommandSignature_Vtbl, 0xc36a797c_ec80_4f0a_8985_a7b2475082d1);
-impl std::ops::Deref for ID3D12CommandSignature {
+impl core::ops::Deref for ID3D12CommandSignature {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -196,7 +196,7 @@ pub struct ID3D12CommandSignature_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D12Debug, ID3D12Debug_Vtbl, 0x344488b7_6846_474b_b989_f027448245e0);
-impl std::ops::Deref for ID3D12Debug {
+impl core::ops::Deref for ID3D12Debug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -216,7 +216,7 @@ pub struct ID3D12Debug_Vtbl {
     pub EnableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID3D12Debug1, ID3D12Debug1_Vtbl, 0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
-impl std::ops::Deref for ID3D12Debug1 {
+impl core::ops::Deref for ID3D12Debug1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -250,7 +250,7 @@ pub struct ID3D12Debug1_Vtbl {
     pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(ID3D12Debug2, ID3D12Debug2_Vtbl, 0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
-impl std::ops::Deref for ID3D12Debug2 {
+impl core::ops::Deref for ID3D12Debug2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -270,7 +270,7 @@ pub struct ID3D12Debug2_Vtbl {
     pub SetGPUBasedValidationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_BASED_VALIDATION_FLAGS),
 }
 windows_core::imp::define_interface!(ID3D12Debug3, ID3D12Debug3_Vtbl, 0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
-impl std::ops::Deref for ID3D12Debug3 {
+impl core::ops::Deref for ID3D12Debug3 {
     type Target = ID3D12Debug;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -304,7 +304,7 @@ pub struct ID3D12Debug3_Vtbl {
     pub SetGPUBasedValidationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_BASED_VALIDATION_FLAGS),
 }
 windows_core::imp::define_interface!(ID3D12Debug4, ID3D12Debug4_Vtbl, 0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
-impl std::ops::Deref for ID3D12Debug4 {
+impl core::ops::Deref for ID3D12Debug4 {
     type Target = ID3D12Debug3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -324,7 +324,7 @@ pub struct ID3D12Debug4_Vtbl {
     pub DisableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID3D12Debug5, ID3D12Debug5_Vtbl, 0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
-impl std::ops::Deref for ID3D12Debug5 {
+impl core::ops::Deref for ID3D12Debug5 {
     type Target = ID3D12Debug4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -347,7 +347,7 @@ pub struct ID3D12Debug5_Vtbl {
     pub SetEnableAutoName: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(ID3D12Debug6, ID3D12Debug6_Vtbl, 0x82a816d6_5d01_4157_97d0_4975463fd1ed);
-impl std::ops::Deref for ID3D12Debug6 {
+impl core::ops::Deref for ID3D12Debug6 {
     type Target = ID3D12Debug5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -370,7 +370,7 @@ pub struct ID3D12Debug6_Vtbl {
     pub SetForceLegacyBarrierValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(ID3D12DebugCommandList, ID3D12DebugCommandList_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053f);
-impl std::ops::Deref for ID3D12DebugCommandList {
+impl core::ops::Deref for ID3D12DebugCommandList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -401,7 +401,7 @@ pub struct ID3D12DebugCommandList_Vtbl {
     pub GetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_DEBUG_FEATURE,
 }
 windows_core::imp::define_interface!(ID3D12DebugCommandList1, ID3D12DebugCommandList1_Vtbl, 0x102ca951_311b_4b01_b11f_ecb83e061b37);
-impl std::ops::Deref for ID3D12DebugCommandList1 {
+impl core::ops::Deref for ID3D12DebugCommandList1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -432,7 +432,7 @@ pub struct ID3D12DebugCommandList1_Vtbl {
     pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DebugCommandList2, ID3D12DebugCommandList2_Vtbl, 0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
-impl std::ops::Deref for ID3D12DebugCommandList2 {
+impl core::ops::Deref for ID3D12DebugCommandList2 {
     type Target = ID3D12DebugCommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -456,7 +456,7 @@ pub struct ID3D12DebugCommandList2_Vtbl {
     pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DebugCommandList3, ID3D12DebugCommandList3_Vtbl, 0x197d5e15_4d37_4d34_af78_724cd70fdb1f);
-impl std::ops::Deref for ID3D12DebugCommandList3 {
+impl core::ops::Deref for ID3D12DebugCommandList3 {
     type Target = ID3D12DebugCommandList2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -486,7 +486,7 @@ pub struct ID3D12DebugCommandList3_Vtbl {
     pub AssertTextureLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_LAYOUT),
 }
 windows_core::imp::define_interface!(ID3D12DebugCommandQueue, ID3D12DebugCommandQueue_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053a);
-impl std::ops::Deref for ID3D12DebugCommandQueue {
+impl core::ops::Deref for ID3D12DebugCommandQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -509,7 +509,7 @@ pub struct ID3D12DebugCommandQueue_Vtbl {
     pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D12DebugCommandQueue1, ID3D12DebugCommandQueue1_Vtbl, 0x16be35a2_bfd6_49f2_bcae_eaae4aff862d);
-impl std::ops::Deref for ID3D12DebugCommandQueue1 {
+impl core::ops::Deref for ID3D12DebugCommandQueue1 {
     type Target = ID3D12DebugCommandQueue;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -539,7 +539,7 @@ pub struct ID3D12DebugCommandQueue1_Vtbl {
     pub AssertTextureLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_LAYOUT),
 }
 windows_core::imp::define_interface!(ID3D12DebugDevice, ID3D12DebugDevice_Vtbl, 0x3febd6dd_4973_4787_8194_e45f9e28923e);
-impl std::ops::Deref for ID3D12DebugDevice {
+impl core::ops::Deref for ID3D12DebugDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -567,7 +567,7 @@ pub struct ID3D12DebugDevice_Vtbl {
     pub ReportLiveDeviceObjects: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_RLDO_FLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DebugDevice1, ID3D12DebugDevice1_Vtbl, 0xa9b71770_d099_4a65_a698_3dee10020f88);
-impl std::ops::Deref for ID3D12DebugDevice1 {
+impl core::ops::Deref for ID3D12DebugDevice1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -595,7 +595,7 @@ pub struct ID3D12DebugDevice1_Vtbl {
     pub ReportLiveDeviceObjects: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_RLDO_FLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DebugDevice2, ID3D12DebugDevice2_Vtbl, 0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
-impl std::ops::Deref for ID3D12DebugDevice2 {
+impl core::ops::Deref for ID3D12DebugDevice2 {
     type Target = ID3D12DebugDevice;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -619,7 +619,7 @@ pub struct ID3D12DebugDevice2_Vtbl {
     pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DescriptorHeap, ID3D12DescriptorHeap_Vtbl, 0x8efb471d_616c_4f49_90f7_127bb763fa51);
-impl std::ops::Deref for ID3D12DescriptorHeap {
+impl core::ops::Deref for ID3D12DescriptorHeap {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -653,7 +653,7 @@ pub struct ID3D12DescriptorHeap_Vtbl {
     pub GetGPUDescriptorHandleForHeapStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_GPU_DESCRIPTOR_HANDLE),
 }
 windows_core::imp::define_interface!(ID3D12Device, ID3D12Device_Vtbl, 0x189819f1_1db6_4b57_be54_1821339b85f7);
-impl std::ops::Deref for ID3D12Device {
+impl core::ops::Deref for ID3D12Device {
     type Target = ID3D12Object;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -668,14 +668,14 @@ impl ID3D12Device {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateCommandQueue)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateCommandAllocator<T>(&self, r#type: D3D12_COMMAND_LIST_TYPE) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateCommandAllocator)(windows_core::Interface::as_raw(self), r#type, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -683,14 +683,14 @@ impl ID3D12Device {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateGraphicsPipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateComputePipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateCommandList<P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> windows_core::Result<T>
@@ -699,7 +699,7 @@ impl ID3D12Device {
         P1: windows_core::Param<ID3D12PipelineState>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateCommandList)(windows_core::Interface::as_raw(self), nodemask, r#type, pcommandallocator.param().abi(), pinitialstate.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CheckFeatureSupport(&self, feature: D3D12_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()> {
@@ -709,7 +709,7 @@ impl ID3D12Device {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateDescriptorHeap)(windows_core::Interface::as_raw(self), pdescriptorheapdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
@@ -719,7 +719,7 @@ impl ID3D12Device {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateRootSignature)(windows_core::Interface::as_raw(self), nodemask, core::mem::transmute(pblobwithrootsignature.as_ptr()), pblobwithrootsignature.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateConstantBufferView(&self, pdesc: Option<*const D3D12_CONSTANT_BUFFER_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
@@ -835,7 +835,7 @@ impl ID3D12Device {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateFence)(windows_core::Interface::as_raw(self), initialvalue, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> windows_core::Result<()> {
@@ -953,7 +953,7 @@ pub struct ID3D12Device_Vtbl {
     pub GetAdapterLuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::LUID),
 }
 windows_core::imp::define_interface!(ID3D12Device1, ID3D12Device1_Vtbl, 0x77acce80_638e_4e65_8895_c1f23386863e);
-impl std::ops::Deref for ID3D12Device1 {
+impl core::ops::Deref for ID3D12Device1 {
     type Target = ID3D12Device;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -965,7 +965,7 @@ impl ID3D12Device1 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreatePipelineLibrary)(windows_core::Interface::as_raw(self), core::mem::transmute(plibraryblob.as_ptr()), plibraryblob.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetEventOnMultipleFenceCompletion<P0>(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: P0) -> windows_core::Result<()>
@@ -988,7 +988,7 @@ pub struct ID3D12Device1_Vtbl {
     pub SetResidencyPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *const D3D12_RESIDENCY_PRIORITY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Device10, ID3D12Device10_Vtbl, 0x517f8718_aa66_49f9_b02b_a7ab89c06031);
-impl std::ops::Deref for ID3D12Device10 {
+impl core::ops::Deref for ID3D12Device10 {
     type Target = ID3D12Device9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1040,7 +1040,7 @@ pub struct ID3D12Device10_Vtbl {
     CreateReservedResource2: usize,
 }
 windows_core::imp::define_interface!(ID3D12Device11, ID3D12Device11_Vtbl, 0x5405c344_d457_444e_b4dd_2366e45aee39);
-impl std::ops::Deref for ID3D12Device11 {
+impl core::ops::Deref for ID3D12Device11 {
     type Target = ID3D12Device10;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1060,7 +1060,7 @@ pub struct ID3D12Device11_Vtbl {
     pub CreateSampler2: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SAMPLER_DESC2, D3D12_CPU_DESCRIPTOR_HANDLE),
 }
 windows_core::imp::define_interface!(ID3D12Device12, ID3D12Device12_Vtbl, 0x5af5c532_4c91_4cd0_b541_15a405395fc5);
-impl std::ops::Deref for ID3D12Device12 {
+impl core::ops::Deref for ID3D12Device12 {
     type Target = ID3D12Device11;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1086,7 +1086,7 @@ pub struct ID3D12Device12_Vtbl {
     GetResourceAllocationInfo3: usize,
 }
 windows_core::imp::define_interface!(ID3D12Device13, ID3D12Device13_Vtbl, 0x14eecffc_4df8_40f7_a118_5c816f45695e);
-impl std::ops::Deref for ID3D12Device13 {
+impl core::ops::Deref for ID3D12Device13 {
     type Target = ID3D12Device12;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1098,7 +1098,7 @@ impl ID3D12Device13 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).OpenExistingHeapFromAddress1)(windows_core::Interface::as_raw(self), paddress, size, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1110,7 +1110,7 @@ pub struct ID3D12Device13_Vtbl {
     pub OpenExistingHeapFromAddress1: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Device2, ID3D12Device2_Vtbl, 0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
-impl std::ops::Deref for ID3D12Device2 {
+impl core::ops::Deref for ID3D12Device2 {
     type Target = ID3D12Device1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1122,7 +1122,7 @@ impl ID3D12Device2 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreatePipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1134,7 +1134,7 @@ pub struct ID3D12Device2_Vtbl {
     pub CreatePipelineState: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_PIPELINE_STATE_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Device3, ID3D12Device3_Vtbl, 0x81dadc15_2bad_4392_93c5_101345c4aa98);
-impl std::ops::Deref for ID3D12Device3 {
+impl core::ops::Deref for ID3D12Device3 {
     type Target = ID3D12Device2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1146,7 +1146,7 @@ impl ID3D12Device3 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).OpenExistingHeapFromAddress)(windows_core::Interface::as_raw(self), paddress, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OpenExistingHeapFromFileMapping<P0, T>(&self, hfilemapping: P0) -> windows_core::Result<T>
@@ -1154,7 +1154,7 @@ impl ID3D12Device3 {
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).OpenExistingHeapFromFileMapping)(windows_core::Interface::as_raw(self), hfilemapping.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnqueueMakeResident<P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> windows_core::Result<()>
@@ -1174,7 +1174,7 @@ pub struct ID3D12Device3_Vtbl {
     pub EnqueueMakeResident: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_RESIDENCY_FLAGS, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Device4, ID3D12Device4_Vtbl, 0xe865df17_a9ee_46f9_a463_3098315aa2e5);
-impl std::ops::Deref for ID3D12Device4 {
+impl core::ops::Deref for ID3D12Device4 {
     type Target = ID3D12Device3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1186,14 +1186,14 @@ impl ID3D12Device4 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateCommandList1)(windows_core::Interface::as_raw(self), nodemask, r#type, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateProtectedResourceSession<T>(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateProtectedResourceSession)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1248,7 +1248,7 @@ pub struct ID3D12Device4_Vtbl {
     GetResourceAllocationInfo1: usize,
 }
 windows_core::imp::define_interface!(ID3D12Device5, ID3D12Device5_Vtbl, 0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
-impl std::ops::Deref for ID3D12Device5 {
+impl core::ops::Deref for ID3D12Device5 {
     type Target = ID3D12Device4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1261,7 +1261,7 @@ impl ID3D12Device5 {
         P0: windows_core::Param<ID3D12LifetimeOwner>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateLifetimeTracker)(windows_core::Interface::as_raw(self), powner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveDevice(&self) {
@@ -1277,14 +1277,14 @@ impl ID3D12Device5 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateMetaCommand)(windows_core::Interface::as_raw(self), commandid, nodemask, core::mem::transmute(pcreationparametersdata.unwrap_or(std::ptr::null())), creationparametersdatasizeinbytes, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateStateObject<T>(&self, pdesc: *const D3D12_STATE_OBJECT_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateStateObject)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1313,7 +1313,7 @@ pub struct ID3D12Device5_Vtbl {
     pub CheckDriverMatchingIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_SERIALIZED_DATA_TYPE, *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
 }
 windows_core::imp::define_interface!(ID3D12Device6, ID3D12Device6_Vtbl, 0xc70b221b_40e4_4a17_89af_025a0727a6dc);
-impl std::ops::Deref for ID3D12Device6 {
+impl core::ops::Deref for ID3D12Device6 {
     type Target = ID3D12Device5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1336,7 +1336,7 @@ pub struct ID3D12Device6_Vtbl {
     pub SetBackgroundProcessingMode: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_BACKGROUND_PROCESSING_MODE, D3D12_MEASUREMENTS_ACTION, super::super::Foundation::HANDLE, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Device7, ID3D12Device7_Vtbl, 0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
-impl std::ops::Deref for ID3D12Device7 {
+impl core::ops::Deref for ID3D12Device7 {
     type Target = ID3D12Device6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1349,14 +1349,14 @@ impl ID3D12Device7 {
         P0: windows_core::Param<ID3D12StateObject>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).AddToStateObject)(windows_core::Interface::as_raw(self), paddition, pstateobjecttogrowfrom.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateProtectedResourceSession1<T>(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateProtectedResourceSession1)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1369,7 +1369,7 @@ pub struct ID3D12Device7_Vtbl {
     pub CreateProtectedResourceSession1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Device8, ID3D12Device8_Vtbl, 0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
-impl std::ops::Deref for ID3D12Device8 {
+impl core::ops::Deref for ID3D12Device8 {
     type Target = ID3D12Device7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1435,7 +1435,7 @@ pub struct ID3D12Device8_Vtbl {
     GetCopyableFootprints1: usize,
 }
 windows_core::imp::define_interface!(ID3D12Device9, ID3D12Device9_Vtbl, 0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
-impl std::ops::Deref for ID3D12Device9 {
+impl core::ops::Deref for ID3D12Device9 {
     type Target = ID3D12Device8;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1456,7 +1456,7 @@ impl ID3D12Device9 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateCommandQueue1)(windows_core::Interface::as_raw(self), pdesc, creatorid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1470,7 +1470,7 @@ pub struct ID3D12Device9_Vtbl {
     pub CreateCommandQueue1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_COMMAND_QUEUE_DESC, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DeviceChild, ID3D12DeviceChild_Vtbl, 0x905db94b_a00c_4140_9df5_2b64ca9ea357);
-impl std::ops::Deref for ID3D12DeviceChild {
+impl core::ops::Deref for ID3D12DeviceChild {
     type Target = ID3D12Object;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1493,7 +1493,7 @@ pub struct ID3D12DeviceChild_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DeviceConfiguration, ID3D12DeviceConfiguration_Vtbl, 0x78dbf87b_f766_422b_a61c_c8c446bdb9ad);
-impl std::ops::Deref for ID3D12DeviceConfiguration {
+impl core::ops::Deref for ID3D12DeviceConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1517,7 +1517,7 @@ impl ID3D12DeviceConfiguration {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVersionedRootSignatureDeserializer)(windows_core::Interface::as_raw(self), pblob, size, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1535,7 +1535,7 @@ pub struct ID3D12DeviceConfiguration_Vtbl {
     pub CreateVersionedRootSignatureDeserializer: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DeviceFactory, ID3D12DeviceFactory_Vtbl, 0x61f307d3_d34e_4e7c_8374_3ba4de23cccb);
-impl std::ops::Deref for ID3D12DeviceFactory {
+impl core::ops::Deref for ID3D12DeviceFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1559,7 +1559,7 @@ impl ID3D12DeviceFactory {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetConfigurationInterface)(windows_core::Interface::as_raw(self), clsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnableExperimentalFeatures(&self, numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: Option<*const core::ffi::c_void>, pconfigurationstructsizes: Option<*const u32>) -> windows_core::Result<()> {
@@ -1591,7 +1591,7 @@ pub struct ID3D12DeviceFactory_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData_Vtbl, 0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
-impl std::ops::Deref for ID3D12DeviceRemovedExtendedData {
+impl core::ops::Deref for ID3D12DeviceRemovedExtendedData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1617,7 +1617,7 @@ pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
     pub GetPageFaultAllocationOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DRED_PAGE_FAULT_OUTPUT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData1, ID3D12DeviceRemovedExtendedData1_Vtbl, 0x9727a022_cf1d_4dda_9eba_effa653fc506);
-impl std::ops::Deref for ID3D12DeviceRemovedExtendedData1 {
+impl core::ops::Deref for ID3D12DeviceRemovedExtendedData1 {
     type Target = ID3D12DeviceRemovedExtendedData;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1643,7 +1643,7 @@ pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
     pub GetPageFaultAllocationOutput1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DRED_PAGE_FAULT_OUTPUT1) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData2, ID3D12DeviceRemovedExtendedData2_Vtbl, 0x67fc5816_e4ca_4915_bf18_42541272da54);
-impl std::ops::Deref for ID3D12DeviceRemovedExtendedData2 {
+impl core::ops::Deref for ID3D12DeviceRemovedExtendedData2 {
     type Target = ID3D12DeviceRemovedExtendedData1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1667,7 +1667,7 @@ pub struct ID3D12DeviceRemovedExtendedData2_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_DRED_DEVICE_STATE,
 }
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings_Vtbl, 0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
-impl std::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings {
+impl core::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1695,7 +1695,7 @@ pub struct ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
     pub SetWatsonDumpEnablement: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DRED_ENABLEMENT),
 }
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings1, ID3D12DeviceRemovedExtendedDataSettings1_Vtbl, 0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
-impl std::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings1 {
+impl core::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings1 {
     type Target = ID3D12DeviceRemovedExtendedDataSettings;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1715,7 +1715,7 @@ pub struct ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
     pub SetBreadcrumbContextEnablement: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DRED_ENABLEMENT),
 }
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings2, ID3D12DeviceRemovedExtendedDataSettings2_Vtbl, 0x61552388_01ab_4008_a436_83db189566ea);
-impl std::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings2 {
+impl core::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings2 {
     type Target = ID3D12DeviceRemovedExtendedDataSettings1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1738,7 +1738,7 @@ pub struct ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     pub UseMarkersOnlyAutoBreadcrumbs: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(ID3D12Fence, ID3D12Fence_Vtbl, 0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);
-impl std::ops::Deref for ID3D12Fence {
+impl core::ops::Deref for ID3D12Fence {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1769,7 +1769,7 @@ pub struct ID3D12Fence_Vtbl {
     pub Signal: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Fence1, ID3D12Fence1_Vtbl, 0x433685fe_e22b_4ca0_a8db_b5b4f4dd0e4a);
-impl std::ops::Deref for ID3D12Fence1 {
+impl core::ops::Deref for ID3D12Fence1 {
     type Target = ID3D12Fence;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1862,7 +1862,7 @@ pub struct ID3D12FunctionReflection_Vtbl {
     pub GetFunctionParameter: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D12FunctionParameterReflection>,
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList, ID3D12GraphicsCommandList_Vtbl, 0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
-impl std::ops::Deref for ID3D12GraphicsCommandList {
+impl core::ops::Deref for ID3D12GraphicsCommandList {
     type Target = ID3D12CommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2163,7 +2163,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub ExecuteIndirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u64, *mut core::ffi::c_void, u64),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList1_Vtbl, 0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
-impl std::ops::Deref for ID3D12GraphicsCommandList1 {
+impl core::ops::Deref for ID3D12GraphicsCommandList1 {
     type Target = ID3D12GraphicsCommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2219,7 +2219,7 @@ pub struct ID3D12GraphicsCommandList1_Vtbl {
     pub SetViewInstanceMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList2_Vtbl, 0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
-impl std::ops::Deref for ID3D12GraphicsCommandList2 {
+impl core::ops::Deref for ID3D12GraphicsCommandList2 {
     type Target = ID3D12GraphicsCommandList1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2239,7 +2239,7 @@ pub struct ID3D12GraphicsCommandList2_Vtbl {
     pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList3_Vtbl, 0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
-impl std::ops::Deref for ID3D12GraphicsCommandList3 {
+impl core::ops::Deref for ID3D12GraphicsCommandList3 {
     type Target = ID3D12GraphicsCommandList2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2262,7 +2262,7 @@ pub struct ID3D12GraphicsCommandList3_Vtbl {
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList4_Vtbl, 0x8754318e_d3a9_4541_98cf_645b50dc4874);
-impl std::ops::Deref for ID3D12GraphicsCommandList4 {
+impl core::ops::Deref for ID3D12GraphicsCommandList4 {
     type Target = ID3D12GraphicsCommandList3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2331,7 +2331,7 @@ pub struct ID3D12GraphicsCommandList4_Vtbl {
     pub DispatchRays: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_DISPATCH_RAYS_DESC),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList5_Vtbl, 0x55050859_4024_474c_87f5_6472eaee44ea);
-impl std::ops::Deref for ID3D12GraphicsCommandList5 {
+impl core::ops::Deref for ID3D12GraphicsCommandList5 {
     type Target = ID3D12GraphicsCommandList4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2358,7 +2358,7 @@ pub struct ID3D12GraphicsCommandList5_Vtbl {
     pub RSSetShadingRateImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList6_Vtbl, 0xc3827890_e548_4cfa_96cf_5689a9370f80);
-impl std::ops::Deref for ID3D12GraphicsCommandList6 {
+impl core::ops::Deref for ID3D12GraphicsCommandList6 {
     type Target = ID3D12GraphicsCommandList5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2378,7 +2378,7 @@ pub struct ID3D12GraphicsCommandList6_Vtbl {
     pub DispatchMesh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList7_Vtbl, 0xdd171223_8b61_4769_90e3_160ccde4e2c1);
-impl std::ops::Deref for ID3D12GraphicsCommandList7 {
+impl core::ops::Deref for ID3D12GraphicsCommandList7 {
     type Target = ID3D12GraphicsCommandList6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2398,7 +2398,7 @@ pub struct ID3D12GraphicsCommandList7_Vtbl {
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BARRIER_GROUP),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList8, ID3D12GraphicsCommandList8_Vtbl, 0xee936ef9_599d_4d28_938e_23c4ad05ce51);
-impl std::ops::Deref for ID3D12GraphicsCommandList8 {
+impl core::ops::Deref for ID3D12GraphicsCommandList8 {
     type Target = ID3D12GraphicsCommandList7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2418,7 +2418,7 @@ pub struct ID3D12GraphicsCommandList8_Vtbl {
     pub OMSetFrontAndBackStencilRef: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32),
 }
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList9, ID3D12GraphicsCommandList9_Vtbl, 0x34ed2808_ffe6_4c2b_b11a_cabd2b0c59e1);
-impl std::ops::Deref for ID3D12GraphicsCommandList9 {
+impl core::ops::Deref for ID3D12GraphicsCommandList9 {
     type Target = ID3D12GraphicsCommandList8;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2442,7 +2442,7 @@ pub struct ID3D12GraphicsCommandList9_Vtbl {
     pub IASetIndexBufferStripCutValue: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_INDEX_BUFFER_STRIP_CUT_VALUE),
 }
 windows_core::imp::define_interface!(ID3D12Heap, ID3D12Heap_Vtbl, 0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
-impl std::ops::Deref for ID3D12Heap {
+impl core::ops::Deref for ID3D12Heap {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2464,7 +2464,7 @@ pub struct ID3D12Heap_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_HEAP_DESC),
 }
 windows_core::imp::define_interface!(ID3D12Heap1, ID3D12Heap1_Vtbl, 0x572f7389_2168_49e3_9693_d6df5871bf6d);
-impl std::ops::Deref for ID3D12Heap1 {
+impl core::ops::Deref for ID3D12Heap1 {
     type Target = ID3D12Heap;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2487,7 +2487,7 @@ pub struct ID3D12Heap1_Vtbl {
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12InfoQueue, ID3D12InfoQueue_Vtbl, 0x0742a90b_c387_483f_b946_30a7e4e61458);
-impl std::ops::Deref for ID3D12InfoQueue {
+impl core::ops::Deref for ID3D12InfoQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2661,7 +2661,7 @@ pub struct ID3D12InfoQueue_Vtbl {
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D12InfoQueue1, ID3D12InfoQueue1_Vtbl, 0x2852dd88_b484_4c0c_b6b1_67168500e600);
-impl std::ops::Deref for ID3D12InfoQueue1 {
+impl core::ops::Deref for ID3D12InfoQueue1 {
     type Target = ID3D12InfoQueue;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2685,7 +2685,7 @@ pub struct ID3D12InfoQueue1_Vtbl {
     pub UnregisterMessageCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryReflection_Vtbl, 0x8e349d19_54db_4a56_9dc9_119d87bdb804);
-impl std::ops::Deref for ID3D12LibraryReflection {
+impl core::ops::Deref for ID3D12LibraryReflection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2710,7 +2710,7 @@ pub struct ID3D12LibraryReflection_Vtbl {
     pub GetFunctionByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D12FunctionReflection>,
 }
 windows_core::imp::define_interface!(ID3D12LifetimeOwner, ID3D12LifetimeOwner_Vtbl, 0xe667af9f_cd56_4f46_83ce_032e595d70a8);
-impl std::ops::Deref for ID3D12LifetimeOwner {
+impl core::ops::Deref for ID3D12LifetimeOwner {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2730,7 +2730,7 @@ pub struct ID3D12LifetimeOwner_Vtbl {
     pub LifetimeStateUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_LIFETIME_STATE),
 }
 windows_core::imp::define_interface!(ID3D12LifetimeTracker, ID3D12LifetimeTracker_Vtbl, 0x3fd03d36_4eb1_424a_a582_494ecb8ba813);
-impl std::ops::Deref for ID3D12LifetimeTracker {
+impl core::ops::Deref for ID3D12LifetimeTracker {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2753,7 +2753,7 @@ pub struct ID3D12LifetimeTracker_Vtbl {
     pub DestroyOwnedObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12ManualWriteTrackingResource, ID3D12ManualWriteTrackingResource_Vtbl, 0x86ca3b85_49ad_4b6e_aed5_eddb18540f41);
-impl std::ops::Deref for ID3D12ManualWriteTrackingResource {
+impl core::ops::Deref for ID3D12ManualWriteTrackingResource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2773,7 +2773,7 @@ pub struct ID3D12ManualWriteTrackingResource_Vtbl {
     pub TrackWrite: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RANGE),
 }
 windows_core::imp::define_interface!(ID3D12MetaCommand, ID3D12MetaCommand_Vtbl, 0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
-impl std::ops::Deref for ID3D12MetaCommand {
+impl core::ops::Deref for ID3D12MetaCommand {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2793,7 +2793,7 @@ pub struct ID3D12MetaCommand_Vtbl {
     pub GetRequiredParameterResourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_META_COMMAND_PARAMETER_STAGE, u32) -> u64,
 }
 windows_core::imp::define_interface!(ID3D12Object, ID3D12Object_Vtbl, 0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
-impl std::ops::Deref for ID3D12Object {
+impl core::ops::Deref for ID3D12Object {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2831,7 +2831,7 @@ pub struct ID3D12Object_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Pageable, ID3D12Pageable_Vtbl, 0x63ee58fb_1268_4835_86da_f008ce62f0d6);
-impl std::ops::Deref for ID3D12Pageable {
+impl core::ops::Deref for ID3D12Pageable {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2846,7 +2846,7 @@ pub struct ID3D12Pageable_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D12PipelineLibrary, ID3D12PipelineLibrary_Vtbl, 0xc64226a8_9201_46af_b4cc_53fb9ff7414f);
-impl std::ops::Deref for ID3D12PipelineLibrary {
+impl core::ops::Deref for ID3D12PipelineLibrary {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2867,7 +2867,7 @@ impl ID3D12PipelineLibrary {
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LoadComputePipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
@@ -2875,7 +2875,7 @@ impl ID3D12PipelineLibrary {
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
@@ -2900,7 +2900,7 @@ pub struct ID3D12PipelineLibrary_Vtbl {
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12PipelineLibrary1, ID3D12PipelineLibrary1_Vtbl, 0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
-impl std::ops::Deref for ID3D12PipelineLibrary1 {
+impl core::ops::Deref for ID3D12PipelineLibrary1 {
     type Target = ID3D12PipelineLibrary;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2913,7 +2913,7 @@ impl ID3D12PipelineLibrary1 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).LoadPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2925,7 +2925,7 @@ pub struct ID3D12PipelineLibrary1_Vtbl {
     pub LoadPipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const D3D12_PIPELINE_STATE_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12PipelineState, ID3D12PipelineState_Vtbl, 0x765a30f3_f624_4c6f_a828_ace948622445);
-impl std::ops::Deref for ID3D12PipelineState {
+impl core::ops::Deref for ID3D12PipelineState {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2950,7 +2950,7 @@ pub struct ID3D12PipelineState_Vtbl {
     GetCachedBlob: usize,
 }
 windows_core::imp::define_interface!(ID3D12ProtectedResourceSession, ID3D12ProtectedResourceSession_Vtbl, 0x6cd696f4_f289_40cc_8091_5a6c0a099c3d);
-impl std::ops::Deref for ID3D12ProtectedResourceSession {
+impl core::ops::Deref for ID3D12ProtectedResourceSession {
     type Target = ID3D12ProtectedSession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2972,7 +2972,7 @@ pub struct ID3D12ProtectedResourceSession_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC),
 }
 windows_core::imp::define_interface!(ID3D12ProtectedResourceSession1, ID3D12ProtectedResourceSession1_Vtbl, 0xd6f12dd6_76fb_406e_8961_4296eefc0409);
-impl std::ops::Deref for ID3D12ProtectedResourceSession1 {
+impl core::ops::Deref for ID3D12ProtectedResourceSession1 {
     type Target = ID3D12ProtectedResourceSession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2994,7 +2994,7 @@ pub struct ID3D12ProtectedResourceSession1_Vtbl {
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC1),
 }
 windows_core::imp::define_interface!(ID3D12ProtectedSession, ID3D12ProtectedSession_Vtbl, 0xa1533d18_0ac1_4084_85b9_89a96116806b);
-impl std::ops::Deref for ID3D12ProtectedSession {
+impl core::ops::Deref for ID3D12ProtectedSession {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3021,7 +3021,7 @@ pub struct ID3D12ProtectedSession_Vtbl {
     pub GetSessionStatus: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_PROTECTED_SESSION_STATUS,
 }
 windows_core::imp::define_interface!(ID3D12QueryHeap, ID3D12QueryHeap_Vtbl, 0x0d9658ae_ed45_469e_a61d_970ec583cab4);
-impl std::ops::Deref for ID3D12QueryHeap {
+impl core::ops::Deref for ID3D12QueryHeap {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3036,7 +3036,7 @@ pub struct ID3D12QueryHeap_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D12Resource, ID3D12Resource_Vtbl, 0x696442be_a72e_4059_bc79_5b5c98040fad);
-impl std::ops::Deref for ID3D12Resource {
+impl core::ops::Deref for ID3D12Resource {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3086,7 +3086,7 @@ pub struct ID3D12Resource_Vtbl {
     pub GetHeapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_HEAP_PROPERTIES, *mut D3D12_HEAP_FLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Resource1, ID3D12Resource1_Vtbl, 0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
-impl std::ops::Deref for ID3D12Resource1 {
+impl core::ops::Deref for ID3D12Resource1 {
     type Target = ID3D12Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3109,7 +3109,7 @@ pub struct ID3D12Resource1_Vtbl {
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Resource2, ID3D12Resource2_Vtbl, 0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
-impl std::ops::Deref for ID3D12Resource2 {
+impl core::ops::Deref for ID3D12Resource2 {
     type Target = ID3D12Resource1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3135,7 +3135,7 @@ pub struct ID3D12Resource2_Vtbl {
     GetDesc1: usize,
 }
 windows_core::imp::define_interface!(ID3D12RootSignature, ID3D12RootSignature_Vtbl, 0xc54a6b66_72df_4ee8_8be5_a946a1429214);
-impl std::ops::Deref for ID3D12RootSignature {
+impl core::ops::Deref for ID3D12RootSignature {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3150,7 +3150,7 @@ pub struct ID3D12RootSignature_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D12RootSignatureDeserializer, ID3D12RootSignatureDeserializer_Vtbl, 0x34ab647b_3cc8_46ac_841b_c0965645c046);
-impl std::ops::Deref for ID3D12RootSignatureDeserializer {
+impl core::ops::Deref for ID3D12RootSignatureDeserializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3170,7 +3170,7 @@ pub struct ID3D12RootSignatureDeserializer_Vtbl {
     pub GetRootSignatureDesc: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut D3D12_ROOT_SIGNATURE_DESC,
 }
 windows_core::imp::define_interface!(ID3D12SDKConfiguration, ID3D12SDKConfiguration_Vtbl, 0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
-impl std::ops::Deref for ID3D12SDKConfiguration {
+impl core::ops::Deref for ID3D12SDKConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3193,7 +3193,7 @@ pub struct ID3D12SDKConfiguration_Vtbl {
     pub SetSDKVersion: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12SDKConfiguration1, ID3D12SDKConfiguration1_Vtbl, 0x8aaf9303_ad25_48b9_9a57_d9c37e009d9f);
-impl std::ops::Deref for ID3D12SDKConfiguration1 {
+impl core::ops::Deref for ID3D12SDKConfiguration1 {
     type Target = ID3D12SDKConfiguration;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3206,7 +3206,7 @@ impl ID3D12SDKConfiguration1 {
         P0: windows_core::Param<windows_core::PCSTR>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateDeviceFactory)(windows_core::Interface::as_raw(self), sdkversion, sdkpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FreeUnusedSDKs(&self) {
@@ -3222,7 +3222,7 @@ pub struct ID3D12SDKConfiguration1_Vtbl {
     pub FreeUnusedSDKs: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID3D12ShaderCacheSession, ID3D12ShaderCacheSession_Vtbl, 0x28e2495d_0f64_4ae4_a6ec_129255dc49a8);
-impl std::ops::Deref for ID3D12ShaderCacheSession {
+impl core::ops::Deref for ID3D12ShaderCacheSession {
     type Target = ID3D12DeviceChild;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3256,7 +3256,7 @@ pub struct ID3D12ShaderCacheSession_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_CACHE_SESSION_DESC),
 }
 windows_core::imp::define_interface!(ID3D12ShaderReflection, ID3D12ShaderReflection_Vtbl, 0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
-impl std::ops::Deref for ID3D12ShaderReflection {
+impl core::ops::Deref for ID3D12ShaderReflection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3509,7 +3509,7 @@ pub struct ID3D12ShaderReflectionVariable_Vtbl {
     pub GetInterfaceSlot: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
 windows_core::imp::define_interface!(ID3D12SharingContract, ID3D12SharingContract_Vtbl, 0x0adf7d52_929c_4e61_addb_ffed30de66ef);
-impl std::ops::Deref for ID3D12SharingContract {
+impl core::ops::Deref for ID3D12SharingContract {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3548,7 +3548,7 @@ pub struct ID3D12SharingContract_Vtbl {
     pub EndCapturableWork: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID),
 }
 windows_core::imp::define_interface!(ID3D12StateObject, ID3D12StateObject_Vtbl, 0x47016943_fca8_4594_93ea_af258b55346d);
-impl std::ops::Deref for ID3D12StateObject {
+impl core::ops::Deref for ID3D12StateObject {
     type Target = ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3563,7 +3563,7 @@ pub struct ID3D12StateObject_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
 }
 windows_core::imp::define_interface!(ID3D12StateObjectProperties, ID3D12StateObjectProperties_Vtbl, 0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
-impl std::ops::Deref for ID3D12StateObjectProperties {
+impl core::ops::Deref for ID3D12StateObjectProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3601,7 +3601,7 @@ pub struct ID3D12StateObjectProperties_Vtbl {
     pub SetPipelineStackSize: unsafe extern "system" fn(*mut core::ffi::c_void, u64),
 }
 windows_core::imp::define_interface!(ID3D12SwapChainAssistant, ID3D12SwapChainAssistant_Vtbl, 0xf1df64b6_57fd_49cd_8807_c0eb88b45c8f);
-impl std::ops::Deref for ID3D12SwapChainAssistant {
+impl core::ops::Deref for ID3D12SwapChainAssistant {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3618,14 +3618,14 @@ impl ID3D12SwapChainAssistant {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetSwapChainObject)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentResourceAndCommandQueue<T>(&self, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetCurrentResourceAndCommandQueue)(windows_core::Interface::as_raw(self), riidresource, ppvresource, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InsertImplicitSync(&self) -> windows_core::Result<()> {
@@ -3643,7 +3643,7 @@ pub struct ID3D12SwapChainAssistant_Vtbl {
     pub InsertImplicitSync: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12Tools, ID3D12Tools_Vtbl, 0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
-impl std::ops::Deref for ID3D12Tools {
+impl core::ops::Deref for ID3D12Tools {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3670,7 +3670,7 @@ pub struct ID3D12Tools_Vtbl {
     pub ShaderInstrumentationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID3D12VersionedRootSignatureDeserializer, ID3D12VersionedRootSignatureDeserializer_Vtbl, 0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
-impl std::ops::Deref for ID3D12VersionedRootSignatureDeserializer {
+impl core::ops::Deref for ID3D12VersionedRootSignatureDeserializer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3695,7 +3695,7 @@ pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub GetUnconvertedRootSignatureDesc: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC,
 }
 windows_core::imp::define_interface!(ID3D12VirtualizationGuestDevice, ID3D12VirtualizationGuestDevice_Vtbl, 0xbc66d368_7373_4943_8757_fc87dc79e476);
-impl std::ops::Deref for ID3D12VirtualizationGuestDevice {
+impl core::ops::Deref for ID3D12VirtualizationGuestDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

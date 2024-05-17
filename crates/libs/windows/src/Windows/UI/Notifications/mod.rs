@@ -3,7 +3,7 @@ pub mod Management;
 #[cfg(feature = "UI_Notifications_Preview")]
 pub mod Preview;
 windows_core::imp::define_interface!(IAdaptiveNotificationContent, IAdaptiveNotificationContent_Vtbl, 0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
-impl std::ops::Deref for IAdaptiveNotificationContent {
+impl core::ops::Deref for IAdaptiveNotificationContent {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

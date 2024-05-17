@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(ISceSvcAttachmentData, ISceSvcAttachmentData_Vtbl, 0x17c35fde_200d_11d1_affb_00c04fb984f9);
-impl std::ops::Deref for ISceSvcAttachmentData {
+impl core::ops::Deref for ISceSvcAttachmentData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -32,7 +32,7 @@ pub struct ISceSvcAttachmentData_Vtbl {
     pub CloseHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceSvcAttachmentPersistInfo, ISceSvcAttachmentPersistInfo_Vtbl, 0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
-impl std::ops::Deref for ISceSvcAttachmentPersistInfo {
+impl core::ops::Deref for ISceSvcAttachmentPersistInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

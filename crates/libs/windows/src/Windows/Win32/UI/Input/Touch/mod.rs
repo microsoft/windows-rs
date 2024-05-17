@@ -79,7 +79,7 @@ where
     UnregisterTouchWindow(hwnd.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
-impl std::ops::Deref for IInertiaProcessor {
+impl core::ops::Deref for IInertiaProcessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -313,7 +313,7 @@ pub struct IInertiaProcessor_Vtbl {
     pub CompleteTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xa22ac519_8300_48a0_bef4_f1be8737dba4);
-impl std::ops::Deref for IManipulationProcessor {
+impl core::ops::Deref for IManipulationProcessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -420,7 +420,7 @@ pub struct IManipulationProcessor_Vtbl {
     pub SetMinimumScaleRotateRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(_IManipulationEvents, _IManipulationEvents_Vtbl, 0x4f62c8da_9c53_4b22_93df_927a862bbb03);
-impl std::ops::Deref for _IManipulationEvents {
+impl core::ops::Deref for _IManipulationEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

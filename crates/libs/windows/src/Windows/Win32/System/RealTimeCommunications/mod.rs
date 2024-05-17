@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(INetworkTransportSettings, INetworkTransportSettings_Vtbl, 0x5e7abb2c_f2c1_4a61_bd35_deb7a08ab0f1);
-impl std::ops::Deref for INetworkTransportSettings {
+impl core::ops::Deref for INetworkTransportSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -29,7 +29,7 @@ pub struct INetworkTransportSettings_Vtbl {
     QuerySetting: usize,
 }
 windows_core::imp::define_interface!(INotificationTransportSync, INotificationTransportSync_Vtbl, 0x79eb1402_0ab8_49c0_9e14_a1ae4ba93058);
-impl std::ops::Deref for INotificationTransportSync {
+impl core::ops::Deref for INotificationTransportSync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -51,7 +51,7 @@ pub struct INotificationTransportSync_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCBuddy, IRTCBuddy_Vtbl, 0xfcb136c8_7b90_4e0c_befe_56edf0ba6f1c);
-impl std::ops::Deref for IRTCBuddy {
+impl core::ops::Deref for IRTCBuddy {
     type Target = IRTCPresenceContact;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -75,7 +75,7 @@ pub struct IRTCBuddy_Vtbl {
     pub Notes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCBuddy2, IRTCBuddy2_Vtbl, 0x102f9588_23e7_40e3_954d_cd7a1d5c0361);
-impl std::ops::Deref for IRTCBuddy2 {
+impl core::ops::Deref for IRTCBuddy2 {
     type Target = IRTCBuddy;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -138,7 +138,7 @@ pub struct IRTCBuddy2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCBuddyEvent, IRTCBuddyEvent_Vtbl, 0xf36d755d_17e6_404e_954f_0fc07574c78d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCBuddyEvent {
+impl core::ops::Deref for IRTCBuddyEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -162,7 +162,7 @@ pub struct IRTCBuddyEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCBuddyEvent2, IRTCBuddyEvent2_Vtbl, 0x484a7f1e_73f0_4990_bfc2_60bc3978a720);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCBuddyEvent2 {
+impl core::ops::Deref for IRTCBuddyEvent2 {
     type Target = IRTCBuddyEvent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -194,7 +194,7 @@ pub struct IRTCBuddyEvent2_Vtbl {
     pub StatusText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCBuddyGroup, IRTCBuddyGroup_Vtbl, 0x60361e68_9164_4389_a4c6_d0b3925bda5e);
-impl std::ops::Deref for IRTCBuddyGroup {
+impl core::ops::Deref for IRTCBuddyGroup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -267,7 +267,7 @@ pub struct IRTCBuddyGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCBuddyGroupEvent, IRTCBuddyGroupEvent_Vtbl, 0x3a79e1d1_b736_4414_96f8_bbc7f08863e4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCBuddyGroupEvent {
+impl core::ops::Deref for IRTCBuddyGroupEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -304,7 +304,7 @@ pub struct IRTCBuddyGroupEvent_Vtbl {
     pub StatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClient, IRTCClient_Vtbl, 0x07829e45_9a34_408e_a011_bddf13487cd1);
-impl std::ops::Deref for IRTCClient {
+impl core::ops::Deref for IRTCClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -543,7 +543,7 @@ pub struct IRTCClient_Vtbl {
     pub IsTuned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClient2, IRTCClient2_Vtbl, 0x0c91d71d_1064_42da_bfa5_572beb8eea84);
-impl std::ops::Deref for IRTCClient2 {
+impl core::ops::Deref for IRTCClient2 {
     type Target = IRTCClient;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -634,7 +634,7 @@ pub struct IRTCClient2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCClientEvent, IRTCClientEvent_Vtbl, 0x2b493b7a_3cba_4170_9c8b_76a9dacdd644);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCClientEvent {
+impl core::ops::Deref for IRTCClientEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -661,7 +661,7 @@ pub struct IRTCClientEvent_Vtbl {
     pub Client: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClientPortManagement, IRTCClientPortManagement_Vtbl, 0xd5df3f03_4bde_4417_aefe_71177bdaea66);
-impl std::ops::Deref for IRTCClientPortManagement {
+impl core::ops::Deref for IRTCClientPortManagement {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -693,7 +693,7 @@ pub struct IRTCClientPortManagement_Vtbl {
     pub GetPortRange: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_PORT_TYPE, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClientPresence, IRTCClientPresence_Vtbl, 0x11c3cbcc_0744_42d1_968a_51aa1bb274c6);
-impl std::ops::Deref for IRTCClientPresence {
+impl core::ops::Deref for IRTCClientPresence {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -837,7 +837,7 @@ pub struct IRTCClientPresence_Vtbl {
     pub SetPrivacyMode: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_PRIVACY_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClientPresence2, IRTCClientPresence2_Vtbl, 0xad1809e8_62f7_4783_909a_29c9d2cb1d34);
-impl std::ops::Deref for IRTCClientPresence2 {
+impl core::ops::Deref for IRTCClientPresence2 {
     type Target = IRTCClientPresence;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -962,7 +962,7 @@ pub struct IRTCClientPresence2_Vtbl {
     pub AddBuddyEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, RTC_BUDDY_SUBSCRIPTION_TYPE, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClientProvisioning, IRTCClientProvisioning_Vtbl, 0xb9f5cf06_65b9_4a80_a0e6_73cae3ef3822);
-impl std::ops::Deref for IRTCClientProvisioning {
+impl core::ops::Deref for IRTCClientProvisioning {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1027,7 +1027,7 @@ pub struct IRTCClientProvisioning_Vtbl {
     pub SessionCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCClientProvisioning2, IRTCClientProvisioning2_Vtbl, 0xa70909b5_f40e_4587_bb75_e6bc0845023e);
-impl std::ops::Deref for IRTCClientProvisioning2 {
+impl core::ops::Deref for IRTCClientProvisioning2 {
     type Target = IRTCClientProvisioning;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1050,7 +1050,7 @@ pub struct IRTCClientProvisioning2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCCollection, IRTCCollection_Vtbl, 0xec7c8096_b918_4044_94f1_e4fba0361d5c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCCollection {
+impl core::ops::Deref for IRTCCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1084,7 +1084,7 @@ pub struct IRTCCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCDispatchEventNotification, IRTCDispatchEventNotification_Vtbl, 0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCDispatchEventNotification {
+impl core::ops::Deref for IRTCDispatchEventNotification {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1100,7 +1100,7 @@ pub struct IRTCDispatchEventNotification_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 windows_core::imp::define_interface!(IRTCEnumBuddies, IRTCEnumBuddies_Vtbl, 0xf7296917_5569_4b3b_b3af_98d1144b2b87);
-impl std::ops::Deref for IRTCEnumBuddies {
+impl core::ops::Deref for IRTCEnumBuddies {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1131,7 +1131,7 @@ pub struct IRTCEnumBuddies_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEnumGroups, IRTCEnumGroups_Vtbl, 0x742378d6_a141_4415_8f27_35d99076cf5d);
-impl std::ops::Deref for IRTCEnumGroups {
+impl core::ops::Deref for IRTCEnumGroups {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1162,7 +1162,7 @@ pub struct IRTCEnumGroups_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEnumParticipants, IRTCEnumParticipants_Vtbl, 0xfcd56f29_4a4f_41b2_ba5c_f5bccc060bf6);
-impl std::ops::Deref for IRTCEnumParticipants {
+impl core::ops::Deref for IRTCEnumParticipants {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1193,7 +1193,7 @@ pub struct IRTCEnumParticipants_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEnumPresenceDevices, IRTCEnumPresenceDevices_Vtbl, 0x708c2ab7_8bf8_42f8_8c7d_635197ad5539);
-impl std::ops::Deref for IRTCEnumPresenceDevices {
+impl core::ops::Deref for IRTCEnumPresenceDevices {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1224,7 +1224,7 @@ pub struct IRTCEnumPresenceDevices_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEnumProfiles, IRTCEnumProfiles_Vtbl, 0x29b7c41c_ed82_4bca_84ad_39d5101b58e3);
-impl std::ops::Deref for IRTCEnumProfiles {
+impl core::ops::Deref for IRTCEnumProfiles {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1255,7 +1255,7 @@ pub struct IRTCEnumProfiles_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEnumUserSearchResults, IRTCEnumUserSearchResults_Vtbl, 0x83d4d877_aa5d_4a5b_8d0e_002a8067e0e8);
-impl std::ops::Deref for IRTCEnumUserSearchResults {
+impl core::ops::Deref for IRTCEnumUserSearchResults {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1286,7 +1286,7 @@ pub struct IRTCEnumUserSearchResults_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEnumWatchers, IRTCEnumWatchers_Vtbl, 0xa87d55d7_db74_4ed1_9ca4_77a0e41b413e);
-impl std::ops::Deref for IRTCEnumWatchers {
+impl core::ops::Deref for IRTCEnumWatchers {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1317,7 +1317,7 @@ pub struct IRTCEnumWatchers_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCEventNotification, IRTCEventNotification_Vtbl, 0x13fa24c7_5748_4b21_91f5_7397609ce747);
-impl std::ops::Deref for IRTCEventNotification {
+impl core::ops::Deref for IRTCEventNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1344,7 +1344,7 @@ pub struct IRTCEventNotification_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCInfoEvent, IRTCInfoEvent_Vtbl, 0x4e1d68ae_1912_4f49_b2c3_594fadfd425f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCInfoEvent {
+impl core::ops::Deref for IRTCInfoEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1383,7 +1383,7 @@ pub struct IRTCInfoEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCIntensityEvent, IRTCIntensityEvent_Vtbl, 0x4c23bf51_390c_4992_a41d_41eec05b2a4b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCIntensityEvent {
+impl core::ops::Deref for IRTCIntensityEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1422,7 +1422,7 @@ pub struct IRTCIntensityEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCMediaEvent, IRTCMediaEvent_Vtbl, 0x099944fb_bcda_453e_8c41_e13da2adf7f3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCMediaEvent {
+impl core::ops::Deref for IRTCMediaEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1456,7 +1456,7 @@ pub struct IRTCMediaEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCMediaRequestEvent, IRTCMediaRequestEvent_Vtbl, 0x52572d15_148c_4d97_a36c_2da55c289d63);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCMediaRequestEvent {
+impl core::ops::Deref for IRTCMediaRequestEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1508,7 +1508,7 @@ pub struct IRTCMediaRequestEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCMessagingEvent, IRTCMessagingEvent_Vtbl, 0xd3609541_1b29_4de5_a4ad_5aebaf319512);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCMessagingEvent {
+impl core::ops::Deref for IRTCMessagingEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1555,7 +1555,7 @@ pub struct IRTCMessagingEvent_Vtbl {
     pub UserStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_MESSAGING_USER_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCParticipant, IRTCParticipant_Vtbl, 0xae86add5_26b1_4414_af1d_b94cd938d739);
-impl std::ops::Deref for IRTCParticipant {
+impl core::ops::Deref for IRTCParticipant {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1596,7 +1596,7 @@ pub struct IRTCParticipant_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCParticipantStateChangeEvent, IRTCParticipantStateChangeEvent_Vtbl, 0x09bcb597_f0fa_48f9_b420_468cea7fde04);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCParticipantStateChangeEvent {
+impl core::ops::Deref for IRTCParticipantStateChangeEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1628,7 +1628,7 @@ pub struct IRTCParticipantStateChangeEvent_Vtbl {
     pub StatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCPortManager, IRTCPortManager_Vtbl, 0xda77c14b_6208_43ca_8ddf_5b60a0a69fac);
-impl std::ops::Deref for IRTCPortManager {
+impl core::ops::Deref for IRTCPortManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1666,7 +1666,7 @@ pub struct IRTCPortManager_Vtbl {
     pub ReleaseMapping: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCPresenceContact, IRTCPresenceContact_Vtbl, 0x8b22f92c_cd90_42db_a733_212205c3e3df);
-impl std::ops::Deref for IRTCPresenceContact {
+impl core::ops::Deref for IRTCPresenceContact {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1730,7 +1730,7 @@ pub struct IRTCPresenceContact_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCPresenceDataEvent, IRTCPresenceDataEvent_Vtbl, 0x38f0e78c_8b87_4c04_a82d_aedd83c909bb);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCPresenceDataEvent {
+impl core::ops::Deref for IRTCPresenceDataEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1761,7 +1761,7 @@ pub struct IRTCPresenceDataEvent_Vtbl {
     pub GetPresenceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCPresenceDevice, IRTCPresenceDevice_Vtbl, 0xbc6a90dd_ad9a_48da_9b0c_2515e38521ad);
-impl std::ops::Deref for IRTCPresenceDevice {
+impl core::ops::Deref for IRTCPresenceDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1796,7 +1796,7 @@ pub struct IRTCPresenceDevice_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCPresencePropertyEvent, IRTCPresencePropertyEvent_Vtbl, 0xf777f570_a820_49d5_86bd_e099493f1518);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCPresencePropertyEvent {
+impl core::ops::Deref for IRTCPresencePropertyEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1835,7 +1835,7 @@ pub struct IRTCPresencePropertyEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCPresenceStatusEvent, IRTCPresenceStatusEvent_Vtbl, 0x78673f32_4a0f_462c_89aa_ee7706707678);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCPresenceStatusEvent {
+impl core::ops::Deref for IRTCPresenceStatusEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1866,7 +1866,7 @@ pub struct IRTCPresenceStatusEvent_Vtbl {
     pub GetLocalPresenceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_PRESENCE_STATUS, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCProfile, IRTCProfile_Vtbl, 0xd07eca9e_4062_4dd4_9e7d_722a49ba7303);
-impl std::ops::Deref for IRTCProfile {
+impl core::ops::Deref for IRTCProfile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1974,7 +1974,7 @@ pub struct IRTCProfile_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCProfile2, IRTCProfile2_Vtbl, 0x4b81f84e_bdc7_4184_9154_3cb2dd7917fb);
-impl std::ops::Deref for IRTCProfile2 {
+impl core::ops::Deref for IRTCProfile2 {
     type Target = IRTCProfile;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2011,7 +2011,7 @@ pub struct IRTCProfile2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCProfileEvent, IRTCProfileEvent_Vtbl, 0xd6d5ab3b_770e_43e8_800a_79b062395fca);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCProfileEvent {
+impl core::ops::Deref for IRTCProfileEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2045,7 +2045,7 @@ pub struct IRTCProfileEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCProfileEvent2, IRTCProfileEvent2_Vtbl, 0x62e56edc_03fa_4121_94fb_23493fd0ae64);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCProfileEvent2 {
+impl core::ops::Deref for IRTCProfileEvent2 {
     type Target = IRTCProfileEvent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2069,7 +2069,7 @@ pub struct IRTCProfileEvent2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCReInviteEvent, IRTCReInviteEvent_Vtbl, 0x11558d84_204c_43e7_99b0_2034e9417f7d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCReInviteEvent {
+impl core::ops::Deref for IRTCReInviteEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2114,7 +2114,7 @@ pub struct IRTCReInviteEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCRegistrationStateChangeEvent, IRTCRegistrationStateChangeEvent_Vtbl, 0x62d0991b_50ab_4f02_b948_ca94f26f8f95);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCRegistrationStateChangeEvent {
+impl core::ops::Deref for IRTCRegistrationStateChangeEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2153,7 +2153,7 @@ pub struct IRTCRegistrationStateChangeEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCRoamingEvent, IRTCRoamingEvent_Vtbl, 0x79960a6b_0cb1_4dc8_a805_7318e99902e8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCRoamingEvent {
+impl core::ops::Deref for IRTCRoamingEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2190,7 +2190,7 @@ pub struct IRTCRoamingEvent_Vtbl {
     pub StatusText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCSession, IRTCSession_Vtbl, 0x387c8086_99be_42fb_9973_7c0fc0ca9fa8);
-impl std::ops::Deref for IRTCSession {
+impl core::ops::Deref for IRTCSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2316,7 +2316,7 @@ pub struct IRTCSession_Vtbl {
     pub put_EncryptionKey: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCSession2, IRTCSession2_Vtbl, 0x17d7cdfc_b007_484c_99d2_86a8a820991d);
-impl std::ops::Deref for IRTCSession2 {
+impl core::ops::Deref for IRTCSession2 {
     type Target = IRTCSession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2368,7 +2368,7 @@ pub struct IRTCSession2_Vtbl {
     pub ReInviteWithSessionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, isize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCSessionCallControl, IRTCSessionCallControl_Vtbl, 0xe9a50d94_190b_4f82_9530_3b8ebf60758a);
-impl std::ops::Deref for IRTCSessionCallControl {
+impl core::ops::Deref for IRTCSessionCallControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2434,7 +2434,7 @@ pub struct IRTCSessionCallControl_Vtbl {
     pub IsReferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCSessionDescriptionManager, IRTCSessionDescriptionManager_Vtbl, 0xba7f518e_d336_4070_93a6_865395c843f9);
-impl std::ops::Deref for IRTCSessionDescriptionManager {
+impl core::ops::Deref for IRTCSessionDescriptionManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2458,7 +2458,7 @@ pub struct IRTCSessionDescriptionManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCSessionOperationCompleteEvent, IRTCSessionOperationCompleteEvent_Vtbl, 0xa6bff4c0_f7c8_4d3c_9a41_3550f78a95b0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCSessionOperationCompleteEvent {
+impl core::ops::Deref for IRTCSessionOperationCompleteEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2497,7 +2497,7 @@ pub struct IRTCSessionOperationCompleteEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCSessionOperationCompleteEvent2, IRTCSessionOperationCompleteEvent2_Vtbl, 0xf6fc2a9b_d5bc_4241_b436_1b8460c13832);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCSessionOperationCompleteEvent2 {
+impl core::ops::Deref for IRTCSessionOperationCompleteEvent2 {
     type Target = IRTCSessionOperationCompleteEvent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2523,7 +2523,7 @@ pub struct IRTCSessionOperationCompleteEvent2_Vtbl {
     pub GetRemoteSessionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCSessionPortManagement, IRTCSessionPortManagement_Vtbl, 0xa072f1d6_0286_4e1f_85f2_17a2948456ec);
-impl std::ops::Deref for IRTCSessionPortManagement {
+impl core::ops::Deref for IRTCSessionPortManagement {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2546,7 +2546,7 @@ pub struct IRTCSessionPortManagement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCSessionReferStatusEvent, IRTCSessionReferStatusEvent_Vtbl, 0x3d8fc2cd_5d76_44ab_bb68_2a80353b34a2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCSessionReferStatusEvent {
+impl core::ops::Deref for IRTCSessionReferStatusEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2585,7 +2585,7 @@ pub struct IRTCSessionReferStatusEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCSessionReferredEvent, IRTCSessionReferredEvent_Vtbl, 0x176a6828_4fcc_4f28_a862_04597a6cf1c4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCSessionReferredEvent {
+impl core::ops::Deref for IRTCSessionReferredEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2636,7 +2636,7 @@ pub struct IRTCSessionReferredEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCSessionStateChangeEvent, IRTCSessionStateChangeEvent_Vtbl, 0xb5bad703_5952_48b3_9321_7f4500521506);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCSessionStateChangeEvent {
+impl core::ops::Deref for IRTCSessionStateChangeEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2675,7 +2675,7 @@ pub struct IRTCSessionStateChangeEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCSessionStateChangeEvent2, IRTCSessionStateChangeEvent2_Vtbl, 0x4f933171_6f95_4880_80d9_2ec8d495d261);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCSessionStateChangeEvent2 {
+impl core::ops::Deref for IRTCSessionStateChangeEvent2 {
     type Target = IRTCSessionStateChangeEvent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2711,7 +2711,7 @@ pub struct IRTCSessionStateChangeEvent2_Vtbl {
     pub GetRemoteSessionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCUserSearch, IRTCUserSearch_Vtbl, 0xb619882b_860c_4db4_be1b_693b6505bbe5);
-impl std::ops::Deref for IRTCUserSearch {
+impl core::ops::Deref for IRTCUserSearch {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2738,7 +2738,7 @@ pub struct IRTCUserSearch_Vtbl {
     pub ExecuteSearch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, isize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCUserSearchQuery, IRTCUserSearchQuery_Vtbl, 0x288300f5_d23a_4365_9a73_9985c98c2881);
-impl std::ops::Deref for IRTCUserSearchQuery {
+impl core::ops::Deref for IRTCUserSearchQuery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2794,7 +2794,7 @@ pub struct IRTCUserSearchQuery_Vtbl {
     pub SearchDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCUserSearchResult, IRTCUserSearchResult_Vtbl, 0x851278b2_9592_480f_8db5_2de86b26b54d);
-impl std::ops::Deref for IRTCUserSearchResult {
+impl core::ops::Deref for IRTCUserSearchResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2815,7 +2815,7 @@ pub struct IRTCUserSearchResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCUserSearchResultsEvent, IRTCUserSearchResultsEvent_Vtbl, 0xd8c8c3cd_7fac_4088_81c5_c24cbc0938e3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCUserSearchResultsEvent {
+impl core::ops::Deref for IRTCUserSearchResultsEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2871,7 +2871,7 @@ pub struct IRTCUserSearchResultsEvent_Vtbl {
     pub MoreAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCWatcher, IRTCWatcher_Vtbl, 0xc7cedad8_346b_4d1b_ac02_a2088df9be4f);
-impl std::ops::Deref for IRTCWatcher {
+impl core::ops::Deref for IRTCWatcher {
     type Target = IRTCPresenceContact;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2894,7 +2894,7 @@ pub struct IRTCWatcher_Vtbl {
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_WATCHER_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRTCWatcher2, IRTCWatcher2_Vtbl, 0xd4d9967f_d011_4b1d_91e3_aba78f96393d);
-impl std::ops::Deref for IRTCWatcher2 {
+impl core::ops::Deref for IRTCWatcher2 {
     type Target = IRTCWatcher;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2920,7 +2920,7 @@ pub struct IRTCWatcher2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCWatcherEvent, IRTCWatcherEvent_Vtbl, 0xf30d7261_587a_424f_822c_312788f43548);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCWatcherEvent {
+impl core::ops::Deref for IRTCWatcherEvent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2944,7 +2944,7 @@ pub struct IRTCWatcherEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRTCWatcherEvent2, IRTCWatcherEvent2_Vtbl, 0xe52891e8_188c_49af_b005_98ed13f83f9c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRTCWatcherEvent2 {
+impl core::ops::Deref for IRTCWatcherEvent2 {
     type Target = IRTCWatcherEvent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2971,7 +2971,7 @@ pub struct IRTCWatcherEvent2_Vtbl {
     pub StatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransportSettingsInternal, ITransportSettingsInternal_Vtbl, 0x5123e076_29e3_4bfd_84fe_0192d411e3e8);
-impl std::ops::Deref for ITransportSettingsInternal {
+impl core::ops::Deref for ITransportSettingsInternal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

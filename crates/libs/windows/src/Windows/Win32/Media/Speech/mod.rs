@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IEnumSpObjectTokens, IEnumSpObjectTokens_Vtbl, 0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
-impl std::ops::Deref for IEnumSpObjectTokens {
+impl core::ops::Deref for IEnumSpObjectTokens {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -41,7 +41,7 @@ pub struct IEnumSpObjectTokens_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpAudio, ISpAudio_Vtbl, 0xc05c768f_fae8_4ec2_8e07_338321c12452);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpAudio {
+impl core::ops::Deref for ISpAudio {
     type Target = ISpStreamFormat;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -110,7 +110,7 @@ pub struct ISpAudio_Vtbl {
     pub SetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpCFGInterpreter, ISpCFGInterpreter_Vtbl, 0xf3d3f926_11fc_11d3_bb97_00c04f8ee6c0);
-impl std::ops::Deref for ISpCFGInterpreter {
+impl core::ops::Deref for ISpCFGInterpreter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -139,7 +139,7 @@ pub struct ISpCFGInterpreter_Vtbl {
     pub Interpret: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpCFGInterpreterSite, ISpCFGInterpreterSite_Vtbl, 0x6a6ffad8_78b6_473d_b844_98152e4fb16b);
-impl std::ops::Deref for ISpCFGInterpreterSite {
+impl core::ops::Deref for ISpCFGInterpreterSite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -169,7 +169,7 @@ pub struct ISpCFGInterpreterSite_Vtbl {
     pub GetResourceValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpContainerLexicon, ISpContainerLexicon_Vtbl, 0x8565572f_c094_41cc_b56e_10bd9c3ff044);
-impl std::ops::Deref for ISpContainerLexicon {
+impl core::ops::Deref for ISpContainerLexicon {
     type Target = ISpLexicon;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -190,7 +190,7 @@ pub struct ISpContainerLexicon_Vtbl {
     pub AddLexicon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpDataKey, ISpDataKey_Vtbl, 0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
-impl std::ops::Deref for ISpDataKey {
+impl core::ops::Deref for ISpDataKey {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -288,7 +288,7 @@ pub struct ISpDataKey_Vtbl {
     pub EnumValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpDisplayAlternates, ISpDisplayAlternates_Vtbl, 0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
-impl std::ops::Deref for ISpDisplayAlternates {
+impl core::ops::Deref for ISpDisplayAlternates {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -310,7 +310,7 @@ pub struct ISpDisplayAlternates_Vtbl {
     pub SetFullStopTrailSpace: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpEnginePronunciation, ISpEnginePronunciation_Vtbl, 0xc360ce4b_76d1_4214_ad68_52657d5083da);
-impl std::ops::Deref for ISpEnginePronunciation {
+impl core::ops::Deref for ISpEnginePronunciation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -342,7 +342,7 @@ pub struct ISpEnginePronunciation_Vtbl {
     pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u16, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpErrorLog, ISpErrorLog_Vtbl, 0xf4711347_e608_11d2_a086_00c04f8ef9b5);
-impl std::ops::Deref for ISpErrorLog {
+impl core::ops::Deref for ISpErrorLog {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -364,7 +364,7 @@ pub struct ISpErrorLog_Vtbl {
     pub AddError: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::HRESULT, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpEventSink, ISpEventSink_Vtbl, 0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
-impl std::ops::Deref for ISpEventSink {
+impl core::ops::Deref for ISpEventSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -386,7 +386,7 @@ pub struct ISpEventSink_Vtbl {
     pub GetEventInterest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpEventSource, ISpEventSource_Vtbl, 0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
-impl std::ops::Deref for ISpEventSource {
+impl core::ops::Deref for ISpEventSource {
     type Target = ISpNotifySource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -412,7 +412,7 @@ pub struct ISpEventSource_Vtbl {
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPEVENTSOURCEINFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpEventSource2, ISpEventSource2_Vtbl, 0x2373a435_6a4b_429e_a6ac_d4231a61975b);
-impl std::ops::Deref for ISpEventSource2 {
+impl core::ops::Deref for ISpEventSource2 {
     type Target = ISpEventSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -430,7 +430,7 @@ pub struct ISpEventSource2_Vtbl {
     pub GetEventsEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SPEVENTEX, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpGramCompBackend, ISpGramCompBackend_Vtbl, 0x3ddca27c_665c_4786_9f97_8c90c3488b61);
-impl std::ops::Deref for ISpGramCompBackend {
+impl core::ops::Deref for ISpGramCompBackend {
     type Target = ISpGrammarBuilder;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -460,7 +460,7 @@ pub struct ISpGramCompBackend_Vtbl {
     pub InitFromBinaryGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPBINARYGRAMMAR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpGrammarBuilder, ISpGrammarBuilder_Vtbl, 0x8137828f_591a_4a42_be58_49ea7ebaac68);
-impl std::ops::Deref for ISpGrammarBuilder {
+impl core::ops::Deref for ISpGrammarBuilder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -532,7 +532,7 @@ pub struct ISpGrammarBuilder_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpGrammarBuilder2, ISpGrammarBuilder2_Vtbl, 0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
-impl std::ops::Deref for ISpGrammarBuilder2 {
+impl core::ops::Deref for ISpGrammarBuilder2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -559,7 +559,7 @@ pub struct ISpGrammarBuilder2_Vtbl {
     pub SetPhoneticAlphabet: unsafe extern "system" fn(*mut core::ffi::c_void, PHONETICALPHABET) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpGrammarCompiler, ISpGrammarCompiler_Vtbl, 0xb1e29d58_a675_11d2_8302_00c04f8ee6c0);
-impl std::ops::Deref for ISpGrammarCompiler {
+impl core::ops::Deref for ISpGrammarCompiler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -588,7 +588,7 @@ pub struct ISpGrammarCompiler_Vtbl {
     CompileStream: usize,
 }
 windows_core::imp::define_interface!(ISpITNProcessor, ISpITNProcessor_Vtbl, 0x12d7360f_a1c9_11d3_bc90_00c04f72df9f);
-impl std::ops::Deref for ISpITNProcessor {
+impl core::ops::Deref for ISpITNProcessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -616,7 +616,7 @@ pub struct ISpITNProcessor_Vtbl {
     pub ITNPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpLexicon, ISpLexicon_Vtbl, 0xda41a7c2_5383_4db2_916b_6c1719e3db58);
-impl std::ops::Deref for ISpLexicon {
+impl core::ops::Deref for ISpLexicon {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -665,7 +665,7 @@ pub struct ISpLexicon_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpMMSysAudio, ISpMMSysAudio_Vtbl, 0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpMMSysAudio {
+impl core::ops::Deref for ISpMMSysAudio {
     type Target = ISpAudio;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -716,7 +716,7 @@ pub struct ISpNotifyCallback_Vtbl {
     pub NotifyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpNotifySink, ISpNotifySink_Vtbl, 0x259684dc_37c3_11d2_9603_00c04f8ee628);
-impl std::ops::Deref for ISpNotifySink {
+impl core::ops::Deref for ISpNotifySink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -734,7 +734,7 @@ pub struct ISpNotifySink_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpNotifySource, ISpNotifySource_Vtbl, 0x5eff4aef_8487_11d2_961c_00c04f8ee628);
-impl std::ops::Deref for ISpNotifySource {
+impl core::ops::Deref for ISpNotifySource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -793,7 +793,7 @@ pub struct ISpNotifySource_Vtbl {
     pub GetNotifyEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 windows_core::imp::define_interface!(ISpNotifyTranslator, ISpNotifyTranslator_Vtbl, 0xaca16614_5d3d_11d2_960e_00c04f8ee628);
-impl std::ops::Deref for ISpNotifyTranslator {
+impl core::ops::Deref for ISpNotifyTranslator {
     type Target = ISpNotifySink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -849,7 +849,7 @@ pub struct ISpNotifyTranslator_Vtbl {
     pub GetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 windows_core::imp::define_interface!(ISpObjectToken, ISpObjectToken_Vtbl, 0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
-impl std::ops::Deref for ISpObjectToken {
+impl core::ops::Deref for ISpObjectToken {
     type Target = ISpDataKey;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -935,7 +935,7 @@ pub struct ISpObjectToken_Vtbl {
     pub MatchesAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpObjectTokenCategory, ISpObjectTokenCategory_Vtbl, 0x2d3d3845_39af_4850_bbf9_40b49780011d);
-impl std::ops::Deref for ISpObjectTokenCategory {
+impl core::ops::Deref for ISpObjectTokenCategory {
     type Target = ISpDataKey;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -988,7 +988,7 @@ pub struct ISpObjectTokenCategory_Vtbl {
     pub GetDefaultTokenId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpObjectTokenEnumBuilder, ISpObjectTokenEnumBuilder_Vtbl, 0x06b64f9f_7fda_11d2_b4f2_00c04f797396);
-impl std::ops::Deref for ISpObjectTokenEnumBuilder {
+impl core::ops::Deref for ISpObjectTokenEnumBuilder {
     type Target = IEnumSpObjectTokens;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1037,7 +1037,7 @@ pub struct ISpObjectTokenEnumBuilder_Vtbl {
     pub Sort: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpObjectTokenInit, ISpObjectTokenInit_Vtbl, 0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
-impl std::ops::Deref for ISpObjectTokenInit {
+impl core::ops::Deref for ISpObjectTokenInit {
     type Target = ISpObjectToken;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1060,7 +1060,7 @@ pub struct ISpObjectTokenInit_Vtbl {
     pub InitFromDataKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpObjectWithToken, ISpObjectWithToken_Vtbl, 0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
-impl std::ops::Deref for ISpObjectWithToken {
+impl core::ops::Deref for ISpObjectWithToken {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1086,7 +1086,7 @@ pub struct ISpObjectWithToken_Vtbl {
     pub GetObjectToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPhoneConverter, ISpPhoneConverter_Vtbl, 0x8445c581_0cac_4a38_abfe_9b2ce2826455);
-impl std::ops::Deref for ISpPhoneConverter {
+impl core::ops::Deref for ISpPhoneConverter {
     type Target = ISpObjectWithToken;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1112,7 +1112,7 @@ pub struct ISpPhoneConverter_Vtbl {
     pub IdToPhone: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPhoneticAlphabetConverter, ISpPhoneticAlphabetConverter_Vtbl, 0x133adcd4_19b4_4020_9fdc_842e78253b17);
-impl std::ops::Deref for ISpPhoneticAlphabetConverter {
+impl core::ops::Deref for ISpPhoneticAlphabetConverter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1151,7 +1151,7 @@ pub struct ISpPhoneticAlphabetConverter_Vtbl {
     pub GetMaxConvertLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPhoneticAlphabetSelection, ISpPhoneticAlphabetSelection_Vtbl, 0xb2745efd_42ce_48ca_81f1_a96e02538a90);
-impl std::ops::Deref for ISpPhoneticAlphabetSelection {
+impl core::ops::Deref for ISpPhoneticAlphabetSelection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1177,7 +1177,7 @@ pub struct ISpPhoneticAlphabetSelection_Vtbl {
     pub SetAlphabetToUPS: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPhrase, ISpPhrase_Vtbl, 0x1a5c0354_b621_4b5a_8791_d306ed379e53);
-impl std::ops::Deref for ISpPhrase {
+impl core::ops::Deref for ISpPhrase {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1212,7 +1212,7 @@ pub struct ISpPhrase_Vtbl {
     pub Discard: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPhrase2, ISpPhrase2_Vtbl, 0xf264da52_e457_4696_b856_a737b717af79);
-impl std::ops::Deref for ISpPhrase2 {
+impl core::ops::Deref for ISpPhrase2 {
     type Target = ISpPhrase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1243,7 +1243,7 @@ pub struct ISpPhrase2_Vtbl {
     GetAudio: usize,
 }
 windows_core::imp::define_interface!(ISpPhraseAlt, ISpPhraseAlt_Vtbl, 0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
-impl std::ops::Deref for ISpPhraseAlt {
+impl core::ops::Deref for ISpPhraseAlt {
     type Target = ISpPhrase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1265,7 +1265,7 @@ pub struct ISpPhraseAlt_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPhraseBuilder, ISpPhraseBuilder_Vtbl, 0x88a3342a_0bed_4834_922b_88d43173162f);
-impl std::ops::Deref for ISpPhraseBuilder {
+impl core::ops::Deref for ISpPhraseBuilder {
     type Target = ISpPhrase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1311,7 +1311,7 @@ pub struct ISpPhraseBuilder_Vtbl {
     pub AddReplacements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const SPPHRASEREPLACEMENT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpPrivateEngineCallEx, ISpPrivateEngineCallEx_Vtbl, 0xdefd682a_fe0a_42b9_bfa1_56d3d6cecfaf);
-impl std::ops::Deref for ISpPrivateEngineCallEx {
+impl core::ops::Deref for ISpPrivateEngineCallEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1333,7 +1333,7 @@ pub struct ISpPrivateEngineCallEx_Vtbl {
     pub CallEngineImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpProperties, ISpProperties_Vtbl, 0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
-impl std::ops::Deref for ISpProperties {
+impl core::ops::Deref for ISpProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1377,7 +1377,7 @@ pub struct ISpProperties_Vtbl {
     pub GetPropertyString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecoContext, ISpRecoContext_Vtbl, 0xf740a62f_7c15_489e_8234_940a33d9272d);
-impl std::ops::Deref for ISpRecoContext {
+impl core::ops::Deref for ISpRecoContext {
     type Target = ISpEventSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1485,7 +1485,7 @@ pub struct ISpRecoContext_Vtbl {
     pub GetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPCONTEXTSTATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecoContext2, ISpRecoContext2_Vtbl, 0xbead311c_52ff_437f_9464_6b21054ca73d);
-impl std::ops::Deref for ISpRecoContext2 {
+impl core::ops::Deref for ISpRecoContext2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1515,7 +1515,7 @@ pub struct ISpRecoContext2_Vtbl {
     pub SetAdaptationData2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, SPADAPTATIONRELEVANCE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecoGrammar, ISpRecoGrammar_Vtbl, 0x2177db29_7f45_47d0_8554_067e91c80502);
-impl std::ops::Deref for ISpRecoGrammar {
+impl core::ops::Deref for ISpRecoGrammar {
     type Target = ISpGrammarBuilder;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1632,7 +1632,7 @@ pub struct ISpRecoGrammar_Vtbl {
     pub GetGrammarState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPGRAMMARSTATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecoGrammar2, ISpRecoGrammar2_Vtbl, 0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
-impl std::ops::Deref for ISpRecoGrammar2 {
+impl core::ops::Deref for ISpRecoGrammar2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1707,7 +1707,7 @@ pub struct ISpRecoGrammar2_Vtbl {
     SetSMLSecurityManager: usize,
 }
 windows_core::imp::define_interface!(ISpRecoResult, ISpRecoResult_Vtbl, 0x20b053be_e235_43cd_9a2a_8d17a48b7842);
-impl std::ops::Deref for ISpRecoResult {
+impl core::ops::Deref for ISpRecoResult {
     type Target = ISpPhrase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1759,7 +1759,7 @@ pub struct ISpRecoResult_Vtbl {
     pub GetRecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecoResult2, ISpRecoResult2_Vtbl, 0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
-impl std::ops::Deref for ISpRecoResult2 {
+impl core::ops::Deref for ISpRecoResult2 {
     type Target = ISpRecoResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1796,7 +1796,7 @@ pub struct ISpRecoResult2_Vtbl {
     pub SetTextFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecognizer, ISpRecognizer_Vtbl, 0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
-impl std::ops::Deref for ISpRecognizer {
+impl core::ops::Deref for ISpRecognizer {
     type Target = ISpProperties;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1908,7 +1908,7 @@ pub struct ISpRecognizer_Vtbl {
     pub EmulateRecognition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRecognizer2, ISpRecognizer2_Vtbl, 0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
-impl std::ops::Deref for ISpRecognizer2 {
+impl core::ops::Deref for ISpRecognizer2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1941,7 +1941,7 @@ pub struct ISpRecognizer2_Vtbl {
     pub ResetAcousticModelAdaptation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpRegDataKey, ISpRegDataKey_Vtbl, 0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
-impl std::ops::Deref for ISpRegDataKey {
+impl core::ops::Deref for ISpRegDataKey {
     type Target = ISpDataKey;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1969,7 +1969,7 @@ pub struct ISpRegDataKey_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpResourceManager, ISpResourceManager_Vtbl, 0x93384e18_5014_43d5_adbb_a78e055926bd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpResourceManager {
+impl core::ops::Deref for ISpResourceManager {
     type Target = super::super::System::Com::IServiceProvider;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2000,7 +2000,7 @@ pub struct ISpResourceManager_Vtbl {
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSRAlternates, ISpSRAlternates_Vtbl, 0xfece8294_2be1_408f_8e68_2de377092f0e);
-impl std::ops::Deref for ISpSRAlternates {
+impl core::ops::Deref for ISpSRAlternates {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2022,7 +2022,7 @@ pub struct ISpSRAlternates_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, *const SPPHRASEALT, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSRAlternates2, ISpSRAlternates2_Vtbl, 0xf338f437_cb33_4020_9cab_c71ff9ce12d3);
-impl std::ops::Deref for ISpSRAlternates2 {
+impl core::ops::Deref for ISpSRAlternates2 {
     type Target = ISpSRAlternates;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2043,7 +2043,7 @@ pub struct ISpSRAlternates2_Vtbl {
     pub CommitText: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, windows_core::PCWSTR, SPCOMMITFLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSREngine, ISpSREngine_Vtbl, 0x2f472991_854b_4465_b613_fbafb3ad8ed8);
-impl std::ops::Deref for ISpSREngine {
+impl core::ops::Deref for ISpSREngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2230,7 +2230,7 @@ pub struct ISpSREngine_Vtbl {
     pub SetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, SPCONTEXTSTATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSREngine2, ISpSREngine2_Vtbl, 0x7ba627d8_33f9_4375_90c5_9985aee5ede5);
-impl std::ops::Deref for ISpSREngine2 {
+impl core::ops::Deref for ISpSREngine2 {
     type Target = ISpSREngine;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2308,7 +2308,7 @@ pub struct ISpSREngine2_Vtbl {
     pub OnUnloadCFG: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSREngineSite, ISpSREngineSite_Vtbl, 0x3b414aec_720c_4883_b9ef_178cd394fb3a);
-impl std::ops::Deref for ISpSREngineSite {
+impl core::ops::Deref for ISpSREngineSite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2430,7 +2430,7 @@ pub struct ISpSREngineSite_Vtbl {
     pub UpdateRecoPos: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSREngineSite2, ISpSREngineSite2_Vtbl, 0x7bc6e012_684a_493e_bdd4_2bf5fbf48cfe);
-impl std::ops::Deref for ISpSREngineSite2 {
+impl core::ops::Deref for ISpSREngineSite2 {
     type Target = ISpSREngineSite;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2463,7 +2463,7 @@ pub struct ISpSREngineSite2_Vtbl {
     pub RecognitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPRECORESULTINFOEX) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpSerializeState, ISpSerializeState_Vtbl, 0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
-impl std::ops::Deref for ISpSerializeState {
+impl core::ops::Deref for ISpSerializeState {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2485,7 +2485,7 @@ pub struct ISpSerializeState_Vtbl {
     pub SetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpShortcut, ISpShortcut_Vtbl, 0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
-impl std::ops::Deref for ISpShortcut {
+impl core::ops::Deref for ISpShortcut {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2542,7 +2542,7 @@ pub struct ISpShortcut_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpStream, ISpStream_Vtbl, 0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpStream {
+impl core::ops::Deref for ISpStream {
     type Target = ISpStreamFormat;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2596,7 +2596,7 @@ pub struct ISpStream_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpStreamFormat, ISpStreamFormat_Vtbl, 0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpStreamFormat {
+impl core::ops::Deref for ISpStreamFormat {
     type Target = super::super::System::Com::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2624,7 +2624,7 @@ pub struct ISpStreamFormat_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpStreamFormatConverter, ISpStreamFormatConverter_Vtbl, 0x678a932c_ea71_4446_9b41_78fda6280a29);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpStreamFormatConverter {
+impl core::ops::Deref for ISpStreamFormatConverter {
     type Target = ISpStreamFormat;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2685,7 +2685,7 @@ pub struct ISpStreamFormatConverter_Vtbl {
     pub ScaleBaseToConvertedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpTTSEngine, ISpTTSEngine_Vtbl, 0xa74d7c8e_4cc5_4f2f_a6eb_804dee18500e);
-impl std::ops::Deref for ISpTTSEngine {
+impl core::ops::Deref for ISpTTSEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2718,7 +2718,7 @@ pub struct ISpTTSEngine_Vtbl {
     GetOutputFormat: usize,
 }
 windows_core::imp::define_interface!(ISpTTSEngineSite, ISpTTSEngineSite_Vtbl, 0x9880499b_cce9_11d2_b503_00c04f797396);
-impl std::ops::Deref for ISpTTSEngineSite {
+impl core::ops::Deref for ISpTTSEngineSite {
     type Target = ISpEventSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2769,7 +2769,7 @@ pub struct ISpTask_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpTaskManager, ISpTaskManager_Vtbl, 0x2baeef81_2ca3_4331_98f3_26ec5abefb03);
-impl std::ops::Deref for ISpTaskManager {
+impl core::ops::Deref for ISpTaskManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2825,7 +2825,7 @@ pub struct ISpTaskManager_Vtbl {
     pub TerminateTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpThreadControl, ISpThreadControl_Vtbl, 0xa6be4d73_4403_4358_b22d_0346e23b1764);
-impl std::ops::Deref for ISpThreadControl {
+impl core::ops::Deref for ISpThreadControl {
     type Target = ISpNotifySink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2910,7 +2910,7 @@ pub struct ISpThreadTask_Vtbl {
     pub WindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT,
 }
 windows_core::imp::define_interface!(ISpTokenUI, ISpTokenUI_Vtbl, 0xf8e690f0_39cb_4843_b8d7_c84696e1119d);
-impl std::ops::Deref for ISpTokenUI {
+impl core::ops::Deref for ISpTokenUI {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2944,7 +2944,7 @@ pub struct ISpTokenUI_Vtbl {
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpTranscript, ISpTranscript_Vtbl, 0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
-impl std::ops::Deref for ISpTranscript {
+impl core::ops::Deref for ISpTranscript {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2970,7 +2970,7 @@ pub struct ISpTranscript_Vtbl {
     pub AppendTranscript: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpVoice, ISpVoice_Vtbl, 0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
-impl std::ops::Deref for ISpVoice {
+impl core::ops::Deref for ISpVoice {
     type Target = ISpEventSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3119,7 +3119,7 @@ pub struct ISpVoice_Vtbl {
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpXMLRecoResult, ISpXMLRecoResult_Vtbl, 0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
-impl std::ops::Deref for ISpXMLRecoResult {
+impl core::ops::Deref for ISpXMLRecoResult {
     type Target = ISpRecoResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3143,7 +3143,7 @@ pub struct ISpXMLRecoResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechAudio, ISpeechAudio_Vtbl, 0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechAudio {
+impl core::ops::Deref for ISpeechAudio {
     type Target = ISpeechBaseStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3216,7 +3216,7 @@ pub struct ISpeechAudio_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechAudioBufferInfo, ISpeechAudioBufferInfo_Vtbl, 0x11b103d8_1142_4edf_a093_82fb3915f8cc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechAudioBufferInfo {
+impl core::ops::Deref for ISpeechAudioBufferInfo {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3262,7 +3262,7 @@ pub struct ISpeechAudioBufferInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechAudioFormat, ISpeechAudioFormat_Vtbl, 0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechAudioFormat {
+impl core::ops::Deref for ISpeechAudioFormat {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3322,7 +3322,7 @@ pub struct ISpeechAudioFormat_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechAudioStatus, ISpeechAudioStatus_Vtbl, 0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechAudioStatus {
+impl core::ops::Deref for ISpeechAudioStatus {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3366,7 +3366,7 @@ pub struct ISpeechAudioStatus_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechBaseStream, ISpeechBaseStream_Vtbl, 0x6450336f_7d49_4ced_8097_49d6dee37294);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechBaseStream {
+impl core::ops::Deref for ISpeechBaseStream {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3425,7 +3425,7 @@ pub struct ISpeechBaseStream_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechCustomStream, ISpeechCustomStream_Vtbl, 0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechCustomStream {
+impl core::ops::Deref for ISpeechCustomStream {
     type Target = ISpeechBaseStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3456,7 +3456,7 @@ pub struct ISpeechCustomStream_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechDataKey, ISpeechDataKey_Vtbl, 0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechDataKey {
+impl core::ops::Deref for ISpeechDataKey {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3570,7 +3570,7 @@ pub struct ISpeechDataKey_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechFileStream, ISpeechFileStream_Vtbl, 0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechFileStream {
+impl core::ops::Deref for ISpeechFileStream {
     type Target = ISpeechBaseStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3601,7 +3601,7 @@ pub struct ISpeechFileStream_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechGrammarRule, ISpeechGrammarRule_Vtbl, 0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechGrammarRule {
+impl core::ops::Deref for ISpeechGrammarRule {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3665,7 +3665,7 @@ pub struct ISpeechGrammarRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechGrammarRuleState, ISpeechGrammarRuleState_Vtbl, 0xd4286f2c_ee67_45ae_b928_28d695362eda);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechGrammarRuleState {
+impl core::ops::Deref for ISpeechGrammarRuleState {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3741,7 +3741,7 @@ pub struct ISpeechGrammarRuleState_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechGrammarRuleStateTransition, ISpeechGrammarRuleStateTransition_Vtbl, 0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechGrammarRuleStateTransition {
+impl core::ops::Deref for ISpeechGrammarRuleStateTransition {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3808,7 +3808,7 @@ pub struct ISpeechGrammarRuleStateTransition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechGrammarRuleStateTransitions, ISpeechGrammarRuleStateTransitions_Vtbl, 0xeabce657_75bc_44a2_aa7f_c56476742963);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechGrammarRuleStateTransitions {
+impl core::ops::Deref for ISpeechGrammarRuleStateTransitions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3846,7 +3846,7 @@ pub struct ISpeechGrammarRuleStateTransitions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechGrammarRules, ISpeechGrammarRules_Vtbl, 0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechGrammarRules {
+impl core::ops::Deref for ISpeechGrammarRules {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3921,7 +3921,7 @@ pub struct ISpeechGrammarRules_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechLexicon, ISpeechLexicon_Vtbl, 0x3da7627a_c7ae_4b23_8708_638c50362c25);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechLexicon {
+impl core::ops::Deref for ISpeechLexicon {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4003,7 +4003,7 @@ pub struct ISpeechLexicon_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechLexiconPronunciation, ISpeechLexiconPronunciation_Vtbl, 0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechLexiconPronunciation {
+impl core::ops::Deref for ISpeechLexiconPronunciation {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4047,7 +4047,7 @@ pub struct ISpeechLexiconPronunciation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechLexiconPronunciations, ISpeechLexiconPronunciations_Vtbl, 0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechLexiconPronunciations {
+impl core::ops::Deref for ISpeechLexiconPronunciations {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4085,7 +4085,7 @@ pub struct ISpeechLexiconPronunciations_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechLexiconWord, ISpeechLexiconWord_Vtbl, 0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechLexiconWord {
+impl core::ops::Deref for ISpeechLexiconWord {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4128,7 +4128,7 @@ pub struct ISpeechLexiconWord_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechLexiconWords, ISpeechLexiconWords_Vtbl, 0x8d199862_415e_47d5_ac4f_faa608b424e6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechLexiconWords {
+impl core::ops::Deref for ISpeechLexiconWords {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4166,7 +4166,7 @@ pub struct ISpeechLexiconWords_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechMMSysAudio, ISpeechMMSysAudio_Vtbl, 0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechMMSysAudio {
+impl core::ops::Deref for ISpeechMMSysAudio {
     type Target = ISpeechAudio;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4208,7 +4208,7 @@ pub struct ISpeechMMSysAudio_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechMemoryStream, ISpeechMemoryStream_Vtbl, 0xeeb14b68_808b_4abe_a5ea_b51da7588008);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechMemoryStream {
+impl core::ops::Deref for ISpeechMemoryStream {
     type Target = ISpeechBaseStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4239,7 +4239,7 @@ pub struct ISpeechMemoryStream_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechObjectToken, ISpeechObjectToken_Vtbl, 0xc74a3adc_b727_4500_a84a_b526721c8b8c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechObjectToken {
+impl core::ops::Deref for ISpeechObjectToken {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4363,7 +4363,7 @@ pub struct ISpeechObjectToken_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechObjectTokenCategory, ISpeechObjectTokenCategory_Vtbl, 0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechObjectTokenCategory {
+impl core::ops::Deref for ISpeechObjectTokenCategory {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4429,7 +4429,7 @@ pub struct ISpeechObjectTokenCategory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechObjectTokens, ISpeechObjectTokens_Vtbl, 0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechObjectTokens {
+impl core::ops::Deref for ISpeechObjectTokens {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4467,7 +4467,7 @@ pub struct ISpeechObjectTokens_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhoneConverter, ISpeechPhoneConverter_Vtbl, 0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhoneConverter {
+impl core::ops::Deref for ISpeechPhoneConverter {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4511,7 +4511,7 @@ pub struct ISpeechPhoneConverter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseAlternate, ISpeechPhraseAlternate_Vtbl, 0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseAlternate {
+impl core::ops::Deref for ISpeechPhraseAlternate {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4562,7 +4562,7 @@ pub struct ISpeechPhraseAlternate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseAlternates, ISpeechPhraseAlternates_Vtbl, 0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseAlternates {
+impl core::ops::Deref for ISpeechPhraseAlternates {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4600,7 +4600,7 @@ pub struct ISpeechPhraseAlternates_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseElement, ISpeechPhraseElement_Vtbl, 0xe6176f96_e373_4801_b223_3b62c068c0b4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseElement {
+impl core::ops::Deref for ISpeechPhraseElement {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4684,7 +4684,7 @@ pub struct ISpeechPhraseElement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseElements, ISpeechPhraseElements_Vtbl, 0x0626b328_3478_467d_a0b3_d0853b93dda3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseElements {
+impl core::ops::Deref for ISpeechPhraseElements {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4722,7 +4722,7 @@ pub struct ISpeechPhraseElements_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseInfo, ISpeechPhraseInfo_Vtbl, 0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseInfo {
+impl core::ops::Deref for ISpeechPhraseInfo {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4843,7 +4843,7 @@ pub struct ISpeechPhraseInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseInfoBuilder, ISpeechPhraseInfoBuilder_Vtbl, 0x3b151836_df3a_4e0a_846c_d2adc9334333);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseInfoBuilder {
+impl core::ops::Deref for ISpeechPhraseInfoBuilder {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4871,7 +4871,7 @@ pub struct ISpeechPhraseInfoBuilder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseProperties, ISpeechPhraseProperties_Vtbl, 0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseProperties {
+impl core::ops::Deref for ISpeechPhraseProperties {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4909,7 +4909,7 @@ pub struct ISpeechPhraseProperties_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseProperty, ISpeechPhraseProperty_Vtbl, 0xce563d48_961e_4732_a2e1_378a42b430be);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseProperty {
+impl core::ops::Deref for ISpeechPhraseProperty {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4981,7 +4981,7 @@ pub struct ISpeechPhraseProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseReplacement, ISpeechPhraseReplacement_Vtbl, 0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseReplacement {
+impl core::ops::Deref for ISpeechPhraseReplacement {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5020,7 +5020,7 @@ pub struct ISpeechPhraseReplacement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseReplacements, ISpeechPhraseReplacements_Vtbl, 0x38bc662f_2257_4525_959e_2069d2596c05);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseReplacements {
+impl core::ops::Deref for ISpeechPhraseReplacements {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5058,7 +5058,7 @@ pub struct ISpeechPhraseReplacements_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseRule, ISpeechPhraseRule_Vtbl, 0xa7bfe112_a4a0_48d9_b602_c313843f6964);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseRule {
+impl core::ops::Deref for ISpeechPhraseRule {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5125,7 +5125,7 @@ pub struct ISpeechPhraseRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechPhraseRules, ISpeechPhraseRules_Vtbl, 0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechPhraseRules {
+impl core::ops::Deref for ISpeechPhraseRules {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5163,7 +5163,7 @@ pub struct ISpeechPhraseRules_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecoContext, ISpeechRecoContext_Vtbl, 0x580aa49d_7e1e_4809_b8e2_57da806104b8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecoContext {
+impl core::ops::Deref for ISpeechRecoContext {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5342,7 +5342,7 @@ pub struct ISpeechRecoContext_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecoGrammar, ISpeechRecoGrammar_Vtbl, 0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecoGrammar {
+impl core::ops::Deref for ISpeechRecoGrammar {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5493,7 +5493,7 @@ pub struct ISpeechRecoGrammar_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecoResult, ISpeechRecoResult_Vtbl, 0xed2879cf_ced9_4ee6_a534_de0191d5468d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecoResult {
+impl core::ops::Deref for ISpeechRecoResult {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5591,7 +5591,7 @@ pub struct ISpeechRecoResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecoResult2, ISpeechRecoResult2_Vtbl, 0x8e0a246d_d3c8_45de_8657_04290c458c3c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecoResult2 {
+impl core::ops::Deref for ISpeechRecoResult2 {
     type Target = ISpeechRecoResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5618,7 +5618,7 @@ pub struct ISpeechRecoResult2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecoResultDispatch, ISpeechRecoResultDispatch_Vtbl, 0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecoResultDispatch {
+impl core::ops::Deref for ISpeechRecoResultDispatch {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5733,7 +5733,7 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecoResultTimes, ISpeechRecoResultTimes_Vtbl, 0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecoResultTimes {
+impl core::ops::Deref for ISpeechRecoResultTimes {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5772,7 +5772,7 @@ pub struct ISpeechRecoResultTimes_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecognizer, ISpeechRecognizer_Vtbl, 0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecognizer {
+impl core::ops::Deref for ISpeechRecognizer {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6017,7 +6017,7 @@ pub struct ISpeechRecognizer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechRecognizerStatus, ISpeechRecognizerStatus_Vtbl, 0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechRecognizerStatus {
+impl core::ops::Deref for ISpeechRecognizerStatus {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6070,7 +6070,7 @@ pub struct ISpeechRecognizerStatus_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechResourceLoader, ISpeechResourceLoader_Vtbl, 0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechResourceLoader {
+impl core::ops::Deref for ISpeechResourceLoader {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6111,7 +6111,7 @@ pub struct ISpeechResourceLoader_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechTextSelectionInformation, ISpeechTextSelectionInformation_Vtbl, 0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechTextSelectionInformation {
+impl core::ops::Deref for ISpeechTextSelectionInformation {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6166,7 +6166,7 @@ pub struct ISpeechTextSelectionInformation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechVoice, ISpeechVoice_Vtbl, 0x269316d8_57bd_11d2_9eee_00c04f797396);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechVoice {
+impl core::ops::Deref for ISpeechVoice {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6408,7 +6408,7 @@ pub struct ISpeechVoice_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechVoiceStatus, ISpeechVoiceStatus_Vtbl, 0x8be47b07_57f6_11d2_9eee_00c04f797396);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechVoiceStatus {
+impl core::ops::Deref for ISpeechVoiceStatus {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6487,7 +6487,7 @@ pub struct ISpeechVoiceStatus_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechWaveFormatEx, ISpeechWaveFormatEx_Vtbl, 0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechWaveFormatEx {
+impl core::ops::Deref for ISpeechWaveFormatEx {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6572,7 +6572,7 @@ pub struct ISpeechWaveFormatEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISpeechXMLRecoResult, ISpeechXMLRecoResult_Vtbl, 0xaaec54af_8f85_4924_944d_b79d39d72e19);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISpeechXMLRecoResult {
+impl core::ops::Deref for ISpeechXMLRecoResult {
     type Target = ISpeechRecoResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6598,7 +6598,7 @@ pub struct ISpeechXMLRecoResult_Vtbl {
     pub GetXMLErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(_ISpPrivateEngineCall, _ISpPrivateEngineCall_Vtbl, 0x8e7c791e_4467_11d3_9723_00c04f72db08);
-impl std::ops::Deref for _ISpPrivateEngineCall {
+impl core::ops::Deref for _ISpPrivateEngineCall {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6622,7 +6622,7 @@ pub struct _ISpPrivateEngineCall_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_ISpeechRecoContextEvents, _ISpeechRecoContextEvents_Vtbl, 0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for _ISpeechRecoContextEvents {
+impl core::ops::Deref for _ISpeechRecoContextEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6640,7 +6640,7 @@ pub struct _ISpeechRecoContextEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_ISpeechVoiceEvents, _ISpeechVoiceEvents_Vtbl, 0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for _ISpeechVoiceEvents {
+impl core::ops::Deref for _ISpeechVoiceEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

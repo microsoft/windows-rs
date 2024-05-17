@@ -56,7 +56,7 @@ pub struct IRichEditTextRange_Vtbl {
     pub SetContentLinkInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextCharacterFormat, ITextCharacterFormat_Vtbl, 0x5adef3db_05fb_442d_8065_642afea02ced);
-impl std::ops::Deref for ITextCharacterFormat {
+impl core::ops::Deref for ITextCharacterFormat {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -423,7 +423,7 @@ pub struct ITextConstantsStatics_Vtbl {
     pub UndefinedFontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontStyle) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextDocument, ITextDocument_Vtbl, 0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4);
-impl std::ops::Deref for ITextDocument {
+impl core::ops::Deref for ITextDocument {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -669,7 +669,7 @@ pub struct ITextDocument4_Vtbl {
     pub SetMathMode: unsafe extern "system" fn(*mut core::ffi::c_void, RichEditMathMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextParagraphFormat, ITextParagraphFormat_Vtbl, 0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883);
-impl std::ops::Deref for ITextParagraphFormat {
+impl core::ops::Deref for ITextParagraphFormat {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1004,7 +1004,7 @@ pub struct ITextParagraphFormat_Vtbl {
     pub SetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, LineSpacingRule, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextRange, ITextRange_Vtbl, 0x5b9e4e57_c072_42a0_8945_af503ee54768);
-impl std::ops::Deref for ITextRange {
+impl core::ops::Deref for ITextRange {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1395,7 +1395,7 @@ pub struct ITextRange_Vtbl {
     pub StartOf: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextSelection, ITextSelection_Vtbl, 0xa6d36724_f28f_430a_b2cf_c343671ec0e9);
-impl std::ops::Deref for ITextSelection {
+impl core::ops::Deref for ITextSelection {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

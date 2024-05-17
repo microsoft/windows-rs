@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543);
-impl std::ops::Deref for IGameListEntry {
+impl core::ops::Deref for IGameListEntry {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

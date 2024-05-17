@@ -407,7 +407,7 @@ pub struct IMediaBindingEventArgs3_Vtbl {
     SetDownloadOperation: usize,
 }
 windows_core::imp::define_interface!(IMediaCue, IMediaCue_Vtbl, 0xc7d15e5d_59dc_431f_a0ee_27744323b36d);
-impl std::ops::Deref for IMediaCue {
+impl core::ops::Deref for IMediaCue {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -472,7 +472,7 @@ pub struct IMediaCueEventArgs_Vtbl {
     pub Cue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaSource, IMediaSource_Vtbl, 0xe7bfb599_a09d_4c21_bcdf_20af4f86b3d9);
-impl std::ops::Deref for IMediaSource {
+impl core::ops::Deref for IMediaSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -664,7 +664,7 @@ pub struct IMediaSourceStatics4_Vtbl {
     CreateFromDownloadOperation: usize,
 }
 windows_core::imp::define_interface!(IMediaStreamDescriptor, IMediaStreamDescriptor_Vtbl, 0x80f16e6e_92f7_451e_97d2_afd80742da70);
-impl std::ops::Deref for IMediaStreamDescriptor {
+impl core::ops::Deref for IMediaStreamDescriptor {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -715,7 +715,7 @@ pub struct IMediaStreamDescriptor_Vtbl {
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaStreamDescriptor2, IMediaStreamDescriptor2_Vtbl, 0x5073010f_e8b2_4071_b00b_ebf337a76b58);
-impl std::ops::Deref for IMediaStreamDescriptor2 {
+impl core::ops::Deref for IMediaStreamDescriptor2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1065,7 +1065,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaTrack, IMediaTrack_Vtbl, 0x03e1fafc_c931_491a_b46b_c10ee8c256b7);
-impl std::ops::Deref for IMediaTrack {
+impl core::ops::Deref for IMediaTrack {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1265,7 +1265,7 @@ pub struct ISceneAnalyzedEventArgs_Vtbl {
     pub ResultFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISingleSelectMediaTrackList, ISingleSelectMediaTrackList_Vtbl, 0x77206f1f_c34f_494f_8077_2bad9ff4ecf1);
-impl std::ops::Deref for ISingleSelectMediaTrackList {
+impl core::ops::Deref for ISingleSelectMediaTrackList {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1417,7 +1417,7 @@ pub struct ITimedMetadataTrackFailedEventArgs_Vtbl {
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimedMetadataTrackProvider, ITimedMetadataTrackProvider_Vtbl, 0x3b7f2024_f74e_4ade_93c5_219da05b6856);
-impl std::ops::Deref for ITimedMetadataTrackProvider {
+impl core::ops::Deref for ITimedMetadataTrackProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

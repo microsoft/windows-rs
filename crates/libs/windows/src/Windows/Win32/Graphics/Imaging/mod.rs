@@ -79,7 +79,7 @@ where
     WICSerializeMetadataContent(guidcontainerformat, piwriter.param().abi(), dwpersistoptions, pistream.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IWICBitmap, IWICBitmap_Vtbl, 0x00000121_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICBitmap {
+impl core::ops::Deref for IWICBitmap {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -109,7 +109,7 @@ pub struct IWICBitmap_Vtbl {
     pub SetResolution: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapClipper, IWICBitmapClipper_Vtbl, 0xe4fbcf03_223d_4e81_9333_d635556dd1b5);
-impl std::ops::Deref for IWICBitmapClipper {
+impl core::ops::Deref for IWICBitmapClipper {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -130,7 +130,7 @@ pub struct IWICBitmapClipper_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const WICRect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapCodecInfo, IWICBitmapCodecInfo_Vtbl, 0xe87a44c4_b76e_4c47_8b09_298eb12a2714);
-impl std::ops::Deref for IWICBitmapCodecInfo {
+impl core::ops::Deref for IWICBitmapCodecInfo {
     type Target = IWICComponentInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -201,7 +201,7 @@ pub struct IWICBitmapCodecInfo_Vtbl {
     pub MatchesMimeType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapCodecProgressNotification, IWICBitmapCodecProgressNotification_Vtbl, 0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
-impl std::ops::Deref for IWICBitmapCodecProgressNotification {
+impl core::ops::Deref for IWICBitmapCodecProgressNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -219,7 +219,7 @@ pub struct IWICBitmapCodecProgressNotification_Vtbl {
     pub RegisterProgressNotification: unsafe extern "system" fn(*mut core::ffi::c_void, PFNProgressNotification, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapDecoder, IWICBitmapDecoder_Vtbl, 0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf);
-impl std::ops::Deref for IWICBitmapDecoder {
+impl core::ops::Deref for IWICBitmapDecoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -302,7 +302,7 @@ pub struct IWICBitmapDecoder_Vtbl {
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapDecoderInfo, IWICBitmapDecoderInfo_Vtbl, 0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5);
-impl std::ops::Deref for IWICBitmapDecoderInfo {
+impl core::ops::Deref for IWICBitmapDecoderInfo {
     type Target = IWICBitmapCodecInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -337,7 +337,7 @@ pub struct IWICBitmapDecoderInfo_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapEncoder, IWICBitmapEncoder_Vtbl, 0x00000103_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICBitmapEncoder {
+impl core::ops::Deref for IWICBitmapEncoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -414,7 +414,7 @@ pub struct IWICBitmapEncoder_Vtbl {
     pub GetMetadataQueryWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapEncoderInfo, IWICBitmapEncoderInfo_Vtbl, 0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb);
-impl std::ops::Deref for IWICBitmapEncoderInfo {
+impl core::ops::Deref for IWICBitmapEncoderInfo {
     type Target = IWICBitmapCodecInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -433,7 +433,7 @@ pub struct IWICBitmapEncoderInfo_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapFlipRotator, IWICBitmapFlipRotator_Vtbl, 0x5009834f_2d6a_41ce_9e1b_17c5aff7a782);
-impl std::ops::Deref for IWICBitmapFlipRotator {
+impl core::ops::Deref for IWICBitmapFlipRotator {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -454,7 +454,7 @@ pub struct IWICBitmapFlipRotator_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WICBitmapTransformOptions) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapFrameDecode, IWICBitmapFrameDecode_Vtbl, 0x3b16811b_6a43_4ec9_a813_3d930c13b940);
-impl std::ops::Deref for IWICBitmapFrameDecode {
+impl core::ops::Deref for IWICBitmapFrameDecode {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -482,7 +482,7 @@ pub struct IWICBitmapFrameDecode_Vtbl {
     pub GetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapFrameEncode, IWICBitmapFrameEncode_Vtbl, 0x00000105_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICBitmapFrameEncode {
+impl core::ops::Deref for IWICBitmapFrameEncode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -557,7 +557,7 @@ pub struct IWICBitmapFrameEncode_Vtbl {
     pub GetMetadataQueryWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapLock, IWICBitmapLock_Vtbl, 0x00000123_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICBitmapLock {
+impl core::ops::Deref for IWICBitmapLock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -589,7 +589,7 @@ pub struct IWICBitmapLock_Vtbl {
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapScaler, IWICBitmapScaler_Vtbl, 0x00000302_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICBitmapScaler {
+impl core::ops::Deref for IWICBitmapScaler {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -610,7 +610,7 @@ pub struct IWICBitmapScaler_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, WICBitmapInterpolationMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapSource, IWICBitmapSource_Vtbl, 0x00000120_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICBitmapSource {
+impl core::ops::Deref for IWICBitmapSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -648,7 +648,7 @@ pub struct IWICBitmapSource_Vtbl {
     pub CopyPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICBitmapSourceTransform, IWICBitmapSourceTransform_Vtbl, 0x3b16811b_6a43_4ec9_b713_3d5a0c13b940);
-impl std::ops::Deref for IWICBitmapSourceTransform {
+impl core::ops::Deref for IWICBitmapSourceTransform {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -679,7 +679,7 @@ pub struct IWICBitmapSourceTransform_Vtbl {
     pub DoesSupportTransform: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapTransformOptions, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICColorContext, IWICColorContext_Vtbl, 0x3c613a02_34b2_44ea_9a7c_45aea9c6fd6d);
-impl std::ops::Deref for IWICColorContext {
+impl core::ops::Deref for IWICColorContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -722,7 +722,7 @@ pub struct IWICColorContext_Vtbl {
     pub GetExifColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICColorTransform, IWICColorTransform_Vtbl, 0xb66f034f_d0e2_40ab_b436_6de39e321a94);
-impl std::ops::Deref for IWICColorTransform {
+impl core::ops::Deref for IWICColorTransform {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -745,7 +745,7 @@ pub struct IWICColorTransform_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICComponentFactory, IWICComponentFactory_Vtbl, 0x412d0c3a_9650_44fa_af5b_dd2a06c8e8fb);
-impl std::ops::Deref for IWICComponentFactory {
+impl core::ops::Deref for IWICComponentFactory {
     type Target = IWICImagingFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -821,7 +821,7 @@ pub struct IWICComponentFactory_Vtbl {
     CreateEncoderPropertyBag: usize,
 }
 windows_core::imp::define_interface!(IWICComponentInfo, IWICComponentInfo_Vtbl, 0x23bc3f0a_698b_4357_886b_f24d50671334);
-impl std::ops::Deref for IWICComponentInfo {
+impl core::ops::Deref for IWICComponentInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -871,7 +871,7 @@ pub struct IWICComponentInfo_Vtbl {
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICDdsDecoder, IWICDdsDecoder_Vtbl, 0x409cd537_8532_40cb_9774_e2feb2df4e9c);
-impl std::ops::Deref for IWICDdsDecoder {
+impl core::ops::Deref for IWICDdsDecoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -898,7 +898,7 @@ pub struct IWICDdsDecoder_Vtbl {
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICDdsEncoder, IWICDdsEncoder_Vtbl, 0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
-impl std::ops::Deref for IWICDdsEncoder {
+impl core::ops::Deref for IWICDdsEncoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -932,7 +932,7 @@ pub struct IWICDdsEncoder_Vtbl {
     pub CreateNewFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICDdsFrameDecode, IWICDdsFrameDecode_Vtbl, 0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
-impl std::ops::Deref for IWICDdsFrameDecode {
+impl core::ops::Deref for IWICDdsFrameDecode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -963,7 +963,7 @@ pub struct IWICDdsFrameDecode_Vtbl {
     pub CopyBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICDevelopRaw, IWICDevelopRaw_Vtbl, 0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
-impl std::ops::Deref for IWICDevelopRaw {
+impl core::ops::Deref for IWICDevelopRaw {
     type Target = IWICBitmapFrameDecode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1127,7 +1127,7 @@ pub struct IWICDevelopRaw_Vtbl {
     pub SetNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICDevelopRawNotificationCallback, IWICDevelopRawNotificationCallback_Vtbl, 0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b);
-impl std::ops::Deref for IWICDevelopRawNotificationCallback {
+impl core::ops::Deref for IWICDevelopRawNotificationCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1145,7 +1145,7 @@ pub struct IWICDevelopRawNotificationCallback_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICEnumMetadataItem, IWICEnumMetadataItem_Vtbl, 0xdc2bb46d_3f07_481e_8625_220c4aedbb33);
-impl std::ops::Deref for IWICEnumMetadataItem {
+impl core::ops::Deref for IWICEnumMetadataItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1176,7 +1176,7 @@ pub struct IWICEnumMetadataItem_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICFastMetadataEncoder, IWICFastMetadataEncoder_Vtbl, 0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f);
-impl std::ops::Deref for IWICFastMetadataEncoder {
+impl core::ops::Deref for IWICFastMetadataEncoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1199,7 +1199,7 @@ pub struct IWICFastMetadataEncoder_Vtbl {
     pub GetMetadataQueryWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICFormatConverter, IWICFormatConverter_Vtbl, 0x00000301_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICFormatConverter {
+impl core::ops::Deref for IWICFormatConverter {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1226,7 +1226,7 @@ pub struct IWICFormatConverter_Vtbl {
     pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICFormatConverterInfo, IWICFormatConverterInfo_Vtbl, 0x9f34fb65_13f4_4f15_bc57_3726b5e53d9f);
-impl std::ops::Deref for IWICFormatConverterInfo {
+impl core::ops::Deref for IWICFormatConverterInfo {
     type Target = IWICComponentInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1249,7 +1249,7 @@ pub struct IWICFormatConverterInfo_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICImagingFactory, IWICImagingFactory_Vtbl, 0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
-impl std::ops::Deref for IWICImagingFactory {
+impl core::ops::Deref for IWICImagingFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1436,7 +1436,7 @@ pub struct IWICImagingFactory_Vtbl {
     pub CreateQueryWriterFromReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICJpegFrameDecode, IWICJpegFrameDecode_Vtbl, 0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
-impl std::ops::Deref for IWICJpegFrameDecode {
+impl core::ops::Deref for IWICJpegFrameDecode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1503,7 +1503,7 @@ pub struct IWICJpegFrameDecode_Vtbl {
     pub CopyMinimalStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICJpegFrameEncode, IWICJpegFrameEncode_Vtbl, 0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
-impl std::ops::Deref for IWICJpegFrameEncode {
+impl core::ops::Deref for IWICJpegFrameEncode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1545,7 +1545,7 @@ pub struct IWICJpegFrameEncode_Vtbl {
     pub WriteScan: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataBlockReader, IWICMetadataBlockReader_Vtbl, 0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1);
-impl std::ops::Deref for IWICMetadataBlockReader {
+impl core::ops::Deref for IWICMetadataBlockReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1583,7 +1583,7 @@ pub struct IWICMetadataBlockReader_Vtbl {
     GetEnumerator: usize,
 }
 windows_core::imp::define_interface!(IWICMetadataBlockWriter, IWICMetadataBlockWriter_Vtbl, 0x08fb9676_b444_41e8_8dbe_6a53a542bff1);
-impl std::ops::Deref for IWICMetadataBlockWriter {
+impl core::ops::Deref for IWICMetadataBlockWriter {
     type Target = IWICMetadataBlockReader;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1627,7 +1627,7 @@ pub struct IWICMetadataBlockWriter_Vtbl {
     pub RemoveWriterByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataHandlerInfo, IWICMetadataHandlerInfo_Vtbl, 0xaba958bf_c672_44d1_8d61_ce6df2e682c2);
-impl std::ops::Deref for IWICMetadataHandlerInfo {
+impl core::ops::Deref for IWICMetadataHandlerInfo {
     type Target = IWICComponentInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1673,7 +1673,7 @@ pub struct IWICMetadataHandlerInfo_Vtbl {
     pub DoesRequireFixedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataQueryReader, IWICMetadataQueryReader_Vtbl, 0x30989668_e1c9_4597_b395_458eedb808df);
-impl std::ops::Deref for IWICMetadataQueryReader {
+impl core::ops::Deref for IWICMetadataQueryReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1712,7 +1712,7 @@ pub struct IWICMetadataQueryReader_Vtbl {
     GetEnumerator: usize,
 }
 windows_core::imp::define_interface!(IWICMetadataQueryWriter, IWICMetadataQueryWriter_Vtbl, 0xa721791a_0def_4d06_bd91_2118bf1db10b);
-impl std::ops::Deref for IWICMetadataQueryWriter {
+impl core::ops::Deref for IWICMetadataQueryWriter {
     type Target = IWICMetadataQueryReader;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1740,7 +1740,7 @@ pub struct IWICMetadataQueryWriter_Vtbl {
     pub RemoveMetadataByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataReader, IWICMetadataReader_Vtbl, 0x9204fe99_d8fc_4fd5_a001_9536b067a899);
-impl std::ops::Deref for IWICMetadataReader {
+impl core::ops::Deref for IWICMetadataReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1782,7 +1782,7 @@ pub struct IWICMetadataReader_Vtbl {
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataReaderInfo, IWICMetadataReaderInfo_Vtbl, 0xeebf1f5b_07c1_4447_a3ab_22acaf78a804);
-impl std::ops::Deref for IWICMetadataReaderInfo {
+impl core::ops::Deref for IWICMetadataReaderInfo {
     type Target = IWICMetadataHandlerInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1817,7 +1817,7 @@ pub struct IWICMetadataReaderInfo_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataWriter, IWICMetadataWriter_Vtbl, 0xf7836e16_3be0_470b_86bb_160d0aecd7de);
-impl std::ops::Deref for IWICMetadataWriter {
+impl core::ops::Deref for IWICMetadataWriter {
     type Target = IWICMetadataReader;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1847,7 +1847,7 @@ pub struct IWICMetadataWriter_Vtbl {
     pub RemoveValueByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICMetadataWriterInfo, IWICMetadataWriterInfo_Vtbl, 0xb22e3fba_3925_4323_b5c1_9ebfc430f236);
-impl std::ops::Deref for IWICMetadataWriterInfo {
+impl core::ops::Deref for IWICMetadataWriterInfo {
     type Target = IWICMetadataHandlerInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1870,7 +1870,7 @@ pub struct IWICMetadataWriterInfo_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICPalette, IWICPalette_Vtbl, 0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
-impl std::ops::Deref for IWICPalette {
+impl core::ops::Deref for IWICPalette {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1941,7 +1941,7 @@ pub struct IWICPalette_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWICPersistStream, IWICPersistStream_Vtbl, 0x00675040_6908_45f8_86a3_49c7dfd6d9ad);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWICPersistStream {
+impl core::ops::Deref for IWICPersistStream {
     type Target = super::super::System::Com::IPersistStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1981,7 +1981,7 @@ pub struct IWICPersistStream_Vtbl {
     SaveEx: usize,
 }
 windows_core::imp::define_interface!(IWICPixelFormatInfo, IWICPixelFormatInfo_Vtbl, 0xe8eda601_3d48_431a_ab44_69059be88bbe);
-impl std::ops::Deref for IWICPixelFormatInfo {
+impl core::ops::Deref for IWICPixelFormatInfo {
     type Target = IWICComponentInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2019,7 +2019,7 @@ pub struct IWICPixelFormatInfo_Vtbl {
     pub GetChannelMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICPixelFormatInfo2, IWICPixelFormatInfo2_Vtbl, 0xa9db33a2_af5f_43c7_b679_74f5984b5aa4);
-impl std::ops::Deref for IWICPixelFormatInfo2 {
+impl core::ops::Deref for IWICPixelFormatInfo2 {
     type Target = IWICPixelFormatInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2043,7 +2043,7 @@ pub struct IWICPixelFormatInfo2_Vtbl {
     pub GetNumericRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICPixelFormatNumericRepresentation) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICPlanarBitmapFrameEncode, IWICPlanarBitmapFrameEncode_Vtbl, 0xf928b7b8_2221_40c1_b72e_7e82f1974d1a);
-impl std::ops::Deref for IWICPlanarBitmapFrameEncode {
+impl core::ops::Deref for IWICPlanarBitmapFrameEncode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2065,7 +2065,7 @@ pub struct IWICPlanarBitmapFrameEncode_Vtbl {
     pub WriteSource: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32, *const WICRect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICPlanarBitmapSourceTransform, IWICPlanarBitmapSourceTransform_Vtbl, 0x3aff9cce_be95_4303_b927_e7d16ff4a613);
-impl std::ops::Deref for IWICPlanarBitmapSourceTransform {
+impl core::ops::Deref for IWICPlanarBitmapSourceTransform {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2087,7 +2087,7 @@ pub struct IWICPlanarBitmapSourceTransform_Vtbl {
     pub CopyPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, WICBitmapTransformOptions, WICPlanarOptions, *const WICBitmapPlane, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICPlanarFormatConverter, IWICPlanarFormatConverter_Vtbl, 0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96);
-impl std::ops::Deref for IWICPlanarFormatConverter {
+impl core::ops::Deref for IWICPlanarFormatConverter {
     type Target = IWICBitmapSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2113,7 +2113,7 @@ pub struct IWICPlanarFormatConverter_Vtbl {
     pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICProgressCallback, IWICProgressCallback_Vtbl, 0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c);
-impl std::ops::Deref for IWICProgressCallback {
+impl core::ops::Deref for IWICProgressCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2131,7 +2131,7 @@ pub struct IWICProgressCallback_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, WICProgressOperation, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWICProgressiveLevelControl, IWICProgressiveLevelControl_Vtbl, 0xdaac296f_7aa5_4dbf_8d15_225c5976f891);
-impl std::ops::Deref for IWICProgressiveLevelControl {
+impl core::ops::Deref for IWICProgressiveLevelControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2161,7 +2161,7 @@ pub struct IWICProgressiveLevelControl_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWICStream, IWICStream_Vtbl, 0x135ff860_22b7_4ddf_b0f6_218f4f299a43);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWICStream {
+impl core::ops::Deref for IWICStream {
     type Target = super::super::System::Com::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2211,7 +2211,7 @@ pub struct IWICStream_Vtbl {
     InitializeFromIStreamRegion: usize,
 }
 windows_core::imp::define_interface!(IWICStreamProvider, IWICStreamProvider_Vtbl, 0x449494bc_b468_4927_96d7_ba90d31ab505);
-impl std::ops::Deref for IWICStreamProvider {
+impl core::ops::Deref for IWICStreamProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

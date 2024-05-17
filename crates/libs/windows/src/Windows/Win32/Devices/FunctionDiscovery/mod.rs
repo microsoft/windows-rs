@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IFunctionDiscovery, IFunctionDiscovery_Vtbl, 0x4df99b70_e148_4432_b004_4c9eeb535a5e);
-impl std::ops::Deref for IFunctionDiscovery {
+impl core::ops::Deref for IFunctionDiscovery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -78,7 +78,7 @@ pub struct IFunctionDiscovery_Vtbl {
     pub RemoveInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryNotification, IFunctionDiscoveryNotification_Vtbl, 0x5f6c1ba8_5330_422e_a368_572b244d3f87);
-impl std::ops::Deref for IFunctionDiscoveryNotification {
+impl core::ops::Deref for IFunctionDiscoveryNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -117,7 +117,7 @@ pub struct IFunctionDiscoveryNotification_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryProvider, IFunctionDiscoveryProvider_Vtbl, 0xdcde394f_1478_4813_a402_f6fb10657222);
-impl std::ops::Deref for IFunctionDiscoveryProvider {
+impl core::ops::Deref for IFunctionDiscoveryProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -209,7 +209,7 @@ pub struct IFunctionDiscoveryProvider_Vtbl {
     InstanceReleased: usize,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryProviderFactory, IFunctionDiscoveryProviderFactory_Vtbl, 0x86443ff0_1ad5_4e68_a45a_40c2c329de3b);
-impl std::ops::Deref for IFunctionDiscoveryProviderFactory {
+impl core::ops::Deref for IFunctionDiscoveryProviderFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -252,7 +252,7 @@ pub struct IFunctionDiscoveryProviderFactory_Vtbl {
     pub CreateFunctionInstanceCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryProviderQuery, IFunctionDiscoveryProviderQuery_Vtbl, 0x6876ea98_baec_46db_bc20_75a76e267a3a);
-impl std::ops::Deref for IFunctionDiscoveryProviderQuery {
+impl core::ops::Deref for IFunctionDiscoveryProviderQuery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -284,7 +284,7 @@ pub struct IFunctionDiscoveryProviderQuery_Vtbl {
     pub GetPropertyConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryServiceProvider, IFunctionDiscoveryServiceProvider_Vtbl, 0x4c81ed02_1b04_43f2_a451_69966cbcd1c2);
-impl std::ops::Deref for IFunctionDiscoveryServiceProvider {
+impl core::ops::Deref for IFunctionDiscoveryServiceProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -298,7 +298,7 @@ impl IFunctionDiscoveryServiceProvider {
         P0: windows_core::Param<IFunctionInstance>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pifunctioninstance.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -313,7 +313,7 @@ pub struct IFunctionDiscoveryServiceProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFunctionInstance, IFunctionInstance_Vtbl, 0x33591c10_0bed_4f02_b0ab_1530d5533ee9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFunctionInstance {
+impl core::ops::Deref for IFunctionInstance {
     type Target = super::super::System::Com::IServiceProvider;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -353,7 +353,7 @@ pub struct IFunctionInstance_Vtbl {
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16, *mut *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionInstanceCollection, IFunctionInstanceCollection_Vtbl, 0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
-impl std::ops::Deref for IFunctionInstanceCollection {
+impl core::ops::Deref for IFunctionInstanceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -421,7 +421,7 @@ pub struct IFunctionInstanceCollection_Vtbl {
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionInstanceCollectionQuery, IFunctionInstanceCollectionQuery_Vtbl, 0x57cc6fd2_c09a_4289_bb72_25f04142058e);
-impl std::ops::Deref for IFunctionInstanceCollectionQuery {
+impl core::ops::Deref for IFunctionInstanceCollectionQuery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -456,7 +456,7 @@ pub struct IFunctionInstanceCollectionQuery_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionInstanceQuery, IFunctionInstanceQuery_Vtbl, 0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
-impl std::ops::Deref for IFunctionInstanceQuery {
+impl core::ops::Deref for IFunctionInstanceQuery {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -479,7 +479,7 @@ pub struct IFunctionInstanceQuery_Vtbl {
     Execute: usize,
 }
 windows_core::imp::define_interface!(IPNPXAssociation, IPNPXAssociation_Vtbl, 0x0bd7e521_4da6_42d5_81ba_1981b6b94075);
-impl std::ops::Deref for IPNPXAssociation {
+impl core::ops::Deref for IPNPXAssociation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -514,7 +514,7 @@ pub struct IPNPXAssociation_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPNPXDeviceAssociation, IPNPXDeviceAssociation_Vtbl, 0xeed366d0_35b8_4fc5_8d20_7e5bd31f6ded);
-impl std::ops::Deref for IPNPXDeviceAssociation {
+impl core::ops::Deref for IPNPXDeviceAssociation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -552,7 +552,7 @@ pub struct IPNPXDeviceAssociation_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyStoreCollection, IPropertyStoreCollection_Vtbl, 0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
-impl std::ops::Deref for IPropertyStoreCollection {
+impl core::ops::Deref for IPropertyStoreCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -620,7 +620,7 @@ pub struct IPropertyStoreCollection_Vtbl {
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderProperties, IProviderProperties_Vtbl, 0xcf986ea6_3b5f_4c5f_b88a_2f8b20ceef17);
-impl std::ops::Deref for IProviderProperties {
+impl core::ops::Deref for IProviderProperties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -680,7 +680,7 @@ pub struct IProviderProperties_Vtbl {
     SetValue: usize,
 }
 windows_core::imp::define_interface!(IProviderPropertyConstraintCollection, IProviderPropertyConstraintCollection_Vtbl, 0xf4fae42f_5778_4a13_8540_b5fd8c1398dd);
-impl std::ops::Deref for IProviderPropertyConstraintCollection {
+impl core::ops::Deref for IProviderPropertyConstraintCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -731,7 +731,7 @@ pub struct IProviderPropertyConstraintCollection_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderPublishing, IProviderPublishing_Vtbl, 0xcd1b9a04_206c_4a05_a0c8_1635a21a2b7c);
-impl std::ops::Deref for IProviderPublishing {
+impl core::ops::Deref for IProviderPublishing {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -766,7 +766,7 @@ pub struct IProviderPublishing_Vtbl {
     pub RemoveInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderQueryConstraintCollection, IProviderQueryConstraintCollection_Vtbl, 0x9c243e11_3261_4bcd_b922_84a873d460ae);
-impl std::ops::Deref for IProviderQueryConstraintCollection {
+impl core::ops::Deref for IProviderQueryConstraintCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

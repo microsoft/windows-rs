@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(ISoftwareBitmapNative, ISoftwareBitmapNative_Vtbl, 0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
-impl std::ops::Deref for ISoftwareBitmapNative {
+impl core::ops::Deref for ISoftwareBitmapNative {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11,7 +11,7 @@ impl ISoftwareBitmapNative {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -21,7 +21,7 @@ pub struct ISoftwareBitmapNative_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitmapNativeFactory_Vtbl, 0xc3c181ec_2914_4791_af02_02d224a10b43);
-impl std::ops::Deref for ISoftwareBitmapNativeFactory {
+impl core::ops::Deref for ISoftwareBitmapNativeFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -36,7 +36,7 @@ impl ISoftwareBitmapNativeFactory {
         P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateFromWICBitmap)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -46,7 +46,7 @@ impl ISoftwareBitmapNativeFactory {
         P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(std::ptr::null())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

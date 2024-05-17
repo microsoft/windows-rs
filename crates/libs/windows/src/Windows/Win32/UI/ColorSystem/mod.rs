@@ -838,7 +838,7 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
     WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, noutputchannels, cdtoutput, cboutput, poutputdata)
 }
 windows_core::imp::define_interface!(IDeviceModelPlugIn, IDeviceModelPlugIn_Vtbl, 0x1cd63475_07c4_46fe_a903_d655316d11fd);
-impl std::ops::Deref for IDeviceModelPlugIn {
+impl core::ops::Deref for IDeviceModelPlugIn {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -906,7 +906,7 @@ pub struct IDeviceModelPlugIn_Vtbl {
     pub GetNeutralAxis: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut XYZColorF) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
-impl std::ops::Deref for IGamutMapModelPlugIn {
+impl core::ops::Deref for IGamutMapModelPlugIn {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

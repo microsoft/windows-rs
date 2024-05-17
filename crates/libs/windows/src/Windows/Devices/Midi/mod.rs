@@ -59,7 +59,7 @@ pub struct IMidiInPortStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiMessage, IMidiMessage_Vtbl, 0x79767945_1094_4283_9be0_289fc0ee8334);
-impl std::ops::Deref for IMidiMessage {
+impl core::ops::Deref for IMidiMessage {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -153,7 +153,7 @@ pub struct IMidiNoteOnMessageFactory_Vtbl {
     pub CreateMidiNoteOnMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiOutPort, IMidiOutPort_Vtbl, 0x931d6d9f_57a2_4a3a_adb8_4640886f6693);
-impl std::ops::Deref for IMidiOutPort {
+impl core::ops::Deref for IMidiOutPort {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

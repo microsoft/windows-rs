@@ -1154,7 +1154,7 @@ where
     waveOutWrite(hwo.param().abi(), pwh, cbwh)
 }
 windows_core::imp::define_interface!(IAcousticEchoCancellationControl, IAcousticEchoCancellationControl_Vtbl, 0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549);
-impl std::ops::Deref for IAcousticEchoCancellationControl {
+impl core::ops::Deref for IAcousticEchoCancellationControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1175,7 +1175,7 @@ pub struct IAcousticEchoCancellationControl_Vtbl {
     pub SetEchoCancellationRenderEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivateAudioInterfaceAsyncOperation, IActivateAudioInterfaceAsyncOperation_Vtbl, 0x72a22d78_cde4_431d_b8cc_843a71199b6d);
-impl std::ops::Deref for IActivateAudioInterfaceAsyncOperation {
+impl core::ops::Deref for IActivateAudioInterfaceAsyncOperation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1193,7 +1193,7 @@ pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub GetActivateResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivateAudioInterfaceCompletionHandler, IActivateAudioInterfaceCompletionHandler_Vtbl, 0x41d949ab_9862_444a_80f6_c261334da5eb);
-impl std::ops::Deref for IActivateAudioInterfaceCompletionHandler {
+impl core::ops::Deref for IActivateAudioInterfaceCompletionHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1214,7 +1214,7 @@ pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub ActivateCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioAmbisonicsControl, IAudioAmbisonicsControl_Vtbl, 0x28724c91_df35_4856_9f76_d6a26413f3df);
-impl std::ops::Deref for IAudioAmbisonicsControl {
+impl core::ops::Deref for IAudioAmbisonicsControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1248,7 +1248,7 @@ pub struct IAudioAmbisonicsControl_Vtbl {
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioAutoGainControl, IAudioAutoGainControl_Vtbl, 0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
-impl std::ops::Deref for IAudioAutoGainControl {
+impl core::ops::Deref for IAudioAutoGainControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1274,7 +1274,7 @@ pub struct IAudioAutoGainControl_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioBass, IAudioBass_Vtbl, 0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
-impl std::ops::Deref for IAudioBass {
+impl core::ops::Deref for IAudioBass {
     type Target = IPerChannelDbLevel;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1287,7 +1287,7 @@ pub struct IAudioBass_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
 windows_core::imp::define_interface!(IAudioCaptureClient, IAudioCaptureClient_Vtbl, 0xc8adbd64_e71e_48a0_a4de_185c395cd317);
-impl std::ops::Deref for IAudioCaptureClient {
+impl core::ops::Deref for IAudioCaptureClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1314,7 +1314,7 @@ pub struct IAudioCaptureClient_Vtbl {
     pub GetNextPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioChannelConfig, IAudioChannelConfig_Vtbl, 0xbb11c46f_ec28_493c_b88a_5db88062ce98);
-impl std::ops::Deref for IAudioChannelConfig {
+impl core::ops::Deref for IAudioChannelConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1337,7 +1337,7 @@ pub struct IAudioChannelConfig_Vtbl {
     pub GetChannelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClient, IAudioClient_Vtbl, 0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
-impl std::ops::Deref for IAudioClient {
+impl core::ops::Deref for IAudioClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1389,7 +1389,7 @@ impl IAudioClient {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -1410,7 +1410,7 @@ pub struct IAudioClient_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClient2, IAudioClient2_Vtbl, 0x726778cd_f60a_4eda_82de_e47610cd78aa);
-impl std::ops::Deref for IAudioClient2 {
+impl core::ops::Deref for IAudioClient2 {
     type Target = IAudioClient;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1440,7 +1440,7 @@ pub struct IAudioClient2_Vtbl {
     pub GetBufferSizeLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *const WAVEFORMATEX, super::super::Foundation::BOOL, *mut i64, *mut i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClient3, IAudioClient3_Vtbl, 0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
-impl std::ops::Deref for IAudioClient3 {
+impl core::ops::Deref for IAudioClient3 {
     type Target = IAudioClient2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1466,7 +1466,7 @@ pub struct IAudioClient3_Vtbl {
     pub InitializeSharedAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const WAVEFORMATEX, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClientDuckingControl, IAudioClientDuckingControl_Vtbl, 0xc789d381_a28c_4168_b28f_d3a837924dc3);
-impl std::ops::Deref for IAudioClientDuckingControl {
+impl core::ops::Deref for IAudioClientDuckingControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1484,7 +1484,7 @@ pub struct IAudioClientDuckingControl_Vtbl {
     pub SetDuckingOptionsForCurrentStream: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_DUCKING_OPTIONS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClock, IAudioClock_Vtbl, 0xcd63314f_3fba_4a1b_812c_ef96358728e7);
-impl std::ops::Deref for IAudioClock {
+impl core::ops::Deref for IAudioClock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1512,7 +1512,7 @@ pub struct IAudioClock_Vtbl {
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClock2, IAudioClock2_Vtbl, 0x6f49ff73_6727_49ac_a008_d98cf5e70048);
-impl std::ops::Deref for IAudioClock2 {
+impl core::ops::Deref for IAudioClock2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1530,7 +1530,7 @@ pub struct IAudioClock2_Vtbl {
     pub GetDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioClockAdjustment, IAudioClockAdjustment_Vtbl, 0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
-impl std::ops::Deref for IAudioClockAdjustment {
+impl core::ops::Deref for IAudioClockAdjustment {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1548,7 +1548,7 @@ pub struct IAudioClockAdjustment_Vtbl {
     pub SetSampleRate: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioEffectsChangedNotificationClient, IAudioEffectsChangedNotificationClient_Vtbl, 0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
-impl std::ops::Deref for IAudioEffectsChangedNotificationClient {
+impl core::ops::Deref for IAudioEffectsChangedNotificationClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1566,7 +1566,7 @@ pub struct IAudioEffectsChangedNotificationClient_Vtbl {
     pub OnAudioEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioEffectsManager, IAudioEffectsManager_Vtbl, 0x4460b3ae_4b44_4527_8676_7548a8acd260);
-impl std::ops::Deref for IAudioEffectsManager {
+impl core::ops::Deref for IAudioEffectsManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1602,7 +1602,7 @@ pub struct IAudioEffectsManager_Vtbl {
     pub SetAudioEffectState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, AUDIO_EFFECT_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioFormatEnumerator, IAudioFormatEnumerator_Vtbl, 0xdcdaa858_895a_4a22_a5eb_67bda506096d);
-impl std::ops::Deref for IAudioFormatEnumerator {
+impl core::ops::Deref for IAudioFormatEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1626,7 +1626,7 @@ pub struct IAudioFormatEnumerator_Vtbl {
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut WAVEFORMATEX) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioInputSelector, IAudioInputSelector_Vtbl, 0x4f03dc02_5e6e_4653_8f72_a030c123d598);
-impl std::ops::Deref for IAudioInputSelector {
+impl core::ops::Deref for IAudioInputSelector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1649,7 +1649,7 @@ pub struct IAudioInputSelector_Vtbl {
     pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioLoudness, IAudioLoudness_Vtbl, 0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
-impl std::ops::Deref for IAudioLoudness {
+impl core::ops::Deref for IAudioLoudness {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1675,7 +1675,7 @@ pub struct IAudioLoudness_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioMidrange, IAudioMidrange_Vtbl, 0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
-impl std::ops::Deref for IAudioMidrange {
+impl core::ops::Deref for IAudioMidrange {
     type Target = IPerChannelDbLevel;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1688,7 +1688,7 @@ pub struct IAudioMidrange_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
 windows_core::imp::define_interface!(IAudioMute, IAudioMute_Vtbl, 0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
-impl std::ops::Deref for IAudioMute {
+impl core::ops::Deref for IAudioMute {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1714,7 +1714,7 @@ pub struct IAudioMute_Vtbl {
     pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioOutputSelector, IAudioOutputSelector_Vtbl, 0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
-impl std::ops::Deref for IAudioOutputSelector {
+impl core::ops::Deref for IAudioOutputSelector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1737,7 +1737,7 @@ pub struct IAudioOutputSelector_Vtbl {
     pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioPeakMeter, IAudioPeakMeter_Vtbl, 0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
-impl std::ops::Deref for IAudioPeakMeter {
+impl core::ops::Deref for IAudioPeakMeter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1761,7 +1761,7 @@ pub struct IAudioPeakMeter_Vtbl {
     pub GetLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioRenderClient, IAudioRenderClient_Vtbl, 0xf294acfc_3146_4483_a7bf_addca7c260e2);
-impl std::ops::Deref for IAudioRenderClient {
+impl core::ops::Deref for IAudioRenderClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1784,7 +1784,7 @@ pub struct IAudioRenderClient_Vtbl {
     pub ReleaseBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionControl, IAudioSessionControl_Vtbl, 0xf4b1a599_7266_4319_a8ca_e70acb11e8cd);
-impl std::ops::Deref for IAudioSessionControl {
+impl core::ops::Deref for IAudioSessionControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1850,7 +1850,7 @@ pub struct IAudioSessionControl_Vtbl {
     pub UnregisterAudioSessionNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionControl2, IAudioSessionControl2_Vtbl, 0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d);
-impl std::ops::Deref for IAudioSessionControl2 {
+impl core::ops::Deref for IAudioSessionControl2 {
     type Target = IAudioSessionControl;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1890,7 +1890,7 @@ pub struct IAudioSessionControl2_Vtbl {
     pub SetDuckingPreference: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionEnumerator, IAudioSessionEnumerator_Vtbl, 0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
-impl std::ops::Deref for IAudioSessionEnumerator {
+impl core::ops::Deref for IAudioSessionEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1914,7 +1914,7 @@ pub struct IAudioSessionEnumerator_Vtbl {
     pub GetSession: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionEvents, IAudioSessionEvents_Vtbl, 0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
-impl std::ops::Deref for IAudioSessionEvents {
+impl core::ops::Deref for IAudioSessionEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1965,7 +1965,7 @@ pub struct IAudioSessionEvents_Vtbl {
     pub OnSessionDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, AudioSessionDisconnectReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionManager, IAudioSessionManager_Vtbl, 0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
-impl std::ops::Deref for IAudioSessionManager {
+impl core::ops::Deref for IAudioSessionManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1989,7 +1989,7 @@ pub struct IAudioSessionManager_Vtbl {
     pub GetSimpleAudioVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionManager2, IAudioSessionManager2_Vtbl, 0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
-impl std::ops::Deref for IAudioSessionManager2 {
+impl core::ops::Deref for IAudioSessionManager2 {
     type Target = IAudioSessionManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2037,7 +2037,7 @@ pub struct IAudioSessionManager2_Vtbl {
     pub UnregisterDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionNotification, IAudioSessionNotification_Vtbl, 0x641dd20b_4d41_49cc_aba3_174b9477bb08);
-impl std::ops::Deref for IAudioSessionNotification {
+impl core::ops::Deref for IAudioSessionNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2058,7 +2058,7 @@ pub struct IAudioSessionNotification_Vtbl {
     pub OnSessionCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioStateMonitor, IAudioStateMonitor_Vtbl, 0x63bd8738_e30d_4c77_bf5c_834e87c657e2);
-impl std::ops::Deref for IAudioStateMonitor {
+impl core::ops::Deref for IAudioStateMonitor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2085,7 +2085,7 @@ pub struct IAudioStateMonitor_Vtbl {
     pub GetSoundLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> AudioStateMonitorSoundLevel,
 }
 windows_core::imp::define_interface!(IAudioStreamVolume, IAudioStreamVolume_Vtbl, 0x93014887_242d_4068_8a15_cf5e93b90fe3);
-impl std::ops::Deref for IAudioStreamVolume {
+impl core::ops::Deref for IAudioStreamVolume {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2121,7 +2121,7 @@ pub struct IAudioStreamVolume_Vtbl {
     pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyChangeNotificationClient, IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl, 0x20049d40_56d5_400e_a2ef_385599feed49);
-impl std::ops::Deref for IAudioSystemEffectsPropertyChangeNotificationClient {
+impl core::ops::Deref for IAudioSystemEffectsPropertyChangeNotificationClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2143,7 +2143,7 @@ pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     OnPropertyChanged: usize,
 }
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyStore, IAudioSystemEffectsPropertyStore_Vtbl, 0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
-impl std::ops::Deref for IAudioSystemEffectsPropertyStore {
+impl core::ops::Deref for IAudioSystemEffectsPropertyStore {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2206,7 +2206,7 @@ pub struct IAudioSystemEffectsPropertyStore_Vtbl {
     pub UnregisterPropertyChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioTreble, IAudioTreble_Vtbl, 0x0a717812_694e_4907_b74b_bafa5cfdca7b);
-impl std::ops::Deref for IAudioTreble {
+impl core::ops::Deref for IAudioTreble {
     type Target = IPerChannelDbLevel;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2219,7 +2219,7 @@ pub struct IAudioTreble_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
 windows_core::imp::define_interface!(IAudioViewManagerService, IAudioViewManagerService_Vtbl, 0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
-impl std::ops::Deref for IAudioViewManagerService {
+impl core::ops::Deref for IAudioViewManagerService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2240,7 +2240,7 @@ pub struct IAudioViewManagerService_Vtbl {
     pub SetAudioStreamWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioVolumeDuckNotification, IAudioVolumeDuckNotification_Vtbl, 0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
-impl std::ops::Deref for IAudioVolumeDuckNotification {
+impl core::ops::Deref for IAudioVolumeDuckNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2268,7 +2268,7 @@ pub struct IAudioVolumeDuckNotification_Vtbl {
     pub OnVolumeUnduckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioVolumeLevel, IAudioVolumeLevel_Vtbl, 0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
-impl std::ops::Deref for IAudioVolumeLevel {
+impl core::ops::Deref for IAudioVolumeLevel {
     type Target = IPerChannelDbLevel;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2281,7 +2281,7 @@ pub struct IAudioVolumeLevel_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
 windows_core::imp::define_interface!(IChannelAudioVolume, IChannelAudioVolume_Vtbl, 0x1c158861_b533_4b30_b1cf_e853e51c59b8);
-impl std::ops::Deref for IChannelAudioVolume {
+impl core::ops::Deref for IChannelAudioVolume {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2317,7 +2317,7 @@ pub struct IChannelAudioVolume_Vtbl {
     pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnector, IConnector_Vtbl, 0x9c2c4058_23f5_41de_877a_df3af236a09e);
-impl std::ops::Deref for IConnector {
+impl core::ops::Deref for IConnector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2372,7 +2372,7 @@ pub struct IConnector_Vtbl {
     pub GetDeviceIdConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IControlChangeNotify, IControlChangeNotify_Vtbl, 0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
-impl std::ops::Deref for IControlChangeNotify {
+impl core::ops::Deref for IControlChangeNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2390,7 +2390,7 @@ pub struct IControlChangeNotify_Vtbl {
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IControlInterface, IControlInterface_Vtbl, 0x45d37c3f_5140_444a_ae24_400789f3cbf3);
-impl std::ops::Deref for IControlInterface {
+impl core::ops::Deref for IControlInterface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2414,7 +2414,7 @@ pub struct IControlInterface_Vtbl {
     pub GetIID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceSpecificProperty, IDeviceSpecificProperty_Vtbl, 0x3b22bcbf_2586_4af0_8583_205d391b807c);
-impl std::ops::Deref for IDeviceSpecificProperty {
+impl core::ops::Deref for IDeviceSpecificProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2445,7 +2445,7 @@ pub struct IDeviceSpecificProperty_Vtbl {
     pub Get4BRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceTopology, IDeviceTopology_Vtbl, 0x2a07407e_6497_4a18_9787_32f79bd0d98f);
-impl std::ops::Deref for IDeviceTopology {
+impl core::ops::Deref for IDeviceTopology {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2499,7 +2499,7 @@ pub struct IDeviceTopology_Vtbl {
     pub GetSignalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMDevice, IMMDevice_Vtbl, 0xd666063f_1587_4e43_81f1_b948e807363f);
-impl std::ops::Deref for IMMDevice {
+impl core::ops::Deref for IMMDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2512,7 +2512,7 @@ impl IMMDevice {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, dwclsctx, core::mem::transmute(pactivationparams.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2543,7 +2543,7 @@ pub struct IMMDevice_Vtbl {
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> DEVICE_STATE,
 }
 windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl, 0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
-impl std::ops::Deref for IMMDeviceActivator {
+impl core::ops::Deref for IMMDeviceActivator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2564,7 +2564,7 @@ pub struct IMMDeviceActivator_Vtbl {
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMDeviceCollection, IMMDeviceCollection_Vtbl, 0x0bd7a1be_7a1a_44db_8397_cc5392387b5e);
-impl std::ops::Deref for IMMDeviceCollection {
+impl core::ops::Deref for IMMDeviceCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2588,7 +2588,7 @@ pub struct IMMDeviceCollection_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMDeviceEnumerator, IMMDeviceEnumerator_Vtbl, 0xa95664d2_9614_4f35_a746_de8db63617e6);
-impl std::ops::Deref for IMMDeviceEnumerator {
+impl core::ops::Deref for IMMDeviceEnumerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2634,7 +2634,7 @@ pub struct IMMDeviceEnumerator_Vtbl {
     pub UnregisterEndpointNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMEndpoint, IMMEndpoint_Vtbl, 0x1be09788_6894_4089_8586_9a2a6c265ac5);
-impl std::ops::Deref for IMMEndpoint {
+impl core::ops::Deref for IMMEndpoint {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2653,7 +2653,7 @@ pub struct IMMEndpoint_Vtbl {
     pub GetDataFlow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EDataFlow) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMNotificationClient, IMMNotificationClient_Vtbl, 0x7991eec9_7e89_4d85_8390_6c703cec60c0);
-impl std::ops::Deref for IMMNotificationClient {
+impl core::ops::Deref for IMMNotificationClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2706,7 +2706,7 @@ pub struct IMMNotificationClient_Vtbl {
     OnPropertyValueChanged: usize,
 }
 windows_core::imp::define_interface!(IMessageFilter, IMessageFilter_Vtbl, 0x00000016_0000_0000_c000_000000000046);
-impl std::ops::Deref for IMessageFilter {
+impl core::ops::Deref for IMessageFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2745,7 +2745,7 @@ pub struct IMessageFilter_Vtbl {
     pub MessagePending: unsafe extern "system" fn(*mut core::ffi::c_void, super::HTASK, u32, u32) -> u32,
 }
 windows_core::imp::define_interface!(IPart, IPart_Vtbl, 0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9);
-impl std::ops::Deref for IPart {
+impl core::ops::Deref for IPart {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2827,7 +2827,7 @@ pub struct IPart_Vtbl {
     pub UnregisterControlChangeCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPartsList, IPartsList_Vtbl, 0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb);
-impl std::ops::Deref for IPartsList {
+impl core::ops::Deref for IPartsList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2851,7 +2851,7 @@ pub struct IPartsList_Vtbl {
     pub GetPart: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPerChannelDbLevel, IPerChannelDbLevel_Vtbl, 0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb);
-impl std::ops::Deref for IPerChannelDbLevel {
+impl core::ops::Deref for IPerChannelDbLevel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2891,7 +2891,7 @@ pub struct IPerChannelDbLevel_Vtbl {
     pub SetLevelAllChannels: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimpleAudioVolume, ISimpleAudioVolume_Vtbl, 0x87ce5498_68d6_44e5_9215_6da47ef883d8);
-impl std::ops::Deref for ISimpleAudioVolume {
+impl core::ops::Deref for ISimpleAudioVolume {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2926,7 +2926,7 @@ pub struct ISimpleAudioVolume_Vtbl {
     pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioClient, ISpatialAudioClient_Vtbl, 0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
-impl std::ops::Deref for ISpatialAudioClient {
+impl core::ops::Deref for ISpatialAudioClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2963,7 +2963,7 @@ impl ISpatialAudioClient {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).ActivateSpatialAudioStream)(windows_core::Interface::as_raw(self), core::mem::transmute(activationparams), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2980,7 +2980,7 @@ pub struct ISpatialAudioClient_Vtbl {
     pub ActivateSpatialAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioClient2, ISpatialAudioClient2_Vtbl, 0xcaabe452_a66a_4bee_a93e_e320463f6a53);
-impl std::ops::Deref for ISpatialAudioClient2 {
+impl core::ops::Deref for ISpatialAudioClient2 {
     type Target = ISpatialAudioClient;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3007,7 +3007,7 @@ pub struct ISpatialAudioClient2_Vtbl {
     pub GetMaxFrameCountForCategory: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, super::super::Foundation::BOOL, *const WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioMetadataClient, ISpatialAudioMetadataClient_Vtbl, 0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
-impl std::ops::Deref for ISpatialAudioMetadataClient {
+impl core::ops::Deref for ISpatialAudioMetadataClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3045,7 +3045,7 @@ pub struct ISpatialAudioMetadataClient_Vtbl {
     pub ActivateSpatialAudioMetadataReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioMetadataCopier, ISpatialAudioMetadataCopier_Vtbl, 0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
-impl std::ops::Deref for ISpatialAudioMetadataCopier {
+impl core::ops::Deref for ISpatialAudioMetadataCopier {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3078,7 +3078,7 @@ pub struct ISpatialAudioMetadataCopier_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioMetadataItems, ISpatialAudioMetadataItems_Vtbl, 0xbcd7c78f_3098_4f22_b547_a2f25a381269);
-impl std::ops::Deref for ISpatialAudioMetadataItems {
+impl core::ops::Deref for ISpatialAudioMetadataItems {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3117,7 +3117,7 @@ pub struct ISpatialAudioMetadataItems_Vtbl {
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialAudioMetadataItemsInfo) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioMetadataItemsBuffer, ISpatialAudioMetadataItemsBuffer_Vtbl, 0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
-impl std::ops::Deref for ISpatialAudioMetadataItemsBuffer {
+impl core::ops::Deref for ISpatialAudioMetadataItemsBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3143,7 +3143,7 @@ pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
     pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioMetadataReader, ISpatialAudioMetadataReader_Vtbl, 0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
-impl std::ops::Deref for ISpatialAudioMetadataReader {
+impl core::ops::Deref for ISpatialAudioMetadataReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3176,7 +3176,7 @@ pub struct ISpatialAudioMetadataReader_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioMetadataWriter, ISpatialAudioMetadataWriter_Vtbl, 0x1b17ca01_2955_444d_a430_537dc589a844);
-impl std::ops::Deref for ISpatialAudioMetadataWriter {
+impl core::ops::Deref for ISpatialAudioMetadataWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3209,7 +3209,7 @@ pub struct ISpatialAudioMetadataWriter_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObject, ISpatialAudioObject_Vtbl, 0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
-impl std::ops::Deref for ISpatialAudioObject {
+impl core::ops::Deref for ISpatialAudioObject {
     type Target = ISpatialAudioObjectBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3231,7 +3231,7 @@ pub struct ISpatialAudioObject_Vtbl {
     pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectBase, ISpatialAudioObjectBase_Vtbl, 0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
-impl std::ops::Deref for ISpatialAudioObjectBase {
+impl core::ops::Deref for ISpatialAudioObjectBase {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3263,7 +3263,7 @@ pub struct ISpatialAudioObjectBase_Vtbl {
     pub GetAudioObjectType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioObjectType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectForHrtf, ISpatialAudioObjectForHrtf_Vtbl, 0xd7436ade_1978_4e14_aba0_555bd8eb83b4);
-impl std::ops::Deref for ISpatialAudioObjectForHrtf {
+impl core::ops::Deref for ISpatialAudioObjectForHrtf {
     type Target = ISpatialAudioObjectBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3301,7 +3301,7 @@ pub struct ISpatialAudioObjectForHrtf_Vtbl {
     pub SetDirectivity: unsafe extern "system" fn(*mut core::ffi::c_void, *const SpatialAudioHrtfDirectivityUnion) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataCommands, ISpatialAudioObjectForMetadataCommands_Vtbl, 0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
-impl std::ops::Deref for ISpatialAudioObjectForMetadataCommands {
+impl core::ops::Deref for ISpatialAudioObjectForMetadataCommands {
     type Target = ISpatialAudioObjectBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3319,7 +3319,7 @@ pub struct ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub WriteNextMetadataCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataItems, ISpatialAudioObjectForMetadataItems_Vtbl, 0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
-impl std::ops::Deref for ISpatialAudioObjectForMetadataItems {
+impl core::ops::Deref for ISpatialAudioObjectForMetadataItems {
     type Target = ISpatialAudioObjectBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3338,7 +3338,7 @@ pub struct ISpatialAudioObjectForMetadataItems_Vtbl {
     pub GetSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStream, ISpatialAudioObjectRenderStream_Vtbl, 0xbab5f473_b423_477b_85f5_b5a332a04153);
-impl std::ops::Deref for ISpatialAudioObjectRenderStream {
+impl core::ops::Deref for ISpatialAudioObjectRenderStream {
     type Target = ISpatialAudioObjectRenderStreamBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3357,7 +3357,7 @@ pub struct ISpatialAudioObjectRenderStream_Vtbl {
     pub ActivateSpatialAudioObject: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamBase, ISpatialAudioObjectRenderStreamBase_Vtbl, 0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8);
-impl std::ops::Deref for ISpatialAudioObjectRenderStreamBase {
+impl core::ops::Deref for ISpatialAudioObjectRenderStreamBase {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3373,7 +3373,7 @@ impl ISpatialAudioObjectRenderStreamBase {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Start(&self) -> windows_core::Result<()> {
@@ -3404,7 +3404,7 @@ pub struct ISpatialAudioObjectRenderStreamBase_Vtbl {
     pub EndUpdatingAudioObjects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamForHrtf, ISpatialAudioObjectRenderStreamForHrtf_Vtbl, 0xe08deef9_5363_406e_9fdc_080ee247bbe0);
-impl std::ops::Deref for ISpatialAudioObjectRenderStreamForHrtf {
+impl core::ops::Deref for ISpatialAudioObjectRenderStreamForHrtf {
     type Target = ISpatialAudioObjectRenderStreamBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3423,7 +3423,7 @@ pub struct ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
     pub ActivateSpatialAudioObjectForHrtf: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamForMetadata, ISpatialAudioObjectRenderStreamForMetadata_Vtbl, 0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
-impl std::ops::Deref for ISpatialAudioObjectRenderStreamForMetadata {
+impl core::ops::Deref for ISpatialAudioObjectRenderStreamForMetadata {
     type Target = ISpatialAudioObjectRenderStreamBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3447,7 +3447,7 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub ActivateSpatialAudioObjectForMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamNotify, ISpatialAudioObjectRenderStreamNotify_Vtbl, 0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
-impl std::ops::Deref for ISpatialAudioObjectRenderStreamNotify {
+impl core::ops::Deref for ISpatialAudioObjectRenderStreamNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3468,7 +3468,7 @@ pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
     pub OnAvailableDynamicObjectCountChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i64, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISubunit, ISubunit_Vtbl, 0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
-impl std::ops::Deref for ISubunit {
+impl core::ops::Deref for ISubunit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

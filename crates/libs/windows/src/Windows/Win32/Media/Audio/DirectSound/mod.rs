@@ -66,7 +66,7 @@ pub unsafe fn GetDeviceID(pguidsrc: Option<*const windows_core::GUID>) -> window
     GetDeviceID(core::mem::transmute(pguidsrc.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 windows_core::imp::define_interface!(IDirectSound, IDirectSound_Vtbl, 0x279afa83_4981_11ce_a521_0020af0be560);
-impl std::ops::Deref for IDirectSound {
+impl core::ops::Deref for IDirectSound {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -123,7 +123,7 @@ pub struct IDirectSound_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSound3DBuffer, IDirectSound3DBuffer_Vtbl, 0x279afa86_4981_11ce_a521_0020af0be560);
-impl std::ops::Deref for IDirectSound3DBuffer {
+impl core::ops::Deref for IDirectSound3DBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -236,7 +236,7 @@ pub struct IDirectSound3DBuffer_Vtbl {
     pub SetVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSound3DListener, IDirectSound3DListener_Vtbl, 0x279afa84_4981_11ce_a521_0020af0be560);
-impl std::ops::Deref for IDirectSound3DListener {
+impl core::ops::Deref for IDirectSound3DListener {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -335,7 +335,7 @@ pub struct IDirectSound3DListener_Vtbl {
     pub CommitDeferredSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSound8, IDirectSound8_Vtbl, 0xc50a7e93_f395_4834_9ef6_7fa99de50966);
-impl std::ops::Deref for IDirectSound8 {
+impl core::ops::Deref for IDirectSound8 {
     type Target = IDirectSound;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -354,7 +354,7 @@ pub struct IDirectSound8_Vtbl {
     pub VerifyCertification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundBuffer, IDirectSoundBuffer_Vtbl, 0x279afa85_4981_11ce_a521_0020af0be560);
-impl std::ops::Deref for IDirectSoundBuffer {
+impl core::ops::Deref for IDirectSoundBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -447,7 +447,7 @@ pub struct IDirectSoundBuffer_Vtbl {
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundBuffer8, IDirectSoundBuffer8_Vtbl, 0x6825a449_7524_4d82_920f_50e36ab3ab1e);
-impl std::ops::Deref for IDirectSoundBuffer8 {
+impl core::ops::Deref for IDirectSoundBuffer8 {
     type Target = IDirectSoundBuffer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -473,7 +473,7 @@ pub struct IDirectSoundBuffer8_Vtbl {
     pub GetObjectInPath: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundCapture, IDirectSoundCapture_Vtbl, 0xb0210781_89cd_11d0_af08_00a0c925cd16);
-impl std::ops::Deref for IDirectSoundCapture {
+impl core::ops::Deref for IDirectSoundCapture {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -503,7 +503,7 @@ pub struct IDirectSoundCapture_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundCaptureBuffer, IDirectSoundCaptureBuffer_Vtbl, 0xb0210782_89cd_11d0_af08_00a0c925cd16);
-impl std::ops::Deref for IDirectSoundCaptureBuffer {
+impl core::ops::Deref for IDirectSoundCaptureBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -558,7 +558,7 @@ pub struct IDirectSoundCaptureBuffer_Vtbl {
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundCaptureBuffer8, IDirectSoundCaptureBuffer8_Vtbl, 0x00990df4_0dbb_4872_833e_6d303e80aeb6);
-impl std::ops::Deref for IDirectSoundCaptureBuffer8 {
+impl core::ops::Deref for IDirectSoundCaptureBuffer8 {
     type Target = IDirectSoundCaptureBuffer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -580,7 +580,7 @@ pub struct IDirectSoundCaptureBuffer8_Vtbl {
     pub GetFXStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundCaptureFXAec, IDirectSoundCaptureFXAec_Vtbl, 0xad74143d_903d_4ab7_8066_28d363036d65);
-impl std::ops::Deref for IDirectSoundCaptureFXAec {
+impl core::ops::Deref for IDirectSoundCaptureFXAec {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -612,7 +612,7 @@ pub struct IDirectSoundCaptureFXAec_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundCaptureFXNoiseSuppress, IDirectSoundCaptureFXNoiseSuppress_Vtbl, 0xed311e41_fbae_4175_9625_cd0854f693ca);
-impl std::ops::Deref for IDirectSoundCaptureFXNoiseSuppress {
+impl core::ops::Deref for IDirectSoundCaptureFXNoiseSuppress {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -639,7 +639,7 @@ pub struct IDirectSoundCaptureFXNoiseSuppress_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXChorus, IDirectSoundFXChorus_Vtbl, 0x880842e3_145f_43e6_a934_a71806e50547);
-impl std::ops::Deref for IDirectSoundFXChorus {
+impl core::ops::Deref for IDirectSoundFXChorus {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -661,7 +661,7 @@ pub struct IDirectSoundFXChorus_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXChorus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXCompressor, IDirectSoundFXCompressor_Vtbl, 0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
-impl std::ops::Deref for IDirectSoundFXCompressor {
+impl core::ops::Deref for IDirectSoundFXCompressor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -683,7 +683,7 @@ pub struct IDirectSoundFXCompressor_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXCompressor) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXDistortion, IDirectSoundFXDistortion_Vtbl, 0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
-impl std::ops::Deref for IDirectSoundFXDistortion {
+impl core::ops::Deref for IDirectSoundFXDistortion {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -705,7 +705,7 @@ pub struct IDirectSoundFXDistortion_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXDistortion) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXEcho, IDirectSoundFXEcho_Vtbl, 0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
-impl std::ops::Deref for IDirectSoundFXEcho {
+impl core::ops::Deref for IDirectSoundFXEcho {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -727,7 +727,7 @@ pub struct IDirectSoundFXEcho_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXEcho) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXFlanger, IDirectSoundFXFlanger_Vtbl, 0x903e9878_2c92_4072_9b2c_ea68f5396783);
-impl std::ops::Deref for IDirectSoundFXFlanger {
+impl core::ops::Deref for IDirectSoundFXFlanger {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -749,7 +749,7 @@ pub struct IDirectSoundFXFlanger_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXFlanger) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXGargle, IDirectSoundFXGargle_Vtbl, 0xd616f352_d622_11ce_aac5_0020af0b99a3);
-impl std::ops::Deref for IDirectSoundFXGargle {
+impl core::ops::Deref for IDirectSoundFXGargle {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -772,7 +772,7 @@ pub struct IDirectSoundFXGargle_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXGargle) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXI3DL2Reverb, IDirectSoundFXI3DL2Reverb_Vtbl, 0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
-impl std::ops::Deref for IDirectSoundFXI3DL2Reverb {
+impl core::ops::Deref for IDirectSoundFXI3DL2Reverb {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -812,7 +812,7 @@ pub struct IDirectSoundFXI3DL2Reverb_Vtbl {
     pub GetQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXParamEq, IDirectSoundFXParamEq_Vtbl, 0xc03ca9fe_fe90_4204_8078_82334cd177da);
-impl std::ops::Deref for IDirectSoundFXParamEq {
+impl core::ops::Deref for IDirectSoundFXParamEq {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -835,7 +835,7 @@ pub struct IDirectSoundFXParamEq_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXParamEq) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFXWavesReverb, IDirectSoundFXWavesReverb_Vtbl, 0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
-impl std::ops::Deref for IDirectSoundFXWavesReverb {
+impl core::ops::Deref for IDirectSoundFXWavesReverb {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -858,7 +858,7 @@ pub struct IDirectSoundFXWavesReverb_Vtbl {
     pub GetAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DSFXWavesReverb) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundFullDuplex, IDirectSoundFullDuplex_Vtbl, 0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
-impl std::ops::Deref for IDirectSoundFullDuplex {
+impl core::ops::Deref for IDirectSoundFullDuplex {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -879,7 +879,7 @@ pub struct IDirectSoundFullDuplex_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const DSCBUFFERDESC, *const DSBUFFERDESC, super::super::super::Foundation::HWND, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectSoundNotify, IDirectSoundNotify_Vtbl, 0xb0210783_89cd_11d0_af08_00a0c925cd16);
-impl std::ops::Deref for IDirectSoundNotify {
+impl core::ops::Deref for IDirectSoundNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

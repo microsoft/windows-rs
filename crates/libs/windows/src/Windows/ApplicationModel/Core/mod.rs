@@ -101,7 +101,7 @@ pub struct ICoreApplicationExit_Vtbl {
     pub RemoveExiting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreApplicationUnhandledError, ICoreApplicationUnhandledError_Vtbl, 0xf0e24ab0_dd09_42e1_b0bc_e0e131f78d7e);
-impl std::ops::Deref for ICoreApplicationUnhandledError {
+impl core::ops::Deref for ICoreApplicationUnhandledError {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -261,7 +261,7 @@ pub struct ICoreImmersiveApplication3_Vtbl {
     pub CreateNewViewWithViewSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFrameworkView, IFrameworkView_Vtbl, 0xfaab5cd0_8924_45ac_ad0f_a08fae5d0324);
-impl std::ops::Deref for IFrameworkView {
+impl core::ops::Deref for IFrameworkView {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -313,7 +313,7 @@ pub struct IFrameworkView_Vtbl {
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFrameworkViewSource, IFrameworkViewSource_Vtbl, 0xcd770614_65c4_426c_9494_34fc43554862);
-impl std::ops::Deref for IFrameworkViewSource {
+impl core::ops::Deref for IFrameworkViewSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

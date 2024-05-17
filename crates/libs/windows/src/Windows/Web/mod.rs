@@ -7,7 +7,7 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
-impl std::ops::Deref for IUriToStreamResolver {
+impl core::ops::Deref for IUriToStreamResolver {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

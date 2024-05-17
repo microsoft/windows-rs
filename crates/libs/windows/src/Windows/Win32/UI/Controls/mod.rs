@@ -1208,7 +1208,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     ImageList_CoCreateInstance(rclsid, punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -1792,7 +1792,7 @@ where
     UpdatePanningFeedback(hwnd.param().abi(), ltotaloverpanoffsetx, ltotaloverpanoffsety, fininertia.param().abi())
 }
 windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
-impl std::ops::Deref for IImageList {
+impl core::ops::Deref for IImageList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1996,7 +1996,7 @@ pub struct IImageList_Vtbl {
     pub GetOverlayImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
-impl std::ops::Deref for IImageList2 {
+impl core::ops::Deref for IImageList2 {
     type Target = IImageList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

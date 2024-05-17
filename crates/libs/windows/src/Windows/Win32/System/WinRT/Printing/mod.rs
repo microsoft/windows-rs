@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IPrintManagerInterop, IPrintManagerInterop_Vtbl, 0xc5435a42_8d43_4e7b_a68a_ef311e392087);
-impl std::ops::Deref for IPrintManagerInterop {
+impl core::ops::Deref for IPrintManagerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12,7 +12,7 @@ impl IPrintManagerInterop {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShowPrintUIForWindowAsync<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
@@ -20,7 +20,7 @@ impl IPrintManagerInterop {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).ShowPrintUIForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -31,7 +31,7 @@ pub struct IPrintManagerInterop_Vtbl {
     pub ShowPrintUIForWindowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintWorkflowConfigurationNative, IPrintWorkflowConfigurationNative_Vtbl, 0xc056be0a_9ee2_450a_9823_964f0006f2bb);
-impl std::ops::Deref for IPrintWorkflowConfigurationNative {
+impl core::ops::Deref for IPrintWorkflowConfigurationNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -72,7 +72,7 @@ pub struct IPrintWorkflowConfigurationNative_Vtbl {
     UserProperties: usize,
 }
 windows_core::imp::define_interface!(IPrintWorkflowObjectModelSourceFileContentNative, IPrintWorkflowObjectModelSourceFileContentNative_Vtbl, 0x68c9e477_993e_4052_8ac6_454eff58db9d);
-impl std::ops::Deref for IPrintWorkflowObjectModelSourceFileContentNative {
+impl core::ops::Deref for IPrintWorkflowObjectModelSourceFileContentNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -102,7 +102,7 @@ pub struct IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
     ObjectFactory: usize,
 }
 windows_core::imp::define_interface!(IPrintWorkflowXpsObjectModelTargetPackageNative, IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl, 0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
-impl std::ops::Deref for IPrintWorkflowXpsObjectModelTargetPackageNative {
+impl core::ops::Deref for IPrintWorkflowXpsObjectModelTargetPackageNative {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -125,7 +125,7 @@ pub struct IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
     DocumentPackageTarget: usize,
 }
 windows_core::imp::define_interface!(IPrintWorkflowXpsReceiver, IPrintWorkflowXpsReceiver_Vtbl, 0x04097374_77b8_47f6_8167_aae29d4cf84b);
-impl std::ops::Deref for IPrintWorkflowXpsReceiver {
+impl core::ops::Deref for IPrintWorkflowXpsReceiver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -185,7 +185,7 @@ pub struct IPrintWorkflowXpsReceiver_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintWorkflowXpsReceiver2, IPrintWorkflowXpsReceiver2_Vtbl, 0x023bcc0c_dfab_4a61_b074_490c6995580d);
-impl std::ops::Deref for IPrintWorkflowXpsReceiver2 {
+impl core::ops::Deref for IPrintWorkflowXpsReceiver2 {
     type Target = IPrintWorkflowXpsReceiver;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -203,7 +203,7 @@ pub struct IPrintWorkflowXpsReceiver2_Vtbl {
     pub Failed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DManagerInterop, IPrinting3DManagerInterop_Vtbl, 0x9ca31010_1484_4587_b26b_dddf9f9caecd);
-impl std::ops::Deref for IPrinting3DManagerInterop {
+impl core::ops::Deref for IPrinting3DManagerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -216,7 +216,7 @@ impl IPrinting3DManagerInterop {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShowPrintUIForWindowAsync<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
@@ -224,7 +224,7 @@ impl IPrinting3DManagerInterop {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).ShowPrintUIForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

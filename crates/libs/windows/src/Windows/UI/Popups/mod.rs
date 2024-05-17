@@ -47,7 +47,7 @@ pub struct IPopupMenu_Vtbl {
     pub ShowAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUICommand, IUICommand_Vtbl, 0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
-impl std::ops::Deref for IUICommand {
+impl core::ops::Deref for IUICommand {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

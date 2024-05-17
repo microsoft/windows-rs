@@ -68,7 +68,7 @@ pub struct IFlightStickStatics_Vtbl {
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameController, IGameController_Vtbl, 0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
-impl std::ops::Deref for IGameController {
+impl core::ops::Deref for IGameController {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -165,7 +165,7 @@ pub struct IGameController_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161);
-impl std::ops::Deref for IGameControllerBatteryInfo {
+impl core::ops::Deref for IGameControllerBatteryInfo {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

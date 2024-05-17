@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIApplication, IRDPSRAPIApplication_Vtbl, 0x41e7a09d_eb7a_436e_935d_780ca2628324);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIApplication {
+impl core::ops::Deref for IRDPSRAPIApplication {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -56,7 +56,7 @@ pub struct IRDPSRAPIApplication_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIApplicationFilter, IRDPSRAPIApplicationFilter_Vtbl, 0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIApplicationFilter {
+impl core::ops::Deref for IRDPSRAPIApplicationFilter {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -105,7 +105,7 @@ pub struct IRDPSRAPIApplicationFilter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIApplicationList, IRDPSRAPIApplicationList_Vtbl, 0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIApplicationList {
+impl core::ops::Deref for IRDPSRAPIApplicationList {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -138,7 +138,7 @@ pub struct IRDPSRAPIApplicationList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIAttendee, IRDPSRAPIAttendee_Vtbl, 0xec0671b3_1b78_4b80_a464_9132247543e3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIAttendee {
+impl core::ops::Deref for IRDPSRAPIAttendee {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -199,7 +199,7 @@ pub struct IRDPSRAPIAttendee_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIAttendeeDisconnectInfo, IRDPSRAPIAttendeeDisconnectInfo_Vtbl, 0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIAttendeeDisconnectInfo {
+impl core::ops::Deref for IRDPSRAPIAttendeeDisconnectInfo {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -237,7 +237,7 @@ pub struct IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIAttendeeManager, IRDPSRAPIAttendeeManager_Vtbl, 0xba3a37e8_33da_4749_8da0_07fa34da7944);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIAttendeeManager {
+impl core::ops::Deref for IRDPSRAPIAttendeeManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -268,7 +268,7 @@ pub struct IRDPSRAPIAttendeeManager_Vtbl {
     get_Item: usize,
 }
 windows_core::imp::define_interface!(IRDPSRAPIAudioStream, IRDPSRAPIAudioStream_Vtbl, 0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
-impl std::ops::Deref for IRDPSRAPIAudioStream {
+impl core::ops::Deref for IRDPSRAPIAudioStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -303,7 +303,7 @@ pub struct IRDPSRAPIAudioStream_Vtbl {
     pub FreeBuffer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRDPSRAPIClipboardUseEvents, IRDPSRAPIClipboardUseEvents_Vtbl, 0xd559f59a_7a27_4138_8763_247ce5f659a8);
-impl std::ops::Deref for IRDPSRAPIClipboardUseEvents {
+impl core::ops::Deref for IRDPSRAPIClipboardUseEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -329,7 +329,7 @@ pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
     OnPasteFromClipboard: usize,
 }
 windows_core::imp::define_interface!(IRDPSRAPIDebug, IRDPSRAPIDebug_Vtbl, 0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
-impl std::ops::Deref for IRDPSRAPIDebug {
+impl core::ops::Deref for IRDPSRAPIDebug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -357,7 +357,7 @@ pub struct IRDPSRAPIDebug_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIFrameBuffer, IRDPSRAPIFrameBuffer_Vtbl, 0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIFrameBuffer {
+impl core::ops::Deref for IRDPSRAPIFrameBuffer {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -400,7 +400,7 @@ pub struct IRDPSRAPIFrameBuffer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIInvitation, IRDPSRAPIInvitation_Vtbl, 0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIInvitation {
+impl core::ops::Deref for IRDPSRAPIInvitation {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -455,7 +455,7 @@ pub struct IRDPSRAPIInvitation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIInvitationManager, IRDPSRAPIInvitationManager_Vtbl, 0x4722b049_92c3_4c2d_8a65_f7348f644dcf);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIInvitationManager {
+impl core::ops::Deref for IRDPSRAPIInvitationManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -508,7 +508,7 @@ pub struct IRDPSRAPIInvitationManager_Vtbl {
     CreateInvitation: usize,
 }
 windows_core::imp::define_interface!(IRDPSRAPIPerfCounterLogger, IRDPSRAPIPerfCounterLogger_Vtbl, 0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
-impl std::ops::Deref for IRDPSRAPIPerfCounterLogger {
+impl core::ops::Deref for IRDPSRAPIPerfCounterLogger {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -526,7 +526,7 @@ pub struct IRDPSRAPIPerfCounterLogger_Vtbl {
     pub LogValue: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRDPSRAPIPerfCounterLoggingManager, IRDPSRAPIPerfCounterLoggingManager_Vtbl, 0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
-impl std::ops::Deref for IRDPSRAPIPerfCounterLoggingManager {
+impl core::ops::Deref for IRDPSRAPIPerfCounterLoggingManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -550,7 +550,7 @@ pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPISessionProperties, IRDPSRAPISessionProperties_Vtbl, 0x339b24f2_9bc0_4f16_9aac_f165433d13d4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPISessionProperties {
+impl core::ops::Deref for IRDPSRAPISessionProperties {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -585,7 +585,7 @@ pub struct IRDPSRAPISessionProperties_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPISharingSession, IRDPSRAPISharingSession_Vtbl, 0xeeb20886_e470_4cf6_842b_2739c0ec5cfb);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPISharingSession {
+impl core::ops::Deref for IRDPSRAPISharingSession {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -689,7 +689,7 @@ pub struct IRDPSRAPISharingSession_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPISharingSession2, IRDPSRAPISharingSession2_Vtbl, 0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPISharingSession2 {
+impl core::ops::Deref for IRDPSRAPISharingSession2 {
     type Target = IRDPSRAPISharingSession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -737,7 +737,7 @@ pub struct IRDPSRAPISharingSession2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPITcpConnectionInfo, IRDPSRAPITcpConnectionInfo_Vtbl, 0xf74049a4_3d06_4028_8193_0a8c29bc2452);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPITcpConnectionInfo {
+impl core::ops::Deref for IRDPSRAPITcpConnectionInfo {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -779,7 +779,7 @@ pub struct IRDPSRAPITcpConnectionInfo_Vtbl {
     pub PeerIP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRDPSRAPITransportStream, IRDPSRAPITransportStream_Vtbl, 0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
-impl std::ops::Deref for IRDPSRAPITransportStream {
+impl core::ops::Deref for IRDPSRAPITransportStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -830,7 +830,7 @@ pub struct IRDPSRAPITransportStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRDPSRAPITransportStreamBuffer, IRDPSRAPITransportStreamBuffer_Vtbl, 0x81c80290_5085_44b0_b460_f865c39cb4a9);
-impl std::ops::Deref for IRDPSRAPITransportStreamBuffer {
+impl core::ops::Deref for IRDPSRAPITransportStreamBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -893,7 +893,7 @@ pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
     pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRDPSRAPITransportStreamEvents, IRDPSRAPITransportStreamEvents_Vtbl, 0xea81c254_f5af_4e40_982e_3e63bb595276);
-impl std::ops::Deref for IRDPSRAPITransportStreamEvents {
+impl core::ops::Deref for IRDPSRAPITransportStreamEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -927,7 +927,7 @@ pub struct IRDPSRAPITransportStreamEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIViewer, IRDPSRAPIViewer_Vtbl, 0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIViewer {
+impl core::ops::Deref for IRDPSRAPIViewer {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1046,7 +1046,7 @@ pub struct IRDPSRAPIViewer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIVirtualChannel, IRDPSRAPIVirtualChannel_Vtbl, 0x05e12f95_28b3_4c9a_8780_d0248574a1e0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIVirtualChannel {
+impl core::ops::Deref for IRDPSRAPIVirtualChannel {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1091,7 +1091,7 @@ pub struct IRDPSRAPIVirtualChannel_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIVirtualChannelManager, IRDPSRAPIVirtualChannelManager_Vtbl, 0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIVirtualChannelManager {
+impl core::ops::Deref for IRDPSRAPIVirtualChannelManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1139,7 +1139,7 @@ pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIWindow, IRDPSRAPIWindow_Vtbl, 0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIWindow {
+impl core::ops::Deref for IRDPSRAPIWindow {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1198,7 +1198,7 @@ pub struct IRDPSRAPIWindow_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIWindowList, IRDPSRAPIWindowList_Vtbl, 0x8a05ce44_715a_4116_a189_a118f30a07bd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRDPSRAPIWindowList {
+impl core::ops::Deref for IRDPSRAPIWindowList {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1229,7 +1229,7 @@ pub struct IRDPSRAPIWindowList_Vtbl {
     get_Item: usize,
 }
 windows_core::imp::define_interface!(IRDPViewerInputSink, IRDPViewerInputSink_Vtbl, 0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
-impl std::ops::Deref for IRDPViewerInputSink {
+impl core::ops::Deref for IRDPViewerInputSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1285,7 +1285,7 @@ pub struct IRDPViewerInputSink_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_IRDPSessionEvents, _IRDPSessionEvents_Vtbl, 0x98a97042_6698_40e9_8efd_b3200990004b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for _IRDPSessionEvents {
+impl core::ops::Deref for _IRDPSessionEvents {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

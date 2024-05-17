@@ -1008,7 +1008,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DICounterItem, DICounterItem_Vtbl, 0xc08c4ff2_0e2e_11cf_942c_008029004347);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DICounterItem {
+impl core::ops::Deref for DICounterItem {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1026,7 +1026,7 @@ pub struct DICounterItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DILogFileItem, DILogFileItem_Vtbl, 0x8d093ffc_f777_4917_82d1_833fbc54c58f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DILogFileItem {
+impl core::ops::Deref for DILogFileItem {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1044,7 +1044,7 @@ pub struct DILogFileItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DISystemMonitor, DISystemMonitor_Vtbl, 0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DISystemMonitor {
+impl core::ops::Deref for DISystemMonitor {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1062,7 +1062,7 @@ pub struct DISystemMonitor_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DISystemMonitorEvents, DISystemMonitorEvents_Vtbl, 0x84979930_4ab3_11cf_943a_008029004347);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DISystemMonitorEvents {
+impl core::ops::Deref for DISystemMonitorEvents {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1080,7 +1080,7 @@ pub struct DISystemMonitorEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DISystemMonitorInternal, DISystemMonitorInternal_Vtbl, 0x194eb242_c32c_11cf_9398_00aa00a3ddea);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DISystemMonitorInternal {
+impl core::ops::Deref for DISystemMonitorInternal {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1098,7 +1098,7 @@ pub struct DISystemMonitorInternal_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAlertDataCollector, IAlertDataCollector_Vtbl, 0x03837516_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAlertDataCollector {
+impl core::ops::Deref for IAlertDataCollector {
     type Target = IDataCollector;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1215,7 +1215,7 @@ pub struct IAlertDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IApiTracingDataCollector, IApiTracingDataCollector_Vtbl, 0x0383751a_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IApiTracingDataCollector {
+impl core::ops::Deref for IApiTracingDataCollector {
     type Target = IDataCollector;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1333,7 +1333,7 @@ pub struct IApiTracingDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IConfigurationDataCollector, IConfigurationDataCollector_Vtbl, 0x03837514_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IConfigurationDataCollector {
+impl core::ops::Deref for IConfigurationDataCollector {
     type Target = IDataCollector;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1461,7 +1461,7 @@ pub struct IConfigurationDataCollector_Vtbl {
     pub SetSystemStateFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICounterItem, ICounterItem_Vtbl, 0x771a9520_ee28_11ce_941e_008029004347);
-impl std::ops::Deref for ICounterItem {
+impl core::ops::Deref for ICounterItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1529,7 +1529,7 @@ pub struct ICounterItem_Vtbl {
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, *mut f64, *mut f64, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICounterItem2, ICounterItem2_Vtbl, 0xeefcd4e1_ea1c_4435_b7f4_e341ba03b4f9);
-impl std::ops::Deref for ICounterItem2 {
+impl core::ops::Deref for ICounterItem2 {
     type Target = ICounterItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1574,7 +1574,7 @@ pub struct ICounterItem2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICounters, ICounters_Vtbl, 0x79167962_28fc_11cf_942f_008029004347);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ICounters {
+impl core::ops::Deref for ICounters {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1634,7 +1634,7 @@ pub struct ICounters_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollector, IDataCollector_Vtbl, 0x038374ff_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDataCollector {
+impl core::ops::Deref for IDataCollector {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1810,7 +1810,7 @@ pub struct IDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollectorCollection, IDataCollectorCollection_Vtbl, 0x03837502_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDataCollectorCollection {
+impl core::ops::Deref for IDataCollectorCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1904,7 +1904,7 @@ pub struct IDataCollectorCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollectorSet, IDataCollectorSet_Vtbl, 0x03837520_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDataCollectorSet {
+impl core::ops::Deref for IDataCollectorSet {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2295,7 +2295,7 @@ pub struct IDataCollectorSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollectorSetCollection, IDataCollectorSetCollection_Vtbl, 0x03837524_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDataCollectorSetCollection {
+impl core::ops::Deref for IDataCollectorSetCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2377,7 +2377,7 @@ pub struct IDataCollectorSetCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataManager, IDataManager_Vtbl, 0x03837541_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDataManager {
+impl core::ops::Deref for IDataManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2545,7 +2545,7 @@ pub struct IDataManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFolderAction, IFolderAction_Vtbl, 0x03837543_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFolderAction {
+impl core::ops::Deref for IFolderAction {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2603,7 +2603,7 @@ pub struct IFolderAction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFolderActionCollection, IFolderActionCollection_Vtbl, 0x03837544_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFolderActionCollection {
+impl core::ops::Deref for IFolderActionCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2684,7 +2684,7 @@ pub struct IFolderActionCollection_Vtbl {
     CreateFolderAction: usize,
 }
 windows_core::imp::define_interface!(ILogFileItem, ILogFileItem_Vtbl, 0xd6b518dd_05c7_418a_89e6_4f9ce8c6841e);
-impl std::ops::Deref for ILogFileItem {
+impl core::ops::Deref for ILogFileItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2705,7 +2705,7 @@ pub struct ILogFileItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILogFiles, ILogFiles_Vtbl, 0x6a2a97e6_6851_41ea_87ad_2a8225335865);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ILogFiles {
+impl core::ops::Deref for ILogFiles {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2765,7 +2765,7 @@ pub struct ILogFiles_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPerformanceCounterDataCollector, IPerformanceCounterDataCollector_Vtbl, 0x03837506_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IPerformanceCounterDataCollector {
+impl core::ops::Deref for IPerformanceCounterDataCollector {
     type Target = IDataCollector;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2840,7 +2840,7 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchedule, ISchedule_Vtbl, 0x0383753a_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISchedule {
+impl core::ops::Deref for ISchedule {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2904,7 +2904,7 @@ pub struct ISchedule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IScheduleCollection, IScheduleCollection_Vtbl, 0x0383753d_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IScheduleCollection {
+impl core::ops::Deref for IScheduleCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2985,7 +2985,7 @@ pub struct IScheduleCollection_Vtbl {
     CreateSchedule: usize,
 }
 windows_core::imp::define_interface!(ISystemMonitor, ISystemMonitor_Vtbl, 0x194eb241_c32c_11cf_9398_00aa00a3ddea);
-impl std::ops::Deref for ISystemMonitor {
+impl core::ops::Deref for ISystemMonitor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3409,7 +3409,7 @@ pub struct ISystemMonitor_Vtbl {
     pub SqlLogSetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemMonitor2, ISystemMonitor2_Vtbl, 0x08e3206a_5fd2_4fde_a8a5_8cb3b63d2677);
-impl std::ops::Deref for ISystemMonitor2 {
+impl core::ops::Deref for ISystemMonitor2 {
     type Target = ISystemMonitor;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3537,7 +3537,7 @@ pub struct ISystemMonitor2_Vtbl {
     pub LoadSettings: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemMonitorEvents, ISystemMonitorEvents_Vtbl, 0xee660ea0_4abd_11cf_943a_008029004347);
-impl std::ops::Deref for ISystemMonitorEvents {
+impl core::ops::Deref for ISystemMonitorEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3573,7 +3573,7 @@ pub struct ISystemMonitorEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITraceDataCollector, ITraceDataCollector_Vtbl, 0x0383750b_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITraceDataCollector {
+impl core::ops::Deref for ITraceDataCollector {
     type Target = IDataCollector;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3786,7 +3786,7 @@ pub struct ITraceDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITraceDataProvider, ITraceDataProvider_Vtbl, 0x03837512_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITraceDataProvider {
+impl core::ops::Deref for ITraceDataProvider {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3940,7 +3940,7 @@ pub struct ITraceDataProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITraceDataProviderCollection, ITraceDataProviderCollection_Vtbl, 0x03837510_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ITraceDataProviderCollection {
+impl core::ops::Deref for ITraceDataProviderCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4037,7 +4037,7 @@ pub struct ITraceDataProviderCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IValueMap, IValueMap_Vtbl, 0x03837534_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IValueMap {
+impl core::ops::Deref for IValueMap {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4149,7 +4149,7 @@ pub struct IValueMap_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IValueMapItem, IValueMapItem_Vtbl, 0x03837533_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IValueMapItem {
+impl core::ops::Deref for IValueMapItem {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4223,7 +4223,7 @@ pub struct IValueMapItem_Vtbl {
     pub SetValueMapType: unsafe extern "system" fn(*mut core::ffi::c_void, ValueMapType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(_ICounterItemUnion, _ICounterItemUnion_Vtbl, 0xde1a6b74_9182_4c41_8e2c_24c2cd30ee83);
-impl std::ops::Deref for _ICounterItemUnion {
+impl core::ops::Deref for _ICounterItemUnion {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4320,7 +4320,7 @@ pub struct _ICounterItemUnion_Vtbl {
     pub GetDataAt: unsafe extern "system" fn(*mut core::ffi::c_void, i32, SysmonDataType, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(_ISystemMonitorUnion, _ISystemMonitorUnion_Vtbl, 0xc8a77338_265f_4de5_aa25_c7da1ce5a8f4);
-impl std::ops::Deref for _ISystemMonitorUnion {
+impl core::ops::Deref for _ISystemMonitorUnion {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

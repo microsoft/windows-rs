@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
-impl std::ops::Deref for IEnhancedStorageACT {
+impl core::ops::Deref for IEnhancedStorageACT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -40,7 +40,7 @@ pub struct IEnhancedStorageACT_Vtbl {
     pub GetSilos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut Option<IEnhancedStorageSilo>, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
-impl std::ops::Deref for IEnhancedStorageACT2 {
+impl core::ops::Deref for IEnhancedStorageACT2 {
     type Target = IEnhancedStorageACT;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -64,7 +64,7 @@ pub struct IEnhancedStorageACT2_Vtbl {
     pub IsDeviceRemovable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnhancedStorageACT3, IEnhancedStorageACT3_Vtbl, 0x022150a1_113d_11df_bb61_001aa01bbc58);
-impl std::ops::Deref for IEnhancedStorageACT3 {
+impl core::ops::Deref for IEnhancedStorageACT3 {
     type Target = IEnhancedStorageACT2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -92,7 +92,7 @@ pub struct IEnhancedStorageACT3_Vtbl {
     pub GetShellExtSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
-impl std::ops::Deref for IEnhancedStorageSilo {
+impl core::ops::Deref for IEnhancedStorageSilo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -133,7 +133,7 @@ pub struct IEnhancedStorageSilo_Vtbl {
     pub GetDevicePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
-impl std::ops::Deref for IEnhancedStorageSiloAction {
+impl core::ops::Deref for IEnhancedStorageSiloAction {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -161,7 +161,7 @@ pub struct IEnhancedStorageSiloAction_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
-impl std::ops::Deref for IEnumEnhancedStorageACT {
+impl core::ops::Deref for IEnumEnhancedStorageACT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

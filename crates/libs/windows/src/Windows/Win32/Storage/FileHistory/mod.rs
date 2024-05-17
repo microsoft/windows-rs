@@ -65,7 +65,7 @@ where
     FhServiceUnblockBackup(pipe.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IFhConfigMgr, IFhConfigMgr_Vtbl, 0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
-impl std::ops::Deref for IFhConfigMgr {
+impl core::ops::Deref for IFhConfigMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -160,7 +160,7 @@ pub struct IFhConfigMgr_Vtbl {
     pub QueryProtectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
-impl std::ops::Deref for IFhReassociation {
+impl core::ops::Deref for IFhReassociation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -204,7 +204,7 @@ pub struct IFhReassociation_Vtbl {
     pub PerformReassociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
-impl std::ops::Deref for IFhScopeIterator {
+impl core::ops::Deref for IFhScopeIterator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -227,7 +227,7 @@ pub struct IFhScopeIterator_Vtbl {
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
-impl std::ops::Deref for IFhTarget {
+impl core::ops::Deref for IFhTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

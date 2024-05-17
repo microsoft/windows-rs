@@ -37,7 +37,7 @@ pub struct ISmsAppMessage_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsBinaryMessage, ISmsBinaryMessage_Vtbl, 0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for ISmsBinaryMessage {
+impl core::ops::Deref for ISmsBinaryMessage {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -136,7 +136,7 @@ pub struct ISmsBroadcastMessage_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDevice, ISmsDevice_Vtbl, 0x091791ed_872b_4eec_9c72_ab11627b34ec);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for ISmsDevice {
+impl core::ops::Deref for ISmsDevice {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -469,7 +469,7 @@ pub struct ISmsFilterRulesFactory_Vtbl {
     pub CreateFilterRules: unsafe extern "system" fn(*mut core::ffi::c_void, SmsFilterActionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsMessage, ISmsMessage_Vtbl, 0xed3c5e28_6984_4b07_811d_8d5906ed3cea);
-impl std::ops::Deref for ISmsMessage {
+impl core::ops::Deref for ISmsMessage {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -502,7 +502,7 @@ pub struct ISmsMessage_Vtbl {
     pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsMessageBase, ISmsMessageBase_Vtbl, 0x2cf0fe30_fe50_4fc6_aa88_4ccfe27a29ea);
-impl std::ops::Deref for ISmsMessageBase {
+impl core::ops::Deref for ISmsMessageBase {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -693,7 +693,7 @@ pub struct ISmsStatusMessage_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsTextMessage, ISmsTextMessage_Vtbl, 0xd61c904c_a495_487f_9a6f_971548c5bc9f);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for ISmsTextMessage {
+impl core::ops::Deref for ISmsTextMessage {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

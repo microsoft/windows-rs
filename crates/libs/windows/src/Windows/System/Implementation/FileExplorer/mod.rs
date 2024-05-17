@@ -17,7 +17,7 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISysStorageProviderEventSource, ISysStorageProviderEventSource_Vtbl, 0x1f36c476_9546_536a_8381_2f9a2c08cedd);
-impl std::ops::Deref for ISysStorageProviderEventSource {
+impl core::ops::Deref for ISysStorageProviderEventSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -50,7 +50,7 @@ pub struct ISysStorageProviderEventSource_Vtbl {
     pub RemoveEventReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISysStorageProviderHandlerFactory, ISysStorageProviderHandlerFactory_Vtbl, 0xee798431_8213_5e89_a623_14d8c72b8a61);
-impl std::ops::Deref for ISysStorageProviderHandlerFactory {
+impl core::ops::Deref for ISysStorageProviderHandlerFactory {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -83,7 +83,7 @@ pub struct ISysStorageProviderHandlerFactory_Vtbl {
     pub GetEventSource: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISysStorageProviderHttpRequestProvider, ISysStorageProviderHttpRequestProvider_Vtbl, 0xcb6fefb6_e76a_5c25_a33e_3e78a6e0e0ce);
-impl std::ops::Deref for ISysStorageProviderHttpRequestProvider {
+impl core::ops::Deref for ISysStorageProviderHttpRequestProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(ICorProfilerAssemblyReferenceProvider, ICorProfilerAssemblyReferenceProvider_Vtbl, 0x66a78c24_2eef_4f65_b45f_dd1d8038bf3c);
-impl std::ops::Deref for ICorProfilerAssemblyReferenceProvider {
+impl core::ops::Deref for ICorProfilerAssemblyReferenceProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -21,7 +21,7 @@ pub struct ICorProfilerAssemblyReferenceProvider_Vtbl {
     AddAssemblyReference: usize,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback, ICorProfilerCallback_Vtbl, 0x176fbed1_a55c_4796_98ca_a9da0ef883e7);
-impl std::ops::Deref for ICorProfilerCallback {
+impl core::ops::Deref for ICorProfilerCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -334,7 +334,7 @@ pub struct ICorProfilerCallback_Vtbl {
     pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
-impl std::ops::Deref for ICorProfilerCallback10 {
+impl core::ops::Deref for ICorProfilerCallback10 {
     type Target = ICorProfilerCallback9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -356,7 +356,7 @@ pub struct ICorProfilerCallback10_Vtbl {
     pub EventPipeProviderCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x42350846_aaed_47f7_b128_fd0c98881cde);
-impl std::ops::Deref for ICorProfilerCallback11 {
+impl core::ops::Deref for ICorProfilerCallback11 {
     type Target = ICorProfilerCallback10;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -374,7 +374,7 @@ pub struct ICorProfilerCallback11_Vtbl {
     pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
-impl std::ops::Deref for ICorProfilerCallback2 {
+impl core::ops::Deref for ICorProfilerCallback2 {
     type Target = ICorProfilerCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -420,7 +420,7 @@ pub struct ICorProfilerCallback2_Vtbl {
     pub HandleDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
-impl std::ops::Deref for ICorProfilerCallback3 {
+impl core::ops::Deref for ICorProfilerCallback3 {
     type Target = ICorProfilerCallback2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -449,7 +449,7 @@ pub struct ICorProfilerCallback3_Vtbl {
     pub ProfilerDetachSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
-impl std::ops::Deref for ICorProfilerCallback4 {
+impl core::ops::Deref for ICorProfilerCallback4 {
     type Target = ICorProfilerCallback3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -496,7 +496,7 @@ pub struct ICorProfilerCallback4_Vtbl {
     pub SurvivingReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
-impl std::ops::Deref for ICorProfilerCallback5 {
+impl core::ops::Deref for ICorProfilerCallback5 {
     type Target = ICorProfilerCallback4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -514,7 +514,7 @@ pub struct ICorProfilerCallback5_Vtbl {
     pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
-impl std::ops::Deref for ICorProfilerCallback6 {
+impl core::ops::Deref for ICorProfilerCallback6 {
     type Target = ICorProfilerCallback5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -536,7 +536,7 @@ pub struct ICorProfilerCallback6_Vtbl {
     pub GetAssemblyReferences: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
-impl std::ops::Deref for ICorProfilerCallback7 {
+impl core::ops::Deref for ICorProfilerCallback7 {
     type Target = ICorProfilerCallback6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -554,7 +554,7 @@ pub struct ICorProfilerCallback7_Vtbl {
     pub ModuleInMemorySymbolsUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
-impl std::ops::Deref for ICorProfilerCallback8 {
+impl core::ops::Deref for ICorProfilerCallback8 {
     type Target = ICorProfilerCallback7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -582,7 +582,7 @@ pub struct ICorProfilerCallback8_Vtbl {
     pub DynamicMethodJITCompilationFinished: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::HRESULT, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerCallback9, ICorProfilerCallback9_Vtbl, 0x27583ec3_c8f5_482f_8052_194b8ce4705a);
-impl std::ops::Deref for ICorProfilerCallback9 {
+impl core::ops::Deref for ICorProfilerCallback9 {
     type Target = ICorProfilerCallback8;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -600,7 +600,7 @@ pub struct ICorProfilerCallback9_Vtbl {
     pub DynamicMethodUnloaded: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerFunctionControl, ICorProfilerFunctionControl_Vtbl, 0xf0963021_e1ea_4732_8581_e01b0bd3c0c6);
-impl std::ops::Deref for ICorProfilerFunctionControl {
+impl core::ops::Deref for ICorProfilerFunctionControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -626,7 +626,7 @@ pub struct ICorProfilerFunctionControl_Vtbl {
     pub SetILInstrumentedCodeMap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const COR_IL_MAP) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0xff71301a_b994_429d_a10b_b345a65280ef);
-impl std::ops::Deref for ICorProfilerFunctionEnum {
+impl core::ops::Deref for ICorProfilerFunctionEnum {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -662,7 +662,7 @@ pub struct ICorProfilerFunctionEnum_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut COR_PRF_FUNCTION, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
-impl std::ops::Deref for ICorProfilerInfo {
+impl core::ops::Deref for ICorProfilerInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -833,7 +833,7 @@ pub struct ICorProfilerInfo_Vtbl {
     pub GetILToNativeMapping: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
-impl std::ops::Deref for ICorProfilerInfo10 {
+impl core::ops::Deref for ICorProfilerInfo10 {
     type Target = ICorProfilerInfo9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -871,7 +871,7 @@ pub struct ICorProfilerInfo10_Vtbl {
     pub ResumeRuntime: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0x06398876_8987_4154_b621_40a00d6e4d04);
-impl std::ops::Deref for ICorProfilerInfo11 {
+impl core::ops::Deref for ICorProfilerInfo11 {
     type Target = ICorProfilerInfo10;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -900,7 +900,7 @@ pub struct ICorProfilerInfo11_Vtbl {
     pub SetEnvironmentVariable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo12, ICorProfilerInfo12_Vtbl, 0x27b24ccd_1cb1_47c5_96ee_98190dc30959);
-impl std::ops::Deref for ICorProfilerInfo12 {
+impl core::ops::Deref for ICorProfilerInfo12 {
     type Target = ICorProfilerInfo11;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -955,7 +955,7 @@ pub struct ICorProfilerInfo12_Vtbl {
     pub EventPipeWriteEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const COR_PRF_EVENT_DATA, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo13, ICorProfilerInfo13_Vtbl, 0x6e6c7ee2_0701_4ec2_9d29_2e8733b66934);
-impl std::ops::Deref for ICorProfilerInfo13 {
+impl core::ops::Deref for ICorProfilerInfo13 {
     type Target = ICorProfilerInfo12;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -982,7 +982,7 @@ pub struct ICorProfilerInfo13_Vtbl {
     pub GetObjectIDFromHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo14, ICorProfilerInfo14_Vtbl, 0xf460e352_d76d_4fe9_835f_f6af9d6e862d);
-impl std::ops::Deref for ICorProfilerInfo14 {
+impl core::ops::Deref for ICorProfilerInfo14 {
     type Target = ICorProfilerInfo13;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1013,7 +1013,7 @@ pub struct ICorProfilerInfo14_Vtbl {
     pub EventPipeCreateProvider2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const EventPipeProviderCallback, *mut usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo2, ICorProfilerInfo2_Vtbl, 0xcc0935cd_a518_487d_b0bb_a93214e65478);
-impl std::ops::Deref for ICorProfilerInfo2 {
+impl core::ops::Deref for ICorProfilerInfo2 {
     type Target = ICorProfilerInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1123,7 +1123,7 @@ pub struct ICorProfilerInfo2_Vtbl {
     pub GetNotifiedExceptionClauseInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut COR_PRF_EX_CLAUSE_INFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo3, ICorProfilerInfo3_Vtbl, 0xb555ed4f_452a_4e54_8b39_b5360bad32a0);
-impl std::ops::Deref for ICorProfilerInfo3 {
+impl core::ops::Deref for ICorProfilerInfo3 {
     type Target = ICorProfilerInfo2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1196,7 +1196,7 @@ pub struct ICorProfilerInfo3_Vtbl {
     pub GetModuleInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut u8, u32, *mut u32, windows_core::PWSTR, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo4, ICorProfilerInfo4_Vtbl, 0x0d8fdcaa_6257_47bf_b1bf_94dac88466ee);
-impl std::ops::Deref for ICorProfilerInfo4 {
+impl core::ops::Deref for ICorProfilerInfo4 {
     type Target = ICorProfilerInfo3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1253,7 +1253,7 @@ pub struct ICorProfilerInfo4_Vtbl {
     pub GetObjectSize2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0x07602928_ce38_4b83_81e7_74adaf781214);
-impl std::ops::Deref for ICorProfilerInfo5 {
+impl core::ops::Deref for ICorProfilerInfo5 {
     type Target = ICorProfilerInfo4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1275,7 +1275,7 @@ pub struct ICorProfilerInfo5_Vtbl {
     pub SetEventMask2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
-impl std::ops::Deref for ICorProfilerInfo6 {
+impl core::ops::Deref for ICorProfilerInfo6 {
     type Target = ICorProfilerInfo5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1293,7 +1293,7 @@ pub struct ICorProfilerInfo6_Vtbl {
     pub EnumNgenModuleMethodsInliningThisMethod: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *mut super::super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo7, ICorProfilerInfo7_Vtbl, 0x9aeecc0d_63e0_4187_8c00_e312f503f663);
-impl std::ops::Deref for ICorProfilerInfo7 {
+impl core::ops::Deref for ICorProfilerInfo7 {
     type Target = ICorProfilerInfo6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1320,7 +1320,7 @@ pub struct ICorProfilerInfo7_Vtbl {
     pub ReadInMemorySymbols: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo8, ICorProfilerInfo8_Vtbl, 0xc5ac80a6_782e_4716_8044_39598c60cfbf);
-impl std::ops::Deref for ICorProfilerInfo8 {
+impl core::ops::Deref for ICorProfilerInfo8 {
     type Target = ICorProfilerInfo7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1347,7 +1347,7 @@ pub struct ICorProfilerInfo8_Vtbl {
     pub GetDynamicFunctionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize, *mut *mut u8, *mut u32, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0x008170db_f8cc_4796_9a51_dc8aa0b47012);
-impl std::ops::Deref for ICorProfilerInfo9 {
+impl core::ops::Deref for ICorProfilerInfo9 {
     type Target = ICorProfilerInfo8;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1373,7 +1373,7 @@ pub struct ICorProfilerInfo9_Vtbl {
     pub GetCodeInfo4: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut COR_PRF_CODE_INFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerMethodEnum, ICorProfilerMethodEnum_Vtbl, 0xfccee788_0088_454b_a811_c99f298d1942);
-impl std::ops::Deref for ICorProfilerMethodEnum {
+impl core::ops::Deref for ICorProfilerMethodEnum {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1409,7 +1409,7 @@ pub struct ICorProfilerMethodEnum_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut COR_PRF_METHOD, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerModuleEnum, ICorProfilerModuleEnum_Vtbl, 0xb0266d75_2081_4493_af7f_028ba34db891);
-impl std::ops::Deref for ICorProfilerModuleEnum {
+impl core::ops::Deref for ICorProfilerModuleEnum {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1445,7 +1445,7 @@ pub struct ICorProfilerModuleEnum_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0x2c6269bd_2d13_4321_ae12_6686365fd6af);
-impl std::ops::Deref for ICorProfilerObjectEnum {
+impl core::ops::Deref for ICorProfilerObjectEnum {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1481,7 +1481,7 @@ pub struct ICorProfilerObjectEnum_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x571194f7_25ed_419f_aa8b_7016b3159701);
-impl std::ops::Deref for ICorProfilerThreadEnum {
+impl core::ops::Deref for ICorProfilerThreadEnum {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1517,7 +1517,7 @@ pub struct ICorProfilerThreadEnum_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);
-impl std::ops::Deref for IMethodMalloc {
+impl core::ops::Deref for IMethodMalloc {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

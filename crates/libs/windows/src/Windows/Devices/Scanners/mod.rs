@@ -62,7 +62,7 @@ pub struct IImageScannerFeederConfiguration_Vtbl {
     pub SetScanAhead: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageScannerFormatConfiguration, IImageScannerFormatConfiguration_Vtbl, 0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
-impl std::ops::Deref for IImageScannerFormatConfiguration {
+impl core::ops::Deref for IImageScannerFormatConfiguration {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -130,7 +130,7 @@ pub struct IImageScannerScanResult_Vtbl {
     ScannedFiles: usize,
 }
 windows_core::imp::define_interface!(IImageScannerSourceConfiguration, IImageScannerSourceConfiguration_Vtbl, 0xbfb50055_0b44_4c82_9e89_205f9c234e59);
-impl std::ops::Deref for IImageScannerSourceConfiguration {
+impl core::ops::Deref for IImageScannerSourceConfiguration {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

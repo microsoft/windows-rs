@@ -54,7 +54,7 @@ pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> windows_core::Result<IDirect
     Direct3DCreate9Ex(sdkversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IDirect3D9, IDirect3D9_Vtbl, 0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
-impl std::ops::Deref for IDirect3D9 {
+impl core::ops::Deref for IDirect3D9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -137,7 +137,7 @@ pub struct IDirect3D9_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, super::super::Foundation::HWND, u32, *mut D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3D9Ex, IDirect3D9Ex_Vtbl, 0x02177241_69fc_400c_8ff1_93a44df6861d);
-impl std::ops::Deref for IDirect3D9Ex {
+impl core::ops::Deref for IDirect3D9Ex {
     type Target = IDirect3D9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -174,7 +174,7 @@ pub struct IDirect3D9Ex_Vtbl {
     pub GetAdapterLUID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::LUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DBaseTexture9, IDirect3DBaseTexture9_Vtbl, 0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
-impl std::ops::Deref for IDirect3DBaseTexture9 {
+impl core::ops::Deref for IDirect3DBaseTexture9 {
     type Target = IDirect3DResource9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -212,7 +212,7 @@ pub struct IDirect3DBaseTexture9_Vtbl {
     pub GenerateMipSubLevels: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IDirect3DCubeTexture9, IDirect3DCubeTexture9_Vtbl, 0xfff32f81_d953_473a_9223_93d652aba93f);
-impl std::ops::Deref for IDirect3DCubeTexture9 {
+impl core::ops::Deref for IDirect3DCubeTexture9 {
     type Target = IDirect3DBaseTexture9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -247,7 +247,7 @@ pub struct IDirect3DCubeTexture9_Vtbl {
     pub AddDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, D3DCUBEMAP_FACES, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DDevice9, IDirect3DDevice9_Vtbl, 0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
-impl std::ops::Deref for IDirect3DDevice9 {
+impl core::ops::Deref for IDirect3DDevice9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -847,7 +847,7 @@ pub struct IDirect3DDevice9_Vtbl {
     pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, D3DQUERYTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DDevice9Ex, IDirect3DDevice9Ex_Vtbl, 0xb18b10ce_2649_405a_870f_95f777d4313a);
-impl std::ops::Deref for IDirect3DDevice9Ex {
+impl core::ops::Deref for IDirect3DDevice9Ex {
     type Target = IDirect3DDevice9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -943,7 +943,7 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DIndexBuffer9, IDirect3DIndexBuffer9_Vtbl, 0x7c9dd65e_d3f7_4529_acee_785830acde35);
-impl std::ops::Deref for IDirect3DIndexBuffer9 {
+impl core::ops::Deref for IDirect3DIndexBuffer9 {
     type Target = IDirect3DResource9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -969,7 +969,7 @@ pub struct IDirect3DIndexBuffer9_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DINDEXBUFFER_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DPixelShader9, IDirect3DPixelShader9_Vtbl, 0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
-impl std::ops::Deref for IDirect3DPixelShader9 {
+impl core::ops::Deref for IDirect3DPixelShader9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -992,7 +992,7 @@ pub struct IDirect3DPixelShader9_Vtbl {
     pub GetFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DQuery9, IDirect3DQuery9_Vtbl, 0xd9771460_a695_4f26_bbd3_27b840b541cc);
-impl std::ops::Deref for IDirect3DQuery9 {
+impl core::ops::Deref for IDirect3DQuery9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1027,7 +1027,7 @@ pub struct IDirect3DQuery9_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DResource9, IDirect3DResource9_Vtbl, 0x05eec05d_8f7d_4362_b999_d1baf357c704);
-impl std::ops::Deref for IDirect3DResource9 {
+impl core::ops::Deref for IDirect3DResource9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1074,7 +1074,7 @@ pub struct IDirect3DResource9_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
 }
 windows_core::imp::define_interface!(IDirect3DStateBlock9, IDirect3DStateBlock9_Vtbl, 0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
-impl std::ops::Deref for IDirect3DStateBlock9 {
+impl core::ops::Deref for IDirect3DStateBlock9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1101,7 +1101,7 @@ pub struct IDirect3DStateBlock9_Vtbl {
     pub Apply: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DSurface9, IDirect3DSurface9_Vtbl, 0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b);
-impl std::ops::Deref for IDirect3DSurface9 {
+impl core::ops::Deref for IDirect3DSurface9 {
     type Target = IDirect3DResource9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1150,7 +1150,7 @@ pub struct IDirect3DSurface9_Vtbl {
     ReleaseDC: usize,
 }
 windows_core::imp::define_interface!(IDirect3DSwapChain9, IDirect3DSwapChain9_Vtbl, 0x794950f2_adfc_458a_905e_10a10b0b503b);
-impl std::ops::Deref for IDirect3DSwapChain9 {
+impl core::ops::Deref for IDirect3DSwapChain9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1204,7 +1204,7 @@ pub struct IDirect3DSwapChain9_Vtbl {
     pub GetPresentParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DSwapChain9Ex, IDirect3DSwapChain9Ex_Vtbl, 0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
-impl std::ops::Deref for IDirect3DSwapChain9Ex {
+impl core::ops::Deref for IDirect3DSwapChain9Ex {
     type Target = IDirect3DSwapChain9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1230,7 +1230,7 @@ pub struct IDirect3DSwapChain9Ex_Vtbl {
     pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DTexture9, IDirect3DTexture9_Vtbl, 0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
-impl std::ops::Deref for IDirect3DTexture9 {
+impl core::ops::Deref for IDirect3DTexture9 {
     type Target = IDirect3DBaseTexture9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1265,7 +1265,7 @@ pub struct IDirect3DTexture9_Vtbl {
     pub AddDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DVertexBuffer9, IDirect3DVertexBuffer9_Vtbl, 0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
-impl std::ops::Deref for IDirect3DVertexBuffer9 {
+impl core::ops::Deref for IDirect3DVertexBuffer9 {
     type Target = IDirect3DResource9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1291,7 +1291,7 @@ pub struct IDirect3DVertexBuffer9_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DVertexDeclaration9, IDirect3DVertexDeclaration9_Vtbl, 0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
-impl std::ops::Deref for IDirect3DVertexDeclaration9 {
+impl core::ops::Deref for IDirect3DVertexDeclaration9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1314,7 +1314,7 @@ pub struct IDirect3DVertexDeclaration9_Vtbl {
     pub GetDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVERTEXELEMENT9, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DVertexShader9, IDirect3DVertexShader9_Vtbl, 0xefc5557e_6265_4613_8a94_43857889eb36);
-impl std::ops::Deref for IDirect3DVertexShader9 {
+impl core::ops::Deref for IDirect3DVertexShader9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1337,7 +1337,7 @@ pub struct IDirect3DVertexShader9_Vtbl {
     pub GetFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DVolume9, IDirect3DVolume9_Vtbl, 0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1);
-impl std::ops::Deref for IDirect3DVolume9 {
+impl core::ops::Deref for IDirect3DVolume9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1384,7 +1384,7 @@ pub struct IDirect3DVolume9_Vtbl {
     pub UnlockBox: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DVolumeTexture9, IDirect3DVolumeTexture9_Vtbl, 0x2518526c_e789_4111_a7b9_47ef328d13e6);
-impl std::ops::Deref for IDirect3DVolumeTexture9 {
+impl core::ops::Deref for IDirect3DVolumeTexture9 {
     type Target = IDirect3DBaseTexture9;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

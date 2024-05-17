@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
-impl std::ops::Deref for IEnumVdsObject {
+impl core::ops::Deref for IEnumVdsObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -30,7 +30,7 @@ pub struct IEnumVdsObject_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsAdmin, IVdsAdmin_Vtbl, 0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
-impl std::ops::Deref for IVdsAdmin {
+impl core::ops::Deref for IVdsAdmin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -57,7 +57,7 @@ pub struct IVdsAdmin_Vtbl {
     pub UnregisterProvider: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsAdvancedDisk, IVdsAdvancedDisk_Vtbl, 0x6e6f6b40_977c_4069_bddd_ac710059f8c0);
-impl std::ops::Deref for IVdsAdvancedDisk {
+impl core::ops::Deref for IVdsAdvancedDisk {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -129,7 +129,7 @@ pub struct IVdsAdvancedDisk_Vtbl {
     pub Clean: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsAdvancedDisk2, IVdsAdvancedDisk2_Vtbl, 0x9723f420_9355_42de_ab66_e31bb15beeac);
-impl std::ops::Deref for IVdsAdvancedDisk2 {
+impl core::ops::Deref for IVdsAdvancedDisk2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -150,7 +150,7 @@ pub struct IVdsAdvancedDisk2_Vtbl {
     pub ChangePartitionType: unsafe extern "system" fn(*mut core::ffi::c_void, u64, super::super::Foundation::BOOL, *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsAdvancedDisk3, IVdsAdvancedDisk3_Vtbl, 0x3858c0d5_0f35_4bf5_9714_69874963bc36);
-impl std::ops::Deref for IVdsAdvancedDisk3 {
+impl core::ops::Deref for IVdsAdvancedDisk3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -173,7 +173,7 @@ pub struct IVdsAdvancedDisk3_Vtbl {
     pub GetUniqueId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsAdviseSink, IVdsAdviseSink_Vtbl, 0x8326cd1d_cf59_4936_b786_5efc08798e25);
-impl std::ops::Deref for IVdsAdviseSink {
+impl core::ops::Deref for IVdsAdviseSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -191,7 +191,7 @@ pub struct IVdsAdviseSink_Vtbl {
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const VDS_NOTIFICATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsAsync, IVdsAsync_Vtbl, 0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
-impl std::ops::Deref for IVdsAsync {
+impl core::ops::Deref for IVdsAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -217,7 +217,7 @@ pub struct IVdsAsync_Vtbl {
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsController, IVdsController_Vtbl, 0xcb53d96e_dffb_474a_a078_790d1e2bc082);
-impl std::ops::Deref for IVdsController {
+impl core::ops::Deref for IVdsController {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -265,7 +265,7 @@ pub struct IVdsController_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_CONTROLLER_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsControllerControllerPort, IVdsControllerControllerPort_Vtbl, 0xca5d735f_6bae_42c0_b30e_f2666045ce71);
-impl std::ops::Deref for IVdsControllerControllerPort {
+impl core::ops::Deref for IVdsControllerControllerPort {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -284,7 +284,7 @@ pub struct IVdsControllerControllerPort_Vtbl {
     pub QueryControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsControllerPort, IVdsControllerPort_Vtbl, 0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
-impl std::ops::Deref for IVdsControllerPort {
+impl core::ops::Deref for IVdsControllerPort {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -320,7 +320,7 @@ pub struct IVdsControllerPort_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_PORT_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsCreatePartitionEx, IVdsCreatePartitionEx_Vtbl, 0x9882f547_cfc3_420b_9750_00dfbec50662);
-impl std::ops::Deref for IVdsCreatePartitionEx {
+impl core::ops::Deref for IVdsCreatePartitionEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -339,7 +339,7 @@ pub struct IVdsCreatePartitionEx_Vtbl {
     pub CreatePartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *const CREATE_PARTITION_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDisk, IVdsDisk_Vtbl, 0x07e5c822_f00c_47a1_8fce_b244da56fd06);
-impl std::ops::Deref for IVdsDisk {
+impl core::ops::Deref for IVdsDisk {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -382,7 +382,7 @@ pub struct IVdsDisk_Vtbl {
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDisk2, IVdsDisk2_Vtbl, 0x40f73c8b_687d_4a13_8d96_3d7f2e683936);
-impl std::ops::Deref for IVdsDisk2 {
+impl core::ops::Deref for IVdsDisk2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -403,7 +403,7 @@ pub struct IVdsDisk2_Vtbl {
     pub SetSANMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDisk3, IVdsDisk3_Vtbl, 0x8f4b2f5d_ec15_4357_992f_473ef10975b9);
-impl std::ops::Deref for IVdsDisk3 {
+impl core::ops::Deref for IVdsDisk3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -425,7 +425,7 @@ pub struct IVdsDisk3_Vtbl {
     pub QueryFreeExtents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut VDS_DISK_FREE_EXTENT, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDiskOnline, IVdsDiskOnline_Vtbl, 0x90681b1d_6a7f_48e8_9061_31b7aa125322);
-impl std::ops::Deref for IVdsDiskOnline {
+impl core::ops::Deref for IVdsDiskOnline {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -447,7 +447,7 @@ pub struct IVdsDiskOnline_Vtbl {
     pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDiskPartitionMF, IVdsDiskPartitionMF_Vtbl, 0x538684e0_ba3d_4bc0_aca9_164aff85c2a9);
-impl std::ops::Deref for IVdsDiskPartitionMF {
+impl core::ops::Deref for IVdsDiskPartitionMF {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -486,7 +486,7 @@ pub struct IVdsDiskPartitionMF_Vtbl {
     pub FormatPartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDiskPartitionMF2, IVdsDiskPartitionMF2_Vtbl, 0x9cbe50ca_f2d2_4bf4_ace1_96896b729625);
-impl std::ops::Deref for IVdsDiskPartitionMF2 {
+impl core::ops::Deref for IVdsDiskPartitionMF2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -509,7 +509,7 @@ pub struct IVdsDiskPartitionMF2_Vtbl {
     pub FormatPartitionEx2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDrive, IVdsDrive_Vtbl, 0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
-impl std::ops::Deref for IVdsDrive {
+impl core::ops::Deref for IVdsDrive {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -548,7 +548,7 @@ pub struct IVdsDrive_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_DRIVE_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsDrive2, IVdsDrive2_Vtbl, 0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
-impl std::ops::Deref for IVdsDrive2 {
+impl core::ops::Deref for IVdsDrive2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -566,7 +566,7 @@ pub struct IVdsDrive2_Vtbl {
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_DRIVE_PROP2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHbaPort, IVdsHbaPort_Vtbl, 0x2abd757f_2851_4997_9a13_47d2a885d6ca);
-impl std::ops::Deref for IVdsHbaPort {
+impl core::ops::Deref for IVdsHbaPort {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -588,7 +588,7 @@ pub struct IVdsHbaPort_Vtbl {
     pub SetAllPathStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_PATH_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHwProvider, IVdsHwProvider_Vtbl, 0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
-impl std::ops::Deref for IVdsHwProvider {
+impl core::ops::Deref for IVdsHwProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -615,7 +615,7 @@ pub struct IVdsHwProvider_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHwProviderPrivate, IVdsHwProviderPrivate_Vtbl, 0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
-impl std::ops::Deref for IVdsHwProviderPrivate {
+impl core::ops::Deref for IVdsHwProviderPrivate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -637,7 +637,7 @@ pub struct IVdsHwProviderPrivate_Vtbl {
     pub QueryIfCreatedLun: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const VDS_LUN_INFORMATION, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHwProviderPrivateMpio, IVdsHwProviderPrivateMpio_Vtbl, 0x310a7715_ac2b_4c6f_9827_3d742f351676);
-impl std::ops::Deref for IVdsHwProviderPrivateMpio {
+impl core::ops::Deref for IVdsHwProviderPrivateMpio {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -655,7 +655,7 @@ pub struct IVdsHwProviderPrivateMpio_Vtbl {
     pub SetAllPathStatusesFromHbaPort: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_HBAPORT_PROP, VDS_PATH_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHwProviderStoragePools, IVdsHwProviderStoragePools_Vtbl, 0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
-impl std::ops::Deref for IVdsHwProviderStoragePools {
+impl core::ops::Deref for IVdsHwProviderStoragePools {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -687,7 +687,7 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
     pub QueryMaxLunCreateSizeInStoragePool: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_LUN_TYPE, windows_core::GUID, *const VDS_HINTS2, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHwProviderType, IVdsHwProviderType_Vtbl, 0x3e0f5166_542d_4fc6_947a_012174240b7e);
-impl std::ops::Deref for IVdsHwProviderType {
+impl core::ops::Deref for IVdsHwProviderType {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -706,7 +706,7 @@ pub struct IVdsHwProviderType_Vtbl {
     pub GetProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsHwProviderType2, IVdsHwProviderType2_Vtbl, 0x8190236f_c4d0_4e81_8011_d69512fcc984);
-impl std::ops::Deref for IVdsHwProviderType2 {
+impl core::ops::Deref for IVdsHwProviderType2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -725,7 +725,7 @@ pub struct IVdsHwProviderType2_Vtbl {
     pub GetProviderType2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsIscsiInitiatorAdapter, IVdsIscsiInitiatorAdapter_Vtbl, 0xb07fedd4_1682_4440_9189_a39b55194dc5);
-impl std::ops::Deref for IVdsIscsiInitiatorAdapter {
+impl core::ops::Deref for IVdsIscsiInitiatorAdapter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -762,7 +762,7 @@ pub struct IVdsIscsiInitiatorAdapter_Vtbl {
     pub LogoutFromTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsIscsiInitiatorPortal, IVdsIscsiInitiatorPortal_Vtbl, 0x38a0a9ab_7cc8_4693_ac07_1f28bd03c3da);
-impl std::ops::Deref for IVdsIscsiInitiatorPortal {
+impl core::ops::Deref for IVdsIscsiInitiatorPortal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -798,7 +798,7 @@ pub struct IVdsIscsiInitiatorPortal_Vtbl {
     pub SetIpsecSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsIscsiPortal, IVdsIscsiPortal_Vtbl, 0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
-impl std::ops::Deref for IVdsIscsiPortal {
+impl core::ops::Deref for IVdsIscsiPortal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -843,7 +843,7 @@ pub struct IVdsIscsiPortal_Vtbl {
     pub SetIpsecSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_IPADDRESS, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsIscsiPortalGroup, IVdsIscsiPortalGroup_Vtbl, 0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
-impl std::ops::Deref for IVdsIscsiPortalGroup {
+impl core::ops::Deref for IVdsIscsiPortalGroup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -886,7 +886,7 @@ pub struct IVdsIscsiPortalGroup_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsIscsiPortalLocal, IVdsIscsiPortalLocal_Vtbl, 0xad837c28_52c1_421d_bf04_fae7da665396);
-impl std::ops::Deref for IVdsIscsiPortalLocal {
+impl core::ops::Deref for IVdsIscsiPortalLocal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -904,7 +904,7 @@ pub struct IVdsIscsiPortalLocal_Vtbl {
     pub SetIpsecSecurityLocal: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsIscsiTarget, IVdsIscsiTarget_Vtbl, 0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
-impl std::ops::Deref for IVdsIscsiTarget {
+impl core::ops::Deref for IVdsIscsiTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -972,7 +972,7 @@ pub struct IVdsIscsiTarget_Vtbl {
     pub GetConnectedInitiators: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::PWSTR, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLun, IVdsLun_Vtbl, 0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
-impl std::ops::Deref for IVdsLun {
+impl core::ops::Deref for IVdsLun {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1066,7 +1066,7 @@ pub struct IVdsLun_Vtbl {
     pub QueryMaxLunExtendSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, i32, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLun2, IVdsLun2_Vtbl, 0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
-impl std::ops::Deref for IVdsLun2 {
+impl core::ops::Deref for IVdsLun2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1088,7 +1088,7 @@ pub struct IVdsLun2_Vtbl {
     pub ApplyHints2: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_HINTS2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLunControllerPorts, IVdsLunControllerPorts_Vtbl, 0x451fe266_da6d_406a_bb60_82e534f85aeb);
-impl std::ops::Deref for IVdsLunControllerPorts {
+impl core::ops::Deref for IVdsLunControllerPorts {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1111,7 +1111,7 @@ pub struct IVdsLunControllerPorts_Vtbl {
     pub QueryActiveControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLunIscsi, IVdsLunIscsi_Vtbl, 0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
-impl std::ops::Deref for IVdsLunIscsi {
+impl core::ops::Deref for IVdsLunIscsi {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1134,7 +1134,7 @@ pub struct IVdsLunIscsi_Vtbl {
     pub QueryAssociatedTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLunMpio, IVdsLunMpio_Vtbl, 0x7c5fbae3_333a_48a1_a982_33c15788cde3);
-impl std::ops::Deref for IVdsLunMpio {
+impl core::ops::Deref for IVdsLunMpio {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1165,7 +1165,7 @@ pub struct IVdsLunMpio_Vtbl {
     pub GetSupportedLbPolicies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLunNaming, IVdsLunNaming_Vtbl, 0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
-impl std::ops::Deref for IVdsLunNaming {
+impl core::ops::Deref for IVdsLunNaming {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1186,7 +1186,7 @@ pub struct IVdsLunNaming_Vtbl {
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLunNumber, IVdsLunNumber_Vtbl, 0xd3f95e46_54b3_41f9_b678_0f1871443a08);
-impl std::ops::Deref for IVdsLunNumber {
+impl core::ops::Deref for IVdsLunNumber {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1205,7 +1205,7 @@ pub struct IVdsLunNumber_Vtbl {
     pub GetLunNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsLunPlex, IVdsLunPlex_Vtbl, 0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
-impl std::ops::Deref for IVdsLunPlex {
+impl core::ops::Deref for IVdsLunPlex {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1240,7 +1240,7 @@ pub struct IVdsLunPlex_Vtbl {
     pub ApplyHints: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_HINTS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsMaintenance, IVdsMaintenance_Vtbl, 0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
-impl std::ops::Deref for IVdsMaintenance {
+impl core::ops::Deref for IVdsMaintenance {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1266,7 +1266,7 @@ pub struct IVdsMaintenance_Vtbl {
     pub PulseMaintenance: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_MAINTENANCE_OPERATION, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsOpenVDisk, IVdsOpenVDisk_Vtbl, 0x75c8f324_f715_4fe3_a28e_f9011b61a4a1);
-impl std::ops::Deref for IVdsOpenVDisk {
+impl core::ops::Deref for IVdsOpenVDisk {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1335,7 +1335,7 @@ pub struct IVdsOpenVDisk_Vtbl {
     Expand: usize,
 }
 windows_core::imp::define_interface!(IVdsPack, IVdsPack_Vtbl, 0x3b69d7f5_9d94_4648_91ca_79939ba263bf);
-impl std::ops::Deref for IVdsPack {
+impl core::ops::Deref for IVdsPack {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1402,7 +1402,7 @@ pub struct IVdsPack_Vtbl {
     pub Recover: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsPack2, IVdsPack2_Vtbl, 0x13b50bff_290a_47dd_8558_b7c58db1a71a);
-impl std::ops::Deref for IVdsPack2 {
+impl core::ops::Deref for IVdsPack2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1421,7 +1421,7 @@ pub struct IVdsPack2_Vtbl {
     pub CreateVolume2: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_VOLUME_TYPE, *const VDS_INPUT_DISK, i32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsProvider, IVdsProvider_Vtbl, 0x10c5e575_7984_4e81_a56b_431f5f92ae42);
-impl std::ops::Deref for IVdsProvider {
+impl core::ops::Deref for IVdsProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1439,7 +1439,7 @@ pub struct IVdsProvider_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_PROVIDER_PROP) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsProviderPrivate, IVdsProviderPrivate_Vtbl, 0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
-impl std::ops::Deref for IVdsProviderPrivate {
+impl core::ops::Deref for IVdsProviderPrivate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1473,7 +1473,7 @@ pub struct IVdsProviderPrivate_Vtbl {
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsProviderSupport, IVdsProviderSupport_Vtbl, 0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
-impl std::ops::Deref for IVdsProviderSupport {
+impl core::ops::Deref for IVdsProviderSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1492,7 +1492,7 @@ pub struct IVdsProviderSupport_Vtbl {
     pub GetVersionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsRemovable, IVdsRemovable_Vtbl, 0x0316560b_5db4_4ed9_bbb5_213436ddc0d9);
-impl std::ops::Deref for IVdsRemovable {
+impl core::ops::Deref for IVdsRemovable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1514,7 +1514,7 @@ pub struct IVdsRemovable_Vtbl {
     pub Eject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsService, IVdsService_Vtbl, 0x0818a8ef_9ba9_40d8_a6f9_e22833cc771e);
-impl std::ops::Deref for IVdsService {
+impl core::ops::Deref for IVdsService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1605,7 +1605,7 @@ pub struct IVdsService_Vtbl {
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceHba, IVdsServiceHba_Vtbl, 0x0ac13689_3134_47c6_a17c_4669216801be);
-impl std::ops::Deref for IVdsServiceHba {
+impl core::ops::Deref for IVdsServiceHba {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1624,7 +1624,7 @@ pub struct IVdsServiceHba_Vtbl {
     pub QueryHbaPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceInitialization, IVdsServiceInitialization_Vtbl, 0x4afc3636_db01_4052_80c3_03bbcb8d3c69);
-impl std::ops::Deref for IVdsServiceInitialization {
+impl core::ops::Deref for IVdsServiceInitialization {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1645,7 +1645,7 @@ pub struct IVdsServiceInitialization_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceIscsi, IVdsServiceIscsi_Vtbl, 0x14fbe036_3ed7_4e10_90e9_a5ff991aff01);
-impl std::ops::Deref for IVdsServiceIscsi {
+impl core::ops::Deref for IVdsServiceIscsi {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1689,7 +1689,7 @@ pub struct IVdsServiceIscsi_Vtbl {
     pub RememberTargetSharedSecret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceLoader, IVdsServiceLoader_Vtbl, 0xe0393303_90d4_4a97_ab71_e9b671ee2729);
-impl std::ops::Deref for IVdsServiceLoader {
+impl core::ops::Deref for IVdsServiceLoader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1711,7 +1711,7 @@ pub struct IVdsServiceLoader_Vtbl {
     pub LoadService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceSAN, IVdsServiceSAN_Vtbl, 0xfc5d23e8_a88b_41a5_8de0_2d2f73c5a630);
-impl std::ops::Deref for IVdsServiceSAN {
+impl core::ops::Deref for IVdsServiceSAN {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1734,7 +1734,7 @@ pub struct IVdsServiceSAN_Vtbl {
     pub SetSANPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_SAN_POLICY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceSw, IVdsServiceSw_Vtbl, 0x15fc031c_0652_4306_b2c3_f558b8f837e2);
-impl std::ops::Deref for IVdsServiceSw {
+impl core::ops::Deref for IVdsServiceSw {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1756,7 +1756,7 @@ pub struct IVdsServiceSw_Vtbl {
     pub GetDiskObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsServiceUninstallDisk, IVdsServiceUninstallDisk_Vtbl, 0xb6b22da8_f903_4be7_b492_c09d875ac9da);
-impl std::ops::Deref for IVdsServiceUninstallDisk {
+impl core::ops::Deref for IVdsServiceUninstallDisk {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1782,7 +1782,7 @@ pub struct IVdsServiceUninstallDisk_Vtbl {
     pub UninstallDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, super::super::Foundation::BOOLEAN, *mut u8, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsStoragePool, IVdsStoragePool_Vtbl, 0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
-impl std::ops::Deref for IVdsStoragePool {
+impl core::ops::Deref for IVdsStoragePool {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1823,7 +1823,7 @@ pub struct IVdsStoragePool_Vtbl {
     pub QueryAllocatedStoragePools: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSubSystem, IVdsSubSystem_Vtbl, 0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
-impl std::ops::Deref for IVdsSubSystem {
+impl core::ops::Deref for IVdsSubSystem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1895,7 +1895,7 @@ pub struct IVdsSubSystem_Vtbl {
     pub QueryMaxLunCreateSize: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_LUN_TYPE, *const windows_core::GUID, i32, *const VDS_HINTS, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSubSystem2, IVdsSubSystem2_Vtbl, 0xbe666735_7800_4a77_9d9c_40f85b87e292);
-impl std::ops::Deref for IVdsSubSystem2 {
+impl core::ops::Deref for IVdsSubSystem2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1931,7 +1931,7 @@ pub struct IVdsSubSystem2_Vtbl {
     pub QueryMaxLunCreateSize2: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_LUN_TYPE, *const windows_core::GUID, i32, *const VDS_HINTS2, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSubSystemImportTarget, IVdsSubSystemImportTarget_Vtbl, 0x83bfb87f_43fb_4903_baa6_127f01029eec);
-impl std::ops::Deref for IVdsSubSystemImportTarget {
+impl core::ops::Deref for IVdsSubSystemImportTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1957,7 +1957,7 @@ pub struct IVdsSubSystemImportTarget_Vtbl {
     pub SetImportTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSubSystemInterconnect, IVdsSubSystemInterconnect_Vtbl, 0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
-impl std::ops::Deref for IVdsSubSystemInterconnect {
+impl core::ops::Deref for IVdsSubSystemInterconnect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1976,7 +1976,7 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
     pub GetSupportedInterconnects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSubSystemIscsi, IVdsSubSystemIscsi_Vtbl, 0x0027346f_40d0_4b45_8cec_5906dc0380c8);
-impl std::ops::Deref for IVdsSubSystemIscsi {
+impl core::ops::Deref for IVdsSubSystemIscsi {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2013,7 +2013,7 @@ pub struct IVdsSubSystemIscsi_Vtbl {
     pub SetIpsecGroupPresharedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSubSystemNaming, IVdsSubSystemNaming_Vtbl, 0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
-impl std::ops::Deref for IVdsSubSystemNaming {
+impl core::ops::Deref for IVdsSubSystemNaming {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2034,7 +2034,7 @@ pub struct IVdsSubSystemNaming_Vtbl {
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsSwProvider, IVdsSwProvider_Vtbl, 0x9aa58360_ce33_4f92_b658_ed24b14425b8);
-impl std::ops::Deref for IVdsSwProvider {
+impl core::ops::Deref for IVdsSwProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2058,7 +2058,7 @@ pub struct IVdsSwProvider_Vtbl {
     pub CreatePack: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVDisk, IVdsVDisk_Vtbl, 0x1e062b84_e5e6_4b4b_8a25_67b81e8f13e8);
-impl std::ops::Deref for IVdsVDisk {
+impl core::ops::Deref for IVdsVDisk {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2099,7 +2099,7 @@ pub struct IVdsVDisk_Vtbl {
     pub GetDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVdProvider, IVdsVdProvider_Vtbl, 0xb481498c_8354_45f9_84a0_0bdd2832a91f);
-impl std::ops::Deref for IVdsVdProvider {
+impl core::ops::Deref for IVdsVdProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2157,7 +2157,7 @@ pub struct IVdsVdProvider_Vtbl {
     pub GetVDiskFromDisk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolume, IVdsVolume_Vtbl, 0x88306bb2_e71f_478c_86a2_79da200a0f11);
-impl std::ops::Deref for IVdsVolume {
+impl core::ops::Deref for IVdsVolume {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2228,7 +2228,7 @@ pub struct IVdsVolume_Vtbl {
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolume2, IVdsVolume2_Vtbl, 0x72ae6713_dcbb_4a03_b36b_371f6ac6b53d);
-impl std::ops::Deref for IVdsVolume2 {
+impl core::ops::Deref for IVdsVolume2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2246,7 +2246,7 @@ pub struct IVdsVolume2_Vtbl {
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_VOLUME_PROP2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolumeMF, IVdsVolumeMF_Vtbl, 0xee2d5ded_6236_4169_931d_b9778ce03dc6);
-impl std::ops::Deref for IVdsVolumeMF {
+impl core::ops::Deref for IVdsVolumeMF {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2318,7 +2318,7 @@ pub struct IVdsVolumeMF_Vtbl {
     pub ClearFileSystemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolumeMF2, IVdsVolumeMF2_Vtbl, 0x4dbcee9a_6343_4651_b85f_5e75d74d983c);
-impl std::ops::Deref for IVdsVolumeMF2 {
+impl core::ops::Deref for IVdsVolumeMF2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2353,7 +2353,7 @@ pub struct IVdsVolumeMF2_Vtbl {
     pub FormatEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolumeMF3, IVdsVolumeMF3_Vtbl, 0x6788faf9_214e_4b85_ba59_266953616e09);
-impl std::ops::Deref for IVdsVolumeMF3 {
+impl core::ops::Deref for IVdsVolumeMF3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2384,7 +2384,7 @@ pub struct IVdsVolumeMF3_Vtbl {
     pub OfflineVolume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolumeOnline, IVdsVolumeOnline_Vtbl, 0x1be2275a_b315_4f70_9e44_879b3a2a53f2);
-impl std::ops::Deref for IVdsVolumeOnline {
+impl core::ops::Deref for IVdsVolumeOnline {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2402,7 +2402,7 @@ pub struct IVdsVolumeOnline_Vtbl {
     pub Online: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolumePlex, IVdsVolumePlex_Vtbl, 0x4daa0135_e1d1_40f1_aaa5_3cc1e53221c3);
-impl std::ops::Deref for IVdsVolumePlex {
+impl core::ops::Deref for IVdsVolumePlex {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2434,7 +2434,7 @@ pub struct IVdsVolumePlex_Vtbl {
     pub Repair: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_INPUT_DISK, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVdsVolumeShrink, IVdsVolumeShrink_Vtbl, 0xd68168c9_82a2_4f85_b6e9_74707c49a58f);
-impl std::ops::Deref for IVdsVolumeShrink {
+impl core::ops::Deref for IVdsVolumeShrink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -154,7 +154,7 @@ pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
     pub SetSoftwareBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapFrame, IBitmapFrame_Vtbl, 0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
-impl std::ops::Deref for IBitmapFrame {
+impl core::ops::Deref for IBitmapFrame {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -274,7 +274,7 @@ pub struct IBitmapFrame_Vtbl {
     pub GetPixelDataTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapFrameWithSoftwareBitmap, IBitmapFrameWithSoftwareBitmap_Vtbl, 0xfe287c9a_420c_4963_87ad_691436e08383);
-impl std::ops::Deref for IBitmapFrameWithSoftwareBitmap {
+impl core::ops::Deref for IBitmapFrameWithSoftwareBitmap {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -419,7 +419,7 @@ pub struct IBitmapProperties_Vtbl {
     SetPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IBitmapPropertiesView, IBitmapPropertiesView_Vtbl, 0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
-impl std::ops::Deref for IBitmapPropertiesView {
+impl core::ops::Deref for IBitmapPropertiesView {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

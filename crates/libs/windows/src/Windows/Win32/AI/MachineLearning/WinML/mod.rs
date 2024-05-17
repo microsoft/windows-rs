@@ -11,7 +11,7 @@ pub unsafe fn WinMLCreateRuntime() -> windows_core::Result<IWinMLRuntime> {
     WinMLCreateRuntime(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IMLOperatorAttributes, IMLOperatorAttributes_Vtbl, 0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
-impl std::ops::Deref for IMLOperatorAttributes {
+impl core::ops::Deref for IMLOperatorAttributes {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -55,7 +55,7 @@ pub struct IMLOperatorAttributes_Vtbl {
     pub GetStringAttributeElement: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32, windows_core::PSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorKernel, IMLOperatorKernel_Vtbl, 0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
-impl std::ops::Deref for IMLOperatorKernel {
+impl core::ops::Deref for IMLOperatorKernel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -76,7 +76,7 @@ pub struct IMLOperatorKernel_Vtbl {
     pub Compute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorKernelContext, IMLOperatorKernelContext_Vtbl, 0x82536a28_f022_4769_9d3f_8b278f84c0c3);
-impl std::ops::Deref for IMLOperatorKernelContext {
+impl core::ops::Deref for IMLOperatorKernelContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -116,7 +116,7 @@ pub struct IMLOperatorKernelContext_Vtbl {
     pub GetExecutionInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMLOperatorKernelCreationContext, IMLOperatorKernelCreationContext_Vtbl, 0x5459b53d_a0fc_4665_addd_70171ef7e631);
-impl std::ops::Deref for IMLOperatorKernelCreationContext {
+impl core::ops::Deref for IMLOperatorKernelCreationContext {
     type Target = IMLOperatorAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -171,7 +171,7 @@ pub struct IMLOperatorKernelCreationContext_Vtbl {
     pub GetExecutionInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMLOperatorKernelFactory, IMLOperatorKernelFactory_Vtbl, 0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
-impl std::ops::Deref for IMLOperatorKernelFactory {
+impl core::ops::Deref for IMLOperatorKernelFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -193,7 +193,7 @@ pub struct IMLOperatorKernelFactory_Vtbl {
     pub CreateKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorRegistry, IMLOperatorRegistry_Vtbl, 0x2af9dd2d_b516_4672_9ab5_530c208493ad);
-impl std::ops::Deref for IMLOperatorRegistry {
+impl core::ops::Deref for IMLOperatorRegistry {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -223,7 +223,7 @@ pub struct IMLOperatorRegistry_Vtbl {
     pub RegisterOperatorKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorKernelDescription, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorShapeInferenceContext, IMLOperatorShapeInferenceContext_Vtbl, 0x105b6b29_5408_4a68_9959_09b5955a3492);
-impl std::ops::Deref for IMLOperatorShapeInferenceContext {
+impl core::ops::Deref for IMLOperatorShapeInferenceContext {
     type Target = IMLOperatorAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -271,7 +271,7 @@ pub struct IMLOperatorShapeInferenceContext_Vtbl {
     pub SetOutputTensorShape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorShapeInferrer, IMLOperatorShapeInferrer_Vtbl, 0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
-impl std::ops::Deref for IMLOperatorShapeInferrer {
+impl core::ops::Deref for IMLOperatorShapeInferrer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -292,7 +292,7 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
     pub InferOutputShapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorTensor, IMLOperatorTensor_Vtbl, 0x7fe41f41_f430_440e_aece_54416dc8b9db);
-impl std::ops::Deref for IMLOperatorTensor {
+impl core::ops::Deref for IMLOperatorTensor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -336,7 +336,7 @@ pub struct IMLOperatorTensor_Vtbl {
     pub GetDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMLOperatorTensorShapeDescription, IMLOperatorTensorShapeDescription_Vtbl, 0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
-impl std::ops::Deref for IMLOperatorTensorShapeDescription {
+impl core::ops::Deref for IMLOperatorTensorShapeDescription {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -372,7 +372,7 @@ pub struct IMLOperatorTensorShapeDescription_Vtbl {
     pub GetOutputTensorShape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorTypeInferenceContext, IMLOperatorTypeInferenceContext_Vtbl, 0xec893bb1_f938_427b_8488_c8dcf775f138);
-impl std::ops::Deref for IMLOperatorTypeInferenceContext {
+impl core::ops::Deref for IMLOperatorTypeInferenceContext {
     type Target = IMLOperatorAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -411,7 +411,7 @@ pub struct IMLOperatorTypeInferenceContext_Vtbl {
     pub SetOutputEdgeDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MLOperatorEdgeDescription) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorTypeInferrer, IMLOperatorTypeInferrer_Vtbl, 0x781aeb48_9bcb_4797_bf77_8bf455217beb);
-impl std::ops::Deref for IMLOperatorTypeInferrer {
+impl core::ops::Deref for IMLOperatorTypeInferrer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -432,7 +432,7 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
     pub InferOutputTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLEvaluationContext, IWinMLEvaluationContext_Vtbl, 0x95848f9e_583d_4054_af12_916387cd8426);
-impl std::ops::Deref for IWinMLEvaluationContext {
+impl core::ops::Deref for IWinMLEvaluationContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -470,7 +470,7 @@ pub struct IWinMLEvaluationContext_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLModel, IWinMLModel_Vtbl, 0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
-impl std::ops::Deref for IWinMLModel {
+impl core::ops::Deref for IWinMLModel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -503,7 +503,7 @@ pub struct IWinMLModel_Vtbl {
     pub EnumerateModelOutputs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLRuntime, IWinMLRuntime_Vtbl, 0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
-impl std::ops::Deref for IWinMLRuntime {
+impl core::ops::Deref for IWinMLRuntime {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -544,7 +544,7 @@ pub struct IWinMLRuntime_Vtbl {
     pub EvaluateModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLRuntimeFactory, IWinMLRuntimeFactory_Vtbl, 0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
-impl std::ops::Deref for IWinMLRuntimeFactory {
+impl core::ops::Deref for IWinMLRuntimeFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

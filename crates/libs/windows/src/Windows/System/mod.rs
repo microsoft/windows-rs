@@ -709,7 +709,7 @@ pub struct ILauncherUIOptions_Vtbl {
     SetPreferredPlacement: usize,
 }
 windows_core::imp::define_interface!(ILauncherViewOptions, ILauncherViewOptions_Vtbl, 0x8a9b29f1_7ca7_49de_9bd3_3c5b7184f616);
-impl std::ops::Deref for ILauncherViewOptions {
+impl core::ops::Deref for ILauncherViewOptions {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

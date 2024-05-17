@@ -3336,7 +3336,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiskQuotaControl, IDiskQuotaControl_Vtbl, 0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiskQuotaControl {
+impl core::ops::Deref for IDiskQuotaControl {
     type Target = super::super::System::Com::IConnectionPointContainer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3470,7 +3470,7 @@ pub struct IDiskQuotaControl_Vtbl {
     pub ShutdownNameResolution: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
-impl std::ops::Deref for IDiskQuotaEvents {
+impl core::ops::Deref for IDiskQuotaEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3491,7 +3491,7 @@ pub struct IDiskQuotaEvents_Vtbl {
     pub OnUserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
-impl std::ops::Deref for IDiskQuotaUser {
+impl core::ops::Deref for IDiskQuotaUser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3585,7 +3585,7 @@ pub struct IDiskQuotaUser_Vtbl {
     pub GetAccountStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
-impl std::ops::Deref for IDiskQuotaUserBatch {
+impl core::ops::Deref for IDiskQuotaUserBatch {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3621,7 +3621,7 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub FlushToDisk: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
-impl std::ops::Deref for IEnumDiskQuotaUsers {
+impl core::ops::Deref for IEnumDiskQuotaUsers {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

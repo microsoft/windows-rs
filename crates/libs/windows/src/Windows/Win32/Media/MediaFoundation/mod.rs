@@ -1854,7 +1854,7 @@ pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phd
     OPMXboxGetHDCPStatusAndType(phdcpstatus, phdcptype).ok()
 }
 windows_core::imp::define_interface!(IAdvancedMediaCapture, IAdvancedMediaCapture_Vtbl, 0xd0751585_d216_4344_b5bf_463b68f977bb);
-impl std::ops::Deref for IAdvancedMediaCapture {
+impl core::ops::Deref for IAdvancedMediaCapture {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1873,7 +1873,7 @@ pub struct IAdvancedMediaCapture_Vtbl {
     pub GetAdvancedMediaCaptureSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedMediaCaptureInitializationSettings, IAdvancedMediaCaptureInitializationSettings_Vtbl, 0x3de21209_8ba6_4f2a_a577_2819b56ff14d);
-impl std::ops::Deref for IAdvancedMediaCaptureInitializationSettings {
+impl core::ops::Deref for IAdvancedMediaCaptureInitializationSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1894,7 +1894,7 @@ pub struct IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub SetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedMediaCaptureSettings, IAdvancedMediaCaptureSettings_Vtbl, 0x24e0485f_a33e_4aa1_b564_6019b1d14f65);
-impl std::ops::Deref for IAdvancedMediaCaptureSettings {
+impl core::ops::Deref for IAdvancedMediaCaptureSettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1913,7 +1913,7 @@ pub struct IAdvancedMediaCaptureSettings_Vtbl {
     pub GetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSourceProvider, IAudioSourceProvider_Vtbl, 0xebbaf249_afc2_4582_91c6_b60df2e84954);
-impl std::ops::Deref for IAudioSourceProvider {
+impl core::ops::Deref for IAudioSourceProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1931,7 +1931,7 @@ pub struct IAudioSourceProvider_Vtbl {
     pub ProvideInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IClusterDetector, IClusterDetector_Vtbl, 0x3f07f7b7_c680_41d9_9423_915107ec9ff9);
-impl std::ops::Deref for IClusterDetector {
+impl core::ops::Deref for IClusterDetector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1957,7 +1957,7 @@ pub struct IClusterDetector_Vtbl {
     pub Detect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, f32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICodecAPI, ICodecAPI_Vtbl, 0x901db4c7_31ce_41a2_85dc_8fa0bf41b8da);
-impl std::ops::Deref for ICodecAPI {
+impl core::ops::Deref for ICodecAPI {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2056,7 +2056,7 @@ pub struct ICodecAPI_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList_Vtbl, 0x3b60536e_ad29_4e64_a269_f853837e5e53);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecodeCommandList {
+impl core::ops::Deref for ID3D12VideoDecodeCommandList {
     type Target = super::super::Graphics::Direct3D12::ID3D12CommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2193,7 +2193,7 @@ pub struct ID3D12VideoDecodeCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList1_Vtbl, 0xd52f011b_b56e_453c_a05a_a7f311c8f472);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecodeCommandList1 {
+impl core::ops::Deref for ID3D12VideoDecodeCommandList1 {
     type Target = ID3D12VideoDecodeCommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2227,7 +2227,7 @@ pub struct ID3D12VideoDecodeCommandList1_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList2, ID3D12VideoDecodeCommandList2_Vtbl, 0x6e120880_c114_4153_8036_d247051e1729);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecodeCommandList2 {
+impl core::ops::Deref for ID3D12VideoDecodeCommandList2 {
     type Target = ID3D12VideoDecodeCommandList1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2283,7 +2283,7 @@ pub struct ID3D12VideoDecodeCommandList2_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList3, ID3D12VideoDecodeCommandList3_Vtbl, 0x2aee8c37_9562_42da_8abf_61efeb2e4513);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecodeCommandList3 {
+impl core::ops::Deref for ID3D12VideoDecodeCommandList3 {
     type Target = ID3D12VideoDecodeCommandList2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2314,7 +2314,7 @@ pub struct ID3D12VideoDecodeCommandList3_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoder, ID3D12VideoDecoder_Vtbl, 0xc59b6bdc_7720_4074_a136_17a156037470);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecoder {
+impl core::ops::Deref for ID3D12VideoDecoder {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2343,7 +2343,7 @@ pub struct ID3D12VideoDecoder_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoder1, ID3D12VideoDecoder1_Vtbl, 0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecoder1 {
+impl core::ops::Deref for ID3D12VideoDecoder1 {
     type Target = ID3D12VideoDecoder;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2373,7 +2373,7 @@ pub struct ID3D12VideoDecoder1_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoderHeap, ID3D12VideoDecoderHeap_Vtbl, 0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecoderHeap {
+impl core::ops::Deref for ID3D12VideoDecoderHeap {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2406,7 +2406,7 @@ pub struct ID3D12VideoDecoderHeap_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoderHeap1, ID3D12VideoDecoderHeap1_Vtbl, 0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoDecoderHeap1 {
+impl core::ops::Deref for ID3D12VideoDecoderHeap1 {
     type Target = ID3D12VideoDecoderHeap;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2434,7 +2434,7 @@ pub struct ID3D12VideoDecoderHeap1_Vtbl {
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D12VideoDevice, ID3D12VideoDevice_Vtbl, 0x1f052807_0b46_4acc_8a89_364f793718a4);
-impl std::ops::Deref for ID3D12VideoDevice {
+impl core::ops::Deref for ID3D12VideoDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2449,7 +2449,7 @@ impl ID3D12VideoDevice {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2457,7 +2457,7 @@ impl ID3D12VideoDevice {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoDecoderHeap)(windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2465,7 +2465,7 @@ impl ID3D12VideoDevice {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2486,7 +2486,7 @@ pub struct ID3D12VideoDevice_Vtbl {
     CreateVideoProcessor: usize,
 }
 windows_core::imp::define_interface!(ID3D12VideoDevice1, ID3D12VideoDevice1_Vtbl, 0x981611ad_a144_4c83_9890_f30e26d658ab);
-impl std::ops::Deref for ID3D12VideoDevice1 {
+impl core::ops::Deref for ID3D12VideoDevice1 {
     type Target = ID3D12VideoDevice;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2500,7 +2500,7 @@ impl ID3D12VideoDevice1 {
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoMotionEstimator)(windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2509,7 +2509,7 @@ impl ID3D12VideoDevice1 {
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoMotionVectorHeap)(windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2528,7 +2528,7 @@ pub struct ID3D12VideoDevice1_Vtbl {
     CreateVideoMotionVectorHeap: usize,
 }
 windows_core::imp::define_interface!(ID3D12VideoDevice2, ID3D12VideoDevice2_Vtbl, 0xf019ac49_f838_4a95_9b17_579437c8f513);
-impl std::ops::Deref for ID3D12VideoDevice2 {
+impl core::ops::Deref for ID3D12VideoDevice2 {
     type Target = ID3D12VideoDevice1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2542,7 +2542,7 @@ impl ID3D12VideoDevice2 {
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoDecoder1)(windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2551,7 +2551,7 @@ impl ID3D12VideoDevice2 {
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoDecoderHeap1)(windows_core::Interface::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2560,7 +2560,7 @@ impl ID3D12VideoDevice2 {
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoProcessor1)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2569,7 +2569,7 @@ impl ID3D12VideoDevice2 {
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoExtensionCommand)(windows_core::Interface::as_raw(self), pdesc, pcreationparameters, creationparametersdatasizeinbytes, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2607,7 +2607,7 @@ pub struct ID3D12VideoDevice2_Vtbl {
     ExecuteExtensionCommand: usize,
 }
 windows_core::imp::define_interface!(ID3D12VideoDevice3, ID3D12VideoDevice3_Vtbl, 0x4243adb4_3a32_4666_973c_0ccc5625dc44);
-impl std::ops::Deref for ID3D12VideoDevice3 {
+impl core::ops::Deref for ID3D12VideoDevice3 {
     type Target = ID3D12VideoDevice2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2620,14 +2620,14 @@ impl ID3D12VideoDevice3 {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoEncoder)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateVideoEncoderHeap<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateVideoEncoderHeap)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -2645,7 +2645,7 @@ pub struct ID3D12VideoDevice3_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList_Vtbl, 0x8455293a_0cbd_4831_9b39_fbdbab724723);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoEncodeCommandList {
+impl core::ops::Deref for ID3D12VideoEncodeCommandList {
     type Target = super::super::Graphics::Direct3D12::ID3D12CommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2801,7 +2801,7 @@ pub struct ID3D12VideoEncodeCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList1_Vtbl, 0x94971eca_2bdb_4769_88cf_3675ea757ebc);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoEncodeCommandList1 {
+impl core::ops::Deref for ID3D12VideoEncodeCommandList1 {
     type Target = ID3D12VideoEncodeCommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2846,7 +2846,7 @@ pub struct ID3D12VideoEncodeCommandList1_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList2, ID3D12VideoEncodeCommandList2_Vtbl, 0x895491e2_e701_46a9_9a1f_8d3480ed867a);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoEncodeCommandList2 {
+impl core::ops::Deref for ID3D12VideoEncodeCommandList2 {
     type Target = ID3D12VideoEncodeCommandList1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2889,7 +2889,7 @@ pub struct ID3D12VideoEncodeCommandList2_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList3, ID3D12VideoEncodeCommandList3_Vtbl, 0x7f027b22_1515_4e85_aa0d_026486580576);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoEncodeCommandList3 {
+impl core::ops::Deref for ID3D12VideoEncodeCommandList3 {
     type Target = ID3D12VideoEncodeCommandList2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2920,7 +2920,7 @@ pub struct ID3D12VideoEncodeCommandList3_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncoder, ID3D12VideoEncoder_Vtbl, 0x2e0d212d_8df9_44a6_a770_bb289b182737);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoEncoder {
+impl core::ops::Deref for ID3D12VideoEncoder {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2975,7 +2975,7 @@ pub struct ID3D12VideoEncoder_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncoderHeap, ID3D12VideoEncoderHeap_Vtbl, 0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoEncoderHeap {
+impl core::ops::Deref for ID3D12VideoEncoderHeap {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3026,7 +3026,7 @@ pub struct ID3D12VideoEncoderHeap_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoExtensionCommand, ID3D12VideoExtensionCommand_Vtbl, 0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoExtensionCommand {
+impl core::ops::Deref for ID3D12VideoExtensionCommand {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3062,7 +3062,7 @@ pub struct ID3D12VideoExtensionCommand_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoMotionEstimator, ID3D12VideoMotionEstimator_Vtbl, 0x33fdae0e_098b_428f_87bb_34b695de08f8);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoMotionEstimator {
+impl core::ops::Deref for ID3D12VideoMotionEstimator {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3102,7 +3102,7 @@ pub struct ID3D12VideoMotionEstimator_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoMotionVectorHeap, ID3D12VideoMotionVectorHeap_Vtbl, 0x5be17987_743a_4061_834b_23d22daea505);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoMotionVectorHeap {
+impl core::ops::Deref for ID3D12VideoMotionVectorHeap {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3142,7 +3142,7 @@ pub struct ID3D12VideoMotionVectorHeap_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList_Vtbl, 0xaeb2543a_167f_4682_acc8_d159ed4a6209);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoProcessCommandList {
+impl core::ops::Deref for ID3D12VideoProcessCommandList {
     type Target = super::super::Graphics::Direct3D12::ID3D12CommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3279,7 +3279,7 @@ pub struct ID3D12VideoProcessCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList1_Vtbl, 0x542c5c4d_7596_434f_8c93_4efa6766f267);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoProcessCommandList1 {
+impl core::ops::Deref for ID3D12VideoProcessCommandList1 {
     type Target = ID3D12VideoProcessCommandList;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3313,7 +3313,7 @@ pub struct ID3D12VideoProcessCommandList1_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList2, ID3D12VideoProcessCommandList2_Vtbl, 0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoProcessCommandList2 {
+impl core::ops::Deref for ID3D12VideoProcessCommandList2 {
     type Target = ID3D12VideoProcessCommandList1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3369,7 +3369,7 @@ pub struct ID3D12VideoProcessCommandList2_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList3, ID3D12VideoProcessCommandList3_Vtbl, 0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoProcessCommandList3 {
+impl core::ops::Deref for ID3D12VideoProcessCommandList3 {
     type Target = ID3D12VideoProcessCommandList2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3400,7 +3400,7 @@ pub struct ID3D12VideoProcessCommandList3_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessor, ID3D12VideoProcessor_Vtbl, 0x304fdb32_bede_410a_8545_943ac6a46138);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoProcessor {
+impl core::ops::Deref for ID3D12VideoProcessor {
     type Target = super::super::Graphics::Direct3D12::ID3D12Pageable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3449,7 +3449,7 @@ pub struct ID3D12VideoProcessor_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessor1, ID3D12VideoProcessor1_Vtbl, 0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl std::ops::Deref for ID3D12VideoProcessor1 {
+impl core::ops::Deref for ID3D12VideoProcessor1 {
     type Target = ID3D12VideoProcessor;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3477,7 +3477,7 @@ pub struct ID3D12VideoProcessor1_Vtbl {
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXVAHD_Device, IDXVAHD_Device_Vtbl, 0x95f12dfd_d77e_49be_815f_57d579634d6d);
-impl std::ops::Deref for IDXVAHD_Device {
+impl core::ops::Deref for IDXVAHD_Device {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3541,7 +3541,7 @@ pub struct IDXVAHD_Device_Vtbl {
     pub CreateVideoProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXVAHD_VideoProcessor, IDXVAHD_VideoProcessor_Vtbl, 0x95f4edf4_6e03_4cd7_be1b_3075d665aa52);
-impl std::ops::Deref for IDXVAHD_VideoProcessor {
+impl core::ops::Deref for IDXVAHD_VideoProcessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3582,7 +3582,7 @@ pub struct IDXVAHD_VideoProcessor_Vtbl {
     VideoProcessBltHD: usize,
 }
 windows_core::imp::define_interface!(IDirect3D9ExOverlayExtension, IDirect3D9ExOverlayExtension_Vtbl, 0x187aeb13_aaf5_4c59_876d_e059088c0df8);
-impl std::ops::Deref for IDirect3D9ExOverlayExtension {
+impl core::ops::Deref for IDirect3D9ExOverlayExtension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3604,7 +3604,7 @@ pub struct IDirect3D9ExOverlayExtension_Vtbl {
     CheckDeviceOverlayType: usize,
 }
 windows_core::imp::define_interface!(IDirect3DAuthenticatedChannel9, IDirect3DAuthenticatedChannel9_Vtbl, 0xff24beee_da21_4beb_98b5_d2f899f98af9);
-impl std::ops::Deref for IDirect3DAuthenticatedChannel9 {
+impl core::ops::Deref for IDirect3DAuthenticatedChannel9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3642,7 +3642,7 @@ pub struct IDirect3DAuthenticatedChannel9_Vtbl {
     Configure: usize,
 }
 windows_core::imp::define_interface!(IDirect3DCryptoSession9, IDirect3DCryptoSession9_Vtbl, 0xfa0ab799_7a9c_48ca_8c5b_237e71a54434);
-impl std::ops::Deref for IDirect3DCryptoSession9 {
+impl core::ops::Deref for IDirect3DCryptoSession9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3715,7 +3715,7 @@ pub struct IDirect3DCryptoSession9_Vtbl {
     pub GetEncryptionBltKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DDevice9Video, IDirect3DDevice9Video_Vtbl, 0x26dc4561_a1ee_4ae7_96da_118a36c0ec95);
-impl std::ops::Deref for IDirect3DDevice9Video {
+impl core::ops::Deref for IDirect3DDevice9Video {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3745,7 +3745,7 @@ pub struct IDirect3DDevice9Video_Vtbl {
     pub CreateCryptoSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DDeviceManager9, IDirect3DDeviceManager9_Vtbl, 0xa0cade0f_06d5_4cf4_a1c7_f3cdd725aa75);
-impl std::ops::Deref for IDirect3DDeviceManager9 {
+impl core::ops::Deref for IDirect3DDeviceManager9 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3816,7 +3816,7 @@ pub struct IDirect3DDeviceManager9_Vtbl {
     pub GetVideoService: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectXVideoAccelerationService, IDirectXVideoAccelerationService_Vtbl, 0xfc51a550_d5e7_11d9_af55_00054e43ff02);
-impl std::ops::Deref for IDirectXVideoAccelerationService {
+impl core::ops::Deref for IDirectXVideoAccelerationService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3838,7 +3838,7 @@ pub struct IDirectXVideoAccelerationService_Vtbl {
     CreateSurface: usize,
 }
 windows_core::imp::define_interface!(IDirectXVideoDecoder, IDirectXVideoDecoder_Vtbl, 0xf2b0810a_fd00_43c9_918c_df94e2d8ef7d);
-impl std::ops::Deref for IDirectXVideoDecoder {
+impl core::ops::Deref for IDirectXVideoDecoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3892,7 +3892,7 @@ pub struct IDirectXVideoDecoder_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXVA2_DecodeExecuteParams) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectXVideoDecoderService, IDirectXVideoDecoderService_Vtbl, 0xfc51a551_d5e7_11d9_af55_00054e43ff02);
-impl std::ops::Deref for IDirectXVideoDecoderService {
+impl core::ops::Deref for IDirectXVideoDecoderService {
     type Target = IDirectXVideoAccelerationService;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3935,7 +3935,7 @@ pub struct IDirectXVideoDecoderService_Vtbl {
     CreateVideoDecoder: usize,
 }
 windows_core::imp::define_interface!(IDirectXVideoMemoryConfiguration, IDirectXVideoMemoryConfiguration_Vtbl, 0xb7f916dd_db3b_49c1_84d7_e45ef99ec726);
-impl std::ops::Deref for IDirectXVideoMemoryConfiguration {
+impl core::ops::Deref for IDirectXVideoMemoryConfiguration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3958,7 +3958,7 @@ pub struct IDirectXVideoMemoryConfiguration_Vtbl {
     pub SetSurfaceType: unsafe extern "system" fn(*mut core::ffi::c_void, DXVA2_SurfaceType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectXVideoProcessor, IDirectXVideoProcessor_Vtbl, 0x8c3a39f0_916e_4690_804f_4c8001355d25);
-impl std::ops::Deref for IDirectXVideoProcessor {
+impl core::ops::Deref for IDirectXVideoProcessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4014,7 +4014,7 @@ pub struct IDirectXVideoProcessor_Vtbl {
     VideoProcessBlt: usize,
 }
 windows_core::imp::define_interface!(IDirectXVideoProcessorService, IDirectXVideoProcessorService_Vtbl, 0xfc51a552_d5e7_11d9_af55_00054e43ff02);
-impl std::ops::Deref for IDirectXVideoProcessorService {
+impl core::ops::Deref for IDirectXVideoProcessorService {
     type Target = IDirectXVideoAccelerationService;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4091,7 +4091,7 @@ pub struct IDirectXVideoProcessorService_Vtbl {
     CreateVideoProcessor: usize,
 }
 windows_core::imp::define_interface!(IEVRFilterConfig, IEVRFilterConfig_Vtbl, 0x83e91e85_82c1_4ea7_801d_85dc50b75086);
-impl std::ops::Deref for IEVRFilterConfig {
+impl core::ops::Deref for IEVRFilterConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4114,7 +4114,7 @@ pub struct IEVRFilterConfig_Vtbl {
     pub GetNumberOfStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEVRFilterConfigEx, IEVRFilterConfigEx_Vtbl, 0xaea36028_796d_454f_beee_b48071e24304);
-impl std::ops::Deref for IEVRFilterConfigEx {
+impl core::ops::Deref for IEVRFilterConfigEx {
     type Target = IEVRFilterConfig;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4137,7 +4137,7 @@ pub struct IEVRFilterConfigEx_Vtbl {
     pub GetConfigPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEVRTrustedVideoPlugin, IEVRTrustedVideoPlugin_Vtbl, 0x83a4ce40_7710_494b_a893_a472049af630);
-impl std::ops::Deref for IEVRTrustedVideoPlugin {
+impl core::ops::Deref for IEVRTrustedVideoPlugin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4172,7 +4172,7 @@ pub struct IEVRTrustedVideoPlugin_Vtbl {
     pub DisableImageExport: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEVRVideoStreamControl, IEVRVideoStreamControl_Vtbl, 0xd0cfe38b_93e7_4772_8957_0400c49a4485);
-impl std::ops::Deref for IEVRVideoStreamControl {
+impl core::ops::Deref for IEVRVideoStreamControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4198,7 +4198,7 @@ pub struct IEVRVideoStreamControl_Vtbl {
     pub GetStreamActiveState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileClient, IFileClient_Vtbl, 0xbfccd196_1244_4840_ab44_480975c4ffe4);
-impl std::ops::Deref for IFileClient {
+impl core::ops::Deref for IFileClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4230,7 +4230,7 @@ pub struct IFileClient_Vtbl {
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileIo, IFileIo_Vtbl, 0x11993196_1244_4840_ab44_480975c4ffe4);
-impl std::ops::Deref for IFileIo {
+impl core::ops::Deref for IFileIo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4287,7 +4287,7 @@ pub struct IFileIo_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMF2DBuffer, IMF2DBuffer_Vtbl, 0x7dc9d5f9_9ed9_44ec_9bbf_0600bb589fbb);
-impl std::ops::Deref for IMF2DBuffer {
+impl core::ops::Deref for IMF2DBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4331,7 +4331,7 @@ pub struct IMF2DBuffer_Vtbl {
     pub ContiguousCopyFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMF2DBuffer2, IMF2DBuffer2_Vtbl, 0x33ae5ea6_4316_436f_8ddd_d73d22f829ec);
-impl std::ops::Deref for IMF2DBuffer2 {
+impl core::ops::Deref for IMF2DBuffer2 {
     type Target = IMF2DBuffer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4356,7 +4356,7 @@ pub struct IMF2DBuffer2_Vtbl {
     pub Copy2DTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFContentInfo, IMFASFContentInfo_Vtbl, 0xb1dca5cd_d5da_4451_8e9e_db5c59914ead);
-impl std::ops::Deref for IMFASFContentInfo {
+impl core::ops::Deref for IMFASFContentInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4419,7 +4419,7 @@ pub struct IMFASFContentInfo_Vtbl {
     GetEncodingConfigurationPropertyStore: usize,
 }
 windows_core::imp::define_interface!(IMFASFIndexer, IMFASFIndexer_Vtbl, 0x53590f48_dc3b_4297_813f_787761ad7b3e);
-impl std::ops::Deref for IMFASFIndexer {
+impl core::ops::Deref for IMFASFIndexer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4507,7 +4507,7 @@ pub struct IMFASFIndexer_Vtbl {
     pub GetCompletedIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFMultiplexer, IMFASFMultiplexer_Vtbl, 0x57bdd80a_9b38_4838_b737_c58f670d7d4f);
-impl std::ops::Deref for IMFASFMultiplexer {
+impl core::ops::Deref for IMFASFMultiplexer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4568,7 +4568,7 @@ pub struct IMFASFMultiplexer_Vtbl {
     pub SetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFMutualExclusion, IMFASFMutualExclusion_Vtbl, 0x12558291_e399_11d5_bc2a_00b0d0f3f4ab);
-impl std::ops::Deref for IMFASFMutualExclusion {
+impl core::ops::Deref for IMFASFMutualExclusion {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4622,7 +4622,7 @@ pub struct IMFASFMutualExclusion_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFProfile, IMFASFProfile_Vtbl, 0xd267bf6a_028b_4e0d_903d_43f0ef82d0d4);
-impl std::ops::Deref for IMFASFProfile {
+impl core::ops::Deref for IMFASFProfile {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4721,7 +4721,7 @@ pub struct IMFASFProfile_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFSplitter, IMFASFSplitter_Vtbl, 0x12558295_e399_11d5_bc2a_00b0d0f3f4ab);
-impl std::ops::Deref for IMFASFSplitter {
+impl core::ops::Deref for IMFASFSplitter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4779,7 +4779,7 @@ pub struct IMFASFSplitter_Vtbl {
     pub GetLastSendTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFStreamConfig, IMFASFStreamConfig_Vtbl, 0x9e8ae8d2_dbbd_4200_9aca_06e6df484913);
-impl std::ops::Deref for IMFASFStreamConfig {
+impl core::ops::Deref for IMFASFStreamConfig {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4840,7 +4840,7 @@ pub struct IMFASFStreamConfig_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFStreamPrioritization, IMFASFStreamPrioritization_Vtbl, 0x699bdc27_bbaf_49ff_8e38_9c39c9b5e088);
-impl std::ops::Deref for IMFASFStreamPrioritization {
+impl core::ops::Deref for IMFASFStreamPrioritization {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4876,7 +4876,7 @@ pub struct IMFASFStreamPrioritization_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFASFStreamSelector, IMFASFStreamSelector_Vtbl, 0xd01bad4a_4fa0_4a60_9349_c27e62da9d41);
-impl std::ops::Deref for IMFASFStreamSelector {
+impl core::ops::Deref for IMFASFStreamSelector {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4956,7 +4956,7 @@ pub struct IMFASFStreamSelector_Vtbl {
     pub SetStreamSelectorFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFActivate, IMFActivate_Vtbl, 0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67);
-impl std::ops::Deref for IMFActivate {
+impl core::ops::Deref for IMFActivate {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4968,7 +4968,7 @@ impl IMFActivate {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).ActivateObject)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShutdownObject(&self) -> windows_core::Result<()> {
@@ -4986,7 +4986,7 @@ pub struct IMFActivate_Vtbl {
     pub DetachObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFAsyncCallback, IMFAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
-impl std::ops::Deref for IMFAsyncCallback {
+impl core::ops::Deref for IMFAsyncCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5011,7 +5011,7 @@ pub struct IMFAsyncCallback_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFAsyncCallbackLogging, IMFAsyncCallbackLogging_Vtbl, 0xc7a4dca1_f5f0_47b6_b92b_bf0106d25791);
-impl std::ops::Deref for IMFAsyncCallbackLogging {
+impl core::ops::Deref for IMFAsyncCallbackLogging {
     type Target = IMFAsyncCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5033,7 +5033,7 @@ pub struct IMFAsyncCallbackLogging_Vtbl {
     pub GetObjectTag: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(IMFAsyncResult, IMFAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
-impl std::ops::Deref for IMFAsyncResult {
+impl core::ops::Deref for IMFAsyncResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5069,7 +5069,7 @@ pub struct IMFAsyncResult_Vtbl {
     pub GetStateNoAddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<windows_core::IUnknown>,
 }
 windows_core::imp::define_interface!(IMFAttributes, IMFAttributes_Vtbl, 0x2cd2d921_c447_44a7_a13c_4adabfc247e3);
-impl std::ops::Deref for IMFAttributes {
+impl core::ops::Deref for IMFAttributes {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5135,7 +5135,7 @@ impl IMFAttributes {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guidkey, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetItem(&self, guidkey: *const windows_core::GUID, value: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
@@ -5229,7 +5229,7 @@ pub struct IMFAttributes_Vtbl {
     pub CopyAllItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFAudioMediaType, IMFAudioMediaType_Vtbl, 0x26a0adc3_ce26_4672_9304_69552edd3faf);
-impl std::ops::Deref for IMFAudioMediaType {
+impl core::ops::Deref for IMFAudioMediaType {
     type Target = IMFMediaType;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5251,7 +5251,7 @@ pub struct IMFAudioMediaType_Vtbl {
     GetAudioFormat: usize,
 }
 windows_core::imp::define_interface!(IMFAudioPolicy, IMFAudioPolicy_Vtbl, 0xa0638c2b_6465_4395_9ae7_a321a9fd2856);
-impl std::ops::Deref for IMFAudioPolicy {
+impl core::ops::Deref for IMFAudioPolicy {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5298,7 +5298,7 @@ pub struct IMFAudioPolicy_Vtbl {
     pub GetIconPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFAudioStreamVolume, IMFAudioStreamVolume_Vtbl, 0x76b1bbdb_4ec8_4f36_b106_70a9316df593);
-impl std::ops::Deref for IMFAudioStreamVolume {
+impl core::ops::Deref for IMFAudioStreamVolume {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5334,7 +5334,7 @@ pub struct IMFAudioStreamVolume_Vtbl {
     pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFBufferListNotify, IMFBufferListNotify_Vtbl, 0x24cd47f7_81d8_4785_adb2_af697a963cd2);
-impl std::ops::Deref for IMFBufferListNotify {
+impl core::ops::Deref for IMFBufferListNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5356,7 +5356,7 @@ pub struct IMFBufferListNotify_Vtbl {
     pub OnRemoveSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFByteStream, IMFByteStream_Vtbl, 0xad4c1b00_4bf7_422f_9175_756693d9130d);
-impl std::ops::Deref for IMFByteStream {
+impl core::ops::Deref for IMFByteStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5452,7 +5452,7 @@ pub struct IMFByteStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFByteStreamBuffering, IMFByteStreamBuffering_Vtbl, 0x6d66d782_1d4f_4db7_8c63_cb8c77f1ef5e);
-impl std::ops::Deref for IMFByteStreamBuffering {
+impl core::ops::Deref for IMFByteStreamBuffering {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5481,7 +5481,7 @@ pub struct IMFByteStreamBuffering_Vtbl {
     pub StopBuffering: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFByteStreamCacheControl, IMFByteStreamCacheControl_Vtbl, 0xf5042ea4_7a96_4a75_aa7b_2be1ef7f88d5);
-impl std::ops::Deref for IMFByteStreamCacheControl {
+impl core::ops::Deref for IMFByteStreamCacheControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5499,7 +5499,7 @@ pub struct IMFByteStreamCacheControl_Vtbl {
     pub StopBackgroundTransfer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFByteStreamCacheControl2, IMFByteStreamCacheControl2_Vtbl, 0x71ce469c_f34b_49ea_a56b_2d2a10e51149);
-impl std::ops::Deref for IMFByteStreamCacheControl2 {
+impl core::ops::Deref for IMFByteStreamCacheControl2 {
     type Target = IMFByteStreamCacheControl;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5526,7 +5526,7 @@ pub struct IMFByteStreamCacheControl2_Vtbl {
     pub IsBackgroundTransferActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFByteStreamHandler, IMFByteStreamHandler_Vtbl, 0xbb420aa4_765b_4a1f_91fe_d6a8a143924c);
-impl std::ops::Deref for IMFByteStreamHandler {
+impl core::ops::Deref for IMFByteStreamHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5574,7 +5574,7 @@ pub struct IMFByteStreamHandler_Vtbl {
     pub GetMaxNumberOfBytesRequiredForResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFByteStreamProxyClassFactory, IMFByteStreamProxyClassFactory_Vtbl, 0xa6b43f84_5c0a_42e8_a44d_b1857a76992f);
-impl std::ops::Deref for IMFByteStreamProxyClassFactory {
+impl core::ops::Deref for IMFByteStreamProxyClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5588,7 +5588,7 @@ impl IMFByteStreamProxyClassFactory {
         P1: windows_core::Param<IMFAttributes>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateByteStreamProxy)(windows_core::Interface::as_raw(self), pbytestream.param().abi(), pattributes.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5598,7 +5598,7 @@ pub struct IMFByteStreamProxyClassFactory_Vtbl {
     pub CreateByteStreamProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFByteStreamTimeSeek, IMFByteStreamTimeSeek_Vtbl, 0x64976bfa_fb61_4041_9069_8c9a5f659beb);
-impl std::ops::Deref for IMFByteStreamTimeSeek {
+impl core::ops::Deref for IMFByteStreamTimeSeek {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5625,7 +5625,7 @@ pub struct IMFByteStreamTimeSeek_Vtbl {
     pub GetTimeSeekResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCameraConfigurationManager, IMFCameraConfigurationManager_Vtbl, 0xa624f617_4704_4206_8a6d_ebda4a093985);
-impl std::ops::Deref for IMFCameraConfigurationManager {
+impl core::ops::Deref for IMFCameraConfigurationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5658,7 +5658,7 @@ pub struct IMFCameraConfigurationManager_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFCameraControlDefaults, IMFCameraControlDefaults_Vtbl, 0x75510662_b034_48f4_88a7_8de61daa4af9);
-impl std::ops::Deref for IMFCameraControlDefaults {
+impl core::ops::Deref for IMFCameraControlDefaults {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5689,7 +5689,7 @@ pub struct IMFCameraControlDefaults_Vtbl {
     pub UnlockControlData: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCameraControlDefaultsCollection, IMFCameraControlDefaultsCollection_Vtbl, 0x92d43d0f_54a8_4bae_96da_356d259a5c26);
-impl std::ops::Deref for IMFCameraControlDefaultsCollection {
+impl core::ops::Deref for IMFCameraControlDefaultsCollection {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5730,7 +5730,7 @@ pub struct IMFCameraControlDefaultsCollection_Vtbl {
     pub RemoveAllControls: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCameraControlMonitor, IMFCameraControlMonitor_Vtbl, 0x4d46f2c9_28ba_4970_8c7b_1f0c9d80af69);
-impl std::ops::Deref for IMFCameraControlMonitor {
+impl core::ops::Deref for IMFCameraControlMonitor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5764,7 +5764,7 @@ pub struct IMFCameraControlMonitor_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFCameraControlNotify, IMFCameraControlNotify_Vtbl, 0xe8f2540d_558a_4449_8b64_4863467a9fe8);
-impl std::ops::Deref for IMFCameraControlNotify {
+impl core::ops::Deref for IMFCameraControlNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5786,7 +5786,7 @@ pub struct IMFCameraControlNotify_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT),
 }
 windows_core::imp::define_interface!(IMFCameraOcclusionStateMonitor, IMFCameraOcclusionStateMonitor_Vtbl, 0xcc692f46_c697_47e2_a72d_7b064617749b);
-impl std::ops::Deref for IMFCameraOcclusionStateMonitor {
+impl core::ops::Deref for IMFCameraOcclusionStateMonitor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5812,7 +5812,7 @@ pub struct IMFCameraOcclusionStateMonitor_Vtbl {
     pub GetSupportedStates: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(IMFCameraOcclusionStateReport, IMFCameraOcclusionStateReport_Vtbl, 0x1640b2cf_74da_4462_a43b_b76d3bdc1434);
-impl std::ops::Deref for IMFCameraOcclusionStateReport {
+impl core::ops::Deref for IMFCameraOcclusionStateReport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5831,7 +5831,7 @@ pub struct IMFCameraOcclusionStateReport_Vtbl {
     pub GetOcclusionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCameraOcclusionStateReportCallback, IMFCameraOcclusionStateReportCallback_Vtbl, 0x6e5841c7_3889_4019_9035_783fb19b5948);
-impl std::ops::Deref for IMFCameraOcclusionStateReportCallback {
+impl core::ops::Deref for IMFCameraOcclusionStateReportCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5852,7 +5852,7 @@ pub struct IMFCameraOcclusionStateReportCallback_Vtbl {
     pub OnOcclusionStateReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCameraSyncObject, IMFCameraSyncObject_Vtbl, 0x6338b23a_3042_49d2_a3ea_ec0fed815407);
-impl std::ops::Deref for IMFCameraSyncObject {
+impl core::ops::Deref for IMFCameraSyncObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5874,7 +5874,7 @@ pub struct IMFCameraSyncObject_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFCaptureEngine, IMFCaptureEngine_Vtbl, 0xa6bba433_176b_48b2_b375_53aa03473207);
-impl std::ops::Deref for IMFCaptureEngine {
+impl core::ops::Deref for IMFCaptureEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5932,7 +5932,7 @@ pub struct IMFCaptureEngine_Vtbl {
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureEngineClassFactory, IMFCaptureEngineClassFactory_Vtbl, 0x8f02d140_56fc_4302_a705_3a97c78be779);
-impl std::ops::Deref for IMFCaptureEngineClassFactory {
+impl core::ops::Deref for IMFCaptureEngineClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5944,7 +5944,7 @@ impl IMFCaptureEngineClassFactory {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), clsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -5954,7 +5954,7 @@ pub struct IMFCaptureEngineClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureEngineOnEventCallback, IMFCaptureEngineOnEventCallback_Vtbl, 0xaeda51c0_9025_4983_9012_de597b88b089);
-impl std::ops::Deref for IMFCaptureEngineOnEventCallback {
+impl core::ops::Deref for IMFCaptureEngineOnEventCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5975,7 +5975,7 @@ pub struct IMFCaptureEngineOnEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureEngineOnSampleCallback, IMFCaptureEngineOnSampleCallback_Vtbl, 0x52150b82_ab39_4467_980f_e48bf0822ecd);
-impl std::ops::Deref for IMFCaptureEngineOnSampleCallback {
+impl core::ops::Deref for IMFCaptureEngineOnSampleCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5996,7 +5996,7 @@ pub struct IMFCaptureEngineOnSampleCallback_Vtbl {
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureEngineOnSampleCallback2, IMFCaptureEngineOnSampleCallback2_Vtbl, 0xe37ceed7_340f_4514_9f4d_9c2ae026100b);
-impl std::ops::Deref for IMFCaptureEngineOnSampleCallback2 {
+impl core::ops::Deref for IMFCaptureEngineOnSampleCallback2 {
     type Target = IMFCaptureEngineOnSampleCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6017,7 +6017,7 @@ pub struct IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub OnSynchronizedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCapturePhotoConfirmation, IMFCapturePhotoConfirmation_Vtbl, 0x19f68549_ca8a_4706_a4ef_481dbc95e12c);
-impl std::ops::Deref for IMFCapturePhotoConfirmation {
+impl core::ops::Deref for IMFCapturePhotoConfirmation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6047,7 +6047,7 @@ pub struct IMFCapturePhotoConfirmation_Vtbl {
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCapturePhotoSink, IMFCapturePhotoSink_Vtbl, 0xd2d43cc8_48bb_4aa7_95db_10c06977e777);
-impl std::ops::Deref for IMFCapturePhotoSink {
+impl core::ops::Deref for IMFCapturePhotoSink {
     type Target = IMFCaptureSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6082,7 +6082,7 @@ pub struct IMFCapturePhotoSink_Vtbl {
     pub SetOutputByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCapturePreviewSink, IMFCapturePreviewSink_Vtbl, 0x77346cfd_5b49_4d73_ace0_5b52a859f2e0);
-impl std::ops::Deref for IMFCapturePreviewSink {
+impl core::ops::Deref for IMFCapturePreviewSink {
     type Target = IMFCaptureSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6149,7 +6149,7 @@ pub struct IMFCapturePreviewSink_Vtbl {
     pub SetCustomSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureRecordSink, IMFCaptureRecordSink_Vtbl, 0x3323b55a_f92a_4fe2_8edc_e9bfc0634d77);
-impl std::ops::Deref for IMFCaptureRecordSink {
+impl core::ops::Deref for IMFCaptureRecordSink {
     type Target = IMFCaptureSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6200,7 +6200,7 @@ pub struct IMFCaptureRecordSink_Vtbl {
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureSink, IMFCaptureSink_Vtbl, 0x72d6135b_35e9_412c_b926_fd5265f2a885);
-impl std::ops::Deref for IMFCaptureSink {
+impl core::ops::Deref for IMFCaptureSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6238,7 +6238,7 @@ pub struct IMFCaptureSink_Vtbl {
     pub RemoveAllStreams: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureSink2, IMFCaptureSink2_Vtbl, 0xf9e4219e_6197_4b5e_b888_bee310ab2c59);
-impl std::ops::Deref for IMFCaptureSink2 {
+impl core::ops::Deref for IMFCaptureSink2 {
     type Target = IMFCaptureSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6260,7 +6260,7 @@ pub struct IMFCaptureSink2_Vtbl {
     pub SetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCaptureSource, IMFCaptureSource_Vtbl, 0x439a42a8_0d2c_4505_be83_f79b2a05d5c4);
-impl std::ops::Deref for IMFCaptureSource {
+impl core::ops::Deref for IMFCaptureSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6347,7 +6347,7 @@ pub struct IMFCaptureSource_Vtbl {
     pub GetStreamIndexFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCdmSuspendNotify, IMFCdmSuspendNotify_Vtbl, 0x7a5645d2_43bd_47fd_87b7_dcd24cc7d692);
-impl std::ops::Deref for IMFCdmSuspendNotify {
+impl core::ops::Deref for IMFCdmSuspendNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6369,7 +6369,7 @@ pub struct IMFCdmSuspendNotify_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFClock, IMFClock_Vtbl, 0x2eb1e945_18b8_4139_9b1a_d5d584818530);
-impl std::ops::Deref for IMFClock {
+impl core::ops::Deref for IMFClock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6406,7 +6406,7 @@ pub struct IMFClock_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFCLOCK_PROPERTIES) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFClockConsumer, IMFClockConsumer_Vtbl, 0x6ef2a662_47c0_4666_b13d_cbb717f2fa2c);
-impl std::ops::Deref for IMFClockConsumer {
+impl core::ops::Deref for IMFClockConsumer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6432,7 +6432,7 @@ pub struct IMFClockConsumer_Vtbl {
     pub GetPresentationClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFClockStateSink, IMFClockStateSink_Vtbl, 0xf6696e82_74f7_4f3d_a178_8a5e09c3659f);
-impl std::ops::Deref for IMFClockStateSink {
+impl core::ops::Deref for IMFClockStateSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6466,7 +6466,7 @@ pub struct IMFClockStateSink_Vtbl {
     pub OnClockSetRate: unsafe extern "system" fn(*mut core::ffi::c_void, i64, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFCollection, IMFCollection_Vtbl, 0x5bc8a76b_869a_46a3_9b03_fa218a66aebe);
-impl std::ops::Deref for IMFCollection {
+impl core::ops::Deref for IMFCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6513,7 +6513,7 @@ pub struct IMFCollection_Vtbl {
     pub RemoveAllElements: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentDecryptionModule, IMFContentDecryptionModule_Vtbl, 0x87be986c_10be_4943_bf48_4b54ce1983a2);
-impl std::ops::Deref for IMFContentDecryptionModule {
+impl core::ops::Deref for IMFContentDecryptionModule {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6568,7 +6568,7 @@ pub struct IMFContentDecryptionModule_Vtbl {
     pub GetProtectionSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentDecryptionModuleAccess, IMFContentDecryptionModuleAccess_Vtbl, 0xa853d1f4_e2a0_4303_9edc_f1a68ee43136);
-impl std::ops::Deref for IMFContentDecryptionModuleAccess {
+impl core::ops::Deref for IMFContentDecryptionModuleAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6608,7 +6608,7 @@ pub struct IMFContentDecryptionModuleAccess_Vtbl {
     pub GetKeySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentDecryptionModuleFactory, IMFContentDecryptionModuleFactory_Vtbl, 0x7d5abf16_4cbb_4e08_b977_9ba59049943e);
-impl std::ops::Deref for IMFContentDecryptionModuleFactory {
+impl core::ops::Deref for IMFContentDecryptionModuleFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6642,7 +6642,7 @@ pub struct IMFContentDecryptionModuleFactory_Vtbl {
     CreateContentDecryptionModuleAccess: usize,
 }
 windows_core::imp::define_interface!(IMFContentDecryptionModuleSession, IMFContentDecryptionModuleSession_Vtbl, 0x4e233efd_1dd2_49e8_b577_d63eee4c0d33);
-impl std::ops::Deref for IMFContentDecryptionModuleSession {
+impl core::ops::Deref for IMFContentDecryptionModuleSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6697,7 +6697,7 @@ pub struct IMFContentDecryptionModuleSession_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentDecryptionModuleSessionCallbacks, IMFContentDecryptionModuleSessionCallbacks_Vtbl, 0x3f96ee40_ad81_4096_8470_59a4b770f89a);
-impl std::ops::Deref for IMFContentDecryptionModuleSessionCallbacks {
+impl core::ops::Deref for IMFContentDecryptionModuleSessionCallbacks {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6722,7 +6722,7 @@ pub struct IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub KeyStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentDecryptorContext, IMFContentDecryptorContext_Vtbl, 0x7ec4b1bd_43fb_4763_85d2_64fcb5c5f4cb);
-impl std::ops::Deref for IMFContentDecryptorContext {
+impl core::ops::Deref for IMFContentDecryptorContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6741,7 +6741,7 @@ pub struct IMFContentDecryptorContext_Vtbl {
     pub InitializeHardwareKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentEnabler, IMFContentEnabler_Vtbl, 0xd3c4ef59_49ce_4381_9071_d5bcd044c770);
-impl std::ops::Deref for IMFContentEnabler {
+impl core::ops::Deref for IMFContentEnabler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6785,7 +6785,7 @@ pub struct IMFContentEnabler_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentProtectionDevice, IMFContentProtectionDevice_Vtbl, 0xe6257174_a060_4c9a_a088_3b1b471cad28);
-impl std::ops::Deref for IMFContentProtectionDevice {
+impl core::ops::Deref for IMFContentProtectionDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6807,7 +6807,7 @@ pub struct IMFContentProtectionDevice_Vtbl {
     pub GetPrivateDataByteCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFContentProtectionManager, IMFContentProtectionManager_Vtbl, 0xacf92459_6a61_42bd_b57c_b43e51203cb0);
-impl std::ops::Deref for IMFContentProtectionManager {
+impl core::ops::Deref for IMFContentProtectionManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6838,7 +6838,7 @@ pub struct IMFContentProtectionManager_Vtbl {
     pub EndEnableContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFD3D12SynchronizationObject, IMFD3D12SynchronizationObject_Vtbl, 0x802302b0_82de_45e1_b421_f19ee5bdaf23);
-impl std::ops::Deref for IMFD3D12SynchronizationObject {
+impl core::ops::Deref for IMFD3D12SynchronizationObject {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6863,7 +6863,7 @@ pub struct IMFD3D12SynchronizationObject_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFD3D12SynchronizationObjectCommands, IMFD3D12SynchronizationObjectCommands_Vtbl, 0x09d0f835_92ff_4e53_8efa_40faa551f233);
-impl std::ops::Deref for IMFD3D12SynchronizationObjectCommands {
+impl core::ops::Deref for IMFD3D12SynchronizationObjectCommands {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6917,7 +6917,7 @@ pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
     EnqueueResourceRelease: usize,
 }
 windows_core::imp::define_interface!(IMFDLNASinkInit, IMFDLNASinkInit_Vtbl, 0x0c012799_1b61_4c10_bda9_04445be5f561);
-impl std::ops::Deref for IMFDLNASinkInit {
+impl core::ops::Deref for IMFDLNASinkInit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6939,7 +6939,7 @@ pub struct IMFDLNASinkInit_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFDRMNetHelper, IMFDRMNetHelper_Vtbl, 0x3d1ff0ea_679a_4190_8d46_7fa69e8c7e15);
-impl std::ops::Deref for IMFDRMNetHelper {
+impl core::ops::Deref for IMFDRMNetHelper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6961,7 +6961,7 @@ pub struct IMFDRMNetHelper_Vtbl {
     pub GetChainedLicenseResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFDXGIBuffer, IMFDXGIBuffer_Vtbl, 0xe7174cfa_1c9e_48b1_8866_626226bfc258);
-impl std::ops::Deref for IMFDXGIBuffer {
+impl core::ops::Deref for IMFDXGIBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -6995,7 +6995,7 @@ pub struct IMFDXGIBuffer_Vtbl {
     pub SetUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFDXGIDeviceManager, IMFDXGIDeviceManager_Vtbl, 0xeb533d5d_2db6_40f8_97a9_494692014f07);
-impl std::ops::Deref for IMFDXGIDeviceManager {
+impl core::ops::Deref for IMFDXGIDeviceManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7058,7 +7058,7 @@ pub struct IMFDXGIDeviceManager_Vtbl {
     pub UnlockDevice: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFDXGIDeviceManagerSource, IMFDXGIDeviceManagerSource_Vtbl, 0x20bc074b_7a8d_4609_8c3b_64a0a3b5d7ce);
-impl std::ops::Deref for IMFDXGIDeviceManagerSource {
+impl core::ops::Deref for IMFDXGIDeviceManagerSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7077,7 +7077,7 @@ pub struct IMFDXGIDeviceManagerSource_Vtbl {
     pub GetManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFDesiredSample, IMFDesiredSample_Vtbl, 0x56c294d0_753e_4260_8d61_a3d8820b1d54);
-impl std::ops::Deref for IMFDesiredSample {
+impl core::ops::Deref for IMFDesiredSample {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7103,7 +7103,7 @@ pub struct IMFDesiredSample_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFDeviceTransform, IMFDeviceTransform_Vtbl, 0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
-impl std::ops::Deref for IMFDeviceTransform {
+impl core::ops::Deref for IMFDeviceTransform {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7220,7 +7220,7 @@ pub struct IMFDeviceTransform_Vtbl {
     pub FlushOutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFDeviceTransformCallback, IMFDeviceTransformCallback_Vtbl, 0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
-impl std::ops::Deref for IMFDeviceTransformCallback {
+impl core::ops::Deref for IMFDeviceTransformCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7241,7 +7241,7 @@ pub struct IMFDeviceTransformCallback_Vtbl {
     pub OnBufferSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedCameraControl, IMFExtendedCameraControl_Vtbl, 0x38e33520_fca1_4845_a27a_68b7c6ab3789);
-impl std::ops::Deref for IMFExtendedCameraControl {
+impl core::ops::Deref for IMFExtendedCameraControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7279,7 +7279,7 @@ pub struct IMFExtendedCameraControl_Vtbl {
     pub CommitSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedCameraController, IMFExtendedCameraController_Vtbl, 0xb91ebfee_ca03_4af4_8a82_a31752f4a0fc);
-impl std::ops::Deref for IMFExtendedCameraController {
+impl core::ops::Deref for IMFExtendedCameraController {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7298,7 +7298,7 @@ pub struct IMFExtendedCameraController_Vtbl {
     pub GetExtendedCameraControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedCameraIntrinsicModel, IMFExtendedCameraIntrinsicModel_Vtbl, 0x5c595e64_4630_4231_855a_12842f733245);
-impl std::ops::Deref for IMFExtendedCameraIntrinsicModel {
+impl core::ops::Deref for IMFExtendedCameraIntrinsicModel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7325,7 +7325,7 @@ pub struct IMFExtendedCameraIntrinsicModel_Vtbl {
     pub GetDistortionModelType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFCameraIntrinsic_DistortionModelType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedCameraIntrinsics, IMFExtendedCameraIntrinsics_Vtbl, 0x687f6dac_6987_4750_a16a_734d1e7a10fe);
-impl std::ops::Deref for IMFExtendedCameraIntrinsics {
+impl core::ops::Deref for IMFExtendedCameraIntrinsics {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7369,7 +7369,7 @@ pub struct IMFExtendedCameraIntrinsics_Vtbl {
     pub AddIntrinsicModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedCameraIntrinsicsDistortionModel6KT, IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl, 0x74c2653b_5f55_4eb1_9f0f_18b8f68b7d3d);
-impl std::ops::Deref for IMFExtendedCameraIntrinsicsDistortionModel6KT {
+impl core::ops::Deref for IMFExtendedCameraIntrinsicsDistortionModel6KT {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7391,7 +7391,7 @@ pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
     pub SetDistortionModel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFCameraIntrinsic_DistortionModel6KT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedCameraIntrinsicsDistortionModelArcTan, IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl, 0x812d5f95_b572_45dc_bafc_ae24199ddda8);
-impl std::ops::Deref for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
+impl core::ops::Deref for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7413,7 +7413,7 @@ pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
     pub SetDistortionModel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFCameraIntrinsic_DistortionModelArcTan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFExtendedDRMTypeSupport, IMFExtendedDRMTypeSupport_Vtbl, 0x332ec562_3758_468d_a784_e38f23552128);
-impl std::ops::Deref for IMFExtendedDRMTypeSupport {
+impl core::ops::Deref for IMFExtendedDRMTypeSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7436,7 +7436,7 @@ pub struct IMFExtendedDRMTypeSupport_Vtbl {
     pub IsTypeSupportedEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFFieldOfUseMFTUnlock, IMFFieldOfUseMFTUnlock_Vtbl, 0x508e71d3_ec66_4fc3_8775_b4b9ed6ba847);
-impl std::ops::Deref for IMFFieldOfUseMFTUnlock {
+impl core::ops::Deref for IMFFieldOfUseMFTUnlock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7457,7 +7457,7 @@ pub struct IMFFieldOfUseMFTUnlock_Vtbl {
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFFinalizableMediaSink, IMFFinalizableMediaSink_Vtbl, 0xeaecb74a_9a50_42ce_9541_6a7f57aa4ad7);
-impl std::ops::Deref for IMFFinalizableMediaSink {
+impl core::ops::Deref for IMFFinalizableMediaSink {
     type Target = IMFMediaSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7486,7 +7486,7 @@ pub struct IMFFinalizableMediaSink_Vtbl {
     pub EndFinalize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFGetService, IMFGetService_Vtbl, 0xfa993888_4383_415a_a930_dd472a8cf6f7);
-impl std::ops::Deref for IMFGetService {
+impl core::ops::Deref for IMFGetService {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7498,7 +7498,7 @@ impl IMFGetService {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), guidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -7508,7 +7508,7 @@ pub struct IMFGetService_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFHDCPStatus, IMFHDCPStatus_Vtbl, 0xde400f54_5bf1_40cf_8964_0bea136b1e3d);
-impl std::ops::Deref for IMFHDCPStatus {
+impl core::ops::Deref for IMFHDCPStatus {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7530,7 +7530,7 @@ pub struct IMFHDCPStatus_Vtbl {
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void, MF_HDCP_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFHttpDownloadRequest, IMFHttpDownloadRequest_Vtbl, 0xf779fddf_26e7_4270_8a8b_b983d1859de0);
-impl std::ops::Deref for IMFHttpDownloadRequest {
+impl core::ops::Deref for IMFHttpDownloadRequest {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7642,7 +7642,7 @@ pub struct IMFHttpDownloadRequest_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFHttpDownloadSession, IMFHttpDownloadSession_Vtbl, 0x71fa9a2c_53ce_4662_a132_1a7e8cbf62db);
-impl std::ops::Deref for IMFHttpDownloadSession {
+impl core::ops::Deref for IMFHttpDownloadSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7679,7 +7679,7 @@ pub struct IMFHttpDownloadSession_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFHttpDownloadSessionProvider, IMFHttpDownloadSessionProvider_Vtbl, 0x1b4cf4b9_3a16_4115_839d_03cc5c99df01);
-impl std::ops::Deref for IMFHttpDownloadSessionProvider {
+impl core::ops::Deref for IMFHttpDownloadSessionProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7701,7 +7701,7 @@ pub struct IMFHttpDownloadSessionProvider_Vtbl {
     pub CreateHttpDownloadSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFImageSharingEngine, IMFImageSharingEngine_Vtbl, 0xcfa0ae8e_7e1c_44d2_ae68_fc4c148a6354);
-impl std::ops::Deref for IMFImageSharingEngine {
+impl core::ops::Deref for IMFImageSharingEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7730,7 +7730,7 @@ pub struct IMFImageSharingEngine_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFImageSharingEngineClassFactory, IMFImageSharingEngineClassFactory_Vtbl, 0x1fc55727_a7fb_4fc8_83ae_8af024990af1);
-impl std::ops::Deref for IMFImageSharingEngineClassFactory {
+impl core::ops::Deref for IMFImageSharingEngineClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7752,7 +7752,7 @@ pub struct IMFImageSharingEngineClassFactory_Vtbl {
     pub CreateInstanceFromUDN: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFInputTrustAuthority, IMFInputTrustAuthority_Vtbl, 0xd19f8e98_b126_4446_890c_5dcb7ad71453);
-impl std::ops::Deref for IMFInputTrustAuthority {
+impl core::ops::Deref for IMFInputTrustAuthority {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7792,7 +7792,7 @@ pub struct IMFInputTrustAuthority_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFLocalMFTRegistration, IMFLocalMFTRegistration_Vtbl, 0x149c4d73_b4be_4f8d_8b87_079e926b6add);
-impl std::ops::Deref for IMFLocalMFTRegistration {
+impl core::ops::Deref for IMFLocalMFTRegistration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7810,7 +7810,7 @@ pub struct IMFLocalMFTRegistration_Vtbl {
     pub RegisterMFTs: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFT_REGISTRATION_INFO, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaBuffer, IMFMediaBuffer_Vtbl, 0x045fa593_8799_42b8_bc8d_8968c6453507);
-impl std::ops::Deref for IMFMediaBuffer {
+impl core::ops::Deref for IMFMediaBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -7846,7 +7846,7 @@ pub struct IMFMediaBuffer_Vtbl {
     pub GetMaxLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngine, IMFMediaEngine_Vtbl, 0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93);
-impl std::ops::Deref for IMFMediaEngine {
+impl core::ops::Deref for IMFMediaEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8056,7 +8056,7 @@ pub struct IMFMediaEngine_Vtbl {
     pub OnVideoStreamTick: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineAudioEndpointId, IMFMediaEngineAudioEndpointId_Vtbl, 0x7a3bac98_0e76_49fb_8c20_8a86fd98eaf2);
-impl std::ops::Deref for IMFMediaEngineAudioEndpointId {
+impl core::ops::Deref for IMFMediaEngineAudioEndpointId {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8082,7 +8082,7 @@ pub struct IMFMediaEngineAudioEndpointId_Vtbl {
     pub GetAudioEndpointId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineClassFactory, IMFMediaEngineClassFactory_Vtbl, 0x4d645ace_26aa_4688_9be1_df3516990b93);
-impl std::ops::Deref for IMFMediaEngineClassFactory {
+impl core::ops::Deref for IMFMediaEngineClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8114,7 +8114,7 @@ pub struct IMFMediaEngineClassFactory_Vtbl {
     pub CreateError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineClassFactory2, IMFMediaEngineClassFactory2_Vtbl, 0x09083cef_867f_4bf6_8776_dee3a7b42fca);
-impl std::ops::Deref for IMFMediaEngineClassFactory2 {
+impl core::ops::Deref for IMFMediaEngineClassFactory2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8138,7 +8138,7 @@ pub struct IMFMediaEngineClassFactory2_Vtbl {
     pub CreateMediaKeys2: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineClassFactory3, IMFMediaEngineClassFactory3_Vtbl, 0x3787614f_65f7_4003_b673_ead8293a0e60);
-impl std::ops::Deref for IMFMediaEngineClassFactory3 {
+impl core::ops::Deref for IMFMediaEngineClassFactory3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8164,7 +8164,7 @@ pub struct IMFMediaEngineClassFactory3_Vtbl {
     CreateMediaKeySystemAccess: usize,
 }
 windows_core::imp::define_interface!(IMFMediaEngineClassFactory4, IMFMediaEngineClassFactory4_Vtbl, 0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186);
-impl std::ops::Deref for IMFMediaEngineClassFactory4 {
+impl core::ops::Deref for IMFMediaEngineClassFactory4 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8185,7 +8185,7 @@ pub struct IMFMediaEngineClassFactory4_Vtbl {
     pub CreateContentDecryptionModuleFactory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineClassFactoryEx, IMFMediaEngineClassFactoryEx_Vtbl, 0xc56156c6_ea5b_48a5_9df8_fbe035d0929e);
-impl std::ops::Deref for IMFMediaEngineClassFactoryEx {
+impl core::ops::Deref for IMFMediaEngineClassFactoryEx {
     type Target = IMFMediaEngineClassFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8225,7 +8225,7 @@ pub struct IMFMediaEngineClassFactoryEx_Vtbl {
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineEME, IMFMediaEngineEME_Vtbl, 0x50dc93e4_ba4f_4275_ae66_83e836e57469);
-impl std::ops::Deref for IMFMediaEngineEME {
+impl core::ops::Deref for IMFMediaEngineEME {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8251,7 +8251,7 @@ pub struct IMFMediaEngineEME_Vtbl {
     pub SetMediaKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineEMENotify, IMFMediaEngineEMENotify_Vtbl, 0x9e184d15_cdb7_4f86_b49e_566689f4a601);
-impl std::ops::Deref for IMFMediaEngineEMENotify {
+impl core::ops::Deref for IMFMediaEngineEMENotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8276,7 +8276,7 @@ pub struct IMFMediaEngineEMENotify_Vtbl {
     pub WaitingForKey: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFMediaEngineEx, IMFMediaEngineEx_Vtbl, 0x83015ead_b1e6_40d0_a98a_37145ffe1ad1);
-impl std::ops::Deref for IMFMediaEngineEx {
+impl core::ops::Deref for IMFMediaEngineEx {
     type Target = IMFMediaEngine;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8482,7 +8482,7 @@ pub struct IMFMediaEngineEx_Vtbl {
     pub EnableTimeUpdateTimer: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineExtension, IMFMediaEngineExtension_Vtbl, 0x2f69d622_20b5_41e9_afdf_89ced1dda04e);
-impl std::ops::Deref for IMFMediaEngineExtension {
+impl core::ops::Deref for IMFMediaEngineExtension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8530,7 +8530,7 @@ pub struct IMFMediaEngineExtension_Vtbl {
     pub EndCreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineNeedKeyNotify, IMFMediaEngineNeedKeyNotify_Vtbl, 0x46a30204_a696_4b18_8804_246b8f031bb1);
-impl std::ops::Deref for IMFMediaEngineNeedKeyNotify {
+impl core::ops::Deref for IMFMediaEngineNeedKeyNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8548,7 +8548,7 @@ pub struct IMFMediaEngineNeedKeyNotify_Vtbl {
     pub NeedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32),
 }
 windows_core::imp::define_interface!(IMFMediaEngineNotify, IMFMediaEngineNotify_Vtbl, 0xfee7c112_e776_42b5_9bbf_0048524e2bd5);
-impl std::ops::Deref for IMFMediaEngineNotify {
+impl core::ops::Deref for IMFMediaEngineNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8566,7 +8566,7 @@ pub struct IMFMediaEngineNotify_Vtbl {
     pub EventNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineOPMInfo, IMFMediaEngineOPMInfo_Vtbl, 0x765763e6_6c01_4b01_bb0f_b829f60ed28c);
-impl std::ops::Deref for IMFMediaEngineOPMInfo {
+impl core::ops::Deref for IMFMediaEngineOPMInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8584,7 +8584,7 @@ pub struct IMFMediaEngineOPMInfo_Vtbl {
     pub GetOPMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_OPM_STATUS, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineProtectedContent, IMFMediaEngineProtectedContent_Vtbl, 0x9f8021e8_9c8c_487e_bb5c_79aa4779938c);
-impl std::ops::Deref for IMFMediaEngineProtectedContent {
+impl core::ops::Deref for IMFMediaEngineProtectedContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8636,7 +8636,7 @@ pub struct IMFMediaEngineProtectedContent_Vtbl {
     pub SetApplicationCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineSrcElements, IMFMediaEngineSrcElements_Vtbl, 0x7a5e5354_b114_4c72_b991_3131d75032ea);
-impl std::ops::Deref for IMFMediaEngineSrcElements {
+impl core::ops::Deref for IMFMediaEngineSrcElements {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8682,7 +8682,7 @@ pub struct IMFMediaEngineSrcElements_Vtbl {
     pub RemoveAllElements: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineSrcElementsEx, IMFMediaEngineSrcElementsEx_Vtbl, 0x654a6bb3_e1a3_424a_9908_53a43a0dfda0);
-impl std::ops::Deref for IMFMediaEngineSrcElementsEx {
+impl core::ops::Deref for IMFMediaEngineSrcElementsEx {
     type Target = IMFMediaEngineSrcElements;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8711,7 +8711,7 @@ pub struct IMFMediaEngineSrcElementsEx_Vtbl {
     pub GetKeySystem: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineSupportsSourceTransfer, IMFMediaEngineSupportsSourceTransfer_Vtbl, 0xa724b056_1b2e_4642_a6f3_db9420c52908);
-impl std::ops::Deref for IMFMediaEngineSupportsSourceTransfer {
+impl core::ops::Deref for IMFMediaEngineSupportsSourceTransfer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8743,7 +8743,7 @@ pub struct IMFMediaEngineSupportsSourceTransfer_Vtbl {
     pub AttachMediaSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineTransferSource, IMFMediaEngineTransferSource_Vtbl, 0x24230452_fe54_40cc_94f3_fcc394c340d6);
-impl std::ops::Deref for IMFMediaEngineTransferSource {
+impl core::ops::Deref for IMFMediaEngineTransferSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8764,7 +8764,7 @@ pub struct IMFMediaEngineTransferSource_Vtbl {
     pub TransferSourceToMediaEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEngineWebSupport, IMFMediaEngineWebSupport_Vtbl, 0xba2743a1_07e0_48ef_84b6_9a2ed023ca6c);
-impl std::ops::Deref for IMFMediaEngineWebSupport {
+impl core::ops::Deref for IMFMediaEngineWebSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8791,7 +8791,7 @@ pub struct IMFMediaEngineWebSupport_Vtbl {
     pub DisconnectWebAudio: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaError, IMFMediaError_Vtbl, 0xfc0e10d2_ab2a_4501_a951_06bb1075184c);
-impl std::ops::Deref for IMFMediaError {
+impl core::ops::Deref for IMFMediaError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8821,7 +8821,7 @@ pub struct IMFMediaError_Vtbl {
     pub SetExtendedErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEvent, IMFMediaEvent_Vtbl, 0xdf598932_f10c_4e39_bba2_c308f101daa3);
-impl std::ops::Deref for IMFMediaEvent {
+impl core::ops::Deref for IMFMediaEvent {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8855,7 +8855,7 @@ pub struct IMFMediaEvent_Vtbl {
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEventGenerator, IMFMediaEventGenerator_Vtbl, 0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d);
-impl std::ops::Deref for IMFMediaEventGenerator {
+impl core::ops::Deref for IMFMediaEventGenerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8894,7 +8894,7 @@ pub struct IMFMediaEventGenerator_Vtbl {
     pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, windows_core::HRESULT, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaEventQueue, IMFMediaEventQueue_Vtbl, 0x36f846fc_2256_48b6_b58e_e2b638316581);
-impl std::ops::Deref for IMFMediaEventQueue {
+impl core::ops::Deref for IMFMediaEventQueue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8951,7 +8951,7 @@ pub struct IMFMediaEventQueue_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaKeySession, IMFMediaKeySession_Vtbl, 0x24fa67d5_d1d0_4dc5_995c_c0efdc191fb5);
-impl std::ops::Deref for IMFMediaKeySession {
+impl core::ops::Deref for IMFMediaKeySession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -8987,7 +8987,7 @@ pub struct IMFMediaKeySession_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaKeySession2, IMFMediaKeySession2_Vtbl, 0xe9707e05_6d55_4636_b185_3de21210bd75);
-impl std::ops::Deref for IMFMediaKeySession2 {
+impl core::ops::Deref for IMFMediaKeySession2 {
     type Target = IMFMediaKeySession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9033,7 +9033,7 @@ pub struct IMFMediaKeySession2_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaKeySessionNotify, IMFMediaKeySessionNotify_Vtbl, 0x6a0083f9_8947_4c1d_9ce0_cdee22b23135);
-impl std::ops::Deref for IMFMediaKeySessionNotify {
+impl core::ops::Deref for IMFMediaKeySessionNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9062,7 +9062,7 @@ pub struct IMFMediaKeySessionNotify_Vtbl {
     pub KeyError: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32),
 }
 windows_core::imp::define_interface!(IMFMediaKeySessionNotify2, IMFMediaKeySessionNotify2_Vtbl, 0xc3a9e92a_da88_46b0_a110_6cf953026cb9);
-impl std::ops::Deref for IMFMediaKeySessionNotify2 {
+impl core::ops::Deref for IMFMediaKeySessionNotify2 {
     type Target = IMFMediaKeySessionNotify;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9087,7 +9087,7 @@ pub struct IMFMediaKeySessionNotify2_Vtbl {
     pub KeyStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFMediaKeySystemAccess, IMFMediaKeySystemAccess_Vtbl, 0xaec63fda_7a97_4944_b35c_6c6df8085cc3);
-impl std::ops::Deref for IMFMediaKeySystemAccess {
+impl core::ops::Deref for IMFMediaKeySystemAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9127,7 +9127,7 @@ pub struct IMFMediaKeySystemAccess_Vtbl {
     pub KeySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaKeys, IMFMediaKeys_Vtbl, 0x5cb31c05_61ff_418f_afda_caaf41421a38);
-impl std::ops::Deref for IMFMediaKeys {
+impl core::ops::Deref for IMFMediaKeys {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9164,7 +9164,7 @@ pub struct IMFMediaKeys_Vtbl {
     pub GetSuspendNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaKeys2, IMFMediaKeys2_Vtbl, 0x45892507_ad66_4de2_83a2_acbb13cd8d43);
-impl std::ops::Deref for IMFMediaKeys2 {
+impl core::ops::Deref for IMFMediaKeys2 {
     type Target = IMFMediaKeys;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9195,7 +9195,7 @@ pub struct IMFMediaKeys2_Vtbl {
     pub GetDOMException: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSession, IMFMediaSession_Vtbl, 0x90377834_21d0_4dee_8214_ba2e3e6c1127);
-impl std::ops::Deref for IMFMediaSession {
+impl core::ops::Deref for IMFMediaSession {
     type Target = IMFMediaEventGenerator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9255,7 +9255,7 @@ pub struct IMFMediaSession_Vtbl {
     pub GetFullTopology: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSharingEngine, IMFMediaSharingEngine_Vtbl, 0x8d3ce1bf_2367_40e0_9eee_40d377cc1b46);
-impl std::ops::Deref for IMFMediaSharingEngine {
+impl core::ops::Deref for IMFMediaSharingEngine {
     type Target = IMFMediaEngine;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9273,7 +9273,7 @@ pub struct IMFMediaSharingEngine_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEVICE_INFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSharingEngineClassFactory, IMFMediaSharingEngineClassFactory_Vtbl, 0x524d2bc4_b2b1_4fe5_8fac_fa4e4512b4e0);
-impl std::ops::Deref for IMFMediaSharingEngineClassFactory {
+impl core::ops::Deref for IMFMediaSharingEngineClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9295,7 +9295,7 @@ pub struct IMFMediaSharingEngineClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSink, IMFMediaSink_Vtbl, 0x6ef2a660_47c0_4666_b13d_cbb717f2fa2c);
-impl std::ops::Deref for IMFMediaSink {
+impl core::ops::Deref for IMFMediaSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9357,7 +9357,7 @@ pub struct IMFMediaSink_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSinkPreroll, IMFMediaSinkPreroll_Vtbl, 0x5dfd4b2a_7674_4110_a4e6_8a68fd5f3688);
-impl std::ops::Deref for IMFMediaSinkPreroll {
+impl core::ops::Deref for IMFMediaSinkPreroll {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9375,7 +9375,7 @@ pub struct IMFMediaSinkPreroll_Vtbl {
     pub NotifyPreroll: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSource, IMFMediaSource_Vtbl, 0x279a808d_aec7_40c8_9c6b_a6b492c78a66);
-impl std::ops::Deref for IMFMediaSource {
+impl core::ops::Deref for IMFMediaSource {
     type Target = IMFMediaEventGenerator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9418,7 +9418,7 @@ pub struct IMFMediaSource_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSource2, IMFMediaSource2_Vtbl, 0xfbb03414_d13b_4786_8319_5ac51fc0a136);
-impl std::ops::Deref for IMFMediaSource2 {
+impl core::ops::Deref for IMFMediaSource2 {
     type Target = IMFMediaSourceEx;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9439,7 +9439,7 @@ pub struct IMFMediaSource2_Vtbl {
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSourceEx, IMFMediaSourceEx_Vtbl, 0x3c9b2eb9_86d5_4514_a394_f56664f9f0d8);
-impl std::ops::Deref for IMFMediaSourceEx {
+impl core::ops::Deref for IMFMediaSourceEx {
     type Target = IMFMediaSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9470,7 +9470,7 @@ pub struct IMFMediaSourceEx_Vtbl {
     pub SetD3DManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSourceExtension, IMFMediaSourceExtension_Vtbl, 0xe467b94e_a713_4562_a802_816a42e9008a);
-impl std::ops::Deref for IMFMediaSourceExtension {
+impl core::ops::Deref for IMFMediaSourceExtension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9535,7 +9535,7 @@ pub struct IMFMediaSourceExtension_Vtbl {
     pub GetSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<IMFSourceBuffer>,
 }
 windows_core::imp::define_interface!(IMFMediaSourceExtensionLiveSeekableRange, IMFMediaSourceExtensionLiveSeekableRange_Vtbl, 0x5d1abfd6_450a_4d92_9efc_d6b6cbc1f4da);
-impl std::ops::Deref for IMFMediaSourceExtensionLiveSeekableRange {
+impl core::ops::Deref for IMFMediaSourceExtensionLiveSeekableRange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9557,7 +9557,7 @@ pub struct IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
     pub ClearLiveSeekableRange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSourceExtensionNotify, IMFMediaSourceExtensionNotify_Vtbl, 0xa7901327_05dd_4469_a7b7_0e01979e361d);
-impl std::ops::Deref for IMFMediaSourceExtensionNotify {
+impl core::ops::Deref for IMFMediaSourceExtensionNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9583,7 +9583,7 @@ pub struct IMFMediaSourceExtensionNotify_Vtbl {
     pub OnSourceClose: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFMediaSourcePresentationProvider, IMFMediaSourcePresentationProvider_Vtbl, 0x0e1d600a_c9f3_442d_8c51_a42d2d49452f);
-impl std::ops::Deref for IMFMediaSourcePresentationProvider {
+impl core::ops::Deref for IMFMediaSourcePresentationProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9604,7 +9604,7 @@ pub struct IMFMediaSourcePresentationProvider_Vtbl {
     pub ForceEndOfPresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaSourceTopologyProvider, IMFMediaSourceTopologyProvider_Vtbl, 0x0e1d6009_c9f3_442d_8c51_a42d2d49452f);
-impl std::ops::Deref for IMFMediaSourceTopologyProvider {
+impl core::ops::Deref for IMFMediaSourceTopologyProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9626,7 +9626,7 @@ pub struct IMFMediaSourceTopologyProvider_Vtbl {
     pub GetMediaSourceTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaStream, IMFMediaStream_Vtbl, 0xd182108f_4ec6_443f_aa42_a71106ec825f);
-impl std::ops::Deref for IMFMediaStream {
+impl core::ops::Deref for IMFMediaStream {
     type Target = IMFMediaEventGenerator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9657,7 +9657,7 @@ pub struct IMFMediaStream_Vtbl {
     pub RequestSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaStream2, IMFMediaStream2_Vtbl, 0xc5bc37d6_75c7_46a1_a132_81b5f723c20f);
-impl std::ops::Deref for IMFMediaStream2 {
+impl core::ops::Deref for IMFMediaStream2 {
     type Target = IMFMediaStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9680,7 +9680,7 @@ pub struct IMFMediaStream2_Vtbl {
     pub GetStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_STREAM_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaStreamSourceSampleRequest, IMFMediaStreamSourceSampleRequest_Vtbl, 0x380b9af9_a85b_4e78_a2af_ea5ce645c6b4);
-impl std::ops::Deref for IMFMediaStreamSourceSampleRequest {
+impl core::ops::Deref for IMFMediaStreamSourceSampleRequest {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9701,7 +9701,7 @@ pub struct IMFMediaStreamSourceSampleRequest_Vtbl {
     pub SetSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaTimeRange, IMFMediaTimeRange_Vtbl, 0xdb71a2fc_078a_414e_9df9_8c2531b0aa6c);
-impl std::ops::Deref for IMFMediaTimeRange {
+impl core::ops::Deref for IMFMediaTimeRange {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9741,7 +9741,7 @@ pub struct IMFMediaTimeRange_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaType, IMFMediaType_Vtbl, 0x44ae0fa8_ea31_4109_8d2e_4cae4997c555);
-impl std::ops::Deref for IMFMediaType {
+impl core::ops::Deref for IMFMediaType {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9781,7 +9781,7 @@ pub struct IMFMediaType_Vtbl {
     pub FreeRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMediaTypeHandler, IMFMediaTypeHandler_Vtbl, 0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5);
-impl std::ops::Deref for IMFMediaTypeHandler {
+impl core::ops::Deref for IMFMediaTypeHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9829,7 +9829,7 @@ pub struct IMFMediaTypeHandler_Vtbl {
     pub GetMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMetadata, IMFMetadata_Vtbl, 0xf88cfb8c_ef16_4991_b450_cb8c69e51704);
-impl std::ops::Deref for IMFMetadata {
+impl core::ops::Deref for IMFMetadata {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9887,7 +9887,7 @@ pub struct IMFMetadata_Vtbl {
     pub GetAllPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMetadataProvider, IMFMetadataProvider_Vtbl, 0x56181d2d_e221_4adb_b1c8_3cee6a53f76f);
-impl std::ops::Deref for IMFMetadataProvider {
+impl core::ops::Deref for IMFMetadataProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9909,7 +9909,7 @@ pub struct IMFMetadataProvider_Vtbl {
     pub GetMFMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMuxStreamAttributesManager, IMFMuxStreamAttributesManager_Vtbl, 0xce8bd576_e440_43b3_be34_1e53f565f7e8);
-impl std::ops::Deref for IMFMuxStreamAttributesManager {
+impl core::ops::Deref for IMFMuxStreamAttributesManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9933,7 +9933,7 @@ pub struct IMFMuxStreamAttributesManager_Vtbl {
     pub GetAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMuxStreamMediaTypeManager, IMFMuxStreamMediaTypeManager_Vtbl, 0x505a2c72_42f7_4690_aeab_8f513d0ffdb8);
-impl std::ops::Deref for IMFMuxStreamMediaTypeManager {
+impl core::ops::Deref for IMFMuxStreamMediaTypeManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -9975,7 +9975,7 @@ pub struct IMFMuxStreamMediaTypeManager_Vtbl {
     pub GetStreamConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFMuxStreamSampleManager, IMFMuxStreamSampleManager_Vtbl, 0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca);
-impl std::ops::Deref for IMFMuxStreamSampleManager {
+impl core::ops::Deref for IMFMuxStreamSampleManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10003,7 +10003,7 @@ pub struct IMFMuxStreamSampleManager_Vtbl {
     pub GetStreamConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
 }
 windows_core::imp::define_interface!(IMFNetCredential, IMFNetCredential_Vtbl, 0x5b87ef6a_7ed8_434f_ba0e_184fac1628d1);
-impl std::ops::Deref for IMFNetCredential {
+impl core::ops::Deref for IMFNetCredential {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10050,7 +10050,7 @@ pub struct IMFNetCredential_Vtbl {
     pub LoggedOnUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetCredentialCache, IMFNetCredentialCache_Vtbl, 0x5b87ef6c_7ed8_434f_ba0e_184fac1628d1);
-impl std::ops::Deref for IMFNetCredentialCache {
+impl core::ops::Deref for IMFNetCredentialCache {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10087,7 +10087,7 @@ pub struct IMFNetCredentialCache_Vtbl {
     pub SetUserOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetCredentialManager, IMFNetCredentialManager_Vtbl, 0x5b87ef6b_7ed8_434f_ba0e_184fac1628d1);
-impl std::ops::Deref for IMFNetCredentialManager {
+impl core::ops::Deref for IMFNetCredentialManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10125,7 +10125,7 @@ pub struct IMFNetCredentialManager_Vtbl {
     pub SetGood: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetCrossOriginSupport, IMFNetCrossOriginSupport_Vtbl, 0xbc2b7d44_a72d_49d5_8376_1480dee58b22);
-impl std::ops::Deref for IMFNetCrossOriginSupport {
+impl core::ops::Deref for IMFNetCrossOriginSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10157,7 +10157,7 @@ pub struct IMFNetCrossOriginSupport_Vtbl {
     pub IsSameOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetProxyLocator, IMFNetProxyLocator_Vtbl, 0xe9cd0383_a268_4bb4_82de_658d53574d41);
-impl std::ops::Deref for IMFNetProxyLocator {
+impl core::ops::Deref for IMFNetProxyLocator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10197,7 +10197,7 @@ pub struct IMFNetProxyLocator_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetProxyLocatorFactory, IMFNetProxyLocatorFactory_Vtbl, 0xe9cd0384_a268_4bb4_82de_658d53574d41);
-impl std::ops::Deref for IMFNetProxyLocatorFactory {
+impl core::ops::Deref for IMFNetProxyLocatorFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10219,7 +10219,7 @@ pub struct IMFNetProxyLocatorFactory_Vtbl {
     pub CreateProxyLocator: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetResourceFilter, IMFNetResourceFilter_Vtbl, 0x091878a3_bf11_4a5c_bc9f_33995b06ef2d);
-impl std::ops::Deref for IMFNetResourceFilter {
+impl core::ops::Deref for IMFNetResourceFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10248,7 +10248,7 @@ pub struct IMFNetResourceFilter_Vtbl {
     pub OnSendingRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFNetSchemeHandlerConfig, IMFNetSchemeHandlerConfig_Vtbl, 0x7be19e73_c9bf_468a_ac5a_a5e8653bec87);
-impl std::ops::Deref for IMFNetSchemeHandlerConfig {
+impl core::ops::Deref for IMFNetSchemeHandlerConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10276,7 +10276,7 @@ pub struct IMFNetSchemeHandlerConfig_Vtbl {
     pub ResetProtocolRolloverSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFObjectReferenceStream, IMFObjectReferenceStream_Vtbl, 0x09ef5be3_c8a7_469e_8b70_73bf25bb193f);
-impl std::ops::Deref for IMFObjectReferenceStream {
+impl core::ops::Deref for IMFObjectReferenceStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10301,7 +10301,7 @@ pub struct IMFObjectReferenceStream_Vtbl {
     pub LoadReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFOutputPolicy, IMFOutputPolicy_Vtbl, 0x7f00f10a_daed_41af_ab26_5fdfa4dfba3c);
-impl std::ops::Deref for IMFOutputPolicy {
+impl core::ops::Deref for IMFOutputPolicy {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10330,7 +10330,7 @@ pub struct IMFOutputPolicy_Vtbl {
     pub GetMinimumGRLVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFOutputSchema, IMFOutputSchema_Vtbl, 0x7be0fc5b_abd9_44fb_a5c8_f50136e71599);
-impl std::ops::Deref for IMFOutputSchema {
+impl core::ops::Deref for IMFOutputSchema {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10359,7 +10359,7 @@ pub struct IMFOutputSchema_Vtbl {
     pub GetOriginatorID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFOutputTrustAuthority, IMFOutputTrustAuthority_Vtbl, 0xd19f8e94_b126_4446_890c_5dcb7ad71453);
-impl std::ops::Deref for IMFOutputTrustAuthority {
+impl core::ops::Deref for IMFOutputTrustAuthority {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10382,7 +10382,7 @@ pub struct IMFOutputTrustAuthority_Vtbl {
     pub SetPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPMPClient, IMFPMPClient_Vtbl, 0x6c4e655d_ead8_4421_b6b9_54dcdbbdf820);
-impl std::ops::Deref for IMFPMPClient {
+impl core::ops::Deref for IMFPMPClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10403,7 +10403,7 @@ pub struct IMFPMPClient_Vtbl {
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPMPClientApp, IMFPMPClientApp_Vtbl, 0xc004f646_be2c_48f3_93a2_a0983eba1108);
-impl std::ops::Deref for IMFPMPClientApp {
+impl core::ops::Deref for IMFPMPClientApp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10424,7 +10424,7 @@ pub struct IMFPMPClientApp_Vtbl {
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPMPHost, IMFPMPHost_Vtbl, 0xf70ca1a9_fdc7_4782_b994_adffb1c98606);
-impl std::ops::Deref for IMFPMPHost {
+impl core::ops::Deref for IMFPMPHost {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10444,7 +10444,7 @@ impl IMFPMPHost {
         P0: windows_core::Param<super::super::System::Com::IStream>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateObjectByCLSID)(windows_core::Interface::as_raw(self), clsid, pstream.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -10459,7 +10459,7 @@ pub struct IMFPMPHost_Vtbl {
     CreateObjectByCLSID: usize,
 }
 windows_core::imp::define_interface!(IMFPMPHostApp, IMFPMPHostApp_Vtbl, 0x84d2054a_3aa1_4728_a3b0_440a418cf49c);
-impl std::ops::Deref for IMFPMPHostApp {
+impl core::ops::Deref for IMFPMPHostApp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10480,7 +10480,7 @@ impl IMFPMPHostApp {
         P1: windows_core::Param<super::super::System::Com::IStream>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).ActivateClassById)(windows_core::Interface::as_raw(self), id.param().abi(), pstream.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -10495,7 +10495,7 @@ pub struct IMFPMPHostApp_Vtbl {
     ActivateClassById: usize,
 }
 windows_core::imp::define_interface!(IMFPMPServer, IMFPMPServer_Vtbl, 0x994e23af_1cc2_493c_b9fa_46f1cb040fa4);
-impl std::ops::Deref for IMFPMPServer {
+impl core::ops::Deref for IMFPMPServer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10513,7 +10513,7 @@ impl IMFPMPServer {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateObjectByCLSID)(windows_core::Interface::as_raw(self), clsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -10525,7 +10525,7 @@ pub struct IMFPMPServer_Vtbl {
     pub CreateObjectByCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPMediaItem, IMFPMediaItem_Vtbl, 0x90eb3e6b_ecbf_45cc_b1da_c6fe3ea70d57);
-impl std::ops::Deref for IMFPMediaItem {
+impl core::ops::Deref for IMFPMediaItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10637,7 +10637,7 @@ pub struct IMFPMediaItem_Vtbl {
     GetMetadata: usize,
 }
 windows_core::imp::define_interface!(IMFPMediaPlayer, IMFPMediaPlayer_Vtbl, 0xa714590a_58af_430a_85bf_44f5ec838d85);
-impl std::ops::Deref for IMFPMediaPlayer {
+impl core::ops::Deref for IMFPMediaPlayer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10834,7 +10834,7 @@ pub struct IMFPMediaPlayer_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPMediaPlayerCallback, IMFPMediaPlayerCallback_Vtbl, 0x766c8ffb_5fdb_4fea_a28d_b912996f51bd);
-impl std::ops::Deref for IMFPMediaPlayerCallback {
+impl core::ops::Deref for IMFPMediaPlayerCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10856,7 +10856,7 @@ pub struct IMFPMediaPlayerCallback_Vtbl {
     OnMediaPlayerEvent: usize,
 }
 windows_core::imp::define_interface!(IMFPluginControl, IMFPluginControl_Vtbl, 0x5c6c44bf_1db6_435b_9249_e8cd10fdec96);
-impl std::ops::Deref for IMFPluginControl {
+impl core::ops::Deref for IMFPluginControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10905,7 +10905,7 @@ pub struct IMFPluginControl_Vtbl {
     pub SetDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPluginControl2, IMFPluginControl2_Vtbl, 0xc6982083_3ddc_45cb_af5e_0f7a8ce4de77);
-impl std::ops::Deref for IMFPluginControl2 {
+impl core::ops::Deref for IMFPluginControl2 {
     type Target = IMFPluginControl;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10923,7 +10923,7 @@ pub struct IMFPluginControl2_Vtbl {
     pub SetPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, MF_PLUGIN_CONTROL_POLICY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPresentationClock, IMFPresentationClock_Vtbl, 0x868ce85c_8ea9_4f55_ab82_b009a910a805);
-impl std::ops::Deref for IMFPresentationClock {
+impl core::ops::Deref for IMFPresentationClock {
     type Target = IMFClock;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -10980,7 +10980,7 @@ pub struct IMFPresentationClock_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPresentationDescriptor, IMFPresentationDescriptor_Vtbl, 0x03cb2711_24d7_4db6_a17f_f3a7a479a536);
-impl std::ops::Deref for IMFPresentationDescriptor {
+impl core::ops::Deref for IMFPresentationDescriptor {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11016,7 +11016,7 @@ pub struct IMFPresentationDescriptor_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFPresentationTimeSource, IMFPresentationTimeSource_Vtbl, 0x7ff12cce_f76f_41c2_863b_1666c8e5e139);
-impl std::ops::Deref for IMFPresentationTimeSource {
+impl core::ops::Deref for IMFPresentationTimeSource {
     type Target = IMFClock;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11035,7 +11035,7 @@ pub struct IMFPresentationTimeSource_Vtbl {
     pub GetUnderlyingClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFProtectedEnvironmentAccess, IMFProtectedEnvironmentAccess_Vtbl, 0xef5dc845_f0d9_4ec9_b00c_cb5183d38434);
-impl std::ops::Deref for IMFProtectedEnvironmentAccess {
+impl core::ops::Deref for IMFProtectedEnvironmentAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11057,7 +11057,7 @@ pub struct IMFProtectedEnvironmentAccess_Vtbl {
     pub ReadGRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFQualityAdvise, IMFQualityAdvise_Vtbl, 0xec15e2e9_e36b_4f7c_8758_77d452ef4ce7);
-impl std::ops::Deref for IMFQualityAdvise {
+impl core::ops::Deref for IMFQualityAdvise {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11093,7 +11093,7 @@ pub struct IMFQualityAdvise_Vtbl {
     pub DropTime: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFQualityAdvise2, IMFQualityAdvise2_Vtbl, 0xf3706f0d_8ea2_4886_8000_7155e9ec2eae);
-impl std::ops::Deref for IMFQualityAdvise2 {
+impl core::ops::Deref for IMFQualityAdvise2 {
     type Target = IMFQualityAdvise;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11115,7 +11115,7 @@ pub struct IMFQualityAdvise2_Vtbl {
     pub NotifyQualityEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFQualityAdviseLimits, IMFQualityAdviseLimits_Vtbl, 0xdfcd8e4d_30b5_4567_acaa_8eb5b7853dc9);
-impl std::ops::Deref for IMFQualityAdviseLimits {
+impl core::ops::Deref for IMFQualityAdviseLimits {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11139,7 +11139,7 @@ pub struct IMFQualityAdviseLimits_Vtbl {
     pub GetMinimumQualityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_QUALITY_LEVEL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFQualityManager, IMFQualityManager_Vtbl, 0x8d009d86_5b9f_4115_b1fc_9f80d52ab8ab);
-impl std::ops::Deref for IMFQualityManager {
+impl core::ops::Deref for IMFQualityManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11195,7 +11195,7 @@ pub struct IMFQualityManager_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRateControl, IMFRateControl_Vtbl, 0x88ddcd21_03c3_4275_91ed_55ee3929328f);
-impl std::ops::Deref for IMFRateControl {
+impl core::ops::Deref for IMFRateControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11220,7 +11220,7 @@ pub struct IMFRateControl_Vtbl {
     pub GetRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRateSupport, IMFRateSupport_Vtbl, 0x0a9ccdbc_d797_4563_9667_94ec5d79292d);
-impl std::ops::Deref for IMFRateSupport {
+impl core::ops::Deref for IMFRateSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11257,7 +11257,7 @@ pub struct IMFRateSupport_Vtbl {
     pub IsRateSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, f32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFReadWriteClassFactory, IMFReadWriteClassFactory_Vtbl, 0xe7fe2e12_661c_40da_92f9_4f002ab67627);
-impl std::ops::Deref for IMFReadWriteClassFactory {
+impl core::ops::Deref for IMFReadWriteClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11271,7 +11271,7 @@ impl IMFReadWriteClassFactory {
         P1: windows_core::Param<IMFAttributes>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateInstanceFromURL)(windows_core::Interface::as_raw(self), clsid, pwszurl.param().abi(), pattributes.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateInstanceFromObject<P0, P1, T>(&self, clsid: *const windows_core::GUID, punkobject: P0, pattributes: P1) -> windows_core::Result<T>
@@ -11280,7 +11280,7 @@ impl IMFReadWriteClassFactory {
         P1: windows_core::Param<IMFAttributes>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateInstanceFromObject)(windows_core::Interface::as_raw(self), clsid, punkobject.param().abi(), pattributes.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -11291,7 +11291,7 @@ pub struct IMFReadWriteClassFactory_Vtbl {
     pub CreateInstanceFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRealTimeClient, IMFRealTimeClient_Vtbl, 0x2347d60b_3fb5_480c_8803_8df3adcd3ef0);
-impl std::ops::Deref for IMFRealTimeClient {
+impl core::ops::Deref for IMFRealTimeClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11320,7 +11320,7 @@ pub struct IMFRealTimeClient_Vtbl {
     pub SetWorkQueue: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRealTimeClientEx, IMFRealTimeClientEx_Vtbl, 0x03910848_ab16_4611_b100_17b88ae2f248);
-impl std::ops::Deref for IMFRealTimeClientEx {
+impl core::ops::Deref for IMFRealTimeClientEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11349,7 +11349,7 @@ pub struct IMFRealTimeClientEx_Vtbl {
     pub SetWorkQueueEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRelativePanelReport, IMFRelativePanelReport_Vtbl, 0xf25362ea_2c0e_447f_81e2_755914cdc0c3);
-impl std::ops::Deref for IMFRelativePanelReport {
+impl core::ops::Deref for IMFRelativePanelReport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11368,7 +11368,7 @@ pub struct IMFRelativePanelReport_Vtbl {
     pub GetRelativePanel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRelativePanelWatcher, IMFRelativePanelWatcher_Vtbl, 0x421af7f6_573e_4ad0_8fda_2e57cedb18c6);
-impl std::ops::Deref for IMFRelativePanelWatcher {
+impl core::ops::Deref for IMFRelativePanelWatcher {
     type Target = IMFShutdown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11403,7 +11403,7 @@ pub struct IMFRelativePanelWatcher_Vtbl {
     pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRemoteAsyncCallback, IMFRemoteAsyncCallback_Vtbl, 0xa27003d0_2354_4f2a_8d6a_ab7cff15437e);
-impl std::ops::Deref for IMFRemoteAsyncCallback {
+impl core::ops::Deref for IMFRemoteAsyncCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11424,7 +11424,7 @@ pub struct IMFRemoteAsyncCallback_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRemoteDesktopPlugin, IMFRemoteDesktopPlugin_Vtbl, 0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a);
-impl std::ops::Deref for IMFRemoteDesktopPlugin {
+impl core::ops::Deref for IMFRemoteDesktopPlugin {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11445,7 +11445,7 @@ pub struct IMFRemoteDesktopPlugin_Vtbl {
     pub UpdateTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFRemoteProxy, IMFRemoteProxy_Vtbl, 0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4);
-impl std::ops::Deref for IMFRemoteProxy {
+impl core::ops::Deref for IMFRemoteProxy {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11467,7 +11467,7 @@ pub struct IMFRemoteProxy_Vtbl {
     pub GetRemoteHost: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSAMIStyle, IMFSAMIStyle_Vtbl, 0xa7e025dd_5303_4a62_89d6_e747e1efac73);
-impl std::ops::Deref for IMFSAMIStyle {
+impl core::ops::Deref for IMFSAMIStyle {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11503,7 +11503,7 @@ pub struct IMFSAMIStyle_Vtbl {
     pub GetSelectedStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSSLCertificateManager, IMFSSLCertificateManager_Vtbl, 0x61f7d887_1230_4a8b_aeba_8ad434d1a64d);
-impl std::ops::Deref for IMFSSLCertificateManager {
+impl core::ops::Deref for IMFSSLCertificateManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11555,7 +11555,7 @@ pub struct IMFSSLCertificateManager_Vtbl {
     pub OnServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSample, IMFSample_Vtbl, 0xc40a00f2_b93a_4d80_ae8c_5a1c634f58e4);
-impl std::ops::Deref for IMFSample {
+impl core::ops::Deref for IMFSample {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11638,7 +11638,7 @@ pub struct IMFSample_Vtbl {
     pub CopyToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSampleAllocatorControl, IMFSampleAllocatorControl_Vtbl, 0xda62b958_3a38_4a97_bd27_149c640c0771);
-impl std::ops::Deref for IMFSampleAllocatorControl {
+impl core::ops::Deref for IMFSampleAllocatorControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11663,7 +11663,7 @@ pub struct IMFSampleAllocatorControl_Vtbl {
     pub GetAllocatorUsage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut MFSampleAllocatorUsage) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSampleGrabberSinkCallback, IMFSampleGrabberSinkCallback_Vtbl, 0x8c7b80bf_ee42_4b59_b1df_55668e1bdca8);
-impl std::ops::Deref for IMFSampleGrabberSinkCallback {
+impl core::ops::Deref for IMFSampleGrabberSinkCallback {
     type Target = IMFClockStateSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11692,7 +11692,7 @@ pub struct IMFSampleGrabberSinkCallback_Vtbl {
     pub OnShutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSampleGrabberSinkCallback2, IMFSampleGrabberSinkCallback2_Vtbl, 0xca86aa50_c46e_429e_ab27_16d6ac6844cb);
-impl std::ops::Deref for IMFSampleGrabberSinkCallback2 {
+impl core::ops::Deref for IMFSampleGrabberSinkCallback2 {
     type Target = IMFSampleGrabberSinkCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11713,7 +11713,7 @@ pub struct IMFSampleGrabberSinkCallback2_Vtbl {
     pub OnProcessSampleEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, i64, i64, *const u8, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSampleOutputStream, IMFSampleOutputStream_Vtbl, 0x8feed468_6f7e_440d_869a_49bdd283ad0d);
-impl std::ops::Deref for IMFSampleOutputStream {
+impl core::ops::Deref for IMFSampleOutputStream {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11747,7 +11747,7 @@ pub struct IMFSampleOutputStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSampleProtection, IMFSampleProtection_Vtbl, 0x8e36395f_c7b9_43c4_a54d_512b4af63c95);
-impl std::ops::Deref for IMFSampleProtection {
+impl core::ops::Deref for IMFSampleProtection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11783,7 +11783,7 @@ pub struct IMFSampleProtection_Vtbl {
     pub InitInputProtection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSaveJob, IMFSaveJob_Vtbl, 0xe9931663_80bf_4c6e_98af_5dcf58747d1f);
-impl std::ops::Deref for IMFSaveJob {
+impl core::ops::Deref for IMFSaveJob {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11822,7 +11822,7 @@ pub struct IMFSaveJob_Vtbl {
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSchemeHandler, IMFSchemeHandler_Vtbl, 0x6d4c7b74_52a0_4bb7_b0db_55f29f47a668);
-impl std::ops::Deref for IMFSchemeHandler {
+impl core::ops::Deref for IMFSchemeHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11864,7 +11864,7 @@ pub struct IMFSchemeHandler_Vtbl {
     pub CancelObjectCreation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSecureBuffer, IMFSecureBuffer_Vtbl, 0xc1209904_e584_4752_a2d6_7f21693f8b21);
-impl std::ops::Deref for IMFSecureBuffer {
+impl core::ops::Deref for IMFSecureBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11883,7 +11883,7 @@ pub struct IMFSecureBuffer_Vtbl {
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSecureChannel, IMFSecureChannel_Vtbl, 0xd0ae555d_3b12_4d97_b060_0990bc5aeb67);
-impl std::ops::Deref for IMFSecureChannel {
+impl core::ops::Deref for IMFSecureChannel {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11905,7 +11905,7 @@ pub struct IMFSecureChannel_Vtbl {
     pub SetupSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSeekInfo, IMFSeekInfo_Vtbl, 0x26afea53_d9ed_42b5_ab80_e64f9ee34779);
-impl std::ops::Deref for IMFSeekInfo {
+impl core::ops::Deref for IMFSeekInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11923,7 +11923,7 @@ pub struct IMFSeekInfo_Vtbl {
     pub GetNearestKeyFrames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorActivitiesReport, IMFSensorActivitiesReport_Vtbl, 0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777);
-impl std::ops::Deref for IMFSensorActivitiesReport {
+impl core::ops::Deref for IMFSensorActivitiesReport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11955,7 +11955,7 @@ pub struct IMFSensorActivitiesReport_Vtbl {
     pub GetActivityReportByDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorActivitiesReportCallback, IMFSensorActivitiesReportCallback_Vtbl, 0xde5072ee_dbe3_46dc_8a87_b6f631194751);
-impl std::ops::Deref for IMFSensorActivitiesReportCallback {
+impl core::ops::Deref for IMFSensorActivitiesReportCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11976,7 +11976,7 @@ pub struct IMFSensorActivitiesReportCallback_Vtbl {
     pub OnActivitiesReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorActivityMonitor, IMFSensorActivityMonitor_Vtbl, 0xd0cef145_b3f4_4340_a2e5_7a5080ca05cb);
-impl std::ops::Deref for IMFSensorActivityMonitor {
+impl core::ops::Deref for IMFSensorActivityMonitor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -11998,7 +11998,7 @@ pub struct IMFSensorActivityMonitor_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorActivityReport, IMFSensorActivityReport_Vtbl, 0x3e8c4be1_a8c2_4528_90de_2851bde5fead);
-impl std::ops::Deref for IMFSensorActivityReport {
+impl core::ops::Deref for IMFSensorActivityReport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12030,7 +12030,7 @@ pub struct IMFSensorActivityReport_Vtbl {
     pub GetProcessActivity: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorDevice, IMFSensorDevice_Vtbl, 0xfb9f48f2_2a18_4e28_9730_786f30f04dc4);
-impl std::ops::Deref for IMFSensorDevice {
+impl core::ops::Deref for IMFSensorDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12087,7 +12087,7 @@ pub struct IMFSensorDevice_Vtbl {
     pub GetSensorDeviceMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFSensorDeviceMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorGroup, IMFSensorGroup_Vtbl, 0x4110243a_9757_461f_89f1_f22345bcab4e);
-impl std::ops::Deref for IMFSensorGroup {
+impl core::ops::Deref for IMFSensorGroup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12139,7 +12139,7 @@ pub struct IMFSensorGroup_Vtbl {
     pub CreateMediaSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorProcessActivity, IMFSensorProcessActivity_Vtbl, 0x39dc7f4a_b141_4719_813c_a7f46162a2b8);
-impl std::ops::Deref for IMFSensorProcessActivity {
+impl core::ops::Deref for IMFSensorProcessActivity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12173,7 +12173,7 @@ pub struct IMFSensorProcessActivity_Vtbl {
     pub GetReportTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorProfile, IMFSensorProfile_Vtbl, 0x22f765d1_8dab_4107_846d_56baf72215e7);
-impl std::ops::Deref for IMFSensorProfile {
+impl core::ops::Deref for IMFSensorProfile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12213,7 +12213,7 @@ pub struct IMFSensorProfile_Vtbl {
     pub AddBlockedControl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorProfileCollection, IMFSensorProfileCollection_Vtbl, 0xc95ea55b_0187_48be_9353_8d2507662351);
-impl std::ops::Deref for IMFSensorProfileCollection {
+impl core::ops::Deref for IMFSensorProfileCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12256,7 +12256,7 @@ pub struct IMFSensorProfileCollection_Vtbl {
     pub RemoveProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const SENSORPROFILEID),
 }
 windows_core::imp::define_interface!(IMFSensorStream, IMFSensorStream_Vtbl, 0xe9a42171_c56e_498a_8b39_eda5a070b7fc);
-impl std::ops::Deref for IMFSensorStream {
+impl core::ops::Deref for IMFSensorStream {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12285,7 +12285,7 @@ pub struct IMFSensorStream_Vtbl {
     pub CloneSensorStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSensorTransformFactory, IMFSensorTransformFactory_Vtbl, 0xeed9c2ee_66b4_4f18_a697_ac7d3960215c);
-impl std::ops::Deref for IMFSensorTransformFactory {
+impl core::ops::Deref for IMFSensorTransformFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12329,7 +12329,7 @@ pub struct IMFSensorTransformFactory_Vtbl {
     pub CreateTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSequencerSource, IMFSequencerSource_Vtbl, 0x197cd219_19cb_4de1_a64c_acf2edcbe59e);
-impl std::ops::Deref for IMFSequencerSource {
+impl core::ops::Deref for IMFSequencerSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12373,7 +12373,7 @@ pub struct IMFSequencerSource_Vtbl {
     pub UpdateTopologyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSharingEngineClassFactory, IMFSharingEngineClassFactory_Vtbl, 0x2ba61f92_8305_413b_9733_faf15f259384);
-impl std::ops::Deref for IMFSharingEngineClassFactory {
+impl core::ops::Deref for IMFSharingEngineClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12395,7 +12395,7 @@ pub struct IMFSharingEngineClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFShutdown, IMFShutdown_Vtbl, 0x97ec2ea4_0e42_4937_97ac_9d6d328824e1);
-impl std::ops::Deref for IMFShutdown {
+impl core::ops::Deref for IMFShutdown {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12418,7 +12418,7 @@ pub struct IMFShutdown_Vtbl {
     pub GetShutdownStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFSHUTDOWN_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSignedLibrary, IMFSignedLibrary_Vtbl, 0x4a724bca_ff6a_4c07_8e0d_7a358421cf06);
-impl std::ops::Deref for IMFSignedLibrary {
+impl core::ops::Deref for IMFSignedLibrary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12439,7 +12439,7 @@ pub struct IMFSignedLibrary_Vtbl {
     pub GetProcedureAddress: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSimpleAudioVolume, IMFSimpleAudioVolume_Vtbl, 0x089edf13_cf71_4338_8d13_9e569dbdc319);
-impl std::ops::Deref for IMFSimpleAudioVolume {
+impl core::ops::Deref for IMFSimpleAudioVolume {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12474,7 +12474,7 @@ pub struct IMFSimpleAudioVolume_Vtbl {
     pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSinkWriter, IMFSinkWriter_Vtbl, 0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d);
-impl std::ops::Deref for IMFSinkWriter {
+impl core::ops::Deref for IMFSinkWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12543,7 +12543,7 @@ pub struct IMFSinkWriter_Vtbl {
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MF_SINK_WRITER_STATISTICS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSinkWriterCallback, IMFSinkWriterCallback_Vtbl, 0x666f76de_33d2_41b9_a458_29ed0a972c58);
-impl std::ops::Deref for IMFSinkWriterCallback {
+impl core::ops::Deref for IMFSinkWriterCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12565,7 +12565,7 @@ pub struct IMFSinkWriterCallback_Vtbl {
     pub OnMarker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSinkWriterCallback2, IMFSinkWriterCallback2_Vtbl, 0x2456bd58_c067_4513_84fe_8d0c88ffdc61);
-impl std::ops::Deref for IMFSinkWriterCallback2 {
+impl core::ops::Deref for IMFSinkWriterCallback2 {
     type Target = IMFSinkWriterCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12587,7 +12587,7 @@ pub struct IMFSinkWriterCallback2_Vtbl {
     pub OnStreamError: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSinkWriterEncoderConfig, IMFSinkWriterEncoderConfig_Vtbl, 0x17c3779e_3cde_4ede_8c60_3899f5f53ad6);
-impl std::ops::Deref for IMFSinkWriterEncoderConfig {
+impl core::ops::Deref for IMFSinkWriterEncoderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12616,7 +12616,7 @@ pub struct IMFSinkWriterEncoderConfig_Vtbl {
     pub PlaceEncodingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSinkWriterEx, IMFSinkWriterEx_Vtbl, 0x588d72ab_5bc1_496a_8714_b70617141b25);
-impl std::ops::Deref for IMFSinkWriterEx {
+impl core::ops::Deref for IMFSinkWriterEx {
     type Target = IMFSinkWriter;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12634,7 +12634,7 @@ pub struct IMFSinkWriterEx_Vtbl {
     pub GetTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceBuffer, IMFSourceBuffer_Vtbl, 0xe2cd3a4b_af25_4d3d_9110_da0e6f8ee877);
-impl std::ops::Deref for IMFSourceBuffer {
+impl core::ops::Deref for IMFSourceBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12700,7 +12700,7 @@ pub struct IMFSourceBuffer_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceBufferAppendMode, IMFSourceBufferAppendMode_Vtbl, 0x19666fb4_babe_4c55_bc03_0a074da37e2a);
-impl std::ops::Deref for IMFSourceBufferAppendMode {
+impl core::ops::Deref for IMFSourceBufferAppendMode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12722,7 +12722,7 @@ pub struct IMFSourceBufferAppendMode_Vtbl {
     pub SetAppendMode: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MSE_APPEND_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceBufferList, IMFSourceBufferList_Vtbl, 0x249981f8_8325_41f3_b80c_3b9e3aad0cbe);
-impl std::ops::Deref for IMFSourceBufferList {
+impl core::ops::Deref for IMFSourceBufferList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12744,7 +12744,7 @@ pub struct IMFSourceBufferList_Vtbl {
     pub GetSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<IMFSourceBuffer>,
 }
 windows_core::imp::define_interface!(IMFSourceBufferNotify, IMFSourceBufferNotify_Vtbl, 0x87e47623_2ceb_45d6_9b88_d8520c4dcbbc);
-impl std::ops::Deref for IMFSourceBufferNotify {
+impl core::ops::Deref for IMFSourceBufferNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12778,7 +12778,7 @@ pub struct IMFSourceBufferNotify_Vtbl {
     pub OnUpdateEnd: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFSourceOpenMonitor, IMFSourceOpenMonitor_Vtbl, 0x059054b3_027c_494c_a27d_9113291cf87f);
-impl std::ops::Deref for IMFSourceOpenMonitor {
+impl core::ops::Deref for IMFSourceOpenMonitor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12799,7 +12799,7 @@ pub struct IMFSourceOpenMonitor_Vtbl {
     pub OnSourceEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceReader, IMFSourceReader_Vtbl, 0x70ae66f2_c809_4e4f_8915_bdcb406b7993);
-impl std::ops::Deref for IMFSourceReader {
+impl core::ops::Deref for IMFSourceReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12863,7 +12863,7 @@ pub struct IMFSourceReader_Vtbl {
     pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceReaderCallback, IMFSourceReaderCallback_Vtbl, 0xdeec8d99_fa1d_4d82_84c2_2c8969944867);
-impl std::ops::Deref for IMFSourceReaderCallback {
+impl core::ops::Deref for IMFSourceReaderCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12895,7 +12895,7 @@ pub struct IMFSourceReaderCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceReaderCallback2, IMFSourceReaderCallback2_Vtbl, 0xcf839fe6_8c2a_4dd2_b6ea_c22d6961af05);
-impl std::ops::Deref for IMFSourceReaderCallback2 {
+impl core::ops::Deref for IMFSourceReaderCallback2 {
     type Target = IMFSourceReaderCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12917,7 +12917,7 @@ pub struct IMFSourceReaderCallback2_Vtbl {
     pub OnStreamError: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceReaderEx, IMFSourceReaderEx_Vtbl, 0x7b981cf0_560e_4116_9875_b099895f23d7);
-impl std::ops::Deref for IMFSourceReaderEx {
+impl core::ops::Deref for IMFSourceReaderEx {
     type Target = IMFSourceReader;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -12954,7 +12954,7 @@ pub struct IMFSourceReaderEx_Vtbl {
     pub GetTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSourceResolver, IMFSourceResolver_Vtbl, 0xfbe5a32d_a497_4b61_bb85_97b1a848a6e3);
-impl std::ops::Deref for IMFSourceResolver {
+impl core::ops::Deref for IMFSourceResolver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13043,7 +13043,7 @@ pub struct IMFSourceResolver_Vtbl {
     pub CancelObjectCreation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSpatialAudioObjectBuffer, IMFSpatialAudioObjectBuffer_Vtbl, 0xd396ec8c_605e_4249_978d_72ad1c312872);
-impl std::ops::Deref for IMFSpatialAudioObjectBuffer {
+impl core::ops::Deref for IMFSpatialAudioObjectBuffer {
     type Target = IMFMediaBuffer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13092,7 +13092,7 @@ pub struct IMFSpatialAudioObjectBuffer_Vtbl {
     GetMetadataItems: usize,
 }
 windows_core::imp::define_interface!(IMFSpatialAudioSample, IMFSpatialAudioSample_Vtbl, 0xabf28a9b_3393_4290_ba79_5ffc46d986b2);
-impl std::ops::Deref for IMFSpatialAudioSample {
+impl core::ops::Deref for IMFSpatialAudioSample {
     type Target = IMFSample;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13123,7 +13123,7 @@ pub struct IMFSpatialAudioSample_Vtbl {
     pub GetSpatialAudioObjectByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFStreamDescriptor, IMFStreamDescriptor_Vtbl, 0x56c03d9c_9dbb_45f5_ab4b_d80f47c05938);
-impl std::ops::Deref for IMFStreamDescriptor {
+impl core::ops::Deref for IMFStreamDescriptor {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13147,7 +13147,7 @@ pub struct IMFStreamDescriptor_Vtbl {
     pub GetMediaTypeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFStreamSink, IMFStreamSink_Vtbl, 0x0a97b3cf_8e7c_4a3d_8f8c_0c843dc247fb);
-impl std::ops::Deref for IMFStreamSink {
+impl core::ops::Deref for IMFStreamSink {
     type Target = IMFMediaEventGenerator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13191,7 +13191,7 @@ pub struct IMFStreamSink_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFStreamingSinkConfig, IMFStreamingSinkConfig_Vtbl, 0x9db7aa41_3cc5_40d4_8509_555804ad34cc);
-impl std::ops::Deref for IMFStreamingSinkConfig {
+impl core::ops::Deref for IMFStreamingSinkConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13212,7 +13212,7 @@ pub struct IMFStreamingSinkConfig_Vtbl {
     pub StartStreaming: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFSystemId, IMFSystemId_Vtbl, 0xfff4af3a_1fc1_4ef9_a29b_d26c49e2f31a);
-impl std::ops::Deref for IMFSystemId {
+impl core::ops::Deref for IMFSystemId {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13234,7 +13234,7 @@ pub struct IMFSystemId_Vtbl {
     pub Setup: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimecodeTranslate, IMFTimecodeTranslate_Vtbl, 0xab9d8661_f7e8_4ef4_9861_89f334f94e74);
-impl std::ops::Deref for IMFTimecodeTranslate {
+impl core::ops::Deref for IMFTimecodeTranslate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13280,7 +13280,7 @@ pub struct IMFTimecodeTranslate_Vtbl {
     pub EndConvertHNSToTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedText, IMFTimedText_Vtbl, 0x1f2a94c9_a3df_430d_9d0f_acd85ddc29af);
-impl std::ops::Deref for IMFTimedText {
+impl core::ops::Deref for IMFTimedText {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13386,7 +13386,7 @@ pub struct IMFTimedText_Vtbl {
     pub IsInBandEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IMFTimedTextBinary, IMFTimedTextBinary_Vtbl, 0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432);
-impl std::ops::Deref for IMFTimedTextBinary {
+impl core::ops::Deref for IMFTimedTextBinary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13404,7 +13404,7 @@ pub struct IMFTimedTextBinary_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextBouten, IMFTimedTextBouten_Vtbl, 0x3c5f3e8a_90c0_464e_8136_898d2975f847);
-impl std::ops::Deref for IMFTimedTextBouten {
+impl core::ops::Deref for IMFTimedTextBouten {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13433,7 +13433,7 @@ pub struct IMFTimedTextBouten_Vtbl {
     pub GetBoutenPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_TIMED_TEXT_BOUTEN_POSITION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextCue, IMFTimedTextCue_Vtbl, 0x1e560447_9a2b_43e1_a94c_b0aaabfbfbc9);
-impl std::ops::Deref for IMFTimedTextCue {
+impl core::ops::Deref for IMFTimedTextCue {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13496,7 +13496,7 @@ pub struct IMFTimedTextCue_Vtbl {
     pub GetLine: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextCueList, IMFTimedTextCueList_Vtbl, 0xad128745_211b_40a0_9981_fe65f166d0fd);
-impl std::ops::Deref for IMFTimedTextCueList {
+impl core::ops::Deref for IMFTimedTextCueList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13550,7 +13550,7 @@ pub struct IMFTimedTextCueList_Vtbl {
     pub RemoveCue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextFormattedText, IMFTimedTextFormattedText_Vtbl, 0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60);
-impl std::ops::Deref for IMFTimedTextFormattedText {
+impl core::ops::Deref for IMFTimedTextFormattedText {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13577,7 +13577,7 @@ pub struct IMFTimedTextFormattedText_Vtbl {
     pub GetSubformatting: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextNotify, IMFTimedTextNotify_Vtbl, 0xdf6b87b6_ce12_45db_aba7_432fe054e57d);
-impl std::ops::Deref for IMFTimedTextNotify {
+impl core::ops::Deref for IMFTimedTextNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13625,7 +13625,7 @@ pub struct IMFTimedTextNotify_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMFTimedTextRegion, IMFTimedTextRegion_Vtbl, 0xc8d22afc_bc47_4bdf_9b04_787e49ce3f58);
-impl std::ops::Deref for IMFTimedTextRegion {
+impl core::ops::Deref for IMFTimedTextRegion {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13695,7 +13695,7 @@ pub struct IMFTimedTextRegion_Vtbl {
     pub GetScrollMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_TIMED_TEXT_SCROLL_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextRuby, IMFTimedTextRuby_Vtbl, 0x76c6a6f5_4955_4de5_b27b_14b734cc14b4);
-impl std::ops::Deref for IMFTimedTextRuby {
+impl core::ops::Deref for IMFTimedTextRuby {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13729,7 +13729,7 @@ pub struct IMFTimedTextRuby_Vtbl {
     pub GetRubyReserve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_TIMED_TEXT_RUBY_RESERVE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextStyle, IMFTimedTextStyle_Vtbl, 0x09b2455d_b834_4f01_a347_9052e21c450e);
-impl std::ops::Deref for IMFTimedTextStyle {
+impl core::ops::Deref for IMFTimedTextStyle {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13805,7 +13805,7 @@ pub struct IMFTimedTextStyle_Vtbl {
     pub GetTextOutline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFARGB, *mut f64, *mut f64, *mut MF_TIMED_TEXT_UNIT_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextStyle2, IMFTimedTextStyle2_Vtbl, 0xdb639199_c809_4c89_bfca_d0bbb9729d6e);
-impl std::ops::Deref for IMFTimedTextStyle2 {
+impl core::ops::Deref for IMFTimedTextStyle2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13839,7 +13839,7 @@ pub struct IMFTimedTextStyle2_Vtbl {
     pub GetFontAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextTrack, IMFTimedTextTrack_Vtbl, 0x8822c32d_654e_4233_bf21_d7f2e67d30d4);
-impl std::ops::Deref for IMFTimedTextTrack {
+impl core::ops::Deref for IMFTimedTextTrack {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13913,7 +13913,7 @@ pub struct IMFTimedTextTrack_Vtbl {
     pub GetCueList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimedTextTrackList, IMFTimedTextTrackList_Vtbl, 0x23ff334c_442c_445f_bccc_edc438aa11e2);
-impl std::ops::Deref for IMFTimedTextTrackList {
+impl core::ops::Deref for IMFTimedTextTrackList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13941,7 +13941,7 @@ pub struct IMFTimedTextTrackList_Vtbl {
     pub GetTrackById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTimer, IMFTimer_Vtbl, 0xe56e4cbd_8f70_49d8_a0f8_edb3d6ab9bf2);
-impl std::ops::Deref for IMFTimer {
+impl core::ops::Deref for IMFTimer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13971,7 +13971,7 @@ pub struct IMFTimer_Vtbl {
     pub CancelTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTopoLoader, IMFTopoLoader_Vtbl, 0xde9a6157_f660_4643_b56a_df9f7998c7cd);
-impl std::ops::Deref for IMFTopoLoader {
+impl core::ops::Deref for IMFTopoLoader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -13993,7 +13993,7 @@ pub struct IMFTopoLoader_Vtbl {
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTopology, IMFTopology_Vtbl, 0x83cf873a_f6da_4bc8_823f_bacfd55dc433);
-impl std::ops::Deref for IMFTopology {
+impl core::ops::Deref for IMFTopology {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14062,7 +14062,7 @@ pub struct IMFTopology_Vtbl {
     pub GetOutputNodeCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTopologyNode, IMFTopologyNode_Vtbl, 0x83cf873a_f6da_4bc8_823f_bacfd55dc430);
-impl std::ops::Deref for IMFTopologyNode {
+impl core::ops::Deref for IMFTopologyNode {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14162,7 +14162,7 @@ pub struct IMFTopologyNode_Vtbl {
     pub CloneFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTopologyNodeAttributeEditor, IMFTopologyNodeAttributeEditor_Vtbl, 0x676aa6dd_238a_410d_bb99_65668d01605a);
-impl std::ops::Deref for IMFTopologyNodeAttributeEditor {
+impl core::ops::Deref for IMFTopologyNodeAttributeEditor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14180,7 +14180,7 @@ pub struct IMFTopologyNodeAttributeEditor_Vtbl {
     pub UpdateNodeAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const MFTOPONODE_ATTRIBUTE_UPDATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTopologyServiceLookup, IMFTopologyServiceLookup_Vtbl, 0xfa993889_4383_415a_a930_dd472a8cf6f7);
-impl std::ops::Deref for IMFTopologyServiceLookup {
+impl core::ops::Deref for IMFTopologyServiceLookup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14198,7 +14198,7 @@ pub struct IMFTopologyServiceLookup_Vtbl {
     pub LookupService: unsafe extern "system" fn(*mut core::ffi::c_void, MF_SERVICE_LOOKUP_TYPE, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTopologyServiceLookupClient, IMFTopologyServiceLookupClient_Vtbl, 0xfa99388a_4383_415a_a930_dd472a8cf6f7);
-impl std::ops::Deref for IMFTopologyServiceLookupClient {
+impl core::ops::Deref for IMFTopologyServiceLookupClient {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14223,7 +14223,7 @@ pub struct IMFTopologyServiceLookupClient_Vtbl {
     pub ReleaseServicePointers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTrackedSample, IMFTrackedSample_Vtbl, 0x245bf8e9_0755_40f7_88a5_ae0f18d55e17);
-impl std::ops::Deref for IMFTrackedSample {
+impl core::ops::Deref for IMFTrackedSample {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14245,7 +14245,7 @@ pub struct IMFTrackedSample_Vtbl {
     pub SetAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTranscodeProfile, IMFTranscodeProfile_Vtbl, 0x4adfdba3_7ab0_4953_a62b_461e7ff3da1e);
-impl std::ops::Deref for IMFTranscodeProfile {
+impl core::ops::Deref for IMFTranscodeProfile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14295,7 +14295,7 @@ pub struct IMFTranscodeProfile_Vtbl {
     pub GetContainerAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTranscodeSinkInfoProvider, IMFTranscodeSinkInfoProvider_Vtbl, 0x8cffcd2e_5a03_4a3a_aff7_edcd107c620e);
-impl std::ops::Deref for IMFTranscodeSinkInfoProvider {
+impl core::ops::Deref for IMFTranscodeSinkInfoProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14335,7 +14335,7 @@ pub struct IMFTranscodeSinkInfoProvider_Vtbl {
     pub GetSinkInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_TRANSCODE_SINK_INFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTransform, IMFTransform_Vtbl, 0xbf94c121_5b05_4e6f_8000_ba598961414d);
-impl std::ops::Deref for IMFTransform {
+impl core::ops::Deref for IMFTransform {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14463,7 +14463,7 @@ pub struct IMFTransform_Vtbl {
     pub ProcessOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut MFT_OUTPUT_DATA_BUFFER, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTrustedInput, IMFTrustedInput_Vtbl, 0x542612c4_a1b8_4632_b521_de11ea64a0b0);
-impl std::ops::Deref for IMFTrustedInput {
+impl core::ops::Deref for IMFTrustedInput {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14482,7 +14482,7 @@ pub struct IMFTrustedInput_Vtbl {
     pub GetInputTrustAuthority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFTrustedOutput, IMFTrustedOutput_Vtbl, 0xd19f8e95_b126_4446_890c_5dcb7ad71453);
-impl std::ops::Deref for IMFTrustedOutput {
+impl core::ops::Deref for IMFTrustedOutput {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14511,7 +14511,7 @@ pub struct IMFTrustedOutput_Vtbl {
     pub IsFinal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoCaptureSampleAllocator, IMFVideoCaptureSampleAllocator_Vtbl, 0x725b77c7_ca9f_4fe5_9d72_9946bf9b3c70);
-impl std::ops::Deref for IMFVideoCaptureSampleAllocator {
+impl core::ops::Deref for IMFVideoCaptureSampleAllocator {
     type Target = IMFVideoSampleAllocator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14533,7 +14533,7 @@ pub struct IMFVideoCaptureSampleAllocator_Vtbl {
     pub InitializeCaptureSampleAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoDeviceID, IMFVideoDeviceID_Vtbl, 0xa38d9567_5a9c_4f3c_b293_8eb415b279ba);
-impl std::ops::Deref for IMFVideoDeviceID {
+impl core::ops::Deref for IMFVideoDeviceID {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14552,7 +14552,7 @@ pub struct IMFVideoDeviceID_Vtbl {
     pub GetDeviceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoDisplayControl, IMFVideoDisplayControl_Vtbl, 0xa490b1e4_ab84_4d31_a1b2_181e03b1077a);
-impl std::ops::Deref for IMFVideoDisplayControl {
+impl core::ops::Deref for IMFVideoDisplayControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14648,7 +14648,7 @@ pub struct IMFVideoDisplayControl_Vtbl {
     pub GetFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoMediaType, IMFVideoMediaType_Vtbl, 0xb99f381f_a8f9_47a2_a5af_ca3a225a3890);
-impl std::ops::Deref for IMFVideoMediaType {
+impl core::ops::Deref for IMFVideoMediaType {
     type Target = IMFMediaType;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14670,7 +14670,7 @@ pub struct IMFVideoMediaType_Vtbl {
     pub GetVideoRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoMixerBitmap, IMFVideoMixerBitmap_Vtbl, 0x814c7b20_0fdb_4eec_af8f_f957c8f69edc);
-impl std::ops::Deref for IMFVideoMixerBitmap {
+impl core::ops::Deref for IMFVideoMixerBitmap {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14704,7 +14704,7 @@ pub struct IMFVideoMixerBitmap_Vtbl {
     pub GetAlphaBitmapParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFVideoAlphaBitmapParams) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoMixerControl, IMFVideoMixerControl_Vtbl, 0xa5c6c53f_c202_4aa5_9695_175ba8c508a5);
-impl std::ops::Deref for IMFVideoMixerControl {
+impl core::ops::Deref for IMFVideoMixerControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14736,7 +14736,7 @@ pub struct IMFVideoMixerControl_Vtbl {
     pub GetStreamOutputRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MFVideoNormalizedRect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoMixerControl2, IMFVideoMixerControl2_Vtbl, 0x8459616d_966e_4930_b658_54fa7e5a16d3);
-impl std::ops::Deref for IMFVideoMixerControl2 {
+impl core::ops::Deref for IMFVideoMixerControl2 {
     type Target = IMFVideoMixerControl;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14759,7 +14759,7 @@ pub struct IMFVideoMixerControl2_Vtbl {
     pub GetMixingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoPositionMapper, IMFVideoPositionMapper_Vtbl, 0x1f6a9f17_e70b_4e24_8ae4_0b2c3ba7a4ae);
-impl std::ops::Deref for IMFVideoPositionMapper {
+impl core::ops::Deref for IMFVideoPositionMapper {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14777,7 +14777,7 @@ pub struct IMFVideoPositionMapper_Vtbl {
     pub MapOutputCoordinateToInputStream: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, u32, u32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoPresenter, IMFVideoPresenter_Vtbl, 0x29aff080_182a_4a5d_af3b_448f3a6346cb);
-impl std::ops::Deref for IMFVideoPresenter {
+impl core::ops::Deref for IMFVideoPresenter {
     type Target = IMFClockStateSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14800,7 +14800,7 @@ pub struct IMFVideoPresenter_Vtbl {
     pub GetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoProcessor, IMFVideoProcessor_Vtbl, 0x6ab0000c_fece_4d1f_a2ac_a9573530656e);
-impl std::ops::Deref for IMFVideoProcessor {
+impl core::ops::Deref for IMFVideoProcessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14875,7 +14875,7 @@ pub struct IMFVideoProcessor_Vtbl {
     pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::COLORREF) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoProcessorControl, IMFVideoProcessorControl_Vtbl, 0xa3f675d5_6119_4f7f_a100_1d8b280f0efb);
-impl std::ops::Deref for IMFVideoProcessorControl {
+impl core::ops::Deref for IMFVideoProcessorControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14913,7 +14913,7 @@ pub struct IMFVideoProcessorControl_Vtbl {
     pub SetConstrictionSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::SIZE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoProcessorControl2, IMFVideoProcessorControl2_Vtbl, 0xbde633d3_e1dc_4a7f_a693_bbae399c4a20);
-impl std::ops::Deref for IMFVideoProcessorControl2 {
+impl core::ops::Deref for IMFVideoProcessorControl2 {
     type Target = IMFVideoProcessorControl;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14943,7 +14943,7 @@ pub struct IMFVideoProcessorControl2_Vtbl {
     pub GetSupportedHardwareEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoProcessorControl3, IMFVideoProcessorControl3_Vtbl, 0x2424b3f2_eb23_40f1_91aa_74bddeea0883);
-impl std::ops::Deref for IMFVideoProcessorControl3 {
+impl core::ops::Deref for IMFVideoProcessorControl3 {
     type Target = IMFVideoProcessorControl2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -14980,7 +14980,7 @@ pub struct IMFVideoProcessorControl3_Vtbl {
     pub SetOutputDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoRenderer, IMFVideoRenderer_Vtbl, 0xdfdfd197_a9ca_43d8_b341_6af3503792cd);
-impl std::ops::Deref for IMFVideoRenderer {
+impl core::ops::Deref for IMFVideoRenderer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15002,7 +15002,7 @@ pub struct IMFVideoRenderer_Vtbl {
     pub InitializeRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoRendererEffectControl, IMFVideoRendererEffectControl_Vtbl, 0x604d33d7_cf23_41d5_8224_5bbbb1a87475);
-impl std::ops::Deref for IMFVideoRendererEffectControl {
+impl core::ops::Deref for IMFVideoRendererEffectControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15023,7 +15023,7 @@ pub struct IMFVideoRendererEffectControl_Vtbl {
     pub OnAppServiceConnectionEstablished: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoSampleAllocator, IMFVideoSampleAllocator_Vtbl, 0x86cbc910_e533_4751_8e3b_f19b5b806a03);
-impl std::ops::Deref for IMFVideoSampleAllocator {
+impl core::ops::Deref for IMFVideoSampleAllocator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15060,7 +15060,7 @@ pub struct IMFVideoSampleAllocator_Vtbl {
     pub AllocateSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoSampleAllocatorCallback, IMFVideoSampleAllocatorCallback_Vtbl, 0x992388b4_3372_4f67_8b6f_c84c071f4751);
-impl std::ops::Deref for IMFVideoSampleAllocatorCallback {
+impl core::ops::Deref for IMFVideoSampleAllocatorCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15086,7 +15086,7 @@ pub struct IMFVideoSampleAllocatorCallback_Vtbl {
     pub GetFreeSampleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoSampleAllocatorEx, IMFVideoSampleAllocatorEx_Vtbl, 0x545b3a48_3283_4f62_866f_a62d8f598f9f);
-impl std::ops::Deref for IMFVideoSampleAllocatorEx {
+impl core::ops::Deref for IMFVideoSampleAllocatorEx {
     type Target = IMFVideoSampleAllocator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15108,7 +15108,7 @@ pub struct IMFVideoSampleAllocatorEx_Vtbl {
     pub InitializeSampleAllocatorEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoSampleAllocatorNotify, IMFVideoSampleAllocatorNotify_Vtbl, 0xa792cdbe_c374_4e89_8335_278e7b9956a4);
-impl std::ops::Deref for IMFVideoSampleAllocatorNotify {
+impl core::ops::Deref for IMFVideoSampleAllocatorNotify {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15126,7 +15126,7 @@ pub struct IMFVideoSampleAllocatorNotify_Vtbl {
     pub NotifyRelease: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVideoSampleAllocatorNotifyEx, IMFVideoSampleAllocatorNotifyEx_Vtbl, 0x3978aa1a_6d5b_4b7f_a340_90899189ae34);
-impl std::ops::Deref for IMFVideoSampleAllocatorNotifyEx {
+impl core::ops::Deref for IMFVideoSampleAllocatorNotifyEx {
     type Target = IMFVideoSampleAllocatorNotify;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15147,7 +15147,7 @@ pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
     pub NotifyPrune: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFVirtualCamera, IMFVirtualCamera_Vtbl, 0x1c08a864_ef6c_4c75_af59_5f2d68da9563);
-impl std::ops::Deref for IMFVirtualCamera {
+impl core::ops::Deref for IMFVirtualCamera {
     type Target = IMFAttributes;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15228,7 +15228,7 @@ pub struct IMFVirtualCamera_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFWorkQueueServices, IMFWorkQueueServices_Vtbl, 0x35fe1bb8_a3a9_40fe_bbec_eb569c9ccca3);
-impl std::ops::Deref for IMFWorkQueueServices {
+impl core::ops::Deref for IMFWorkQueueServices {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15322,7 +15322,7 @@ pub struct IMFWorkQueueServices_Vtbl {
     pub GetPlatformWorkQueueMMCSSTaskId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFWorkQueueServicesEx, IMFWorkQueueServicesEx_Vtbl, 0x96bf961b_40fe_42f1_ba9d_320238b49700);
-impl std::ops::Deref for IMFWorkQueueServicesEx {
+impl core::ops::Deref for IMFWorkQueueServicesEx {
     type Target = IMFWorkQueueServices;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15355,7 +15355,7 @@ pub struct IMFWorkQueueServicesEx_Vtbl {
     pub GetPlatformWorkQueueMMCSSPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOPMVideoOutput, IOPMVideoOutput_Vtbl, 0x0a15159d_41c7_4456_93e1_284cd61d4e8d);
-impl std::ops::Deref for IOPMVideoOutput {
+impl core::ops::Deref for IOPMVideoOutput {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15389,7 +15389,7 @@ pub struct IOPMVideoOutput_Vtbl {
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, *const OPM_CONFIGURE_PARAMETERS, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayToControl, IPlayToControl_Vtbl, 0x607574eb_f4b6_45c1_b08c_cb715122901d);
-impl std::ops::Deref for IPlayToControl {
+impl core::ops::Deref for IPlayToControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15414,7 +15414,7 @@ pub struct IPlayToControl_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayToControlWithCapabilities, IPlayToControlWithCapabilities_Vtbl, 0xaa9dd80f_c50a_4220_91c1_332287f82a34);
-impl std::ops::Deref for IPlayToControlWithCapabilities {
+impl core::ops::Deref for IPlayToControlWithCapabilities {
     type Target = IPlayToControl;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15433,7 +15433,7 @@ pub struct IPlayToControlWithCapabilities_Vtbl {
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PLAYTO_SOURCE_CREATEFLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayToSourceClassFactory, IPlayToSourceClassFactory_Vtbl, 0x842b32a3_9b9b_4d1c_b3f3_49193248a554);
-impl std::ops::Deref for IPlayToSourceClassFactory {
+impl core::ops::Deref for IPlayToSourceClassFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15455,7 +15455,7 @@ pub struct IPlayToSourceClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IToc, IToc_Vtbl, 0xd6f05441_a919_423b_91a0_89d5b4a8ab77);
-impl std::ops::Deref for IToc {
+impl core::ops::Deref for IToc {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15523,7 +15523,7 @@ pub struct IToc_Vtbl {
     pub RemoveEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITocCollection, ITocCollection_Vtbl, 0x23fee831_ae96_42df_b170_25a04847a3ca);
-impl std::ops::Deref for ITocCollection {
+impl core::ops::Deref for ITocCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15564,7 +15564,7 @@ pub struct ITocCollection_Vtbl {
     pub RemoveEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITocEntry, ITocEntry_Vtbl, 0xf22f5e06_585c_4def_8523_6555cfbc0cb3);
-impl std::ops::Deref for ITocEntry {
+impl core::ops::Deref for ITocEntry {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15613,7 +15613,7 @@ pub struct ITocEntry_Vtbl {
     pub GetDescriptionData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u8, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITocEntryList, ITocEntryList_Vtbl, 0x3a8cccbd_0efd_43a3_b838_f38a552ba237);
-impl std::ops::Deref for ITocEntryList {
+impl core::ops::Deref for ITocEntryList {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15654,7 +15654,7 @@ pub struct ITocEntryList_Vtbl {
     pub RemoveEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITocParser, ITocParser_Vtbl, 0xecfb9a55_9298_4f49_887f_0b36206599d2);
-impl std::ops::Deref for ITocParser {
+impl core::ops::Deref for ITocParser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15708,7 +15708,7 @@ pub struct ITocParser_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IValidateBinding, IValidateBinding_Vtbl, 0x04a578b2_e778_422a_a805_b3ee54d90bd9);
-impl std::ops::Deref for IValidateBinding {
+impl core::ops::Deref for IValidateBinding {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15726,7 +15726,7 @@ pub struct IValidateBinding_Vtbl {
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecLeakyBucket, IWMCodecLeakyBucket_Vtbl, 0xa81ba647_6227_43b7_b231_c7b15135dd7d);
-impl std::ops::Deref for IWMCodecLeakyBucket {
+impl core::ops::Deref for IWMCodecLeakyBucket {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15756,7 +15756,7 @@ pub struct IWMCodecLeakyBucket_Vtbl {
     pub GetBufferFullnessBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecOutputTimestamp, IWMCodecOutputTimestamp_Vtbl, 0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
-impl std::ops::Deref for IWMCodecOutputTimestamp {
+impl core::ops::Deref for IWMCodecOutputTimestamp {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15774,7 +15774,7 @@ pub struct IWMCodecOutputTimestamp_Vtbl {
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecPrivateData, IWMCodecPrivateData_Vtbl, 0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
-impl std::ops::Deref for IWMCodecPrivateData {
+impl core::ops::Deref for IWMCodecPrivateData {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15800,7 +15800,7 @@ pub struct IWMCodecPrivateData_Vtbl {
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecProps, IWMCodecProps_Vtbl, 0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589);
-impl std::ops::Deref for IWMCodecProps {
+impl core::ops::Deref for IWMCodecProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15832,7 +15832,7 @@ pub struct IWMCodecProps_Vtbl {
     pub GetCodecProp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecStrings, IWMCodecStrings_Vtbl, 0xa7b2504b_e58a_47fb_958b_cac7165a057d);
-impl std::ops::Deref for IWMCodecStrings {
+impl core::ops::Deref for IWMCodecStrings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15862,7 +15862,7 @@ pub struct IWMCodecStrings_Vtbl {
     GetDescription: usize,
 }
 windows_core::imp::define_interface!(IWMColorConvProps, IWMColorConvProps_Vtbl, 0xe6a49e22_c099_421d_aad3_c061fb4ae85b);
-impl std::ops::Deref for IWMColorConvProps {
+impl core::ops::Deref for IWMColorConvProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15884,7 +15884,7 @@ pub struct IWMColorConvProps_Vtbl {
     pub SetFullCroppingParam: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMColorLegalizerProps, IWMColorLegalizerProps_Vtbl, 0x776c93b3_b72d_4508_b6d0_208785f553e7);
-impl std::ops::Deref for IWMColorLegalizerProps {
+impl core::ops::Deref for IWMColorLegalizerProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15902,7 +15902,7 @@ pub struct IWMColorLegalizerProps_Vtbl {
     pub SetColorLegalizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMFrameInterpProps, IWMFrameInterpProps_Vtbl, 0x4c06bb9b_626c_4614_8329_cc6a21b93fa0);
-impl std::ops::Deref for IWMFrameInterpProps {
+impl core::ops::Deref for IWMFrameInterpProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15935,7 +15935,7 @@ pub struct IWMFrameInterpProps_Vtbl {
     pub SetComplexityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMInterlaceProps, IWMInterlaceProps_Vtbl, 0x7b12e5d1_bd22_48ea_bc06_98e893221c89);
-impl std::ops::Deref for IWMInterlaceProps {
+impl core::ops::Deref for IWMInterlaceProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15961,7 +15961,7 @@ pub struct IWMInterlaceProps_Vtbl {
     pub SetLastFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMResamplerProps, IWMResamplerProps_Vtbl, 0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5);
-impl std::ops::Deref for IWMResamplerProps {
+impl core::ops::Deref for IWMResamplerProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -15983,7 +15983,7 @@ pub struct IWMResamplerProps_Vtbl {
     pub SetUserChannelMtx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMResizerProps, IWMResizerProps_Vtbl, 0x57665d4c_0414_4faa_905b_10e546f81c33);
-impl std::ops::Deref for IWMResizerProps {
+impl core::ops::Deref for IWMResizerProps {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -16017,7 +16017,7 @@ pub struct IWMResizerProps_Vtbl {
     pub GetFullCropRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSampleExtensionSupport, IWMSampleExtensionSupport_Vtbl, 0x9bca9884_0604_4c2a_87da_793ff4d586c3);
-impl std::ops::Deref for IWMSampleExtensionSupport {
+impl core::ops::Deref for IWMSampleExtensionSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -16038,7 +16038,7 @@ pub struct IWMSampleExtensionSupport_Vtbl {
     pub SetUseSampleExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMValidate, IWMValidate_Vtbl, 0xcee3def2_3808_414d_be66_fafd472210bc);
-impl std::ops::Deref for IWMValidate {
+impl core::ops::Deref for IWMValidate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -16056,7 +16056,7 @@ pub struct IWMValidate_Vtbl {
     pub SetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMVideoDecoderHurryup, IWMVideoDecoderHurryup_Vtbl, 0x352bb3bd_2d4d_4323_9e71_dcdcfbd53ca6);
-impl std::ops::Deref for IWMVideoDecoderHurryup {
+impl core::ops::Deref for IWMVideoDecoderHurryup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -16078,7 +16078,7 @@ pub struct IWMVideoDecoderHurryup_Vtbl {
     pub GetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMVideoDecoderReconBuffer, IWMVideoDecoderReconBuffer_Vtbl, 0x45bda2ac_88e2_4923_98ba_3949080711a3);
-impl std::ops::Deref for IWMVideoDecoderReconBuffer {
+impl core::ops::Deref for IWMVideoDecoderReconBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -16118,7 +16118,7 @@ pub struct IWMVideoDecoderReconBuffer_Vtbl {
     SetReconstructedVideoFrame: usize,
 }
 windows_core::imp::define_interface!(IWMVideoForceKeyFrame, IWMVideoForceKeyFrame_Vtbl, 0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2);
-impl std::ops::Deref for IWMVideoForceKeyFrame {
+impl core::ops::Deref for IWMVideoForceKeyFrame {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -16136,7 +16136,7 @@ pub struct IWMVideoForceKeyFrame_Vtbl {
     pub SetKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(MFASYNCRESULT, MFASYNCRESULT_Vtbl, 0);
-impl std::ops::Deref for MFASYNCRESULT {
+impl core::ops::Deref for MFASYNCRESULT {
     type Target = IMFAsyncResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

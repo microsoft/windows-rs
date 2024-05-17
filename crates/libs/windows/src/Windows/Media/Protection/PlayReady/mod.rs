@@ -83,7 +83,7 @@ pub struct INDClientFactory_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDClosedCaptionDataReceivedEventArgs, INDClosedCaptionDataReceivedEventArgs_Vtbl, 0x4738d29f_c345_4649_8468_b8c5fc357190);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDClosedCaptionDataReceivedEventArgs {
+impl core::ops::Deref for INDClosedCaptionDataReceivedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -142,7 +142,7 @@ pub struct INDClosedCaptionDataReceivedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDCustomData, INDCustomData_Vtbl, 0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDCustomData {
+impl core::ops::Deref for INDCustomData {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -204,7 +204,7 @@ pub struct INDCustomDataFactory_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDDownloadEngine, INDDownloadEngine_Vtbl, 0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDDownloadEngine {
+impl core::ops::Deref for INDDownloadEngine {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -323,7 +323,7 @@ pub struct INDDownloadEngine_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDDownloadEngineNotifier, INDDownloadEngineNotifier_Vtbl, 0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDDownloadEngineNotifier {
+impl core::ops::Deref for INDDownloadEngineNotifier {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -403,7 +403,7 @@ pub struct INDDownloadEngineNotifier_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchCompletedEventArgs, INDLicenseFetchCompletedEventArgs_Vtbl, 0x1ee30a1a_11b2_4558_8865_e3a516922517);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDLicenseFetchCompletedEventArgs {
+impl core::ops::Deref for INDLicenseFetchCompletedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -438,7 +438,7 @@ pub struct INDLicenseFetchCompletedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchDescriptor, INDLicenseFetchDescriptor_Vtbl, 0x5498d33a_e686_4935_a567_7ca77ad20fa4);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDLicenseFetchDescriptor {
+impl core::ops::Deref for INDLicenseFetchDescriptor {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -524,7 +524,7 @@ pub struct INDLicenseFetchDescriptorFactory_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchResult, INDLicenseFetchResult_Vtbl, 0x21d39698_aa62_45ff_a5ff_8037e5433825);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDLicenseFetchResult {
+impl core::ops::Deref for INDLicenseFetchResult {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -559,7 +559,7 @@ pub struct INDLicenseFetchResult_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDMessenger, INDMessenger_Vtbl, 0xd42df95d_a75b_47bf_8249_bc83820da38a);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDMessenger {
+impl core::ops::Deref for INDMessenger {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -630,7 +630,7 @@ pub struct INDMessenger_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDProximityDetectionCompletedEventArgs, INDProximityDetectionCompletedEventArgs_Vtbl, 0x2a706328_da25_4f8c_9eb7_5d0fc3658bca);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDProximityDetectionCompletedEventArgs {
+impl core::ops::Deref for INDProximityDetectionCompletedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -665,7 +665,7 @@ pub struct INDProximityDetectionCompletedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDRegistrationCompletedEventArgs, INDRegistrationCompletedEventArgs_Vtbl, 0x9e39b64d_ab5b_4905_acdc_787a77c6374d);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDRegistrationCompletedEventArgs {
+impl core::ops::Deref for INDRegistrationCompletedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -733,7 +733,7 @@ pub struct INDRegistrationCompletedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDSendResult, INDSendResult_Vtbl, 0xe3685517_a584_479d_90b7_d689c7bf7c80);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDSendResult {
+impl core::ops::Deref for INDSendResult {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -768,7 +768,7 @@ pub struct INDSendResult_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStartResult, INDStartResult_Vtbl, 0x79f6e96e_f50f_4015_8ba4_c2bc344ebd4e);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDStartResult {
+impl core::ops::Deref for INDStartResult {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -803,7 +803,7 @@ pub struct INDStartResult_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStorageFileHelper, INDStorageFileHelper_Vtbl, 0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDStorageFileHelper {
+impl core::ops::Deref for INDStorageFileHelper {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -841,7 +841,7 @@ pub struct INDStorageFileHelper_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStreamParser, INDStreamParser_Vtbl, 0xe0baa198_9796_41c9_8695_59437e67e66a);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDStreamParser {
+impl core::ops::Deref for INDStreamParser {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -918,7 +918,7 @@ pub struct INDStreamParser_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStreamParserNotifier, INDStreamParserNotifier_Vtbl, 0xc167acd0_2ce6_426c_ace5_5e9275fea715);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDStreamParserNotifier {
+impl core::ops::Deref for INDStreamParserNotifier {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1005,7 +1005,7 @@ pub struct INDTCPMessengerFactory_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDTransmitterProperties, INDTransmitterProperties_Vtbl, 0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for INDTransmitterProperties {
+impl core::ops::Deref for INDTransmitterProperties {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1215,7 +1215,7 @@ pub struct IPlayReadyContentResolver_Vtbl {
     pub ServiceRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyDomain, IPlayReadyDomain_Vtbl, 0xadcc93ac_97e6_43ef_95e4_d7868f3b16a9);
-impl std::ops::Deref for IPlayReadyDomain {
+impl core::ops::Deref for IPlayReadyDomain {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1330,7 +1330,7 @@ pub struct IPlayReadyIndividualizationServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IPlayReadyLicense, IPlayReadyLicense_Vtbl, 0xee474c4e_fa3c_414d_a9f2_3ffc1ef832d4);
-impl std::ops::Deref for IPlayReadyLicense {
+impl core::ops::Deref for IPlayReadyLicense {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1415,7 +1415,7 @@ pub struct IPlayReadyLicense2_Vtbl {
     pub ExpiresInRealTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseAcquisitionServiceRequest, IPlayReadyLicenseAcquisitionServiceRequest_Vtbl, 0x5d85ff45_3e9f_4f48_93e1_9530c8d58c3e);
-impl std::ops::Deref for IPlayReadyLicenseAcquisitionServiceRequest {
+impl core::ops::Deref for IPlayReadyLicenseAcquisitionServiceRequest {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1578,7 +1578,7 @@ pub struct IPlayReadyLicenseManagement_Vtbl {
     pub DeleteLicenses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseSession, IPlayReadyLicenseSession_Vtbl, 0xa1723a39_87fa_4fdd_abbb_a9720e845259);
-impl std::ops::Deref for IPlayReadyLicenseSession {
+impl core::ops::Deref for IPlayReadyLicenseSession {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1611,7 +1611,7 @@ pub struct IPlayReadyLicenseSession_Vtbl {
     pub ConfigureMediaProtectionManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseSession2, IPlayReadyLicenseSession2_Vtbl, 0x4909be3a_3aed_4656_8ad7_ee0fd7799510);
-impl std::ops::Deref for IPlayReadyLicenseSession2 {
+impl core::ops::Deref for IPlayReadyLicenseSession2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1700,7 +1700,7 @@ pub struct IPlayReadySecureStopIterableFactory_Vtbl {
     CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadySecureStopServiceRequest, IPlayReadySecureStopServiceRequest_Vtbl, 0xb5501ee5_01bf_4401_9677_05630a6a4cc8);
-impl std::ops::Deref for IPlayReadySecureStopServiceRequest {
+impl core::ops::Deref for IPlayReadySecureStopServiceRequest {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1842,7 +1842,7 @@ pub struct IPlayReadySecureStopServiceRequestFactory_Vtbl {
     pub CreateInstanceFromSessionID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyServiceRequest, IPlayReadyServiceRequest_Vtbl, 0x8bad2836_a703_45a6_a180_76f3565aa725);
-impl std::ops::Deref for IPlayReadyServiceRequest {
+impl core::ops::Deref for IPlayReadyServiceRequest {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

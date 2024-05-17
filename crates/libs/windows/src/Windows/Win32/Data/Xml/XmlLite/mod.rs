@@ -67,7 +67,7 @@ where
     CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IXmlReader, IXmlReader_Vtbl, 0x7279fc81_709d_4095_b63d_69fe4b0d9030);
-impl std::ops::Deref for IXmlReader {
+impl core::ops::Deref for IXmlReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -186,7 +186,7 @@ pub struct IXmlReader_Vtbl {
     pub IsEOF: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
-impl std::ops::Deref for IXmlResolver {
+impl core::ops::Deref for IXmlResolver {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -210,7 +210,7 @@ pub struct IXmlResolver_Vtbl {
     pub ResolveUri: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlWriter, IXmlWriter_Vtbl, 0x7279fc88_709d_4095_b63d_69fe4b0d9030);
-impl std::ops::Deref for IXmlWriter {
+impl core::ops::Deref for IXmlWriter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -411,7 +411,7 @@ pub struct IXmlWriter_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
-impl std::ops::Deref for IXmlWriterLite {
+impl core::ops::Deref for IXmlWriterLite {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

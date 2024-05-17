@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(II2cControllerProvider, II2cControllerProvider_Vtbl, 0x61c2bb82_4510_4163_a87c_4e15a9558980);
-impl std::ops::Deref for II2cControllerProvider {
+impl core::ops::Deref for II2cControllerProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -27,7 +27,7 @@ pub struct II2cControllerProvider_Vtbl {
     pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cDeviceProvider, II2cDeviceProvider_Vtbl, 0xad342654_57e8_453e_8329_d1e447d103a9);
-impl std::ops::Deref for II2cDeviceProvider {
+impl core::ops::Deref for II2cDeviceProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -96,7 +96,7 @@ pub struct II2cDeviceProvider_Vtbl {
     pub WriteReadPartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cProvider, II2cProvider_Vtbl, 0x6f13083e_bf62_4fe2_a95a_f08999669818);
-impl std::ops::Deref for II2cProvider {
+impl core::ops::Deref for II2cProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

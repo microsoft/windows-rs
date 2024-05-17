@@ -4,7 +4,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxcompiler.dll" "system" fn DxcCreateInstance(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DxcCreateInstance(rclsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15,11 +15,11 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dxcompiler.dll" "system" fn DxcCreateInstance2(pmalloc : * mut core::ffi::c_void, rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DxcCreateInstance2(pmalloc.param().abi(), rclsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IDxcAssembler, IDxcAssembler_Vtbl, 0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
-impl std::ops::Deref for IDxcAssembler {
+impl core::ops::Deref for IDxcAssembler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -41,7 +41,7 @@ pub struct IDxcAssembler_Vtbl {
     pub AssembleToContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcBlob, IDxcBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
-impl std::ops::Deref for IDxcBlob {
+impl core::ops::Deref for IDxcBlob {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -63,7 +63,7 @@ pub struct IDxcBlob_Vtbl {
     pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
 }
 windows_core::imp::define_interface!(IDxcBlobEncoding, IDxcBlobEncoding_Vtbl, 0x7241d424_2646_4191_97c0_98e96e42fc68);
-impl std::ops::Deref for IDxcBlobEncoding {
+impl core::ops::Deref for IDxcBlobEncoding {
     type Target = IDxcBlob;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -81,7 +81,7 @@ pub struct IDxcBlobEncoding_Vtbl {
     pub GetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL, *mut DXC_CP) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcBlobUtf16, IDxcBlobUtf16_Vtbl, 0xa3f84eab_0faa_497e_a39c_ee6ed60b2d84);
-impl std::ops::Deref for IDxcBlobUtf16 {
+impl core::ops::Deref for IDxcBlobUtf16 {
     type Target = IDxcBlobEncoding;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -103,7 +103,7 @@ pub struct IDxcBlobUtf16_Vtbl {
     pub GetStringLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
 }
 windows_core::imp::define_interface!(IDxcBlobUtf8, IDxcBlobUtf8_Vtbl, 0x3da636c9_ba71_4024_a301_30cbf125305b);
-impl std::ops::Deref for IDxcBlobUtf8 {
+impl core::ops::Deref for IDxcBlobUtf8 {
     type Target = IDxcBlobEncoding;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -125,7 +125,7 @@ pub struct IDxcBlobUtf8_Vtbl {
     pub GetStringLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
 }
 windows_core::imp::define_interface!(IDxcCompiler, IDxcCompiler_Vtbl, 0x8c210bf3_011f_4422_8d70_6f9acb8db617);
-impl std::ops::Deref for IDxcCompiler {
+impl core::ops::Deref for IDxcCompiler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -169,7 +169,7 @@ pub struct IDxcCompiler_Vtbl {
     pub Disassemble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcCompiler2, IDxcCompiler2_Vtbl, 0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37);
-impl std::ops::Deref for IDxcCompiler2 {
+impl core::ops::Deref for IDxcCompiler2 {
     type Target = IDxcCompiler;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -209,7 +209,7 @@ pub struct IDxcCompiler2_Vtbl {
     pub CompileWithDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *const DxcDefine, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::PWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcCompiler3, IDxcCompiler3_Vtbl, 0x228b4687_5a6a_4730_900c_9702b2203f54);
-impl std::ops::Deref for IDxcCompiler3 {
+impl core::ops::Deref for IDxcCompiler3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -222,14 +222,14 @@ impl IDxcCompiler3 {
         P0: windows_core::Param<IDxcIncludeHandler>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).Compile)(windows_core::Interface::as_raw(self), psource, core::mem::transmute(parguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pincludehandler.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Disassemble<T>(&self, pobject: *const DxcBuffer) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), pobject, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
@@ -240,7 +240,7 @@ pub struct IDxcCompiler3_Vtbl {
     pub Disassemble: unsafe extern "system" fn(*mut core::ffi::c_void, *const DxcBuffer, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcCompilerArgs, IDxcCompilerArgs_Vtbl, 0x73effe2a_70dc_45f8_9690_eff64c02429d);
-impl std::ops::Deref for IDxcCompilerArgs {
+impl core::ops::Deref for IDxcCompilerArgs {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -274,7 +274,7 @@ pub struct IDxcCompilerArgs_Vtbl {
     pub AddDefines: unsafe extern "system" fn(*mut core::ffi::c_void, *const DxcDefine, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcContainerBuilder, IDxcContainerBuilder_Vtbl, 0x334b1f50_2292_4b35_99a1_25588d8c17fe);
-impl std::ops::Deref for IDxcContainerBuilder {
+impl core::ops::Deref for IDxcContainerBuilder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -311,7 +311,7 @@ pub struct IDxcContainerBuilder_Vtbl {
     pub SerializeContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcContainerReflection, IDxcContainerReflection_Vtbl, 0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
-impl std::ops::Deref for IDxcContainerReflection {
+impl core::ops::Deref for IDxcContainerReflection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -356,7 +356,7 @@ pub struct IDxcContainerReflection_Vtbl {
     pub GetPartReflection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcExtraOutputs, IDxcExtraOutputs_Vtbl, 0x319b37a2_a5c2_494a_a5de_4801b2faf989);
-impl std::ops::Deref for IDxcExtraOutputs {
+impl core::ops::Deref for IDxcExtraOutputs {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -381,7 +381,7 @@ pub struct IDxcExtraOutputs_Vtbl {
     pub GetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcIncludeHandler, IDxcIncludeHandler_Vtbl, 0x7f61fc7d_950d_467f_b3e3_3c02fb49187c);
-impl std::ops::Deref for IDxcIncludeHandler {
+impl core::ops::Deref for IDxcIncludeHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -403,7 +403,7 @@ pub struct IDxcIncludeHandler_Vtbl {
     pub LoadSource: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcLibrary, IDxcLibrary_Vtbl, 0xe5204dc7_d18c_4c3c_bdfb_851673980fe7);
-impl std::ops::Deref for IDxcLibrary {
+impl core::ops::Deref for IDxcLibrary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -499,7 +499,7 @@ pub struct IDxcLibrary_Vtbl {
     pub GetBlobAsUtf16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcLinker, IDxcLinker_Vtbl, 0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
-impl std::ops::Deref for IDxcLinker {
+impl core::ops::Deref for IDxcLinker {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -530,7 +530,7 @@ pub struct IDxcLinker_Vtbl {
     pub Link: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *const windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcOperationResult, IDxcOperationResult_Vtbl, 0xcedb484a_d4e9_445a_b991_ca21ca157dc2);
-impl std::ops::Deref for IDxcOperationResult {
+impl core::ops::Deref for IDxcOperationResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -559,7 +559,7 @@ pub struct IDxcOperationResult_Vtbl {
     pub GetErrorBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcOptimizer, IDxcOptimizer_Vtbl, 0x25740e2e_9cba_401b_9119_4fb42f39f270);
-impl std::ops::Deref for IDxcOptimizer {
+impl core::ops::Deref for IDxcOptimizer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -590,7 +590,7 @@ pub struct IDxcOptimizer_Vtbl {
     pub RunOptimizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcOptimizerPass, IDxcOptimizerPass_Vtbl, 0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
-impl std::ops::Deref for IDxcOptimizerPass {
+impl core::ops::Deref for IDxcOptimizerPass {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -629,7 +629,7 @@ pub struct IDxcOptimizerPass_Vtbl {
     pub GetOptionArgDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcPdbUtils, IDxcPdbUtils_Vtbl, 0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
-impl std::ops::Deref for IDxcPdbUtils {
+impl core::ops::Deref for IDxcPdbUtils {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -766,7 +766,7 @@ pub struct IDxcPdbUtils_Vtbl {
     pub OverrideRootSignature: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcResult, IDxcResult_Vtbl, 0x58346cda_dde7_4497_9461_6f87af5e0659);
-impl std::ops::Deref for IDxcResult {
+impl core::ops::Deref for IDxcResult {
     type Target = IDxcOperationResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -803,7 +803,7 @@ pub struct IDxcResult_Vtbl {
     pub PrimaryOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXC_OUT_KIND,
 }
 windows_core::imp::define_interface!(IDxcUtils, IDxcUtils_Vtbl, 0x4605c4cb_2019_492a_ada4_65f20bb7d67f);
-impl std::ops::Deref for IDxcUtils {
+impl core::ops::Deref for IDxcUtils {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -913,7 +913,7 @@ pub struct IDxcUtils_Vtbl {
     pub GetPDBContents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcValidator, IDxcValidator_Vtbl, 0xa6e82bd2_1fd7_4826_9811_2857e797f49a);
-impl std::ops::Deref for IDxcValidator {
+impl core::ops::Deref for IDxcValidator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -935,7 +935,7 @@ pub struct IDxcValidator_Vtbl {
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcValidator2, IDxcValidator2_Vtbl, 0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92);
-impl std::ops::Deref for IDxcValidator2 {
+impl core::ops::Deref for IDxcValidator2 {
     type Target = IDxcValidator;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -957,7 +957,7 @@ pub struct IDxcValidator2_Vtbl {
     pub ValidateWithDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const DxcBuffer, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcVersionInfo, IDxcVersionInfo_Vtbl, 0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
-impl std::ops::Deref for IDxcVersionInfo {
+impl core::ops::Deref for IDxcVersionInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -980,7 +980,7 @@ pub struct IDxcVersionInfo_Vtbl {
     pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcVersionInfo2, IDxcVersionInfo2_Vtbl, 0xfb6904c4_42f0_4b62_9c46_983af7da7c83);
-impl std::ops::Deref for IDxcVersionInfo2 {
+impl core::ops::Deref for IDxcVersionInfo2 {
     type Target = IDxcVersionInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -998,7 +998,7 @@ pub struct IDxcVersionInfo2_Vtbl {
     pub GetCommitInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDxcVersionInfo3, IDxcVersionInfo3_Vtbl, 0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e);
-impl std::ops::Deref for IDxcVersionInfo3 {
+impl core::ops::Deref for IDxcVersionInfo3 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

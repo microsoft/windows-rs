@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
-impl std::ops::Deref for IDirect3DDevice {
+impl core::ops::Deref for IDirect3DDevice {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -26,7 +26,7 @@ pub struct IDirect3DDevice_Vtbl {
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
-impl std::ops::Deref for IDirect3DSurface {
+impl core::ops::Deref for IDirect3DSurface {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

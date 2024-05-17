@@ -3,7 +3,7 @@ pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
 pub mod Fxc;
 windows_core::imp::define_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
-impl std::ops::Deref for ID3DBlob {
+impl core::ops::Deref for ID3DBlob {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -27,7 +27,7 @@ pub struct ID3DBlob_Vtbl {
     pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
 }
 windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
-impl std::ops::Deref for ID3DDestructionNotifier {
+impl core::ops::Deref for ID3DDestructionNotifier {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCapabilities_Vtbl, 0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
-impl std::ops::Deref for ISideShowBulkCapabilities {
+impl core::ops::Deref for ISideShowBulkCapabilities {
     type Target = ISideShowCapabilities;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -20,7 +20,7 @@ pub struct ISideShowBulkCapabilities_Vtbl {
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowCapabilities, ISideShowCapabilities_Vtbl, 0x535e1379_c09e_4a54_a511_597bab3a72b8);
-impl std::ops::Deref for ISideShowCapabilities {
+impl core::ops::Deref for ISideShowCapabilities {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -42,7 +42,7 @@ pub struct ISideShowCapabilities_Vtbl {
     GetCapability: usize,
 }
 windows_core::imp::define_interface!(ISideShowCapabilitiesCollection, ISideShowCapabilitiesCollection_Vtbl, 0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
-impl std::ops::Deref for ISideShowCapabilitiesCollection {
+impl core::ops::Deref for ISideShowCapabilitiesCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -66,7 +66,7 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowContent, ISideShowContent_Vtbl, 0xc18552ed_74ff_4fec_be07_4cfed29d4887);
-impl std::ops::Deref for ISideShowContent {
+impl core::ops::Deref for ISideShowContent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -97,7 +97,7 @@ pub struct ISideShowContent_Vtbl {
     pub DifferentiateContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowContentManager, ISideShowContentManager_Vtbl, 0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
-impl std::ops::Deref for ISideShowContentManager {
+impl core::ops::Deref for ISideShowContentManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -138,7 +138,7 @@ pub struct ISideShowContentManager_Vtbl {
     pub GetDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowEvents, ISideShowEvents_Vtbl, 0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
-impl std::ops::Deref for ISideShowEvents {
+impl core::ops::Deref for ISideShowEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -178,7 +178,7 @@ pub struct ISideShowEvents_Vtbl {
     pub DeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowKeyCollection, ISideShowKeyCollection_Vtbl, 0x045473bc_a37b_4957_b144_68105411ed8e);
-impl std::ops::Deref for ISideShowKeyCollection {
+impl core::ops::Deref for ISideShowKeyCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -220,7 +220,7 @@ pub struct ISideShowKeyCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowNotification, ISideShowNotification_Vtbl, 0x03c93300_8ab2_41c5_9b79_46127a30e148);
-impl std::ops::Deref for ISideShowNotification {
+impl core::ops::Deref for ISideShowNotification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -296,7 +296,7 @@ pub struct ISideShowNotification_Vtbl {
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowNotificationManager, ISideShowNotificationManager_Vtbl, 0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
-impl std::ops::Deref for ISideShowNotificationManager {
+impl core::ops::Deref for ISideShowNotificationManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -325,7 +325,7 @@ pub struct ISideShowNotificationManager_Vtbl {
     pub RevokeAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowPropVariantCollection, ISideShowPropVariantCollection_Vtbl, 0x2ea7a549_7bff_4aae_bab0_22d43111de49);
-impl std::ops::Deref for ISideShowPropVariantCollection {
+impl core::ops::Deref for ISideShowPropVariantCollection {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -359,7 +359,7 @@ pub struct ISideShowPropVariantCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISideShowSession, ISideShowSession_Vtbl, 0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
-impl std::ops::Deref for ISideShowSession {
+impl core::ops::Deref for ISideShowSession {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

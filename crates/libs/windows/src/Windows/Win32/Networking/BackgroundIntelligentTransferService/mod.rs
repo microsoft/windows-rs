@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(AsyncIBackgroundCopyCallback, AsyncIBackgroundCopyCallback_Vtbl, 0xca29d251_b4bb_4679_a3d9_ae8006119d54);
-impl std::ops::Deref for AsyncIBackgroundCopyCallback {
+impl core::ops::Deref for AsyncIBackgroundCopyCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -49,7 +49,7 @@ pub struct AsyncIBackgroundCopyCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBITSExtensionSetup, IBITSExtensionSetup_Vtbl, 0x29cfbbf7_09e4_4b97_b0bc_f2287e3d8eb3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IBITSExtensionSetup {
+impl core::ops::Deref for IBITSExtensionSetup {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -86,7 +86,7 @@ pub struct IBITSExtensionSetup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBITSExtensionSetupFactory, IBITSExtensionSetupFactory_Vtbl, 0xd5d2d542_5503_4e64_8b48_72ef91a32ee1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IBITSExtensionSetupFactory {
+impl core::ops::Deref for IBITSExtensionSetupFactory {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -115,7 +115,7 @@ pub struct IBITSExtensionSetupFactory_Vtbl {
     GetObject: usize,
 }
 windows_core::imp::define_interface!(IBackgroundCopyCallback, IBackgroundCopyCallback_Vtbl, 0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22);
-impl std::ops::Deref for IBackgroundCopyCallback {
+impl core::ops::Deref for IBackgroundCopyCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -151,7 +151,7 @@ pub struct IBackgroundCopyCallback_Vtbl {
     pub JobModification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyCallback1, IBackgroundCopyCallback1_Vtbl, 0x084f6593_3800_4e08_9b59_99fa59addf82);
-impl std::ops::Deref for IBackgroundCopyCallback1 {
+impl core::ops::Deref for IBackgroundCopyCallback1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -189,7 +189,7 @@ pub struct IBackgroundCopyCallback1_Vtbl {
     pub OnProgressEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyCallback2, IBackgroundCopyCallback2_Vtbl, 0x659cdeac_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IBackgroundCopyCallback2 {
+impl core::ops::Deref for IBackgroundCopyCallback2 {
     type Target = IBackgroundCopyCallback;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -211,7 +211,7 @@ pub struct IBackgroundCopyCallback2_Vtbl {
     pub FileTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyCallback3, IBackgroundCopyCallback3_Vtbl, 0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
-impl std::ops::Deref for IBackgroundCopyCallback3 {
+impl core::ops::Deref for IBackgroundCopyCallback3 {
     type Target = IBackgroundCopyCallback2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -233,7 +233,7 @@ pub struct IBackgroundCopyCallback3_Vtbl {
     pub FileRangesTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const BG_FILE_RANGE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyError, IBackgroundCopyError_Vtbl, 0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
-impl std::ops::Deref for IBackgroundCopyError {
+impl core::ops::Deref for IBackgroundCopyError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -271,7 +271,7 @@ pub struct IBackgroundCopyError_Vtbl {
     pub GetProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyFile, IBackgroundCopyFile_Vtbl, 0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
-impl std::ops::Deref for IBackgroundCopyFile {
+impl core::ops::Deref for IBackgroundCopyFile {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -299,7 +299,7 @@ pub struct IBackgroundCopyFile_Vtbl {
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_FILE_PROGRESS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyFile2, IBackgroundCopyFile2_Vtbl, 0x83e81b93_0873_474d_8a8c_f2018b1a939c);
-impl std::ops::Deref for IBackgroundCopyFile2 {
+impl core::ops::Deref for IBackgroundCopyFile2 {
     type Target = IBackgroundCopyFile;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -324,7 +324,7 @@ pub struct IBackgroundCopyFile2_Vtbl {
     pub SetRemoteName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyFile3, IBackgroundCopyFile3_Vtbl, 0x659cdeaa_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IBackgroundCopyFile3 {
+impl core::ops::Deref for IBackgroundCopyFile3 {
     type Target = IBackgroundCopyFile2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -360,7 +360,7 @@ pub struct IBackgroundCopyFile3_Vtbl {
     pub IsDownloadedFromPeer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyFile4, IBackgroundCopyFile4_Vtbl, 0xef7e0655_7888_4960_b0e5_730846e03492);
-impl std::ops::Deref for IBackgroundCopyFile4 {
+impl core::ops::Deref for IBackgroundCopyFile4 {
     type Target = IBackgroundCopyFile3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -378,7 +378,7 @@ pub struct IBackgroundCopyFile4_Vtbl {
     pub GetPeerDownloadStats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyFile5, IBackgroundCopyFile5_Vtbl, 0x85c1657f_dafc_40e8_8834_df18ea25717e);
-impl std::ops::Deref for IBackgroundCopyFile5 {
+impl core::ops::Deref for IBackgroundCopyFile5 {
     type Target = IBackgroundCopyFile4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -401,7 +401,7 @@ pub struct IBackgroundCopyFile5_Vtbl {
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_FILE_PROPERTY_ID, *mut BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyFile6, IBackgroundCopyFile6_Vtbl, 0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
-impl std::ops::Deref for IBackgroundCopyFile6 {
+impl core::ops::Deref for IBackgroundCopyFile6 {
     type Target = IBackgroundCopyFile5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -427,7 +427,7 @@ pub struct IBackgroundCopyFile6_Vtbl {
     pub GetFilledFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyGroup, IBackgroundCopyGroup_Vtbl, 0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
-impl std::ops::Deref for IBackgroundCopyGroup {
+impl core::ops::Deref for IBackgroundCopyGroup {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -512,7 +512,7 @@ pub struct IBackgroundCopyGroup_Vtbl {
     pub SetNotificationPointer: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJob, IBackgroundCopyJob_Vtbl, 0x37668d37_507e_4160_9316_26306d150b12);
-impl std::ops::Deref for IBackgroundCopyJob {
+impl core::ops::Deref for IBackgroundCopyJob {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -685,7 +685,7 @@ pub struct IBackgroundCopyJob_Vtbl {
     pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJob1, IBackgroundCopyJob1_Vtbl, 0x59f5553c_2031_4629_bb18_2645a6970947);
-impl std::ops::Deref for IBackgroundCopyJob1 {
+impl core::ops::Deref for IBackgroundCopyJob1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -735,7 +735,7 @@ pub struct IBackgroundCopyJob1_Vtbl {
     pub JobID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJob2, IBackgroundCopyJob2_Vtbl, 0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
-impl std::ops::Deref for IBackgroundCopyJob2 {
+impl core::ops::Deref for IBackgroundCopyJob2 {
     type Target = IBackgroundCopyJob;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -789,7 +789,7 @@ pub struct IBackgroundCopyJob2_Vtbl {
     pub RemoveCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, BG_AUTH_TARGET, BG_AUTH_SCHEME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJob3, IBackgroundCopyJob3_Vtbl, 0x443c8934_90ff_48ed_bcde_26f5c7450042);
-impl std::ops::Deref for IBackgroundCopyJob3 {
+impl core::ops::Deref for IBackgroundCopyJob3 {
     type Target = IBackgroundCopyJob2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -828,7 +828,7 @@ pub struct IBackgroundCopyJob3_Vtbl {
     pub GetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJob4, IBackgroundCopyJob4_Vtbl, 0x659cdeae_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IBackgroundCopyJob4 {
+impl core::ops::Deref for IBackgroundCopyJob4 {
     type Target = IBackgroundCopyJob3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -870,7 +870,7 @@ pub struct IBackgroundCopyJob4_Vtbl {
     pub GetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJob5, IBackgroundCopyJob5_Vtbl, 0xe847030c_bbba_4657_af6d_484aa42bf1fe);
-impl std::ops::Deref for IBackgroundCopyJob5 {
+impl core::ops::Deref for IBackgroundCopyJob5 {
     type Target = IBackgroundCopyJob4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -893,7 +893,7 @@ pub struct IBackgroundCopyJob5_Vtbl {
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_JOB_PROPERTY_ID, *mut BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions_Vtbl, 0xf1bd1079_9f01_4bdc_8036_f09b70095066);
-impl std::ops::Deref for IBackgroundCopyJobHttpOptions {
+impl core::ops::Deref for IBackgroundCopyJobHttpOptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -951,7 +951,7 @@ pub struct IBackgroundCopyJobHttpOptions_Vtbl {
     pub GetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions2, IBackgroundCopyJobHttpOptions2_Vtbl, 0xb591a192_a405_4fc3_8323_4c5c542578fc);
-impl std::ops::Deref for IBackgroundCopyJobHttpOptions2 {
+impl core::ops::Deref for IBackgroundCopyJobHttpOptions2 {
     type Target = IBackgroundCopyJobHttpOptions;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -977,7 +977,7 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
     pub GetHttpMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions3, IBackgroundCopyJobHttpOptions3_Vtbl, 0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
-impl std::ops::Deref for IBackgroundCopyJobHttpOptions3 {
+impl core::ops::Deref for IBackgroundCopyJobHttpOptions3 {
     type Target = IBackgroundCopyJobHttpOptions2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1002,7 +1002,7 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
     pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyManager, IBackgroundCopyManager_Vtbl, 0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
-impl std::ops::Deref for IBackgroundCopyManager {
+impl core::ops::Deref for IBackgroundCopyManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1038,7 +1038,7 @@ pub struct IBackgroundCopyManager_Vtbl {
     pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyQMgr, IBackgroundCopyQMgr_Vtbl, 0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
-impl std::ops::Deref for IBackgroundCopyQMgr {
+impl core::ops::Deref for IBackgroundCopyQMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1067,7 +1067,7 @@ pub struct IBackgroundCopyQMgr_Vtbl {
     pub EnumGroups: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundCopyServerCertificateValidationCallback, IBackgroundCopyServerCertificateValidationCallback_Vtbl, 0x4cec0d02_def7_4158_813a_c32a46945ff7);
-impl std::ops::Deref for IBackgroundCopyServerCertificateValidationCallback {
+impl core::ops::Deref for IBackgroundCopyServerCertificateValidationCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1089,7 +1089,7 @@ pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub ValidateServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitsPeer, IBitsPeer_Vtbl, 0x659cdea2_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IBitsPeer {
+impl core::ops::Deref for IBitsPeer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1118,7 +1118,7 @@ pub struct IBitsPeer_Vtbl {
     pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitsPeerCacheAdministration, IBitsPeerCacheAdministration_Vtbl, 0x659cdead_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IBitsPeerCacheAdministration {
+impl core::ops::Deref for IBitsPeerCacheAdministration {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1197,7 +1197,7 @@ pub struct IBitsPeerCacheAdministration_Vtbl {
     pub DiscoverPeers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitsPeerCacheRecord, IBitsPeerCacheRecord_Vtbl, 0x659cdeaf_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IBitsPeerCacheRecord {
+impl core::ops::Deref for IBitsPeerCacheRecord {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1244,7 +1244,7 @@ pub struct IBitsPeerCacheRecord_Vtbl {
     pub GetFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitsTokenOptions, IBitsTokenOptions_Vtbl, 0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
-impl std::ops::Deref for IBitsTokenOptions {
+impl core::ops::Deref for IBitsTokenOptions {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1280,7 +1280,7 @@ pub struct IBitsTokenOptions_Vtbl {
     pub GetHelperTokenSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumBackgroundCopyFiles, IEnumBackgroundCopyFiles_Vtbl, 0xca51e165_c365_424c_8d41_24aaa4ff3c40);
-impl std::ops::Deref for IEnumBackgroundCopyFiles {
+impl core::ops::Deref for IEnumBackgroundCopyFiles {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1316,7 +1316,7 @@ pub struct IEnumBackgroundCopyFiles_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumBackgroundCopyGroups, IEnumBackgroundCopyGroups_Vtbl, 0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
-impl std::ops::Deref for IEnumBackgroundCopyGroups {
+impl core::ops::Deref for IEnumBackgroundCopyGroups {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1352,7 +1352,7 @@ pub struct IEnumBackgroundCopyGroups_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumBackgroundCopyJobs, IEnumBackgroundCopyJobs_Vtbl, 0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
-impl std::ops::Deref for IEnumBackgroundCopyJobs {
+impl core::ops::Deref for IEnumBackgroundCopyJobs {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1388,7 +1388,7 @@ pub struct IEnumBackgroundCopyJobs_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumBackgroundCopyJobs1, IEnumBackgroundCopyJobs1_Vtbl, 0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
-impl std::ops::Deref for IEnumBackgroundCopyJobs1 {
+impl core::ops::Deref for IEnumBackgroundCopyJobs1 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1424,7 +1424,7 @@ pub struct IEnumBackgroundCopyJobs1_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumBitsPeerCacheRecords, IEnumBitsPeerCacheRecords_Vtbl, 0x659cdea4_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IEnumBitsPeerCacheRecords {
+impl core::ops::Deref for IEnumBitsPeerCacheRecords {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1460,7 +1460,7 @@ pub struct IEnumBitsPeerCacheRecords_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumBitsPeers, IEnumBitsPeers_Vtbl, 0x659cdea5_489e_11d9_a9cd_000d56965251);
-impl std::ops::Deref for IEnumBitsPeers {
+impl core::ops::Deref for IEnumBitsPeers {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

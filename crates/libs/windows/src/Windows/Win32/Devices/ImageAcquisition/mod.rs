@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IEnumWIA_DEV_CAPS, IEnumWIA_DEV_CAPS_Vtbl, 0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
-impl std::ops::Deref for IEnumWIA_DEV_CAPS {
+impl core::ops::Deref for IEnumWIA_DEV_CAPS {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -35,7 +35,7 @@ pub struct IEnumWIA_DEV_CAPS_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumWIA_DEV_INFO, IEnumWIA_DEV_INFO_Vtbl, 0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
-impl std::ops::Deref for IEnumWIA_DEV_INFO {
+impl core::ops::Deref for IEnumWIA_DEV_INFO {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -71,7 +71,7 @@ pub struct IEnumWIA_DEV_INFO_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumWIA_FORMAT_INFO, IEnumWIA_FORMAT_INFO_Vtbl, 0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
-impl std::ops::Deref for IEnumWIA_FORMAT_INFO {
+impl core::ops::Deref for IEnumWIA_FORMAT_INFO {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -107,7 +107,7 @@ pub struct IEnumWIA_FORMAT_INFO_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumWiaItem, IEnumWiaItem_Vtbl, 0x5e8383fc_3391_11d2_9a33_00c04fa36145);
-impl std::ops::Deref for IEnumWiaItem {
+impl core::ops::Deref for IEnumWiaItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -143,7 +143,7 @@ pub struct IEnumWiaItem_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumWiaItem2, IEnumWiaItem2_Vtbl, 0x59970af4_cd0d_44d9_ab24_52295630e582);
-impl std::ops::Deref for IEnumWiaItem2 {
+impl core::ops::Deref for IEnumWiaItem2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -179,7 +179,7 @@ pub struct IEnumWiaItem2_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaAppErrorHandler, IWiaAppErrorHandler_Vtbl, 0x6c16186c_d0a6_400c_80f4_d26986a0e734);
-impl std::ops::Deref for IWiaAppErrorHandler {
+impl core::ops::Deref for IWiaAppErrorHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -205,7 +205,7 @@ pub struct IWiaAppErrorHandler_Vtbl {
     pub ReportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::HRESULT, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
-impl std::ops::Deref for IWiaDataCallback {
+impl core::ops::Deref for IWiaDataCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -223,7 +223,7 @@ pub struct IWiaDataCallback_Vtbl {
     pub BandedDataCallback: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, i32, i32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
-impl std::ops::Deref for IWiaDataTransfer {
+impl core::ops::Deref for IWiaDataTransfer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -268,7 +268,7 @@ pub struct IWiaDataTransfer_Vtbl {
     pub idtGetExtendedTransferInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDevMgr, IWiaDevMgr_Vtbl, 0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
-impl std::ops::Deref for IWiaDevMgr {
+impl core::ops::Deref for IWiaDevMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -355,7 +355,7 @@ pub struct IWiaDevMgr_Vtbl {
     pub AddDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDevMgr2, IWiaDevMgr2_Vtbl, 0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
-impl std::ops::Deref for IWiaDevMgr2 {
+impl core::ops::Deref for IWiaDevMgr2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -437,7 +437,7 @@ pub struct IWiaDevMgr2_Vtbl {
     pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::HWND, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut *mut windows_core::BSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaDrvItem, IWiaDrvItem_Vtbl, 0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
-impl std::ops::Deref for IWiaDrvItem {
+impl core::ops::Deref for IWiaDrvItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -522,7 +522,7 @@ pub struct IWiaDrvItem_Vtbl {
     pub DumpItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
-impl std::ops::Deref for IWiaErrorHandler {
+impl core::ops::Deref for IWiaErrorHandler {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -552,7 +552,7 @@ pub struct IWiaErrorHandler_Vtbl {
     pub GetStatusDescription: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::HRESULT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 0xae6287b0_0084_11d2_973b_00a0c9068f2e);
-impl std::ops::Deref for IWiaEventCallback {
+impl core::ops::Deref for IWiaEventCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -576,7 +576,7 @@ pub struct IWiaEventCallback_Vtbl {
     pub ImageEventCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, u32, core::mem::MaybeUninit<windows_core::BSTR>, *mut u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaImageFilter, IWiaImageFilter_Vtbl, 0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
-impl std::ops::Deref for IWiaImageFilter {
+impl core::ops::Deref for IWiaImageFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -624,7 +624,7 @@ pub struct IWiaImageFilter_Vtbl {
     pub ApplyProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaItem, IWiaItem_Vtbl, 0x4db1ad10_3391_11d2_9a33_00c04fa36145);
-impl std::ops::Deref for IWiaItem {
+impl core::ops::Deref for IWiaItem {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -718,7 +718,7 @@ pub struct IWiaItem_Vtbl {
     pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaItem2, IWiaItem2_Vtbl, 0x6cba0075_1287_407d_9b77_cf0e030435cc);
-impl std::ops::Deref for IWiaItem2 {
+impl core::ops::Deref for IWiaItem2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -823,7 +823,7 @@ pub struct IWiaItem2_Vtbl {
     pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaItemExtras, IWiaItemExtras_Vtbl, 0x6291ef2c_36ef_4532_876a_8e132593778d);
-impl std::ops::Deref for IWiaItemExtras {
+impl core::ops::Deref for IWiaItemExtras {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -850,7 +850,7 @@ pub struct IWiaItemExtras_Vtbl {
     pub CancelPendingIO: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaLog, IWiaLog_Vtbl, 0xa00c10b6_82a1_452f_8b6c_86062aad6890);
-impl std::ops::Deref for IWiaLog {
+impl core::ops::Deref for IWiaLog {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -879,7 +879,7 @@ pub struct IWiaLog_Vtbl {
     pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaLogEx, IWiaLogEx_Vtbl, 0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
-impl std::ops::Deref for IWiaLogEx {
+impl core::ops::Deref for IWiaLogEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -919,7 +919,7 @@ pub struct IWiaLogEx_Vtbl {
     pub LogEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaMiniDrv, IWiaMiniDrv_Vtbl, 0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
-impl std::ops::Deref for IWiaMiniDrv {
+impl core::ops::Deref for IWiaMiniDrv {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1026,7 +1026,7 @@ pub struct IWiaMiniDrv_Vtbl {
     pub drvUnInitializeWia: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaMiniDrvCallBack, IWiaMiniDrvCallBack_Vtbl, 0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
-impl std::ops::Deref for IWiaMiniDrvCallBack {
+impl core::ops::Deref for IWiaMiniDrvCallBack {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1044,7 +1044,7 @@ pub struct IWiaMiniDrvCallBack_Vtbl {
     pub MiniDrvCallback: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, *const MINIDRV_TRANSFER_CONTEXT, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaMiniDrvTransferCallback, IWiaMiniDrvTransferCallback_Vtbl, 0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
-impl std::ops::Deref for IWiaMiniDrvTransferCallback {
+impl core::ops::Deref for IWiaMiniDrvTransferCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1075,7 +1075,7 @@ pub struct IWiaMiniDrvTransferCallback_Vtbl {
     pub SendMessage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const WiaTransferParams) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaNotifyDevMgr, IWiaNotifyDevMgr_Vtbl, 0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
-impl std::ops::Deref for IWiaNotifyDevMgr {
+impl core::ops::Deref for IWiaNotifyDevMgr {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1093,7 +1093,7 @@ pub struct IWiaNotifyDevMgr_Vtbl {
     pub NewDeviceArrival: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaPreview, IWiaPreview_Vtbl, 0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
-impl std::ops::Deref for IWiaPreview {
+impl core::ops::Deref for IWiaPreview {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1131,7 +1131,7 @@ pub struct IWiaPreview_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vtbl, 0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
-impl std::ops::Deref for IWiaPropertyStorage {
+impl core::ops::Deref for IWiaPropertyStorage {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1246,7 +1246,7 @@ pub struct IWiaPropertyStorage_Vtbl {
     SetPropertyStream: usize,
 }
 windows_core::imp::define_interface!(IWiaSegmentationFilter, IWiaSegmentationFilter_Vtbl, 0xec46a697_ac04_4447_8f65_ff63d5154b21);
-impl std::ops::Deref for IWiaSegmentationFilter {
+impl core::ops::Deref for IWiaSegmentationFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1272,7 +1272,7 @@ pub struct IWiaSegmentationFilter_Vtbl {
     DetectRegions: usize,
 }
 windows_core::imp::define_interface!(IWiaTransfer, IWiaTransfer_Vtbl, 0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
-impl std::ops::Deref for IWiaTransfer {
+impl core::ops::Deref for IWiaTransfer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1314,7 +1314,7 @@ pub struct IWiaTransfer_Vtbl {
     pub EnumWIA_FORMAT_INFO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiaTransferCallback, IWiaTransferCallback_Vtbl, 0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
-impl std::ops::Deref for IWiaTransferCallback {
+impl core::ops::Deref for IWiaTransferCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1345,7 +1345,7 @@ pub struct IWiaTransferCallback_Vtbl {
     GetNextStream: usize,
 }
 windows_core::imp::define_interface!(IWiaUIExtension, IWiaUIExtension_Vtbl, 0xda319113_50ee_4c80_b460_57d005d44a2c);
-impl std::ops::Deref for IWiaUIExtension {
+impl core::ops::Deref for IWiaUIExtension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1385,7 +1385,7 @@ pub struct IWiaUIExtension_Vtbl {
     GetDeviceBitmapLogo: usize,
 }
 windows_core::imp::define_interface!(IWiaUIExtension2, IWiaUIExtension2_Vtbl, 0x305600d7_5088_46d7_9a15_b77b09cdba7a);
-impl std::ops::Deref for IWiaUIExtension2 {
+impl core::ops::Deref for IWiaUIExtension2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1414,7 +1414,7 @@ pub struct IWiaUIExtension2_Vtbl {
     GetDeviceIcon: usize,
 }
 windows_core::imp::define_interface!(IWiaVideo, IWiaVideo_Vtbl, 0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
-impl std::ops::Deref for IWiaVideo {
+impl core::ops::Deref for IWiaVideo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

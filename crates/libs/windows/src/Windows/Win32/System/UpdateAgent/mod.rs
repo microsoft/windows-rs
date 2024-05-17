@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdates, IAutomaticUpdates_Vtbl, 0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAutomaticUpdates {
+impl core::ops::Deref for IAutomaticUpdates {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -54,7 +54,7 @@ pub struct IAutomaticUpdates_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdates2, IAutomaticUpdates2_Vtbl, 0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAutomaticUpdates2 {
+impl core::ops::Deref for IAutomaticUpdates2 {
     type Target = IAutomaticUpdates;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -82,7 +82,7 @@ pub struct IAutomaticUpdates2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesResults, IAutomaticUpdatesResults_Vtbl, 0xe7a4d634_7942_4dd9_a111_82228ba33901);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAutomaticUpdatesResults {
+impl core::ops::Deref for IAutomaticUpdatesResults {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -111,7 +111,7 @@ pub struct IAutomaticUpdatesResults_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesSettings, IAutomaticUpdatesSettings_Vtbl, 0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAutomaticUpdatesSettings {
+impl core::ops::Deref for IAutomaticUpdatesSettings {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -175,7 +175,7 @@ pub struct IAutomaticUpdatesSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesSettings2, IAutomaticUpdatesSettings2_Vtbl, 0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAutomaticUpdatesSettings2 {
+impl core::ops::Deref for IAutomaticUpdatesSettings2 {
     type Target = IAutomaticUpdatesSettings;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -211,7 +211,7 @@ pub struct IAutomaticUpdatesSettings2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesSettings3, IAutomaticUpdatesSettings3_Vtbl, 0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IAutomaticUpdatesSettings3 {
+impl core::ops::Deref for IAutomaticUpdatesSettings3 {
     type Target = IAutomaticUpdatesSettings2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -254,7 +254,7 @@ pub struct IAutomaticUpdatesSettings3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICategory, ICategory_Vtbl, 0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ICategory {
+impl core::ops::Deref for ICategory {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -334,7 +334,7 @@ pub struct ICategory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICategoryCollection, ICategoryCollection_Vtbl, 0x3a56bfb8_576c_43f7_9335_fe4838fd7e37);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ICategoryCollection {
+impl core::ops::Deref for ICategoryCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -370,7 +370,7 @@ pub struct ICategoryCollection_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDownloadCompletedCallback, IDownloadCompletedCallback_Vtbl, 0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
-impl std::ops::Deref for IDownloadCompletedCallback {
+impl core::ops::Deref for IDownloadCompletedCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -398,7 +398,7 @@ pub struct IDownloadCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadCompletedCallbackArgs, IDownloadCompletedCallbackArgs_Vtbl, 0xfa565b23_498c_47a0_979d_e7d5b1813360);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDownloadCompletedCallbackArgs {
+impl core::ops::Deref for IDownloadCompletedCallbackArgs {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -416,7 +416,7 @@ pub struct IDownloadCompletedCallbackArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadJob, IDownloadJob_Vtbl, 0xc574de85_7358_43f6_aae8_8697e62d8ba7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDownloadJob {
+impl core::ops::Deref for IDownloadJob {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -471,7 +471,7 @@ pub struct IDownloadJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadProgress, IDownloadProgress_Vtbl, 0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDownloadProgress {
+impl core::ops::Deref for IDownloadProgress {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -537,7 +537,7 @@ pub struct IDownloadProgress_Vtbl {
     pub CurrentUpdatePercentComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDownloadProgressChangedCallback, IDownloadProgressChangedCallback_Vtbl, 0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
-impl std::ops::Deref for IDownloadProgressChangedCallback {
+impl core::ops::Deref for IDownloadProgressChangedCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -565,7 +565,7 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadProgressChangedCallbackArgs, IDownloadProgressChangedCallbackArgs_Vtbl, 0x324ff2c6_4981_4b04_9412_57481745ab24);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDownloadProgressChangedCallbackArgs {
+impl core::ops::Deref for IDownloadProgressChangedCallbackArgs {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -593,7 +593,7 @@ pub struct IDownloadProgressChangedCallbackArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadResult, IDownloadResult_Vtbl, 0xdaa4fdd0_4727_4dbe_a1e7_745dca317144);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDownloadResult {
+impl core::ops::Deref for IDownloadResult {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -631,7 +631,7 @@ pub struct IDownloadResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IImageInformation, IImageInformation_Vtbl, 0x7c907864_346c_4aeb_8f3f_57da289f969f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IImageInformation {
+impl core::ops::Deref for IImageInformation {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -670,7 +670,7 @@ pub struct IImageInformation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationAgent, IInstallationAgent_Vtbl, 0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationAgent {
+impl core::ops::Deref for IInstallationAgent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -701,7 +701,7 @@ pub struct IInstallationAgent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationBehavior, IInstallationBehavior_Vtbl, 0xd9a59339_e245_4dbd_9686_4d5763e39624);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationBehavior {
+impl core::ops::Deref for IInstallationBehavior {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -738,7 +738,7 @@ pub struct IInstallationBehavior_Vtbl {
     pub RequiresNetworkConnectivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInstallationCompletedCallback, IInstallationCompletedCallback_Vtbl, 0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
-impl std::ops::Deref for IInstallationCompletedCallback {
+impl core::ops::Deref for IInstallationCompletedCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -766,7 +766,7 @@ pub struct IInstallationCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationCompletedCallbackArgs, IInstallationCompletedCallbackArgs_Vtbl, 0x250e2106_8efb_4705_9653_ef13c581b6a1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationCompletedCallbackArgs {
+impl core::ops::Deref for IInstallationCompletedCallbackArgs {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -784,7 +784,7 @@ pub struct IInstallationCompletedCallbackArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationJob, IInstallationJob_Vtbl, 0x5c209f0b_bad5_432a_9556_4699bed2638a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationJob {
+impl core::ops::Deref for IInstallationJob {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -839,7 +839,7 @@ pub struct IInstallationJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationProgress, IInstallationProgress_Vtbl, 0x345c8244_43a3_4e32_a368_65f073b76f36);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationProgress {
+impl core::ops::Deref for IInstallationProgress {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -880,7 +880,7 @@ pub struct IInstallationProgress_Vtbl {
     GetUpdateResult: usize,
 }
 windows_core::imp::define_interface!(IInstallationProgressChangedCallback, IInstallationProgressChangedCallback_Vtbl, 0xe01402d5_f8da_43ba_a012_38894bd048f1);
-impl std::ops::Deref for IInstallationProgressChangedCallback {
+impl core::ops::Deref for IInstallationProgressChangedCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -908,7 +908,7 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationProgressChangedCallbackArgs, IInstallationProgressChangedCallbackArgs_Vtbl, 0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationProgressChangedCallbackArgs {
+impl core::ops::Deref for IInstallationProgressChangedCallbackArgs {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -936,7 +936,7 @@ pub struct IInstallationProgressChangedCallbackArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationResult, IInstallationResult_Vtbl, 0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInstallationResult {
+impl core::ops::Deref for IInstallationResult {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -979,7 +979,7 @@ pub struct IInstallationResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInvalidProductLicenseException, IInvalidProductLicenseException_Vtbl, 0xa37d00f5_7bb0_4953_b414_f9e98326f2e8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IInvalidProductLicenseException {
+impl core::ops::Deref for IInvalidProductLicenseException {
     type Target = IUpdateException;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1001,7 +1001,7 @@ pub struct IInvalidProductLicenseException_Vtbl {
     pub Product: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchCompletedCallback, ISearchCompletedCallback_Vtbl, 0x88aee058_d4b0_4725_a2f1_814a67ae964c);
-impl std::ops::Deref for ISearchCompletedCallback {
+impl core::ops::Deref for ISearchCompletedCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1029,7 +1029,7 @@ pub struct ISearchCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchCompletedCallbackArgs, ISearchCompletedCallbackArgs_Vtbl, 0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISearchCompletedCallbackArgs {
+impl core::ops::Deref for ISearchCompletedCallbackArgs {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1047,7 +1047,7 @@ pub struct ISearchCompletedCallbackArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchJob, ISearchJob_Vtbl, 0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISearchJob {
+impl core::ops::Deref for ISearchJob {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1084,7 +1084,7 @@ pub struct ISearchJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchResult, ISearchResult_Vtbl, 0xd40cff62_e08c_4498_941a_01e25f0fd33c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISearchResult {
+impl core::ops::Deref for ISearchResult {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1135,7 +1135,7 @@ pub struct ISearchResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStringCollection, IStringCollection_Vtbl, 0xeff90582_2ddc_480f_a06d_60f3fbc362c3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IStringCollection {
+impl core::ops::Deref for IStringCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1213,7 +1213,7 @@ pub struct IStringCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISystemInformation, ISystemInformation_Vtbl, 0xade87bf7_7b56_4275_8fab_b9b0e591844b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for ISystemInformation {
+impl core::ops::Deref for ISystemInformation {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1242,7 +1242,7 @@ pub struct ISystemInformation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate, IUpdate_Vtbl, 0x6a92b07a_d821_4682_b423_5c805022cc4d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdate {
+impl core::ops::Deref for IUpdate {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1542,7 +1542,7 @@ pub struct IUpdate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate2, IUpdate2_Vtbl, 0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdate2 {
+impl core::ops::Deref for IUpdate2 {
     type Target = IUpdate;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1591,7 +1591,7 @@ pub struct IUpdate2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate3, IUpdate3_Vtbl, 0x112eda6b_95b3_476f_9d90_aee82c6b8181);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdate3 {
+impl core::ops::Deref for IUpdate3 {
     type Target = IUpdate2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1615,7 +1615,7 @@ pub struct IUpdate3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate4, IUpdate4_Vtbl, 0x27e94b0d_5139_49a2_9a61_93522dc54652);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdate4 {
+impl core::ops::Deref for IUpdate4 {
     type Target = IUpdate3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1639,7 +1639,7 @@ pub struct IUpdate4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate5, IUpdate5_Vtbl, 0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdate5 {
+impl core::ops::Deref for IUpdate5 {
     type Target = IUpdate4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1668,7 +1668,7 @@ pub struct IUpdate5_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateCollection, IUpdateCollection_Vtbl, 0x07f7438c_7709_4ca5_b518_91279288134e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateCollection {
+impl core::ops::Deref for IUpdateCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1762,7 +1762,7 @@ pub struct IUpdateCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadContent, IUpdateDownloadContent_Vtbl, 0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateDownloadContent {
+impl core::ops::Deref for IUpdateDownloadContent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1786,7 +1786,7 @@ pub struct IUpdateDownloadContent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadContent2, IUpdateDownloadContent2_Vtbl, 0xc97ad11b_f257_420b_9d9f_377f733f6f68);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateDownloadContent2 {
+impl core::ops::Deref for IUpdateDownloadContent2 {
     type Target = IUpdateDownloadContent;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1810,7 +1810,7 @@ pub struct IUpdateDownloadContent2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadContentCollection, IUpdateDownloadContentCollection_Vtbl, 0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateDownloadContentCollection {
+impl core::ops::Deref for IUpdateDownloadContentCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1848,7 +1848,7 @@ pub struct IUpdateDownloadContentCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadResult, IUpdateDownloadResult_Vtbl, 0xbf99af76_b575_42ad_8aa4_33cbb5477af1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateDownloadResult {
+impl core::ops::Deref for IUpdateDownloadResult {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1877,7 +1877,7 @@ pub struct IUpdateDownloadResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloader, IUpdateDownloader_Vtbl, 0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateDownloader {
+impl core::ops::Deref for IUpdateDownloader {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1984,7 +1984,7 @@ pub struct IUpdateDownloader_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateException, IUpdateException_Vtbl, 0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateException {
+impl core::ops::Deref for IUpdateException {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2018,7 +2018,7 @@ pub struct IUpdateException_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateExceptionCollection, IUpdateExceptionCollection_Vtbl, 0x503626a3_8e14_4729_9355_0fe664bd2321);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateExceptionCollection {
+impl core::ops::Deref for IUpdateExceptionCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2056,7 +2056,7 @@ pub struct IUpdateExceptionCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateHistoryEntry, IUpdateHistoryEntry_Vtbl, 0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateHistoryEntry {
+impl core::ops::Deref for IUpdateHistoryEntry {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2153,7 +2153,7 @@ pub struct IUpdateHistoryEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateHistoryEntry2, IUpdateHistoryEntry2_Vtbl, 0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateHistoryEntry2 {
+impl core::ops::Deref for IUpdateHistoryEntry2 {
     type Target = IUpdateHistoryEntry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2181,7 +2181,7 @@ pub struct IUpdateHistoryEntry2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateHistoryEntryCollection, IUpdateHistoryEntryCollection_Vtbl, 0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateHistoryEntryCollection {
+impl core::ops::Deref for IUpdateHistoryEntryCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2219,7 +2219,7 @@ pub struct IUpdateHistoryEntryCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateIdentity, IUpdateIdentity_Vtbl, 0x46297823_9940_4c09_aed9_cd3ea6d05968);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateIdentity {
+impl core::ops::Deref for IUpdateIdentity {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2248,7 +2248,7 @@ pub struct IUpdateIdentity_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstallationResult, IUpdateInstallationResult_Vtbl, 0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateInstallationResult {
+impl core::ops::Deref for IUpdateInstallationResult {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2282,7 +2282,7 @@ pub struct IUpdateInstallationResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller, IUpdateInstaller_Vtbl, 0x7b929c68_ccdc_4226_96b1_8724600b54c2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateInstaller {
+impl core::ops::Deref for IUpdateInstaller {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2473,7 +2473,7 @@ pub struct IUpdateInstaller_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller2, IUpdateInstaller2_Vtbl, 0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateInstaller2 {
+impl core::ops::Deref for IUpdateInstaller2 {
     type Target = IUpdateInstaller;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2504,7 +2504,7 @@ pub struct IUpdateInstaller2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller3, IUpdateInstaller3_Vtbl, 0x16d11c35_099a_48d0_8338_5fae64047f8e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateInstaller3 {
+impl core::ops::Deref for IUpdateInstaller3 {
     type Target = IUpdateInstaller2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2535,7 +2535,7 @@ pub struct IUpdateInstaller3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller4, IUpdateInstaller4_Vtbl, 0xef8208ea_2304_492d_9109_23813b0958e1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateInstaller4 {
+impl core::ops::Deref for IUpdateInstaller4 {
     type Target = IUpdateInstaller3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2556,7 +2556,7 @@ pub struct IUpdateInstaller4_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUpdateLockdown, IUpdateLockdown_Vtbl, 0xa976c28d_75a1_42aa_94ae_8af8b872089a);
-impl std::ops::Deref for IUpdateLockdown {
+impl core::ops::Deref for IUpdateLockdown {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2576,7 +2576,7 @@ pub struct IUpdateLockdown_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSearcher, IUpdateSearcher_Vtbl, 0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateSearcher {
+impl core::ops::Deref for IUpdateSearcher {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2724,7 +2724,7 @@ pub struct IUpdateSearcher_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSearcher2, IUpdateSearcher2_Vtbl, 0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateSearcher2 {
+impl core::ops::Deref for IUpdateSearcher2 {
     type Target = IUpdateSearcher;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2755,7 +2755,7 @@ pub struct IUpdateSearcher2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSearcher3, IUpdateSearcher3_Vtbl, 0x04c6895d_eaf2_4034_97f3_311de9be413a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateSearcher3 {
+impl core::ops::Deref for IUpdateSearcher3 {
     type Target = IUpdateSearcher2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2783,7 +2783,7 @@ pub struct IUpdateSearcher3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateService, IUpdateService_Vtbl, 0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateService {
+impl core::ops::Deref for IUpdateService {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2871,7 +2871,7 @@ pub struct IUpdateService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateService2, IUpdateService2_Vtbl, 0x1518b460_6518_4172_940f_c75883b24ceb);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateService2 {
+impl core::ops::Deref for IUpdateService2 {
     type Target = IUpdateService;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2895,7 +2895,7 @@ pub struct IUpdateService2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceCollection, IUpdateServiceCollection_Vtbl, 0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateServiceCollection {
+impl core::ops::Deref for IUpdateServiceCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2933,7 +2933,7 @@ pub struct IUpdateServiceCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceManager, IUpdateServiceManager_Vtbl, 0x23857e3c_02ba_44a3_9423_b1c900805f37);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateServiceManager {
+impl core::ops::Deref for IUpdateServiceManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3016,7 +3016,7 @@ pub struct IUpdateServiceManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceManager2, IUpdateServiceManager2_Vtbl, 0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateServiceManager2 {
+impl core::ops::Deref for IUpdateServiceManager2 {
     type Target = IUpdateServiceManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3072,7 +3072,7 @@ pub struct IUpdateServiceManager2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceRegistration, IUpdateServiceRegistration_Vtbl, 0xdde02280_12b3_4e0b_937b_6747f6acb286);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateServiceRegistration {
+impl core::ops::Deref for IUpdateServiceRegistration {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3115,7 +3115,7 @@ pub struct IUpdateServiceRegistration_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSession, IUpdateSession_Vtbl, 0x816858a4_260d_4260_933a_2585f1abc76b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateSession {
+impl core::ops::Deref for IUpdateSession {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3198,7 +3198,7 @@ pub struct IUpdateSession_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSession2, IUpdateSession2_Vtbl, 0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateSession2 {
+impl core::ops::Deref for IUpdateSession2 {
     type Target = IUpdateSession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3226,7 +3226,7 @@ pub struct IUpdateSession2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSession3, IUpdateSession3_Vtbl, 0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUpdateSession3 {
+impl core::ops::Deref for IUpdateSession3 {
     type Target = IUpdateSession2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3266,7 +3266,7 @@ pub struct IUpdateSession3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebProxy, IWebProxy_Vtbl, 0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWebProxy {
+impl core::ops::Deref for IWebProxy {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3381,7 +3381,7 @@ pub struct IWebProxy_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate, IWindowsDriverUpdate_Vtbl, 0xb383cd1a_5ce9_4504_9f63_764b1236f191);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdate {
+impl core::ops::Deref for IWindowsDriverUpdate {
     type Target = IUpdate;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3440,7 +3440,7 @@ pub struct IWindowsDriverUpdate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate2, IWindowsDriverUpdate2_Vtbl, 0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdate2 {
+impl core::ops::Deref for IWindowsDriverUpdate2 {
     type Target = IWindowsDriverUpdate;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3489,7 +3489,7 @@ pub struct IWindowsDriverUpdate2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate3, IWindowsDriverUpdate3_Vtbl, 0x49ebd502_4a96_41bd_9e3e_4c5057f4250c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdate3 {
+impl core::ops::Deref for IWindowsDriverUpdate3 {
     type Target = IWindowsDriverUpdate2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3513,7 +3513,7 @@ pub struct IWindowsDriverUpdate3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate4, IWindowsDriverUpdate4_Vtbl, 0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdate4 {
+impl core::ops::Deref for IWindowsDriverUpdate4 {
     type Target = IWindowsDriverUpdate3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3546,7 +3546,7 @@ pub struct IWindowsDriverUpdate4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate5, IWindowsDriverUpdate5_Vtbl, 0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdate5 {
+impl core::ops::Deref for IWindowsDriverUpdate5 {
     type Target = IWindowsDriverUpdate4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3575,7 +3575,7 @@ pub struct IWindowsDriverUpdate5_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdateEntry, IWindowsDriverUpdateEntry_Vtbl, 0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdateEntry {
+impl core::ops::Deref for IWindowsDriverUpdateEntry {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3634,7 +3634,7 @@ pub struct IWindowsDriverUpdateEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdateEntryCollection, IWindowsDriverUpdateEntryCollection_Vtbl, 0x0d521700_a372_4bef_828b_3d00c10adebd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsDriverUpdateEntryCollection {
+impl core::ops::Deref for IWindowsDriverUpdateEntryCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3672,7 +3672,7 @@ pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsUpdateAgentInfo, IWindowsUpdateAgentInfo_Vtbl, 0x85713fa1_7796_4fa2_be3b_e2d6124dd373);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWindowsUpdateAgentInfo {
+impl core::ops::Deref for IWindowsUpdateAgentInfo {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -11,7 +11,7 @@ pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON1
     Direct3DCreate9On12Ex(sdkversion, poverridelist, numoverrideentries, core::mem::transmute(ppoutputinterface)).ok()
 }
 windows_core::imp::define_interface!(IDirect3DDevice9On12, IDirect3DDevice9On12_Vtbl, 0xe7fda234_b589_4049_940d_8878977531c8);
-impl std::ops::Deref for IDirect3DDevice9On12 {
+impl core::ops::Deref for IDirect3DDevice9On12 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

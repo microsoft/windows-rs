@@ -710,7 +710,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportCacheable, IWdsTransportCacheable_Vtbl, 0x46ad894b_0bab_47dc_84b2_7b553f1d8f80);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportCacheable {
+impl core::ops::Deref for IWdsTransportCacheable {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -746,7 +746,7 @@ pub struct IWdsTransportCacheable_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportClient, IWdsTransportClient_Vtbl, 0xb5dbc93a_cabe_46ca_837f_3e44e93c6545);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportClient {
+impl core::ops::Deref for IWdsTransportClient {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -828,7 +828,7 @@ pub struct IWdsTransportClient_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportCollection, IWdsTransportCollection_Vtbl, 0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportCollection {
+impl core::ops::Deref for IWdsTransportCollection {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -866,7 +866,7 @@ pub struct IWdsTransportCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportConfigurationManager, IWdsTransportConfigurationManager_Vtbl, 0x84cc4779_42dd_4792_891e_1321d6d74b44);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportConfigurationManager {
+impl core::ops::Deref for IWdsTransportConfigurationManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -935,7 +935,7 @@ pub struct IWdsTransportConfigurationManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportConfigurationManager2, IWdsTransportConfigurationManager2_Vtbl, 0xd0d85caf_a153_4f1d_a9dd_96f431c50717);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportConfigurationManager2 {
+impl core::ops::Deref for IWdsTransportConfigurationManager2 {
     type Target = IWdsTransportConfigurationManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -963,7 +963,7 @@ pub struct IWdsTransportConfigurationManager2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportContent, IWdsTransportContent_Vtbl, 0xd405d711_0296_4ab4_a860_ac7d32e65798);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportContent {
+impl core::ops::Deref for IWdsTransportContent {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1014,7 +1014,7 @@ pub struct IWdsTransportContent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportContentProvider, IWdsTransportContentProvider_Vtbl, 0xb9489f24_f219_4acf_aad7_265c7c08a6ae);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportContentProvider {
+impl core::ops::Deref for IWdsTransportContentProvider {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1053,7 +1053,7 @@ pub struct IWdsTransportContentProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportDiagnosticsPolicy, IWdsTransportDiagnosticsPolicy_Vtbl, 0x13b33efc_7856_4f61_9a59_8de67b6b87b6);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportDiagnosticsPolicy {
+impl core::ops::Deref for IWdsTransportDiagnosticsPolicy {
     type Target = IWdsTransportCacheable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1093,7 +1093,7 @@ pub struct IWdsTransportDiagnosticsPolicy_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportManager, IWdsTransportManager_Vtbl, 0x5b0d35f5_1b13_4afd_b878_6526dc340b5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportManager {
+impl core::ops::Deref for IWdsTransportManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1124,7 +1124,7 @@ pub struct IWdsTransportManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportMulticastSessionPolicy, IWdsTransportMulticastSessionPolicy_Vtbl, 0x4e5753cf_68ec_4504_a951_4a003266606b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportMulticastSessionPolicy {
+impl core::ops::Deref for IWdsTransportMulticastSessionPolicy {
     type Target = IWdsTransportCacheable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1182,7 +1182,7 @@ pub struct IWdsTransportMulticastSessionPolicy_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportNamespace, IWdsTransportNamespace_Vtbl, 0xfa561f57_fbef_4ed3_b056_127cb1b33b84);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportNamespace {
+impl core::ops::Deref for IWdsTransportNamespace {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1324,7 +1324,7 @@ pub struct IWdsTransportNamespace_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportNamespaceAutoCast, IWdsTransportNamespaceAutoCast_Vtbl, 0xad931a72_c4bd_4c41_8fbc_59c9c748df9e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportNamespaceAutoCast {
+impl core::ops::Deref for IWdsTransportNamespaceAutoCast {
     type Target = IWdsTransportNamespace;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1342,7 +1342,7 @@ pub struct IWdsTransportNamespaceAutoCast_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportNamespaceManager, IWdsTransportNamespaceManager_Vtbl, 0x3e22d9f6_3777_4d98_83e1_f98696717ba3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportNamespaceManager {
+impl core::ops::Deref for IWdsTransportNamespaceManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1401,7 +1401,7 @@ pub struct IWdsTransportNamespaceManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportNamespaceScheduledCast, IWdsTransportNamespaceScheduledCast_Vtbl, 0x3840cecf_d76c_416e_a4cc_31c741d2874b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportNamespaceScheduledCast {
+impl core::ops::Deref for IWdsTransportNamespaceScheduledCast {
     type Target = IWdsTransportNamespace;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1424,7 +1424,7 @@ pub struct IWdsTransportNamespaceScheduledCast_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportNamespaceScheduledCastAutoStart, IWdsTransportNamespaceScheduledCastAutoStart_Vtbl, 0xd606af3d_ea9c_4219_961e_7491d618d9b9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportNamespaceScheduledCastAutoStart {
+impl core::ops::Deref for IWdsTransportNamespaceScheduledCastAutoStart {
     type Target = IWdsTransportNamespaceScheduledCast;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1461,7 +1461,7 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportNamespaceScheduledCastManualStart, IWdsTransportNamespaceScheduledCastManualStart_Vtbl, 0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportNamespaceScheduledCastManualStart {
+impl core::ops::Deref for IWdsTransportNamespaceScheduledCastManualStart {
     type Target = IWdsTransportNamespaceScheduledCast;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1479,7 +1479,7 @@ pub struct IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportServer, IWdsTransportServer_Vtbl, 0x09ccd093_830d_4344_a30a_73ae8e8fca90);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportServer {
+impl core::ops::Deref for IWdsTransportServer {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1534,7 +1534,7 @@ pub struct IWdsTransportServer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportServer2, IWdsTransportServer2_Vtbl, 0x256e999f_6df4_4538_81b9_857b9ab8fb47);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportServer2 {
+impl core::ops::Deref for IWdsTransportServer2 {
     type Target = IWdsTransportServer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1562,7 +1562,7 @@ pub struct IWdsTransportServer2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportServicePolicy, IWdsTransportServicePolicy_Vtbl, 0xb9468578_9f2b_48cc_b27a_a60799c2750c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportServicePolicy {
+impl core::ops::Deref for IWdsTransportServicePolicy {
     type Target = IWdsTransportCacheable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1641,7 +1641,7 @@ pub struct IWdsTransportServicePolicy_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportServicePolicy2, IWdsTransportServicePolicy2_Vtbl, 0x65c19e5c_aa7e_4b91_8944_91e0e5572797);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportServicePolicy2 {
+impl core::ops::Deref for IWdsTransportServicePolicy2 {
     type Target = IWdsTransportServicePolicy;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1690,7 +1690,7 @@ pub struct IWdsTransportServicePolicy2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportSession, IWdsTransportSession_Vtbl, 0xf4efea88_65b1_4f30_a4b9_2793987796fb);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportSession {
+impl core::ops::Deref for IWdsTransportSession {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1756,7 +1756,7 @@ pub struct IWdsTransportSession_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportSetupManager, IWdsTransportSetupManager_Vtbl, 0xf7238425_efa8_40a4_aef9_c98d969c0b75);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportSetupManager {
+impl core::ops::Deref for IWdsTransportSetupManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1807,7 +1807,7 @@ pub struct IWdsTransportSetupManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportSetupManager2, IWdsTransportSetupManager2_Vtbl, 0x02be79da_7e9e_4366_8b6e_2aa9a91be47f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportSetupManager2 {
+impl core::ops::Deref for IWdsTransportSetupManager2 {
     type Target = IWdsTransportSetupManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1840,7 +1840,7 @@ pub struct IWdsTransportSetupManager2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportTftpClient, IWdsTransportTftpClient_Vtbl, 0xb022d3ae_884d_4d85_b146_53320e76ef62);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportTftpClient {
+impl core::ops::Deref for IWdsTransportTftpClient {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1894,7 +1894,7 @@ pub struct IWdsTransportTftpClient_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWdsTransportTftpManager, IWdsTransportTftpManager_Vtbl, 0x1327a7c8_ae8a_4fb3_8150_136227c37e9a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWdsTransportTftpManager {
+impl core::ops::Deref for IWdsTransportTftpManager {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -46,7 +46,7 @@ pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptags: 
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DDiscFormat2DataEvents, DDiscFormat2DataEvents_Vtbl, 0x2735413c_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DDiscFormat2DataEvents {
+impl core::ops::Deref for DDiscFormat2DataEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -77,7 +77,7 @@ pub struct DDiscFormat2DataEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DDiscFormat2EraseEvents, DDiscFormat2EraseEvents_Vtbl, 0x2735413a_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DDiscFormat2EraseEvents {
+impl core::ops::Deref for DDiscFormat2EraseEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -107,7 +107,7 @@ pub struct DDiscFormat2EraseEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DDiscFormat2RawCDEvents, DDiscFormat2RawCDEvents_Vtbl, 0x27354142_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DDiscFormat2RawCDEvents {
+impl core::ops::Deref for DDiscFormat2RawCDEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -138,7 +138,7 @@ pub struct DDiscFormat2RawCDEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DDiscFormat2TrackAtOnceEvents, DDiscFormat2TrackAtOnceEvents_Vtbl, 0x2735413f_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DDiscFormat2TrackAtOnceEvents {
+impl core::ops::Deref for DDiscFormat2TrackAtOnceEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -169,7 +169,7 @@ pub struct DDiscFormat2TrackAtOnceEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DDiscMaster2Events, DDiscMaster2Events_Vtbl, 0x27354131_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DDiscMaster2Events {
+impl core::ops::Deref for DDiscMaster2Events {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -212,7 +212,7 @@ pub struct DDiscMaster2Events_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DFileSystemImageEvents, DFileSystemImageEvents_Vtbl, 0x2c941fdf_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DFileSystemImageEvents {
+impl core::ops::Deref for DFileSystemImageEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -243,7 +243,7 @@ pub struct DFileSystemImageEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DFileSystemImageImportEvents, DFileSystemImageImportEvents_Vtbl, 0xd25c30f9_4087_4366_9e24_e55be286424b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DFileSystemImageImportEvents {
+impl core::ops::Deref for DFileSystemImageImportEvents {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -274,7 +274,7 @@ pub struct DFileSystemImageImportEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DWriteEngine2Events, DWriteEngine2Events_Vtbl, 0x27354137_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for DWriteEngine2Events {
+impl core::ops::Deref for DWriteEngine2Events {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -305,7 +305,7 @@ pub struct DWriteEngine2Events_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBlockRange, IBlockRange_Vtbl, 0xb507ca25_2204_11dd_966a_001aa01bbc58);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IBlockRange {
+impl core::ops::Deref for IBlockRange {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -334,7 +334,7 @@ pub struct IBlockRange_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBlockRangeList, IBlockRangeList_Vtbl, 0xb507ca26_2204_11dd_966a_001aa01bbc58);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IBlockRangeList {
+impl core::ops::Deref for IBlockRangeList {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -362,7 +362,7 @@ pub struct IBlockRangeList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBootOptions, IBootOptions_Vtbl, 0x2c941fd4_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IBootOptions {
+impl core::ops::Deref for IBootOptions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -434,7 +434,7 @@ pub struct IBootOptions_Vtbl {
     AssignBootImage: usize,
 }
 windows_core::imp::define_interface!(IBurnVerification, IBurnVerification_Vtbl, 0xd2ffd834_958b_426d_8470_2a13879c6a91);
-impl std::ops::Deref for IBurnVerification {
+impl core::ops::Deref for IBurnVerification {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -459,7 +459,7 @@ pub struct IBurnVerification_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2, IDiscFormat2_Vtbl, 0x27354152_8f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2 {
+impl core::ops::Deref for IDiscFormat2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -521,7 +521,7 @@ pub struct IDiscFormat2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2Data, IDiscFormat2Data_Vtbl, 0x27354153_9f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2Data {
+impl core::ops::Deref for IDiscFormat2Data {
     type Target = IDiscFormat2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -741,7 +741,7 @@ pub struct IDiscFormat2Data_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2DataEventArgs, IDiscFormat2DataEventArgs_Vtbl, 0x2735413d_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2DataEventArgs {
+impl core::ops::Deref for IDiscFormat2DataEventArgs {
     type Target = IWriteEngine2EventArgs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -780,7 +780,7 @@ pub struct IDiscFormat2DataEventArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2Erase, IDiscFormat2Erase_Vtbl, 0x27354156_8f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2Erase {
+impl core::ops::Deref for IDiscFormat2Erase {
     type Target = IDiscFormat2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -852,7 +852,7 @@ pub struct IDiscFormat2Erase_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2RawCD, IDiscFormat2RawCD_Vtbl, 0x27354155_8f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2RawCD {
+impl core::ops::Deref for IDiscFormat2RawCD {
     type Target = IDiscFormat2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1027,7 +1027,7 @@ pub struct IDiscFormat2RawCD_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2RawCDEventArgs, IDiscFormat2RawCDEventArgs_Vtbl, 0x27354143_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2RawCDEventArgs {
+impl core::ops::Deref for IDiscFormat2RawCDEventArgs {
     type Target = IWriteEngine2EventArgs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1061,7 +1061,7 @@ pub struct IDiscFormat2RawCDEventArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2TrackAtOnce, IDiscFormat2TrackAtOnce_Vtbl, 0x27354154_8f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2TrackAtOnce {
+impl core::ops::Deref for IDiscFormat2TrackAtOnce {
     type Target = IDiscFormat2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1238,7 +1238,7 @@ pub struct IDiscFormat2TrackAtOnce_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscFormat2TrackAtOnceEventArgs, IDiscFormat2TrackAtOnceEventArgs_Vtbl, 0x27354140_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscFormat2TrackAtOnceEventArgs {
+impl core::ops::Deref for IDiscFormat2TrackAtOnceEventArgs {
     type Target = IWriteEngine2EventArgs;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1275,7 +1275,7 @@ pub struct IDiscFormat2TrackAtOnceEventArgs_Vtbl {
     pub RemainingTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiscMaster, IDiscMaster_Vtbl, 0x520cca62_51a5_11d3_9144_00104ba11c5e);
-impl std::ops::Deref for IDiscMaster {
+impl core::ops::Deref for IDiscMaster {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1350,7 +1350,7 @@ pub struct IDiscMaster_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscMaster2, IDiscMaster2_Vtbl, 0x27354130_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscMaster2 {
+impl core::ops::Deref for IDiscMaster2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1391,7 +1391,7 @@ pub struct IDiscMaster2_Vtbl {
     pub IsSupportedEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiscMasterProgressEvents, IDiscMasterProgressEvents_Vtbl, 0xec9e51c1_4e5d_11d3_9144_00104ba11c5e);
-impl std::ops::Deref for IDiscMasterProgressEvents {
+impl core::ops::Deref for IDiscMasterProgressEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1442,7 +1442,7 @@ pub struct IDiscMasterProgressEvents_Vtbl {
     pub NotifyEraseComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiscRecorder, IDiscRecorder_Vtbl, 0x85ac9776_ca88_4cf2_894e_09598c078a41);
-impl std::ops::Deref for IDiscRecorder {
+impl core::ops::Deref for IDiscRecorder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1534,7 +1534,7 @@ pub struct IDiscRecorder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiscRecorder2, IDiscRecorder2_Vtbl, 0x27354133_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IDiscRecorder2 {
+impl core::ops::Deref for IDiscRecorder2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1680,7 +1680,7 @@ pub struct IDiscRecorder2_Vtbl {
     pub ExclusiveAccessOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x27354132_7f64_5b0f_8f00_5d77afbe261e);
-impl std::ops::Deref for IDiscRecorder2Ex {
+impl core::ops::Deref for IDiscRecorder2Ex {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1778,7 +1778,7 @@ pub struct IDiscRecorder2Ex_Vtbl {
     pub GetMaximumPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDiscMasterFormats, IEnumDiscMasterFormats_Vtbl, 0xddf445e1_54ba_11d3_9144_00104ba11c5e);
-impl std::ops::Deref for IEnumDiscMasterFormats {
+impl core::ops::Deref for IEnumDiscMasterFormats {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1809,7 +1809,7 @@ pub struct IEnumDiscMasterFormats_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDiscRecorders, IEnumDiscRecorders_Vtbl, 0x9b1921e1_54ac_11d3_9144_00104ba11c5e);
-impl std::ops::Deref for IEnumDiscRecorders {
+impl core::ops::Deref for IEnumDiscRecorders {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1840,7 +1840,7 @@ pub struct IEnumDiscRecorders_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumFsiItems, IEnumFsiItems_Vtbl, 0x2c941fda_975b_59be_a960_9a2a262853a5);
-impl std::ops::Deref for IEnumFsiItems {
+impl core::ops::Deref for IEnumFsiItems {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1875,7 +1875,7 @@ pub struct IEnumFsiItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumProgressItems, IEnumProgressItems_Vtbl, 0x2c941fd6_975b_59be_a960_9a2a262853a5);
-impl std::ops::Deref for IEnumProgressItems {
+impl core::ops::Deref for IEnumProgressItems {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1912,7 +1912,7 @@ pub struct IEnumProgressItems_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFileSystemImage, IFileSystemImage_Vtbl, 0x2c941fe1_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFileSystemImage {
+impl core::ops::Deref for IFileSystemImage {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2251,7 +2251,7 @@ pub struct IFileSystemImage_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFileSystemImage2, IFileSystemImage2_Vtbl, 0xd7644b2c_1537_4767_b62f_f1387b02ddfd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFileSystemImage2 {
+impl core::ops::Deref for IFileSystemImage2 {
     type Target = IFileSystemImage;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2287,7 +2287,7 @@ pub struct IFileSystemImage2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFileSystemImage3, IFileSystemImage3_Vtbl, 0x7cff842c_7e97_4807_8304_910dd8f7c051);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFileSystemImage3 {
+impl core::ops::Deref for IFileSystemImage3 {
     type Target = IFileSystemImage2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2323,7 +2323,7 @@ pub struct IFileSystemImage3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFileSystemImageResult, IFileSystemImageResult_Vtbl, 0x2c941fd8_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFileSystemImageResult {
+impl core::ops::Deref for IFileSystemImageResult {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2375,7 +2375,7 @@ pub struct IFileSystemImageResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFileSystemImageResult2, IFileSystemImageResult2_Vtbl, 0xb507ca29_2204_11dd_966a_001aa01bbc58);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFileSystemImageResult2 {
+impl core::ops::Deref for IFileSystemImageResult2 {
     type Target = IFileSystemImageResult;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2403,7 +2403,7 @@ pub struct IFileSystemImageResult2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsiDirectoryItem, IFsiDirectoryItem_Vtbl, 0x2c941fdc_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsiDirectoryItem {
+impl core::ops::Deref for IFsiDirectoryItem {
     type Target = IFsiItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2505,7 +2505,7 @@ pub struct IFsiDirectoryItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsiDirectoryItem2, IFsiDirectoryItem2_Vtbl, 0xf7fb4b9b_6d96_4d7b_9115_201b144811ef);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsiDirectoryItem2 {
+impl core::ops::Deref for IFsiDirectoryItem2 {
     type Target = IFsiDirectoryItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2532,7 +2532,7 @@ pub struct IFsiDirectoryItem2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsiFileItem, IFsiFileItem_Vtbl, 0x2c941fdb_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsiFileItem {
+impl core::ops::Deref for IFsiFileItem {
     type Target = IFsiItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2586,7 +2586,7 @@ pub struct IFsiFileItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsiFileItem2, IFsiFileItem2_Vtbl, 0x199d0c19_11e1_40eb_8ec2_c8c822a07792);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsiFileItem2 {
+impl core::ops::Deref for IFsiFileItem2 {
     type Target = IFsiFileItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2650,7 +2650,7 @@ pub struct IFsiFileItem2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsiItem, IFsiItem_Vtbl, 0x2c941fd9_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsiItem {
+impl core::ops::Deref for IFsiItem {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2728,7 +2728,7 @@ pub struct IFsiItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsiNamedStreams, IFsiNamedStreams_Vtbl, 0xed79ba56_5294_4250_8d46_f9aecee23459);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFsiNamedStreams {
+impl core::ops::Deref for IFsiNamedStreams {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2775,7 +2775,7 @@ pub struct IFsiNamedStreams_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IIsoImageManager, IIsoImageManager_Vtbl, 0x6ca38be5_fbbb_4800_95a1_a438865eb0d4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IIsoImageManager {
+impl core::ops::Deref for IIsoImageManager {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2828,7 +2828,7 @@ pub struct IIsoImageManager_Vtbl {
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IJolietDiscMaster, IJolietDiscMaster_Vtbl, 0xe3bc42ce_4e5c_11d3_9144_00104ba11c5e);
-impl std::ops::Deref for IJolietDiscMaster {
+impl core::ops::Deref for IJolietDiscMaster {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2890,7 +2890,7 @@ pub struct IJolietDiscMaster_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMultisession, IMultisession_Vtbl, 0x27354150_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMultisession {
+impl core::ops::Deref for IMultisession {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2935,7 +2935,7 @@ pub struct IMultisession_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMultisessionRandomWrite, IMultisessionRandomWrite_Vtbl, 0xb507ca23_2204_11dd_966a_001aa01bbc58);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMultisessionRandomWrite {
+impl core::ops::Deref for IMultisessionRandomWrite {
     type Target = IMultisession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2969,7 +2969,7 @@ pub struct IMultisessionRandomWrite_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMultisessionSequential, IMultisessionSequential_Vtbl, 0x27354151_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMultisessionSequential {
+impl core::ops::Deref for IMultisessionSequential {
     type Target = IMultisession;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3013,7 +3013,7 @@ pub struct IMultisessionSequential_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMultisessionSequential2, IMultisessionSequential2_Vtbl, 0xb507ca22_2204_11dd_966a_001aa01bbc58);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IMultisessionSequential2 {
+impl core::ops::Deref for IMultisessionSequential2 {
     type Target = IMultisessionSequential;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3037,7 +3037,7 @@ pub struct IMultisessionSequential2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProgressItem, IProgressItem_Vtbl, 0x2c941fd5_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IProgressItem {
+impl core::ops::Deref for IProgressItem {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3076,7 +3076,7 @@ pub struct IProgressItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProgressItems, IProgressItems_Vtbl, 0x2c941fd7_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IProgressItems {
+impl core::ops::Deref for IProgressItems {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3144,7 +3144,7 @@ pub struct IProgressItems_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRawCDImageCreator, IRawCDImageCreator_Vtbl, 0x25983550_9d65_49ce_b335_40630d901227);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRawCDImageCreator {
+impl core::ops::Deref for IRawCDImageCreator {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3290,7 +3290,7 @@ pub struct IRawCDImageCreator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRawCDImageTrackInfo, IRawCDImageTrackInfo_Vtbl, 0x25983551_9d65_49ce_b335_40630d901227);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IRawCDImageTrackInfo {
+impl core::ops::Deref for IRawCDImageTrackInfo {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3377,7 +3377,7 @@ pub struct IRawCDImageTrackInfo_Vtbl {
     pub ClearTrackIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRedbookDiscMaster, IRedbookDiscMaster_Vtbl, 0xe3bc42cd_4e5c_11d3_9144_00104ba11c5e);
-impl std::ops::Deref for IRedbookDiscMaster {
+impl core::ops::Deref for IRedbookDiscMaster {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3430,7 +3430,7 @@ pub struct IRedbookDiscMaster_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStreamConcatenate, IStreamConcatenate_Vtbl, 0x27354146_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IStreamConcatenate {
+impl core::ops::Deref for IStreamConcatenate {
     type Target = super::super::System::Com::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3488,7 +3488,7 @@ pub struct IStreamConcatenate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStreamInterleave, IStreamInterleave_Vtbl, 0x27354147_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IStreamInterleave {
+impl core::ops::Deref for IStreamInterleave {
     type Target = super::super::System::Com::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3515,7 +3515,7 @@ pub struct IStreamInterleave_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStreamPseudoRandomBased, IStreamPseudoRandomBased_Vtbl, 0x27354145_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IStreamPseudoRandomBased {
+impl core::ops::Deref for IStreamPseudoRandomBased {
     type Target = super::super::System::Com::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3551,7 +3551,7 @@ pub struct IStreamPseudoRandomBased_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWriteEngine2, IWriteEngine2_Vtbl, 0x27354135_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWriteEngine2 {
+impl core::ops::Deref for IWriteEngine2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3641,7 +3641,7 @@ pub struct IWriteEngine2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWriteEngine2EventArgs, IWriteEngine2EventArgs_Vtbl, 0x27354136_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWriteEngine2EventArgs {
+impl core::ops::Deref for IWriteEngine2EventArgs {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3695,7 +3695,7 @@ pub struct IWriteEngine2EventArgs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWriteSpeedDescriptor, IWriteSpeedDescriptor_Vtbl, 0x27354144_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWriteSpeedDescriptor {
+impl core::ops::Deref for IWriteSpeedDescriptor {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

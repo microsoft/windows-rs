@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IActivatedEventArgs, IActivatedEventArgs_Vtbl, 0xcf651713_cd08_4fd8_b697_a281b6544e2e);
-impl std::ops::Deref for IActivatedEventArgs {
+impl core::ops::Deref for IActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -40,7 +40,7 @@ pub struct IActivatedEventArgs_Vtbl {
     pub SplashScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivatedEventArgsWithUser, IActivatedEventArgsWithUser_Vtbl, 0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
-impl std::ops::Deref for IActivatedEventArgsWithUser {
+impl core::ops::Deref for IActivatedEventArgsWithUser {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -91,7 +91,7 @@ pub struct IActivatedEventArgsWithUser_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IApplicationViewActivatedEventArgs, IApplicationViewActivatedEventArgs_Vtbl, 0x930cef4b_b829_40fc_88f4_8513e8a64738);
-impl std::ops::Deref for IApplicationViewActivatedEventArgs {
+impl core::ops::Deref for IApplicationViewActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -138,7 +138,7 @@ pub struct IApplicationViewActivatedEventArgs_Vtbl {
     pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderActivatedEventArgs_Vtbl, 0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
-impl std::ops::Deref for IAppointmentsProviderActivatedEventArgs {
+impl core::ops::Deref for IAppointmentsProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -185,7 +185,7 @@ pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl, 0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
-impl std::ops::Deref for IAppointmentsProviderAddAppointmentActivatedEventArgs {
+impl core::ops::Deref for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -243,7 +243,7 @@ pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     AddAppointmentOperation: usize,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl, 0x751f3ab8_0b8e_451c_9f15_966e699bac25);
-impl std::ops::Deref for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+impl core::ops::Deref for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -301,7 +301,7 @@ pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     RemoveAppointmentOperation: usize,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl, 0x1551b7d4_a981_4067_8a62_0524e4ade121);
-impl std::ops::Deref for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+impl core::ops::Deref for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -359,7 +359,7 @@ pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     ReplaceAppointmentOperation: usize,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl, 0x3958f065_9841_4ca5_999b_885198b9ef2a);
-impl std::ops::Deref for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+impl core::ops::Deref for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -429,7 +429,7 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub RoamingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl, 0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
-impl std::ops::Deref for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
+impl core::ops::Deref for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -491,7 +491,7 @@ pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundActivatedEventArgs, IBackgroundActivatedEventArgs_Vtbl, 0xab14bee0_e760_440e_a91c_44796de3a92d);
-impl std::ops::Deref for IBackgroundActivatedEventArgs {
+impl core::ops::Deref for IBackgroundActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -520,7 +520,7 @@ pub struct IBackgroundActivatedEventArgs_Vtbl {
     TaskInstance: usize,
 }
 windows_core::imp::define_interface!(IBarcodeScannerPreviewActivatedEventArgs, IBarcodeScannerPreviewActivatedEventArgs_Vtbl, 0x6772797c_99bf_4349_af22_e4123560371c);
-impl std::ops::Deref for IBarcodeScannerPreviewActivatedEventArgs {
+impl core::ops::Deref for IBarcodeScannerPreviewActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -567,7 +567,7 @@ pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterActivatedEventArgs, ICachedFileUpdaterActivatedEventArgs_Vtbl, 0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
-impl std::ops::Deref for ICachedFileUpdaterActivatedEventArgs {
+impl core::ops::Deref for ICachedFileUpdaterActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -618,7 +618,7 @@ pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
     CachedFileUpdaterUI: usize,
 }
 windows_core::imp::define_interface!(ICameraSettingsActivatedEventArgs, ICameraSettingsActivatedEventArgs_Vtbl, 0xfb67a508_2dad_490a_9170_dca036eb114b);
-impl std::ops::Deref for ICameraSettingsActivatedEventArgs {
+impl core::ops::Deref for ICameraSettingsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -673,7 +673,7 @@ pub struct ICameraSettingsActivatedEventArgs_Vtbl {
     pub VideoDeviceExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommandLineActivatedEventArgs, ICommandLineActivatedEventArgs_Vtbl, 0x4506472c_006a_48eb_8afb_d07ab25e3366);
-impl std::ops::Deref for ICommandLineActivatedEventArgs {
+impl core::ops::Deref for ICommandLineActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -733,7 +733,7 @@ pub struct ICommandLineActivationOperation_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactActivatedEventArgs, IContactActivatedEventArgs_Vtbl, 0xd627a1c4_c025_4c41_9def_f1eafad075e7);
-impl std::ops::Deref for IContactActivatedEventArgs {
+impl core::ops::Deref for IContactActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -780,7 +780,7 @@ pub struct IContactActivatedEventArgs_Vtbl {
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCallActivatedEventArgs, IContactCallActivatedEventArgs_Vtbl, 0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
-impl std::ops::Deref for IContactCallActivatedEventArgs {
+impl core::ops::Deref for IContactCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -854,7 +854,7 @@ pub struct IContactCallActivatedEventArgs_Vtbl {
     Contact: usize,
 }
 windows_core::imp::define_interface!(IContactMapActivatedEventArgs, IContactMapActivatedEventArgs_Vtbl, 0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
-impl std::ops::Deref for IContactMapActivatedEventArgs {
+impl core::ops::Deref for IContactMapActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -924,7 +924,7 @@ pub struct IContactMapActivatedEventArgs_Vtbl {
     Contact: usize,
 }
 windows_core::imp::define_interface!(IContactMessageActivatedEventArgs, IContactMessageActivatedEventArgs_Vtbl, 0xde598db2_0e03_43b0_bf56_bcc40b3162df);
-impl std::ops::Deref for IContactMessageActivatedEventArgs {
+impl core::ops::Deref for IContactMessageActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -998,7 +998,7 @@ pub struct IContactMessageActivatedEventArgs_Vtbl {
     Contact: usize,
 }
 windows_core::imp::define_interface!(IContactPanelActivatedEventArgs, IContactPanelActivatedEventArgs_Vtbl, 0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
-impl std::ops::Deref for IContactPanelActivatedEventArgs {
+impl core::ops::Deref for IContactPanelActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1039,7 +1039,7 @@ pub struct IContactPanelActivatedEventArgs_Vtbl {
     Contact: usize,
 }
 windows_core::imp::define_interface!(IContactPickerActivatedEventArgs, IContactPickerActivatedEventArgs_Vtbl, 0xce57aae7_6449_45a7_971f_d113be7a8936);
-impl std::ops::Deref for IContactPickerActivatedEventArgs {
+impl core::ops::Deref for IContactPickerActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1090,7 +1090,7 @@ pub struct IContactPickerActivatedEventArgs_Vtbl {
     ContactPickerUI: usize,
 }
 windows_core::imp::define_interface!(IContactPostActivatedEventArgs, IContactPostActivatedEventArgs_Vtbl, 0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
-impl std::ops::Deref for IContactPostActivatedEventArgs {
+impl core::ops::Deref for IContactPostActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1164,7 +1164,7 @@ pub struct IContactPostActivatedEventArgs_Vtbl {
     Contact: usize,
 }
 windows_core::imp::define_interface!(IContactVideoCallActivatedEventArgs, IContactVideoCallActivatedEventArgs_Vtbl, 0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
-impl std::ops::Deref for IContactVideoCallActivatedEventArgs {
+impl core::ops::Deref for IContactVideoCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1238,7 +1238,7 @@ pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     Contact: usize,
 }
 windows_core::imp::define_interface!(IContactsProviderActivatedEventArgs, IContactsProviderActivatedEventArgs_Vtbl, 0x4580dca8_5750_4916_aa52_c0829521eb94);
-impl std::ops::Deref for IContactsProviderActivatedEventArgs {
+impl core::ops::Deref for IContactsProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1285,7 +1285,7 @@ pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContinuationActivatedEventArgs, IContinuationActivatedEventArgs_Vtbl, 0xe58106b5_155f_4a94_a742_c7e08f4e188c);
-impl std::ops::Deref for IContinuationActivatedEventArgs {
+impl core::ops::Deref for IContinuationActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1336,7 +1336,7 @@ pub struct IContinuationActivatedEventArgs_Vtbl {
     ContinuationData: usize,
 }
 windows_core::imp::define_interface!(IDeviceActivatedEventArgs, IDeviceActivatedEventArgs_Vtbl, 0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
-impl std::ops::Deref for IDeviceActivatedEventArgs {
+impl core::ops::Deref for IDeviceActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1391,7 +1391,7 @@ pub struct IDeviceActivatedEventArgs_Vtbl {
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePairingActivatedEventArgs, IDevicePairingActivatedEventArgs_Vtbl, 0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
-impl std::ops::Deref for IDevicePairingActivatedEventArgs {
+impl core::ops::Deref for IDevicePairingActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1442,7 +1442,7 @@ pub struct IDevicePairingActivatedEventArgs_Vtbl {
     DeviceInformation: usize,
 }
 windows_core::imp::define_interface!(IDialReceiverActivatedEventArgs, IDialReceiverActivatedEventArgs_Vtbl, 0xfb777ed7_85ee_456e_a44d_85d730e70aed);
-impl std::ops::Deref for IDialReceiverActivatedEventArgs {
+impl core::ops::Deref for IDialReceiverActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1503,7 +1503,7 @@ pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgs, IFileActivatedEventArgs_Vtbl, 0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
-impl std::ops::Deref for IFileActivatedEventArgs {
+impl core::ops::Deref for IFileActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1562,7 +1562,7 @@ pub struct IFileActivatedEventArgs_Vtbl {
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl, 0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
-impl std::ops::Deref for IFileActivatedEventArgsWithCallerPackageFamilyName {
+impl core::ops::Deref for IFileActivatedEventArgsWithCallerPackageFamilyName {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1609,7 +1609,7 @@ pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithNeighboringFiles_Vtbl, 0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
-impl std::ops::Deref for IFileActivatedEventArgsWithNeighboringFiles {
+impl core::ops::Deref for IFileActivatedEventArgsWithNeighboringFiles {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1675,7 +1675,7 @@ pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     NeighboringFilesQuery: usize,
 }
 windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs_Vtbl, 0x72827082_5525_4bf2_bc09_1f5095d4964d);
-impl std::ops::Deref for IFileOpenPickerActivatedEventArgs {
+impl core::ops::Deref for IFileOpenPickerActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1726,7 +1726,7 @@ pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
     FileOpenPickerUI: usize,
 }
 windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs2, IFileOpenPickerActivatedEventArgs2_Vtbl, 0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
-impl std::ops::Deref for IFileOpenPickerActivatedEventArgs2 {
+impl core::ops::Deref for IFileOpenPickerActivatedEventArgs2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1753,7 +1753,7 @@ pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFileOpenPickerContinuationEventArgs_Vtbl, 0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for IFileOpenPickerContinuationEventArgs {
+impl core::ops::Deref for IFileOpenPickerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1817,7 +1817,7 @@ pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     Files: usize,
 }
 windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
-impl std::ops::Deref for IFileSavePickerActivatedEventArgs {
+impl core::ops::Deref for IFileSavePickerActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1868,7 +1868,7 @@ pub struct IFileSavePickerActivatedEventArgs_Vtbl {
     FileSavePickerUI: usize,
 }
 windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs2, IFileSavePickerActivatedEventArgs2_Vtbl, 0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
-impl std::ops::Deref for IFileSavePickerActivatedEventArgs2 {
+impl core::ops::Deref for IFileSavePickerActivatedEventArgs2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1903,7 +1903,7 @@ pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFileSavePickerContinuationEventArgs_Vtbl, 0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for IFileSavePickerContinuationEventArgs {
+impl core::ops::Deref for IFileSavePickerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1969,7 +1969,7 @@ pub struct IFileSavePickerContinuationEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFolderPickerContinuationEventArgs, IFolderPickerContinuationEventArgs_Vtbl, 0x51882366_9f4b_498f_beb0_42684f6e1c29);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for IFolderPickerContinuationEventArgs {
+impl core::ops::Deref for IFolderPickerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2033,7 +2033,7 @@ pub struct IFolderPickerContinuationEventArgs_Vtbl {
     Folder: usize,
 }
 windows_core::imp::define_interface!(ILaunchActivatedEventArgs, ILaunchActivatedEventArgs_Vtbl, 0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
-impl std::ops::Deref for ILaunchActivatedEventArgs {
+impl core::ops::Deref for ILaunchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2088,7 +2088,7 @@ pub struct ILaunchActivatedEventArgs_Vtbl {
     pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchActivatedEventArgs2, ILaunchActivatedEventArgs2_Vtbl, 0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
-impl std::ops::Deref for ILaunchActivatedEventArgs2 {
+impl core::ops::Deref for ILaunchActivatedEventArgs2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2149,7 +2149,7 @@ pub struct ILaunchActivatedEventArgs2_Vtbl {
     pub TileActivatedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenActivatedEventArgs, ILockScreenActivatedEventArgs_Vtbl, 0x3ca77966_6108_4a41_8220_ee7d133c8532);
-impl std::ops::Deref for ILockScreenActivatedEventArgs {
+impl core::ops::Deref for ILockScreenActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2196,7 +2196,7 @@ pub struct ILockScreenActivatedEventArgs_Vtbl {
     pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenCallActivatedEventArgs, ILockScreenCallActivatedEventArgs_Vtbl, 0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
-impl std::ops::Deref for ILockScreenCallActivatedEventArgs {
+impl core::ops::Deref for ILockScreenCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2261,7 +2261,7 @@ pub struct ILockScreenCallActivatedEventArgs_Vtbl {
     CallUI: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallActivatedEventArgs, IPhoneCallActivatedEventArgs_Vtbl, 0x54615221_a3c1_4ced_b62f_8c60523619ad);
-impl std::ops::Deref for IPhoneCallActivatedEventArgs {
+impl core::ops::Deref for IPhoneCallActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2308,7 +2308,7 @@ pub struct IPhoneCallActivatedEventArgs_Vtbl {
     pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPickerReturnedActivatedEventArgs, IPickerReturnedActivatedEventArgs_Vtbl, 0x360defb9_a9d3_4984_a4ed_9ec734604921);
-impl std::ops::Deref for IPickerReturnedActivatedEventArgs {
+impl core::ops::Deref for IPickerReturnedActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2355,7 +2355,7 @@ pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrelaunchActivatedEventArgs, IPrelaunchActivatedEventArgs_Vtbl, 0x0c44717b_19f7_48d6_b046_cf22826eaa74);
-impl std::ops::Deref for IPrelaunchActivatedEventArgs {
+impl core::ops::Deref for IPrelaunchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2402,7 +2402,7 @@ pub struct IPrelaunchActivatedEventArgs_Vtbl {
     pub PrelaunchActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrint3DWorkflowActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs_Vtbl, 0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
-impl std::ops::Deref for IPrint3DWorkflowActivatedEventArgs {
+impl core::ops::Deref for IPrint3DWorkflowActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2453,7 +2453,7 @@ pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
     Workflow: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskSettingsActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs_Vtbl, 0xee30a0c9_ce56_4865_ba8e_8954ac271107);
-impl std::ops::Deref for IPrintTaskSettingsActivatedEventArgs {
+impl core::ops::Deref for IPrintTaskSettingsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2504,7 +2504,7 @@ pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
     Configuration: usize,
 }
 windows_core::imp::define_interface!(IProtocolActivatedEventArgs, IProtocolActivatedEventArgs_Vtbl, 0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
-impl std::ops::Deref for IProtocolActivatedEventArgs {
+impl core::ops::Deref for IProtocolActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2551,7 +2551,7 @@ pub struct IProtocolActivatedEventArgs_Vtbl {
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl, 0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
-impl std::ops::Deref for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+impl core::ops::Deref for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2610,7 +2610,7 @@ pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     Data: usize,
 }
 windows_core::imp::define_interface!(IProtocolForResultsActivatedEventArgs, IProtocolForResultsActivatedEventArgs_Vtbl, 0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
-impl std::ops::Deref for IProtocolForResultsActivatedEventArgs {
+impl core::ops::Deref for IProtocolForResultsActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2661,7 +2661,7 @@ pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
     ProtocolForResultsOperation: usize,
 }
 windows_core::imp::define_interface!(IRestrictedLaunchActivatedEventArgs, IRestrictedLaunchActivatedEventArgs_Vtbl, 0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
-impl std::ops::Deref for IRestrictedLaunchActivatedEventArgs {
+impl core::ops::Deref for IRestrictedLaunchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2708,7 +2708,7 @@ pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub SharedContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchActivatedEventArgs, ISearchActivatedEventArgs_Vtbl, 0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
-impl std::ops::Deref for ISearchActivatedEventArgs {
+impl core::ops::Deref for ISearchActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2763,7 +2763,7 @@ pub struct ISearchActivatedEventArgs_Vtbl {
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchActivatedEventArgsWithLinguisticDetails, ISearchActivatedEventArgsWithLinguisticDetails_Vtbl, 0xc09f33da_08ab_4931_9b7c_451025f21f81);
-impl std::ops::Deref for ISearchActivatedEventArgsWithLinguisticDetails {
+impl core::ops::Deref for ISearchActivatedEventArgsWithLinguisticDetails {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2792,7 +2792,7 @@ pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     LinguisticDetails: usize,
 }
 windows_core::imp::define_interface!(IShareTargetActivatedEventArgs, IShareTargetActivatedEventArgs_Vtbl, 0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
-impl std::ops::Deref for IShareTargetActivatedEventArgs {
+impl core::ops::Deref for IShareTargetActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2854,7 +2854,7 @@ pub struct ISplashScreen_Vtbl {
     pub RemoveDismissed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStartupTaskActivatedEventArgs, IStartupTaskActivatedEventArgs_Vtbl, 0x03b11a58_5276_4d91_8621_54611864d5fa);
-impl std::ops::Deref for IStartupTaskActivatedEventArgs {
+impl core::ops::Deref for IStartupTaskActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2913,7 +2913,7 @@ pub struct ITileActivatedInfo_Vtbl {
     RecentlyShownNotifications: usize,
 }
 windows_core::imp::define_interface!(IToastNotificationActivatedEventArgs, IToastNotificationActivatedEventArgs_Vtbl, 0x92a86f82_5290_431d_be85_c4aaeeb8685f);
-impl std::ops::Deref for IToastNotificationActivatedEventArgs {
+impl core::ops::Deref for IToastNotificationActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2972,7 +2972,7 @@ pub struct IToastNotificationActivatedEventArgs_Vtbl {
     UserInput: usize,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs_Vtbl, 0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
-impl std::ops::Deref for IUserDataAccountProviderActivatedEventArgs {
+impl core::ops::Deref for IUserDataAccountProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3023,7 +3023,7 @@ pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
     Operation: usize,
 }
 windows_core::imp::define_interface!(IViewSwitcherProvider, IViewSwitcherProvider_Vtbl, 0x33f288a6_5c2c_4d27_bac7_7536088f1219);
-impl std::ops::Deref for IViewSwitcherProvider {
+impl core::ops::Deref for IViewSwitcherProvider {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3074,7 +3074,7 @@ pub struct IViewSwitcherProvider_Vtbl {
     ViewSwitcher: usize,
 }
 windows_core::imp::define_interface!(IVoiceCommandActivatedEventArgs, IVoiceCommandActivatedEventArgs_Vtbl, 0xab92dcfd_8d43_4de6_9775_20704b581b00);
-impl std::ops::Deref for IVoiceCommandActivatedEventArgs {
+impl core::ops::Deref for IVoiceCommandActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3127,7 +3127,7 @@ pub struct IVoiceCommandActivatedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletActionActivatedEventArgs, IWalletActionActivatedEventArgs_Vtbl, 0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for IWalletActionActivatedEventArgs {
+impl core::ops::Deref for IWalletActionActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3207,7 +3207,7 @@ pub struct IWalletActionActivatedEventArgs_Vtbl {
     ActionId: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderActivatedEventArgs, IWebAccountProviderActivatedEventArgs_Vtbl, 0x72b71774_98ea_4ccf_9752_46d9051004f1);
-impl std::ops::Deref for IWebAccountProviderActivatedEventArgs {
+impl core::ops::Deref for IWebAccountProviderActivatedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3258,7 +3258,7 @@ pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
     Operation: usize,
 }
 windows_core::imp::define_interface!(IWebAuthenticationBrokerContinuationEventArgs, IWebAuthenticationBrokerContinuationEventArgs_Vtbl, 0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
-impl std::ops::Deref for IWebAuthenticationBrokerContinuationEventArgs {
+impl core::ops::Deref for IWebAuthenticationBrokerContinuationEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

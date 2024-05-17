@@ -58,7 +58,7 @@ pub struct IFileInformationFactoryFactory_Vtbl {
     CreateWithModeAndSizeAndOptionsAndFlags: usize,
 }
 windows_core::imp::define_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
-impl std::ops::Deref for IStorageItemInformation {
+impl core::ops::Deref for IStorageItemInformation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

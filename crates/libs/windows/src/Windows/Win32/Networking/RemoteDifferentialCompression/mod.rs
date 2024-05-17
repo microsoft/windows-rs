@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IFindSimilarResults, IFindSimilarResults_Vtbl, 0x96236a81_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IFindSimilarResults {
+impl core::ops::Deref for IFindSimilarResults {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -22,7 +22,7 @@ pub struct IFindSimilarResults_Vtbl {
     pub GetNextFileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut SimilarityFileId) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcComparator, IRdcComparator_Vtbl, 0x96236a77_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcComparator {
+impl core::ops::Deref for IRdcComparator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -43,7 +43,7 @@ pub struct IRdcComparator_Vtbl {
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL, *mut RdcBufferPointer, *mut RdcNeedPointer, *mut RDC_ErrorCode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcFileReader, IRdcFileReader_Vtbl, 0x96236a74_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcFileReader {
+impl core::ops::Deref for IRdcFileReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -71,7 +71,7 @@ pub struct IRdcFileReader_Vtbl {
     pub GetFilePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcFileWriter, IRdcFileWriter_Vtbl, 0x96236a75_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcFileWriter {
+impl core::ops::Deref for IRdcFileWriter {
     type Target = IRdcFileReader;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -98,7 +98,7 @@ pub struct IRdcFileWriter_Vtbl {
     pub DeleteOnClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcGenerator, IRdcGenerator_Vtbl, 0x96236a73_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcGenerator {
+impl core::ops::Deref for IRdcGenerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -124,7 +124,7 @@ pub struct IRdcGenerator_Vtbl {
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL, *mut RdcBufferPointer, u32, *mut *mut RdcBufferPointer, *mut RDC_ErrorCode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcGeneratorFilterMaxParameters, IRdcGeneratorFilterMaxParameters_Vtbl, 0x96236a72_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcGeneratorFilterMaxParameters {
+impl core::ops::Deref for IRdcGeneratorFilterMaxParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -156,7 +156,7 @@ pub struct IRdcGeneratorFilterMaxParameters_Vtbl {
     pub SetHashWindowSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcGeneratorParameters, IRdcGeneratorParameters_Vtbl, 0x96236a71_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcGeneratorParameters {
+impl core::ops::Deref for IRdcGeneratorParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -188,7 +188,7 @@ pub struct IRdcGeneratorParameters_Vtbl {
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcLibrary, IRdcLibrary_Vtbl, 0x96236a78_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcLibrary {
+impl core::ops::Deref for IRdcLibrary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -242,7 +242,7 @@ pub struct IRdcLibrary_Vtbl {
     pub GetRDCVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcSignatureReader, IRdcSignatureReader_Vtbl, 0x96236a76_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcSignatureReader {
+impl core::ops::Deref for IRdcSignatureReader {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -265,7 +265,7 @@ pub struct IRdcSignatureReader_Vtbl {
     pub ReadSignatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RdcSignaturePointer, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRdcSimilarityGenerator, IRdcSimilarityGenerator_Vtbl, 0x96236a80_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for IRdcSimilarityGenerator {
+impl core::ops::Deref for IRdcSimilarityGenerator {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -288,7 +288,7 @@ pub struct IRdcSimilarityGenerator_Vtbl {
     pub Results: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SimilarityData) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimilarity, ISimilarity_Vtbl, 0x96236a83_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarity {
+impl core::ops::Deref for ISimilarity {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -350,7 +350,7 @@ pub struct ISimilarity_Vtbl {
     pub GetRecordCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimilarityFileIdTable, ISimilarityFileIdTable_Vtbl, 0x96236a7f_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarityFileIdTable {
+impl core::ops::Deref for ISimilarityFileIdTable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -407,7 +407,7 @@ pub struct ISimilarityFileIdTable_Vtbl {
     pub GetRecordCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimilarityReportProgress, ISimilarityReportProgress_Vtbl, 0x96236a7a_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarityReportProgress {
+impl core::ops::Deref for ISimilarityReportProgress {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -425,7 +425,7 @@ pub struct ISimilarityReportProgress_Vtbl {
     pub ReportProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimilarityTableDumpState, ISimilarityTableDumpState_Vtbl, 0x96236a7b_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarityTableDumpState {
+impl core::ops::Deref for ISimilarityTableDumpState {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -443,7 +443,7 @@ pub struct ISimilarityTableDumpState_Vtbl {
     pub GetNextData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut super::super::Foundation::BOOL, *mut SimilarityDumpData) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimilarityTraitsMappedView, ISimilarityTraitsMappedView_Vtbl, 0x96236a7c_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarityTraitsMappedView {
+impl core::ops::Deref for ISimilarityTraitsMappedView {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -477,7 +477,7 @@ pub struct ISimilarityTraitsMappedView_Vtbl {
     pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut *mut u8),
 }
 windows_core::imp::define_interface!(ISimilarityTraitsMapping, ISimilarityTraitsMapping_Vtbl, 0x96236a7d_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarityTraitsMapping {
+impl core::ops::Deref for ISimilarityTraitsMapping {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -525,7 +525,7 @@ pub struct ISimilarityTraitsMapping_Vtbl {
     pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, RdcMappingAccessMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimilarityTraitsTable, ISimilarityTraitsTable_Vtbl, 0x96236a7e_9dbc_11da_9e3f_0011114ae311);
-impl std::ops::Deref for ISimilarityTraitsTable {
+impl core::ops::Deref for ISimilarityTraitsTable {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -308,7 +308,7 @@ pub struct IMediaEncodingProfileStatics4_Vtbl {
     pub CreateAv1: unsafe extern "system" fn(*mut core::ffi::c_void, VideoEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaEncodingProperties, IMediaEncodingProperties_Vtbl, 0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
-impl std::ops::Deref for IMediaEncodingProperties {
+impl core::ops::Deref for IMediaEncodingProperties {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

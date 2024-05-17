@@ -81,7 +81,7 @@ pub unsafe fn SwMemFree(pmem: *const core::ffi::c_void) {
     SwMemFree(pmem)
 }
 windows_core::imp::define_interface!(IUPnPAddressFamilyControl, IUPnPAddressFamilyControl_Vtbl, 0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
-impl std::ops::Deref for IUPnPAddressFamilyControl {
+impl core::ops::Deref for IUPnPAddressFamilyControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -104,7 +104,7 @@ pub struct IUPnPAddressFamilyControl_Vtbl {
     pub GetAddressFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPAsyncResult, IUPnPAsyncResult_Vtbl, 0x4d65fd08_d13e_4274_9c8b_dd8d028c8644);
-impl std::ops::Deref for IUPnPAsyncResult {
+impl core::ops::Deref for IUPnPAsyncResult {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -124,7 +124,7 @@ pub struct IUPnPAsyncResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPDescriptionDocument, IUPnPDescriptionDocument_Vtbl, 0x11d1c1b2_7daa_4c9e_9595_7f82ed206d1e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPDescriptionDocument {
+impl core::ops::Deref for IUPnPDescriptionDocument {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -191,7 +191,7 @@ pub struct IUPnPDescriptionDocument_Vtbl {
     DeviceByUDN: usize,
 }
 windows_core::imp::define_interface!(IUPnPDescriptionDocumentCallback, IUPnPDescriptionDocumentCallback_Vtbl, 0x77394c69_5486_40d6_9bc3_4991983e02da);
-impl std::ops::Deref for IUPnPDescriptionDocumentCallback {
+impl core::ops::Deref for IUPnPDescriptionDocumentCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -211,7 +211,7 @@ pub struct IUPnPDescriptionDocumentCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPDevice, IUPnPDevice_Vtbl, 0x3d44d0d1_98c9_4889_acd1_f9d674bf2221);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPDevice {
+impl core::ops::Deref for IUPnPDevice {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -342,7 +342,7 @@ pub struct IUPnPDevice_Vtbl {
     Services: usize,
 }
 windows_core::imp::define_interface!(IUPnPDeviceControl, IUPnPDeviceControl_Vtbl, 0x204810ba_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPDeviceControl {
+impl core::ops::Deref for IUPnPDeviceControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -378,7 +378,7 @@ pub struct IUPnPDeviceControl_Vtbl {
     GetServiceObject: usize,
 }
 windows_core::imp::define_interface!(IUPnPDeviceControlHttpHeaders, IUPnPDeviceControlHttpHeaders_Vtbl, 0x204810bb_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPDeviceControlHttpHeaders {
+impl core::ops::Deref for IUPnPDeviceControlHttpHeaders {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -397,7 +397,7 @@ pub struct IUPnPDeviceControlHttpHeaders_Vtbl {
     pub GetAdditionalResponseHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPDeviceDocumentAccess, IUPnPDeviceDocumentAccess_Vtbl, 0xe7772804_3287_418e_9072_cf2b47238981);
-impl std::ops::Deref for IUPnPDeviceDocumentAccess {
+impl core::ops::Deref for IUPnPDeviceDocumentAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -416,7 +416,7 @@ pub struct IUPnPDeviceDocumentAccess_Vtbl {
     pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPDeviceDocumentAccessEx, IUPnPDeviceDocumentAccessEx_Vtbl, 0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
-impl std::ops::Deref for IUPnPDeviceDocumentAccessEx {
+impl core::ops::Deref for IUPnPDeviceDocumentAccessEx {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -437,7 +437,7 @@ pub struct IUPnPDeviceDocumentAccessEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPDeviceFinder, IUPnPDeviceFinder_Vtbl, 0xadda3d55_6f72_4319_bff9_18600a539b10);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPDeviceFinder {
+impl core::ops::Deref for IUPnPDeviceFinder {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -495,7 +495,7 @@ pub struct IUPnPDeviceFinder_Vtbl {
     FindByUDN: usize,
 }
 windows_core::imp::define_interface!(IUPnPDeviceFinderAddCallbackWithInterface, IUPnPDeviceFinderAddCallbackWithInterface_Vtbl, 0x983dfc0b_1796_44df_8975_ca545b620ee5);
-impl std::ops::Deref for IUPnPDeviceFinderAddCallbackWithInterface {
+impl core::ops::Deref for IUPnPDeviceFinderAddCallbackWithInterface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -520,7 +520,7 @@ pub struct IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     DeviceAddedWithInterface: usize,
 }
 windows_core::imp::define_interface!(IUPnPDeviceFinderCallback, IUPnPDeviceFinderCallback_Vtbl, 0x415a984a_88b3_49f3_92af_0508bedf0d6c);
-impl std::ops::Deref for IUPnPDeviceFinderCallback {
+impl core::ops::Deref for IUPnPDeviceFinderCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -556,7 +556,7 @@ pub struct IUPnPDeviceFinderCallback_Vtbl {
     pub SearchComplete: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPDeviceProvider, IUPnPDeviceProvider_Vtbl, 0x204810b8_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPDeviceProvider {
+impl core::ops::Deref for IUPnPDeviceProvider {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -583,7 +583,7 @@ pub struct IUPnPDeviceProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPDevices, IUPnPDevices_Vtbl, 0xfdbc0c73_bda3_4c66_ac4f_f2d96fdad68c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPDevices {
+impl core::ops::Deref for IUPnPDevices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -622,7 +622,7 @@ pub struct IUPnPDevices_Vtbl {
     get_Item: usize,
 }
 windows_core::imp::define_interface!(IUPnPEventSink, IUPnPEventSink_Vtbl, 0x204810b4_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPEventSink {
+impl core::ops::Deref for IUPnPEventSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -647,7 +647,7 @@ pub struct IUPnPEventSink_Vtbl {
     pub OnStateChangedSafe: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPEventSource, IUPnPEventSource_Vtbl, 0x204810b5_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPEventSource {
+impl core::ops::Deref for IUPnPEventSource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -675,7 +675,7 @@ pub struct IUPnPEventSource_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPHttpHeaderControl, IUPnPHttpHeaderControl_Vtbl, 0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
-impl std::ops::Deref for IUPnPHttpHeaderControl {
+impl core::ops::Deref for IUPnPHttpHeaderControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -696,7 +696,7 @@ pub struct IUPnPHttpHeaderControl_Vtbl {
     pub AddRequestHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPRegistrar, IUPnPRegistrar_Vtbl, 0x204810b6_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPRegistrar {
+impl core::ops::Deref for IUPnPRegistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -767,7 +767,7 @@ pub struct IUPnPRegistrar_Vtbl {
     pub UnregisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPRemoteEndpointInfo, IUPnPRemoteEndpointInfo_Vtbl, 0xc92eb863_0269_4aff_9c72_75321bba2952);
-impl std::ops::Deref for IUPnPRemoteEndpointInfo {
+impl core::ops::Deref for IUPnPRemoteEndpointInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -805,7 +805,7 @@ pub struct IUPnPRemoteEndpointInfo_Vtbl {
     pub GetGuidValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPReregistrar, IUPnPReregistrar_Vtbl, 0x204810b7_73b2_11d4_bf42_00b0d0118b56);
-impl std::ops::Deref for IUPnPReregistrar {
+impl core::ops::Deref for IUPnPReregistrar {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -844,7 +844,7 @@ pub struct IUPnPReregistrar_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPService, IUPnPService_Vtbl, 0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPService {
+impl core::ops::Deref for IUPnPService {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -900,7 +900,7 @@ pub struct IUPnPService_Vtbl {
     pub LastTransportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPServiceAsync, IUPnPServiceAsync_Vtbl, 0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
-impl std::ops::Deref for IUPnPServiceAsync {
+impl core::ops::Deref for IUPnPServiceAsync {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -971,7 +971,7 @@ pub struct IUPnPServiceAsync_Vtbl {
     pub CancelAsyncOperation: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPServiceCallback, IUPnPServiceCallback_Vtbl, 0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
-impl std::ops::Deref for IUPnPServiceCallback {
+impl core::ops::Deref for IUPnPServiceCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1009,7 +1009,7 @@ pub struct IUPnPServiceCallback_Vtbl {
     ServiceInstanceDied: usize,
 }
 windows_core::imp::define_interface!(IUPnPServiceDocumentAccess, IUPnPServiceDocumentAccess_Vtbl, 0x21905529_0a5e_4589_825d_7e6d87ea6998);
-impl std::ops::Deref for IUPnPServiceDocumentAccess {
+impl core::ops::Deref for IUPnPServiceDocumentAccess {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1033,7 +1033,7 @@ pub struct IUPnPServiceDocumentAccess_Vtbl {
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUPnPServiceEnumProperty, IUPnPServiceEnumProperty_Vtbl, 0x38873b37_91bb_49f4_b249_2e8efbb8a816);
-impl std::ops::Deref for IUPnPServiceEnumProperty {
+impl core::ops::Deref for IUPnPServiceEnumProperty {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1053,7 +1053,7 @@ pub struct IUPnPServiceEnumProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPServices, IUPnPServices_Vtbl, 0x3f8c8e9e_9a7a_4dc8_bc41_ff31fa374956);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IUPnPServices {
+impl core::ops::Deref for IUPnPServices {
     type Target = super::super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

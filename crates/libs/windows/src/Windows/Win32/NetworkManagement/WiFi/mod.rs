@@ -497,7 +497,7 @@ where
     WlanUIEditProfile(dwclientversion, wstrprofilename.param().abi(), pinterfaceguid, hwnd.param().abi(), wlstartpage, core::mem::transmute(preserved.unwrap_or(std::ptr::null())), core::mem::transmute(pwlanreasoncode.unwrap_or(std::ptr::null_mut())))
 }
 windows_core::imp::define_interface!(IDot11AdHocInterface, IDot11AdHocInterface_Vtbl, 0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocInterface {
+impl core::ops::Deref for IDot11AdHocInterface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -551,7 +551,7 @@ pub struct IDot11AdHocInterface_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDot11AdHocInterfaceNotificationSink, IDot11AdHocInterfaceNotificationSink_Vtbl, 0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocInterfaceNotificationSink {
+impl core::ops::Deref for IDot11AdHocInterfaceNotificationSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -569,7 +569,7 @@ pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub OnConnectionStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDot11AdHocManager, IDot11AdHocManager_Vtbl, 0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocManager {
+impl core::ops::Deref for IDot11AdHocManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -618,7 +618,7 @@ pub struct IDot11AdHocManager_Vtbl {
     pub GetNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDot11AdHocManagerNotificationSink, IDot11AdHocManagerNotificationSink_Vtbl, 0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocManagerNotificationSink {
+impl core::ops::Deref for IDot11AdHocManagerNotificationSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -654,7 +654,7 @@ pub struct IDot11AdHocManagerNotificationSink_Vtbl {
     pub OnInterfaceRemove: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDot11AdHocNetwork, IDot11AdHocNetwork_Vtbl, 0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocNetwork {
+impl core::ops::Deref for IDot11AdHocNetwork {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -725,7 +725,7 @@ pub struct IDot11AdHocNetwork_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDot11AdHocNetworkNotificationSink, IDot11AdHocNetworkNotificationSink_Vtbl, 0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocNetworkNotificationSink {
+impl core::ops::Deref for IDot11AdHocNetworkNotificationSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -747,7 +747,7 @@ pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
     pub OnConnectFail: unsafe extern "system" fn(*mut core::ffi::c_void, DOT11_ADHOC_CONNECT_FAIL_REASON) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDot11AdHocSecuritySettings, IDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IDot11AdHocSecuritySettings {
+impl core::ops::Deref for IDot11AdHocSecuritySettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -769,7 +769,7 @@ pub struct IDot11AdHocSecuritySettings_Vtbl {
     pub GetDot11CipherAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDot11AdHocInterfaces, IEnumDot11AdHocInterfaces_Vtbl, 0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IEnumDot11AdHocInterfaces {
+impl core::ops::Deref for IEnumDot11AdHocInterfaces {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -800,7 +800,7 @@ pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDot11AdHocNetworks, IEnumDot11AdHocNetworks_Vtbl, 0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IEnumDot11AdHocNetworks {
+impl core::ops::Deref for IEnumDot11AdHocNetworks {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -831,7 +831,7 @@ pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDot11AdHocSecuritySettings, IEnumDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
-impl std::ops::Deref for IEnumDot11AdHocSecuritySettings {
+impl core::ops::Deref for IEnumDot11AdHocSecuritySettings {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -195,7 +195,7 @@ pub unsafe fn EapHostPeerUninitialize() {
     EapHostPeerUninitialize()
 }
 windows_core::imp::define_interface!(IAccountingProviderConfig, IAccountingProviderConfig_Vtbl, 0x66a2db18_d706_11d0_a37b_00c04fc9da04);
-impl std::ops::Deref for IAccountingProviderConfig {
+impl core::ops::Deref for IAccountingProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -236,7 +236,7 @@ pub struct IAccountingProviderConfig_Vtbl {
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAuthenticationProviderConfig, IAuthenticationProviderConfig_Vtbl, 0x66a2db17_d706_11d0_a37b_00c04fc9da04);
-impl std::ops::Deref for IAuthenticationProviderConfig {
+impl core::ops::Deref for IAuthenticationProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -277,7 +277,7 @@ pub struct IAuthenticationProviderConfig_Vtbl {
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl, 0x66a2db19_d706_11d0_a37b_00c04fc9da04);
-impl std::ops::Deref for IEAPProviderConfig {
+impl core::ops::Deref for IEAPProviderConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -324,7 +324,7 @@ pub struct IEAPProviderConfig_Vtbl {
     pub RouterInvokeCredentialsUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, u32, *const u8, u32, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vtbl, 0xd565917a_85c4_4466_856e_671c3742ea9a);
-impl std::ops::Deref for IEAPProviderConfig2 {
+impl core::ops::Deref for IEAPProviderConfig2 {
     type Target = IEAPProviderConfig;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -349,7 +349,7 @@ pub struct IEAPProviderConfig2_Vtbl {
     pub GetGlobalConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vtbl, 0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
-impl std::ops::Deref for IEAPProviderConfig3 {
+impl core::ops::Deref for IEAPProviderConfig3 {
     type Target = IEAPProviderConfig2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -370,7 +370,7 @@ pub struct IEAPProviderConfig3_Vtbl {
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
-impl std::ops::Deref for IRouterProtocolConfig {
+impl core::ops::Deref for IRouterProtocolConfig {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -38,7 +38,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const windows_core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     D2D1CreateFactory(factorytype, &T::IID, core::mem::transmute(pfactoryoptions.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -87,7 +87,7 @@ pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     D2D1Vec3Length(x, y, z)
 }
 windows_core::imp::define_interface!(ID2D1AnalysisTransform, ID2D1AnalysisTransform_Vtbl, 0x0359dc30_95e6_4568_9055_27720d130e93);
-impl std::ops::Deref for ID2D1AnalysisTransform {
+impl core::ops::Deref for ID2D1AnalysisTransform {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -107,7 +107,7 @@ pub struct ID2D1AnalysisTransform_Vtbl {
     pub ProcessAnalysisResults: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Bitmap, ID2D1Bitmap_Vtbl, 0xa2296057_ea42_4099_983b_539fb6505426);
-impl std::ops::Deref for ID2D1Bitmap {
+impl core::ops::Deref for ID2D1Bitmap {
     type Target = ID2D1Image;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -187,7 +187,7 @@ pub struct ID2D1Bitmap_Vtbl {
     CopyFromMemory: usize,
 }
 windows_core::imp::define_interface!(ID2D1Bitmap1, ID2D1Bitmap1_Vtbl, 0xa898a84c_3873_4588_b08b_ebbf978df041);
-impl std::ops::Deref for ID2D1Bitmap1 {
+impl core::ops::Deref for ID2D1Bitmap1 {
     type Target = ID2D1Bitmap;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -231,7 +231,7 @@ pub struct ID2D1Bitmap1_Vtbl {
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1BitmapBrush, ID2D1BitmapBrush_Vtbl, 0x2cd906aa_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1BitmapBrush {
+impl core::ops::Deref for ID2D1BitmapBrush {
     type Target = ID2D1Brush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -284,7 +284,7 @@ pub struct ID2D1BitmapBrush_Vtbl {
     pub GetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1BitmapBrush1, ID2D1BitmapBrush1_Vtbl, 0x41343a53_e41a_49a2_91cd_21793bbb62e5);
-impl std::ops::Deref for ID2D1BitmapBrush1 {
+impl core::ops::Deref for ID2D1BitmapBrush1 {
     type Target = ID2D1BitmapBrush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -308,7 +308,7 @@ pub struct ID2D1BitmapBrush1_Vtbl {
     pub GetInterpolationMode1: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_INTERPOLATION_MODE,
 }
 windows_core::imp::define_interface!(ID2D1BitmapRenderTarget, ID2D1BitmapRenderTarget_Vtbl, 0x2cd90695_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1BitmapRenderTarget {
+impl core::ops::Deref for ID2D1BitmapRenderTarget {
     type Target = ID2D1RenderTarget;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -329,7 +329,7 @@ pub struct ID2D1BitmapRenderTarget_Vtbl {
     pub GetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1BlendTransform, ID2D1BlendTransform_Vtbl, 0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
-impl std::ops::Deref for ID2D1BlendTransform {
+impl core::ops::Deref for ID2D1BlendTransform {
     type Target = ID2D1ConcreteTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -353,7 +353,7 @@ pub struct ID2D1BlendTransform_Vtbl {
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_BLEND_DESCRIPTION),
 }
 windows_core::imp::define_interface!(ID2D1BorderTransform, ID2D1BorderTransform_Vtbl, 0x4998735c_3a19_473c_9781_656847e3a347);
-impl std::ops::Deref for ID2D1BorderTransform {
+impl core::ops::Deref for ID2D1BorderTransform {
     type Target = ID2D1ConcreteTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -385,7 +385,7 @@ pub struct ID2D1BorderTransform_Vtbl {
     pub GetExtendModeY: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_EXTEND_MODE,
 }
 windows_core::imp::define_interface!(ID2D1BoundsAdjustmentTransform, ID2D1BoundsAdjustmentTransform_Vtbl, 0x90f732e2_5092_4606_a819_8651970baccd);
-impl std::ops::Deref for ID2D1BoundsAdjustmentTransform {
+impl core::ops::Deref for ID2D1BoundsAdjustmentTransform {
     type Target = ID2D1TransformNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -411,7 +411,7 @@ pub struct ID2D1BoundsAdjustmentTransform_Vtbl {
     pub GetOutputBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT),
 }
 windows_core::imp::define_interface!(ID2D1Brush, ID2D1Brush_Vtbl, 0x2cd906a8_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1Brush {
+impl core::ops::Deref for ID2D1Brush {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -451,7 +451,7 @@ pub struct ID2D1Brush_Vtbl {
     GetTransform: usize,
 }
 windows_core::imp::define_interface!(ID2D1ColorContext, ID2D1ColorContext_Vtbl, 0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
-impl std::ops::Deref for ID2D1ColorContext {
+impl core::ops::Deref for ID2D1ColorContext {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -479,7 +479,7 @@ pub struct ID2D1ColorContext_Vtbl {
     pub GetProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1ColorContext1, ID2D1ColorContext1_Vtbl, 0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
-impl std::ops::Deref for ID2D1ColorContext1 {
+impl core::ops::Deref for ID2D1ColorContext1 {
     type Target = ID2D1ColorContext;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -515,7 +515,7 @@ pub struct ID2D1ColorContext1_Vtbl {
     GetSimpleColorProfile: usize,
 }
 windows_core::imp::define_interface!(ID2D1CommandList, ID2D1CommandList_Vtbl, 0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
-impl std::ops::Deref for ID2D1CommandList {
+impl core::ops::Deref for ID2D1CommandList {
     type Target = ID2D1Image;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -542,7 +542,7 @@ pub struct ID2D1CommandList_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1CommandSink, ID2D1CommandSink_Vtbl, 0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
-impl std::ops::Deref for ID2D1CommandSink {
+impl core::ops::Deref for ID2D1CommandSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -757,7 +757,7 @@ pub struct ID2D1CommandSink_Vtbl {
     pub PopLayer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1CommandSink1, ID2D1CommandSink1_Vtbl, 0x9eb767fd_4269_4467_b8c2_eb30cb305743);
-impl std::ops::Deref for ID2D1CommandSink1 {
+impl core::ops::Deref for ID2D1CommandSink1 {
     type Target = ID2D1CommandSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -777,7 +777,7 @@ pub struct ID2D1CommandSink1_Vtbl {
     pub SetPrimitiveBlend1: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1CommandSink2, ID2D1CommandSink2_Vtbl, 0x3bab440e_417e_47df_a2e2_bc0be6a00916);
-impl std::ops::Deref for ID2D1CommandSink2 {
+impl core::ops::Deref for ID2D1CommandSink2 {
     type Target = ID2D1CommandSink1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -820,7 +820,7 @@ pub struct ID2D1CommandSink2_Vtbl {
     DrawGdiMetafile: usize,
 }
 windows_core::imp::define_interface!(ID2D1CommandSink3, ID2D1CommandSink3_Vtbl, 0x18079135_4cf3_4868_bc8e_06067e6d242d);
-impl std::ops::Deref for ID2D1CommandSink3 {
+impl core::ops::Deref for ID2D1CommandSink3 {
     type Target = ID2D1CommandSink2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -844,7 +844,7 @@ pub struct ID2D1CommandSink3_Vtbl {
     pub DrawSpriteBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, D2D1_BITMAP_INTERPOLATION_MODE, D2D1_SPRITE_OPTIONS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1CommandSink4, ID2D1CommandSink4_Vtbl, 0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
-impl std::ops::Deref for ID2D1CommandSink4 {
+impl core::ops::Deref for ID2D1CommandSink4 {
     type Target = ID2D1CommandSink3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -864,7 +864,7 @@ pub struct ID2D1CommandSink4_Vtbl {
     pub SetPrimitiveBlend2: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1CommandSink5, ID2D1CommandSink5_Vtbl, 0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
-impl std::ops::Deref for ID2D1CommandSink5 {
+impl core::ops::Deref for ID2D1CommandSink5 {
     type Target = ID2D1CommandSink4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -891,7 +891,7 @@ pub struct ID2D1CommandSink5_Vtbl {
     BlendImage: usize,
 }
 windows_core::imp::define_interface!(ID2D1ComputeInfo, ID2D1ComputeInfo_Vtbl, 0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
-impl std::ops::Deref for ID2D1ComputeInfo {
+impl core::ops::Deref for ID2D1ComputeInfo {
     type Target = ID2D1RenderInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -922,7 +922,7 @@ pub struct ID2D1ComputeInfo_Vtbl {
     pub SetResourceTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1ComputeTransform, ID2D1ComputeTransform_Vtbl, 0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
-impl std::ops::Deref for ID2D1ComputeTransform {
+impl core::ops::Deref for ID2D1ComputeTransform {
     type Target = ID2D1Transform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -949,7 +949,7 @@ pub struct ID2D1ComputeTransform_Vtbl {
     pub CalculateThreadgroups: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1ConcreteTransform, ID2D1ConcreteTransform_Vtbl, 0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
-impl std::ops::Deref for ID2D1ConcreteTransform {
+impl core::ops::Deref for ID2D1ConcreteTransform {
     type Target = ID2D1TransformNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -976,7 +976,7 @@ pub struct ID2D1ConcreteTransform_Vtbl {
     pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(ID2D1DCRenderTarget, ID2D1DCRenderTarget_Vtbl, 0x1c51bc64_de61_46fd_9899_63a5d8f03950);
-impl std::ops::Deref for ID2D1DCRenderTarget {
+impl core::ops::Deref for ID2D1DCRenderTarget {
     type Target = ID2D1RenderTarget;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1003,7 +1003,7 @@ pub struct ID2D1DCRenderTarget_Vtbl {
     BindDC: usize,
 }
 windows_core::imp::define_interface!(ID2D1Device, ID2D1Device_Vtbl, 0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
-impl std::ops::Deref for ID2D1Device {
+impl core::ops::Deref for ID2D1Device {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1049,7 +1049,7 @@ pub struct ID2D1Device_Vtbl {
     pub ClearResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 windows_core::imp::define_interface!(ID2D1Device1, ID2D1Device1_Vtbl, 0xd21768e1_23a4_4823_a14b_7c3eba85d658);
-impl std::ops::Deref for ID2D1Device1 {
+impl core::ops::Deref for ID2D1Device1 {
     type Target = ID2D1Device;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1078,7 +1078,7 @@ pub struct ID2D1Device1_Vtbl {
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Device2, ID2D1Device2_Vtbl, 0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
-impl std::ops::Deref for ID2D1Device2 {
+impl core::ops::Deref for ID2D1Device2 {
     type Target = ID2D1Device1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1115,7 +1115,7 @@ pub struct ID2D1Device2_Vtbl {
     GetDxgiDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Device3, ID2D1Device3_Vtbl, 0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
-impl std::ops::Deref for ID2D1Device3 {
+impl core::ops::Deref for ID2D1Device3 {
     type Target = ID2D1Device2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1136,7 +1136,7 @@ pub struct ID2D1Device3_Vtbl {
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Device4, ID2D1Device4_Vtbl, 0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
-impl std::ops::Deref for ID2D1Device4 {
+impl core::ops::Deref for ID2D1Device4 {
     type Target = ID2D1Device3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1165,7 +1165,7 @@ pub struct ID2D1Device4_Vtbl {
     pub GetMaximumColorGlyphCacheMemory: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
 }
 windows_core::imp::define_interface!(ID2D1Device5, ID2D1Device5_Vtbl, 0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
-impl std::ops::Deref for ID2D1Device5 {
+impl core::ops::Deref for ID2D1Device5 {
     type Target = ID2D1Device4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1186,7 +1186,7 @@ pub struct ID2D1Device5_Vtbl {
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Device6, ID2D1Device6_Vtbl, 0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
-impl std::ops::Deref for ID2D1Device6 {
+impl core::ops::Deref for ID2D1Device6 {
     type Target = ID2D1Device5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1207,7 +1207,7 @@ pub struct ID2D1Device6_Vtbl {
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Device7, ID2D1Device7_Vtbl, 0xf07c8968_dd4e_4ba6_9cbd_eb6d3752dcbb);
-impl std::ops::Deref for ID2D1Device7 {
+impl core::ops::Deref for ID2D1Device7 {
     type Target = ID2D1Device6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1228,7 +1228,7 @@ pub struct ID2D1Device7_Vtbl {
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext, ID2D1DeviceContext_Vtbl, 0xe8f7fe7a_191c_466d_ad95_975678bda998);
-impl std::ops::Deref for ID2D1DeviceContext {
+impl core::ops::Deref for ID2D1DeviceContext {
     type Target = ID2D1RenderTarget;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1551,7 +1551,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     FillOpacityMask: usize,
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext1, ID2D1DeviceContext1_Vtbl, 0xd37f57e4_6908_459f_a199_e72f24f79987);
-impl std::ops::Deref for ID2D1DeviceContext1 {
+impl core::ops::Deref for ID2D1DeviceContext1 {
     type Target = ID2D1DeviceContext;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1592,7 +1592,7 @@ pub struct ID2D1DeviceContext1_Vtbl {
     pub DrawGeometryRealization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext2, ID2D1DeviceContext2_Vtbl, 0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
-impl std::ops::Deref for ID2D1DeviceContext2 {
+impl core::ops::Deref for ID2D1DeviceContext2 {
     type Target = ID2D1DeviceContext1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1704,7 +1704,7 @@ pub struct ID2D1DeviceContext2_Vtbl {
     pub CreateTransformedImageSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext3, ID2D1DeviceContext3_Vtbl, 0x235a7496_8351_414c_bcd4_6672ab2d8e00);
-impl std::ops::Deref for ID2D1DeviceContext3 {
+impl core::ops::Deref for ID2D1DeviceContext3 {
     type Target = ID2D1DeviceContext2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1733,7 +1733,7 @@ pub struct ID2D1DeviceContext3_Vtbl {
     pub DrawSpriteBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, D2D1_BITMAP_INTERPOLATION_MODE, D2D1_SPRITE_OPTIONS),
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext4, ID2D1DeviceContext4_Vtbl, 0x8c427831_3d90_4476_b647_c4fae349e4db);
-impl std::ops::Deref for ID2D1DeviceContext4 {
+impl core::ops::Deref for ID2D1DeviceContext4 {
     type Target = ID2D1DeviceContext3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1826,7 +1826,7 @@ pub struct ID2D1DeviceContext4_Vtbl {
     GetSvgGlyphImage: usize,
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext5, ID2D1DeviceContext5_Vtbl, 0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
-impl std::ops::Deref for ID2D1DeviceContext5 {
+impl core::ops::Deref for ID2D1DeviceContext5 {
     type Target = ID2D1DeviceContext4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1879,7 +1879,7 @@ pub struct ID2D1DeviceContext5_Vtbl {
     CreateColorContextFromSimpleColorProfile: usize,
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext6, ID2D1DeviceContext6_Vtbl, 0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
-impl std::ops::Deref for ID2D1DeviceContext6 {
+impl core::ops::Deref for ID2D1DeviceContext6 {
     type Target = ID2D1DeviceContext5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1906,7 +1906,7 @@ pub struct ID2D1DeviceContext6_Vtbl {
     BlendImage: usize,
 }
 windows_core::imp::define_interface!(ID2D1DeviceContext7, ID2D1DeviceContext7_Vtbl, 0xec891cf7_9b69_4851_9def_4e0915771e62);
-impl std::ops::Deref for ID2D1DeviceContext7 {
+impl core::ops::Deref for ID2D1DeviceContext7 {
     type Target = ID2D1DeviceContext6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1949,7 +1949,7 @@ pub struct ID2D1DeviceContext7_Vtbl {
     DrawGlyphRunWithColorSupport: usize,
 }
 windows_core::imp::define_interface!(ID2D1DrawInfo, ID2D1DrawInfo_Vtbl, 0x693ce632_7f2f_45de_93fe_18d88b37aa21);
-impl std::ops::Deref for ID2D1DrawInfo {
+impl core::ops::Deref for ID2D1DrawInfo {
     type Target = ID2D1RenderInfo;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1991,7 +1991,7 @@ pub struct ID2D1DrawInfo_Vtbl {
     pub SetVertexProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D2D1_VERTEX_OPTIONS, *const D2D1_BLEND_DESCRIPTION, *const D2D1_VERTEX_RANGE, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1DrawTransform, ID2D1DrawTransform_Vtbl, 0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
-impl std::ops::Deref for ID2D1DrawTransform {
+impl core::ops::Deref for ID2D1DrawTransform {
     type Target = ID2D1Transform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2014,7 +2014,7 @@ pub struct ID2D1DrawTransform_Vtbl {
     pub SetDrawInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock, ID2D1DrawingStateBlock_Vtbl, 0x28506e39_ebf6_46a1_bb47_fd85565ab957);
-impl std::ops::Deref for ID2D1DrawingStateBlock {
+impl core::ops::Deref for ID2D1DrawingStateBlock {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2067,7 +2067,7 @@ pub struct ID2D1DrawingStateBlock_Vtbl {
     GetTextRenderingParams: usize,
 }
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock1, ID2D1DrawingStateBlock1_Vtbl, 0x689f1f85_c72e_4e33_8f19_85754efd5ace);
-impl std::ops::Deref for ID2D1DrawingStateBlock1 {
+impl core::ops::Deref for ID2D1DrawingStateBlock1 {
     type Target = ID2D1DrawingStateBlock;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2099,7 +2099,7 @@ pub struct ID2D1DrawingStateBlock1_Vtbl {
     SetDescription: usize,
 }
 windows_core::imp::define_interface!(ID2D1Effect, ID2D1Effect_Vtbl, 0x28211a43_7d89_476f_8181_2d6159b220ad);
-impl std::ops::Deref for ID2D1Effect {
+impl core::ops::Deref for ID2D1Effect {
     type Target = ID2D1Properties;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2143,7 +2143,7 @@ pub struct ID2D1Effect_Vtbl {
     pub GetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1EffectContext, ID2D1EffectContext_Vtbl, 0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
-impl std::ops::Deref for ID2D1EffectContext {
+impl core::ops::Deref for ID2D1EffectContext {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2278,7 +2278,7 @@ pub struct ID2D1EffectContext_Vtbl {
     pub IsBufferPrecisionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(ID2D1EffectContext1, ID2D1EffectContext1_Vtbl, 0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
-impl std::ops::Deref for ID2D1EffectContext1 {
+impl core::ops::Deref for ID2D1EffectContext1 {
     type Target = ID2D1EffectContext;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2299,7 +2299,7 @@ pub struct ID2D1EffectContext1_Vtbl {
     pub CreateLookupTable3D: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, *const u32, *const u8, u32, *const u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1EffectContext2, ID2D1EffectContext2_Vtbl, 0x577ad2a0_9fc7_4dda_8b18_dab810140052);
-impl std::ops::Deref for ID2D1EffectContext2 {
+impl core::ops::Deref for ID2D1EffectContext2 {
     type Target = ID2D1EffectContext1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2333,7 +2333,7 @@ pub struct ID2D1EffectContext2_Vtbl {
     CreateColorContextFromSimpleColorProfile: usize,
 }
 windows_core::imp::define_interface!(ID2D1EffectImpl, ID2D1EffectImpl_Vtbl, 0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
-impl std::ops::Deref for ID2D1EffectImpl {
+impl core::ops::Deref for ID2D1EffectImpl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2368,7 +2368,7 @@ pub struct ID2D1EffectImpl_Vtbl {
     pub SetGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1EllipseGeometry, ID2D1EllipseGeometry_Vtbl, 0x2cd906a4_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1EllipseGeometry {
+impl core::ops::Deref for ID2D1EllipseGeometry {
     type Target = ID2D1Geometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2394,7 +2394,7 @@ pub struct ID2D1EllipseGeometry_Vtbl {
     GetEllipse: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory, ID2D1Factory_Vtbl, 0x06152247_6f50_465a_9245_118bfd3b6007);
-impl std::ops::Deref for ID2D1Factory {
+impl core::ops::Deref for ID2D1Factory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2530,7 +2530,7 @@ pub struct ID2D1Factory_Vtbl {
     CreateDCRenderTarget: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory1, ID2D1Factory1_Vtbl, 0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
-impl std::ops::Deref for ID2D1Factory1 {
+impl core::ops::Deref for ID2D1Factory1 {
     type Target = ID2D1Factory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2623,7 +2623,7 @@ pub struct ID2D1Factory1_Vtbl {
     pub GetEffectProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Factory2, ID2D1Factory2_Vtbl, 0x94f81a73_9212_4376_9c58_b16a3a0d3992);
-impl std::ops::Deref for ID2D1Factory2 {
+impl core::ops::Deref for ID2D1Factory2 {
     type Target = ID2D1Factory1;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2651,7 +2651,7 @@ pub struct ID2D1Factory2_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory3, ID2D1Factory3_Vtbl, 0x0869759f_4f00_413f_b03e_2bda45404d0f);
-impl std::ops::Deref for ID2D1Factory3 {
+impl core::ops::Deref for ID2D1Factory3 {
     type Target = ID2D1Factory2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2679,7 +2679,7 @@ pub struct ID2D1Factory3_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory4, ID2D1Factory4_Vtbl, 0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
-impl std::ops::Deref for ID2D1Factory4 {
+impl core::ops::Deref for ID2D1Factory4 {
     type Target = ID2D1Factory3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2707,7 +2707,7 @@ pub struct ID2D1Factory4_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory5, ID2D1Factory5_Vtbl, 0xc4349994_838e_4b0f_8cab_44997d9eeacc);
-impl std::ops::Deref for ID2D1Factory5 {
+impl core::ops::Deref for ID2D1Factory5 {
     type Target = ID2D1Factory4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2735,7 +2735,7 @@ pub struct ID2D1Factory5_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory6, ID2D1Factory6_Vtbl, 0xf9976f46_f642_44c1_97ca_da32ea2a2635);
-impl std::ops::Deref for ID2D1Factory6 {
+impl core::ops::Deref for ID2D1Factory6 {
     type Target = ID2D1Factory5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2763,7 +2763,7 @@ pub struct ID2D1Factory6_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory7, ID2D1Factory7_Vtbl, 0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
-impl std::ops::Deref for ID2D1Factory7 {
+impl core::ops::Deref for ID2D1Factory7 {
     type Target = ID2D1Factory6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2791,7 +2791,7 @@ pub struct ID2D1Factory7_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1Factory8, ID2D1Factory8_Vtbl, 0x677c9311_f36d_4b1f_ae86_86d1223ffd3a);
-impl std::ops::Deref for ID2D1Factory8 {
+impl core::ops::Deref for ID2D1Factory8 {
     type Target = ID2D1Factory7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2819,7 +2819,7 @@ pub struct ID2D1Factory8_Vtbl {
     CreateDevice: usize,
 }
 windows_core::imp::define_interface!(ID2D1GdiInteropRenderTarget, ID2D1GdiInteropRenderTarget_Vtbl, 0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
-impl std::ops::Deref for ID2D1GdiInteropRenderTarget {
+impl core::ops::Deref for ID2D1GdiInteropRenderTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2848,7 +2848,7 @@ pub struct ID2D1GdiInteropRenderTarget_Vtbl {
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1GdiMetafile, ID2D1GdiMetafile_Vtbl, 0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
-impl std::ops::Deref for ID2D1GdiMetafile {
+impl core::ops::Deref for ID2D1GdiMetafile {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2880,7 +2880,7 @@ pub struct ID2D1GdiMetafile_Vtbl {
     GetBounds: usize,
 }
 windows_core::imp::define_interface!(ID2D1GdiMetafile1, ID2D1GdiMetafile1_Vtbl, 0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
-impl std::ops::Deref for ID2D1GdiMetafile1 {
+impl core::ops::Deref for ID2D1GdiMetafile1 {
     type Target = ID2D1GdiMetafile;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2909,7 +2909,7 @@ pub struct ID2D1GdiMetafile1_Vtbl {
     GetSourceBounds: usize,
 }
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink, ID2D1GdiMetafileSink_Vtbl, 0x82237326_8111_4f7c_bcf4_b5c1175564fe);
-impl std::ops::Deref for ID2D1GdiMetafileSink {
+impl core::ops::Deref for ID2D1GdiMetafileSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2929,7 +2929,7 @@ pub struct ID2D1GdiMetafileSink_Vtbl {
     pub ProcessRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink1, ID2D1GdiMetafileSink1_Vtbl, 0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
-impl std::ops::Deref for ID2D1GdiMetafileSink1 {
+impl core::ops::Deref for ID2D1GdiMetafileSink1 {
     type Target = ID2D1GdiMetafileSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2949,7 +2949,7 @@ pub struct ID2D1GdiMetafileSink1_Vtbl {
     pub ProcessRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Geometry, ID2D1Geometry_Vtbl, 0x2cd906a1_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1Geometry {
+impl core::ops::Deref for ID2D1Geometry {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3102,7 +3102,7 @@ pub struct ID2D1Geometry_Vtbl {
     Widen: usize,
 }
 windows_core::imp::define_interface!(ID2D1GeometryGroup, ID2D1GeometryGroup_Vtbl, 0x2cd906a6_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1GeometryGroup {
+impl core::ops::Deref for ID2D1GeometryGroup {
     type Target = ID2D1Geometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3134,7 +3134,7 @@ pub struct ID2D1GeometryGroup_Vtbl {
     pub GetSourceGeometries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32),
 }
 windows_core::imp::define_interface!(ID2D1GeometryRealization, ID2D1GeometryRealization_Vtbl, 0xa16907d7_bc02_4801_99e8_8cf7f485f774);
-impl std::ops::Deref for ID2D1GeometryRealization {
+impl core::ops::Deref for ID2D1GeometryRealization {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3151,7 +3151,7 @@ pub struct ID2D1GeometryRealization_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 windows_core::imp::define_interface!(ID2D1GeometrySink, ID2D1GeometrySink_Vtbl, 0x2cd9069f_12e2_11dc_9fed_001143a055f9);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl std::ops::Deref for ID2D1GeometrySink {
+impl core::ops::Deref for ID2D1GeometrySink {
     type Target = Common::ID2D1SimplifiedGeometrySink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3212,7 +3212,7 @@ pub struct ID2D1GeometrySink_Vtbl {
     AddArc: usize,
 }
 windows_core::imp::define_interface!(ID2D1GradientMesh, ID2D1GradientMesh_Vtbl, 0xf292e401_c050_4cde_83d7_04962d3b23c2);
-impl std::ops::Deref for ID2D1GradientMesh {
+impl core::ops::Deref for ID2D1GradientMesh {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3240,7 +3240,7 @@ pub struct ID2D1GradientMesh_Vtbl {
     GetPatches: usize,
 }
 windows_core::imp::define_interface!(ID2D1GradientStopCollection, ID2D1GradientStopCollection_Vtbl, 0x2cd906a7_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1GradientStopCollection {
+impl core::ops::Deref for ID2D1GradientStopCollection {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3276,7 +3276,7 @@ pub struct ID2D1GradientStopCollection_Vtbl {
     pub GetExtendMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_EXTEND_MODE,
 }
 windows_core::imp::define_interface!(ID2D1GradientStopCollection1, ID2D1GradientStopCollection1_Vtbl, 0xae1572f4_5dd0_4777_998b_9279472ae63b);
-impl std::ops::Deref for ID2D1GradientStopCollection1 {
+impl core::ops::Deref for ID2D1GradientStopCollection1 {
     type Target = ID2D1GradientStopCollection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3316,7 +3316,7 @@ pub struct ID2D1GradientStopCollection1_Vtbl {
     pub GetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_COLOR_INTERPOLATION_MODE,
 }
 windows_core::imp::define_interface!(ID2D1HwndRenderTarget, ID2D1HwndRenderTarget_Vtbl, 0x2cd90698_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1HwndRenderTarget {
+impl core::ops::Deref for ID2D1HwndRenderTarget {
     type Target = ID2D1RenderTarget;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3348,7 +3348,7 @@ pub struct ID2D1HwndRenderTarget_Vtbl {
     pub GetHwnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HWND,
 }
 windows_core::imp::define_interface!(ID2D1Image, ID2D1Image_Vtbl, 0x65019f75_8da2_497c_b32c_dfa34e48ede6);
-impl std::ops::Deref for ID2D1Image {
+impl core::ops::Deref for ID2D1Image {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3363,7 +3363,7 @@ pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
 windows_core::imp::define_interface!(ID2D1ImageBrush, ID2D1ImageBrush_Vtbl, 0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
-impl std::ops::Deref for ID2D1ImageBrush {
+impl core::ops::Deref for ID2D1ImageBrush {
     type Target = ID2D1Brush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3434,7 +3434,7 @@ pub struct ID2D1ImageBrush_Vtbl {
     GetSourceRectangle: usize,
 }
 windows_core::imp::define_interface!(ID2D1ImageSource, ID2D1ImageSource_Vtbl, 0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
-impl std::ops::Deref for ID2D1ImageSource {
+impl core::ops::Deref for ID2D1ImageSource {
     type Target = ID2D1Image;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3459,7 +3459,7 @@ pub struct ID2D1ImageSource_Vtbl {
     pub TryReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1ImageSourceFromWic, ID2D1ImageSourceFromWic_Vtbl, 0x77395441_1c8f_4555_8683_f50dab0fe792);
-impl std::ops::Deref for ID2D1ImageSourceFromWic {
+impl core::ops::Deref for ID2D1ImageSourceFromWic {
     type Target = ID2D1ImageSource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3501,7 +3501,7 @@ pub struct ID2D1ImageSourceFromWic_Vtbl {
     GetSource: usize,
 }
 windows_core::imp::define_interface!(ID2D1Ink, ID2D1Ink_Vtbl, 0xb499923b_7029_478f_a8b3_432c7c5f5312);
-impl std::ops::Deref for ID2D1Ink {
+impl core::ops::Deref for ID2D1Ink {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3575,7 +3575,7 @@ pub struct ID2D1Ink_Vtbl {
     GetBounds: usize,
 }
 windows_core::imp::define_interface!(ID2D1InkStyle, ID2D1InkStyle_Vtbl, 0xbae8b344_23fc_4071_8cb5_d05d6f073848);
-impl std::ops::Deref for ID2D1InkStyle {
+impl core::ops::Deref for ID2D1InkStyle {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3615,7 +3615,7 @@ pub struct ID2D1InkStyle_Vtbl {
     pub GetNibShape: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_INK_NIB_SHAPE,
 }
 windows_core::imp::define_interface!(ID2D1Layer, ID2D1Layer_Vtbl, 0x2cd9069b_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1Layer {
+impl core::ops::Deref for ID2D1Layer {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3641,7 +3641,7 @@ pub struct ID2D1Layer_Vtbl {
     GetSize: usize,
 }
 windows_core::imp::define_interface!(ID2D1LinearGradientBrush, ID2D1LinearGradientBrush_Vtbl, 0x2cd906ab_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1LinearGradientBrush {
+impl core::ops::Deref for ID2D1LinearGradientBrush {
     type Target = ID2D1Brush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3699,7 +3699,7 @@ pub struct ID2D1LinearGradientBrush_Vtbl {
     pub GetGradientStopCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1LookupTable3D, ID2D1LookupTable3D_Vtbl, 0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
-impl std::ops::Deref for ID2D1LookupTable3D {
+impl core::ops::Deref for ID2D1LookupTable3D {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3714,7 +3714,7 @@ pub struct ID2D1LookupTable3D_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
 windows_core::imp::define_interface!(ID2D1Mesh, ID2D1Mesh_Vtbl, 0x2cd906c2_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1Mesh {
+impl core::ops::Deref for ID2D1Mesh {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3735,7 +3735,7 @@ pub struct ID2D1Mesh_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Multithread, ID2D1Multithread_Vtbl, 0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
-impl std::ops::Deref for ID2D1Multithread {
+impl core::ops::Deref for ID2D1Multithread {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3763,7 +3763,7 @@ pub struct ID2D1Multithread_Vtbl {
     pub Leave: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1OffsetTransform, ID2D1OffsetTransform_Vtbl, 0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
-impl std::ops::Deref for ID2D1OffsetTransform {
+impl core::ops::Deref for ID2D1OffsetTransform {
     type Target = ID2D1TransformNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3789,7 +3789,7 @@ pub struct ID2D1OffsetTransform_Vtbl {
     pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::POINT),
 }
 windows_core::imp::define_interface!(ID2D1PathGeometry, ID2D1PathGeometry_Vtbl, 0x2cd906a5_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1PathGeometry {
+impl core::ops::Deref for ID2D1PathGeometry {
     type Target = ID2D1Geometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3835,7 +3835,7 @@ pub struct ID2D1PathGeometry_Vtbl {
     pub GetFigureCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1PathGeometry1, ID2D1PathGeometry1_Vtbl, 0x62baa2d2_ab54_41b7_b872_787e0106a421);
-impl std::ops::Deref for ID2D1PathGeometry1 {
+impl core::ops::Deref for ID2D1PathGeometry1 {
     type Target = ID2D1PathGeometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3859,7 +3859,7 @@ pub struct ID2D1PathGeometry1_Vtbl {
     ComputePointAndSegmentAtLength: usize,
 }
 windows_core::imp::define_interface!(ID2D1PrintControl, ID2D1PrintControl_Vtbl, 0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
-impl std::ops::Deref for ID2D1PrintControl {
+impl core::ops::Deref for ID2D1PrintControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3891,7 +3891,7 @@ pub struct ID2D1PrintControl_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Properties, ID2D1Properties_Vtbl, 0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
-impl std::ops::Deref for ID2D1Properties {
+impl core::ops::Deref for ID2D1Properties {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3961,7 +3961,7 @@ pub struct ID2D1Properties_Vtbl {
     pub GetSubProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1RadialGradientBrush, ID2D1RadialGradientBrush_Vtbl, 0x2cd906ac_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1RadialGradientBrush {
+impl core::ops::Deref for ID2D1RadialGradientBrush {
     type Target = ID2D1Brush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4035,7 +4035,7 @@ pub struct ID2D1RadialGradientBrush_Vtbl {
     pub GetGradientStopCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1RectangleGeometry, ID2D1RectangleGeometry_Vtbl, 0x2cd906a2_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1RectangleGeometry {
+impl core::ops::Deref for ID2D1RectangleGeometry {
     type Target = ID2D1Geometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4061,7 +4061,7 @@ pub struct ID2D1RectangleGeometry_Vtbl {
     GetRect: usize,
 }
 windows_core::imp::define_interface!(ID2D1RenderInfo, ID2D1RenderInfo_Vtbl, 0x519ae1bd_d19a_420d_b849_364f594776b7);
-impl std::ops::Deref for ID2D1RenderInfo {
+impl core::ops::Deref for ID2D1RenderInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4096,7 +4096,7 @@ pub struct ID2D1RenderInfo_Vtbl {
     pub SetInstructionCountHint: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 windows_core::imp::define_interface!(ID2D1RenderTarget, ID2D1RenderTarget_Vtbl, 0x2cd90694_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1RenderTarget {
+impl core::ops::Deref for ID2D1RenderTarget {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4555,7 +4555,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     IsSupported: usize,
 }
 windows_core::imp::define_interface!(ID2D1Resource, ID2D1Resource_Vtbl, 0x2cd90691_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1Resource {
+impl core::ops::Deref for ID2D1Resource {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4577,7 +4577,7 @@ pub struct ID2D1Resource_Vtbl {
     pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1ResourceTexture, ID2D1ResourceTexture_Vtbl, 0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
-impl std::ops::Deref for ID2D1ResourceTexture {
+impl core::ops::Deref for ID2D1ResourceTexture {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4597,7 +4597,7 @@ pub struct ID2D1ResourceTexture_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, *const u32, *const u32, u32, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1RoundedRectangleGeometry, ID2D1RoundedRectangleGeometry_Vtbl, 0x2cd906a3_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1RoundedRectangleGeometry {
+impl core::ops::Deref for ID2D1RoundedRectangleGeometry {
     type Target = ID2D1Geometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4621,7 +4621,7 @@ pub struct ID2D1RoundedRectangleGeometry_Vtbl {
     GetRoundedRect: usize,
 }
 windows_core::imp::define_interface!(ID2D1SolidColorBrush, ID2D1SolidColorBrush_Vtbl, 0x2cd906a9_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1SolidColorBrush {
+impl core::ops::Deref for ID2D1SolidColorBrush {
     type Target = ID2D1Brush;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4655,7 +4655,7 @@ pub struct ID2D1SolidColorBrush_Vtbl {
     GetColor: usize,
 }
 windows_core::imp::define_interface!(ID2D1SourceTransform, ID2D1SourceTransform_Vtbl, 0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
-impl std::ops::Deref for ID2D1SourceTransform {
+impl core::ops::Deref for ID2D1SourceTransform {
     type Target = ID2D1Transform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4689,7 +4689,7 @@ pub struct ID2D1SourceTransform_Vtbl {
     Draw: usize,
 }
 windows_core::imp::define_interface!(ID2D1SpriteBatch, ID2D1SpriteBatch_Vtbl, 0x4dc583bf_3a10_438a_8722_e9765224f1f1);
-impl std::ops::Deref for ID2D1SpriteBatch {
+impl core::ops::Deref for ID2D1SpriteBatch {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4737,7 +4737,7 @@ pub struct ID2D1SpriteBatch_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(ID2D1StrokeStyle, ID2D1StrokeStyle_Vtbl, 0x2cd9069d_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1StrokeStyle {
+impl core::ops::Deref for ID2D1StrokeStyle {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4789,7 +4789,7 @@ pub struct ID2D1StrokeStyle_Vtbl {
     pub GetDashes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32),
 }
 windows_core::imp::define_interface!(ID2D1StrokeStyle1, ID2D1StrokeStyle1_Vtbl, 0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
-impl std::ops::Deref for ID2D1StrokeStyle1 {
+impl core::ops::Deref for ID2D1StrokeStyle1 {
     type Target = ID2D1StrokeStyle;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4809,7 +4809,7 @@ pub struct ID2D1StrokeStyle1_Vtbl {
     pub GetStrokeTransformType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_STROKE_TRANSFORM_TYPE,
 }
 windows_core::imp::define_interface!(ID2D1SvgAttribute, ID2D1SvgAttribute_Vtbl, 0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
-impl std::ops::Deref for ID2D1SvgAttribute {
+impl core::ops::Deref for ID2D1SvgAttribute {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4836,7 +4836,7 @@ pub struct ID2D1SvgAttribute_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1SvgDocument, ID2D1SvgDocument_Vtbl, 0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
-impl std::ops::Deref for ID2D1SvgDocument {
+impl core::ops::Deref for ID2D1SvgDocument {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4946,7 +4946,7 @@ pub struct ID2D1SvgDocument_Vtbl {
     pub CreatePathData: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32, *const D2D1_SVG_PATH_COMMAND, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1SvgElement, ID2D1SvgElement_Vtbl, 0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
-impl std::ops::Deref for ID2D1SvgElement {
+impl core::ops::Deref for ID2D1SvgElement {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5088,7 +5088,7 @@ impl ID2D1SvgElement {
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), name.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeValue2<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut core::ffi::c_void, valuesizeinbytes: u32) -> windows_core::Result<()>
@@ -5148,7 +5148,7 @@ pub struct ID2D1SvgElement_Vtbl {
     pub GetAttributeValueLength: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, D2D1_SVG_ATTRIBUTE_STRING_TYPE, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1SvgGlyphStyle, ID2D1SvgGlyphStyle_Vtbl, 0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
-impl std::ops::Deref for ID2D1SvgGlyphStyle {
+impl core::ops::Deref for ID2D1SvgGlyphStyle {
     type Target = ID2D1Resource;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5192,7 +5192,7 @@ pub struct ID2D1SvgGlyphStyle_Vtbl {
     pub GetStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut f32, *mut f32, u32, *mut f32),
 }
 windows_core::imp::define_interface!(ID2D1SvgPaint, ID2D1SvgPaint_Vtbl, 0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
-impl std::ops::Deref for ID2D1SvgPaint {
+impl core::ops::Deref for ID2D1SvgPaint {
     type Target = ID2D1SvgAttribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5249,7 +5249,7 @@ pub struct ID2D1SvgPaint_Vtbl {
     pub GetIdLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(ID2D1SvgPathData, ID2D1SvgPathData_Vtbl, 0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
-impl std::ops::Deref for ID2D1SvgPathData {
+impl core::ops::Deref for ID2D1SvgPathData {
     type Target = ID2D1SvgAttribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5306,7 +5306,7 @@ pub struct ID2D1SvgPathData_Vtbl {
     CreatePathGeometry: usize,
 }
 windows_core::imp::define_interface!(ID2D1SvgPointCollection, ID2D1SvgPointCollection_Vtbl, 0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
-impl std::ops::Deref for ID2D1SvgPointCollection {
+impl core::ops::Deref for ID2D1SvgPointCollection {
     type Target = ID2D1SvgAttribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5346,7 +5346,7 @@ pub struct ID2D1SvgPointCollection_Vtbl {
     pub GetPointsCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(ID2D1SvgStrokeDashArray, ID2D1SvgStrokeDashArray_Vtbl, 0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
-impl std::ops::Deref for ID2D1SvgStrokeDashArray {
+impl core::ops::Deref for ID2D1SvgStrokeDashArray {
     type Target = ID2D1SvgAttribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5386,7 +5386,7 @@ pub struct ID2D1SvgStrokeDashArray_Vtbl {
     pub GetDashesCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(ID2D1TessellationSink, ID2D1TessellationSink_Vtbl, 0x2cd906c1_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1TessellationSink {
+impl core::ops::Deref for ID2D1TessellationSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5414,7 +5414,7 @@ pub struct ID2D1TessellationSink_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1Transform, ID2D1Transform_Vtbl, 0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
-impl std::ops::Deref for ID2D1Transform {
+impl core::ops::Deref for ID2D1Transform {
     type Target = ID2D1TransformNode;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5443,7 +5443,7 @@ pub struct ID2D1Transform_Vtbl {
     pub MapInvalidRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::RECT, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1TransformGraph, ID2D1TransformGraph_Vtbl, 0x13d29038_c3e6_4034_9081_13b53a417992);
-impl std::ops::Deref for ID2D1TransformGraph {
+impl core::ops::Deref for ID2D1TransformGraph {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5514,7 +5514,7 @@ pub struct ID2D1TransformGraph_Vtbl {
     pub SetPassthroughGraph: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID2D1TransformNode, ID2D1TransformNode_Vtbl, 0xb2efe1e7_729f_4102_949f_505fa21bf666);
-impl std::ops::Deref for ID2D1TransformNode {
+impl core::ops::Deref for ID2D1TransformNode {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5534,7 +5534,7 @@ pub struct ID2D1TransformNode_Vtbl {
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 windows_core::imp::define_interface!(ID2D1TransformedGeometry, ID2D1TransformedGeometry_Vtbl, 0x2cd906bb_12e2_11dc_9fed_001143a055f9);
-impl std::ops::Deref for ID2D1TransformedGeometry {
+impl core::ops::Deref for ID2D1TransformedGeometry {
     type Target = ID2D1Geometry;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5564,7 +5564,7 @@ pub struct ID2D1TransformedGeometry_Vtbl {
     GetTransform: usize,
 }
 windows_core::imp::define_interface!(ID2D1TransformedImageSource, ID2D1TransformedImageSource_Vtbl, 0x7f1f79e5_2796_416c_8f55_700f911445e5);
-impl std::ops::Deref for ID2D1TransformedImageSource {
+impl core::ops::Deref for ID2D1TransformedImageSource {
     type Target = ID2D1Image;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5590,7 +5590,7 @@ pub struct ID2D1TransformedImageSource_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES),
 }
 windows_core::imp::define_interface!(ID2D1VertexBuffer, ID2D1VertexBuffer_Vtbl, 0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);
-impl std::ops::Deref for ID2D1VertexBuffer {
+impl core::ops::Deref for ID2D1VertexBuffer {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

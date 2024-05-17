@@ -16,7 +16,7 @@ where
     CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.param().abi(), typeinfo.param().abi(), iid, ppv).ok()
 }
 windows_core::imp::define_interface!(ICallFrame, ICallFrame_Vtbl, 0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
-impl std::ops::Deref for ICallFrame {
+impl core::ops::Deref for ICallFrame {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -126,7 +126,7 @@ pub struct ICallFrame_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallFrameEvents, ICallFrameEvents_Vtbl, 0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
-impl std::ops::Deref for ICallFrameEvents {
+impl core::ops::Deref for ICallFrameEvents {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -147,7 +147,7 @@ pub struct ICallFrameEvents_Vtbl {
     pub OnCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallFrameWalker, ICallFrameWalker_Vtbl, 0x08b23919_392d_11d2_b8a4_00c04fb9618a);
-impl std::ops::Deref for ICallFrameWalker {
+impl core::ops::Deref for ICallFrameWalker {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -169,7 +169,7 @@ pub struct ICallFrameWalker_Vtbl {
     pub OnWalkInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const *const core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallIndirect, ICallIndirect_Vtbl, 0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
-impl std::ops::Deref for ICallIndirect {
+impl core::ops::Deref for ICallIndirect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -200,7 +200,7 @@ pub struct ICallIndirect_Vtbl {
     pub GetIID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut super::super::super::Foundation::BOOL, *mut u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallInterceptor, ICallInterceptor_Vtbl, 0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
-impl std::ops::Deref for ICallInterceptor {
+impl core::ops::Deref for ICallInterceptor {
     type Target = ICallIndirect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -226,7 +226,7 @@ pub struct ICallInterceptor_Vtbl {
     pub GetRegisteredSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallUnmarshal, ICallUnmarshal_Vtbl, 0x5333b003_2e42_11d2_b89d_00c04fb9618a);
-impl std::ops::Deref for ICallUnmarshal {
+impl core::ops::Deref for ICallUnmarshal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -251,7 +251,7 @@ pub struct ICallUnmarshal_Vtbl {
     pub ReleaseMarshalData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32, u32, *const CALLFRAME_MARSHALCONTEXT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInterfaceRelated, IInterfaceRelated_Vtbl, 0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
-impl std::ops::Deref for IInterfaceRelated {
+impl core::ops::Deref for IInterfaceRelated {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

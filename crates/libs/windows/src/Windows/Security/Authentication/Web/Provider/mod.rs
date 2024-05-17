@@ -147,7 +147,7 @@ pub struct IWebAccountProviderAddAccountOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderBaseReportOperation, IWebAccountProviderBaseReportOperation_Vtbl, 0xbba4acbb_993b_4d57_bbe4_1421e3668b4c);
-impl std::ops::Deref for IWebAccountProviderBaseReportOperation {
+impl core::ops::Deref for IWebAccountProviderBaseReportOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -206,7 +206,7 @@ pub struct IWebAccountProviderManageAccountOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderOperation, IWebAccountProviderOperation_Vtbl, 0x6d5d2426_10b1_419a_a44e_f9c5161574e6);
-impl std::ops::Deref for IWebAccountProviderOperation {
+impl core::ops::Deref for IWebAccountProviderOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -261,7 +261,7 @@ pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
     pub ClientId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderSilentReportOperation, IWebAccountProviderSilentReportOperation_Vtbl, 0xe0b545f8_3b0f_44da_924c_7b18baaa62a9);
-impl std::ops::Deref for IWebAccountProviderSilentReportOperation {
+impl core::ops::Deref for IWebAccountProviderSilentReportOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -308,7 +308,7 @@ pub struct IWebAccountProviderSilentReportOperation_Vtbl {
     ReportUserInteractionRequiredWithError: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenObjects, IWebAccountProviderTokenObjects_Vtbl, 0x408f284b_1328_42db_89a4_0bce7a717d8e);
-impl std::ops::Deref for IWebAccountProviderTokenObjects {
+impl core::ops::Deref for IWebAccountProviderTokenObjects {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -333,7 +333,7 @@ pub struct IWebAccountProviderTokenObjects_Vtbl {
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenObjects2, IWebAccountProviderTokenObjects2_Vtbl, 0x1020b893_5ca5_4fff_95fb_b820273fc395);
-impl std::ops::Deref for IWebAccountProviderTokenObjects2 {
+impl core::ops::Deref for IWebAccountProviderTokenObjects2 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -370,7 +370,7 @@ pub struct IWebAccountProviderTokenObjects2_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenOperation, IWebAccountProviderTokenOperation_Vtbl, 0x95c613be_2034_4c38_9434_d26c14b2b4b2);
-impl std::ops::Deref for IWebAccountProviderTokenOperation {
+impl core::ops::Deref for IWebAccountProviderTokenOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -428,7 +428,7 @@ pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub CacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderUIReportOperation, IWebAccountProviderUIReportOperation_Vtbl, 0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
-impl std::ops::Deref for IWebAccountProviderUIReportOperation {
+impl core::ops::Deref for IWebAccountProviderUIReportOperation {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

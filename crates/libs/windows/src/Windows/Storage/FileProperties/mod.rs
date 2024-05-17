@@ -141,7 +141,7 @@ pub struct IStorageItemContentProperties_Vtbl {
     pub GetDocumentPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemExtraProperties, IStorageItemExtraProperties_Vtbl, 0xc54361b2_54cd_432b_bdbc_4b19c4b470d7);
-impl std::ops::Deref for IStorageItemExtraProperties {
+impl core::ops::Deref for IStorageItemExtraProperties {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

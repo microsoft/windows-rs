@@ -480,7 +480,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccount, IFaxAccount_Vtbl, 0x68535b33_5dc4_4086_be26_b76f9b711006);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccount {
+impl core::ops::Deref for IFaxAccount {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -522,7 +522,7 @@ pub struct IFaxAccount_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountFolders, IFaxAccountFolders_Vtbl, 0x6463f89d_23d8_46a9_8f86_c47b77ca7926);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountFolders {
+impl core::ops::Deref for IFaxAccountFolders {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -577,7 +577,7 @@ pub struct IFaxAccountFolders_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountIncomingArchive, IFaxAccountIncomingArchive_Vtbl, 0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountIncomingArchive {
+impl core::ops::Deref for IFaxAccountIncomingArchive {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -631,7 +631,7 @@ pub struct IFaxAccountIncomingArchive_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountIncomingQueue, IFaxAccountIncomingQueue_Vtbl, 0xdd142d92_0186_4a95_a090_cbc3eadba6b4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountIncomingQueue {
+impl core::ops::Deref for IFaxAccountIncomingQueue {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -671,7 +671,7 @@ pub struct IFaxAccountIncomingQueue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountNotify, IFaxAccountNotify_Vtbl, 0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountNotify {
+impl core::ops::Deref for IFaxAccountNotify {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -825,7 +825,7 @@ pub struct IFaxAccountNotify_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountOutgoingArchive, IFaxAccountOutgoingArchive_Vtbl, 0x5463076d_ec14_491f_926e_b3ceda5e5662);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountOutgoingArchive {
+impl core::ops::Deref for IFaxAccountOutgoingArchive {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -879,7 +879,7 @@ pub struct IFaxAccountOutgoingArchive_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountOutgoingQueue, IFaxAccountOutgoingQueue_Vtbl, 0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountOutgoingQueue {
+impl core::ops::Deref for IFaxAccountOutgoingQueue {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -919,7 +919,7 @@ pub struct IFaxAccountOutgoingQueue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccountSet, IFaxAccountSet_Vtbl, 0x7428fbae_841e_47b8_86f4_2288946dca1b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccountSet {
+impl core::ops::Deref for IFaxAccountSet {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -978,7 +978,7 @@ pub struct IFaxAccountSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccounts, IFaxAccounts_Vtbl, 0x93ea8162_8be7_42d1_ae7b_ec74e2d989da);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxAccounts {
+impl core::ops::Deref for IFaxAccounts {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1019,7 +1019,7 @@ pub struct IFaxAccounts_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxActivity, IFaxActivity_Vtbl, 0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxActivity {
+impl core::ops::Deref for IFaxActivity {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1062,7 +1062,7 @@ pub struct IFaxActivity_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxActivityLogging, IFaxActivityLogging_Vtbl, 0x1e29078b_5a69_497b_9592_49b7e7faddb5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxActivityLogging {
+impl core::ops::Deref for IFaxActivityLogging {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1125,7 +1125,7 @@ pub struct IFaxActivityLogging_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxConfiguration, IFaxConfiguration_Vtbl, 0x10f4d0f7_0994_4543_ab6e_506949128c40);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxConfiguration {
+impl core::ops::Deref for IFaxConfiguration {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1366,7 +1366,7 @@ pub struct IFaxConfiguration_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDevice, IFaxDevice_Vtbl, 0x49306c59_b52e_4867_9df4_ca5841c956d0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDevice {
+impl core::ops::Deref for IFaxDevice {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1527,7 +1527,7 @@ pub struct IFaxDevice_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDeviceIds, IFaxDeviceIds_Vtbl, 0x2f0f813f_4ce9_443e_8ca1_738cfaeee149);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDeviceIds {
+impl core::ops::Deref for IFaxDeviceIds {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1573,7 +1573,7 @@ pub struct IFaxDeviceIds_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDeviceProvider, IFaxDeviceProvider_Vtbl, 0x290eac63_83ec_449c_8417_f148df8c682a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDeviceProvider {
+impl core::ops::Deref for IFaxDeviceProvider {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1652,7 +1652,7 @@ pub struct IFaxDeviceProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDeviceProviders, IFaxDeviceProviders_Vtbl, 0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDeviceProviders {
+impl core::ops::Deref for IFaxDeviceProviders {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1693,7 +1693,7 @@ pub struct IFaxDeviceProviders_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDevices, IFaxDevices_Vtbl, 0x9e46783e_f34f_482e_a360_0416becbbd96);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDevices {
+impl core::ops::Deref for IFaxDevices {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1743,7 +1743,7 @@ pub struct IFaxDevices_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDocument, IFaxDocument_Vtbl, 0xb207a246_09e3_4a4e_a7dc_fea31d29458f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDocument {
+impl core::ops::Deref for IFaxDocument {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1970,7 +1970,7 @@ pub struct IFaxDocument_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxDocument2, IFaxDocument2_Vtbl, 0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxDocument2 {
+impl core::ops::Deref for IFaxDocument2 {
     type Target = IFaxDocument;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2024,7 +2024,7 @@ pub struct IFaxDocument2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxEventLogging, IFaxEventLogging_Vtbl, 0x0880d965_20e8_42e4_8e17_944f192caad4);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxEventLogging {
+impl core::ops::Deref for IFaxEventLogging {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2087,7 +2087,7 @@ pub struct IFaxEventLogging_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxFolders, IFaxFolders_Vtbl, 0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxFolders {
+impl core::ops::Deref for IFaxFolders {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2142,7 +2142,7 @@ pub struct IFaxFolders_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxInboundRouting, IFaxInboundRouting_Vtbl, 0x8148c20f_9d52_45b1_bf96_38fc12713527);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxInboundRouting {
+impl core::ops::Deref for IFaxInboundRouting {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2179,7 +2179,7 @@ pub struct IFaxInboundRouting_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxInboundRoutingExtension, IFaxInboundRoutingExtension_Vtbl, 0x885b5e08_c26c_4ef9_af83_51580a750be1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxInboundRoutingExtension {
+impl core::ops::Deref for IFaxInboundRoutingExtension {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2253,7 +2253,7 @@ pub struct IFaxInboundRoutingExtension_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxInboundRoutingExtensions, IFaxInboundRoutingExtensions_Vtbl, 0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxInboundRoutingExtensions {
+impl core::ops::Deref for IFaxInboundRoutingExtensions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2294,7 +2294,7 @@ pub struct IFaxInboundRoutingExtensions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxInboundRoutingMethod, IFaxInboundRoutingMethod_Vtbl, 0x45700061_ad9d_4776_a8c4_64065492cf4b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxInboundRoutingMethod {
+impl core::ops::Deref for IFaxInboundRoutingMethod {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2355,7 +2355,7 @@ pub struct IFaxInboundRoutingMethod_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxInboundRoutingMethods, IFaxInboundRoutingMethods_Vtbl, 0x783fca10_8908_4473_9d69_f67fbea0c6b9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxInboundRoutingMethods {
+impl core::ops::Deref for IFaxInboundRoutingMethods {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2396,7 +2396,7 @@ pub struct IFaxInboundRoutingMethods_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingArchive, IFaxIncomingArchive_Vtbl, 0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingArchive {
+impl core::ops::Deref for IFaxIncomingArchive {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2517,7 +2517,7 @@ pub struct IFaxIncomingArchive_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingJob, IFaxIncomingJob_Vtbl, 0x207529e6_654a_4916_9f88_4d232ee8a107);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingJob {
+impl core::ops::Deref for IFaxIncomingJob {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2631,7 +2631,7 @@ pub struct IFaxIncomingJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingJobs, IFaxIncomingJobs_Vtbl, 0x011f04e9_4fd6_4c23_9513_b6b66bb26be9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingJobs {
+impl core::ops::Deref for IFaxIncomingJobs {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2672,7 +2672,7 @@ pub struct IFaxIncomingJobs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingMessage, IFaxIncomingMessage_Vtbl, 0x7cab88fa_2ef9_4851_b2f3_1d148fed8447);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingMessage {
+impl core::ops::Deref for IFaxIncomingMessage {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2757,7 +2757,7 @@ pub struct IFaxIncomingMessage_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingMessage2, IFaxIncomingMessage2_Vtbl, 0xf9208503_e2bc_48f3_9ec0_e6236f9b509a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingMessage2 {
+impl core::ops::Deref for IFaxIncomingMessage2 {
     type Target = IFaxIncomingMessage;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2865,7 +2865,7 @@ pub struct IFaxIncomingMessage2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingMessageIterator, IFaxIncomingMessageIterator_Vtbl, 0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingMessageIterator {
+impl core::ops::Deref for IFaxIncomingMessageIterator {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2915,7 +2915,7 @@ pub struct IFaxIncomingMessageIterator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxIncomingQueue, IFaxIncomingQueue_Vtbl, 0x902e64ef_8fd8_4b75_9725_6014df161545);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxIncomingQueue {
+impl core::ops::Deref for IFaxIncomingQueue {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2975,7 +2975,7 @@ pub struct IFaxIncomingQueue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxJobStatus, IFaxJobStatus_Vtbl, 0x8b86f485_fd7f_4824_886b_40c5caa617cc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxJobStatus {
+impl core::ops::Deref for IFaxJobStatus {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3079,7 +3079,7 @@ pub struct IFaxJobStatus_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxLoggingOptions, IFaxLoggingOptions_Vtbl, 0x34e64fb9_6b31_4d32_8b27_d286c0c33606);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxLoggingOptions {
+impl core::ops::Deref for IFaxLoggingOptions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3116,7 +3116,7 @@ pub struct IFaxLoggingOptions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutboundRouting, IFaxOutboundRouting_Vtbl, 0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutboundRouting {
+impl core::ops::Deref for IFaxOutboundRouting {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3153,7 +3153,7 @@ pub struct IFaxOutboundRouting_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutboundRoutingGroup, IFaxOutboundRoutingGroup_Vtbl, 0xca6289a1_7e25_4f87_9a0b_93365734962c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutboundRoutingGroup {
+impl core::ops::Deref for IFaxOutboundRoutingGroup {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3191,7 +3191,7 @@ pub struct IFaxOutboundRoutingGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutboundRoutingGroups, IFaxOutboundRoutingGroups_Vtbl, 0x235cbef7_c2de_4bfd_b8da_75097c82c87f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutboundRoutingGroups {
+impl core::ops::Deref for IFaxOutboundRoutingGroups {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3251,7 +3251,7 @@ pub struct IFaxOutboundRoutingGroups_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutboundRoutingRule, IFaxOutboundRoutingRule_Vtbl, 0xe1f795d5_07c2_469f_b027_acacc23219da);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutboundRoutingRule {
+impl core::ops::Deref for IFaxOutboundRoutingRule {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3326,7 +3326,7 @@ pub struct IFaxOutboundRoutingRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutboundRoutingRules, IFaxOutboundRoutingRules_Vtbl, 0xdcefa1e7_ae7d_4ed6_8521_369edcca5120);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutboundRoutingRules {
+impl core::ops::Deref for IFaxOutboundRoutingRules {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3394,7 +3394,7 @@ pub struct IFaxOutboundRoutingRules_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingArchive, IFaxOutgoingArchive_Vtbl, 0xc9c28f40_8d80_4e53_810f_9a79919b49fd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingArchive {
+impl core::ops::Deref for IFaxOutgoingArchive {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3515,7 +3515,7 @@ pub struct IFaxOutgoingArchive_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingJob, IFaxOutgoingJob_Vtbl, 0x6356daad_6614_4583_bf7a_3ad67bbfc71c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingJob {
+impl core::ops::Deref for IFaxOutgoingJob {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3694,7 +3694,7 @@ pub struct IFaxOutgoingJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingJob2, IFaxOutgoingJob2_Vtbl, 0x418a8d96_59a0_4789_b176_edf3dc8fa8f7);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingJob2 {
+impl core::ops::Deref for IFaxOutgoingJob2 {
     type Target = IFaxOutgoingJob;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3728,7 +3728,7 @@ pub struct IFaxOutgoingJob2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingJobs, IFaxOutgoingJobs_Vtbl, 0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingJobs {
+impl core::ops::Deref for IFaxOutgoingJobs {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3769,7 +3769,7 @@ pub struct IFaxOutgoingJobs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingMessage, IFaxOutgoingMessage_Vtbl, 0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingMessage {
+impl core::ops::Deref for IFaxOutgoingMessage {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3892,7 +3892,7 @@ pub struct IFaxOutgoingMessage_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingMessage2, IFaxOutgoingMessage2_Vtbl, 0xb37df687_bc88_4b46_b3be_b458b3ea9e7f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingMessage2 {
+impl core::ops::Deref for IFaxOutgoingMessage2 {
     type Target = IFaxOutgoingMessage;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3946,7 +3946,7 @@ pub struct IFaxOutgoingMessage2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingMessageIterator, IFaxOutgoingMessageIterator_Vtbl, 0xf5ec5d4f_b840_432f_9980_112fe42a9b7a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingMessageIterator {
+impl core::ops::Deref for IFaxOutgoingMessageIterator {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -3996,7 +3996,7 @@ pub struct IFaxOutgoingMessageIterator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxOutgoingQueue, IFaxOutgoingQueue_Vtbl, 0x80b1df24_d9ac_4333_b373_487cedc80ce5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxOutgoingQueue {
+impl core::ops::Deref for IFaxOutgoingQueue {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4149,7 +4149,7 @@ pub struct IFaxOutgoingQueue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxReceiptOptions, IFaxReceiptOptions_Vtbl, 0x378efaeb_5fcb_4afb_b2ee_e16e80614487);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxReceiptOptions {
+impl core::ops::Deref for IFaxReceiptOptions {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4263,7 +4263,7 @@ pub struct IFaxReceiptOptions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxRecipient, IFaxRecipient_Vtbl, 0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxRecipient {
+impl core::ops::Deref for IFaxRecipient {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4306,7 +4306,7 @@ pub struct IFaxRecipient_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxRecipients, IFaxRecipients_Vtbl, 0xb9c9de5a_894e_4492_9fa3_08c627c11d5d);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxRecipients {
+impl core::ops::Deref for IFaxRecipients {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4361,7 +4361,7 @@ pub struct IFaxRecipients_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxSecurity, IFaxSecurity_Vtbl, 0x77b508c1_09c0_47a2_91eb_fce7fdf2690e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxSecurity {
+impl core::ops::Deref for IFaxSecurity {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4414,7 +4414,7 @@ pub struct IFaxSecurity_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxSecurity2, IFaxSecurity2_Vtbl, 0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxSecurity2 {
+impl core::ops::Deref for IFaxSecurity2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4467,7 +4467,7 @@ pub struct IFaxSecurity2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxSender, IFaxSender_Vtbl, 0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxSender {
+impl core::ops::Deref for IFaxSender {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4686,7 +4686,7 @@ pub struct IFaxSender_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxServer, IFaxServer_Vtbl, 0x475b6469_90a5_4878_a577_17a86e8e3462);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxServer {
+impl core::ops::Deref for IFaxServer {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4891,7 +4891,7 @@ pub struct IFaxServer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxServer2, IFaxServer2_Vtbl, 0x571ced0f_5609_4f40_9176_547e3a72ca7c);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxServer2 {
+impl core::ops::Deref for IFaxServer2 {
     type Target = IFaxServer;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4946,7 +4946,7 @@ pub struct IFaxServer2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxServerNotify, IFaxServerNotify_Vtbl, 0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxServerNotify {
+impl core::ops::Deref for IFaxServerNotify {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -4964,7 +4964,7 @@ pub struct IFaxServerNotify_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxServerNotify2, IFaxServerNotify2_Vtbl, 0xec9c69b9_5fe7_4805_9467_82fcd96af903);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IFaxServerNotify2 {
+impl core::ops::Deref for IFaxServerNotify2 {
     type Target = super::super::System::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5287,7 +5287,7 @@ pub struct IFaxServerNotify2_Vtbl {
     OnGeneralServerConfigChanged: usize,
 }
 windows_core::imp::define_interface!(IStiDevice, IStiDevice_Vtbl, 0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c);
-impl std::ops::Deref for IStiDevice {
+impl core::ops::Deref for IStiDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5390,7 +5390,7 @@ pub struct IStiDevice_Vtbl {
     pub GetLastErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut _ERROR_INFOW) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStiDeviceControl, IStiDeviceControl_Vtbl, 0x128a9860_52dc_11d0_9edf_444553540000);
-impl std::ops::Deref for IStiDeviceControl {
+impl core::ops::Deref for IStiDeviceControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5470,7 +5470,7 @@ pub struct IStiDeviceControl_Vtbl {
     pub WriteToErrorLog: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStiUSD, IStiUSD_Vtbl, 0x0c9bb460_51ac_11d0_90ea_00aa0060f86c);
-impl std::ops::Deref for IStiUSD {
+impl core::ops::Deref for IStiUSD {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -5577,7 +5577,7 @@ pub struct IStiUSD_Vtbl {
     pub GetLastErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut _ERROR_INFOW) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStillImageW, IStillImageW_Vtbl, 0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
-impl std::ops::Deref for IStillImageW {
+impl core::ops::Deref for IStillImageW {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

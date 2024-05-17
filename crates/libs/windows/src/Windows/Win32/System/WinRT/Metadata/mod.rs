@@ -88,7 +88,7 @@ pub unsafe fn RoResolveNamespace(name: &windows_core::HSTRING, windowsmetadatadi
     .ok()
 }
 windows_core::imp::define_interface!(ICeeGen, ICeeGen_Vtbl, 0x7ed1bdff_8e36_11d2_9c56_00a0c9b7cc45);
-impl std::ops::Deref for ICeeGen {
+impl core::ops::Deref for ICeeGen {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -169,7 +169,7 @@ pub struct ICeeGen_Vtbl {
     pub ComputePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHostFilter, IHostFilter_Vtbl, 0xd0e80dd3_12d4_11d3_b39d_00c04ff81795);
-impl std::ops::Deref for IHostFilter {
+impl core::ops::Deref for IHostFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -187,7 +187,7 @@ pub struct IHostFilter_Vtbl {
     pub MarkToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
-impl std::ops::Deref for IMapToken {
+impl core::ops::Deref for IMapToken {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -205,7 +205,7 @@ pub struct IMapToken_Vtbl {
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataAssemblyEmit, IMetaDataAssemblyEmit_Vtbl, 0x211ef15b_5317_4438_b196_dec87b887693);
-impl std::ops::Deref for IMetaDataAssemblyEmit {
+impl core::ops::Deref for IMetaDataAssemblyEmit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -280,7 +280,7 @@ pub struct IMetaDataAssemblyEmit_Vtbl {
     pub SetManifestResourceProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataAssemblyImport, IMetaDataAssemblyImport_Vtbl, 0xee62470b_e94b_424e_9b7c_2f00c9249f93);
-impl std::ops::Deref for IMetaDataAssemblyImport {
+impl core::ops::Deref for IMetaDataAssemblyImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -361,7 +361,7 @@ pub struct IMetaDataAssemblyImport_Vtbl {
     pub FindAssembliesByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataDispenser, IMetaDataDispenser_Vtbl, 0x809c652e_7396_11d2_9771_00a0c9b4d50c);
-impl std::ops::Deref for IMetaDataDispenser {
+impl core::ops::Deref for IMetaDataDispenser {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -393,7 +393,7 @@ pub struct IMetaDataDispenser_Vtbl {
     pub OpenScopeOnMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataDispenserEx, IMetaDataDispenserEx_Vtbl, 0x31bcfce2_dafb_11d2_9f81_00c04f79a0a3);
-impl std::ops::Deref for IMetaDataDispenserEx {
+impl core::ops::Deref for IMetaDataDispenserEx {
     type Target = IMetaDataDispenser;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -453,7 +453,7 @@ pub struct IMetaDataDispenserEx_Vtbl {
     pub FindAssemblyModule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataEmit, IMetaDataEmit_Vtbl, 0xba3fee4c_ecb9_4e41_83b7_183fa41cd859);
-impl std::ops::Deref for IMetaDataEmit {
+impl core::ops::Deref for IMetaDataEmit {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -745,7 +745,7 @@ pub struct IMetaDataEmit_Vtbl {
     pub MergeEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataEmit2, IMetaDataEmit2_Vtbl, 0xf5dd9950_f693_42e6_830e_7b833e8146a9);
-impl std::ops::Deref for IMetaDataEmit2 {
+impl core::ops::Deref for IMetaDataEmit2 {
     type Target = IMetaDataEmit;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -807,7 +807,7 @@ pub struct IMetaDataEmit2_Vtbl {
     pub ResetENCLog: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataError, IMetaDataError_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b09c19);
-impl std::ops::Deref for IMetaDataError {
+impl core::ops::Deref for IMetaDataError {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -825,7 +825,7 @@ pub struct IMetaDataError_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataFilter, IMetaDataFilter_Vtbl, 0xd0e80dd1_12d4_11d3_b39d_00c04ff81795);
-impl std::ops::Deref for IMetaDataFilter {
+impl core::ops::Deref for IMetaDataFilter {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -851,7 +851,7 @@ pub struct IMetaDataFilter_Vtbl {
     pub IsTokenMarked: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataImport, IMetaDataImport_Vtbl, 0x7dac8207_d3ae_4c75_9b67_92801a497d44);
-impl std::ops::Deref for IMetaDataImport {
+impl core::ops::Deref for IMetaDataImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1149,7 +1149,7 @@ pub struct IMetaDataImport_Vtbl {
     pub IsGlobal: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataImport2, IMetaDataImport2_Vtbl, 0xfce5efa0_8bba_4f8e_a036_8f2022b08466);
-impl std::ops::Deref for IMetaDataImport2 {
+impl core::ops::Deref for IMetaDataImport2 {
     type Target = IMetaDataImport;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1195,7 +1195,7 @@ pub struct IMetaDataImport2_Vtbl {
     pub EnumMethodSpecs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataInfo, IMetaDataInfo_Vtbl, 0x7998ea64_7f95_48b8_86fc_17caf48bf5cb);
-impl std::ops::Deref for IMetaDataInfo {
+impl core::ops::Deref for IMetaDataInfo {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1213,7 +1213,7 @@ pub struct IMetaDataInfo_Vtbl {
     pub GetFileMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut u64, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataTables, IMetaDataTables_Vtbl, 0xd8f579ab_402d_4b8e_82d9_5d63b1065c68);
-impl std::ops::Deref for IMetaDataTables {
+impl core::ops::Deref for IMetaDataTables {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1303,7 +1303,7 @@ pub struct IMetaDataTables_Vtbl {
     pub GetNextUserString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataTables2, IMetaDataTables2_Vtbl, 0xbadb5f70_58da_43a9_a1c6_d74819f19b15);
-impl std::ops::Deref for IMetaDataTables2 {
+impl core::ops::Deref for IMetaDataTables2 {
     type Target = IMetaDataTables;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1325,7 +1325,7 @@ pub struct IMetaDataTables2_Vtbl {
     pub GetMetaDataStreamInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const i8, *const *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataValidate, IMetaDataValidate_Vtbl, 0x4709c9c6_81ff_11d3_9fc7_00c04f79a0a3);
-impl std::ops::Deref for IMetaDataValidate {
+impl core::ops::Deref for IMetaDataValidate {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1350,7 +1350,7 @@ pub struct IMetaDataValidate_Vtbl {
     pub ValidateMetaData: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataWinMDImport, IMetaDataWinMDImport_Vtbl, 0x969ea0c5_964e_411b_a807_b0f3c2dfcbd4);
-impl std::ops::Deref for IMetaDataWinMDImport {
+impl core::ops::Deref for IMetaDataWinMDImport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

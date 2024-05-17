@@ -60,7 +60,7 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent)
 }
 windows_core::imp::define_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
-impl std::ops::Deref for IReferenceClock {
+impl core::ops::Deref for IReferenceClock {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -99,7 +99,7 @@ pub struct IReferenceClock_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
-impl std::ops::Deref for IReferenceClock2 {
+impl core::ops::Deref for IReferenceClock2 {
     type Target = IReferenceClock;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -112,7 +112,7 @@ pub struct IReferenceClock2_Vtbl {
     pub base__: IReferenceClock_Vtbl,
 }
 windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
-impl std::ops::Deref for IReferenceClockTimerControl {
+impl core::ops::Deref for IReferenceClockTimerControl {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

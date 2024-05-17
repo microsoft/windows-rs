@@ -290,7 +290,7 @@ pub struct ICameraOcclusionStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDefaultAudioDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs_Vtbl, 0x110f882f_1c05_4657_a18e_47c9b69f07ab);
-impl std::ops::Deref for IDefaultAudioDeviceChangedEventArgs {
+impl core::ops::Deref for IDefaultAudioDeviceChangedEventArgs {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -692,7 +692,7 @@ pub struct IMediaDeviceControlCapabilities_Vtbl {
     pub AutoModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaDeviceController, IMediaDeviceController_Vtbl, 0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
-impl std::ops::Deref for IMediaDeviceController {
+impl core::ops::Deref for IMediaDeviceController {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

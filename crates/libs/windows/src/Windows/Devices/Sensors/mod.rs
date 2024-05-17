@@ -769,7 +769,7 @@ pub struct IHumanPresenceSensor2_Vtbl {
     pub IsEngagementSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHumanPresenceSensorExtension, IHumanPresenceSensorExtension_Vtbl, 0x3e526a71_2d1d_5d43_8a8e_a434a8242ef0);
-impl std::ops::Deref for IHumanPresenceSensorExtension {
+impl core::ops::Deref for IHumanPresenceSensorExtension {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1644,7 +1644,7 @@ pub struct IProximitySensorStatics2_Vtbl {
     GetReadingsFromTriggerDetails: usize,
 }
 windows_core::imp::define_interface!(ISensorDataThreshold, ISensorDataThreshold_Vtbl, 0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
-impl std::ops::Deref for ISensorDataThreshold {
+impl core::ops::Deref for ISensorDataThreshold {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

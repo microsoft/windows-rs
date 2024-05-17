@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IDedupBackupSupport, IDedupBackupSupport_Vtbl, 0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
-impl std::ops::Deref for IDedupBackupSupport {
+impl core::ops::Deref for IDedupBackupSupport {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -20,7 +20,7 @@ pub struct IDedupBackupSupport_Vtbl {
     pub RestoreFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, u32, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDedupChunkLibrary, IDedupChunkLibrary_Vtbl, 0xbb5144d7_2720_4dcc_8777_78597416ec23);
-impl std::ops::Deref for IDedupChunkLibrary {
+impl core::ops::Deref for IDedupChunkLibrary {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -54,7 +54,7 @@ pub struct IDedupChunkLibrary_Vtbl {
     pub StartChunking: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDedupDataPort, IDedupDataPort_Vtbl, 0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
-impl std::ops::Deref for IDedupDataPort {
+impl core::ops::Deref for IDedupDataPort {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -138,7 +138,7 @@ pub struct IDedupDataPort_Vtbl {
     pub GetRequestResults: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32, *mut windows_core::HRESULT, *mut u32, *mut DedupDataPortRequestStatus, *mut *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDedupDataPortManager, IDedupDataPortManager_Vtbl, 0x44677452_b90a_445e_8192_cdcfe81511fb);
-impl std::ops::Deref for IDedupDataPortManager {
+impl core::ops::Deref for IDedupDataPortManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -172,7 +172,7 @@ pub struct IDedupDataPortManager_Vtbl {
     pub GetVolumeDataPort: unsafe extern "system" fn(*mut core::ffi::c_void, u32, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDedupIterateChunksHash32, IDedupIterateChunksHash32_Vtbl, 0x90b584d3_72aa_400f_9767_cad866a5a2d8);
-impl std::ops::Deref for IDedupIterateChunksHash32 {
+impl core::ops::Deref for IDedupIterateChunksHash32 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -202,7 +202,7 @@ pub struct IDedupIterateChunksHash32_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDedupReadFileCallback, IDedupReadFileCallback_Vtbl, 0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
-impl std::ops::Deref for IDedupReadFileCallback {
+impl core::ops::Deref for IDedupReadFileCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

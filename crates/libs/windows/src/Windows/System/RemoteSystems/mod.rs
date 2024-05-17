@@ -253,7 +253,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IRemoteSystemFilter, IRemoteSystemFilter_Vtbl, 0x4a3ba9e4_99eb_45eb_ba16_0367728ff374);
-impl std::ops::Deref for IRemoteSystemFilter {
+impl core::ops::Deref for IRemoteSystemFilter {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

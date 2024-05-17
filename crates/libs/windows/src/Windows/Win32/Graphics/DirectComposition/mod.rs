@@ -34,7 +34,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice(dxgidevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DCompositionCreateDevice(dxgidevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -44,7 +44,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice2(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DCompositionCreateDevice2(renderingdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -54,7 +54,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice3(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::ptr::null_mut();
+    let mut result__ = core::ptr::null_mut();
     DCompositionCreateDevice3(renderingdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Security")]
@@ -86,7 +86,7 @@ pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::super:
     DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(handles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutinms)
 }
 windows_core::imp::define_interface!(IDCompositionAffineTransform2DEffect, IDCompositionAffineTransform2DEffect_Vtbl, 0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
-impl std::ops::Deref for IDCompositionAffineTransform2DEffect {
+impl core::ops::Deref for IDCompositionAffineTransform2DEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -146,7 +146,7 @@ pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     pub SetSharpness2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionAnimation, IDCompositionAnimation_Vtbl, 0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
-impl std::ops::Deref for IDCompositionAnimation {
+impl core::ops::Deref for IDCompositionAnimation {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -184,7 +184,7 @@ pub struct IDCompositionAnimation_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionArithmeticCompositeEffect, IDCompositionArithmeticCompositeEffect_Vtbl, 0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
-impl std::ops::Deref for IDCompositionArithmeticCompositeEffect {
+impl core::ops::Deref for IDCompositionArithmeticCompositeEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -257,7 +257,7 @@ pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
     pub SetCoefficient42: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionBlendEffect, IDCompositionBlendEffect_Vtbl, 0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
-impl std::ops::Deref for IDCompositionBlendEffect {
+impl core::ops::Deref for IDCompositionBlendEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -279,7 +279,7 @@ pub struct IDCompositionBlendEffect_Vtbl {
     SetMode: usize,
 }
 windows_core::imp::define_interface!(IDCompositionBrightnessEffect, IDCompositionBrightnessEffect_Vtbl, 0x6027496e_cb3a_49ab_934f_d798da4f7da6);
-impl std::ops::Deref for IDCompositionBrightnessEffect {
+impl core::ops::Deref for IDCompositionBrightnessEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -353,7 +353,7 @@ pub struct IDCompositionBrightnessEffect_Vtbl {
     pub SetBlackPointY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionClip, IDCompositionClip_Vtbl, 0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
-impl std::ops::Deref for IDCompositionClip {
+impl core::ops::Deref for IDCompositionClip {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -366,7 +366,7 @@ pub struct IDCompositionClip_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
 windows_core::imp::define_interface!(IDCompositionColorMatrixEffect, IDCompositionColorMatrixEffect_Vtbl, 0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
-impl std::ops::Deref for IDCompositionColorMatrixEffect {
+impl core::ops::Deref for IDCompositionColorMatrixEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -414,7 +414,7 @@ pub struct IDCompositionColorMatrixEffect_Vtbl {
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionCompositeEffect, IDCompositionCompositeEffect_Vtbl, 0x576616c0_a231_494d_a38d_00fd5ec4db46);
-impl std::ops::Deref for IDCompositionCompositeEffect {
+impl core::ops::Deref for IDCompositionCompositeEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -436,7 +436,7 @@ pub struct IDCompositionCompositeEffect_Vtbl {
     SetMode: usize,
 }
 windows_core::imp::define_interface!(IDCompositionDelegatedInkTrail, IDCompositionDelegatedInkTrail_Vtbl, 0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
-impl std::ops::Deref for IDCompositionDelegatedInkTrail {
+impl core::ops::Deref for IDCompositionDelegatedInkTrail {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -472,7 +472,7 @@ pub struct IDCompositionDelegatedInkTrail_Vtbl {
     StartNewTrail: usize,
 }
 windows_core::imp::define_interface!(IDCompositionDesktopDevice, IDCompositionDesktopDevice_Vtbl, 0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
-impl std::ops::Deref for IDCompositionDesktopDevice {
+impl core::ops::Deref for IDCompositionDesktopDevice {
     type Target = IDCompositionDevice2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -511,7 +511,7 @@ pub struct IDCompositionDesktopDevice_Vtbl {
     pub CreateSurfaceFromHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionDevice, IDCompositionDevice_Vtbl, 0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
-impl std::ops::Deref for IDCompositionDevice {
+impl core::ops::Deref for IDCompositionDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -664,7 +664,7 @@ pub struct IDCompositionDevice_Vtbl {
     pub CheckDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionDevice2, IDCompositionDevice2_Vtbl, 0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
-impl std::ops::Deref for IDCompositionDevice2 {
+impl core::ops::Deref for IDCompositionDevice2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -795,7 +795,7 @@ pub struct IDCompositionDevice2_Vtbl {
     pub CreateAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionDevice3, IDCompositionDevice3_Vtbl, 0x0987cb06_f916_48bf_8d35_ce7641781bd9);
-impl std::ops::Deref for IDCompositionDevice3 {
+impl core::ops::Deref for IDCompositionDevice3 {
     type Target = IDCompositionDevice2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -874,7 +874,7 @@ pub struct IDCompositionDevice3_Vtbl {
     pub CreateAffineTransform2DEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionDevice4, IDCompositionDevice4_Vtbl, 0x85fc5cca_2da6_494c_86b6_4a775c049b8a);
-impl std::ops::Deref for IDCompositionDevice4 {
+impl core::ops::Deref for IDCompositionDevice4 {
     type Target = IDCompositionDevice3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -904,7 +904,7 @@ pub struct IDCompositionDevice4_Vtbl {
     pub CreateCompositionTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionDeviceDebug, IDCompositionDeviceDebug_Vtbl, 0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
-impl std::ops::Deref for IDCompositionDeviceDebug {
+impl core::ops::Deref for IDCompositionDeviceDebug {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -926,7 +926,7 @@ pub struct IDCompositionDeviceDebug_Vtbl {
     pub DisableDebugCounters: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionEffect, IDCompositionEffect_Vtbl, 0xec81b08f_bfcb_4e8d_b193_a915587999e8);
-impl std::ops::Deref for IDCompositionEffect {
+impl core::ops::Deref for IDCompositionEffect {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -939,7 +939,7 @@ pub struct IDCompositionEffect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
 windows_core::imp::define_interface!(IDCompositionEffectGroup, IDCompositionEffectGroup_Vtbl, 0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
-impl std::ops::Deref for IDCompositionEffectGroup {
+impl core::ops::Deref for IDCompositionEffectGroup {
     type Target = IDCompositionEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -971,7 +971,7 @@ pub struct IDCompositionEffectGroup_Vtbl {
     pub SetTransform3D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionFilterEffect, IDCompositionFilterEffect_Vtbl, 0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
-impl std::ops::Deref for IDCompositionFilterEffect {
+impl core::ops::Deref for IDCompositionFilterEffect {
     type Target = IDCompositionEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -992,7 +992,7 @@ pub struct IDCompositionFilterEffect_Vtbl {
     pub SetInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionGaussianBlurEffect, IDCompositionGaussianBlurEffect_Vtbl, 0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
-impl std::ops::Deref for IDCompositionGaussianBlurEffect {
+impl core::ops::Deref for IDCompositionGaussianBlurEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1025,7 +1025,7 @@ pub struct IDCompositionGaussianBlurEffect_Vtbl {
     SetBorderMode: usize,
 }
 windows_core::imp::define_interface!(IDCompositionHueRotationEffect, IDCompositionHueRotationEffect_Vtbl, 0x6db9f920_0770_4781_b0c6_381912f9d167);
-impl std::ops::Deref for IDCompositionHueRotationEffect {
+impl core::ops::Deref for IDCompositionHueRotationEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1050,7 +1050,7 @@ pub struct IDCompositionHueRotationEffect_Vtbl {
     pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionInkTrailDevice, IDCompositionInkTrailDevice_Vtbl, 0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
-impl std::ops::Deref for IDCompositionInkTrailDevice {
+impl core::ops::Deref for IDCompositionInkTrailDevice {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1077,7 +1077,7 @@ pub struct IDCompositionInkTrailDevice_Vtbl {
     pub CreateDelegatedInkTrailForSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionLinearTransferEffect, IDCompositionLinearTransferEffect_Vtbl, 0x4305ee5b_c4a0_4c88_9385_67124e017683);
-impl std::ops::Deref for IDCompositionLinearTransferEffect {
+impl core::ops::Deref for IDCompositionLinearTransferEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1214,7 +1214,7 @@ pub struct IDCompositionLinearTransferEffect_Vtbl {
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionMatrixTransform, IDCompositionMatrixTransform_Vtbl, 0x16cdff07_c503_419c_83f2_0965c7af1fa6);
-impl std::ops::Deref for IDCompositionMatrixTransform {
+impl core::ops::Deref for IDCompositionMatrixTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1247,7 +1247,7 @@ pub struct IDCompositionMatrixTransform_Vtbl {
     pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionMatrixTransform3D, IDCompositionMatrixTransform3D_Vtbl, 0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
-impl std::ops::Deref for IDCompositionMatrixTransform3D {
+impl core::ops::Deref for IDCompositionMatrixTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1280,7 +1280,7 @@ pub struct IDCompositionMatrixTransform3D_Vtbl {
     pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionRectangleClip, IDCompositionRectangleClip_Vtbl, 0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
-impl std::ops::Deref for IDCompositionRectangleClip {
+impl core::ops::Deref for IDCompositionRectangleClip {
     type Target = IDCompositionClip;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1426,7 +1426,7 @@ pub struct IDCompositionRectangleClip_Vtbl {
     pub SetBottomRightRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionRotateTransform, IDCompositionRotateTransform_Vtbl, 0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
-impl std::ops::Deref for IDCompositionRotateTransform {
+impl core::ops::Deref for IDCompositionRotateTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1473,7 +1473,7 @@ pub struct IDCompositionRotateTransform_Vtbl {
     pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionRotateTransform3D, IDCompositionRotateTransform3D_Vtbl, 0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
-impl std::ops::Deref for IDCompositionRotateTransform3D {
+impl core::ops::Deref for IDCompositionRotateTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1564,7 +1564,7 @@ pub struct IDCompositionRotateTransform3D_Vtbl {
     pub SetCenterZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionSaturationEffect, IDCompositionSaturationEffect_Vtbl, 0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
-impl std::ops::Deref for IDCompositionSaturationEffect {
+impl core::ops::Deref for IDCompositionSaturationEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1589,7 +1589,7 @@ pub struct IDCompositionSaturationEffect_Vtbl {
     pub SetSaturation2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionScaleTransform, IDCompositionScaleTransform_Vtbl, 0x71fde914_40ef_45ef_bd51_68b037c339f9);
-impl std::ops::Deref for IDCompositionScaleTransform {
+impl core::ops::Deref for IDCompositionScaleTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1647,7 +1647,7 @@ pub struct IDCompositionScaleTransform_Vtbl {
     pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionScaleTransform3D, IDCompositionScaleTransform3D_Vtbl, 0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
-impl std::ops::Deref for IDCompositionScaleTransform3D {
+impl core::ops::Deref for IDCompositionScaleTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1727,7 +1727,7 @@ pub struct IDCompositionScaleTransform3D_Vtbl {
     pub SetCenterZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionShadowEffect, IDCompositionShadowEffect_Vtbl, 0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
-impl std::ops::Deref for IDCompositionShadowEffect {
+impl core::ops::Deref for IDCompositionShadowEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1804,7 +1804,7 @@ pub struct IDCompositionShadowEffect_Vtbl {
     pub SetAlpha2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionSkewTransform, IDCompositionSkewTransform_Vtbl, 0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
-impl std::ops::Deref for IDCompositionSkewTransform {
+impl core::ops::Deref for IDCompositionSkewTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1862,7 +1862,7 @@ pub struct IDCompositionSkewTransform_Vtbl {
     pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionSurface, IDCompositionSurface_Vtbl, 0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
-impl std::ops::Deref for IDCompositionSurface {
+impl core::ops::Deref for IDCompositionSurface {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1874,7 +1874,7 @@ impl IDCompositionSurface {
     where
         T: windows_core::Interface,
     {
-        let mut result__ = std::ptr::null_mut();
+        let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(std::ptr::null())), &T::IID, &mut result__, updateoffset).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
@@ -1900,7 +1900,7 @@ pub struct IDCompositionSurface_Vtbl {
     pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT, i32, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionSurfaceFactory, IDCompositionSurfaceFactory_Vtbl, 0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
-impl std::ops::Deref for IDCompositionSurfaceFactory {
+impl core::ops::Deref for IDCompositionSurfaceFactory {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -1932,7 +1932,7 @@ pub struct IDCompositionSurfaceFactory_Vtbl {
     CreateVirtualSurface: usize,
 }
 windows_core::imp::define_interface!(IDCompositionTableTransferEffect, IDCompositionTableTransferEffect_Vtbl, 0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
-impl std::ops::Deref for IDCompositionTableTransferEffect {
+impl core::ops::Deref for IDCompositionTableTransferEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2041,7 +2041,7 @@ pub struct IDCompositionTableTransferEffect_Vtbl {
     pub SetAlphaTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionTarget, IDCompositionTarget_Vtbl, 0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
-impl std::ops::Deref for IDCompositionTarget {
+impl core::ops::Deref for IDCompositionTarget {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2062,7 +2062,7 @@ pub struct IDCompositionTarget_Vtbl {
     pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionTexture, IDCompositionTexture_Vtbl, 0x929bb1aa_725f_433b_abd7_273075a835f2);
-impl std::ops::Deref for IDCompositionTexture {
+impl core::ops::Deref for IDCompositionTexture {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2104,7 +2104,7 @@ pub struct IDCompositionTexture_Vtbl {
     pub GetAvailableFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionTransform, IDCompositionTransform_Vtbl, 0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
-impl std::ops::Deref for IDCompositionTransform {
+impl core::ops::Deref for IDCompositionTransform {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2117,7 +2117,7 @@ pub struct IDCompositionTransform_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
 }
 windows_core::imp::define_interface!(IDCompositionTransform3D, IDCompositionTransform3D_Vtbl, 0x71185722_246b_41f2_aad1_0443f7f4bfc2);
-impl std::ops::Deref for IDCompositionTransform3D {
+impl core::ops::Deref for IDCompositionTransform3D {
     type Target = IDCompositionEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2130,7 +2130,7 @@ pub struct IDCompositionTransform3D_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
 }
 windows_core::imp::define_interface!(IDCompositionTranslateTransform, IDCompositionTranslateTransform_Vtbl, 0x06791122_c6f0_417d_8323_269e987f5954);
-impl std::ops::Deref for IDCompositionTranslateTransform {
+impl core::ops::Deref for IDCompositionTranslateTransform {
     type Target = IDCompositionTransform;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2166,7 +2166,7 @@ pub struct IDCompositionTranslateTransform_Vtbl {
     pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionTranslateTransform3D, IDCompositionTranslateTransform3D_Vtbl, 0x91636d4b_9ba1_4532_aaf7_e3344994d788);
-impl std::ops::Deref for IDCompositionTranslateTransform3D {
+impl core::ops::Deref for IDCompositionTranslateTransform3D {
     type Target = IDCompositionTransform3D;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2213,7 +2213,7 @@ pub struct IDCompositionTranslateTransform3D_Vtbl {
     pub SetOffsetZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionTurbulenceEffect, IDCompositionTurbulenceEffect_Vtbl, 0xa6a55bda_c09c_49f3_9193_a41922c89715);
-impl std::ops::Deref for IDCompositionTurbulenceEffect {
+impl core::ops::Deref for IDCompositionTurbulenceEffect {
     type Target = IDCompositionFilterEffect;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2274,7 +2274,7 @@ pub struct IDCompositionTurbulenceEffect_Vtbl {
     pub SetStitchable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionVirtualSurface, IDCompositionVirtualSurface_Vtbl, 0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
-impl std::ops::Deref for IDCompositionVirtualSurface {
+impl core::ops::Deref for IDCompositionVirtualSurface {
     type Target = IDCompositionSurface;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2296,7 +2296,7 @@ pub struct IDCompositionVirtualSurface_Vtbl {
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionVisual, IDCompositionVisual_Vtbl, 0x4d93059d_097b_4651_9a60_f0f25116e2f3);
-impl std::ops::Deref for IDCompositionVisual {
+impl core::ops::Deref for IDCompositionVisual {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2415,7 +2415,7 @@ pub struct IDCompositionVisual_Vtbl {
     pub SetCompositeMode: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_COMPOSITE_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionVisual2, IDCompositionVisual2_Vtbl, 0xe8de1639_4331_4b26_bc5f_6a321d347a85);
-impl std::ops::Deref for IDCompositionVisual2 {
+impl core::ops::Deref for IDCompositionVisual2 {
     type Target = IDCompositionVisual;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2437,7 +2437,7 @@ pub struct IDCompositionVisual2_Vtbl {
     pub SetBackFaceVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_BACKFACE_VISIBILITY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionVisual3, IDCompositionVisual3_Vtbl, 0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
-impl std::ops::Deref for IDCompositionVisual3 {
+impl core::ops::Deref for IDCompositionVisual3 {
     type Target = IDCompositionVisualDebug;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -2499,7 +2499,7 @@ pub struct IDCompositionVisual3_Vtbl {
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDCompositionVisualDebug, IDCompositionVisualDebug_Vtbl, 0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
-impl std::ops::Deref for IDCompositionVisualDebug {
+impl core::ops::Deref for IDCompositionVisualDebug {
     type Target = IDCompositionVisual2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

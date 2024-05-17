@@ -1,5 +1,5 @@
 windows_core::imp::define_interface!(IHolographicCameraInterop, IHolographicCameraInterop_Vtbl, 0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
-impl std::ops::Deref for IHolographicCameraInterop {
+impl core::ops::Deref for IHolographicCameraInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -73,7 +73,7 @@ pub struct IHolographicCameraInterop_Vtbl {
     UnacquireDirect3D12BufferResource: usize,
 }
 windows_core::imp::define_interface!(IHolographicCameraRenderingParametersInterop, IHolographicCameraRenderingParametersInterop_Vtbl, 0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
-impl std::ops::Deref for IHolographicCameraRenderingParametersInterop {
+impl core::ops::Deref for IHolographicCameraRenderingParametersInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -113,7 +113,7 @@ pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
     CommitDirect3D12ResourceWithDepthData: usize,
 }
 windows_core::imp::define_interface!(IHolographicQuadLayerInterop, IHolographicQuadLayerInterop_Vtbl, 0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
-impl std::ops::Deref for IHolographicQuadLayerInterop {
+impl core::ops::Deref for IHolographicQuadLayerInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -187,7 +187,7 @@ pub struct IHolographicQuadLayerInterop_Vtbl {
     UnacquireDirect3D12BufferResource: usize,
 }
 windows_core::imp::define_interface!(IHolographicQuadLayerUpdateParametersInterop, IHolographicQuadLayerUpdateParametersInterop_Vtbl, 0xe5f549cd_c909_444f_8809_7cc18a9c8920);
-impl std::ops::Deref for IHolographicQuadLayerUpdateParametersInterop {
+impl core::ops::Deref for IHolographicQuadLayerUpdateParametersInterop {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

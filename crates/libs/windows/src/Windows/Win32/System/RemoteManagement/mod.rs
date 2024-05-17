@@ -285,7 +285,7 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSMan, IWSMan_Vtbl, 0x190d8637_5cd3_496d_ad24_69636bb5a3b5);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSMan {
+impl core::ops::Deref for IWSMan {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -336,7 +336,7 @@ pub struct IWSMan_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManConnectionOptions, IWSManConnectionOptions_Vtbl, 0xf704e861_9e52_464f_b786_da5eb2320fdd);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManConnectionOptions {
+impl core::ops::Deref for IWSManConnectionOptions {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -374,7 +374,7 @@ pub struct IWSManConnectionOptions_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManConnectionOptionsEx, IWSManConnectionOptionsEx_Vtbl, 0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManConnectionOptionsEx {
+impl core::ops::Deref for IWSManConnectionOptionsEx {
     type Target = IWSManConnectionOptions;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -405,7 +405,7 @@ pub struct IWSManConnectionOptionsEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManConnectionOptionsEx2, IWSManConnectionOptionsEx2_Vtbl, 0xf500c9ec_24ee_48ab_b38d_fc9a164c658e);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManConnectionOptionsEx2 {
+impl core::ops::Deref for IWSManConnectionOptionsEx2 {
     type Target = IWSManConnectionOptionsEx;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -467,7 +467,7 @@ pub struct IWSManConnectionOptionsEx2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManEnumerator, IWSManEnumerator_Vtbl, 0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManEnumerator {
+impl core::ops::Deref for IWSManEnumerator {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -501,7 +501,7 @@ pub struct IWSManEnumerator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManEx, IWSManEx_Vtbl, 0x2d53bdaa_798e_49e6_a1aa_74d01256f411);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManEx {
+impl core::ops::Deref for IWSManEx {
     type Target = IWSMan;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -627,7 +627,7 @@ pub struct IWSManEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManEx2, IWSManEx2_Vtbl, 0x1d1b5ae0_42d9_4021_8261_3987619512e9);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManEx2 {
+impl core::ops::Deref for IWSManEx2 {
     type Target = IWSManEx;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -651,7 +651,7 @@ pub struct IWSManEx2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManEx3, IWSManEx3_Vtbl, 0x6400e966_011d_4eac_8474_049e0848afad);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManEx3 {
+impl core::ops::Deref for IWSManEx3 {
     type Target = IWSManEx2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -705,7 +705,7 @@ pub struct IWSManEx3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManInternal, IWSManInternal_Vtbl, 0x04ae2b1d_9954_4d99_94a9_a961e72c3a13);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManInternal {
+impl core::ops::Deref for IWSManInternal {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -737,7 +737,7 @@ pub struct IWSManInternal_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManResourceLocator, IWSManResourceLocator_Vtbl, 0xa7a1ba28_de41_466a_ad0a_c4059ead7428);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManResourceLocator {
+impl core::ops::Deref for IWSManResourceLocator {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -832,7 +832,7 @@ pub struct IWSManResourceLocator_Vtbl {
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWSManResourceLocatorInternal, IWSManResourceLocatorInternal_Vtbl, 0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
-impl std::ops::Deref for IWSManResourceLocatorInternal {
+impl core::ops::Deref for IWSManResourceLocatorInternal {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -847,7 +847,7 @@ pub struct IWSManResourceLocatorInternal_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSManSession, IWSManSession_Vtbl, 0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0);
 #[cfg(feature = "Win32_System_Com")]
-impl std::ops::Deref for IWSManSession {
+impl core::ops::Deref for IWSManSession {
     type Target = super::Com::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

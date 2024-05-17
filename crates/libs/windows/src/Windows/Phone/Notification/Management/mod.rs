@@ -107,7 +107,7 @@ pub struct IAccessoryManager3_Vtbl {
     pub DismissReminderByInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAccessoryNotificationTriggerDetails, IAccessoryNotificationTriggerDetails_Vtbl, 0x6968a7d4_e3ca_49cb_8c87_2c11cdff9646);
-impl std::ops::Deref for IAccessoryNotificationTriggerDetails {
+impl core::ops::Deref for IAccessoryNotificationTriggerDetails {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

@@ -176,7 +176,7 @@ pub struct IMediaBreakStartedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IMediaEnginePlaybackSource, IMediaEnginePlaybackSource_Vtbl, 0x5c1d0ba7_3856_48b9_8dc6_244bf107bf8c);
 #[cfg(feature = "deprecated")]
-impl std::ops::Deref for IMediaEnginePlaybackSource {
+impl core::ops::Deref for IMediaEnginePlaybackSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
@@ -723,7 +723,7 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
     pub VideoConstrictionReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaPlaybackSessionVideoConstrictionReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSource, IMediaPlaybackSource_Vtbl, 0xef9dc2bc_9317_4696_b051_2bad643177b5);
-impl std::ops::Deref for IMediaPlaybackSource {
+impl core::ops::Deref for IMediaPlaybackSource {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }

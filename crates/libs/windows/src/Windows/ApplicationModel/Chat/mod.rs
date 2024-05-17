@@ -107,7 +107,7 @@ pub struct IChatConversationThreadingInfo_Vtbl {
     pub SetKind: unsafe extern "system" fn(*mut core::ffi::c_void, ChatConversationThreadingKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatItem, IChatItem_Vtbl, 0x8751d000_ceb1_4243_b803_15d45a1dd428);
-impl std::ops::Deref for IChatItem {
+impl core::ops::Deref for IChatItem {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
