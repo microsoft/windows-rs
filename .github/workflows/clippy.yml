@@ -178,6 +178,8 @@ jobs:
         run:  cargo clippy -p test_helpers
       - name: Clippy test_implement
         run:  cargo clippy -p test_implement
+      - name: Clippy test_implement_core
+        run:  cargo clippy -p test_implement_core
       - name: Clippy test_interface
         run:  cargo clippy -p test_interface
       - name: Clippy test_interface_core

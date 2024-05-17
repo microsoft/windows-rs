@@ -6,5 +6,15 @@ pub trait AsImpl<T> {
     ///
     /// The caller needs to ensure that `self` is actually implemented by the
     /// implementation `T`.
-    unsafe fn as_impl(&self) -> &T;
+    unsafe fn as_impl(&self) -> &T {
+        self.as_impl_ptr().as_ref()
+    }
+
+    /// Returns a pointer to the implementation object.
+    ///
+    /// # Safety
+    ///
+    /// The caller needs to ensure that `self` is actually implemented by the
+    /// implementation `T`.
+    unsafe fn as_impl_ptr(&self) -> core::ptr::NonNull<T>;
 }

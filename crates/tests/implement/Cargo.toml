@@ -25,3 +25,6 @@ features = [
 
 [dependencies.windows-core]
 path = "../../libs/core"
+
+[dependencies]
+static_assertions = "1.1"
