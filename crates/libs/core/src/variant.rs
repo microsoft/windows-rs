@@ -1,4 +1,5 @@
 use super::*;
+use core::mem::transmute;
 
 /// A VARIANT ([VARIANT](https://learn.microsoft.com/en-us/windows/win32/api/oaidl/ns-oaidl-variant)) is a container that can store different types of values.
 #[repr(transparent)]
@@ -60,8 +61,8 @@ impl TypeKind for PROPVARIANT {
     type TypeKind = CloneType;
 }
 
-impl std::fmt::Debug for VARIANT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for VARIANT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let mut debug = f.debug_struct("VARIANT");
         debug.field("type", &unsafe { self.0.Anonymous.Anonymous.vt });
 
@@ -73,8 +74,8 @@ impl std::fmt::Debug for VARIANT {
     }
 }
 
-impl std::fmt::Debug for PROPVARIANT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PROPVARIANT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let mut debug = f.debug_struct("PROPVARIANT");
         debug.field("type", &unsafe { self.0.Anonymous.Anonymous.vt });
 
@@ -86,15 +87,15 @@ impl std::fmt::Debug for PROPVARIANT {
     }
 }
 
-impl std::fmt::Display for VARIANT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
+impl core::fmt::Display for VARIANT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
     }
 }
 
-impl std::fmt::Display for PROPVARIANT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
+impl core::fmt::Display for PROPVARIANT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
     }
 }
 
@@ -136,7 +137,7 @@ impl VARIANT {
     ///
     /// This function does not allocate memory.
     pub fn new() -> Self {
-        unsafe { std::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 
     /// Returns true if the `VARIANT` is empty.
@@ -162,9 +163,9 @@ impl VARIANT {
 impl PROPVARIANT {
     /// Create an empty `PROPVARIANT`.
     ///
-    /// This function does not allocate memory.    
+    /// This function does not allocate memory.
     pub fn new() -> Self {
-        unsafe { std::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 
     /// Returns true if the `PROPVARIANT` is empty.
@@ -234,7 +235,7 @@ impl TryFrom<&VARIANT> for IUnknown {
     fn try_from(from: &VARIANT) -> Result<Self> {
         unsafe {
             if from.0.Anonymous.Anonymous.vt == imp::VT_UNKNOWN && !from.0.Anonymous.Anonymous.Anonymous.punkVal.is_null() {
-                let unknown: &IUnknown = std::mem::transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
+                let unknown: &IUnknown = transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
                 Err(Error::from_hresult(imp::TYPE_E_TYPEMISMATCH))
@@ -248,7 +249,7 @@ impl TryFrom<&PROPVARIANT> for IUnknown {
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         unsafe {
             if from.0.Anonymous.Anonymous.vt == imp::VT_UNKNOWN && !from.0.Anonymous.Anonymous.Anonymous.punkVal.is_null() {
-                let unknown: &IUnknown = std::mem::transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
+                let unknown: &IUnknown = transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
                 Err(Error::from_hresult(imp::TYPE_E_TYPEMISMATCH))

@@ -95,7 +95,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                     #link
-                    let mut result__ = std::mem::zeroed();
+                    let mut result__ = core::mem::zeroed();
                     #name(#args).#map
                 }
             }
@@ -127,7 +127,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = std::mem::zeroed();
+                        let mut result__ = core::mem::zeroed();
                         #name(#args);
                         windows_core::Type::from_abi(result__.assume_init())
                     }
@@ -136,7 +136,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 let map = if metadata::type_is_blittable(&return_type) {
                     quote! { result__ }
                 } else {
-                    quote! { std::mem::transmute(result__) }
+                    quote! { core::mem::transmute(result__) }
                 };
 
                 let return_type = writer.type_name(&return_type);
@@ -146,7 +146,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                         #link
-                        let mut result__ = std::mem::zeroed();
+                        let mut result__ = core::mem::zeroed();
                         #name(#args);
                         #map
                     }

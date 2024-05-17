@@ -3,7 +3,7 @@ use super::*;
 /// A WinRT string ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring))
 /// is reference-counted and immutable.
 #[repr(transparent)]
-pub struct HSTRING(Option<std::ptr::NonNull<Header>>);
+pub struct HSTRING(Option<core::ptr::NonNull<Header>>);
 
 impl HSTRING {
     /// Create an empty `HSTRING`.
@@ -30,7 +30,7 @@ impl HSTRING {
 
     /// Get the string as 16-bit wide characters (wchars).
     pub fn as_wide(&self) -> &[u16] {
-        unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len()) }
+        unsafe { core::slice::from_raw_parts(self.as_ptr(), self.len()) }
     }
 
     /// Returns a raw pointer to the `HSTRING` buffer.
@@ -54,7 +54,7 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a OsString.
-    #[cfg(windows)]
+    #[cfg(all(feature = "std", windows))]
     pub fn to_os_string(&self) -> std::ffi::OsString {
         std::os::windows::ffi::OsStringExt::from_wide(self.as_wide())
     }
@@ -73,13 +73,13 @@ impl HSTRING {
         for (index, wide) in iter.enumerate() {
             debug_assert!(index < len);
 
-            std::ptr::write((*ptr).data.add(index), wide);
+            core::ptr::write((*ptr).data.add(index), wide);
             (*ptr).len = index as u32 + 1;
         }
 
         // Write a 0 byte to the end of the buffer.
-        std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        Ok(Self(std::ptr::NonNull::new(ptr)))
+        core::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
+        Ok(Self(core::ptr::NonNull::new(ptr)))
     }
 
     fn get_header(&self) -> Option<&Header> {
@@ -96,7 +96,7 @@ impl Default for HSTRING {
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
         if let Some(header) = self.get_header() {
-            Self(std::ptr::NonNull::new(header.duplicate().unwrap()))
+            Self(core::ptr::NonNull::new(header.duplicate().unwrap()))
         } else {
             Self::new()
         }
@@ -125,14 +125,14 @@ impl Drop for HSTRING {
 unsafe impl Send for HSTRING {}
 unsafe impl Sync for HSTRING {}
 
-impl std::fmt::Display for HSTRING {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", Decode(|| std::char::decode_utf16(self.as_wide().iter().cloned())))
+impl core::fmt::Display for HSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "{}", Decode(|| core::char::decode_utf16(self.as_wide().iter().cloned())))
     }
 }
 
-impl std::fmt::Debug for HSTRING {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for HSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "\"{}\"", self)
     }
 }
@@ -155,28 +155,28 @@ impl From<&String> for HSTRING {
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl From<&std::path::Path> for HSTRING {
     fn from(value: &std::path::Path) -> Self {
         value.as_os_str().into()
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
         unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len()).unwrap() }
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl From<std::ffi::OsString> for HSTRING {
     fn from(value: std::ffi::OsString) -> Self {
         value.as_os_str().into()
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl From<&std::ffi::OsString> for HSTRING {
     fn from(value: &std::ffi::OsString) -> Self {
         value.as_os_str().into()
@@ -186,19 +186,19 @@ impl From<&std::ffi::OsString> for HSTRING {
 impl Eq for HSTRING {}
 
 impl Ord for HSTRING {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+    fn cmp(&self, other: &Self) -> core::cmp::Ordering {
         self.as_wide().cmp(other.as_wide())
     }
 }
 
-impl std::hash::Hash for HSTRING {
-    fn hash<H: std::hash::Hasher>(&self, hasher: &mut H) {
+impl core::hash::Hash for HSTRING {
+    fn hash<H: core::hash::Hasher>(&self, hasher: &mut H) {
         self.as_wide().hash(hasher)
     }
 }
 
 impl PartialOrd for HSTRING {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+    fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
         Some(self.cmp(other))
     }
 }
@@ -281,84 +281,84 @@ impl PartialEq<&HSTRING> for String {
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<std::ffi::OsString> for HSTRING {
     fn eq(&self, other: &std::ffi::OsString) -> bool {
         *self == **other
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<std::ffi::OsString> for &HSTRING {
     fn eq(&self, other: &std::ffi::OsString) -> bool {
         **self == **other
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<&std::ffi::OsString> for HSTRING {
     fn eq(&self, other: &&std::ffi::OsString) -> bool {
         *self == ***other
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<std::ffi::OsStr> for HSTRING {
     fn eq(&self, other: &std::ffi::OsStr) -> bool {
         self.as_wide().iter().copied().eq(std::os::windows::ffi::OsStrExt::encode_wide(other))
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<std::ffi::OsStr> for &HSTRING {
     fn eq(&self, other: &std::ffi::OsStr) -> bool {
         **self == *other
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<&std::ffi::OsStr> for HSTRING {
     fn eq(&self, other: &&std::ffi::OsStr) -> bool {
         *self == **other
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<HSTRING> for std::ffi::OsStr {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == *self
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<HSTRING> for &std::ffi::OsStr {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<&HSTRING> for std::ffi::OsStr {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == *self
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<HSTRING> for std::ffi::OsString {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<HSTRING> for &std::ffi::OsString {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == ***self
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl PartialEq<&HSTRING> for std::ffi::OsString {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == **self
@@ -366,29 +366,29 @@ impl PartialEq<&HSTRING> for std::ffi::OsString {
 }
 
 impl<'a> TryFrom<&'a HSTRING> for String {
-    type Error = std::string::FromUtf16Error;
+    type Error = alloc::string::FromUtf16Error;
 
-    fn try_from(hstring: &HSTRING) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
         String::from_utf16(hstring.as_wide())
     }
 }
 
 impl TryFrom<HSTRING> for String {
-    type Error = std::string::FromUtf16Error;
+    type Error = alloc::string::FromUtf16Error;
 
-    fn try_from(hstring: HSTRING) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
         String::try_from(&hstring)
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl<'a> From<&'a HSTRING> for std::ffi::OsString {
     fn from(hstring: &HSTRING) -> Self {
         hstring.to_os_string()
     }
 }
 
-#[cfg(windows)]
+#[cfg(all(feature = "std", windows))]
 impl From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)
@@ -413,13 +413,13 @@ impl Header {
         debug_assert!(len != 0);
         // Allocate enough space for header and two bytes per character.
         // The space for the terminating null character is already accounted for inside of `Header`.
-        let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
+        let alloc_size = core::mem::size_of::<Header>() + 2 * len as usize;
 
         let header = imp::heap_alloc(alloc_size)? as *mut Header;
 
-        // SAFETY: uses `std::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
+        // SAFETY: uses `core::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
         unsafe {
-            header.write(std::mem::MaybeUninit::<Header>::zeroed().assume_init());
+            header.write(core::mem::MaybeUninit::<Header>::zeroed().assume_init());
             (*header).len = len;
             (*header).count = imp::RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
@@ -438,7 +438,7 @@ impl Header {
             // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
             // We copy `len + 1` characters since `len` does not account for the terminating null character.
             unsafe {
-                std::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
+                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
             }
             Ok(copy)
         }

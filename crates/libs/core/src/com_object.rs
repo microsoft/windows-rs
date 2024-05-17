@@ -1,4 +1,5 @@
 use crate::{AsImpl, IUnknown, IUnknownImpl, Interface, InterfaceRef};
+use crate::imp::Box;
 use core::borrow::Borrow;
 use core::ops::Deref;
 use core::ptr::NonNull;

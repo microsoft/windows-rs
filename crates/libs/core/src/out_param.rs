@@ -1,4 +1,5 @@
 use super::*;
+use core::mem::{take, transmute_copy, zeroed};
 
 /// Provides automatic parameter conversion in cases where the Windows API expects implicit conversion support.
 ///
@@ -17,9 +18,9 @@ where
     T: TypeKind<TypeKind = CloneType> + Clone + Default,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        let this: &mut T = std::mem::transmute_copy(self);
-        std::mem::take(this);
-        std::mem::transmute_copy(self)
+        let this: &mut T = transmute_copy(self);
+        take(this);
+        transmute_copy(self)
     }
 }
 
@@ -28,7 +29,7 @@ where
     T: TypeKind<TypeKind = CopyType> + Clone + Default,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        std::mem::transmute_copy(self)
+        transmute_copy(self)
     }
 }
 
@@ -37,9 +38,9 @@ where
     T: TypeKind<TypeKind = InterfaceType> + Clone,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        let this: &mut Option<T> = std::mem::transmute_copy(self);
-        std::mem::take(this);
-        std::mem::transmute_copy(self)
+        let this: &mut Option<T> = transmute_copy(self);
+        take(this);
+        transmute_copy(self)
     }
 }
 
@@ -49,8 +50,8 @@ where
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
         match self {
-            Some(this) => std::mem::transmute_copy(this),
-            None => std::mem::zeroed(),
+            Some(this) => transmute_copy(this),
+            None => zeroed(),
         }
     }
 }

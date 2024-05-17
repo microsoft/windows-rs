@@ -100,7 +100,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 impl<#constraints> std::ops::Deref for #ident {
                     type Target = #base;
                     fn deref(&self) -> &Self::Target {
-                        unsafe { std::mem::transmute(self) }
+                        unsafe { core::mem::transmute(self) }
                     }
                 }
             });

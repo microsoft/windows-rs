@@ -176,8 +176,8 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             impl #type_ident {
                 pub fn new<'a, T: #impl_ident>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
                     let this = windows_core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-                    let this = std::mem::ManuallyDrop::new(Box::new(this));
-                    unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+                    let this = core::mem::ManuallyDrop::new(Box::new(this));
+                    unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
                 }
             }
         }

@@ -32,3 +32,7 @@ windows-interface = { path = "../interface",  version = "0.56.0" }
 [dev-dependencies.windows-bindgen]
 version = "0.56.0"
 path = "../bindgen"
+
+[features]
+# default = ["std"]
+std = []

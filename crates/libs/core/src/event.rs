@@ -1,5 +1,9 @@
 use super::*;
-use std::sync::*;
+use core::marker::PhantomData;
+use core::mem::{transmute_copy, size_of};
+use core::ptr::null_mut;
+use core::sync::*;
+use std::sync::Mutex;
 
 /// A type that you can use to declare and implement an event of a specified delegate type.
 ///
@@ -112,7 +116,7 @@ impl<T: Interface> Event<T> {
 struct Array<T: Interface> {
     buffer: *mut Buffer<T>,
     len: usize,
-    _phantom: std::marker::PhantomData<T>,
+    _phantom: PhantomData<T>,
 }
 
 impl<T: Interface> Default for Array<T> {
@@ -124,18 +128,18 @@ impl<T: Interface> Default for Array<T> {
 impl<T: Interface> Array<T> {
     /// Creates a new, empty `Array<T>` with no capacity.
     fn new() -> Self {
-        Self { buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData }
+        Self { buffer: null_mut(), len: 0, _phantom: PhantomData }
     }
 
     /// Creates a new, empty `Array<T>` with the specified capacity.
     fn with_capacity(capacity: usize) -> Result<Self> {
-        Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData })
+        Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: PhantomData })
     }
 
     /// Swaps the contents of two `Array<T>` objects.
     fn swap(&mut self, mut other: Self) -> Self {
-        unsafe { std::ptr::swap(&mut self.buffer, &mut other.buffer) };
-        std::mem::swap(&mut self.len, &mut other.len);
+        unsafe { core::ptr::swap(&mut self.buffer, &mut other.buffer) };
+        core::mem::swap(&mut self.len, &mut other.len);
         other
     }
 
@@ -152,7 +156,7 @@ impl<T: Interface> Array<T> {
     /// Appends a delegate to the back of the array.
     fn push(&mut self, delegate: Delegate<T>) {
         unsafe {
-            std::ptr::write((*self.buffer).as_mut_ptr().add(self.len), delegate);
+            (*self.buffer).as_mut_ptr().add(self.len).write(delegate);
             self.len += 1;
         }
     }
@@ -162,7 +166,7 @@ impl<T: Interface> Array<T> {
         if self.is_empty() {
             &[]
         } else {
-            unsafe { std::slice::from_raw_parts((*self.buffer).as_ptr(), self.len) }
+            unsafe { core::slice::from_raw_parts((*self.buffer).as_ptr(), self.len) }
         }
     }
 
@@ -171,7 +175,7 @@ impl<T: Interface> Array<T> {
         if self.is_empty() {
             &mut []
         } else {
-            unsafe { std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr(), self.len) }
+            unsafe { core::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr(), self.len) }
         }
     }
 }
@@ -181,7 +185,7 @@ impl<T: Interface> Clone for Array<T> {
         if !self.is_empty() {
             unsafe { (*self.buffer).0.add_ref() };
         }
-        Self { buffer: self.buffer, len: self.len, _phantom: std::marker::PhantomData }
+        Self { buffer: self.buffer, len: self.len, _phantom: PhantomData }
     }
 }
 
@@ -189,7 +193,7 @@ impl<T: Interface> Drop for Array<T> {
     fn drop(&mut self) {
         unsafe {
             if !self.is_empty() && (*self.buffer).0.release() == 0 {
-                std::ptr::drop_in_place(self.as_mut_slice());
+                core::ptr::drop_in_place(self.as_mut_slice());
                 imp::heap_free(self.buffer as _)
             }
         }
@@ -199,18 +203,18 @@ impl<T: Interface> Drop for Array<T> {
 /// A reference-counted buffer.
 #[repr(C)]
 #[repr(align(8))]
-struct Buffer<T>(imp::RefCount, std::marker::PhantomData<T>);
+struct Buffer<T>(imp::RefCount, PhantomData<T>);
 
 impl<T: Interface> Buffer<T> {
     /// Creates a new `Buffer` with the specified size in bytes.
     fn new(len: usize) -> Result<*mut Self> {
         if len == 0 {
-            Ok(std::ptr::null_mut())
+            Ok(null_mut())
         } else {
-            let alloc_size = std::mem::size_of::<Self>() + len * std::mem::size_of::<Delegate<T>>();
+            let alloc_size = size_of::<Self>() + len * size_of::<Delegate<T>>();
             let header = imp::heap_alloc(alloc_size)? as *mut Self;
             unsafe {
-                header.write(Self(imp::RefCount::new(1), std::marker::PhantomData));
+                header.write(Self(imp::RefCount::new(1), PhantomData));
             }
             Ok(header)
         }
@@ -249,8 +253,8 @@ impl<T: Interface> Delegate<T> {
     fn to_token(&self) -> i64 {
         unsafe {
             match self {
-                Self::Direct(delegate) => imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
-                Self::Indirect(delegate) => imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
+                Self::Direct(delegate) => imp::EncodePointer(transmute_copy(delegate)) as i64,
+                Self::Indirect(delegate) => imp::EncodePointer(transmute_copy(delegate)) as i64,
             }
         }
     }

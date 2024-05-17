@@ -246,16 +246,16 @@ impl Writer {
                 quote! { *mut core::ffi::c_void }
             }
             metadata::Type::String => {
-                quote! { std::mem::MaybeUninit<windows_core::HSTRING> }
+                quote! { core::mem::MaybeUninit<windows_core::HSTRING> }
             }
             metadata::Type::Name(metadata::TypeName::BSTR) => {
-                quote! { std::mem::MaybeUninit<windows_core::BSTR> }
+                quote! { core::mem::MaybeUninit<windows_core::BSTR> }
             }
             metadata::Type::Name(metadata::TypeName::VARIANT) => {
-                quote! { std::mem::MaybeUninit<windows_core::VARIANT> }
+                quote! { core::mem::MaybeUninit<windows_core::VARIANT> }
             }
             metadata::Type::Name(metadata::TypeName::PROPVARIANT) => {
-                quote! { std::mem::MaybeUninit<windows_core::PROPVARIANT> }
+                quote! { core::mem::MaybeUninit<windows_core::PROPVARIANT> }
             }
             metadata::Type::Win32Array(kind, len) => {
                 let name = self.type_abi_name(kind);
@@ -273,7 +273,7 @@ impl Writer {
                     if metadata::type_def_is_blittable(*def) {
                         tokens
                     } else {
-                        quote! { std::mem::MaybeUninit<#tokens> }
+                        quote! { core::mem::MaybeUninit<#tokens> }
                     }
                 }
                 metadata::TypeKind::Delegate => {

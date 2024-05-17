@@ -65,7 +65,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
-                    let mut result__ = std::mem::zeroed();
+                    let mut result__ = core::mem::zeroed();
                     (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).#map
                 }
             }
@@ -93,7 +93,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 quote! {
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
-                        let mut result__ = std::mem::zeroed();
+                        let mut result__ = core::mem::zeroed();
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
                         windows_core::Type::from_abi(result__)
                     }
@@ -102,7 +102,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 let map = if metadata::type_is_blittable(&return_type) {
                     quote! { result__ }
                 } else {
-                    quote! { std::mem::transmute(result__) }
+                    quote! { core::mem::transmute(result__) }
                 };
 
                 let return_type = writer.type_name(&return_type);
@@ -110,7 +110,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 quote! {
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                        let mut result__ = std::mem::zeroed();
+                        let mut result__ = core::mem::zeroed();
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
                         #map
                     }

@@ -7,7 +7,7 @@ pub struct WaiterSignaler(isize);
 impl Waiter {
     pub fn new() -> crate::Result<(Waiter, WaiterSignaler)> {
         unsafe {
-            let handle = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null());
+            let handle = CreateEventW(core::ptr::null(), 1, 0, core::ptr::null());
             if handle == 0 {
                 Err(crate::Error::from_win32())
             } else {

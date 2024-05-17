@@ -13,7 +13,7 @@ windows_core::imp::define_interface!(
 impl std::ops::Deref for IStringable {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(
@@ -25,7 +25,7 @@ impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToString)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -43,6 +43,6 @@ pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }

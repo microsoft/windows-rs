@@ -100,4 +100,4 @@ macro_rules! define_interface {
 pub use define_interface;
 
 #[doc(hidden)]
-pub use std::boxed::Box;
+pub use alloc::boxed::Box;

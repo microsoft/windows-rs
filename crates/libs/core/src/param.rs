@@ -1,4 +1,6 @@
 use super::*;
+use core::mem::transmute_copy;
+use core::mem::zeroed;
 
 /// Provides automatic parameter conversion in cases where the Windows API expects implicit conversion support.
 ///
@@ -17,8 +19,8 @@ where
 {
     unsafe fn param(self) -> ParamValue<T> {
         ParamValue::Borrowed(match self {
-            Some(item) => std::mem::transmute_copy(item),
-            None => std::mem::zeroed(),
+            Some(item) => transmute_copy(item),
+            None => zeroed(),
         })
     }
 }
@@ -32,9 +34,9 @@ where
 {
     unsafe fn param(self) -> ParamValue<T> {
         if U::QUERY {
-            self.cast().map_or(ParamValue::Borrowed(std::mem::zeroed()), |ok| ParamValue::Owned(ok))
+            self.cast().map_or(ParamValue::Borrowed(zeroed()), |ok| ParamValue::Owned(ok))
         } else {
-            ParamValue::Borrowed(std::mem::transmute_copy(self))
+            ParamValue::Borrowed(transmute_copy(self))
         }
     }
 }
@@ -44,7 +46,7 @@ where
     T: TypeKind<TypeKind = CloneType> + Clone,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        ParamValue::Borrowed(std::mem::transmute_copy(self))
+        ParamValue::Borrowed(transmute_copy(self))
     }
 }
 
@@ -55,7 +57,7 @@ where
     U: imp::CanInto<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        ParamValue::Owned(std::mem::transmute_copy(&self))
+        ParamValue::Owned(transmute_copy(&self))
     }
 }
 

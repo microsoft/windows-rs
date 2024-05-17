@@ -32,7 +32,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata
         _ => {
             if signature.return_type.is_winrt_array() {
                 let return_type = writer.type_name(&signature.return_type);
-                quote! { windows_core::Array::<#return_type>::set_abi_len(std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+                quote! { windows_core::Array::<#return_type>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
             } else {
                 quote! { &mut result__ }
             }
@@ -60,7 +60,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata
             };
 
             quote! {
-                let mut result__ = std::mem::zeroed();
+                let mut result__ = core::mem::zeroed();
                     (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args #return_arg)
                         .#map
             }

@@ -26,7 +26,7 @@ unsafe impl Interface for IUnknown {
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().AddRef)(std::mem::transmute_copy(self));
+            (self.vtable().AddRef)(core::mem::transmute_copy(self));
         }
 
         Self(self.0)
@@ -36,7 +36,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().Release)(std::mem::transmute_copy(self));
+            (self.vtable().Release)(core::mem::transmute_copy(self));
         }
     }
 }
@@ -53,8 +53,8 @@ impl PartialEq for IUnknown {
 
 impl Eq for IUnknown {}
 
-impl std::fmt::Debug for IUnknown {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IUnknown {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("IUnknown").field(&self.0).finish()
     }
 }

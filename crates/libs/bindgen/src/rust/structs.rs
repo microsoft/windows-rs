@@ -46,14 +46,14 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
             quote! {}
         } else if !writer.sys && flags.contains(metadata::TypeAttributes::ExplicitLayout) && !metadata::field_is_copyable(f, def) {
             let ty = writer.type_default_name(&ty);
-            quote! { pub #name: std::mem::ManuallyDrop<#ty>, }
+            quote! { pub #name: core::mem::ManuallyDrop<#ty>, }
         } else if !writer.sys && !flags.contains(metadata::TypeAttributes::WindowsRuntime) && !metadata::field_is_blittable(f, def) {
             if let metadata::Type::Win32Array(ty, len) = ty {
                 let ty = writer.type_default_name(&ty);
-                quote! { pub #name: [std::mem::ManuallyDrop<#ty>; #len], }
+                quote! { pub #name: [core::mem::ManuallyDrop<#ty>; #len], }
             } else {
                 let ty = writer.type_default_name(&ty);
-                quote! { pub #name: std::mem::ManuallyDrop<#ty>, }
+                quote! { pub #name: core::mem::ManuallyDrop<#ty>, }
             }
         } else {
             let ty = writer.type_default_name(&ty);
