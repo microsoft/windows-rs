@@ -156,10 +156,10 @@ jobs:
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_bcrypt
-        run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_bcrypt
+        run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bstr
         run:  cargo test -p test_bstr --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_calling_convention
@@ -258,10 +258,10 @@ jobs:
         run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_sys
         run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_targets
-        run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_targets
+        run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_unions
         run:  cargo test -p test_unions --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_variant
