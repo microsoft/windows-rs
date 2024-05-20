@@ -10,19 +10,17 @@ typedef HRESULT (__stdcall *ValidateJson)(uintptr_t handle, char const* value, s
 typedef void (__stdcall *CloseJsonValidator)(uintptr_t handle);
 
 extern "C" {
-    void __stdcall CoTaskMemFree(void* ptr);
-
     void __stdcall client() {
         auto library = LoadLibraryExW(L"sample_component_json_validator.dll", 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
         assert(library != 0);
 
-        auto create = (CreateJsonValidator)GetProcAddress(library, "CreateJsonValidator");
+        auto create = reinterpret_cast<CreateJsonValidator>(GetProcAddress(library, "CreateJsonValidator"));
         assert(create);
 
-        auto validate = (ValidateJson)GetProcAddress(library, "ValidateJson");
+        auto validate = reinterpret_cast<ValidateJson>(GetProcAddress(library, "ValidateJson"));
         assert(validate);
 
-        auto close = (CloseJsonValidator)GetProcAddress(library, "CloseJsonValidator");
+        auto close = reinterpret_cast<CloseJsonValidator>(GetProcAddress(library, "CloseJsonValidator"));
         assert(close);
 
         std::string_view schema = "{\"maxLength\": 5}";
