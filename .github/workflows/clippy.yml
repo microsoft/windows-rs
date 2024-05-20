@@ -44,6 +44,8 @@ jobs:
         run:  cargo clippy -p sample_component_hello_world
       - name: Clippy sample_component_json_validator
         run:  cargo clippy -p sample_component_json_validator
+      - name: Clippy sample_component_json_validator_client
+        run:  cargo clippy -p sample_component_json_validator_client
       - name: Clippy sample_component_json_validator_winrt
         run:  cargo clippy -p sample_component_json_validator_winrt
       - name: Clippy sample_component_json_validator_winrt_client

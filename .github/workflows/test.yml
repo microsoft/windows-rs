@@ -68,6 +68,8 @@ jobs:
         run:  cargo test -p sample_component_hello_world --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_component_json_validator
         run:  cargo test -p sample_component_json_validator --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_client
+        run:  cargo test -p sample_component_json_validator_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_component_json_validator_winrt
         run:  cargo test -p sample_component_json_validator_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_component_json_validator_winrt_client
