@@ -5,7 +5,7 @@ impl windows_core::RuntimeType for IClassicAppManagerStatics {
 #[repr(C)]
 pub struct IClassicAppManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FindInstalledApp: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindInstalledApp: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInstalledClassicAppInfo, IInstalledClassicAppInfo_Vtbl, 0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 impl windows_core::RuntimeType for IInstalledClassicAppInfo {
@@ -14,14 +14,14 @@ impl windows_core::RuntimeType for IInstalledClassicAppInfo {
 #[repr(C)]
 pub struct IInstalledClassicAppInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DisplayVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 pub struct ClassicAppManager;
 impl ClassicAppManager {
     pub fn FindInstalledApp(appuninstallkey: &windows_core::HSTRING) -> windows_core::Result<InstalledClassicAppInfo> {
         Self::IClassicAppManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindInstalledApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appuninstallkey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -42,14 +42,14 @@ impl InstalledClassicAppInfo {
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

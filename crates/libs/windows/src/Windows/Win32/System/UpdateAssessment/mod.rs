@@ -1,14 +1,14 @@
 windows_core::imp::define_interface!(IWaaSAssessor, IWaaSAssessor_Vtbl, 0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
-impl std::ops::Deref for IWaaSAssessor {
+impl core::ops::Deref for IWaaSAssessor {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWaaSAssessor, windows_core::IUnknown);
 impl IWaaSAssessor {
     pub unsafe fn GetOSUpdateAssessment(&self) -> windows_core::Result<OSUpdateAssessment> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOSUpdateAssessment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }

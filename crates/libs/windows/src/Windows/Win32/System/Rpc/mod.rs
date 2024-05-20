@@ -4273,7 +4273,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub pvDestContext: *mut core::ffi::c_void,
     pub SavedContextHandles: *mut *mut NDR_SCONTEXT,
     pub ParamNumber: i32,
-    pub pRpcChannelBuffer: std::mem::ManuallyDrop<Option<super::Com::IRpcChannelBuffer>>,
+    pub pRpcChannelBuffer: core::mem::ManuallyDrop<Option<super::Com::IRpcChannelBuffer>>,
     pub pArrayInfo: *mut ARRAY_INFO,
     pub SizePtrCountArray: *mut u32,
     pub SizePtrOffsetArray: *mut u32,
@@ -5497,7 +5497,7 @@ impl Default for NDR_USER_MARSHAL_INFO {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union NDR_USER_MARSHAL_INFO_0 {
-    pub Level1: std::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
+    pub Level1: core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Clone for NDR_USER_MARSHAL_INFO_0 {
@@ -5523,7 +5523,7 @@ pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub BufferSize: u32,
     pub pfnAllocate: isize,
     pub pfnFree: isize,
-    pub pRpcChannelBuffer: std::mem::ManuallyDrop<Option<super::Com::IRpcChannelBuffer>>,
+    pub pRpcChannelBuffer: core::mem::ManuallyDrop<Option<super::Com::IRpcChannelBuffer>>,
     pub Reserved: [usize; 5],
 }
 #[cfg(feature = "Win32_System_Com")]

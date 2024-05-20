@@ -55,7 +55,7 @@ where
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreatePseudoConsole(core::mem::transmute(size), hinput.param().abi(), houtput.param().abi(), dwflags, &mut result__).map(|| result__)
 }
 #[inline]

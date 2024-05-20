@@ -51,7 +51,7 @@ impl ICameraUIControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActiveItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstractiveitempath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetActiveItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstractiveitempath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ICameraUIControl_Impl::GetActiveItem(this, core::mem::transmute_copy(&pbstractiveitempath)).into()
@@ -142,7 +142,7 @@ pub trait IClipServiceNotificationHelper_Impl: Sized {
 impl windows_core::RuntimeName for IClipServiceNotificationHelper {}
 impl IClipServiceNotificationHelper_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>() -> IClipServiceNotificationHelper_Vtbl {
-        unsafe extern "system" fn ShowToast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, titletext: std::mem::MaybeUninit<windows_core::BSTR>, bodytext: std::mem::MaybeUninit<windows_core::BSTR>, packagename: std::mem::MaybeUninit<windows_core::BSTR>, appid: std::mem::MaybeUninit<windows_core::BSTR>, launchcommand: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowToast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, titletext: core::mem::MaybeUninit<windows_core::BSTR>, bodytext: core::mem::MaybeUninit<windows_core::BSTR>, packagename: core::mem::MaybeUninit<windows_core::BSTR>, appid: core::mem::MaybeUninit<windows_core::BSTR>, launchcommand: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IClipServiceNotificationHelper_Impl::ShowToast(this, core::mem::transmute(&titletext), core::mem::transmute(&bodytext), core::mem::transmute(&packagename), core::mem::transmute(&appid), core::mem::transmute(&launchcommand)).into()
@@ -227,7 +227,7 @@ impl IEditionUpgradeBroker_Vtbl {
             let this = (*this).get_impl();
             IEditionUpgradeBroker_Impl::InitializeParentWindow(this, core::mem::transmute_copy(&parenthandle)).into()
         }
-        unsafe extern "system" fn UpdateOperatingSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameter: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateOperatingSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameter: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IEditionUpgradeBroker_Impl::UpdateOperatingSystem(this, core::mem::transmute(&parameter)).into()
@@ -326,7 +326,7 @@ pub trait IFClipNotificationHelper_Impl: Sized {
 impl windows_core::RuntimeName for IFClipNotificationHelper {}
 impl IFClipNotificationHelper_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFClipNotificationHelper_Impl, const OFFSET: isize>() -> IFClipNotificationHelper_Vtbl {
-        unsafe extern "system" fn ShowSystemDialog<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFClipNotificationHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, titletext: std::mem::MaybeUninit<windows_core::BSTR>, bodytext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowSystemDialog<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFClipNotificationHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, titletext: core::mem::MaybeUninit<windows_core::BSTR>, bodytext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFClipNotificationHelper_Impl::ShowSystemDialog(this, core::mem::transmute(&titletext), core::mem::transmute(&bodytext)).into()

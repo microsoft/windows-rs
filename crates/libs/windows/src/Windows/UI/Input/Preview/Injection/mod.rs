@@ -181,7 +181,7 @@ impl InjectedInputGamepadInfo {
     pub fn Buttons(&self) -> windows_core::Result<super::super::super::super::Gaming::Input::GamepadButtons> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Buttons)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -193,7 +193,7 @@ impl InjectedInputGamepadInfo {
     pub fn LeftThumbstickX(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LeftThumbstickX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -204,7 +204,7 @@ impl InjectedInputGamepadInfo {
     pub fn LeftThumbstickY(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LeftThumbstickY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -215,7 +215,7 @@ impl InjectedInputGamepadInfo {
     pub fn LeftTrigger(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LeftTrigger)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -226,7 +226,7 @@ impl InjectedInputGamepadInfo {
     pub fn RightThumbstickX(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RightThumbstickX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -237,7 +237,7 @@ impl InjectedInputGamepadInfo {
     pub fn RightThumbstickY(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RightThumbstickY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -248,7 +248,7 @@ impl InjectedInputGamepadInfo {
     pub fn RightTrigger(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RightTrigger)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -259,7 +259,7 @@ impl InjectedInputGamepadInfo {
     #[cfg(feature = "Gaming_Input")]
     pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> windows_core::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceFromGamepadReading)(windows_core::Interface::as_raw(this), reading, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -294,7 +294,7 @@ impl InjectedInputKeyboardInfo {
     pub fn KeyOptions(&self) -> windows_core::Result<InjectedInputKeyOptions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -305,7 +305,7 @@ impl InjectedInputKeyboardInfo {
     pub fn ScanCode(&self) -> windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScanCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -316,7 +316,7 @@ impl InjectedInputKeyboardInfo {
     pub fn VirtualKey(&self) -> windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VirtualKey)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -350,7 +350,7 @@ impl InjectedInputMouseInfo {
     pub fn MouseOptions(&self) -> windows_core::Result<InjectedInputMouseOptions> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MouseOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -361,7 +361,7 @@ impl InjectedInputMouseInfo {
     pub fn MouseData(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MouseData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -372,7 +372,7 @@ impl InjectedInputMouseInfo {
     pub fn DeltaY(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeltaY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -383,7 +383,7 @@ impl InjectedInputMouseInfo {
     pub fn DeltaX(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeltaX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -394,7 +394,7 @@ impl InjectedInputMouseInfo {
     pub fn TimeOffsetInMilliseconds(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeOffsetInMilliseconds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -428,7 +428,7 @@ impl InjectedInputPenInfo {
     pub fn PointerInfo(&self) -> windows_core::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -439,7 +439,7 @@ impl InjectedInputPenInfo {
     pub fn PenButtons(&self) -> windows_core::Result<InjectedInputPenButtons> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PenButtons)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -450,7 +450,7 @@ impl InjectedInputPenInfo {
     pub fn PenParameters(&self) -> windows_core::Result<InjectedInputPenParameters> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PenParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -461,7 +461,7 @@ impl InjectedInputPenInfo {
     pub fn Pressure(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -472,7 +472,7 @@ impl InjectedInputPenInfo {
     pub fn Rotation(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rotation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -483,7 +483,7 @@ impl InjectedInputPenInfo {
     pub fn TiltX(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TiltX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -494,7 +494,7 @@ impl InjectedInputPenInfo {
     pub fn TiltY(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TiltY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -528,7 +528,7 @@ impl InjectedInputTouchInfo {
     pub fn Contact(&self) -> windows_core::Result<InjectedInputRectangle> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -539,7 +539,7 @@ impl InjectedInputTouchInfo {
     pub fn Orientation(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -550,7 +550,7 @@ impl InjectedInputTouchInfo {
     pub fn PointerInfo(&self) -> windows_core::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -561,7 +561,7 @@ impl InjectedInputTouchInfo {
     pub fn Pressure(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -572,7 +572,7 @@ impl InjectedInputTouchInfo {
     pub fn TouchParameters(&self) -> windows_core::Result<InjectedInputTouchParameters> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TouchParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -664,13 +664,13 @@ impl InputInjector {
     }
     pub fn TryCreate() -> windows_core::Result<InputInjector> {
         Self::IInputInjectorStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn TryCreateForAppBroadcastOnly() -> windows_core::Result<InputInjector> {
         Self::IInputInjectorStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

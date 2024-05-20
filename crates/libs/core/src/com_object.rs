@@ -1,3 +1,4 @@
+use crate::imp::Box;
 use crate::{AsImpl, IUnknown, IUnknownImpl, Interface, InterfaceRef};
 use core::borrow::Borrow;
 use core::ops::Deref;

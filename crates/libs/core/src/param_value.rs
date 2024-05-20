@@ -1,4 +1,5 @@
 use super::*;
+use core::mem::transmute_copy;
 
 #[doc(hidden)]
 pub enum ParamValue<T: Type<T>> {
@@ -11,13 +12,13 @@ impl<T: Type<T>> ParamValue<T> {
     pub fn abi(&self) -> T::Abi {
         unsafe {
             match self {
-                Self::Owned(item) => std::mem::transmute_copy(item),
-                Self::Borrowed(borrowed) => std::mem::transmute_copy(borrowed),
+                Self::Owned(item) => transmute_copy(item),
+                Self::Borrowed(borrowed) => transmute_copy(borrowed),
             }
         }
     }
 
     pub fn borrow(&self) -> Ref<'_, T> {
-        unsafe { std::mem::transmute_copy(&self.abi()) }
+        unsafe { transmute_copy(&self.abi()) }
     }
 }

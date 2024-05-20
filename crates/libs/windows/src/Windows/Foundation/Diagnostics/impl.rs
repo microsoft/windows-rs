@@ -50,7 +50,7 @@ impl windows_core::RuntimeName for IFileLoggingSession {
 #[cfg(feature = "Storage")]
 impl IFileLoggingSession_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>() -> IFileLoggingSession_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileLoggingSession_Impl::Name(this) {
@@ -136,7 +136,7 @@ impl windows_core::RuntimeName for ILoggingChannel {
 }
 impl ILoggingChannel_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>() -> ILoggingChannel_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingChannel_Impl::Name(this) {
@@ -170,22 +170,22 @@ impl ILoggingChannel_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventstring: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventstring: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingChannel_Impl::LogMessage(this, core::mem::transmute(&eventstring)).into()
         }
-        unsafe extern "system" fn LogMessageWithLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventstring: std::mem::MaybeUninit<windows_core::HSTRING>, level: LoggingLevel) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogMessageWithLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventstring: core::mem::MaybeUninit<windows_core::HSTRING>, level: LoggingLevel) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingChannel_Impl::LogMessageWithLevel(this, core::mem::transmute(&eventstring), level).into()
         }
-        unsafe extern "system" fn LogValuePair<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value1: std::mem::MaybeUninit<windows_core::HSTRING>, value2: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogValuePair<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value1: core::mem::MaybeUninit<windows_core::HSTRING>, value2: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingChannel_Impl::LogValuePair(this, core::mem::transmute(&value1), value2).into()
         }
-        unsafe extern "system" fn LogValuePairWithLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value1: std::mem::MaybeUninit<windows_core::HSTRING>, value2: i32, level: LoggingLevel) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogValuePairWithLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value1: core::mem::MaybeUninit<windows_core::HSTRING>, value2: i32, level: LoggingLevel) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingChannel_Impl::LogValuePairWithLevel(this, core::mem::transmute(&value1), value2, level).into()
@@ -238,7 +238,7 @@ impl windows_core::RuntimeName for ILoggingSession {
 #[cfg(feature = "Storage")]
 impl ILoggingSession_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>() -> ILoggingSession_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingSession_Impl::Name(this) {
@@ -250,7 +250,7 @@ impl ILoggingSession_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToFileAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void, filename: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveToFileAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void, filename: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingSession_Impl::SaveToFileAsync(this, windows_core::from_raw_borrowed(&folder), core::mem::transmute(&filename)) {
@@ -341,27 +341,27 @@ impl ILoggingTarget_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingTarget_Impl::LogEvent(this, core::mem::transmute(&eventname)).into()
         }
-        unsafe extern "system" fn LogEventWithFields<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: std::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogEventWithFields<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: core::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingTarget_Impl::LogEventWithFields(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&fields)).into()
         }
-        unsafe extern "system" fn LogEventWithFieldsAndLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: std::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogEventWithFieldsAndLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: core::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingTarget_Impl::LogEventWithFieldsAndLevel(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&fields), level).into()
         }
-        unsafe extern "system" fn LogEventWithFieldsAndOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: std::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogEventWithFieldsAndOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: core::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ILoggingTarget_Impl::LogEventWithFieldsAndOptions(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&fields), level, windows_core::from_raw_borrowed(&options)).into()
         }
-        unsafe extern "system" fn StartActivity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartActivity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivity(this, core::mem::transmute(&starteventname)) {
@@ -373,7 +373,7 @@ impl ILoggingTarget_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFields<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: std::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFields<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: core::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivityWithFields(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields)) {
@@ -385,7 +385,7 @@ impl ILoggingTarget_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFieldsAndLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: std::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFieldsAndLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: core::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivityWithFieldsAndLevel(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields), level) {
@@ -397,7 +397,7 @@ impl ILoggingTarget_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFieldsAndOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: std::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFieldsAndOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: core::mem::MaybeUninit<windows_core::HSTRING>, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivityWithFieldsAndOptions(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields), level, windows_core::from_raw_borrowed(&options)) {

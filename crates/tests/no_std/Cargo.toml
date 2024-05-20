@@ -1,0 +1,24 @@
+[package]
+name = "no_std"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.windows-core]
+path = "../../libs/core"
+default-features = false
+
+[dependencies.windows]
+path = "../../libs/windows"
+default-features = false
+features = ["implement"]
+
+[dependencies.windows-registry]
+path = "../../libs/registry"
+default-features = false
+
+[dependencies.windows-result]
+path = "../../libs/result"
+default-features = false
+
+[lints]
+workspace = true

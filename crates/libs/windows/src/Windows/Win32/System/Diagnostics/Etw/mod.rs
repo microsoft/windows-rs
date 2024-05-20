@@ -540,24 +540,24 @@ where
     UpdateTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 windows_core::imp::define_interface!(ITraceEvent, ITraceEvent_Vtbl, 0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
-impl std::ops::Deref for ITraceEvent {
+impl core::ops::Deref for ITraceEvent {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITraceEvent, windows_core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> windows_core::Result<ITraceEvent> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetUserContext(&self) -> windows_core::Result<*mut core::ffi::c_void> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserContext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventRecord(&self) -> windows_core::Result<*mut EVENT_RECORD> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEventRecord)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> windows_core::Result<()> {
@@ -605,10 +605,10 @@ pub struct ITraceEvent_Vtbl {
     pub SetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
-impl std::ops::Deref for ITraceEventCallback {
+impl core::ops::Deref for ITraceEventCallback {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITraceEventCallback, windows_core::IUnknown);
@@ -642,10 +642,10 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITraceRelogger, ITraceRelogger_Vtbl, 0xf754ad43_3bcc_4286_8009_9c5da214e84e);
-impl std::ops::Deref for ITraceRelogger {
+impl core::ops::Deref for ITraceRelogger {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(ITraceRelogger, windows_core::IUnknown);
@@ -654,14 +654,14 @@ impl ITraceRelogger {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddLogfileTraceStream)(windows_core::Interface::as_raw(self), logfilename.param().abi(), usercontext, &mut result__).map(|| result__)
     }
     pub unsafe fn AddRealtimeTraceStream<P0>(&self, loggername: P0, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddRealtimeTraceStream)(windows_core::Interface::as_raw(self), loggername.param().abi(), usercontext, &mut result__).map(|| result__)
     }
     pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> windows_core::Result<()>
@@ -677,7 +677,7 @@ impl ITraceRelogger {
         (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), event.param().abi()).ok()
     }
     pub unsafe fn CreateEventInstance(&self, tracehandle: RELOGSTREAM_HANDLE, flags: u32) -> windows_core::Result<ITraceEvent> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateEventInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(tracehandle), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProcessTrace(&self) -> windows_core::Result<()> {
@@ -702,13 +702,13 @@ impl ITraceRelogger {
 #[repr(C)]
 pub struct ITraceRelogger_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddLogfileTraceStream: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *const core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT,
-    pub AddRealtimeTraceStream: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *const core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT,
+    pub AddLogfileTraceStream: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT,
+    pub AddRealtimeTraceStream: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT,
     pub RegisterCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Inject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateEventInstance: unsafe extern "system" fn(*mut core::ffi::c_void, RELOGSTREAM_HANDLE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessTrace: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOutputFilename: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetOutputFilename: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetCompressionMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOLEAN) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }

@@ -17,7 +17,7 @@ pub unsafe fn delay_load<T>(library: crate::PCSTR, function: crate::PCSTR) -> Op
     let address = GetProcAddress(library, function.0);
 
     if address.is_some() {
-        return Some(std::mem::transmute_copy(&address));
+        return Some(core::mem::transmute_copy(&address));
     }
 
     FreeLibrary(library);

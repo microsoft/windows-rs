@@ -36,7 +36,7 @@ impl windows_core::RuntimeType for IWebAuthenticationResult {
 #[repr(C)]
 pub struct IWebAuthenticationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ResponseData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ResponseData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ResponseStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAuthenticationStatus) -> windows_core::HRESULT,
     pub ResponseErrorDetail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
@@ -48,7 +48,7 @@ impl WebAuthenticationBroker {
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), callbackuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -57,13 +57,13 @@ impl WebAuthenticationBroker {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticateWithoutCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetCurrentApplicationCallbackUri() -> windows_core::Result<super::super::super::Foundation::Uri> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentApplicationCallbackUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -94,7 +94,7 @@ impl WebAuthenticationBroker {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticateSilentlyAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -103,7 +103,7 @@ impl WebAuthenticationBroker {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -129,21 +129,21 @@ impl WebAuthenticationResult {
     pub fn ResponseData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ResponseStatus(&self) -> windows_core::Result<WebAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ResponseErrorDetail(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseErrorDetail)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

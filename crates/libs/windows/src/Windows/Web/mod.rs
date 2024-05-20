@@ -7,10 +7,10 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
-impl std::ops::Deref for IUriToStreamResolver {
+impl core::ops::Deref for IUriToStreamResolver {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IUriToStreamResolver, windows_core::IUnknown, windows_core::IInspectable);
@@ -22,7 +22,7 @@ impl IUriToStreamResolver {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UriToStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -51,7 +51,7 @@ pub struct WebError;
 impl WebError {
     pub fn GetStatus(hresult: i32) -> windows_core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }

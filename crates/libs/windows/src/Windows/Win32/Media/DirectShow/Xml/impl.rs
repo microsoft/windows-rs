@@ -14,7 +14,7 @@ impl IXMLGraphBuilder_Vtbl {
             let this = (*this).get_impl();
             IXMLGraphBuilder_Impl::BuildFromXML(this, windows_core::from_raw_borrowed(&pgraph), windows_core::from_raw_borrowed(&pxml)).into()
         }
-        unsafe extern "system" fn SaveToXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void, pbstrxml: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveToXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void, pbstrxml: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IXMLGraphBuilder_Impl::SaveToXML(this, windows_core::from_raw_borrowed(&pgraph), core::mem::transmute_copy(&pbstrxml)).into()

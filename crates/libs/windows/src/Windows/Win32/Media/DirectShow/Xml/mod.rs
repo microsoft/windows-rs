@@ -1,8 +1,8 @@
 windows_core::imp::define_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x1bb05960_5fbf_11d2_a521_44df07c10000);
-impl std::ops::Deref for IXMLGraphBuilder {
+impl core::ops::Deref for IXMLGraphBuilder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXMLGraphBuilder, windows_core::IUnknown);
@@ -37,7 +37,7 @@ pub struct IXMLGraphBuilder_Vtbl {
     pub BuildFromXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     BuildFromXML: usize,
-    pub SaveToXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SaveToXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub BuildFromXMLFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub const CLSID_XMLGraphBuilder: windows_core::GUID = windows_core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);

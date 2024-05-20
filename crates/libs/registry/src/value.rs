@@ -1,3 +1,5 @@
+use super::*;
+
 /// A registry value.
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub enum Value {

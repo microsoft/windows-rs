@@ -4,7 +4,7 @@ pub struct HeapString(pub *mut u16);
 
 impl Default for HeapString {
     fn default() -> Self {
-        Self(std::ptr::null_mut())
+        Self(core::ptr::null_mut())
     }
 }
 
@@ -35,7 +35,12 @@ impl BasicString {
     }
 
     pub fn as_wide(&self) -> &[u16] {
-        unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len()) }
+        let len = self.len();
+        if len != 0 {
+            unsafe { core::slice::from_raw_parts(self.as_ptr(), len) }
+        } else {
+            &[]
+        }
     }
 
     pub fn as_ptr(&self) -> *const u16 {
@@ -50,7 +55,7 @@ impl BasicString {
 
 impl Default for BasicString {
     fn default() -> Self {
-        Self(std::ptr::null_mut())
+        Self(core::ptr::null_mut())
     }
 }
 

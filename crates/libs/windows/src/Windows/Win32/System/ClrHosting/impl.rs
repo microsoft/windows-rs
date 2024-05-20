@@ -3217,7 +3217,7 @@ pub trait IManagedObject_Impl: Sized {
 impl windows_core::RuntimeName for IManagedObject {}
 impl IManagedObject_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IManagedObject_Impl, const OFFSET: isize>() -> IManagedObject_Vtbl {
-        unsafe extern "system" fn GetSerializedBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IManagedObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSerializedBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IManagedObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IManagedObject_Impl::GetSerializedBuffer(this) {
@@ -3228,7 +3228,7 @@ impl IManagedObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObjectIdentity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IManagedObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguid: *mut std::mem::MaybeUninit<windows_core::BSTR>, appdomainid: *mut i32, pccw: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectIdentity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IManagedObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguid: *mut core::mem::MaybeUninit<windows_core::BSTR>, appdomainid: *mut i32, pccw: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IManagedObject_Impl::GetObjectIdentity(this, core::mem::transmute_copy(&pbstrguid), core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&pccw)).into()
@@ -3249,7 +3249,7 @@ pub trait IObjectHandle_Impl: Sized {
 impl windows_core::RuntimeName for IObjectHandle {}
 impl IObjectHandle_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>() -> IObjectHandle_Vtbl {
-        unsafe extern "system" fn Unwrap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppv: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Unwrap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppv: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IObjectHandle_Impl::Unwrap(this) {
@@ -3289,7 +3289,7 @@ impl ITypeName_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNames<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, rgbsznames: *mut std::mem::MaybeUninit<windows_core::BSTR>, pcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNames<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, rgbsznames: *mut core::mem::MaybeUninit<windows_core::BSTR>, pcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ITypeName_Impl::GetNames(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&rgbsznames)) {
@@ -3344,7 +3344,7 @@ impl ITypeName_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAssemblyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgbszassemblynames: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAssemblyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgbszassemblynames: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ITypeName_Impl::GetAssemblyName(this) {
@@ -3437,7 +3437,7 @@ impl ITypeNameBuilder_Vtbl {
             let this = (*this).get_impl();
             ITypeNameBuilder_Impl::AddAssemblySpec(this, core::mem::transmute(&szassemblyspec)).into()
         }
-        unsafe extern "system" fn ToString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeNameBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstringrepresentation: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ToString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeNameBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstringrepresentation: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ITypeNameBuilder_Impl::ToString(this) {

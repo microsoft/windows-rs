@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for ICommunicationBlockingAccessManagerStatics {
 pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBlockingActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsBlockedNumberAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsBlockedNumberAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub ShowBlockNumbersUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -41,13 +41,13 @@ pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
     pub fn IsBlockingActive() -> windows_core::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockingActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsBlockedNumberAsync(number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockedNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -57,7 +57,7 @@ impl CommunicationBlockingAccessManager {
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -67,7 +67,7 @@ impl CommunicationBlockingAccessManager {
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -90,7 +90,7 @@ pub struct CommunicationBlockingAppManager;
 impl CommunicationBlockingAppManager {
     pub fn IsCurrentAppActiveBlockingApp() -> windows_core::Result<bool> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentAppActiveBlockingApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -99,7 +99,7 @@ impl CommunicationBlockingAppManager {
     }
     pub fn RequestSetAsActiveBlockingAppAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSetAsActiveBlockingAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

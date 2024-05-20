@@ -114,10 +114,10 @@ pub struct IHttpCacheControl_Vtbl {
     pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
-impl std::ops::Deref for IHttpFilter {
+impl core::ops::Deref for IHttpFilter {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
@@ -129,7 +129,7 @@ impl IHttpFilter {
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -193,7 +193,7 @@ impl HttpBaseProtocolFilter {
     pub fn AllowAutoRedirect(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowAutoRedirect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -204,7 +204,7 @@ impl HttpBaseProtocolFilter {
     pub fn AllowUI(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowUI)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -215,7 +215,7 @@ impl HttpBaseProtocolFilter {
     pub fn AutomaticDecompression(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomaticDecompression)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -226,14 +226,14 @@ impl HttpBaseProtocolFilter {
     pub fn CacheControl(&self) -> windows_core::Result<HttpCacheControl> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CacheControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CookieManager(&self) -> windows_core::Result<super::HttpCookieManager> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CookieManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -241,7 +241,7 @@ impl HttpBaseProtocolFilter {
     pub fn ClientCertificate(&self) -> windows_core::Result<super::super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClientCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -257,14 +257,14 @@ impl HttpBaseProtocolFilter {
     pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IgnorableServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MaxConnectionsPerServer(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxConnectionsPerServer)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -276,7 +276,7 @@ impl HttpBaseProtocolFilter {
     pub fn ProxyCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProxyCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -292,7 +292,7 @@ impl HttpBaseProtocolFilter {
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -307,7 +307,7 @@ impl HttpBaseProtocolFilter {
     pub fn UseProxy(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UseProxy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -318,7 +318,7 @@ impl HttpBaseProtocolFilter {
     pub fn MaxVersion(&self) -> windows_core::Result<super::HttpVersion> {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -329,7 +329,7 @@ impl HttpBaseProtocolFilter {
     pub fn CookieUsageBehavior(&self) -> windows_core::Result<HttpCookieUsageBehavior> {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CookieUsageBehavior)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -343,7 +343,7 @@ impl HttpBaseProtocolFilter {
     {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
@@ -359,7 +359,7 @@ impl HttpBaseProtocolFilter {
     pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter5>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -369,7 +369,7 @@ impl HttpBaseProtocolFilter {
         P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -379,7 +379,7 @@ impl HttpBaseProtocolFilter {
     {
         let this = &windows_core::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -409,7 +409,7 @@ impl HttpCacheControl {
     pub fn ReadBehavior(&self) -> windows_core::Result<HttpCacheReadBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadBehavior)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -420,7 +420,7 @@ impl HttpCacheControl {
     pub fn WriteBehavior(&self) -> windows_core::Result<HttpCacheWriteBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteBehavior)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -449,7 +449,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn RequestMessage(&self) -> windows_core::Result<super::HttpRequestMessage> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -457,7 +457,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificate(&self) -> windows_core::Result<super::super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -465,7 +465,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificateErrorSeverity(&self) -> windows_core::Result<super::super::super::Networking::Sockets::SocketSslErrorSeverity> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -473,7 +473,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -481,7 +481,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerIntermediateCertificates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -492,7 +492,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }

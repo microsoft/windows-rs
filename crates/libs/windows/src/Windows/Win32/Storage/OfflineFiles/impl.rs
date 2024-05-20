@@ -1275,7 +1275,7 @@ impl IOfflineFilesSetting_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreference<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>, dwscope: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPreference<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>, dwscope: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IOfflineFilesSetting_Impl::GetPreference(this, core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&dwscope)).into()
@@ -1291,7 +1291,7 @@ impl IOfflineFilesSetting_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreference<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>, dwscope: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPreference<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, dwscope: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IOfflineFilesSetting_Impl::SetPreference(this, core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&dwscope)).into()
@@ -1301,7 +1301,7 @@ impl IOfflineFilesSetting_Vtbl {
             let this = (*this).get_impl();
             IOfflineFilesSetting_Impl::DeletePreference(this, core::mem::transmute_copy(&dwscope)).into()
         }
-        unsafe extern "system" fn GetPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>, dwscope: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>, dwscope: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IOfflineFilesSetting_Impl::GetPolicy(this, core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&dwscope)).into()
@@ -1317,7 +1317,7 @@ impl IOfflineFilesSetting_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IOfflineFilesSetting_Impl::GetValue(this, core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pbsetbypolicy)).into()

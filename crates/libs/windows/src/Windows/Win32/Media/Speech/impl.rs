@@ -818,8 +818,8 @@ impl<T: ISpNotifyCallback_Impl> ISpNotifyCallback_ImplVtbl<T> {
 impl ISpNotifyCallback {
     pub fn new<'a, T: ISpNotifyCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ISpNotifyCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = std::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ISpNotifySink_Impl: Sized {
@@ -3386,8 +3386,8 @@ impl<T: ISpTask_Impl> ISpTask_ImplVtbl<T> {
 impl ISpTask {
     pub fn new<'a, T: ISpTask_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ISpTask_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = std::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ISpTaskManager_Impl: Sized {
@@ -3585,8 +3585,8 @@ impl<T: ISpThreadTask_Impl> ISpThreadTask_ImplVtbl<T> {
 impl ISpThreadTask {
     pub fn new<'a, T: ISpThreadTask_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ISpThreadTask_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = std::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ISpTokenUI_Impl: Sized {
@@ -4115,7 +4115,7 @@ impl ISpeechAudioFormat_Vtbl {
             let this = (*this).get_impl();
             ISpeechAudioFormat_Impl::SetType(this, core::mem::transmute_copy(&audioformat)).into()
         }
-        unsafe extern "system" fn Guid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Guid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechAudioFormat_Impl::Guid(this) {
@@ -4126,7 +4126,7 @@ impl ISpeechAudioFormat_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechAudioFormat_Impl::SetGuid(this, core::mem::transmute(&guid)).into()
@@ -4207,7 +4207,7 @@ impl ISpeechAudioStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSeekPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentseekposition: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentSeekPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentseekposition: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::CurrentSeekPosition(this) {
@@ -4218,7 +4218,7 @@ impl ISpeechAudioStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDevicePosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentdeviceposition: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentDevicePosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechAudioStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentdeviceposition: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::CurrentDevicePosition(this) {
@@ -4271,12 +4271,12 @@ impl ISpeechBaseStream_Vtbl {
             let this = (*this).get_impl();
             ISpeechBaseStream_Impl::putref_Format(this, windows_core::from_raw_borrowed(&audioformat)).into()
         }
-        unsafe extern "system" fn Read<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut std::mem::MaybeUninit<windows_core::VARIANT>, numberofbytes: i32, bytesread: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::mem::MaybeUninit<windows_core::VARIANT>, numberofbytes: i32, bytesread: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechBaseStream_Impl::Read(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&numberofbytes), core::mem::transmute_copy(&bytesread)).into()
         }
-        unsafe extern "system" fn Write<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: std::mem::MaybeUninit<windows_core::VARIANT>, byteswritten: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: core::mem::MaybeUninit<windows_core::VARIANT>, byteswritten: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechBaseStream_Impl::Write(this, core::mem::transmute(&buffer)) {
@@ -4287,7 +4287,7 @@ impl ISpeechBaseStream_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Seek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: std::mem::MaybeUninit<windows_core::VARIANT>, origin: SpeechStreamSeekPositionType, newposition: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Seek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: core::mem::MaybeUninit<windows_core::VARIANT>, origin: SpeechStreamSeekPositionType, newposition: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechBaseStream_Impl::Seek(this, core::mem::transmute(&position), core::mem::transmute_copy(&origin)) {
@@ -4367,12 +4367,12 @@ impl windows_core::RuntimeName for ISpeechDataKey {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechDataKey_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>() -> ISpeechDataKey_Vtbl {
-        unsafe extern "system" fn SetBinaryValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>, value: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBinaryValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechDataKey_Impl::SetBinaryValue(this, core::mem::transmute(&valuename), core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn GetBinaryValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBinaryValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::GetBinaryValue(this, core::mem::transmute(&valuename)) {
@@ -4383,12 +4383,12 @@ impl ISpeechDataKey_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStringValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>, value: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStringValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechDataKey_Impl::SetStringValue(this, core::mem::transmute(&valuename), core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn GetStringValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStringValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::GetStringValue(this, core::mem::transmute(&valuename)) {
@@ -4399,12 +4399,12 @@ impl ISpeechDataKey_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLongValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>, value: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLongValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechDataKey_Impl::SetLongValue(this, core::mem::transmute(&valuename), core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetLongValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>, value: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLongValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::GetLongValue(this, core::mem::transmute(&valuename)) {
@@ -4415,7 +4415,7 @@ impl ISpeechDataKey_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: std::mem::MaybeUninit<windows_core::BSTR>, subkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: core::mem::MaybeUninit<windows_core::BSTR>, subkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::OpenKey(this, core::mem::transmute(&subkeyname)) {
@@ -4426,7 +4426,7 @@ impl ISpeechDataKey_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: std::mem::MaybeUninit<windows_core::BSTR>, subkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: core::mem::MaybeUninit<windows_core::BSTR>, subkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::CreateKey(this, core::mem::transmute(&subkeyname)) {
@@ -4437,17 +4437,17 @@ impl ISpeechDataKey_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechDataKey_Impl::DeleteKey(this, core::mem::transmute(&subkeyname)).into()
         }
-        unsafe extern "system" fn DeleteValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechDataKey_Impl::DeleteValue(this, core::mem::transmute(&valuename)).into()
         }
-        unsafe extern "system" fn EnumKeys<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, subkeyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumKeys<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, subkeyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::EnumKeys(this, core::mem::transmute_copy(&index)) {
@@ -4458,7 +4458,7 @@ impl ISpeechDataKey_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, valuename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, valuename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::EnumValues(this, core::mem::transmute_copy(&index)) {
@@ -4499,7 +4499,7 @@ impl windows_core::RuntimeName for ISpeechFileStream {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechFileStream_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechFileStream_Impl, const OFFSET: isize>() -> ISpeechFileStream_Vtbl {
-        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: std::mem::MaybeUninit<windows_core::BSTR>, filemode: SpeechStreamFileMode, doevents: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: core::mem::MaybeUninit<windows_core::BSTR>, filemode: SpeechStreamFileMode, doevents: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechFileStream_Impl::Open(this, core::mem::transmute(&filename), core::mem::transmute_copy(&filemode), core::mem::transmute_copy(&doevents)).into()
@@ -4552,7 +4552,7 @@ impl ISpeechGrammarRule_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRule_Impl::Name(this) {
@@ -4579,7 +4579,7 @@ impl ISpeechGrammarRule_Vtbl {
             let this = (*this).get_impl();
             ISpeechGrammarRule_Impl::Clear(this).into()
         }
-        unsafe extern "system" fn AddResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcename: std::mem::MaybeUninit<windows_core::BSTR>, resourcevalue: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcename: core::mem::MaybeUninit<windows_core::BSTR>, resourcevalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechGrammarRule_Impl::AddResource(this, core::mem::transmute(&resourcename), core::mem::transmute(&resourcevalue)).into()
@@ -4645,17 +4645,17 @@ impl ISpeechGrammarRuleState_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddWordTransition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deststate: *mut core::ffi::c_void, words: std::mem::MaybeUninit<windows_core::BSTR>, separators: std::mem::MaybeUninit<windows_core::BSTR>, r#type: SpeechGrammarWordType, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, propertyid: i32, propertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>, weight: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddWordTransition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deststate: *mut core::ffi::c_void, words: core::mem::MaybeUninit<windows_core::BSTR>, separators: core::mem::MaybeUninit<windows_core::BSTR>, r#type: SpeechGrammarWordType, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyid: i32, propertyvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, weight: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechGrammarRuleState_Impl::AddWordTransition(this, windows_core::from_raw_borrowed(&deststate), core::mem::transmute(&words), core::mem::transmute(&separators), core::mem::transmute_copy(&r#type), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight)).into()
         }
-        unsafe extern "system" fn AddRuleTransition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationstate: *mut core::ffi::c_void, rule: *mut core::ffi::c_void, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, propertyid: i32, propertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>, weight: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddRuleTransition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationstate: *mut core::ffi::c_void, rule: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyid: i32, propertyvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, weight: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechGrammarRuleState_Impl::AddRuleTransition(this, windows_core::from_raw_borrowed(&destinationstate), windows_core::from_raw_borrowed(&rule), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight)).into()
         }
-        unsafe extern "system" fn AddSpecialTransition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationstate: *mut core::ffi::c_void, r#type: SpeechSpecialTransitionType, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, propertyid: i32, propertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>, weight: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddSpecialTransition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationstate: *mut core::ffi::c_void, r#type: SpeechSpecialTransitionType, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyid: i32, propertyvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, weight: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechGrammarRuleState_Impl::AddSpecialTransition(this, windows_core::from_raw_borrowed(&destinationstate), core::mem::transmute_copy(&r#type), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight)).into()
@@ -4700,7 +4700,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::Text(this) {
@@ -4722,7 +4722,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Weight<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, weight: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Weight<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, weight: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::Weight(this) {
@@ -4733,7 +4733,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PropertyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::PropertyName(this) {
@@ -4755,7 +4755,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PropertyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::PropertyValue(this) {
@@ -4875,7 +4875,7 @@ impl ISpeechGrammarRules_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulenameorid: std::mem::MaybeUninit<windows_core::VARIANT>, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulenameorid: core::mem::MaybeUninit<windows_core::VARIANT>, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::FindRule(this, core::mem::transmute(&rulenameorid)) {
@@ -4919,7 +4919,7 @@ impl ISpeechGrammarRules_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulename: std::mem::MaybeUninit<windows_core::BSTR>, attributes: SpeechRuleAttributes, ruleid: i32, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulename: core::mem::MaybeUninit<windows_core::BSTR>, attributes: SpeechRuleAttributes, ruleid: i32, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::Add(this, core::mem::transmute(&rulename), core::mem::transmute_copy(&attributes), core::mem::transmute_copy(&ruleid)) {
@@ -4935,7 +4935,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             ISpeechGrammarRules_Impl::Commit(this).into()
         }
-        unsafe extern "system" fn CommitAndSave<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errortext: *mut std::mem::MaybeUninit<windows_core::BSTR>, savestream: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CommitAndSave<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errortext: *mut core::mem::MaybeUninit<windows_core::BSTR>, savestream: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechGrammarRules_Impl::CommitAndSave(this, core::mem::transmute_copy(&errortext), core::mem::transmute_copy(&savestream)).into()
@@ -4988,27 +4988,27 @@ impl ISpeechLexicon_Vtbl {
             let this = (*this).get_impl();
             ISpeechLexicon_Impl::GetWords(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&generationid), core::mem::transmute_copy(&words)).into()
         }
-        unsafe extern "system" fn AddPronunciation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: std::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPronunciation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: core::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechLexicon_Impl::AddPronunciation(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute(&bstrpronunciation)).into()
         }
-        unsafe extern "system" fn AddPronunciationByPhoneIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: std::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPronunciationByPhoneIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: core::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechLexicon_Impl::AddPronunciationByPhoneIds(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute_copy(&phoneids)).into()
         }
-        unsafe extern "system" fn RemovePronunciation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: std::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePronunciation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: core::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute(&bstrpronunciation)).into()
         }
-        unsafe extern "system" fn RemovePronunciationByPhoneIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: std::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePronunciationByPhoneIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: core::mem::MaybeUninit<windows_core::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechLexicon_Impl::RemovePronunciationByPhoneIds(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute_copy(&phoneids)).into()
         }
-        unsafe extern "system" fn GetPronunciations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: std::mem::MaybeUninit<windows_core::BSTR>, langid: i32, typeflags: SpeechLexiconType, pppronunciations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPronunciations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: core::mem::MaybeUninit<windows_core::BSTR>, langid: i32, typeflags: SpeechLexiconType, pppronunciations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechLexicon_Impl::GetPronunciations(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&typeflags)) {
@@ -5086,7 +5086,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexiconPronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phoneids: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PhoneIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexiconPronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phoneids: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::PhoneIds(this) {
@@ -5097,7 +5097,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Symbolic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexiconPronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, symbolic: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Symbolic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexiconPronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, symbolic: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::Symbolic(this) {
@@ -5210,7 +5210,7 @@ impl ISpeechLexiconWord_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Word<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexiconWord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Word<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechLexiconWord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechLexiconWord_Impl::Word(this) {
@@ -5378,12 +5378,12 @@ impl windows_core::RuntimeName for ISpeechMemoryStream {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechMemoryStream_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechMemoryStream_Impl, const OFFSET: isize>() -> ISpeechMemoryStream_Vtbl {
-        unsafe extern "system" fn SetData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechMemoryStream_Impl::SetData(this, core::mem::transmute(&data)).into()
         }
-        unsafe extern "system" fn GetData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechMemoryStream_Impl::GetData(this) {
@@ -5425,7 +5425,7 @@ impl windows_core::RuntimeName for ISpeechObjectToken {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectToken_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>() -> ISpeechObjectToken_Vtbl {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::Id(this) {
@@ -5458,7 +5458,7 @@ impl ISpeechObjectToken_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: i32, description: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: i32, description: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::GetDescription(this, core::mem::transmute_copy(&locale)) {
@@ -5469,12 +5469,12 @@ impl ISpeechObjectToken_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: std::mem::MaybeUninit<windows_core::BSTR>, categoryid: std::mem::MaybeUninit<windows_core::BSTR>, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: core::mem::MaybeUninit<windows_core::BSTR>, categoryid: core::mem::MaybeUninit<windows_core::BSTR>, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechObjectToken_Impl::SetId(this, core::mem::transmute(&id), core::mem::transmute(&categoryid), core::mem::transmute_copy(&createifnotexist)).into()
         }
-        unsafe extern "system" fn GetAttribute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributename: std::mem::MaybeUninit<windows_core::BSTR>, attributevalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributename: core::mem::MaybeUninit<windows_core::BSTR>, attributevalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::GetAttribute(this, core::mem::transmute(&attributename)) {
@@ -5496,12 +5496,12 @@ impl ISpeechObjectToken_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechObjectToken_Impl::Remove(this, core::mem::transmute(&objectstorageclsid)).into()
         }
-        unsafe extern "system" fn GetStorageFileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: std::mem::MaybeUninit<windows_core::BSTR>, keyname: std::mem::MaybeUninit<windows_core::BSTR>, filename: std::mem::MaybeUninit<windows_core::BSTR>, folder: SpeechTokenShellFolder, filepath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStorageFileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: core::mem::MaybeUninit<windows_core::BSTR>, keyname: core::mem::MaybeUninit<windows_core::BSTR>, filename: core::mem::MaybeUninit<windows_core::BSTR>, folder: SpeechTokenShellFolder, filepath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::GetStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute(&filename), core::mem::transmute_copy(&folder)) {
@@ -5512,12 +5512,12 @@ impl ISpeechObjectToken_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStorageFileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: std::mem::MaybeUninit<windows_core::BSTR>, keyname: std::mem::MaybeUninit<windows_core::BSTR>, deletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveStorageFileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: core::mem::MaybeUninit<windows_core::BSTR>, keyname: core::mem::MaybeUninit<windows_core::BSTR>, deletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute_copy(&deletefile)).into()
         }
-        unsafe extern "system" fn IsUISupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: std::mem::MaybeUninit<windows_core::BSTR>, extradata: *const std::mem::MaybeUninit<windows_core::VARIANT>, object: *mut core::ffi::c_void, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUISupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: core::mem::MaybeUninit<windows_core::BSTR>, extradata: *const core::mem::MaybeUninit<windows_core::VARIANT>, object: *mut core::ffi::c_void, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::IsUISupported(this, core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata), windows_core::from_raw_borrowed(&object)) {
@@ -5528,12 +5528,12 @@ impl ISpeechObjectToken_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, title: std::mem::MaybeUninit<windows_core::BSTR>, typeofui: std::mem::MaybeUninit<windows_core::BSTR>, extradata: *const std::mem::MaybeUninit<windows_core::VARIANT>, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, title: core::mem::MaybeUninit<windows_core::BSTR>, typeofui: core::mem::MaybeUninit<windows_core::BSTR>, extradata: *const core::mem::MaybeUninit<windows_core::VARIANT>, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechObjectToken_Impl::DisplayUI(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata), windows_core::from_raw_borrowed(&object)).into()
         }
-        unsafe extern "system" fn MatchesAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: std::mem::MaybeUninit<windows_core::BSTR>, matches: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MatchesAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: core::mem::MaybeUninit<windows_core::BSTR>, matches: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::MatchesAttributes(this, core::mem::transmute(&attributes)) {
@@ -5579,7 +5579,7 @@ impl windows_core::RuntimeName for ISpeechObjectTokenCategory {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokenCategory_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>() -> ISpeechObjectTokenCategory_Vtbl {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::Id(this) {
@@ -5590,12 +5590,12 @@ impl ISpeechObjectTokenCategory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefault<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tokenid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDefault<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tokenid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechObjectTokenCategory_Impl::SetDefault(this, core::mem::transmute(&tokenid)).into()
         }
-        unsafe extern "system" fn Default<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tokenid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Default<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tokenid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::Default(this) {
@@ -5606,7 +5606,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: std::mem::MaybeUninit<windows_core::BSTR>, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: core::mem::MaybeUninit<windows_core::BSTR>, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechObjectTokenCategory_Impl::SetId(this, core::mem::transmute(&id), core::mem::transmute_copy(&createifnotexist)).into()
@@ -5622,7 +5622,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumerateTokens<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: std::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: std::mem::MaybeUninit<windows_core::BSTR>, tokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateTokens<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: core::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: core::mem::MaybeUninit<windows_core::BSTR>, tokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::EnumerateTokens(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
@@ -5730,7 +5730,7 @@ impl ISpeechPhoneConverter_Vtbl {
             let this = (*this).get_impl();
             ISpeechPhoneConverter_Impl::SetLanguageId(this, core::mem::transmute_copy(&languageid)).into()
         }
-        unsafe extern "system" fn PhoneToId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phonemes: std::mem::MaybeUninit<windows_core::BSTR>, idarray: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PhoneToId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phonemes: core::mem::MaybeUninit<windows_core::BSTR>, idarray: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhoneConverter_Impl::PhoneToId(this, core::mem::transmute(&phonemes)) {
@@ -5741,7 +5741,7 @@ impl ISpeechPhoneConverter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IdToPhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idarray: std::mem::MaybeUninit<windows_core::VARIANT>, phonemes: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn IdToPhone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idarray: core::mem::MaybeUninit<windows_core::VARIANT>, phonemes: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhoneConverter_Impl::IdToPhone(this, core::mem::transmute(&idarray)) {
@@ -5981,7 +5981,7 @@ impl ISpeechPhraseElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displaytext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displaytext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::DisplayText(this) {
@@ -5992,7 +5992,7 @@ impl ISpeechPhraseElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LexicalForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lexicalform: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LexicalForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lexicalform: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::LexicalForm(this) {
@@ -6003,7 +6003,7 @@ impl ISpeechPhraseElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pronunciation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pronunciation: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pronunciation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pronunciation: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::Pronunciation(this) {
@@ -6169,7 +6169,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GrammarId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammarid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GrammarId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammarid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::GrammarId(this) {
@@ -6180,7 +6180,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::StartTime(this) {
@@ -6191,7 +6191,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioStreamPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostreamposition: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AudioStreamPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostreamposition: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::AudioStreamPosition(this) {
@@ -6279,7 +6279,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EngineId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, engineidguid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EngineId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, engineidguid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::EngineId(this) {
@@ -6290,7 +6290,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnginePrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, privatedata: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnginePrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, privatedata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::EnginePrivateData(this) {
@@ -6301,7 +6301,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phraseblock: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveToMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phraseblock: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::SaveToMemory(this) {
@@ -6312,7 +6312,7 @@ impl ISpeechPhraseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: i32, elements: i32, usereplacements: super::super::Foundation::VARIANT_BOOL, text: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: i32, elements: i32, usereplacements: super::super::Foundation::VARIANT_BOOL, text: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::GetText(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&usereplacements)) {
@@ -6367,7 +6367,7 @@ impl windows_core::RuntimeName for ISpeechPhraseInfoBuilder {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfoBuilder_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfoBuilder_Impl, const OFFSET: isize>() -> ISpeechPhraseInfoBuilder_Vtbl {
-        unsafe extern "system" fn RestorePhraseFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfoBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phraseinmemory: *const std::mem::MaybeUninit<windows_core::VARIANT>, phraseinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RestorePhraseFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseInfoBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phraseinmemory: *const core::mem::MaybeUninit<windows_core::VARIANT>, phraseinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseInfoBuilder_Impl::RestorePhraseFromMemory(this, core::mem::transmute_copy(&phraseinmemory)) {
@@ -6459,7 +6459,7 @@ impl windows_core::RuntimeName for ISpeechPhraseProperty {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperty_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseProperty_Impl, const OFFSET: isize>() -> ISpeechPhraseProperty_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Name(this) {
@@ -6481,7 +6481,7 @@ impl ISpeechPhraseProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Value(this) {
@@ -6598,7 +6598,7 @@ impl ISpeechPhraseReplacement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseReplacement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseReplacement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseReplacement_Impl::Text(this) {
@@ -6714,7 +6714,7 @@ impl windows_core::RuntimeName for ISpeechPhraseRule {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRule_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseRule_Impl, const OFFSET: isize>() -> ISpeechPhraseRule_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechPhraseRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::Name(this) {
@@ -6928,7 +6928,7 @@ impl ISpeechRecoContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedUIType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uitype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestedUIType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uitype: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::RequestedUIType(this) {
@@ -7077,7 +7077,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             ISpeechRecoContext_Impl::Resume(this).into()
         }
-        unsafe extern "system" fn CreateGrammar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammarid: std::mem::MaybeUninit<windows_core::VARIANT>, grammar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGrammar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammarid: core::mem::MaybeUninit<windows_core::VARIANT>, grammar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::CreateGrammar(this, core::mem::transmute(&grammarid)) {
@@ -7088,7 +7088,7 @@ impl ISpeechRecoContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateResultFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultblock: *const std::mem::MaybeUninit<windows_core::VARIANT>, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateResultFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultblock: *const core::mem::MaybeUninit<windows_core::VARIANT>, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::CreateResultFromMemory(this, core::mem::transmute_copy(&resultblock)) {
@@ -7099,12 +7099,12 @@ impl ISpeechRecoContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bookmark<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SpeechBookmarkOptions, streampos: std::mem::MaybeUninit<windows_core::VARIANT>, bookmarkid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Bookmark<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SpeechBookmarkOptions, streampos: core::mem::MaybeUninit<windows_core::VARIANT>, bookmarkid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoContext_Impl::Bookmark(this, core::mem::transmute_copy(&options), core::mem::transmute(&streampos), core::mem::transmute(&bookmarkid)).into()
         }
-        unsafe extern "system" fn SetAdaptationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adaptationstring: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAdaptationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adaptationstring: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoContext_Impl::SetAdaptationData(this, core::mem::transmute(&adaptationstring)).into()
@@ -7169,7 +7169,7 @@ impl windows_core::RuntimeName for ISpeechRecoGrammar {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoGrammar_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>() -> ISpeechRecoGrammar_Vtbl {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::Id(this) {
@@ -7223,32 +7223,32 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::Reset(this, core::mem::transmute_copy(&newlanguage)).into()
         }
-        unsafe extern "system" fn CmdLoadFromFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: std::mem::MaybeUninit<windows_core::BSTR>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
+        unsafe extern "system" fn CmdLoadFromFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: core::mem::MaybeUninit<windows_core::BSTR>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdLoadFromFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&loadoption)).into()
         }
-        unsafe extern "system" fn CmdLoadFromObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: std::mem::MaybeUninit<windows_core::BSTR>, grammarname: std::mem::MaybeUninit<windows_core::BSTR>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
+        unsafe extern "system" fn CmdLoadFromObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: core::mem::MaybeUninit<windows_core::BSTR>, grammarname: core::mem::MaybeUninit<windows_core::BSTR>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdLoadFromObject(this, core::mem::transmute(&classid), core::mem::transmute(&grammarname), core::mem::transmute_copy(&loadoption)).into()
         }
-        unsafe extern "system" fn CmdLoadFromResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmodule: i32, resourcename: std::mem::MaybeUninit<windows_core::VARIANT>, resourcetype: std::mem::MaybeUninit<windows_core::VARIANT>, languageid: i32, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
+        unsafe extern "system" fn CmdLoadFromResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmodule: i32, resourcename: core::mem::MaybeUninit<windows_core::VARIANT>, resourcetype: core::mem::MaybeUninit<windows_core::VARIANT>, languageid: i32, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdLoadFromResource(this, core::mem::transmute_copy(&hmodule), core::mem::transmute(&resourcename), core::mem::transmute(&resourcetype), core::mem::transmute_copy(&languageid), core::mem::transmute_copy(&loadoption)).into()
         }
-        unsafe extern "system" fn CmdLoadFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammardata: std::mem::MaybeUninit<windows_core::VARIANT>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
+        unsafe extern "system" fn CmdLoadFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammardata: core::mem::MaybeUninit<windows_core::VARIANT>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdLoadFromMemory(this, core::mem::transmute(&grammardata), core::mem::transmute_copy(&loadoption)).into()
         }
-        unsafe extern "system" fn CmdLoadFromProprietaryGrammar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proprietaryguid: std::mem::MaybeUninit<windows_core::BSTR>, proprietarystring: std::mem::MaybeUninit<windows_core::BSTR>, proprietarydata: std::mem::MaybeUninit<windows_core::VARIANT>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
+        unsafe extern "system" fn CmdLoadFromProprietaryGrammar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proprietaryguid: core::mem::MaybeUninit<windows_core::BSTR>, proprietarystring: core::mem::MaybeUninit<windows_core::BSTR>, proprietarydata: core::mem::MaybeUninit<windows_core::VARIANT>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdLoadFromProprietaryGrammar(this, core::mem::transmute(&proprietaryguid), core::mem::transmute(&proprietarystring), core::mem::transmute(&proprietarydata), core::mem::transmute_copy(&loadoption)).into()
         }
-        unsafe extern "system" fn CmdSetRuleState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, state: SpeechRuleState) -> windows_core::HRESULT {
+        unsafe extern "system" fn CmdSetRuleState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, state: SpeechRuleState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdSetRuleState(this, core::mem::transmute(&name), core::mem::transmute_copy(&state)).into()
@@ -7258,7 +7258,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::CmdSetRuleIdState(this, core::mem::transmute_copy(&ruleid), core::mem::transmute_copy(&state)).into()
         }
-        unsafe extern "system" fn DictationLoad<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topicname: std::mem::MaybeUninit<windows_core::BSTR>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
+        unsafe extern "system" fn DictationLoad<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topicname: core::mem::MaybeUninit<windows_core::BSTR>, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::DictationLoad(this, core::mem::transmute(&topicname), core::mem::transmute_copy(&loadoption)).into()
@@ -7273,7 +7273,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::DictationSetState(this, core::mem::transmute_copy(&state)).into()
         }
-        unsafe extern "system" fn SetWordSequenceData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::BSTR>, textlength: i32, info: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWordSequenceData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::BSTR>, textlength: i32, info: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::SetWordSequenceData(this, core::mem::transmute(&text), core::mem::transmute_copy(&textlength), windows_core::from_raw_borrowed(&info)).into()
@@ -7283,7 +7283,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             ISpeechRecoGrammar_Impl::SetTextSelection(this, windows_core::from_raw_borrowed(&info)).into()
         }
-        unsafe extern "system" fn IsPronounceable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: std::mem::MaybeUninit<windows_core::BSTR>, wordpronounceable: *mut SpeechWordPronounceable) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPronounceable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: core::mem::MaybeUninit<windows_core::BSTR>, wordpronounceable: *mut SpeechWordPronounceable) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::IsPronounceable(this, core::mem::transmute(&word)) {
@@ -7421,7 +7421,7 @@ impl ISpeechRecoResult_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultblock: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveToMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultblock: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::SaveToMemory(this) {
@@ -7464,7 +7464,7 @@ impl windows_core::RuntimeName for ISpeechRecoResult2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResult2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResult2_Impl, const OFFSET: isize>() -> ISpeechRecoResult2_Vtbl {
-        unsafe extern "system" fn SetTextFeedback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: std::mem::MaybeUninit<windows_core::BSTR>, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTextFeedback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: core::mem::MaybeUninit<windows_core::BSTR>, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoResult2_Impl::SetTextFeedback(this, core::mem::transmute(&feedback), core::mem::transmute_copy(&wassuccessful)).into()
@@ -7578,7 +7578,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultblock: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveToMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultblock: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::SaveToMemory(this) {
@@ -7594,7 +7594,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             ISpeechRecoResultDispatch_Impl::DiscardResultInfo(this, core::mem::transmute_copy(&valuetypes)).into()
         }
-        unsafe extern "system" fn GetXMLResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetXMLResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::GetXMLResult(this, core::mem::transmute_copy(&options)) {
@@ -7605,12 +7605,12 @@ impl ISpeechRecoResultDispatch_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXMLErrorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32, scriptline: *mut std::mem::MaybeUninit<windows_core::BSTR>, source: *mut std::mem::MaybeUninit<windows_core::BSTR>, description: *mut std::mem::MaybeUninit<windows_core::BSTR>, resultcode: *mut windows_core::HRESULT, iserror: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetXMLErrorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32, scriptline: *mut core::mem::MaybeUninit<windows_core::BSTR>, source: *mut core::mem::MaybeUninit<windows_core::BSTR>, description: *mut core::mem::MaybeUninit<windows_core::BSTR>, resultcode: *mut windows_core::HRESULT, iserror: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoResultDispatch_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&linenumber), core::mem::transmute_copy(&scriptline), core::mem::transmute_copy(&source), core::mem::transmute_copy(&description), core::mem::transmute_copy(&resultcode), core::mem::transmute_copy(&iserror)).into()
         }
-        unsafe extern "system" fn SetTextFeedback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: std::mem::MaybeUninit<windows_core::BSTR>, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTextFeedback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: core::mem::MaybeUninit<windows_core::BSTR>, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecoResultDispatch_Impl::SetTextFeedback(this, core::mem::transmute(&feedback), core::mem::transmute_copy(&wassuccessful)).into()
@@ -7648,7 +7648,7 @@ impl windows_core::RuntimeName for ISpeechRecoResultTimes {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResultTimes_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>() -> ISpeechRecoResultTimes_Vtbl {
-        unsafe extern "system" fn StreamTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StreamTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::StreamTime(this) {
@@ -7659,7 +7659,7 @@ impl ISpeechRecoResultTimes_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Length<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Length<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::Length(this) {
@@ -7681,7 +7681,7 @@ impl ISpeechRecoResultTimes_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OffsetFromStart<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfromstart: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OffsetFromStart<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfromstart: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::OffsetFromStart(this) {
@@ -7856,7 +7856,7 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmulateRecognition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textelements: std::mem::MaybeUninit<windows_core::VARIANT>, elementdisplayattributes: *const std::mem::MaybeUninit<windows_core::VARIANT>, languageid: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EmulateRecognition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textelements: core::mem::MaybeUninit<windows_core::VARIANT>, elementdisplayattributes: *const core::mem::MaybeUninit<windows_core::VARIANT>, languageid: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecognizer_Impl::EmulateRecognition(this, core::mem::transmute(&textelements), core::mem::transmute_copy(&elementdisplayattributes), core::mem::transmute_copy(&languageid)).into()
@@ -7883,7 +7883,7 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPropertyNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, value: i32, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPropertyNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: i32, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::SetPropertyNumber(this, core::mem::transmute(&name), core::mem::transmute_copy(&value)) {
@@ -7894,12 +7894,12 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, value: *mut i32, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut i32, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecognizer_Impl::GetPropertyNumber(this, core::mem::transmute(&name), core::mem::transmute_copy(&value), core::mem::transmute_copy(&supported)).into()
         }
-        unsafe extern "system" fn SetPropertyString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, value: std::mem::MaybeUninit<windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPropertyString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::SetPropertyString(this, core::mem::transmute(&name), core::mem::transmute(&value)) {
@@ -7910,12 +7910,12 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, value: *mut std::mem::MaybeUninit<windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecognizer_Impl::GetPropertyString(this, core::mem::transmute(&name), core::mem::transmute_copy(&value), core::mem::transmute_copy(&supported)).into()
         }
-        unsafe extern "system" fn IsUISupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: std::mem::MaybeUninit<windows_core::BSTR>, extradata: *const std::mem::MaybeUninit<windows_core::VARIANT>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUISupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: core::mem::MaybeUninit<windows_core::BSTR>, extradata: *const core::mem::MaybeUninit<windows_core::VARIANT>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::IsUISupported(this, core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)) {
@@ -7926,12 +7926,12 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: i32, title: std::mem::MaybeUninit<windows_core::BSTR>, typeofui: std::mem::MaybeUninit<windows_core::BSTR>, extradata: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: i32, title: core::mem::MaybeUninit<windows_core::BSTR>, typeofui: core::mem::MaybeUninit<windows_core::BSTR>, extradata: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechRecognizer_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)).into()
         }
-        unsafe extern "system" fn GetRecognizers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: std::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: std::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecognizers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: core::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: core::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetRecognizers(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
@@ -7942,7 +7942,7 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioInputs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: std::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: std::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAudioInputs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: core::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: core::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetAudioInputs(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
@@ -7953,7 +7953,7 @@ impl ISpeechRecognizer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProfiles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: std::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: std::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProfiles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: core::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: core::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetProfiles(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
@@ -8023,7 +8023,7 @@ impl ISpeechRecognizerStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentStreamPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcurrentstreampos: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentStreamPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcurrentstreampos: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::CurrentStreamPosition(this) {
@@ -8056,7 +8056,7 @@ impl ISpeechRecognizerStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClsidEngine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidengine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClsidEngine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidengine: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::ClsidEngine(this) {
@@ -8067,7 +8067,7 @@ impl ISpeechRecognizerStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedLanguages<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedlanguages: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SupportedLanguages<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedlanguages: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::SupportedLanguages(this) {
@@ -8103,17 +8103,17 @@ impl windows_core::RuntimeName for ISpeechResourceLoader {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechResourceLoader_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>() -> ISpeechResourceLoader_Vtbl {
-        unsafe extern "system" fn LoadResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: std::mem::MaybeUninit<windows_core::BSTR>, falwaysreload: super::super::Foundation::VARIANT_BOOL, pstream: *mut *mut core::ffi::c_void, pbstrmimetype: *mut std::mem::MaybeUninit<windows_core::BSTR>, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: core::mem::MaybeUninit<windows_core::BSTR>, falwaysreload: super::super::Foundation::VARIANT_BOOL, pstream: *mut *mut core::ffi::c_void, pbstrmimetype: *mut core::mem::MaybeUninit<windows_core::BSTR>, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechResourceLoader_Impl::LoadResource(this, core::mem::transmute(&bstrresourceuri), core::mem::transmute_copy(&falwaysreload), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&pbstrmimetype), core::mem::transmute_copy(&pfmodified), core::mem::transmute_copy(&pbstrredirecturl)).into()
         }
-        unsafe extern "system" fn GetLocalCopy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: std::mem::MaybeUninit<windows_core::BSTR>, pbstrlocalpath: *mut std::mem::MaybeUninit<windows_core::BSTR>, pbstrmimetype: *mut std::mem::MaybeUninit<windows_core::BSTR>, pbstrredirecturl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLocalCopy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: core::mem::MaybeUninit<windows_core::BSTR>, pbstrlocalpath: *mut core::mem::MaybeUninit<windows_core::BSTR>, pbstrmimetype: *mut core::mem::MaybeUninit<windows_core::BSTR>, pbstrredirecturl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechResourceLoader_Impl::GetLocalCopy(this, core::mem::transmute(&bstrresourceuri), core::mem::transmute_copy(&pbstrlocalpath), core::mem::transmute_copy(&pbstrmimetype), core::mem::transmute_copy(&pbstrredirecturl)).into()
         }
-        unsafe extern "system" fn ReleaseLocalCopy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlocalpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseLocalCopy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlocalpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechResourceLoader_Impl::ReleaseLocalCopy(this, core::mem::transmute(&pbstrlocalpath)).into()
@@ -8436,7 +8436,7 @@ impl ISpeechVoice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Speak<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::BSTR>, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Speak<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::BSTR>, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Speak(this, core::mem::transmute(&text), core::mem::transmute_copy(&flags)) {
@@ -8468,7 +8468,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             ISpeechVoice_Impl::Resume(this).into()
         }
-        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: std::mem::MaybeUninit<windows_core::BSTR>, numitems: i32, numskipped: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: core::mem::MaybeUninit<windows_core::BSTR>, numitems: i32, numskipped: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Skip(this, core::mem::transmute(&r#type), core::mem::transmute_copy(&numitems)) {
@@ -8479,7 +8479,7 @@ impl ISpeechVoice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVoices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: std::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: std::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVoices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: core::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: core::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::GetVoices(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
@@ -8490,7 +8490,7 @@ impl ISpeechVoice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioOutputs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: std::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: std::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAudioOutputs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: core::mem::MaybeUninit<windows_core::BSTR>, optionalattributes: core::mem::MaybeUninit<windows_core::BSTR>, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::GetAudioOutputs(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
@@ -8523,7 +8523,7 @@ impl ISpeechVoice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsUISupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: std::mem::MaybeUninit<windows_core::BSTR>, extradata: *const std::mem::MaybeUninit<windows_core::VARIANT>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUISupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: core::mem::MaybeUninit<windows_core::BSTR>, extradata: *const core::mem::MaybeUninit<windows_core::VARIANT>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::IsUISupported(this, core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)) {
@@ -8534,7 +8534,7 @@ impl ISpeechVoice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: i32, title: std::mem::MaybeUninit<windows_core::BSTR>, typeofui: std::mem::MaybeUninit<windows_core::BSTR>, extradata: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: i32, title: core::mem::MaybeUninit<windows_core::BSTR>, typeofui: core::mem::MaybeUninit<windows_core::BSTR>, extradata: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechVoice_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)).into()
@@ -8687,7 +8687,7 @@ impl ISpeechVoiceStatus_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastBookmark<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoiceStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bookmark: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastBookmark<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechVoiceStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bookmark: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::LastBookmark(this) {
@@ -8869,7 +8869,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             ISpeechWaveFormatEx_Impl::SetBitsPerSample(this, core::mem::transmute_copy(&bitspersample)).into()
         }
-        unsafe extern "system" fn ExtraData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extradata: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtraData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extradata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::ExtraData(this) {
@@ -8880,7 +8880,7 @@ impl ISpeechWaveFormatEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtraData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extradata: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtraData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extradata: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechWaveFormatEx_Impl::SetExtraData(this, core::mem::transmute(&extradata)).into()
@@ -8917,7 +8917,7 @@ impl windows_core::RuntimeName for ISpeechXMLRecoResult {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechXMLRecoResult_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechXMLRecoResult_Impl, const OFFSET: isize>() -> ISpeechXMLRecoResult_Vtbl {
-        unsafe extern "system" fn GetXMLResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetXMLResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISpeechXMLRecoResult_Impl::GetXMLResult(this, core::mem::transmute_copy(&options)) {
@@ -8928,7 +8928,7 @@ impl ISpeechXMLRecoResult_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXMLErrorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32, scriptline: *mut std::mem::MaybeUninit<windows_core::BSTR>, source: *mut std::mem::MaybeUninit<windows_core::BSTR>, description: *mut std::mem::MaybeUninit<windows_core::BSTR>, resultcode: *mut i32, iserror: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetXMLErrorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpeechXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32, scriptline: *mut core::mem::MaybeUninit<windows_core::BSTR>, source: *mut core::mem::MaybeUninit<windows_core::BSTR>, description: *mut core::mem::MaybeUninit<windows_core::BSTR>, resultcode: *mut i32, iserror: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISpeechXMLRecoResult_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&linenumber), core::mem::transmute_copy(&scriptline), core::mem::transmute_copy(&source), core::mem::transmute_copy(&description), core::mem::transmute_copy(&resultcode), core::mem::transmute_copy(&iserror)).into()

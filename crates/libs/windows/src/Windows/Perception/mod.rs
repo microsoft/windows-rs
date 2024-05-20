@@ -49,21 +49,21 @@ impl PerceptionTimestamp {
     pub fn TargetTime(&self) -> windows_core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PredictionAmount(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SystemRelativeTargetTime(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -84,13 +84,13 @@ pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromHistoricalTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromSystemRelativeTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

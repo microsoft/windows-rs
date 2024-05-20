@@ -1,4 +1,7 @@
 use super::*;
+use core::ffi::c_void;
+use core::mem::{transmute, transmute_copy};
+use core::ptr::null_mut;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// [`IInspectable`] represents the
@@ -14,9 +17,9 @@ impl IInspectable {
     /// Returns the canonical type name for the underlying object.
     pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
-            let mut abi = std::ptr::null_mut();
-            (self.vtable().GetRuntimeClassName)(std::mem::transmute_copy(self), &mut abi).ok()?;
-            Ok(std::mem::transmute::<*mut std::ffi::c_void, HSTRING>(abi))
+            let mut abi = null_mut();
+            (self.vtable().GetRuntimeClassName)(transmute_copy(self), &mut abi).ok()?;
+            Ok(transmute::<*mut c_void, HSTRING>(abi))
         }
     }
 
@@ -24,7 +27,7 @@ impl IInspectable {
     pub fn GetTrustLevel(&self) -> Result<i32> {
         unsafe {
             let mut value = 0;
-            (self.vtable().GetTrustLevel)(std::mem::transmute_copy(self), &mut value).ok()?;
+            (self.vtable().GetTrustLevel)(transmute_copy(self), &mut value).ok()?;
             Ok(value)
         }
     }
@@ -34,9 +37,9 @@ impl IInspectable {
 #[repr(C)]
 pub struct IInspectable_Vtbl {
     pub base: IUnknown_Vtbl,
-    pub GetIids: unsafe extern "system" fn(this: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT,
-    pub GetTrustLevel: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
+    pub GetIids: unsafe extern "system" fn(this: *mut c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut c_void, value: *mut *mut c_void) -> HRESULT,
+    pub GetTrustLevel: unsafe extern "system" fn(this: *mut c_void, value: *mut i32) -> HRESULT,
 }
 
 unsafe impl Interface for IInspectable {
@@ -52,21 +55,21 @@ impl RuntimeName for IInspectable {}
 
 impl IInspectable_Vtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIids(_: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT {
+        unsafe extern "system" fn GetIids(_: *mut c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT {
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
             // since the data to be returned is type- not instance-specific so can be shared for all
             // interfaces.
             *count = 0;
-            *values = std::ptr::null_mut();
+            *values = null_mut();
             HRESULT(0)
         }
-        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT {
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: *mut c_void, value: *mut *mut c_void) -> HRESULT {
             let h: HSTRING = T::NAME.into(); // TODO: should be try_into
-            *value = std::mem::transmute::<HSTRING, *mut std::ffi::c_void>(h);
+            *value = transmute::<HSTRING, *mut c_void>(h);
             HRESULT(0)
         }
-        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT {
-            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
+        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void, value: *mut i32) -> HRESULT {
+            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).GetTrustLevel(value)
         }
         Self {
@@ -78,8 +81,8 @@ impl IInspectable_Vtbl {
     }
 }
 
-impl std::fmt::Debug for IInspectable {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IInspectable {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         // Attempts to retrieve the string representation of the object via the
         // IStringable interface. If that fails, it will use the canonical type
         // name to give some idea of what the object represents.

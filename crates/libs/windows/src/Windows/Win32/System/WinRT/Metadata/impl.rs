@@ -416,12 +416,12 @@ impl windows_core::RuntimeName for IMetaDataDispenserEx {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMetaDataDispenserEx_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>() -> IMetaDataDispenserEx_Vtbl {
-        unsafe extern "system" fn SetOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: *const windows_core::GUID, value: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: *const windows_core::GUID, value: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMetaDataDispenserEx_Impl::SetOption(this, core::mem::transmute_copy(&optionid), core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: *const windows_core::GUID, pvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: *const windows_core::GUID, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMetaDataDispenserEx_Impl::GetOption(this, core::mem::transmute_copy(&optionid), core::mem::transmute_copy(&pvalue)).into()
@@ -1773,8 +1773,8 @@ impl<T: IRoMetaDataLocator_Impl> IRoMetaDataLocator_ImplVtbl<T> {
 impl IRoMetaDataLocator {
     pub fn new<'a, T: IRoMetaDataLocator_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IRoMetaDataLocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = std::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
 pub trait IRoSimpleMetaDataBuilder_Impl: Sized {
@@ -1863,7 +1863,7 @@ impl<T: IRoSimpleMetaDataBuilder_Impl> IRoSimpleMetaDataBuilder_ImplVtbl<T> {
 impl IRoSimpleMetaDataBuilder {
     pub fn new<'a, T: IRoSimpleMetaDataBuilder_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IRoSimpleMetaDataBuilder_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = std::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }

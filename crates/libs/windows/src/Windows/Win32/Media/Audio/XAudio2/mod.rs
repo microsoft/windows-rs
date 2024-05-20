@@ -1,13 +1,13 @@
 #[inline]
 pub unsafe fn CreateAudioReverb() -> windows_core::Result<windows_core::IUnknown> {
     windows_targets::link!("xaudio2_8.dll" "system" fn CreateAudioReverb(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateAudioReverb(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateAudioVolumeMeter() -> windows_core::Result<windows_core::IUnknown> {
     windows_targets::link!("xaudio2_8.dll" "system" fn CreateAudioVolumeMeter(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateAudioVolumeMeter(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -18,7 +18,7 @@ pub unsafe fn CreateFX(clsid: *const windows_core::GUID, peffect: *mut Option<wi
 #[inline]
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> windows_core::Result<IXAPO> {
     windows_targets::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *const HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CreateHrtfApo(init, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
@@ -27,16 +27,16 @@ pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, fla
     XAudio2CreateWithVersionInfo(core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
 windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
-impl std::ops::Deref for IXAPO {
+impl core::ops::Deref for IXAPO {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAPO, windows_core::IUnknown);
 impl IXAPO {
     pub unsafe fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRegistrationProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: Option<*mut *mut super::WAVEFORMATEX>) -> windows_core::Result<()> {
@@ -85,10 +85,10 @@ pub struct IXAPO_Vtbl {
     pub CalcOutputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
 windows_core::imp::define_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
-impl std::ops::Deref for IXAPOHrtfParameters {
+impl core::ops::Deref for IXAPOHrtfParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, windows_core::IUnknown);
@@ -115,10 +115,10 @@ pub struct IXAPOHrtfParameters_Vtbl {
     pub SetEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, HrtfEnvironment) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXAPOParameters, IXAPOParameters_Vtbl, 0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
-impl std::ops::Deref for IXAPOParameters {
+impl core::ops::Deref for IXAPOParameters {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAPOParameters, windows_core::IUnknown);
@@ -137,10 +137,10 @@ pub struct IXAPOParameters_Vtbl {
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32),
 }
 windows_core::imp::define_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
-impl std::ops::Deref for IXAudio2 {
+impl core::ops::Deref for IXAudio2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAudio2, windows_core::IUnknown);
@@ -221,10 +221,10 @@ pub struct IXAudio2EngineCallback_Vtbl {
     pub OnCriticalError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT),
 }
 windows_core::imp::define_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
-impl std::ops::Deref for IXAudio2Extension {
+impl core::ops::Deref for IXAudio2Extension {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAudio2Extension, windows_core::IUnknown);
@@ -243,16 +243,16 @@ pub struct IXAudio2Extension_Vtbl {
     pub GetProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32),
 }
 windows_core::imp::define_interface!(IXAudio2MasteringVoice, IXAudio2MasteringVoice_Vtbl);
-impl std::ops::Deref for IXAudio2MasteringVoice {
+impl core::ops::Deref for IXAudio2MasteringVoice {
     type Target = IXAudio2Voice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl IXAudio2MasteringVoice {
     pub unsafe fn GetChannelMask(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -262,10 +262,10 @@ pub struct IXAudio2MasteringVoice_Vtbl {
     pub GetChannelMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXAudio2SourceVoice, IXAudio2SourceVoice_Vtbl);
-impl std::ops::Deref for IXAudio2SourceVoice {
+impl core::ops::Deref for IXAudio2SourceVoice {
     type Target = IXAudio2Voice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
@@ -295,7 +295,7 @@ impl IXAudio2SourceVoice {
         (windows_core::Interface::vtable(self).SetFrequencyRatio)(windows_core::Interface::as_raw(self), ratio, operationset).ok()
     }
     pub unsafe fn GetFrequencyRatio(&self) -> f32 {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFrequencyRatio)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -318,10 +318,10 @@ pub struct IXAudio2SourceVoice_Vtbl {
     pub SetSourceSampleRate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXAudio2SubmixVoice, IXAudio2SubmixVoice_Vtbl);
-impl std::ops::Deref for IXAudio2SubmixVoice {
+impl core::ops::Deref for IXAudio2SubmixVoice {
     type Target = IXAudio2Voice;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
@@ -333,7 +333,7 @@ pub struct IXAudio2SubmixVoice_Vtbl {
 windows_core::imp::define_interface!(IXAudio2Voice, IXAudio2Voice_Vtbl);
 impl IXAudio2Voice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVoiceDetails)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -350,7 +350,7 @@ impl IXAudio2Voice {
         (windows_core::Interface::vtable(self).DisableEffect)(windows_core::Interface::as_raw(self), effectindex, operationset).ok()
     }
     pub unsafe fn GetEffectState(&self, effectindex: u32) -> super::super::super::Foundation::BOOL {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEffectState)(windows_core::Interface::as_raw(self), effectindex, &mut result__);
         result__
     }
@@ -364,7 +364,7 @@ impl IXAudio2Voice {
         (windows_core::Interface::vtable(self).SetFilterParameters)(windows_core::Interface::as_raw(self), pparameters, operationset).ok()
     }
     pub unsafe fn GetFilterParameters(&self) -> XAUDIO2_FILTER_PARAMETERS {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilterParameters)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -378,7 +378,7 @@ impl IXAudio2Voice {
     where
         P0: windows_core::Param<IXAudio2Voice>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputFilterParameters)(windows_core::Interface::as_raw(self), pdestinationvoice.param().abi(), &mut result__);
         result__
     }
@@ -386,7 +386,7 @@ impl IXAudio2Voice {
         (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), volume, operationset).ok()
     }
     pub unsafe fn GetVolume(&self) -> f32 {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -406,7 +406,7 @@ impl IXAudio2Voice {
     where
         P0: windows_core::Param<IXAudio2Voice>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputMatrix)(windows_core::Interface::as_raw(self), pdestinationvoice.param().abi(), sourcechannels, destinationchannels, &mut result__);
         result__
     }
@@ -1150,7 +1150,7 @@ impl Default for XAUDIO2_EFFECT_CHAIN {
 }
 #[repr(C, packed(1))]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
-    pub pEffect: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pEffect: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub InitialState: super::super::super::Foundation::BOOL,
     pub OutputChannels: u32,
 }
@@ -1206,7 +1206,7 @@ impl Default for XAUDIO2_PERFORMANCE_DATA {
 #[repr(C, packed(1))]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
-    pub pOutputVoice: std::mem::ManuallyDrop<Option<IXAudio2Voice>>,
+    pub pOutputVoice: core::mem::ManuallyDrop<Option<IXAudio2Voice>>,
 }
 impl windows_core::TypeKind for XAUDIO2_SEND_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;

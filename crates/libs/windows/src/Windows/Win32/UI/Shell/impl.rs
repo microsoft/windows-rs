@@ -38,7 +38,7 @@ impl windows_core::RuntimeName for DFConstraint {}
 #[cfg(feature = "Win32_System_Com")]
 impl DFConstraint_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>() -> DFConstraint_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match DFConstraint_Impl::Name(this) {
@@ -49,7 +49,7 @@ impl DFConstraint_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match DFConstraint_Impl::Value(this) {
@@ -153,7 +153,7 @@ impl windows_core::RuntimeName for Folder {}
 #[cfg(feature = "Win32_System_Com")]
 impl Folder_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>() -> Folder_Vtbl {
-        unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Folder_Impl::Title(this) {
@@ -208,7 +208,7 @@ impl Folder_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bname: std::mem::MaybeUninit<windows_core::BSTR>, ppid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bname: core::mem::MaybeUninit<windows_core::BSTR>, ppid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Folder_Impl::ParseName(this, core::mem::transmute(&bname)) {
@@ -219,22 +219,22 @@ impl Folder_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bname: std::mem::MaybeUninit<windows_core::BSTR>, voptions: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NewFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bname: core::mem::MaybeUninit<windows_core::BSTR>, voptions: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Folder_Impl::NewFolder(this, core::mem::transmute(&bname), core::mem::transmute(&voptions)).into()
         }
-        unsafe extern "system" fn MoveHere<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: std::mem::MaybeUninit<windows_core::VARIANT>, voptions: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveHere<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: core::mem::MaybeUninit<windows_core::VARIANT>, voptions: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Folder_Impl::MoveHere(this, core::mem::transmute(&vitem), core::mem::transmute(&voptions)).into()
         }
-        unsafe extern "system" fn CopyHere<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: std::mem::MaybeUninit<windows_core::VARIANT>, voptions: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyHere<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: core::mem::MaybeUninit<windows_core::VARIANT>, voptions: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             Folder_Impl::CopyHere(this, core::mem::transmute(&vitem), core::mem::transmute(&voptions)).into()
         }
-        unsafe extern "system" fn GetDetailsOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: std::mem::MaybeUninit<windows_core::VARIANT>, icolumn: i32, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDetailsOf<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: core::mem::MaybeUninit<windows_core::VARIANT>, icolumn: i32, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match Folder_Impl::GetDetailsOf(this, core::mem::transmute(&vitem), core::mem::transmute_copy(&icolumn)) {
@@ -415,7 +415,7 @@ impl FolderItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItem_Impl::Name(this) {
@@ -426,12 +426,12 @@ impl FolderItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             FolderItem_Impl::SetName(this, core::mem::transmute(&bs)).into()
         }
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItem_Impl::Path(this) {
@@ -535,7 +535,7 @@ impl FolderItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItem_Impl::Type(this) {
@@ -557,7 +557,7 @@ impl FolderItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvokeVerb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeVerb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             FolderItem_Impl::InvokeVerb(this, core::mem::transmute(&vverb)).into()
@@ -597,12 +597,12 @@ impl windows_core::RuntimeName for FolderItem2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItem2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>() -> FolderItem2_Vtbl {
-        unsafe extern "system" fn InvokeVerbEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: std::mem::MaybeUninit<windows_core::VARIANT>, vargs: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeVerbEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: core::mem::MaybeUninit<windows_core::VARIANT>, vargs: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             FolderItem2_Impl::InvokeVerbEx(this, core::mem::transmute(&vverb), core::mem::transmute(&vargs)).into()
         }
-        unsafe extern "system" fn ExtendedProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: std::mem::MaybeUninit<windows_core::BSTR>, pvret: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExtendedProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: core::mem::MaybeUninit<windows_core::BSTR>, pvret: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItem2_Impl::ExtendedProperty(this, core::mem::transmute(&bstrpropname)) {
@@ -657,7 +657,7 @@ impl FolderItemVerb_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItemVerb_Impl::Name(this) {
@@ -731,7 +731,7 @@ impl FolderItemVerbs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerbs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: std::mem::MaybeUninit<windows_core::VARIANT>, ppid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerbs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: core::mem::MaybeUninit<windows_core::VARIANT>, ppid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItemVerbs_Impl::Item(this, core::mem::transmute(&index)) {
@@ -812,7 +812,7 @@ impl FolderItems_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: std::mem::MaybeUninit<windows_core::VARIANT>, ppid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: core::mem::MaybeUninit<windows_core::VARIANT>, ppid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match FolderItems_Impl::Item(this, core::mem::transmute(&index)) {
@@ -856,7 +856,7 @@ impl windows_core::RuntimeName for FolderItems2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItems2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems2_Impl, const OFFSET: isize>() -> FolderItems2_Vtbl {
-        unsafe extern "system" fn InvokeVerbEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: std::mem::MaybeUninit<windows_core::VARIANT>, vargs: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeVerbEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: core::mem::MaybeUninit<windows_core::VARIANT>, vargs: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             FolderItems2_Impl::InvokeVerbEx(this, core::mem::transmute(&vverb), core::mem::transmute(&vargs)).into()
@@ -877,7 +877,7 @@ impl windows_core::RuntimeName for FolderItems3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItems3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems3_Impl, const OFFSET: isize>() -> FolderItems3_Vtbl {
-        unsafe extern "system" fn Filter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: i32, bstrfilespec: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Filter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: i32, bstrfilespec: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             FolderItems3_Impl::Filter(this, core::mem::transmute_copy(&grfflags), core::mem::transmute(&bstrfilespec)).into()
@@ -2425,7 +2425,7 @@ impl IBrowserService_Vtbl {
             let this = (*this).get_impl();
             IBrowserService_Impl::CacheOLEServer(this, windows_core::from_raw_borrowed(&pole)).into()
         }
-        unsafe extern "system" fn GetSetCodePage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarin: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarout: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSetCodePage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarin: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarout: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBrowserService_Impl::GetSetCodePage(this, core::mem::transmute_copy(&pvarin)) {
@@ -2436,7 +2436,7 @@ impl IBrowserService_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnHttpEquiv<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, fdone: super::super::Foundation::BOOL, pvarargin: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarargout: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnHttpEquiv<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, fdone: super::super::Foundation::BOOL, pvarargin: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarargout: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IBrowserService_Impl::OnHttpEquiv(this, windows_core::from_raw_borrowed(&psv), core::mem::transmute_copy(&fdone), core::mem::transmute_copy(&pvarargin)) {
@@ -2765,7 +2765,7 @@ impl IBrowserService2_Vtbl {
             let this = (*this).get_impl();
             IBrowserService2_Impl::_SwitchActivationNow(this).into()
         }
-        unsafe extern "system" fn _ExecChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkbar: *mut core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarargout: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn _ExecChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkbar: *mut core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarargout: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IBrowserService2_Impl::_ExecChildren(this, windows_core::from_raw_borrowed(&punkbar), core::mem::transmute_copy(&fbroadcast), core::mem::transmute_copy(&pguidcmdgroup), core::mem::transmute_copy(&ncmdid), core::mem::transmute_copy(&ncmdexecopt), core::mem::transmute_copy(&pvarargin), core::mem::transmute_copy(&pvarargout)).into()
@@ -3303,7 +3303,7 @@ impl IColumnProvider_Vtbl {
             let this = (*this).get_impl();
             IColumnProvider_Impl::GetColumnInfo(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&psci)).into()
         }
-        unsafe extern "system" fn GetItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IColumnProvider_Impl::GetItemData(this, core::mem::transmute_copy(&pscid), core::mem::transmute_copy(&pscd)) {
@@ -4275,7 +4275,7 @@ impl ICredentialProviderUser_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, value: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, value: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ICredentialProviderUser_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
@@ -5163,7 +5163,7 @@ pub trait IDocViewSite_Impl: Sized {
 impl windows_core::RuntimeName for IDocViewSite {}
 impl IDocViewSite_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDocViewSite_Impl, const OFFSET: isize>() -> IDocViewSite_Vtbl {
-        unsafe extern "system" fn OnSetTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDocViewSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtitle: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnSetTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDocViewSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtitle: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDocViewSite_Impl::OnSetTitle(this, core::mem::transmute_copy(&pvtitle)).into()
@@ -6256,7 +6256,7 @@ impl IExpDispSupport_Vtbl {
             let this = (*this).get_impl();
             IExpDispSupport_Impl::OnTranslateAccelerator(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&grfmodifiers)).into()
         }
-        unsafe extern "system" fn OnInvoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: i32, iid: *const windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnInvoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: i32, iid: *const windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IExpDispSupport_Impl::OnInvoke(this, core::mem::transmute_copy(&dispidmember), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr)).into()
@@ -6299,7 +6299,7 @@ impl IExpDispSupportXP_Vtbl {
             let this = (*this).get_impl();
             IExpDispSupportXP_Impl::OnTranslateAccelerator(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&grfmodifiers)).into()
         }
-        unsafe extern "system" fn OnInvoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupportXP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: i32, iid: *const windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnInvoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupportXP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: i32, iid: *const windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IExpDispSupportXP_Impl::OnInvoke(this, core::mem::transmute_copy(&dispidmember), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr)).into()
@@ -7926,12 +7926,12 @@ impl IFileSearchBand_Vtbl {
             let this = (*this).get_impl();
             IFileSearchBand_Impl::SetFocus(this).into()
         }
-        unsafe extern "system" fn SetSearchParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchid: *const std::mem::MaybeUninit<windows_core::BSTR>, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarqueryfile: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSearchParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchid: *const core::mem::MaybeUninit<windows_core::BSTR>, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarqueryfile: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFileSearchBand_Impl::SetSearchParameters(this, core::mem::transmute_copy(&pbstrsearchid), core::mem::transmute_copy(&bnavtoresults), core::mem::transmute_copy(&pvarscope), core::mem::transmute_copy(&pvarqueryfile)).into()
         }
-        unsafe extern "system" fn SearchID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileSearchBand_Impl::SearchID(this) {
@@ -7942,7 +7942,7 @@ impl IFileSearchBand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarscope: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarscope: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileSearchBand_Impl::Scope(this) {
@@ -7953,7 +7953,7 @@ impl IFileSearchBand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarfile: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarfile: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFileSearchBand_Impl::QueryFile(this) {
@@ -8386,12 +8386,12 @@ impl IFolderView2_Vtbl {
             let this = (*this).get_impl();
             IFolderView2_Impl::GetGroupBy(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&pfascending)).into()
         }
-        unsafe extern "system" fn SetViewProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetViewProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IFolderView2_Impl::SetViewProperty(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&propvar)).into()
         }
-        unsafe extern "system" fn GetViewProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetViewProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IFolderView2_Impl::GetViewProperty(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&propkey)) {
@@ -10374,7 +10374,7 @@ pub trait INameSpaceTreeAccessible_Impl: Sized {
 impl windows_core::RuntimeName for INameSpaceTreeAccessible {}
 impl INameSpaceTreeAccessible_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>() -> INameSpaceTreeAccessible_Vtbl {
-        unsafe extern "system" fn OnGetDefaultAccessibilityAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pbstrdefaultaction: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnGetDefaultAccessibilityAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pbstrdefaultaction: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INameSpaceTreeAccessible_Impl::OnGetDefaultAccessibilityAction(this, windows_core::from_raw_borrowed(&psi)) {
@@ -10390,7 +10390,7 @@ impl INameSpaceTreeAccessible_Vtbl {
             let this = (*this).get_impl();
             INameSpaceTreeAccessible_Impl::OnDoDefaultAccessibilityAction(this, windows_core::from_raw_borrowed(&psi)).into()
         }
-        unsafe extern "system" fn OnGetAccessibilityRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pvarrole: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnGetAccessibilityRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pvarrole: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INameSpaceTreeAccessible_Impl::OnGetAccessibilityRole(this, windows_core::from_raw_borrowed(&psi)) {
@@ -10934,12 +10934,12 @@ pub trait INamedPropertyBag_Impl: Sized {
 impl windows_core::RuntimeName for INamedPropertyBag {}
 impl INamedPropertyBag_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>() -> INamedPropertyBag_Vtbl {
-        unsafe extern "system" fn ReadPropertyNPB<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadPropertyNPB<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             INamedPropertyBag_Impl::ReadPropertyNPB(this, core::mem::transmute(&pszbagname), core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar)).into()
         }
-        unsafe extern "system" fn WritePropertyNPB<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePropertyNPB<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             INamedPropertyBag_Impl::WritePropertyNPB(this, core::mem::transmute(&pszbagname), core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar)).into()
@@ -11258,7 +11258,7 @@ impl windows_core::RuntimeName for INewWDEvents {}
 #[cfg(feature = "Win32_System_Com")]
 impl INewWDEvents_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>() -> INewWDEvents_Vtbl {
-        unsafe extern "system" fn PassportAuthenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsigninurl: std::mem::MaybeUninit<windows_core::BSTR>, pvfauthenitcated: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PassportAuthenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsigninurl: core::mem::MaybeUninit<windows_core::BSTR>, pvfauthenitcated: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INewWDEvents_Impl::PassportAuthenticate(this, core::mem::transmute(&bstrsigninurl)) {
@@ -12930,7 +12930,7 @@ impl IScriptErrorList_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getErrorMsg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScriptErrorList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstr: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getErrorMsg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScriptErrorList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IScriptErrorList_Impl::getErrorMsg(this) {
@@ -12941,7 +12941,7 @@ impl IScriptErrorList_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getErrorUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScriptErrorList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstr: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getErrorUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScriptErrorList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IScriptErrorList_Impl::getErrorUrl(this) {
@@ -13058,7 +13058,7 @@ pub trait ISearchContext_Impl: Sized {
 impl windows_core::RuntimeName for ISearchContext {}
 impl ISearchContext_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchContext_Impl, const OFFSET: isize>() -> ISearchContext_Vtbl {
-        unsafe extern "system" fn GetSearchUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSearchUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISearchContext_Impl::GetSearchUrl(this) {
@@ -13069,7 +13069,7 @@ impl ISearchContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSearchText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchtext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSearchText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchtext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISearchContext_Impl::GetSearchText(this) {
@@ -13633,7 +13633,7 @@ impl IShellDispatch_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NameSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: std::mem::MaybeUninit<windows_core::VARIANT>, ppsdf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn NameSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: core::mem::MaybeUninit<windows_core::VARIANT>, ppsdf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch_Impl::NameSpace(this, core::mem::transmute(&vdir)) {
@@ -13644,7 +13644,7 @@ impl IShellDispatch_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrowseForFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, title: std::mem::MaybeUninit<windows_core::BSTR>, options: i32, rootfolder: std::mem::MaybeUninit<windows_core::VARIANT>, ppsdf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BrowseForFolder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, title: core::mem::MaybeUninit<windows_core::BSTR>, options: i32, rootfolder: core::mem::MaybeUninit<windows_core::VARIANT>, ppsdf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch_Impl::BrowseForFolder(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&title), core::mem::transmute_copy(&options), core::mem::transmute(&rootfolder)) {
@@ -13666,12 +13666,12 @@ impl IShellDispatch_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellDispatch_Impl::Open(this, core::mem::transmute(&vdir)).into()
         }
-        unsafe extern "system" fn Explore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Explore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellDispatch_Impl::Explore(this, core::mem::transmute(&vdir)).into()
@@ -13751,7 +13751,7 @@ impl IShellDispatch_Vtbl {
             let this = (*this).get_impl();
             IShellDispatch_Impl::RefreshMenu(this).into()
         }
-        unsafe extern "system" fn ControlPanelItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdir: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlPanelItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdir: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellDispatch_Impl::ControlPanelItem(this, core::mem::transmute(&bstrdir)).into()
@@ -13804,7 +13804,7 @@ impl windows_core::RuntimeName for IShellDispatch2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>() -> IShellDispatch2_Vtbl {
-        unsafe extern "system" fn IsRestricted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: std::mem::MaybeUninit<windows_core::BSTR>, restriction: std::mem::MaybeUninit<windows_core::BSTR>, plrestrictvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRestricted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: core::mem::MaybeUninit<windows_core::BSTR>, restriction: core::mem::MaybeUninit<windows_core::BSTR>, plrestrictvalue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::IsRestricted(this, core::mem::transmute(&group), core::mem::transmute(&restriction)) {
@@ -13815,17 +13815,17 @@ impl IShellDispatch2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShellExecute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: std::mem::MaybeUninit<windows_core::BSTR>, vargs: std::mem::MaybeUninit<windows_core::VARIANT>, vdir: std::mem::MaybeUninit<windows_core::VARIANT>, voperation: std::mem::MaybeUninit<windows_core::VARIANT>, vshow: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShellExecute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: core::mem::MaybeUninit<windows_core::BSTR>, vargs: core::mem::MaybeUninit<windows_core::VARIANT>, vdir: core::mem::MaybeUninit<windows_core::VARIANT>, voperation: core::mem::MaybeUninit<windows_core::VARIANT>, vshow: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellDispatch2_Impl::ShellExecute(this, core::mem::transmute(&file), core::mem::transmute(&vargs), core::mem::transmute(&vdir), core::mem::transmute(&voperation), core::mem::transmute(&vshow)).into()
         }
-        unsafe extern "system" fn FindPrinter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, location: std::mem::MaybeUninit<windows_core::BSTR>, model: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindPrinter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, location: core::mem::MaybeUninit<windows_core::BSTR>, model: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellDispatch2_Impl::FindPrinter(this, core::mem::transmute(&name), core::mem::transmute(&location), core::mem::transmute(&model)).into()
         }
-        unsafe extern "system" fn GetSystemInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, pv: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSystemInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, pv: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::GetSystemInformation(this, core::mem::transmute(&name)) {
@@ -13836,7 +13836,7 @@ impl IShellDispatch2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceStart<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>, persistent: std::mem::MaybeUninit<windows_core::VARIANT>, psuccess: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceStart<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: core::mem::MaybeUninit<windows_core::BSTR>, persistent: core::mem::MaybeUninit<windows_core::VARIANT>, psuccess: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::ServiceStart(this, core::mem::transmute(&servicename), core::mem::transmute(&persistent)) {
@@ -13847,7 +13847,7 @@ impl IShellDispatch2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceStop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>, persistent: std::mem::MaybeUninit<windows_core::VARIANT>, psuccess: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceStop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: core::mem::MaybeUninit<windows_core::BSTR>, persistent: core::mem::MaybeUninit<windows_core::VARIANT>, psuccess: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::ServiceStop(this, core::mem::transmute(&servicename), core::mem::transmute(&persistent)) {
@@ -13858,7 +13858,7 @@ impl IShellDispatch2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsServiceRunning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>, prunning: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsServiceRunning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: core::mem::MaybeUninit<windows_core::BSTR>, prunning: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::IsServiceRunning(this, core::mem::transmute(&servicename)) {
@@ -13869,7 +13869,7 @@ impl IShellDispatch2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanStartStopService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>, pcanstartstop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanStartStopService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: core::mem::MaybeUninit<windows_core::BSTR>, pcanstartstop: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::CanStartStopService(this, core::mem::transmute(&servicename)) {
@@ -13880,7 +13880,7 @@ impl IShellDispatch2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowBrowserBar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclsid: std::mem::MaybeUninit<windows_core::BSTR>, bshow: std::mem::MaybeUninit<windows_core::VARIANT>, psuccess: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowBrowserBar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclsid: core::mem::MaybeUninit<windows_core::BSTR>, bshow: core::mem::MaybeUninit<windows_core::VARIANT>, psuccess: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch2_Impl::ShowBrowserBar(this, core::mem::transmute(&bstrclsid), core::mem::transmute(&bshow)) {
@@ -13917,7 +13917,7 @@ impl windows_core::RuntimeName for IShellDispatch3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch3_Impl, const OFFSET: isize>() -> IShellDispatch3_Vtbl {
-        unsafe extern "system" fn AddToRecent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varfile: std::mem::MaybeUninit<windows_core::VARIANT>, bstrcategory: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddToRecent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varfile: core::mem::MaybeUninit<windows_core::VARIANT>, bstrcategory: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellDispatch3_Impl::AddToRecent(this, core::mem::transmute(&varfile), core::mem::transmute(&bstrcategory)).into()
@@ -13950,7 +13950,7 @@ impl IShellDispatch4_Vtbl {
             let this = (*this).get_impl();
             IShellDispatch4_Impl::ToggleDesktop(this).into()
         }
-        unsafe extern "system" fn ExplorerPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpolicyname: std::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExplorerPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpolicyname: core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellDispatch4_Impl::ExplorerPolicy(this, core::mem::transmute(&bstrpolicyname)) {
@@ -14100,7 +14100,7 @@ impl IShellFavoritesNameSpace_Vtbl {
             let this = (*this).get_impl();
             IShellFavoritesNameSpace_Impl::Export(this).into()
         }
-        unsafe extern "system" fn InvokeContextMenuCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcommand: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeContextMenuCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcommand: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellFavoritesNameSpace_Impl::InvokeContextMenuCommand(this, core::mem::transmute(&strcommand)).into()
@@ -14143,7 +14143,7 @@ impl IShellFavoritesNameSpace_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfullpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfullpath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellFavoritesNameSpace_Impl::SetRoot(this, core::mem::transmute(&bstrfullpath)).into()
@@ -14308,7 +14308,7 @@ impl IShellFolder2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDetailsEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY, pv: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDetailsEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY, pv: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellFolder2_Impl::GetDetailsEx(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&pscid)) {
@@ -14748,12 +14748,12 @@ impl IShellFolderViewDual_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvfi: *const std::mem::MaybeUninit<windows_core::VARIANT>, dwflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SelectItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvfi: *const core::mem::MaybeUninit<windows_core::VARIANT>, dwflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellFolderViewDual_Impl::SelectItem(this, core::mem::transmute_copy(&pvfi), core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn PopupItemMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfi: *mut core::ffi::c_void, vx: std::mem::MaybeUninit<windows_core::VARIANT>, vy: std::mem::MaybeUninit<windows_core::VARIANT>, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PopupItemMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfi: *mut core::ffi::c_void, vx: core::mem::MaybeUninit<windows_core::VARIANT>, vy: core::mem::MaybeUninit<windows_core::VARIANT>, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellFolderViewDual_Impl::PopupItemMenu(this, windows_core::from_raw_borrowed(&pfi), core::mem::transmute(&vx), core::mem::transmute(&vy)) {
@@ -14863,7 +14863,7 @@ impl windows_core::RuntimeName for IShellFolderViewDual3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellFolderViewDual3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>() -> IShellFolderViewDual3_Vtbl {
-        unsafe extern "system" fn GroupBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgroupby: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GroupBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgroupby: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellFolderViewDual3_Impl::GroupBy(this) {
@@ -14874,7 +14874,7 @@ impl IShellFolderViewDual3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroupBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupby: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGroupBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupby: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellFolderViewDual3_Impl::SetGroupBy(this, core::mem::transmute(&bstrgroupby)).into()
@@ -14895,7 +14895,7 @@ impl IShellFolderViewDual3_Vtbl {
             let this = (*this).get_impl();
             IShellFolderViewDual3_Impl::SetFolderFlags(this, core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn SortColumns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsortcolumns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SortColumns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsortcolumns: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellFolderViewDual3_Impl::SortColumns(this) {
@@ -14906,7 +14906,7 @@ impl IShellFolderViewDual3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSortColumns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsortcolumns: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSortColumns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsortcolumns: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellFolderViewDual3_Impl::SetSortColumns(this, core::mem::transmute(&bstrsortcolumns)).into()
@@ -14927,7 +14927,7 @@ impl IShellFolderViewDual3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FilterView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfiltertext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FilterView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfiltertext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellFolderViewDual3_Impl::FilterView(this, core::mem::transmute(&bstrfiltertext)).into()
@@ -15537,7 +15537,7 @@ impl IShellItem2_Vtbl {
             let this = (*this).get_impl();
             IShellItem2_Impl::Update(this, windows_core::from_raw_borrowed(&pbc)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellItem2_Impl::GetProperty(this, core::mem::transmute_copy(&key)) {
@@ -16301,7 +16301,7 @@ impl windows_core::RuntimeName for IShellLinkDual {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellLinkDual_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>() -> IShellLinkDual_Vtbl {
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellLinkDual_Impl::Path(this) {
@@ -16312,12 +16312,12 @@ impl IShellLinkDual_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellLinkDual_Impl::SetPath(this, core::mem::transmute(&bs)).into()
         }
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellLinkDual_Impl::Description(this) {
@@ -16328,12 +16328,12 @@ impl IShellLinkDual_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellLinkDual_Impl::SetDescription(this, core::mem::transmute(&bs)).into()
         }
-        unsafe extern "system" fn WorkingDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn WorkingDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellLinkDual_Impl::WorkingDirectory(this) {
@@ -16344,12 +16344,12 @@ impl IShellLinkDual_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWorkingDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWorkingDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellLinkDual_Impl::SetWorkingDirectory(this, core::mem::transmute(&bs)).into()
         }
-        unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellLinkDual_Impl::Arguments(this) {
@@ -16360,7 +16360,7 @@ impl IShellLinkDual_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetArguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellLinkDual_Impl::SetArguments(this, core::mem::transmute(&bs)).into()
@@ -16402,7 +16402,7 @@ impl IShellLinkDual_Vtbl {
             let this = (*this).get_impl();
             IShellLinkDual_Impl::Resolve(this, core::mem::transmute_copy(&fflags)).into()
         }
-        unsafe extern "system" fn GetIconLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut std::mem::MaybeUninit<windows_core::BSTR>, piicon: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIconLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut core::mem::MaybeUninit<windows_core::BSTR>, piicon: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellLinkDual_Impl::GetIconLocation(this, core::mem::transmute_copy(&pbs)) {
@@ -16413,12 +16413,12 @@ impl IShellLinkDual_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIconLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: std::mem::MaybeUninit<windows_core::BSTR>, iicon: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIconLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: core::mem::MaybeUninit<windows_core::BSTR>, iicon: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellLinkDual_Impl::SetIconLocation(this, core::mem::transmute(&bs), core::mem::transmute_copy(&iicon)).into()
         }
-        unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vwhere: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vwhere: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellLinkDual_Impl::Save(this, core::mem::transmute(&vwhere)).into()
@@ -16793,7 +16793,7 @@ impl IShellNameSpace_Vtbl {
             let this = (*this).get_impl();
             IShellNameSpace_Impl::SetSelectedItem(this, windows_core::from_raw_borrowed(&pitem)).into()
         }
-        unsafe extern "system" fn Root<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Root<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellNameSpace_Impl::Root(this) {
@@ -16804,7 +16804,7 @@ impl IShellNameSpace_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellNameSpace_Impl::SetRoot(this, core::mem::transmute(&var)).into()
@@ -16873,7 +16873,7 @@ impl IShellNameSpace_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Columns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcolumns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Columns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcolumns: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellNameSpace_Impl::Columns(this) {
@@ -16884,7 +16884,7 @@ impl IShellNameSpace_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColumns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcolumns: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColumns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcolumns: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellNameSpace_Impl::SetColumns(this, core::mem::transmute(&bstrcolumns)).into()
@@ -16916,7 +16916,7 @@ impl IShellNameSpace_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Expand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: std::mem::MaybeUninit<windows_core::VARIANT>, idepth: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Expand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: core::mem::MaybeUninit<windows_core::VARIANT>, idepth: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellNameSpace_Impl::Expand(this, core::mem::transmute(&var), core::mem::transmute_copy(&idepth)).into()
@@ -17096,22 +17096,22 @@ impl IShellUIHelper_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper_Impl::RefreshOfflineDesktop(this).into()
         }
-        unsafe extern "system" fn AddFavorite<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, title: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddFavorite<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, title: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::AddFavorite(this, core::mem::transmute(&url), core::mem::transmute_copy(&title)).into()
         }
-        unsafe extern "system" fn AddChannel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddChannel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::AddChannel(this, core::mem::transmute(&url)).into()
         }
-        unsafe extern "system" fn AddDesktopComponent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, r#type: std::mem::MaybeUninit<windows_core::BSTR>, left: *const std::mem::MaybeUninit<windows_core::VARIANT>, top: *const std::mem::MaybeUninit<windows_core::VARIANT>, width: *const std::mem::MaybeUninit<windows_core::VARIANT>, height: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddDesktopComponent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, r#type: core::mem::MaybeUninit<windows_core::BSTR>, left: *const core::mem::MaybeUninit<windows_core::VARIANT>, top: *const core::mem::MaybeUninit<windows_core::VARIANT>, width: *const core::mem::MaybeUninit<windows_core::VARIANT>, height: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::AddDesktopComponent(this, core::mem::transmute(&url), core::mem::transmute(&r#type), core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
         }
-        unsafe extern "system" fn IsSubscribed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSubscribed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper_Impl::IsSubscribed(this, core::mem::transmute(&url)) {
@@ -17122,32 +17122,32 @@ impl IShellUIHelper_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NavigateAndFind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, strquery: std::mem::MaybeUninit<windows_core::BSTR>, vartargetframe: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NavigateAndFind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, strquery: core::mem::MaybeUninit<windows_core::BSTR>, vartargetframe: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::NavigateAndFind(this, core::mem::transmute(&url), core::mem::transmute(&strquery), core::mem::transmute_copy(&vartargetframe)).into()
         }
-        unsafe extern "system" fn ImportExportFavorites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportExportFavorites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::ImportExportFavorites(this, core::mem::transmute_copy(&fimport), core::mem::transmute(&strimpexppath)).into()
         }
-        unsafe extern "system" fn AutoCompleteSaveForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, form: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AutoCompleteSaveForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, form: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::AutoCompleteSaveForm(this, core::mem::transmute_copy(&form)).into()
         }
-        unsafe extern "system" fn AutoScan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsearch: std::mem::MaybeUninit<windows_core::BSTR>, strfailureurl: std::mem::MaybeUninit<windows_core::BSTR>, pvartargetframe: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AutoScan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsearch: core::mem::MaybeUninit<windows_core::BSTR>, strfailureurl: core::mem::MaybeUninit<windows_core::BSTR>, pvartargetframe: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::AutoScan(this, core::mem::transmute(&strsearch), core::mem::transmute(&strfailureurl), core::mem::transmute_copy(&pvartargetframe)).into()
         }
-        unsafe extern "system" fn AutoCompleteAttach<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reserved: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AutoCompleteAttach<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reserved: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper_Impl::AutoCompleteAttach(this, core::mem::transmute_copy(&reserved)).into()
         }
-        unsafe extern "system" fn ShowBrowserUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, pvarin: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarout: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowBrowserUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pvarin: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarout: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper_Impl::ShowBrowserUI(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&pvarin)) {
@@ -17203,7 +17203,7 @@ impl windows_core::RuntimeName for IShellUIHelper2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>() -> IShellUIHelper2_Vtbl {
-        unsafe extern "system" fn AddSearchProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddSearchProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper2_Impl::AddSearchProvider(this, core::mem::transmute(&url)).into()
@@ -17218,7 +17218,7 @@ impl IShellUIHelper2_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper2_Impl::SkipRunOnce(this).into()
         }
-        unsafe extern "system" fn CustomizeSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CustomizeSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper2_Impl::CustomizeSettings(this, core::mem::transmute_copy(&fsqm), core::mem::transmute_copy(&fphishing), core::mem::transmute(&bstrlocale)).into()
@@ -17245,7 +17245,7 @@ impl IShellUIHelper2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrandImageUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruri: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BrandImageUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruri: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper2_Impl::BrandImageUri(this) {
@@ -17271,7 +17271,7 @@ impl IShellUIHelper2_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper2_Impl::CustomizeClearType(this, core::mem::transmute_copy(&fset)).into()
         }
-        unsafe extern "system" fn IsSearchProviderInstalled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, pdwresult: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSearchProviderInstalled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, pdwresult: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper2_Impl::IsSearchProviderInstalled(this, core::mem::transmute(&url)) {
@@ -17293,7 +17293,7 @@ impl IShellUIHelper2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultSearchProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DefaultSearchProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper2_Impl::DefaultSearchProvider(this) {
@@ -17320,7 +17320,7 @@ impl IShellUIHelper2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchGuideUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchGuideUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper2_Impl::SearchGuideUrl(this) {
@@ -17376,12 +17376,12 @@ impl windows_core::RuntimeName for IShellUIHelper3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>() -> IShellUIHelper3_Vtbl {
-        unsafe extern "system" fn AddService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper3_Impl::AddService(this, core::mem::transmute(&url)).into()
         }
-        unsafe extern "system" fn IsServiceInstalled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, verb: std::mem::MaybeUninit<windows_core::BSTR>, pdwresult: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsServiceInstalled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, verb: core::mem::MaybeUninit<windows_core::BSTR>, pdwresult: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper3_Impl::IsServiceInstalled(this, core::mem::transmute(&url), core::mem::transmute(&verb)) {
@@ -17403,7 +17403,7 @@ impl IShellUIHelper3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddToFavoritesBar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, title: std::mem::MaybeUninit<windows_core::BSTR>, r#type: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddToFavoritesBar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, title: core::mem::MaybeUninit<windows_core::BSTR>, r#type: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper3_Impl::AddToFavoritesBar(this, core::mem::transmute(&url), core::mem::transmute(&title), core::mem::transmute_copy(&r#type)).into()
@@ -17444,7 +17444,7 @@ impl IShellUIHelper3_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper3_Impl::EnableSuggestedSites(this, core::mem::transmute_copy(&fenable)).into()
         }
-        unsafe extern "system" fn NavigateToSuggestedSites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrelativeurl: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NavigateToSuggestedSites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrelativeurl: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper3_Impl::NavigateToSuggestedSites(this, core::mem::transmute(&bstrrelativeurl)).into()
@@ -17522,7 +17522,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeShowThumbBar(this).into()
         }
-        unsafe extern "system" fn msSiteModeAddThumbBarButton<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstriconurl: std::mem::MaybeUninit<windows_core::BSTR>, bstrtooltip: std::mem::MaybeUninit<windows_core::BSTR>, pvarbuttonid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeAddThumbBarButton<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstriconurl: core::mem::MaybeUninit<windows_core::BSTR>, bstrtooltip: core::mem::MaybeUninit<windows_core::BSTR>, pvarbuttonid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper4_Impl::msSiteModeAddThumbBarButton(this, core::mem::transmute(&bstriconurl), core::mem::transmute(&bstrtooltip)) {
@@ -17533,12 +17533,12 @@ impl IShellUIHelper4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msSiteModeUpdateThumbBarButton<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buttonid: std::mem::MaybeUninit<windows_core::VARIANT>, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeUpdateThumbBarButton<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buttonid: core::mem::MaybeUninit<windows_core::VARIANT>, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeUpdateThumbBarButton(this, core::mem::transmute(&buttonid), core::mem::transmute_copy(&fenabled), core::mem::transmute_copy(&fvisible)).into()
         }
-        unsafe extern "system" fn msSiteModeSetIconOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iconurl: std::mem::MaybeUninit<windows_core::BSTR>, pvardescription: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeSetIconOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iconurl: core::mem::MaybeUninit<windows_core::BSTR>, pvardescription: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeSetIconOverlay(this, core::mem::transmute(&iconurl), core::mem::transmute_copy(&pvardescription)).into()
@@ -17553,12 +17553,12 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msAddSiteMode(this).into()
         }
-        unsafe extern "system" fn msSiteModeCreateJumpList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeCreateJumpList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeCreateJumpList(this, core::mem::transmute(&bstrheader)).into()
         }
-        unsafe extern "system" fn msSiteModeAddJumpListItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstractionuri: std::mem::MaybeUninit<windows_core::BSTR>, bstriconuri: std::mem::MaybeUninit<windows_core::BSTR>, pvarwindowtype: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeAddJumpListItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstractionuri: core::mem::MaybeUninit<windows_core::BSTR>, bstriconuri: core::mem::MaybeUninit<windows_core::BSTR>, pvarwindowtype: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeAddJumpListItem(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstractionuri), core::mem::transmute(&bstriconuri), core::mem::transmute_copy(&pvarwindowtype)).into()
@@ -17573,7 +17573,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeShowJumpList(this).into()
         }
-        unsafe extern "system" fn msSiteModeAddButtonStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uibuttonid: std::mem::MaybeUninit<windows_core::VARIANT>, bstriconurl: std::mem::MaybeUninit<windows_core::BSTR>, bstrtooltip: std::mem::MaybeUninit<windows_core::BSTR>, pvarstyleid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeAddButtonStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uibuttonid: core::mem::MaybeUninit<windows_core::VARIANT>, bstriconurl: core::mem::MaybeUninit<windows_core::BSTR>, bstrtooltip: core::mem::MaybeUninit<windows_core::BSTR>, pvarstyleid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper4_Impl::msSiteModeAddButtonStyle(this, core::mem::transmute(&uibuttonid), core::mem::transmute(&bstriconurl), core::mem::transmute(&bstrtooltip)) {
@@ -17584,7 +17584,7 @@ impl IShellUIHelper4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msSiteModeShowButtonStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uibuttonid: std::mem::MaybeUninit<windows_core::VARIANT>, uistyleid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeShowButtonStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uibuttonid: core::mem::MaybeUninit<windows_core::VARIANT>, uistyleid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeShowButtonStyle(this, core::mem::transmute(&uibuttonid), core::mem::transmute(&uistyleid)).into()
@@ -17594,7 +17594,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msSiteModeActivate(this).into()
         }
-        unsafe extern "system" fn msIsSiteModeFirstRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpreservestate: super::super::Foundation::VARIANT_BOOL, puifirstrun: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msIsSiteModeFirstRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpreservestate: super::super::Foundation::VARIANT_BOOL, puifirstrun: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper4_Impl::msIsSiteModeFirstRun(this, core::mem::transmute_copy(&fpreservestate)) {
@@ -17605,7 +17605,7 @@ impl IShellUIHelper4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msAddTrackingProtectionList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, bstrfiltername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msAddTrackingProtectionList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, bstrfiltername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper4_Impl::msAddTrackingProtectionList(this, core::mem::transmute(&url), core::mem::transmute(&bstrfiltername)).into()
@@ -17673,7 +17673,7 @@ impl windows_core::RuntimeName for IShellUIHelper5 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper5_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>() -> IShellUIHelper5_Vtbl {
-        unsafe extern "system" fn msProvisionNetworks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovisioningxml: std::mem::MaybeUninit<windows_core::BSTR>, puiresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msProvisionNetworks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovisioningxml: core::mem::MaybeUninit<windows_core::BSTR>, puiresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper5_Impl::msProvisionNetworks(this, core::mem::transmute(&bstrprovisioningxml)) {
@@ -17756,12 +17756,12 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msStopPeriodicTileUpdate(this).into()
         }
-        unsafe extern "system" fn msStartPeriodicTileUpdate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollinguris: std::mem::MaybeUninit<windows_core::VARIANT>, starttime: std::mem::MaybeUninit<windows_core::VARIANT>, uiupdaterecurrence: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msStartPeriodicTileUpdate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollinguris: core::mem::MaybeUninit<windows_core::VARIANT>, starttime: core::mem::MaybeUninit<windows_core::VARIANT>, uiupdaterecurrence: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msStartPeriodicTileUpdate(this, core::mem::transmute(&pollinguris), core::mem::transmute(&starttime), core::mem::transmute(&uiupdaterecurrence)).into()
         }
-        unsafe extern "system" fn msStartPeriodicTileUpdateBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollinguris: std::mem::MaybeUninit<windows_core::VARIANT>, starttime: std::mem::MaybeUninit<windows_core::VARIANT>, uiupdaterecurrence: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msStartPeriodicTileUpdateBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollinguris: core::mem::MaybeUninit<windows_core::VARIANT>, starttime: core::mem::MaybeUninit<windows_core::VARIANT>, uiupdaterecurrence: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msStartPeriodicTileUpdateBatch(this, core::mem::transmute(&pollinguris), core::mem::transmute(&starttime), core::mem::transmute(&uiupdaterecurrence)).into()
@@ -17776,7 +17776,7 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msEnableTileNotificationQueue(this, core::mem::transmute_copy(&fchange)).into()
         }
-        unsafe extern "system" fn msPinnedSiteState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsitestate: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msPinnedSiteState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsitestate: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper6_Impl::msPinnedSiteState(this) {
@@ -17802,17 +17802,17 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msEnableTileNotificationQueueForSquare310x310(this, core::mem::transmute_copy(&fchange)).into()
         }
-        unsafe extern "system" fn msScheduledTileNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnotificationxml: std::mem::MaybeUninit<windows_core::BSTR>, bstrnotificationid: std::mem::MaybeUninit<windows_core::BSTR>, bstrnotificationtag: std::mem::MaybeUninit<windows_core::BSTR>, starttime: std::mem::MaybeUninit<windows_core::VARIANT>, expirationtime: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msScheduledTileNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnotificationxml: core::mem::MaybeUninit<windows_core::BSTR>, bstrnotificationid: core::mem::MaybeUninit<windows_core::BSTR>, bstrnotificationtag: core::mem::MaybeUninit<windows_core::BSTR>, starttime: core::mem::MaybeUninit<windows_core::VARIANT>, expirationtime: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msScheduledTileNotification(this, core::mem::transmute(&bstrnotificationxml), core::mem::transmute(&bstrnotificationid), core::mem::transmute(&bstrnotificationtag), core::mem::transmute(&starttime), core::mem::transmute(&expirationtime)).into()
         }
-        unsafe extern "system" fn msRemoveScheduledTileNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnotificationid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msRemoveScheduledTileNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnotificationid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msRemoveScheduledTileNotification(this, core::mem::transmute(&bstrnotificationid)).into()
         }
-        unsafe extern "system" fn msStartPeriodicBadgeUpdate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollinguri: std::mem::MaybeUninit<windows_core::BSTR>, starttime: std::mem::MaybeUninit<windows_core::VARIANT>, uiupdaterecurrence: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn msStartPeriodicBadgeUpdate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollinguri: core::mem::MaybeUninit<windows_core::BSTR>, starttime: core::mem::MaybeUninit<windows_core::VARIANT>, uiupdaterecurrence: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper6_Impl::msStartPeriodicBadgeUpdate(this, core::mem::transmute(&pollinguri), core::mem::transmute(&starttime), core::mem::transmute(&uiupdaterecurrence)).into()
@@ -17866,12 +17866,12 @@ impl windows_core::RuntimeName for IShellUIHelper7 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper7_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>() -> IShellUIHelper7_Vtbl {
-        unsafe extern "system" fn SetExperimentalFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrflagstring: std::mem::MaybeUninit<windows_core::BSTR>, vfflag: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExperimentalFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrflagstring: core::mem::MaybeUninit<windows_core::BSTR>, vfflag: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper7_Impl::SetExperimentalFlag(this, core::mem::transmute(&bstrflagstring), core::mem::transmute_copy(&vfflag)).into()
         }
-        unsafe extern "system" fn GetExperimentalFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrflagstring: std::mem::MaybeUninit<windows_core::BSTR>, vfflag: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExperimentalFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrflagstring: core::mem::MaybeUninit<windows_core::BSTR>, vfflag: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper7_Impl::GetExperimentalFlag(this, core::mem::transmute(&bstrflagstring)) {
@@ -17882,12 +17882,12 @@ impl IShellUIHelper7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExperimentalValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrvaluestring: std::mem::MaybeUninit<windows_core::BSTR>, dwvalue: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExperimentalValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrvaluestring: core::mem::MaybeUninit<windows_core::BSTR>, dwvalue: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper7_Impl::SetExperimentalValue(this, core::mem::transmute(&bstrvaluestring), core::mem::transmute_copy(&dwvalue)).into()
         }
-        unsafe extern "system" fn GetExperimentalValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrvaluestring: std::mem::MaybeUninit<windows_core::BSTR>, pdwvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExperimentalValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrvaluestring: core::mem::MaybeUninit<windows_core::BSTR>, pdwvalue: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper7_Impl::GetExperimentalValue(this, core::mem::transmute(&bstrvaluestring)) {
@@ -17903,7 +17903,7 @@ impl IShellUIHelper7_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper7_Impl::ResetAllExperimentalFlagsAndValues(this).into()
         }
-        unsafe extern "system" fn GetNeedIEAutoLaunchFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: std::mem::MaybeUninit<windows_core::BSTR>, flag: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNeedIEAutoLaunchFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, flag: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper7_Impl::GetNeedIEAutoLaunchFlag(this, core::mem::transmute(&bstrurl)) {
@@ -17914,12 +17914,12 @@ impl IShellUIHelper7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNeedIEAutoLaunchFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: std::mem::MaybeUninit<windows_core::BSTR>, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNeedIEAutoLaunchFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper7_Impl::SetNeedIEAutoLaunchFlag(this, core::mem::transmute(&bstrurl), core::mem::transmute_copy(&flag)).into()
         }
-        unsafe extern "system" fn HasNeedIEAutoLaunchFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: std::mem::MaybeUninit<windows_core::BSTR>, exists: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn HasNeedIEAutoLaunchFlag<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, exists: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper7_Impl::HasNeedIEAutoLaunchFlag(this, core::mem::transmute(&bstrurl)) {
@@ -17930,7 +17930,7 @@ impl IShellUIHelper7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LaunchIE<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: std::mem::MaybeUninit<windows_core::BSTR>, automated: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn LaunchIE<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, automated: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper7_Impl::LaunchIE(this, core::mem::transmute(&bstrurl), core::mem::transmute_copy(&automated)).into()
@@ -17967,7 +17967,7 @@ impl windows_core::RuntimeName for IShellUIHelper8 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper8_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>() -> IShellUIHelper8_Vtbl {
-        unsafe extern "system" fn GetCVListData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCVListData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper8_Impl::GetCVListData(this) {
@@ -17978,7 +17978,7 @@ impl IShellUIHelper8_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCVListLocalData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCVListLocalData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper8_Impl::GetCVListLocalData(this) {
@@ -17989,7 +17989,7 @@ impl IShellUIHelper8_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEMIEListData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEMIEListData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper8_Impl::GetEMIEListData(this) {
@@ -18000,7 +18000,7 @@ impl IShellUIHelper8_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEMIEListLocalData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEMIEListLocalData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellUIHelper8_Impl::GetEMIEListLocalData(this) {
@@ -18021,7 +18021,7 @@ impl IShellUIHelper8_Vtbl {
             let this = (*this).get_impl();
             IShellUIHelper8_Impl::OpenFavoritesSettings(this).into()
         }
-        unsafe extern "system" fn LaunchInHVSI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LaunchInHVSI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellUIHelper8_Impl::LaunchInHVSI(this, core::mem::transmute(&bstrurl)).into()
@@ -18272,7 +18272,7 @@ impl IShellWindows_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: std::mem::MaybeUninit<windows_core::VARIANT>, folder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: core::mem::MaybeUninit<windows_core::VARIANT>, folder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellWindows_Impl::Item(this, core::mem::transmute(&index)) {
@@ -18305,7 +18305,7 @@ impl IShellWindows_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterPending<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lthreadid: i32, pvarloc: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarlocroot: *const std::mem::MaybeUninit<windows_core::VARIANT>, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterPending<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lthreadid: i32, pvarloc: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarlocroot: *const core::mem::MaybeUninit<windows_core::VARIANT>, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellWindows_Impl::RegisterPending(this, core::mem::transmute_copy(&lthreadid), core::mem::transmute_copy(&pvarloc), core::mem::transmute_copy(&pvarlocroot), core::mem::transmute_copy(&swclass)) {
@@ -18321,7 +18321,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             IShellWindows_Impl::Revoke(this, core::mem::transmute_copy(&lcookie)).into()
         }
-        unsafe extern "system" fn OnNavigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: i32, pvarloc: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnNavigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: i32, pvarloc: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IShellWindows_Impl::OnNavigate(this, core::mem::transmute_copy(&lcookie), core::mem::transmute_copy(&pvarloc)).into()
@@ -18331,7 +18331,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             IShellWindows_Impl::OnActivated(this, core::mem::transmute_copy(&lcookie), core::mem::transmute_copy(&factive)).into()
         }
-        unsafe extern "system" fn FindWindowSW<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarloc: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarlocroot: *const std::mem::MaybeUninit<windows_core::VARIANT>, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindWindowSW<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarloc: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarlocroot: *const core::mem::MaybeUninit<windows_core::VARIANT>, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellWindows_Impl::FindWindowSW(this, core::mem::transmute_copy(&pvarloc), core::mem::transmute_copy(&pvarlocroot), core::mem::transmute_copy(&swclass), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&swfwoptions)) {
@@ -18709,7 +18709,7 @@ impl windows_core::RuntimeName for ISyncMgrConflict {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISyncMgrConflict_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrConflict_Impl, const OFFSET: isize>() -> ISyncMgrConflict_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrConflict_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrConflict_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ISyncMgrConflict_Impl::GetProperty(this, core::mem::transmute_copy(&propkey)) {
@@ -21858,7 +21858,7 @@ impl IWebBrowser_Vtbl {
             let this = (*this).get_impl();
             IWebBrowser_Impl::GoSearch(this).into()
         }
-        unsafe extern "system" fn Navigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: std::mem::MaybeUninit<windows_core::BSTR>, flags: *const std::mem::MaybeUninit<windows_core::VARIANT>, targetframename: *const std::mem::MaybeUninit<windows_core::VARIANT>, postdata: *const std::mem::MaybeUninit<windows_core::VARIANT>, headers: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Navigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: core::mem::MaybeUninit<windows_core::BSTR>, flags: *const core::mem::MaybeUninit<windows_core::VARIANT>, targetframename: *const core::mem::MaybeUninit<windows_core::VARIANT>, postdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, headers: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowser_Impl::Navigate(this, core::mem::transmute(&url), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&targetframename), core::mem::transmute_copy(&postdata), core::mem::transmute_copy(&headers)).into()
@@ -21868,7 +21868,7 @@ impl IWebBrowser_Vtbl {
             let this = (*this).get_impl();
             IWebBrowser_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn Refresh2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Refresh2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowser_Impl::Refresh2(this, core::mem::transmute_copy(&level)).into()
@@ -21933,7 +21933,7 @@ impl IWebBrowser_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowser_Impl::Type(this) {
@@ -22008,7 +22008,7 @@ impl IWebBrowser_Vtbl {
             let this = (*this).get_impl();
             IWebBrowser_Impl::SetHeight(this, core::mem::transmute_copy(&height)).into()
         }
-        unsafe extern "system" fn LocationName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locationname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocationName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locationname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowser_Impl::LocationName(this) {
@@ -22019,7 +22019,7 @@ impl IWebBrowser_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocationURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locationurl: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocationURL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locationurl: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowser_Impl::LocationURL(this) {
@@ -22101,7 +22101,7 @@ impl windows_core::RuntimeName for IWebBrowser2 {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWebBrowser2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>() -> IWebBrowser2_Vtbl {
-        unsafe extern "system" fn Navigate2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: *const std::mem::MaybeUninit<windows_core::VARIANT>, flags: *const std::mem::MaybeUninit<windows_core::VARIANT>, targetframename: *const std::mem::MaybeUninit<windows_core::VARIANT>, postdata: *const std::mem::MaybeUninit<windows_core::VARIANT>, headers: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Navigate2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: *const core::mem::MaybeUninit<windows_core::VARIANT>, flags: *const core::mem::MaybeUninit<windows_core::VARIANT>, targetframename: *const core::mem::MaybeUninit<windows_core::VARIANT>, postdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, headers: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowser2_Impl::Navigate2(this, core::mem::transmute_copy(&url), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&targetframename), core::mem::transmute_copy(&postdata), core::mem::transmute_copy(&headers)).into()
@@ -22117,12 +22117,12 @@ impl IWebBrowser2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecWB<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvaout: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecWB<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvaout: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowser2_Impl::ExecWB(this, core::mem::transmute_copy(&cmdid), core::mem::transmute_copy(&cmdexecopt), core::mem::transmute_copy(&pvain), core::mem::transmute_copy(&pvaout)).into()
         }
-        unsafe extern "system" fn ShowBrowserBar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaclsid: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarshow: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarsize: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowBrowserBar<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaclsid: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarshow: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarsize: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowser2_Impl::ShowBrowserBar(this, core::mem::transmute_copy(&pvaclsid), core::mem::transmute_copy(&pvarshow), core::mem::transmute_copy(&pvarsize)).into()
@@ -22315,12 +22315,12 @@ impl IWebBrowserApp_Vtbl {
             let this = (*this).get_impl();
             IWebBrowserApp_Impl::ClientToWindow(this, core::mem::transmute_copy(&pcx), core::mem::transmute_copy(&pcy)).into()
         }
-        unsafe extern "system" fn PutProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: std::mem::MaybeUninit<windows_core::BSTR>, vtvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: core::mem::MaybeUninit<windows_core::BSTR>, vtvalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowserApp_Impl::PutProperty(this, core::mem::transmute(&property), core::mem::transmute(&vtvalue)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: std::mem::MaybeUninit<windows_core::BSTR>, pvtvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: core::mem::MaybeUninit<windows_core::BSTR>, pvtvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowserApp_Impl::GetProperty(this, core::mem::transmute(&property)) {
@@ -22331,7 +22331,7 @@ impl IWebBrowserApp_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowserApp_Impl::Name(this) {
@@ -22353,7 +22353,7 @@ impl IWebBrowserApp_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FullName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FullName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowserApp_Impl::FullName(this) {
@@ -22364,7 +22364,7 @@ impl IWebBrowserApp_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowserApp_Impl::Path(this) {
@@ -22407,7 +22407,7 @@ impl IWebBrowserApp_Vtbl {
             let this = (*this).get_impl();
             IWebBrowserApp_Impl::SetStatusBar(this, core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statustext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statustext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebBrowserApp_Impl::StatusText(this) {
@@ -22418,7 +22418,7 @@ impl IWebBrowserApp_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStatusText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statustext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStatusText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statustext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebBrowserApp_Impl::SetStatusText(this, core::mem::transmute(&statustext)).into()
@@ -22561,12 +22561,12 @@ impl IWebWizardHost_Vtbl {
             let this = (*this).get_impl();
             IWebWizardHost_Impl::Cancel(this).into()
         }
-        unsafe extern "system" fn SetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcaption: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCaption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcaption: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebWizardHost_Impl::SetCaption(this, core::mem::transmute(&bstrcaption)).into()
         }
-        unsafe extern "system" fn Caption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcaption: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Caption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcaption: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebWizardHost_Impl::Caption(this) {
@@ -22577,12 +22577,12 @@ impl IWebWizardHost_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: std::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebWizardHost_Impl::put_Property(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute_copy(&pvproperty)).into()
         }
-        unsafe extern "system" fn get_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: std::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, pvproperty: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebWizardHost_Impl::get_Property(this, core::mem::transmute(&bstrpropertyname)) {
@@ -22598,7 +22598,7 @@ impl IWebWizardHost_Vtbl {
             let this = (*this).get_impl();
             IWebWizardHost_Impl::SetWizardButtons(this, core::mem::transmute_copy(&vfenableback), core::mem::transmute_copy(&vfenablenext), core::mem::transmute_copy(&vflastpage)).into()
         }
-        unsafe extern "system" fn SetHeaderText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheadertitle: std::mem::MaybeUninit<windows_core::BSTR>, bstrheadersubtitle: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHeaderText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheadertitle: core::mem::MaybeUninit<windows_core::BSTR>, bstrheadersubtitle: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWebWizardHost_Impl::SetHeaderText(this, core::mem::transmute(&bstrheadertitle), core::mem::transmute(&bstrheadersubtitle)).into()
@@ -22629,7 +22629,7 @@ impl windows_core::RuntimeName for IWebWizardHost2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWebWizardHost2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost2_Impl, const OFFSET: isize>() -> IWebWizardHost2_Vtbl {
-        unsafe extern "system" fn SignString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::BSTR>, signedvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SignString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::BSTR>, signedvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWebWizardHost2_Impl::SignString(this, core::mem::transmute(&value)) {

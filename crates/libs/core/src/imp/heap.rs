@@ -1,4 +1,5 @@
 use super::*;
+use core::ffi::c_void;
 
 /// Allocate memory of size `bytes` using `HeapAlloc`.
 ///
@@ -6,7 +7,7 @@ use super::*;
 ///
 /// This function will fail in OOM situations, if the heap is otherwise corrupt,
 /// or if getting a handle to the process heap fails.
-pub fn heap_alloc(bytes: usize) -> crate::Result<*mut std::ffi::c_void> {
+pub fn heap_alloc(bytes: usize) -> crate::Result<*mut c_void> {
     let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) };
 
     if ptr.is_null() {
@@ -17,7 +18,7 @@ pub fn heap_alloc(bytes: usize) -> crate::Result<*mut std::ffi::c_void> {
         // debug allocator does for the same reason.
         #[cfg(debug_assertions)]
         unsafe {
-            std::ptr::write_bytes(ptr, 0xCC, bytes);
+            core::ptr::write_bytes(ptr, 0xCC, bytes);
         }
         Ok(ptr)
     }
@@ -30,6 +31,6 @@ pub fn heap_alloc(bytes: usize) -> crate::Result<*mut std::ffi::c_void> {
 /// # Safety
 ///
 /// `ptr` must be a valid pointer to memory allocated by `HeapAlloc` or `HeapReAlloc`
-pub unsafe fn heap_free(ptr: *mut std::ffi::c_void) {
+pub unsafe fn heap_free(ptr: *mut c_void) {
     HeapFree(GetProcessHeap(), 0, ptr);
 }

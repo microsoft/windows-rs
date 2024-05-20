@@ -88,11 +88,11 @@ impl HRESULT {
                 0,
                 &mut message.0 as *mut _ as *mut _,
                 0,
-                std::ptr::null(),
+                core::ptr::null(),
             );
 
             if !message.0.is_null() && size > 0 {
-                String::from_utf16_lossy(wide_trim_end(std::slice::from_raw_parts(
+                String::from_utf16_lossy(wide_trim_end(core::slice::from_raw_parts(
                     message.0,
                     size as usize,
                 )))
@@ -130,14 +130,14 @@ impl<T> From<Result<T>> for HRESULT {
     }
 }
 
-impl std::fmt::Display for HRESULT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Display for HRESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.write_fmt(format_args!("{:#010X}", self.0))
     }
 }
 
-impl std::fmt::Debug for HRESULT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for HRESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.write_fmt(format_args!("HRESULT({})", self))
     }
 }

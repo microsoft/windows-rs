@@ -10,10 +10,10 @@
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterable<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
@@ -28,7 +28,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -69,10 +69,10 @@ where
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
+impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterator<T> {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
@@ -87,7 +87,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn get_Current(&self) -> windows_core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).get_Current)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -98,7 +98,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn get_HasCurrent(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).get_HasCurrent)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -109,7 +109,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn MoveNext(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MoveNext)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -159,12 +159,12 @@ pub struct IKeyValuePair<K, V>(
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref
-    for IKeyValuePair<K, V>
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
+    core::ops::Deref for IKeyValuePair<K, V>
 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -181,7 +181,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn get_Key(&self) -> windows_core::Result<K> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).get_Key)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -192,7 +192,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn get_Value(&self) -> windows_core::Result<V> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).get_Value)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -250,12 +250,12 @@ pub struct IMapView<K, V>(
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref
-    for IMapView<K, V>
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
+    core::ops::Deref for IMapView<K, V>
 {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -283,7 +283,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(
                 windows_core::Interface::as_raw(this),
                 key as *mut _ as _,
@@ -295,7 +295,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn get_Size(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).get_Size)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -312,7 +312,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(
                 windows_core::Interface::as_raw(this),
                 key as *mut _ as _,
@@ -324,7 +324,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn First(&self) -> windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &windows_core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,

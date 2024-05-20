@@ -43,7 +43,7 @@ impl RadialControllerIndependentInputSource {
     pub fn Controller(&self) -> windows_core::Result<super::RadialController> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Controller)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -51,7 +51,7 @@ impl RadialControllerIndependentInputSource {
     pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -59,7 +59,7 @@ impl RadialControllerIndependentInputSource {
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
         let this = &windows_core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
@@ -69,7 +69,7 @@ impl RadialControllerIndependentInputSource {
         P0: windows_core::Param<super::super::super::ApplicationModel::Core::CoreApplicationView>,
     {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForView)(windows_core::Interface::as_raw(this), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

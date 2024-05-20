@@ -430,7 +430,7 @@ impl IWiaDevMgr_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, ppwiaitemroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, ppwiaitemroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDevMgr_Impl::CreateDevice(this, core::mem::transmute(&bstrdeviceid)) {
@@ -441,27 +441,27 @@ impl IWiaDevMgr_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectDeviceDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>, ppitemroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SelectDeviceDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>, ppitemroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr_Impl::SelectDeviceDlg(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&ldevicetype), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pbstrdeviceid), core::mem::transmute_copy(&ppitemroot)).into()
         }
-        unsafe extern "system" fn SelectDeviceDlgID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SelectDeviceDlgID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr_Impl::SelectDeviceDlgID(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&ldevicetype), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pbstrdeviceid)).into()
         }
-        unsafe extern "system" fn GetImageDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: *mut core::ffi::c_void, bstrfilename: std::mem::MaybeUninit<windows_core::BSTR>, pguidformat: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetImageDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: *mut core::ffi::c_void, bstrfilename: core::mem::MaybeUninit<windows_core::BSTR>, pguidformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr_Impl::GetImageDlg(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&ldevicetype), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&lintent), windows_core::from_raw_borrowed(&pitemroot), core::mem::transmute(&bstrfilename), core::mem::transmute_copy(&pguidformat)).into()
         }
-        unsafe extern "system" fn RegisterEventCallbackProgram<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, bstrcommandline: std::mem::MaybeUninit<windows_core::BSTR>, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>, bstricon: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventCallbackProgram<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, bstrcommandline: core::mem::MaybeUninit<windows_core::BSTR>, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: core::mem::MaybeUninit<windows_core::BSTR>, bstricon: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr_Impl::RegisterEventCallbackProgram(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), core::mem::transmute(&bstrcommandline), core::mem::transmute(&bstrname), core::mem::transmute(&bstrdescription), core::mem::transmute(&bstricon)).into()
         }
-        unsafe extern "system" fn RegisterEventCallbackInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, piwiaeventcallback: *mut core::ffi::c_void, peventobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventCallbackInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, piwiaeventcallback: *mut core::ffi::c_void, peventobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDevMgr_Impl::RegisterEventCallbackInterface(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), windows_core::from_raw_borrowed(&piwiaeventcallback)) {
@@ -472,7 +472,7 @@ impl IWiaDevMgr_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterEventCallbackCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>, bstricon: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventCallbackCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: core::mem::MaybeUninit<windows_core::BSTR>, bstricon: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr_Impl::RegisterEventCallbackCLSID(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), core::mem::transmute_copy(&pclsid), core::mem::transmute(&bstrname), core::mem::transmute(&bstrdescription), core::mem::transmute(&bstricon)).into()
@@ -523,7 +523,7 @@ impl IWiaDevMgr2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, ppwiaitem2root: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, ppwiaitem2root: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDevMgr2_Impl::CreateDevice(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid)) {
@@ -534,17 +534,17 @@ impl IWiaDevMgr2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectDeviceDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>, ppitemroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SelectDeviceDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>, ppitemroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr2_Impl::SelectDeviceDlg(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&ldevicetype), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pbstrdeviceid), core::mem::transmute_copy(&ppitemroot)).into()
         }
-        unsafe extern "system" fn SelectDeviceDlgID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SelectDeviceDlgID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr2_Impl::SelectDeviceDlgID(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&ldevicetype), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pbstrdeviceid)).into()
         }
-        unsafe extern "system" fn RegisterEventCallbackInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, piwiaeventcallback: *mut core::ffi::c_void, peventobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventCallbackInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, piwiaeventcallback: *mut core::ffi::c_void, peventobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDevMgr2_Impl::RegisterEventCallbackInterface(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), windows_core::from_raw_borrowed(&piwiaeventcallback)) {
@@ -555,17 +555,17 @@ impl IWiaDevMgr2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterEventCallbackProgram<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, bstrfullappname: std::mem::MaybeUninit<windows_core::BSTR>, bstrcommandlinearg: std::mem::MaybeUninit<windows_core::BSTR>, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>, bstricon: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventCallbackProgram<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, bstrfullappname: core::mem::MaybeUninit<windows_core::BSTR>, bstrcommandlinearg: core::mem::MaybeUninit<windows_core::BSTR>, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: core::mem::MaybeUninit<windows_core::BSTR>, bstricon: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr2_Impl::RegisterEventCallbackProgram(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), core::mem::transmute(&bstrfullappname), core::mem::transmute(&bstrcommandlinearg), core::mem::transmute(&bstrname), core::mem::transmute(&bstrdescription), core::mem::transmute(&bstricon)).into()
         }
-        unsafe extern "system" fn RegisterEventCallbackCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>, bstricon: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventCallbackCLSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrdescription: core::mem::MaybeUninit<windows_core::BSTR>, bstricon: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr2_Impl::RegisterEventCallbackCLSID(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), core::mem::transmute_copy(&pclsid), core::mem::transmute(&bstrname), core::mem::transmute(&bstrdescription), core::mem::transmute(&bstricon)).into()
         }
-        unsafe extern "system" fn GetImageDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: std::mem::MaybeUninit<windows_core::BSTR>, bstrfilename: std::mem::MaybeUninit<windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetImageDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: core::mem::MaybeUninit<windows_core::BSTR>, bstrfilename: core::mem::MaybeUninit<windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaDevMgr2_Impl::GetImageDlg(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&hwndparent), core::mem::transmute(&bstrfoldername), core::mem::transmute(&bstrfilename), core::mem::transmute_copy(&plnumfiles), core::mem::transmute_copy(&ppbstrfilepaths), core::mem::transmute_copy(&ppitem)).into()
@@ -626,7 +626,7 @@ impl IWiaDrvItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFullItemName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0002: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFullItemName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0002: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetFullItemName(this) {
@@ -637,7 +637,7 @@ impl IWiaDrvItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0003: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0003: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetItemName(this) {
@@ -663,7 +663,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             IWiaDrvItem_Impl::RemoveItemFromFolder(this, core::mem::transmute_copy(&__midl__iwiadrvitem0006)).into()
         }
-        unsafe extern "system" fn FindItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: std::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiadrvitem0009: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: core::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiadrvitem0009: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::FindItemByName(this, core::mem::transmute_copy(&__midl__iwiadrvitem0007), core::mem::transmute(&__midl__iwiadrvitem0008)) {
@@ -674,7 +674,7 @@ impl IWiaDrvItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindChildItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0010: std::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiadrvitem0011: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindChildItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0010: core::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiadrvitem0011: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::FindChildItemByName(this, core::mem::transmute(&__midl__iwiadrvitem0010)) {
@@ -718,7 +718,7 @@ impl IWiaDrvItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DumpItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0015: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DumpItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDrvItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiadrvitem0015: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::DumpItemData(this) {
@@ -762,7 +762,7 @@ impl IWiaErrorHandler_Vtbl {
             let this = (*this).get_impl();
             IWiaErrorHandler_Impl::ReportStatus(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&hwndparent), windows_core::from_raw_borrowed(&pwiaitem2), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&lpercentcomplete)).into()
         }
-        unsafe extern "system" fn GetStatusDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pwiaitem2: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStatusDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pwiaitem2: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, pbstrdescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaErrorHandler_Impl::GetStatusDescription(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pwiaitem2), core::mem::transmute_copy(&hrstatus)) {
@@ -789,7 +789,7 @@ pub trait IWiaEventCallback_Impl: Sized {
 impl windows_core::RuntimeName for IWiaEventCallback {}
 impl IWiaEventCallback_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaEventCallback_Impl, const OFFSET: isize>() -> IWiaEventCallback_Vtbl {
-        unsafe extern "system" fn ImageEventCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventguid: *const windows_core::GUID, bstreventdescription: std::mem::MaybeUninit<windows_core::BSTR>, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, bstrdevicedescription: std::mem::MaybeUninit<windows_core::BSTR>, dwdevicetype: u32, bstrfullitemname: std::mem::MaybeUninit<windows_core::BSTR>, puleventtype: *mut u32, ulreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImageEventCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventguid: *const windows_core::GUID, bstreventdescription: core::mem::MaybeUninit<windows_core::BSTR>, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, bstrdevicedescription: core::mem::MaybeUninit<windows_core::BSTR>, dwdevicetype: u32, bstrfullitemname: core::mem::MaybeUninit<windows_core::BSTR>, puleventtype: *mut u32, ulreserved: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaEventCallback_Impl::ImageEventCallback(this, core::mem::transmute_copy(&peventguid), core::mem::transmute(&bstreventdescription), core::mem::transmute(&bstrdeviceid), core::mem::transmute(&bstrdevicedescription), core::mem::transmute_copy(&dwdevicetype), core::mem::transmute(&bstrfullitemname), core::mem::transmute_copy(&puleventtype), core::mem::transmute_copy(&ulreserved)).into()
@@ -896,7 +896,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             IWiaItem_Impl::DeleteItem(this, core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn CreateChildItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstritemname: std::mem::MaybeUninit<windows_core::BSTR>, bstrfullitemname: std::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateChildItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstritemname: core::mem::MaybeUninit<windows_core::BSTR>, bstrfullitemname: core::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem_Impl::CreateChildItem(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstritemname), core::mem::transmute(&bstrfullitemname)) {
@@ -918,7 +918,7 @@ impl IWiaItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrfullitemname: std::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrfullitemname: core::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem_Impl::FindItemByName(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrfullitemname)) {
@@ -961,7 +961,7 @@ impl IWiaItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DumpItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DumpItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem_Impl::DumpItemData(this) {
@@ -972,7 +972,7 @@ impl IWiaItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DumpDrvItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DumpDrvItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem_Impl::DumpDrvItemData(this) {
@@ -983,7 +983,7 @@ impl IWiaItem_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DumpTreeItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DumpTreeItemData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem_Impl::DumpTreeItemData(this) {
@@ -1043,7 +1043,7 @@ pub trait IWiaItem2_Impl: Sized {
 impl windows_core::RuntimeName for IWiaItem2 {}
 impl IWiaItem2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>() -> IWiaItem2_Vtbl {
-        unsafe extern "system" fn CreateChildItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: std::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateChildItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: core::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem2_Impl::CreateChildItem(this, core::mem::transmute_copy(&litemflags), core::mem::transmute_copy(&lcreationflags), core::mem::transmute(&bstritemname)) {
@@ -1070,7 +1070,7 @@ impl IWiaItem2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrfullitemname: std::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrfullitemname: core::mem::MaybeUninit<windows_core::BSTR>, ppiwiaitem2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItem2_Impl::FindItemByName(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrfullitemname)) {
@@ -1103,7 +1103,7 @@ impl IWiaItem2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: std::mem::MaybeUninit<windows_core::BSTR>, bstrfilename: std::mem::MaybeUninit<windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceDlg<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: core::mem::MaybeUninit<windows_core::BSTR>, bstrfilename: core::mem::MaybeUninit<windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaItem2_Impl::DeviceDlg(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&hwndparent), core::mem::transmute(&bstrfoldername), core::mem::transmute(&bstrfilename), core::mem::transmute_copy(&plnumfiles), core::mem::transmute_copy(&ppbstrfilepaths), core::mem::transmute_copy(&ppitem)).into()
@@ -1124,12 +1124,12 @@ impl IWiaItem2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaItem2_Impl::CheckExtension(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrname), core::mem::transmute_copy(&riidextensioninterface), core::mem::transmute_copy(&pbextensionexists)).into()
         }
-        unsafe extern "system" fn GetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, riidextensioninterface: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, riidextensioninterface: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaItem2_Impl::GetExtension(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrname), core::mem::transmute_copy(&riidextensioninterface), core::mem::transmute_copy(&ppout)).into()
@@ -1215,7 +1215,7 @@ pub trait IWiaItemExtras_Impl: Sized {
 impl windows_core::RuntimeName for IWiaItemExtras {}
 impl IWiaItemExtras_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItemExtras_Impl, const OFFSET: isize>() -> IWiaItemExtras_Vtbl {
-        unsafe extern "system" fn GetExtendedErrorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItemExtras_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrerrortext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExtendedErrorInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItemExtras_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrerrortext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaItemExtras_Impl::GetExtendedErrorInfo(this) {
@@ -1265,7 +1265,7 @@ impl IWiaLog_Vtbl {
             let this = (*this).get_impl();
             IWiaLog_Impl::hResult(this, core::mem::transmute_copy(&hresult)).into()
         }
-        unsafe extern "system" fn Log<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Log<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaLog_Impl::Log(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&lresid), core::mem::transmute_copy(&ldetail), core::mem::transmute(&bstrtext)).into()
@@ -1301,7 +1301,7 @@ impl IWiaLogEx_Vtbl {
             let this = (*this).get_impl();
             IWiaLogEx_Impl::hResult(this, core::mem::transmute_copy(&hresult)).into()
         }
-        unsafe extern "system" fn Log<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaLogEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Log<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaLogEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaLogEx_Impl::Log(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&lresid), core::mem::transmute_copy(&ldetail), core::mem::transmute(&bstrtext)).into()
@@ -1311,7 +1311,7 @@ impl IWiaLogEx_Vtbl {
             let this = (*this).get_impl();
             IWiaLogEx_Impl::hResultEx(this, core::mem::transmute_copy(&lmethodid), core::mem::transmute_copy(&hresult)).into()
         }
-        unsafe extern "system" fn LogEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaLogEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LogEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaLogEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaLogEx_Impl::LogEx(this, core::mem::transmute_copy(&lmethodid), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&lresid), core::mem::transmute_copy(&ldetail), core::mem::transmute(&bstrtext)).into()
@@ -1354,7 +1354,7 @@ impl windows_core::RuntimeName for IWiaMiniDrv {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWiaMiniDrv_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>() -> IWiaMiniDrv_Vtbl {
-        unsafe extern "system" fn drvInitializeWia<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: std::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiaminidrv0003: std::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiaminidrv0004: *mut core::ffi::c_void, __midl__iwiaminidrv0005: *mut core::ffi::c_void, __midl__iwiaminidrv0006: *mut *mut core::ffi::c_void, __midl__iwiaminidrv0007: *mut *mut core::ffi::c_void, __midl__iwiaminidrv0008: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn drvInitializeWia<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: core::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiaminidrv0003: core::mem::MaybeUninit<windows_core::BSTR>, __midl__iwiaminidrv0004: *mut core::ffi::c_void, __midl__iwiaminidrv0005: *mut core::ffi::c_void, __midl__iwiaminidrv0006: *mut *mut core::ffi::c_void, __midl__iwiaminidrv0007: *mut *mut core::ffi::c_void, __midl__iwiaminidrv0008: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaMiniDrv_Impl::drvInitializeWia(
@@ -1489,7 +1489,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             IWiaMiniDrv_Impl::drvGetWiaFormatInfo(this, core::mem::transmute_copy(&__midl__iwiaminidrv0059), core::mem::transmute_copy(&__midl__iwiaminidrv0060), core::mem::transmute_copy(&__midl__iwiaminidrv0061), core::mem::transmute_copy(&__midl__iwiaminidrv0062), core::mem::transmute_copy(&__midl__iwiaminidrv0063)).into()
         }
-        unsafe extern "system" fn drvNotifyPnpEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventguid: *const windows_core::GUID, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, ulreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn drvNotifyPnpEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventguid: *const windows_core::GUID, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, ulreserved: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaMiniDrv_Impl::drvNotifyPnpEvent(this, core::mem::transmute_copy(&peventguid), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&ulreserved)).into()
@@ -1551,7 +1551,7 @@ impl windows_core::RuntimeName for IWiaMiniDrvTransferCallback {}
 #[cfg(feature = "Win32_System_Com")]
 impl IWiaMiniDrvTransferCallback_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvTransferCallback_Impl, const OFFSET: isize>() -> IWiaMiniDrvTransferCallback_Vtbl {
-        unsafe extern "system" fn GetNextStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvTransferCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstritemname: std::mem::MaybeUninit<windows_core::BSTR>, bstrfullitemname: std::mem::MaybeUninit<windows_core::BSTR>, ppistream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNextStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvTransferCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstritemname: core::mem::MaybeUninit<windows_core::BSTR>, bstrfullitemname: core::mem::MaybeUninit<windows_core::BSTR>, ppistream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaMiniDrvTransferCallback_Impl::GetNextStream(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstritemname), core::mem::transmute(&bstrfullitemname)) {
@@ -1659,12 +1659,12 @@ impl windows_core::RuntimeName for IWiaPropertyStorage {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWiaPropertyStorage_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>() -> IWiaPropertyStorage_Vtbl {
-        unsafe extern "system" fn ReadMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaPropertyStorage_Impl::ReadMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgpropvar)).into()
         }
-        unsafe extern "system" fn WriteMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, propidnamefirst: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, propidnamefirst: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaPropertyStorage_Impl::WriteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgpropvar), core::mem::transmute_copy(&propidnamefirst)).into()
@@ -1725,7 +1725,7 @@ impl IWiaPropertyStorage_Vtbl {
             let this = (*this).get_impl();
             IWiaPropertyStorage_Impl::Stat(this, core::mem::transmute_copy(&pstatpsstg)).into()
         }
-        unsafe extern "system" fn GetPropertyAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaPropertyStorage_Impl::GetPropertyAttributes(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgflags), core::mem::transmute_copy(&rgpropvar)).into()
@@ -1860,7 +1860,7 @@ impl IWiaTransferCallback_Vtbl {
             let this = (*this).get_impl();
             IWiaTransferCallback_Impl::TransferCallback(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pwiatransferparams)).into()
         }
-        unsafe extern "system" fn GetNextStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaTransferCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstritemname: std::mem::MaybeUninit<windows_core::BSTR>, bstrfullitemname: std::mem::MaybeUninit<windows_core::BSTR>, ppdestination: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNextStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaTransferCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstritemname: core::mem::MaybeUninit<windows_core::BSTR>, bstrfullitemname: core::mem::MaybeUninit<windows_core::BSTR>, ppdestination: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaTransferCallback_Impl::GetNextStream(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstritemname), core::mem::transmute(&bstrfullitemname)) {
@@ -1897,12 +1897,12 @@ impl IWiaUIExtension_Vtbl {
             let this = (*this).get_impl();
             IWiaUIExtension_Impl::DeviceDialog(this, core::mem::transmute_copy(&pdevicedialogdata)).into()
         }
-        unsafe extern "system" fn GetDeviceIcon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceIcon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaUIExtension_Impl::GetDeviceIcon(this, core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&phicon), core::mem::transmute_copy(&nsize)).into()
         }
-        unsafe extern "system" fn GetDeviceBitmapLogo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceBitmapLogo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaUIExtension_Impl::GetDeviceBitmapLogo(this, core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&phbitmap), core::mem::transmute_copy(&nmaxwidth), core::mem::transmute_copy(&nmaxheight)).into()
@@ -1933,7 +1933,7 @@ impl IWiaUIExtension2_Vtbl {
             let this = (*this).get_impl();
             IWiaUIExtension2_Impl::DeviceDialog(this, core::mem::transmute_copy(&pdevicedialogdata)).into()
         }
-        unsafe extern "system" fn GetDeviceIcon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: std::mem::MaybeUninit<windows_core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceIcon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceid: core::mem::MaybeUninit<windows_core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaUIExtension2_Impl::GetDeviceIcon(this, core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&phicon), core::mem::transmute_copy(&nsize)).into()
@@ -1982,7 +1982,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             IWiaVideo_Impl::SetPreviewVisible(this, core::mem::transmute_copy(&bpreviewvisible)).into()
         }
-        unsafe extern "system" fn ImagesDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrimagedirectory: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImagesDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrimagedirectory: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaVideo_Impl::ImagesDirectory(this) {
@@ -1993,12 +1993,12 @@ impl IWiaVideo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetImagesDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrimagedirectory: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetImagesDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrimagedirectory: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaVideo_Impl::SetImagesDirectory(this, core::mem::transmute(&bstrimagedirectory)).into()
         }
-        unsafe extern "system" fn CreateVideoByWiaDevID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrwiadeviceid: std::mem::MaybeUninit<windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVideoByWiaDevID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrwiadeviceid: core::mem::MaybeUninit<windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaVideo_Impl::CreateVideoByWiaDevID(this, core::mem::transmute(&bstrwiadeviceid), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bstretchtofitparent), core::mem::transmute_copy(&bautobeginplayback)).into()
@@ -2008,7 +2008,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             IWiaVideo_Impl::CreateVideoByDevNum(this, core::mem::transmute_copy(&uidevicenumber), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bstretchtofitparent), core::mem::transmute_copy(&bautobeginplayback)).into()
         }
-        unsafe extern "system" fn CreateVideoByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfriendlyname: std::mem::MaybeUninit<windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVideoByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfriendlyname: core::mem::MaybeUninit<windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWiaVideo_Impl::CreateVideoByName(this, core::mem::transmute(&bstrfriendlyname), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bstretchtofitparent), core::mem::transmute_copy(&bautobeginplayback)).into()
@@ -2028,7 +2028,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             IWiaVideo_Impl::Pause(this).into()
         }
-        unsafe extern "system" fn TakePicture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnewimagefilename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TakePicture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnewimagefilename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IWiaVideo_Impl::TakePicture(this) {

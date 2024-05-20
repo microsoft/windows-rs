@@ -6,7 +6,7 @@ impl windows_core::RuntimeName for IAdaptiveCard {
 }
 impl IAdaptiveCard_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCard_Impl, const OFFSET: isize>() -> IAdaptiveCard_Vtbl {
-        unsafe extern "system" fn ToJson<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ToJson<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAdaptiveCard_Impl::ToJson(this) {
@@ -32,7 +32,7 @@ impl windows_core::RuntimeName for IAdaptiveCardBuilderStatics {
 }
 impl IAdaptiveCardBuilderStatics_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl {
-        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IAdaptiveCardBuilderStatics_Impl::CreateAdaptiveCardFromJson(this, core::mem::transmute(&value)) {

@@ -353,7 +353,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcUnpinRepinnedBcb(bcb : *const core::ffi::c_void, writethrough : super::super::super::Win32::Foundation:: BOOLEAN, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     CcUnpinRepinnedBcb(bcb, writethrough.param().abi(), &mut result__);
     result__
 }
@@ -1211,7 +1211,7 @@ where
 #[inline]
 pub unsafe fn FsRtlNotifyInitializeSync() -> super::super::Foundation::PNOTIFY_SYNC {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlNotifyInitializeSync(notifysync : *mut super::super::Foundation:: PNOTIFY_SYNC));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FsRtlNotifyInitializeSync(&mut result__);
     result__
 }
@@ -1464,7 +1464,7 @@ pub unsafe fn FsRtlRemovePerStreamContext(streamcontext: *const FSRTL_ADVANCED_F
 #[inline]
 pub unsafe fn FsRtlResetBaseMcb() -> BASE_MCB {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlResetBaseMcb(mcb : *mut BASE_MCB));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     FsRtlResetBaseMcb(&mut result__);
     result__
 }
@@ -1593,7 +1593,7 @@ pub unsafe fn GetSecurityUserInfo(logonid: Option<*const super::super::super::Wi
 #[inline]
 pub unsafe fn IoAcquireVpbSpinLock() -> u8 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoAcquireVpbSpinLock(irql : *mut u8));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     IoAcquireVpbSpinLock(&mut result__);
     result__
 }
@@ -2692,7 +2692,7 @@ pub unsafe fn PfxFindPrefix(prefixtable: *const PREFIX_TABLE, fullname: *const s
 #[inline]
 pub unsafe fn PfxInitialize() -> PREFIX_TABLE {
     windows_targets::link!("ntdll.dll" "system" fn PfxInitialize(prefixtable : *mut PREFIX_TABLE));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     PfxInitialize(&mut result__);
     result__
 }
@@ -3223,7 +3223,7 @@ pub unsafe fn RtlInitializeSidEx(sid: super::super::super::Win32::Foundation::PS
 #[inline]
 pub unsafe fn RtlInitializeUnicodePrefix() -> UNICODE_PREFIX_TABLE {
     windows_targets::link!("ntoskrnl.exe" "system" fn RtlInitializeUnicodePrefix(prefixtable : *mut UNICODE_PREFIX_TABLE));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RtlInitializeUnicodePrefix(&mut result__);
     result__
 }
@@ -3414,14 +3414,14 @@ pub unsafe fn RtlReserveChunk(compressionformat: u16, compressedbuffer: *mut *mu
 #[inline]
 pub unsafe fn RtlSecondsSince1970ToTime(elapsedseconds: u32) -> i64 {
     windows_targets::link!("ntdll.dll" "system" fn RtlSecondsSince1970ToTime(elapsedseconds : u32, time : *mut i64));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RtlSecondsSince1970ToTime(elapsedseconds, &mut result__);
     result__
 }
 #[inline]
 pub unsafe fn RtlSecondsSince1980ToTime(elapsedseconds: u32) -> i64 {
     windows_targets::link!("ntdll.dll" "system" fn RtlSecondsSince1980ToTime(elapsedseconds : u32, time : *mut i64));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     RtlSecondsSince1980ToTime(elapsedseconds, &mut result__);
     result__
 }
@@ -3739,7 +3739,7 @@ where
     P1: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeCaptureSubjectContextEx(thread : super::super::Foundation:: PETHREAD, process : super::super::Foundation:: PEPROCESS, subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SeCaptureSubjectContextEx(thread.param().abi(), process.param().abi(), &mut result__);
     result__
 }
@@ -3751,7 +3751,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeCheckForCriticalAceRemoval(currentdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, newdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, subjectsecuritycontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, aceremoved : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SeCheckForCriticalAceRemoval(currentdescriptor.param().abi(), newdescriptor.param().abi(), subjectsecuritycontext, &mut result__);
     result__
 }
@@ -3867,7 +3867,7 @@ where
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectAuditAlarm(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SeOpenObjectAuditAlarm(objecttypename, core::mem::transmute(object.unwrap_or(std::ptr::null())), core::mem::transmute(absoluteobjectname.unwrap_or(std::ptr::null())), securitydescriptor.param().abi(), accessstate, objectcreated.param().abi(), accessgranted.param().abi(), accessmode, &mut result__);
     result__
 }
@@ -3880,7 +3880,7 @@ where
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectAuditAlarmWithTransaction(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, transactionid : *const windows_core::GUID, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SeOpenObjectAuditAlarmWithTransaction(objecttypename, core::mem::transmute(object.unwrap_or(std::ptr::null())), core::mem::transmute(absoluteobjectname.unwrap_or(std::ptr::null())), securitydescriptor.param().abi(), accessstate, objectcreated.param().abi(), accessgranted.param().abi(), accessmode, core::mem::transmute(transactionid.unwrap_or(std::ptr::null())), &mut result__);
     result__
 }
@@ -3893,7 +3893,7 @@ where
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectForDeleteAuditAlarm(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SeOpenObjectForDeleteAuditAlarm(objecttypename, core::mem::transmute(object.unwrap_or(std::ptr::null())), core::mem::transmute(absoluteobjectname.unwrap_or(std::ptr::null())), securitydescriptor.param().abi(), accessstate, objectcreated.param().abi(), accessgranted.param().abi(), accessmode, &mut result__);
     result__
 }
@@ -3906,7 +3906,7 @@ where
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, transactionid : *const windows_core::GUID, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename, core::mem::transmute(object.unwrap_or(std::ptr::null())), core::mem::transmute(absoluteobjectname.unwrap_or(std::ptr::null())), securitydescriptor.param().abi(), accessstate, objectcreated.param().abi(), accessgranted.param().abi(), accessmode, core::mem::transmute(transactionid.unwrap_or(std::ptr::null())), &mut result__);
     result__
 }
@@ -4186,7 +4186,7 @@ pub unsafe fn SspiSetAsyncNotifyCallback(context: *const super::super::Foundatio
 #[inline]
 pub unsafe fn VerifySignature(phcontext: *const SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> windows_core::Result<u32> {
     windows_targets::link!("secur32.dll" "system" fn VerifySignature(phcontext : *const SecHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     VerifySignature(phcontext, pmessage, messageseqno, &mut result__).map(|| result__)
 }
 #[inline]

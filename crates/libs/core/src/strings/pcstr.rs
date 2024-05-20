@@ -13,7 +13,7 @@ impl PCSTR {
 
     /// Construct a null `PCSTR`
     pub const fn null() -> Self {
-        Self(std::ptr::null())
+        Self(core::ptr::null())
     }
 
     /// Returns a raw pointer to the `PCSTR`
@@ -33,7 +33,7 @@ impl PCSTR {
     /// The `PCSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_bytes(&self) -> &[u8] {
         let len = strlen(*self);
-        std::slice::from_raw_parts(self.0, len)
+        core::slice::from_raw_parts(self.0, len)
     }
 
     /// Copy the `PCSTR` into a Rust `String`.
@@ -41,7 +41,7 @@ impl PCSTR {
     /// # Safety
     ///
     /// See the safety information for `PCSTR::as_bytes`.
-    pub unsafe fn to_string(&self) -> std::result::Result<String, std::string::FromUtf8Error> {
+    pub unsafe fn to_string(&self) -> core::result::Result<String, alloc::string::FromUtf8Error> {
         String::from_utf8(self.as_bytes().into())
     }
 
@@ -50,7 +50,7 @@ impl PCSTR {
     /// # Safety
     ///
     /// See the safety information for `PCSTR::as_bytes`.
-    pub unsafe fn display(&self) -> impl std::fmt::Display + '_ {
+    pub unsafe fn display(&self) -> impl core::fmt::Display + '_ {
         Decode(move || decode_utf8(self.as_bytes()))
     }
 }

@@ -23,7 +23,7 @@ pub trait IMbnConnection_Impl: Sized {
 impl windows_core::RuntimeName for IMbnConnection {}
 impl IMbnConnection_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>() -> IMbnConnection_Vtbl {
-        unsafe extern "system" fn ConnectionID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectionID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnConnection_Impl::ConnectionID(this) {
@@ -34,7 +34,7 @@ impl IMbnConnection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnConnection_Impl::InterfaceID(this) {
@@ -67,7 +67,7 @@ impl IMbnConnection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnectionState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConnectionState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMbnConnection_Impl::GetConnectionState(this, core::mem::transmute_copy(&connectionstate), core::mem::transmute_copy(&profilename)).into()
@@ -296,7 +296,7 @@ pub trait IMbnConnectionProfile_Impl: Sized {
 impl windows_core::RuntimeName for IMbnConnectionProfile {}
 impl IMbnConnectionProfile_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>() -> IMbnConnectionProfile_Vtbl {
-        unsafe extern "system" fn GetProfileXmlData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiledata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProfileXmlData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiledata: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnConnectionProfile_Impl::GetProfileXmlData(this) {
@@ -529,7 +529,7 @@ impl IMbnDeviceService_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::InterfaceID(this) {
@@ -540,7 +540,7 @@ impl IMbnDeviceService_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServiceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceserviceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceServiceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceserviceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::DeviceServiceID(this) {
@@ -599,7 +599,7 @@ pub trait IMbnDeviceServiceStateEvents_Impl: Sized {
 impl windows_core::RuntimeName for IMbnDeviceServiceStateEvents {}
 impl IMbnDeviceServiceStateEvents_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>() -> IMbnDeviceServiceStateEvents_Vtbl {
-        unsafe extern "system" fn OnSessionsStateChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: std::mem::MaybeUninit<windows_core::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnSessionsStateChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: core::mem::MaybeUninit<windows_core::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMbnDeviceServiceStateEvents_Impl::OnSessionsStateChange(this, core::mem::transmute(&interfaceid), core::mem::transmute_copy(&statechange)).into()
@@ -633,7 +633,7 @@ impl IMbnDeviceServicesContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceserviceid: std::mem::MaybeUninit<windows_core::BSTR>, mbndeviceservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceserviceid: core::mem::MaybeUninit<windows_core::BSTR>, mbndeviceservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnDeviceServicesContext_Impl::GetDeviceService(this, core::mem::transmute(&deviceserviceid)) {
@@ -747,7 +747,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
             let this = (*this).get_impl();
             IMbnDeviceServicesEvents_Impl::OnReadData(this, windows_core::from_raw_borrowed(&deviceservice), core::mem::transmute_copy(&deviceservicedata)).into()
         }
-        unsafe extern "system" fn OnInterfaceStateChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: std::mem::MaybeUninit<windows_core::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnInterfaceStateChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: core::mem::MaybeUninit<windows_core::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMbnDeviceServicesEvents_Impl::OnInterfaceStateChange(this, core::mem::transmute(&interfaceid), core::mem::transmute_copy(&statechange)).into()
@@ -777,7 +777,7 @@ pub trait IMbnDeviceServicesManager_Impl: Sized {
 impl windows_core::RuntimeName for IMbnDeviceServicesManager {}
 impl IMbnDeviceServicesManager_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>() -> IMbnDeviceServicesManager_Vtbl {
-        unsafe extern "system" fn GetDeviceServicesContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkinterfaceid: std::mem::MaybeUninit<windows_core::BSTR>, mbndevicescontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceServicesContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkinterfaceid: core::mem::MaybeUninit<windows_core::BSTR>, mbndevicescontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnDeviceServicesManager_Impl::GetDeviceServicesContext(this, core::mem::transmute(&networkinterfaceid)) {
@@ -813,7 +813,7 @@ impl windows_core::RuntimeName for IMbnInterface {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnInterface_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>() -> IMbnInterface_Vtbl {
-        unsafe extern "system" fn InterfaceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnInterface_Impl::InterfaceID(this) {
@@ -1629,7 +1629,7 @@ impl IMbnRegistration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providerid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProviderID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providerid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetProviderID(this) {
@@ -1640,7 +1640,7 @@ impl IMbnRegistration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetProviderName(this) {
@@ -1651,7 +1651,7 @@ impl IMbnRegistration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRoamingText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roamingtext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRoamingText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roamingtext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetRoamingText(this) {
@@ -2009,7 +2009,7 @@ pub trait IMbnSmsConfiguration_Impl: Sized {
 impl windows_core::RuntimeName for IMbnSmsConfiguration {}
 impl IMbnSmsConfiguration_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>() -> IMbnSmsConfiguration_Vtbl {
-        unsafe extern "system" fn ServiceCenterAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceCenterAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaddress: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnSmsConfiguration_Impl::ServiceCenterAddress(this) {
@@ -2176,7 +2176,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PduData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdudata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PduData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdudata: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnSmsReadMsgPdu_Impl::PduData(this) {
@@ -2248,7 +2248,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Address<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, address: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Address<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, address: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Address(this) {
@@ -2259,7 +2259,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Timestamp(this) {
@@ -2341,7 +2341,7 @@ impl windows_core::RuntimeName for IMbnSubscriberInformation {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnSubscriberInformation_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>() -> IMbnSubscriberInformation_Vtbl {
-        unsafe extern "system" fn SubscriberID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subscriberid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubscriberID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subscriberid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnSubscriberInformation_Impl::SubscriberID(this) {
@@ -2352,7 +2352,7 @@ impl IMbnSubscriberInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimIccID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, simiccid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SimIccID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, simiccid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IMbnSubscriberInformation_Impl::SimIccID(this) {

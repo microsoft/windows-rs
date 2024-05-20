@@ -1,8 +1,8 @@
 windows_core::imp::define_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
-impl std::ops::Deref for IWICImageEncoder {
+impl core::ops::Deref for IWICImageEncoder {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWICImageEncoder, windows_core::IUnknown);
@@ -49,10 +49,10 @@ pub struct IWICImageEncoder_Vtbl {
     WriteThumbnail: usize,
 }
 windows_core::imp::define_interface!(IWICImagingFactory2, IWICImagingFactory2_Vtbl, 0x7b816b45_1996_4476_b132_de9e247c8af0);
-impl std::ops::Deref for IWICImagingFactory2 {
+impl core::ops::Deref for IWICImagingFactory2 {
     type Target = super::IWICImagingFactory;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IWICImagingFactory2, windows_core::IUnknown, super::IWICImagingFactory);
@@ -62,7 +62,7 @@ impl IWICImagingFactory2 {
     where
         P0: windows_core::Param<super::super::Direct2D::ID2D1Device>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateImageEncoder)(windows_core::Interface::as_raw(self), pd2ddevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }

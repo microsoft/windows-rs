@@ -2,6 +2,13 @@
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
 
+#![cfg_attr(not(test), no_std)]
+
+#[macro_use]
+extern crate alloc;
+
+use alloc::{string::String, vec::Vec};
+
 mod bindings;
 use bindings::*;
 
@@ -39,7 +46,7 @@ fn pcwstr<T: AsRef<str>>(value: T) -> Vec<u16> {
     value
         .as_ref()
         .encode_utf16()
-        .chain(std::iter::once(0))
+        .chain(core::iter::once(0))
         .collect()
 }
 

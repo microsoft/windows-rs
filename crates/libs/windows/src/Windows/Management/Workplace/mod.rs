@@ -32,31 +32,31 @@ pub struct MdmPolicy;
 impl MdmPolicy {
     pub fn IsBrowserAllowed() -> windows_core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBrowserAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsCameraAllowed() -> windows_core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCameraAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsMicrosoftAccountAllowed() -> windows_core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMicrosoftAccountAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsStoreAllowed() -> windows_core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStoreAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GetMessagingSyncPolicy() -> windows_core::Result<MessagingSyncPolicy> {
         Self::IMdmPolicyStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessagingSyncPolicy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
@@ -78,7 +78,7 @@ pub struct WorkplaceSettings;
 impl WorkplaceSettings {
     pub fn IsMicrosoftAccountOptional() -> windows_core::Result<bool> {
         Self::IWorkplaceSettingsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMicrosoftAccountOptional)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }

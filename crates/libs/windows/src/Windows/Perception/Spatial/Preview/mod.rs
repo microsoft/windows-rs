@@ -55,14 +55,14 @@ impl SpatialGraphInteropFrameOfReferencePreview {
     pub fn CoordinateSystem(&self) -> windows_core::Result<super::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NodeId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -70,7 +70,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
     pub fn CoordinateSystemToNodeTransform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoordinateSystemToNodeTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -91,27 +91,27 @@ pub struct SpatialGraphInteropPreview;
 impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNode(nodeid: windows_core::GUID) -> windows_core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCoordinateSystemForNode)(windows_core::Interface::as_raw(this), nodeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCoordinateSystemForNodeWithPosition(nodeid: windows_core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPosition)(windows_core::Interface::as_raw(this), nodeid, relativeposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCoordinateSystemForNodeWithPositionAndOrientation(nodeid: windows_core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPositionAndOrientation)(windows_core::Interface::as_raw(this), nodeid, relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateLocatorForNode(nodeid: windows_core::GUID) -> windows_core::Result<super::SpatialLocator> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLocatorForNode)(windows_core::Interface::as_raw(this), nodeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -120,7 +120,7 @@ impl SpatialGraphInteropPreview {
         P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFrameOfReference)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -130,7 +130,7 @@ impl SpatialGraphInteropPreview {
         P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -140,7 +140,7 @@ impl SpatialGraphInteropPreview {
         P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }

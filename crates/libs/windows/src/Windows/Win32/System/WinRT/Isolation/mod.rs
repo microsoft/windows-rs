@@ -1,8 +1,8 @@
 windows_core::imp::define_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
-impl std::ops::Deref for IIsolatedEnvironmentInterop {
+impl core::ops::Deref for IIsolatedEnvironmentInterop {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_core::IUnknown);
@@ -11,7 +11,7 @@ impl IIsolatedEnvironmentInterop {
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), containerhwnd.param().abi(), &mut result__).map(|| result__)
     }
 }

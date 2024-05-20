@@ -76,7 +76,7 @@ impl IDataModelConcept_Vtbl {
             let this = (*this).get_impl();
             IDataModelConcept_Impl::InitializeObject(this, windows_core::from_raw_borrowed(&modelobject), windows_core::from_raw_borrowed(&matchingtypesignature), windows_core::from_raw_borrowed(&wildcardmatches)).into()
         }
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modelname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modelname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelConcept_Impl::GetName(this) {
@@ -193,7 +193,7 @@ impl IDataModelManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateIntrinsicObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const std::mem::MaybeUninit<windows_core::VARIANT>, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateIntrinsicObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelManager_Impl::CreateIntrinsicObject(this, core::mem::transmute_copy(&objectkind), core::mem::transmute_copy(&intrinsicdata)) {
@@ -204,7 +204,7 @@ impl IDataModelManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *const std::mem::MaybeUninit<windows_core::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelManager_Impl::CreateTypedIntrinsicObject(this, core::mem::transmute_copy(&intrinsicdata), windows_core::from_raw_borrowed(&r#type)) {
@@ -340,7 +340,7 @@ impl IDataModelManager2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, intrinsicdata: *const std::mem::MaybeUninit<windows_core::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, intrinsicdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelManager2_Impl::CreateTypedIntrinsicObjectEx(this, windows_core::from_raw_borrowed(&context), core::mem::transmute_copy(&intrinsicdata), windows_core::from_raw_borrowed(&r#type)) {
@@ -429,7 +429,7 @@ impl windows_core::RuntimeName for IDataModelScript {}
 #[cfg(feature = "Win32_System_Com")]
 impl IDataModelScript_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScript_Impl, const OFFSET: isize>() -> IDataModelScript_Vtbl {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelScript_Impl::GetName(this) {
@@ -528,7 +528,7 @@ impl IDataModelScriptDebug_Vtbl {
             let this = (*this).get_impl();
             IDataModelScriptDebug_Impl::GetDebugState(this)
         }
-        unsafe extern "system" fn GetCurrentPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDataModelScriptDebug_Impl::GetCurrentPosition(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&positionspanend), core::mem::transmute_copy(&linetext)).into()
@@ -680,7 +680,7 @@ impl IDataModelScriptDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             IDataModelScriptDebugBreakpoint_Impl::Remove(this)
         }
-        unsafe extern "system" fn GetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugBreakpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugBreakpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDataModelScriptDebugBreakpoint_Impl::GetPosition(this, core::mem::transmute_copy(&position), core::mem::transmute_copy(&positionspanend), core::mem::transmute_copy(&linetext)).into()
@@ -794,7 +794,7 @@ pub trait IDataModelScriptDebugStackFrame_Impl: Sized {
 impl windows_core::RuntimeName for IDataModelScriptDebugStackFrame {}
 impl IDataModelScriptDebugStackFrame_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugStackFrame_Impl, const OFFSET: isize>() -> IDataModelScriptDebugStackFrame_Vtbl {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugStackFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugStackFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelScriptDebugStackFrame_Impl::GetName(this) {
@@ -805,7 +805,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugStackFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugStackFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDataModelScriptDebugStackFrame_Impl::GetPosition(this, core::mem::transmute_copy(&position), core::mem::transmute_copy(&positionspanend), core::mem::transmute_copy(&linetext)).into()
@@ -886,7 +886,7 @@ impl IDataModelScriptDebugVariableSetEnumerator_Vtbl {
             let this = (*this).get_impl();
             IDataModelScriptDebugVariableSetEnumerator_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn GetNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugVariableSetEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variablename: *mut std::mem::MaybeUninit<windows_core::BSTR>, variablevalue: *mut *mut core::ffi::c_void, variablemetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptDebugVariableSetEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variablename: *mut core::mem::MaybeUninit<windows_core::BSTR>, variablevalue: *mut *mut core::ffi::c_void, variablemetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDataModelScriptDebugVariableSetEnumerator_Impl::GetNext(this, core::mem::transmute_copy(&variablename), core::mem::transmute_copy(&variablevalue), core::mem::transmute_copy(&variablemetadata)).into()
@@ -1023,7 +1023,7 @@ pub trait IDataModelScriptProvider_Impl: Sized {
 impl windows_core::RuntimeName for IDataModelScriptProvider {}
 impl IDataModelScriptProvider_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptProvider_Impl, const OFFSET: isize>() -> IDataModelScriptProvider_Vtbl {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelScriptProvider_Impl::GetName(this) {
@@ -1034,7 +1034,7 @@ impl IDataModelScriptProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extension: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extension: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelScriptProvider_Impl::GetExtension(this) {
@@ -1135,7 +1135,7 @@ impl windows_core::RuntimeName for IDataModelScriptTemplate {}
 #[cfg(feature = "Win32_System_Com")]
 impl IDataModelScriptTemplate_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptTemplate_Impl, const OFFSET: isize>() -> IDataModelScriptTemplate_Vtbl {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, templatename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, templatename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelScriptTemplate_Impl::GetName(this) {
@@ -1146,7 +1146,7 @@ impl IDataModelScriptTemplate_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, templatedescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataModelScriptTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, templatedescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDataModelScriptTemplate_Impl::GetDescription(this) {
@@ -17174,8 +17174,8 @@ impl<T: IDebugFAEntryTags_Impl> IDebugFAEntryTags_ImplVtbl<T> {
 impl IDebugFAEntryTags {
     pub fn new<'a, T: IDebugFAEntryTags_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IDebugFAEntryTags_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = std::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(std::mem::transmute(&this.vtable)) }
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
 pub trait IDebugFailureAnalysis_Impl: Sized {
@@ -17630,7 +17630,7 @@ impl IDebugFailureAnalysis3_Vtbl {
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::AddThreads(this, windows_core::from_raw_borrowed(&pdebugfailurethreadenum)).into()
         }
-        unsafe extern "system" fn AttributeGet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttributeGet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugFailureAnalysis3_Impl::AttributeGet(this, core::mem::transmute_copy(&nindex)) {
@@ -17641,7 +17641,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeGetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttributeGetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugFailureAnalysis3_Impl::AttributeGetName(this, core::mem::transmute_copy(&nindex)) {
@@ -17652,17 +17652,17 @@ impl IDebugFailureAnalysis3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, value: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttributeSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::AttributeSet(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn BlameApplication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, postfix: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BlameApplication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, postfix: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::BlameApplication(this, core::mem::transmute(&postfix)).into()
         }
-        unsafe extern "system" fn BlameProcess<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, postfix: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BlameProcess<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, postfix: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::BlameProcess(this, core::mem::transmute(&postfix)).into()
@@ -17672,7 +17672,7 @@ impl IDebugFailureAnalysis3_Vtbl {
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::BlameThread(this, windows_core::from_raw_borrowed(&pthread)).into()
         }
-        unsafe extern "system" fn BlameStitch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pthread: *mut core::ffi::c_void, stitch: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BlameStitch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pthread: *mut core::ffi::c_void, stitch: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::BlameStitch(this, windows_core::from_raw_borrowed(&pthread), core::mem::transmute(&stitch)).into()
@@ -17708,17 +17708,17 @@ impl IDebugFailureAnalysis3_Vtbl {
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::ProblemClassSet(this, core::mem::transmute_copy(&nindex)).into()
         }
-        unsafe extern "system" fn ProblemClassSetBSTR<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, value: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProblemClassSetBSTR<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, value: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::ProblemClassSetBSTR(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SetAdditionalXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: std::mem::MaybeUninit<windows_core::BSTR>, pxmldomelement: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAdditionalXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: core::mem::MaybeUninit<windows_core::BSTR>, pxmldomelement: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::SetAdditionalXML(this, core::mem::transmute(&key), windows_core::from_raw_borrowed(&pxmldomelement)).into()
         }
-        unsafe extern "system" fn GetAdditionalXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: std::mem::MaybeUninit<windows_core::BSTR>, ppxmldomelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdditionalXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: core::mem::MaybeUninit<windows_core::BSTR>, ppxmldomelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugFailureAnalysis3_Impl::GetAdditionalXML(this, core::mem::transmute(&key)) {
@@ -17729,7 +17729,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteAdditionalXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteAdditionalXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IDebugFailureAnalysis3_Impl::DeleteAdditionalXML(this, core::mem::transmute(&key)).into()
@@ -17863,7 +17863,7 @@ pub trait IDebugHostConstant_Impl: Sized + IDebugHostSymbol_Impl {
 impl windows_core::RuntimeName for IDebugHostConstant {}
 impl IDebugHostConstant_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostConstant_Impl, const OFFSET: isize>() -> IDebugHostConstant_Vtbl {
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostConstant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostConstant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugHostConstant_Impl::GetValue(this) {
@@ -17933,7 +17933,7 @@ impl IDebugHostData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugHostData_Impl::GetValue(this) {
@@ -18085,7 +18085,7 @@ impl IDebugHostField_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugHostField_Impl::GetValue(this) {
@@ -18138,7 +18138,7 @@ impl IDebugHostMemory_Vtbl {
             let this = (*this).get_impl();
             IDebugHostMemory_Impl::WritePointers(this, windows_core::from_raw_borrowed(&context), core::mem::transmute(&location), core::mem::transmute_copy(&count), core::mem::transmute_copy(&pointers)).into()
         }
-        unsafe extern "system" fn GetDisplayStringForLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, verbose: u8, locationname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayStringForLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, verbose: u8, locationname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugHostMemory_Impl::GetDisplayStringForLocation(this, windows_core::from_raw_borrowed(&context), core::mem::transmute(&location), core::mem::transmute_copy(&verbose)) {
@@ -18196,7 +18196,7 @@ pub trait IDebugHostModule_Impl: Sized + IDebugHostSymbol_Impl {
 impl windows_core::RuntimeName for IDebugHostModule {}
 impl IDebugHostModule_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostModule_Impl, const OFFSET: isize>() -> IDebugHostModule_Vtbl {
-        unsafe extern "system" fn GetImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowpath: u8, imagename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowpath: u8, imagename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugHostModule_Impl::GetImageName(this, core::mem::transmute_copy(&allowpath)) {
@@ -18440,7 +18440,7 @@ impl IDebugHostSymbol_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostSymbol_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, symbolname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostSymbol_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, symbolname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IDebugHostSymbol_Impl::GetName(this) {
@@ -26072,7 +26072,7 @@ impl IKeyEnumerator_Vtbl {
             let this = (*this).get_impl();
             IKeyEnumerator_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn GetNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IKeyEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut std::mem::MaybeUninit<windows_core::BSTR>, value: *mut *mut core::ffi::c_void, metadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IKeyEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::mem::MaybeUninit<windows_core::BSTR>, value: *mut *mut core::ffi::c_void, metadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IKeyEnumerator_Impl::GetNext(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value), core::mem::transmute_copy(&metadata)).into()
@@ -26174,7 +26174,7 @@ pub trait IModelKeyReference_Impl: Sized {
 impl windows_core::RuntimeName for IModelKeyReference {}
 impl IModelKeyReference_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelKeyReference_Impl, const OFFSET: isize>() -> IModelKeyReference_Vtbl {
-        unsafe extern "system" fn GetKeyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelKeyReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelKeyReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IModelKeyReference_Impl::GetKeyName(this) {
@@ -26339,7 +26339,7 @@ impl IModelObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IModelObject_Impl::GetIntrinsicValue(this) {
@@ -26350,7 +26350,7 @@ impl IModelObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValueAs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vt: super::super::super::Variant::VARENUM, intrinsicdata: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValueAs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vt: super::super::super::Variant::VARENUM, intrinsicdata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IModelObject_Impl::GetIntrinsicValueAs(this, core::mem::transmute_copy(&vt)) {
@@ -26699,7 +26699,7 @@ impl IRawEnumerator_Vtbl {
             let this = (*this).get_impl();
             IRawEnumerator_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn GetNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>, kind: *mut SymbolKind, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>, kind: *mut SymbolKind, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IRawEnumerator_Impl::GetNext(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&kind), core::mem::transmute_copy(&value)).into()
@@ -26720,7 +26720,7 @@ pub trait IStringDisplayableConcept_Impl: Sized {
 impl windows_core::RuntimeName for IStringDisplayableConcept {}
 impl IStringDisplayableConcept_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStringDisplayableConcept_Impl, const OFFSET: isize>() -> IStringDisplayableConcept_Vtbl {
-        unsafe extern "system" fn ToDisplayString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStringDisplayableConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextobject: *mut core::ffi::c_void, metadata: *mut core::ffi::c_void, displaystring: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ToDisplayString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStringDisplayableConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextobject: *mut core::ffi::c_void, metadata: *mut core::ffi::c_void, displaystring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IStringDisplayableConcept_Impl::ToDisplayString(this, windows_core::from_raw_borrowed(&contextobject), windows_core::from_raw_borrowed(&metadata)) {

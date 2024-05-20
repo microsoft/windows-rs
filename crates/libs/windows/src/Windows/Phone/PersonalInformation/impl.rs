@@ -24,7 +24,7 @@ impl windows_core::RuntimeName for IContactInformation {
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IContactInformation_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>() -> IContactInformation_Vtbl {
-        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactInformation_Impl::DisplayName(this) {
@@ -36,12 +36,12 @@ impl IContactInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IContactInformation_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn FamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactInformation_Impl::FamilyName(this) {
@@ -53,12 +53,12 @@ impl IContactInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IContactInformation_Impl::SetFamilyName(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn GivenName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GivenName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactInformation_Impl::GivenName(this) {
@@ -70,12 +70,12 @@ impl IContactInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGivenName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGivenName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IContactInformation_Impl::SetGivenName(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn HonorificPrefix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn HonorificPrefix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactInformation_Impl::HonorificPrefix(this) {
@@ -87,12 +87,12 @@ impl IContactInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHonorificPrefix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHonorificPrefix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IContactInformation_Impl::SetHonorificPrefix(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn HonorificSuffix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn HonorificSuffix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IContactInformation_Impl::HonorificSuffix(this) {
@@ -104,7 +104,7 @@ impl IContactInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHonorificSuffix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHonorificSuffix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IContactInformation_Impl::SetHonorificSuffix(this, core::mem::transmute(&value)).into()

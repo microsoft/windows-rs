@@ -11,10 +11,10 @@ pub mod Nested {
         IThing_Vtbl,
         0x5448be22_9873_5ae6_9106_f6e8455d2fdd
     );
-    impl std::ops::Deref for IThing {
+    impl core::ops::Deref for IThing {
         type Target = windows_core::IInspectable;
         fn deref(&self) -> &Self::Target {
-            unsafe { std::mem::transmute(self) }
+            unsafe { core::mem::transmute(self) }
         }
     }
     windows_core::imp::interface_hierarchy!(
@@ -103,13 +103,13 @@ pub struct IClass_Vtbl {
     pub StringArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *const std::mem::MaybeUninit<windows_core::HSTRING>,
+        *const core::mem::MaybeUninit<windows_core::HSTRING>,
         u32,
-        *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
         *mut u32,
-        *mut *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
         *mut u32,
-        *mut *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
     pub Input: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -140,7 +140,7 @@ impl Class {
     pub fn Property(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Property)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -161,7 +161,7 @@ impl Class {
     pub fn Flags(&self) -> windows_core::Result<Flags> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Flags)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -186,7 +186,7 @@ impl Class {
                 b.as_mut_ptr(),
                 c.set_abi_len(),
                 c as *mut _ as _,
-                windows_core::Array::<i32>::set_abi_len(std::mem::transmute(&mut result__)),
+                windows_core::Array::<i32>::set_abi_len(core::mem::transmute(&mut result__)),
                 result__.as_mut_ptr() as *mut _ as _,
             )
             .map(|| result__.assume_init())
@@ -209,7 +209,7 @@ impl Class {
                 core::mem::transmute_copy(&b),
                 c.set_abi_len(),
                 c as *mut _ as _,
-                windows_core::Array::<windows_core::HSTRING>::set_abi_len(std::mem::transmute(
+                windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(
                     &mut result__,
                 )),
                 result__.as_mut_ptr() as *mut _ as _,
@@ -318,7 +318,7 @@ impl Callback {
     pub fn Invoke(&self, a: i32) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoke)(
                 windows_core::Interface::as_raw(this),
                 a,
@@ -531,13 +531,13 @@ impl IClass_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             a_array_size: u32,
-            a: *const std::mem::MaybeUninit<windows_core::HSTRING>,
+            a: *const core::mem::MaybeUninit<windows_core::HSTRING>,
             b_array_size: u32,
-            b: *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+            b: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
             c_array_size: *mut u32,
-            c: *mut *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+            c: *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
             result_size__: *mut u32,
-            result__: *mut *mut std::mem::MaybeUninit<windows_core::HSTRING>,
+            result__: *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();

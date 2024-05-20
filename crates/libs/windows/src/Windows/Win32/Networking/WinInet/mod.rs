@@ -2135,10 +2135,10 @@ where
     UrlCacheUpdateEntryExtraData(core::mem::transmute(happcache.unwrap_or(std::ptr::null())), pcwszurl.param().abi(), core::mem::transmute(pbextradata.as_ptr()), pbextradata.len().try_into().unwrap())
 }
 windows_core::imp::define_interface!(IDialBranding, IDialBranding_Vtbl, 0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
-impl std::ops::Deref for IDialBranding {
+impl core::ops::Deref for IDialBranding {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialBranding, windows_core::IUnknown);
@@ -2151,7 +2151,7 @@ impl IDialBranding {
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
     }
 }
@@ -2165,10 +2165,10 @@ pub struct IDialBranding_Vtbl {
     GetBitmap: usize,
 }
 windows_core::imp::define_interface!(IDialEngine, IDialEngine_Vtbl, 0x39fd782b_7905_40d5_9148_3c9b190423d5);
-impl std::ops::Deref for IDialEngine {
+impl core::ops::Deref for IDialEngine {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialEngine, windows_core::IUnknown);
@@ -2201,11 +2201,11 @@ impl IDialEngine {
         (windows_core::Interface::vtable(self).HangUp)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetConnectedState(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConnectedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetConnectHandle(&self) -> windows_core::Result<usize> {
-        let mut result__ = std::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConnectHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
@@ -2221,10 +2221,10 @@ pub struct IDialEngine_Vtbl {
     pub GetConnectHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
-impl std::ops::Deref for IDialEventSink {
+impl core::ops::Deref for IDialEventSink {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IDialEventSink, windows_core::IUnknown);
@@ -2239,10 +2239,10 @@ pub struct IDialEventSink_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager, IProofOfPossessionCookieInfoManager_Vtbl, 0xcdaece56_4edf_43df_b113_88e4556fa1bb);
-impl std::ops::Deref for IProofOfPossessionCookieInfoManager {
+impl core::ops::Deref for IProofOfPossessionCookieInfoManager {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, windows_core::IUnknown);
@@ -2260,10 +2260,10 @@ pub struct IProofOfPossessionCookieInfoManager_Vtbl {
     pub GetCookieInfoForUri: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager2, IProofOfPossessionCookieInfoManager2_Vtbl, 0x15e41407_b42f_4ae7_9966_34a087b2d713);
-impl std::ops::Deref for IProofOfPossessionCookieInfoManager2 {
+impl core::ops::Deref for IProofOfPossessionCookieInfoManager2 {
     type Target = windows_core::IUnknown;
     fn deref(&self) -> &Self::Target {
-        unsafe { std::mem::transmute(self) }
+        unsafe { core::mem::transmute(self) }
     }
 }
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, windows_core::IUnknown);

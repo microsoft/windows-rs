@@ -5,8 +5,8 @@ impl windows_core::RuntimeType for IPlatformTelemetryClientStatics {
 #[repr(C)]
 pub struct IPlatformTelemetryClientStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RegisterWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegisterWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlatformTelemetryRegistrationResult, IPlatformTelemetryRegistrationResult_Vtbl, 0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 impl windows_core::RuntimeType for IPlatformTelemetryRegistrationResult {
@@ -33,7 +33,7 @@ pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     pub fn Register(id: &windows_core::HSTRING) -> windows_core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -42,7 +42,7 @@ impl PlatformTelemetryClient {
         P0: windows_core::Param<PlatformTelemetryRegistrationSettings>,
     {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegisterWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -63,7 +63,7 @@ impl PlatformTelemetryRegistrationResult {
     pub fn Status(&self) -> windows_core::Result<PlatformTelemetryRegistrationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -95,7 +95,7 @@ impl PlatformTelemetryRegistrationSettings {
     pub fn StorageSize(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StorageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -106,7 +106,7 @@ impl PlatformTelemetryRegistrationSettings {
     pub fn UploadQuotaSize(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UploadQuotaSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }

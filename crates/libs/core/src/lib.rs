@@ -5,8 +5,14 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![doc(html_no_source)]
 #![allow(non_snake_case, unexpected_cfgs)]
 #![cfg_attr(windows_debugger_visualizer, debugger_visualizer(natvis_file = "../.natvis"))]
+#![cfg_attr(all(not(test), not(feature = "std")), no_std)]
 
 extern crate self as windows_core;
+
+#[macro_use]
+extern crate alloc;
+
+use alloc::{boxed::Box, string::String, vec::Vec};
 
 #[doc(hidden)]
 pub mod imp;
@@ -15,6 +21,7 @@ mod agile_reference;
 mod array;
 mod as_impl;
 mod com_object;
+#[cfg(feature = "std")]
 mod event;
 mod guid;
 mod handles;
@@ -38,6 +45,7 @@ pub use agile_reference::*;
 pub use array::*;
 pub use as_impl::*;
 pub use com_object::*;
+#[cfg(feature = "std")]
 pub use event::*;
 pub use guid::*;
 pub use handles::*;

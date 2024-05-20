@@ -1,4 +1,5 @@
 use super::*;
+use core::ptr::{null, null_mut};
 
 /// A registry key.
 #[repr(transparent)]
@@ -15,12 +16,12 @@ impl Key {
                 self.0,
                 pcwstr(path).as_ptr(),
                 0,
-                std::ptr::null(),
+                null(),
                 REG_OPTION_NON_VOLATILE,
                 KEY_READ | KEY_WRITE,
-                std::ptr::null(),
+                null(),
                 &mut handle,
-                std::ptr::null_mut(),
+                null_mut(),
             )
         };
 
@@ -115,14 +116,7 @@ impl Key {
         let mut len = 0;
 
         let result = unsafe {
-            RegQueryValueExW(
-                self.0,
-                name.as_ptr(),
-                std::ptr::null(),
-                &mut ty,
-                std::ptr::null_mut(),
-                &mut len,
-            )
+            RegQueryValueExW(self.0, name.as_ptr(), null(), &mut ty, null_mut(), &mut len)
         };
 
         win32_error(result)?;
@@ -135,8 +129,8 @@ impl Key {
                     RegQueryValueExW(
                         self.0,
                         name.as_ptr(),
-                        std::ptr::null(),
-                        std::ptr::null_mut(),
+                        null(),
+                        null_mut(),
                         &mut value as *mut _ as _,
                         &mut len,
                     )
@@ -152,8 +146,8 @@ impl Key {
                     RegQueryValueExW(
                         self.0,
                         name.as_ptr(),
-                        std::ptr::null(),
-                        std::ptr::null_mut(),
+                        null(),
+                        null_mut(),
                         &mut value as *mut _ as _,
                         &mut len,
                     )
@@ -169,8 +163,8 @@ impl Key {
                     RegQueryValueExW(
                         self.0,
                         name.as_ptr(),
-                        std::ptr::null(),
-                        std::ptr::null_mut(),
+                        null(),
+                        null_mut(),
                         value.as_mut_ptr() as _,
                         &mut len,
                     )
@@ -186,8 +180,8 @@ impl Key {
                     RegQueryValueExW(
                         self.0,
                         name.as_ptr(),
-                        std::ptr::null(),
-                        std::ptr::null_mut(),
+                        null(),
+                        null_mut(),
                         value.as_mut_ptr() as _,
                         &mut len,
                     )
@@ -209,8 +203,8 @@ impl Key {
                     RegQueryValueExW(
                         self.0,
                         name.as_ptr(),
-                        std::ptr::null(),
-                        std::ptr::null_mut(),
+                        null(),
+                        null_mut(),
                         value.as_mut_ptr() as _,
                         &mut len,
                     )

@@ -34,13 +34,13 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> windows_core:
 #[inline]
 pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetIntegratedDisplaySize(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
     windows_targets::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetLocalTime(&mut result__);
     result__
 }
@@ -125,7 +125,7 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundat
 #[inline]
 pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetSystemTime(&mut result__);
     result__
 }
@@ -142,14 +142,14 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetSystemTimeAsFileTime(&mut result__);
     result__
 }
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILETIME {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     GetSystemTimePreciseAsFileTime(&mut result__);
     result__
 }
@@ -236,7 +236,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
 #[inline]
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : IMAGE_FILE_MACHINE, machineissupported : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = std::mem::zeroed();
+    let mut result__ = core::mem::zeroed();
     IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
 }
 #[inline]

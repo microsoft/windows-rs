@@ -72,12 +72,12 @@ pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
 impl windows_core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {}
 impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
-        unsafe extern "system" fn AddPropertyGetHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, interfacename: std::mem::MaybeUninit<windows_core::HSTRING>, callback: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPropertyGetHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, interfacename: core::mem::MaybeUninit<windows_core::HSTRING>, callback: isize) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsDevicesAllJoynBusObjectInterop_Impl::AddPropertyGetHandler(this, core::mem::transmute_copy(&context), core::mem::transmute(&interfacename), core::mem::transmute_copy(&callback)).into()
         }
-        unsafe extern "system" fn AddPropertySetHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, interfacename: std::mem::MaybeUninit<windows_core::HSTRING>, callback: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPropertySetHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, interfacename: core::mem::MaybeUninit<windows_core::HSTRING>, callback: isize) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IWindowsDevicesAllJoynBusObjectInterop_Impl::AddPropertySetHandler(this, core::mem::transmute_copy(&context), core::mem::transmute(&interfacename), core::mem::transmute_copy(&callback)).into()

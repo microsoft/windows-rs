@@ -95,7 +95,7 @@ pub unsafe fn SysAddRefString<P0>(bstrstring: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::BSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     SysAddRefString(bstrstring.param().abi()).ok()
 }
 #[inline]
@@ -121,7 +121,7 @@ pub unsafe fn SysFreeString<P0>(bstrstring: P0)
 where
     P0: windows_core::Param<windows_core::BSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : std::mem::MaybeUninit < windows_core::BSTR >));
+    windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : core::mem::MaybeUninit < windows_core::BSTR >));
     SysFreeString(bstrstring.param().abi())
 }
 #[inline]
@@ -129,7 +129,7 @@ pub unsafe fn SysReAllocString<P0>(pbstr: *mut windows_core::BSTR, psz: P0) -> i
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut std::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR) -> i32);
+    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut core::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR) -> i32);
     SysReAllocString(core::mem::transmute(pbstr), psz.param().abi())
 }
 #[inline]
@@ -137,7 +137,7 @@ pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut windows_core::BSTR, psz: P0, l
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut std::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR, len : u32) -> i32);
+    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut core::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR, len : u32) -> i32);
     SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), len)
 }
 #[inline]
@@ -145,7 +145,7 @@ pub unsafe fn SysReleaseString<P0>(bstrstring: P0)
 where
     P0: windows_core::Param<windows_core::BSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : std::mem::MaybeUninit < windows_core::BSTR >));
+    windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : core::mem::MaybeUninit < windows_core::BSTR >));
     SysReleaseString(bstrstring.param().abi())
 }
 #[inline]
@@ -153,7 +153,7 @@ pub unsafe fn SysStringByteLen<P0>(bstr: P0) -> u32
 where
     P0: windows_core::Param<windows_core::BSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : std::mem::MaybeUninit < windows_core::BSTR >) -> u32);
+    windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : core::mem::MaybeUninit < windows_core::BSTR >) -> u32);
     SysStringByteLen(bstr.param().abi())
 }
 #[inline]
@@ -161,7 +161,7 @@ pub unsafe fn SysStringLen<P0>(pbstr: P0) -> u32
 where
     P0: windows_core::Param<windows_core::BSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : std::mem::MaybeUninit < windows_core::BSTR >) -> u32);
+    windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : core::mem::MaybeUninit < windows_core::BSTR >) -> u32);
     SysStringLen(pbstr.param().abi())
 }
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: WIN32_ERROR = WIN32_ERROR(15705u32);

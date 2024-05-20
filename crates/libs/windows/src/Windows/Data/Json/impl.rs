@@ -23,7 +23,7 @@ impl IJsonValue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Stringify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Stringify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IJsonValue_Impl::Stringify(this) {
@@ -35,7 +35,7 @@ impl IJsonValue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IJsonValue_Impl::GetString(this) {

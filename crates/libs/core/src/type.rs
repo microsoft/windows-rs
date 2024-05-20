@@ -28,12 +28,12 @@ impl<T> Type<T, InterfaceType> for T
 where
     T: TypeKind<TypeKind = InterfaceType> + Clone,
 {
-    type Abi = *mut std::ffi::c_void;
+    type Abi = *mut core::ffi::c_void;
     type Default = Option<Self>;
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         if !abi.is_null() {
-            Ok(std::mem::transmute_copy(&abi))
+            Ok(core::mem::transmute_copy(&abi))
         } else {
             Err(Error::empty())
         }
@@ -48,7 +48,7 @@ impl<T> Type<T, CloneType> for T
 where
     T: TypeKind<TypeKind = CloneType> + Clone,
 {
-    type Abi = std::mem::MaybeUninit<Self>;
+    type Abi = core::mem::MaybeUninit<Self>;
     type Default = Self;
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {

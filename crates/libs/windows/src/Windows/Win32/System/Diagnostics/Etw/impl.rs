@@ -161,7 +161,7 @@ pub trait ITraceRelogger_Impl: Sized {
 impl windows_core::RuntimeName for ITraceRelogger {}
 impl ITraceRelogger_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>() -> ITraceRelogger_Vtbl {
-        unsafe extern "system" fn AddLogfileTraceStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: std::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddLogfileTraceStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ITraceRelogger_Impl::AddLogfileTraceStream(this, core::mem::transmute(&logfilename), core::mem::transmute_copy(&usercontext)) {
@@ -172,7 +172,7 @@ impl ITraceRelogger_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddRealtimeTraceStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggername: std::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddRealtimeTraceStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggername: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match ITraceRelogger_Impl::AddRealtimeTraceStream(this, core::mem::transmute(&loggername), core::mem::transmute_copy(&usercontext)) {
@@ -209,7 +209,7 @@ impl ITraceRelogger_Vtbl {
             let this = (*this).get_impl();
             ITraceRelogger_Impl::ProcessTrace(this).into()
         }
-        unsafe extern "system" fn SetOutputFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOutputFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ITraceRelogger_Impl::SetOutputFilename(this, core::mem::transmute(&logfilename)).into()

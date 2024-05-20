@@ -48,7 +48,7 @@ impl BackPressedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
@@ -93,7 +93,7 @@ impl HardwareButtons {
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<BackPressedEventArgs>>,
     {
         Self::IHardwareButtonsStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -105,7 +105,7 @@ impl HardwareButtons {
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<CameraEventArgs>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CameraHalfPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -117,7 +117,7 @@ impl HardwareButtons {
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<CameraEventArgs>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CameraPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
@@ -129,7 +129,7 @@ impl HardwareButtons {
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<CameraEventArgs>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CameraReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }

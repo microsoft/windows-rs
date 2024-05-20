@@ -6494,7 +6494,7 @@ impl Default for D3DHAL_CONTEXTCREATEDATA_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
-    pub lpDDS: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -6516,7 +6516,7 @@ impl Default for D3DHAL_CONTEXTCREATEDATA_1 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
-    pub lpDDSZ: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpDDSZ: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7977,9 +7977,9 @@ pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
     pub dwStatus: u32,
-    pub lpExeBuf: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpExeBuf: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub dwTLOffset: u32,
-    pub lpTLBuf: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpTLBuf: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub diInstruction: super::super::super::Win32::Graphics::Direct3D9::D3DINSTRUCTION,
     pub ddrval: windows_core::HRESULT,
 }
@@ -8006,7 +8006,7 @@ pub struct D3DHAL_RENDERSTATEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
     pub dwCount: u32,
-    pub lpExeBuf: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpExeBuf: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -8067,7 +8067,7 @@ impl Default for D3DHAL_SETRENDERTARGETDATA {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
-    pub lpDDS: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -8089,7 +8089,7 @@ impl Default for D3DHAL_SETRENDERTARGETDATA_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
-    pub lpDDSZ: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpDDSZ: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -8113,7 +8113,7 @@ impl Default for D3DHAL_SETRENDERTARGETDATA_1 {
 #[derive(Debug, Eq, PartialEq)]
 pub struct D3DHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
-    pub lpDDS: std::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
+    pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub dwHandle: u32,
     pub ddrval: windows_core::HRESULT,
 }

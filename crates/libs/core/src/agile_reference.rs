@@ -1,5 +1,5 @@
 use super::*;
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 
 /// A type representing an agile reference to a COM/WinRT object.
 #[repr(transparent)]
@@ -13,7 +13,7 @@ impl<T: Interface> AgileReference<T> {
         // For example, <T: Interface<UNKNOWN = true>>
         // https://github.com/rust-lang/rust/issues/92827
         assert!(T::UNKNOWN);
-        unsafe { imp::RoGetAgileReference(imp::AGILEREFERENCE_DEFAULT, &T::IID, std::mem::transmute::<&T, &IUnknown>(object)).map(|reference| Self(reference, Default::default())) }
+        unsafe { imp::RoGetAgileReference(imp::AGILEREFERENCE_DEFAULT, &T::IID, core::mem::transmute::<&T, &IUnknown>(object)).map(|reference| Self(reference, Default::default())) }
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
@@ -25,8 +25,8 @@ impl<T: Interface> AgileReference<T> {
 unsafe impl<T: Interface> Send for AgileReference<T> {}
 unsafe impl<T: Interface> Sync for AgileReference<T> {}
 
-impl<T> std::fmt::Debug for AgileReference<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T> core::fmt::Debug for AgileReference<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "AgileReference({:?})", &self.0)
     }
 }

@@ -262,7 +262,7 @@ pub trait IMILBitmapEffectEvents_Impl: Sized {
 impl windows_core::RuntimeName for IMILBitmapEffectEvents {}
 impl IMILBitmapEffectEvents_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>() -> IMILBitmapEffectEvents_Vtbl {
-        unsafe extern "system" fn PropertyChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void, bstrpropertyname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PropertyChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IMILBitmapEffectEvents_Impl::PropertyChange(this, windows_core::from_raw_borrowed(&peffect), core::mem::transmute(&bstrpropertyname)).into()

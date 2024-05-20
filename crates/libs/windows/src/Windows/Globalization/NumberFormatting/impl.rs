@@ -8,7 +8,7 @@ impl windows_core::RuntimeName for INumberFormatter {
 }
 impl INumberFormatter_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>() -> INumberFormatter_Vtbl {
-        unsafe extern "system" fn FormatInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatter_Impl::FormatInt(this, value) {
@@ -20,7 +20,7 @@ impl INumberFormatter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatUInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatUInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatter_Impl::FormatUInt(this, value) {
@@ -32,7 +32,7 @@ impl INumberFormatter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatDouble<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatDouble<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatter_Impl::FormatDouble(this, value) {
@@ -65,7 +65,7 @@ impl windows_core::RuntimeName for INumberFormatter2 {
 }
 impl INumberFormatter2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>() -> INumberFormatter2_Vtbl {
-        unsafe extern "system" fn FormatInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatter2_Impl::FormatInt(this, value) {
@@ -77,7 +77,7 @@ impl INumberFormatter2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatUInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatUInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatter2_Impl::FormatUInt(this, value) {
@@ -89,7 +89,7 @@ impl INumberFormatter2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatDouble<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatDouble<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatter2_Impl::FormatDouble(this, value) {
@@ -148,7 +148,7 @@ impl INumberFormatterOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GeographicRegion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GeographicRegion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatterOptions_Impl::GeographicRegion(this) {
@@ -224,7 +224,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             INumberFormatterOptions_Impl::SetIsDecimalPointAlwaysDisplayed(this, value).into()
         }
-        unsafe extern "system" fn NumeralSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NumeralSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatterOptions_Impl::NumeralSystem(this) {
@@ -236,12 +236,12 @@ impl INumberFormatterOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumeralSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNumeralSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             INumberFormatterOptions_Impl::SetNumeralSystem(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn ResolvedLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResolvedLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatterOptions_Impl::ResolvedLanguage(this) {
@@ -253,7 +253,7 @@ impl INumberFormatterOptions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolvedGeographicRegion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResolvedGeographicRegion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberFormatterOptions_Impl::ResolvedGeographicRegion(this) {
@@ -297,7 +297,7 @@ impl windows_core::RuntimeName for INumberParser {
 }
 impl INumberParser_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>() -> INumberParser_Vtbl {
-        unsafe extern "system" fn ParseInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberParser_Impl::ParseInt(this, core::mem::transmute(&text)) {
@@ -309,7 +309,7 @@ impl INumberParser_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseUInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseUInt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberParser_Impl::ParseUInt(this, core::mem::transmute(&text)) {
@@ -321,7 +321,7 @@ impl INumberParser_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseDouble<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseDouble<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match INumberParser_Impl::ParseDouble(this, core::mem::transmute(&text)) {

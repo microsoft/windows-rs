@@ -1,4 +1,5 @@
 use super::*;
+use core::ffi::c_void;
 
 /// An error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq, Eq)]
@@ -94,13 +95,14 @@ impl Error {
     }
 
     /// The error object describing the error.
-    pub fn as_ptr(&self) -> *mut std::ffi::c_void {
+    pub fn as_ptr(&self) -> *mut c_void {
         self.info
             .as_ref()
-            .map_or(std::ptr::null_mut(), |info| info.as_raw())
+            .map_or(core::ptr::null_mut(), |info| info.as_raw())
     }
 }
 
+#[cfg(feature = "std")]
 impl std::error::Error for Error {}
 unsafe impl Send for Error {}
 unsafe impl Sync for Error {}
@@ -124,12 +126,14 @@ impl From<HRESULT> for Error {
     }
 }
 
+#[cfg(feature = "std")]
 impl From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error(from.code.0)
     }
 }
 
+#[cfg(feature = "std")]
 impl From<std::io::Error> for Error {
     fn from(from: std::io::Error) -> Self {
         match from.raw_os_error() {
@@ -139,8 +143,8 @@ impl From<std::io::Error> for Error {
     }
 }
 
-impl From<std::string::FromUtf16Error> for Error {
-    fn from(_: std::string::FromUtf16Error) -> Self {
+impl From<alloc::string::FromUtf16Error> for Error {
+    fn from(_: alloc::string::FromUtf16Error) -> Self {
         Self {
             code: HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION),
             info: None,
@@ -148,8 +152,8 @@ impl From<std::string::FromUtf16Error> for Error {
     }
 }
 
-impl From<std::string::FromUtf8Error> for Error {
-    fn from(_: std::string::FromUtf8Error) -> Self {
+impl From<alloc::string::FromUtf8Error> for Error {
+    fn from(_: alloc::string::FromUtf8Error) -> Self {
         Self {
             code: HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION),
             info: None,
@@ -157,8 +161,8 @@ impl From<std::string::FromUtf8Error> for Error {
     }
 }
 
-impl From<std::num::TryFromIntError> for Error {
-    fn from(_: std::num::TryFromIntError) -> Self {
+impl From<core::num::TryFromIntError> for Error {
+    fn from(_: core::num::TryFromIntError) -> Self {
         Self {
             code: HRESULT::from_win32(ERROR_INVALID_DATA),
             info: None,
@@ -166,8 +170,8 @@ impl From<std::num::TryFromIntError> for Error {
     }
 }
 
-impl std::fmt::Debug for Error {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Error {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
         debug
             .field("code", &self.code)
@@ -176,13 +180,13 @@ impl std::fmt::Debug for Error {
     }
 }
 
-impl std::fmt::Display for Error {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Display for Error {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let message = self.message();
         if message.is_empty() {
-            std::write!(fmt, "{}", self.code())
+            core::write!(fmt, "{}", self.code())
         } else {
-            std::write!(fmt, "{} ({})", self.message(), self.code())
+            core::write!(fmt, "{} ({})", self.message(), self.code())
         }
     }
 }

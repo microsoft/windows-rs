@@ -6,7 +6,7 @@ pub trait Free {
     /// Calls the handle's free function.
     ///
     /// # Safety
-    /// The handle must be owned by the caller and safe to free.    
+    /// The handle must be owned by the caller and safe to free.
     unsafe fn free(&mut self);
 }
 
@@ -32,14 +32,14 @@ impl<T: Free> Drop for Owned<T> {
     }
 }
 
-impl<T: Free> std::ops::Deref for Owned<T> {
+impl<T: Free> core::ops::Deref for Owned<T> {
     type Target = T;
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl<T: Free> std::ops::DerefMut for Owned<T> {
+impl<T: Free> core::ops::DerefMut for Owned<T> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.0
     }

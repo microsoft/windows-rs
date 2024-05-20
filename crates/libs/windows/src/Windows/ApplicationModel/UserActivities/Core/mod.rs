@@ -15,7 +15,7 @@ impl CoreUserActivityManager {
         P0: windows_core::Param<super::UserActivity>,
     {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(windows_core::Interface::as_raw(this), activity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
@@ -24,7 +24,7 @@ impl CoreUserActivityManager {
         P0: windows_core::Param<super::UserActivityChannel>,
     {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
-            let mut result__ = std::mem::zeroed();
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(windows_core::Interface::as_raw(this), channel.param().abi(), starttime, endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
