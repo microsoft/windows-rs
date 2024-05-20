@@ -10,6 +10,8 @@ typedef HRESULT (__stdcall *ValidateJson)(uintptr_t handle, char const* value, s
 typedef void (__stdcall *CloseJsonValidator)(uintptr_t handle);
 
 extern "C" {
+    void __stdcall CoTaskMemFree(void* ptr);
+
     void __stdcall client() {
         auto library = LoadLibraryExW(L"sample_component_json_validator.dll", 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
         assert(library != 0);
