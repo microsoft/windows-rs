@@ -68,7 +68,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
         let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-        quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
+        quote! { #vtbl_ident::new::<#impl_ident::#generics, #original_ident::#generics, #offset>() }
     });
 
     let offset = attributes.implement.iter().enumerate().map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
@@ -96,11 +96,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
                 #[inline(always)]
                 fn from(this: #original_ident::#generics) -> Self {
-                    let this = #impl_ident::#generics::new(this);
-                    let mut this = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
-                    let vtable_ptr = &this.vtables.#offset;
-                    // SAFETY: interfaces are in-memory equivalent to pointers to their vtables.
-                    unsafe { ::core::mem::transmute(vtable_ptr) }
+                    let com_object = ::windows_core::ComObject::new(this);
+                    com_object.into_interface()
                 }
             }
 
@@ -132,34 +129,44 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let tokens = quote! {
         #[repr(C)]
         #vis struct #impl_ident #generics where #constraints {
-            identity: *const ::windows_core::IInspectable_Vtbl,
-            vtables: (#(*const #vtbl_idents,)*),
+            identity: &'static ::windows_core::IInspectable_Vtbl,
+            vtables: (#(&'static #vtbl_idents,)*),
             this: #original_ident::#generics,
             count: ::windows_core::imp::WeakRefCount,
-        }
-        impl #generics #impl_ident::#generics where #constraints {
-            const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
-            const IDENTITY: ::windows_core::IInspectable_Vtbl = ::windows_core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
-            fn new(this: #original_ident::#generics) -> Self {
-                Self {
-                    identity: &Self::IDENTITY,
-                    vtables:(#(&Self::VTABLES.#offset,)*),
-                    this,
-                    count: ::windows_core::imp::WeakRefCount::new(),
-                }
-            }
         }
 
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics where #constraints {
             type Outer = #impl_ident::#generics;
+
+            // IMPORTANT! This function handles assembling the "boxed" type of a COM object.
+            // It immediately moves the box into a heap allocation (box) and returns only a ComObject
+            // reference that points to it. We intentionally _do not_ expose any owned instances of
+            // Foo_Impl to safe Rust code, because doing so would allow unsound behavior in safe Rust
+            // code, due to the adjustments of the reference count that Foo_Impl permits.
+            //
+            // This is why this function returns ComObject<Self> instead of returning #impl_ident.
+
+            fn into_object(self) -> ::windows_core::ComObject<Self> {
+                static VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
+                static IDENTITY: ::windows_core::IInspectable_Vtbl = ::windows_core::IInspectable_Vtbl::new::<#impl_ident::#generics, #identity_type, 0>();
+
+                let boxed = ::windows_core::imp::Box::new(#impl_ident::#generics {
+                    identity: &IDENTITY,
+                    vtables: (#(&VTABLES.#offset,)*),
+                    this: self,
+                    count: ::windows_core::imp::WeakRefCount::new(),
+                });
+                unsafe {
+                    let ptr = ::windows_core::imp::Box::into_raw(boxed);
+                    ::windows_core::ComObject::from_raw(
+                        ::core::ptr::NonNull::new_unchecked(ptr)
+                    )
+                }
+            }
         }
 
         impl #generics ::windows_core::IUnknownImpl for #impl_ident::#generics where #constraints {
             type Impl = #original_ident::#generics;
-
-            fn new_box(value: Self::Impl) -> ::windows_core::imp::Box<Self> {
-                ::windows_core::imp::Box::new(Self::new(value))
-            }
 
             #[inline(always)]
             fn get_impl(&self) -> &Self::Impl {
@@ -259,28 +266,32 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
             #[inline(always)]
             fn from(this: #original_ident::#generics) -> Self {
-                let this = #impl_ident::#generics::new(this);
-                let boxed = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
-                unsafe {
-                    ::core::mem::transmute(&boxed.identity)
-                }
+                let com_object = ::windows_core::ComObject::new(this);
+                com_object.into_interface()
             }
         }
 
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
             #[inline(always)]
             fn from(this: #original_ident::#generics) -> Self {
-                let this = #impl_ident::#generics::new(this);
-                let boxed = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
-                unsafe {
-                    ::core::mem::transmute(&boxed.identity)
-                }
+                let com_object = ::windows_core::ComObject::new(this);
+                com_object.into_interface()
             }
         }
 
         impl #generics ::windows_core::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
             #[inline(always)]
             fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
+                unsafe {
+                    let interface_ptr = &self.identity;
+                    ::core::mem::transmute(interface_ptr)
+                }
+            }
+        }
+
+        impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics where #constraints {
+            #[inline(always)]
+            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
                 unsafe {
                     let interface_ptr = &self.identity;
                     ::core::mem::transmute(interface_ptr)

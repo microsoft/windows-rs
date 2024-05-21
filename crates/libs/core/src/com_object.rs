@@ -15,10 +15,30 @@ use core::ptr::NonNull;
 /// User code should not deal directly with this trait.
 ///
 /// This trait is sort of the reverse of [`IUnknownImpl`]. This trait allows user code to use
-/// `ComObject<T>] instead of `ComObject<T_Impl>`.
-pub trait ComObjectInner {
+/// [`ComObject<T>`] instead of `ComObject<T_Impl>`.
+pub trait ComObjectInner: Sized {
     /// The generated `<foo>_Impl` type (aka the "boxed" type or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
+
+    /// Moves an instance of this type into a new ComObject box and returns it.
+    ///
+    /// # Safety
+    ///
+    /// It is important that safe Rust code never be able to acquire an owned instance of a
+    /// generated "outer" COM object type, e.g. `<foo>_Impl`. This would be unsafe because the
+    /// `<foo>_Impl` object contains a reference count field and provides methods that adjust
+    /// the reference count, and destroy the object when the reference count reaches zero.
+    ///
+    /// Safe Rust code must only be able to interact with these values by accessing them via a
+    /// `ComObject` reference. `ComObject` handles adjusting reference counts and associates the
+    /// lifetime of a `&<foo>_Impl` with the lifetime of the related `ComObject`.
+    ///
+    /// The `#[implement]` macro generates the implementation of this `into_object` method.
+    /// The generated `into_object` method encapsulates the construction of the `<foo>_Impl`
+    /// object and immediately places it into the heap and returns a `ComObject` reference to it.
+    /// This ensures that our requirement -- that safe Rust code never own a `<foo>_Impl` value
+    /// directly -- is met.
+    fn into_object(self) -> ComObject<Self>;
 }
 
 /// Describes the COM interfaces implemented by a specific COM object.
@@ -57,10 +77,23 @@ pub struct ComObject<T: ComObjectInner> {
 impl<T: ComObjectInner> ComObject<T> {
     /// Allocates a heap cell (box) and moves `value` into it. Returns a counted pointer to `value`.
     pub fn new(value: T) -> Self {
-        unsafe {
-            let box_ = T::Outer::new_box(value);
-            Self { ptr: NonNull::new_unchecked(Box::into_raw(box_)) }
-        }
+        T::into_object(value)
+    }
+
+    /// Creates a new `ComObject` that points to an existing boxed instance.
+    ///
+    /// # Safety
+    ///
+    /// The caller must ensure that `ptr` points to a valid, heap-allocated instance of `T::Outer`.
+    /// Normally, this pointer comes from using `Box::into_raw(Box::new(...))`.
+    ///
+    /// The pointed-to box must have a reference count that is greater than zero.
+    ///
+    /// This function takes ownership of the existing pointer; it does not call `AddRef`.
+    /// The reference count must accurately reflect all outstanding references to the box,
+    /// including `ptr` in the count.
+    pub unsafe fn from_raw(ptr: NonNull<T::Outer>) -> Self {
+        Self { ptr }
     }
 
     /// Gets a reference to the shared object stored in the box.
