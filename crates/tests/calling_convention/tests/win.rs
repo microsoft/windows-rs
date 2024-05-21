@@ -1,5 +1,3 @@
-#![allow(unexpected_cfgs)]
-
 use windows::{
     Win32::Foundation::*, Win32::Networking::Ldap::*, Win32::System::SystemInformation::*,
 };

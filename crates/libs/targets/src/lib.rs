@@ -3,7 +3,6 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 */
 
 #![no_std]
-#![allow(unexpected_cfgs)]
 
 /// Defines an external function to import.
 #[cfg(all(windows_raw_dylib, target_arch = "x86"))]

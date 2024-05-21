@@ -1,4 +1,3 @@
-#![allow(unexpected_cfgs)]
 #![cfg(windows_debugger_visualizer)]
 
 use debugger_test::*;

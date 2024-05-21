@@ -17,3 +17,4 @@ exclude = [
 rust_2018_idioms = "warn"
 unused_qualifications = "warn"
 missing_docs = "warn"
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_debugger_visualizer)'] }
