@@ -68,7 +68,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
         let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-        quote! { #vtbl_ident::new::<#impl_ident::#generics, #original_ident::#generics, #offset>() }
+        quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
     });
 
     let offset = attributes.implement.iter().enumerate().map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
@@ -135,6 +135,11 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             count: ::windows_core::imp::WeakRefCount,
         }
 
+        impl #generics #impl_ident::#generics where #constraints {
+            const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
+            const IDENTITY: ::windows_core::IInspectable_Vtbl = ::windows_core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
+        }
+
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics where #constraints {
             type Outer = #impl_ident::#generics;
 
@@ -147,12 +152,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             // This is why this function returns ComObject<Self> instead of returning #impl_ident.
 
             fn into_object(self) -> ::windows_core::ComObject<Self> {
-                static VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
-                static IDENTITY: ::windows_core::IInspectable_Vtbl = ::windows_core::IInspectable_Vtbl::new::<#impl_ident::#generics, #identity_type, 0>();
-
                 let boxed = ::windows_core::imp::Box::new(#impl_ident::#generics {
-                    identity: &IDENTITY,
-                    vtables: (#(&VTABLES.#offset,)*),
+                    identity: &#impl_ident::#generics::IDENTITY,
+                    vtables: (#(&#impl_ident::#generics::VTABLES.#offset,)*),
                     this: self,
                     count: ::windows_core::imp::WeakRefCount::new(),
                 });
