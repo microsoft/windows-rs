@@ -68,9 +68,6 @@ pub trait IUnknownImpl {
     /// The contained user type, e.g. `MyApp`. Also known as the "inner" type.
     type Impl;
 
-    /// Initializes a new heap box and returns it.
-    fn new_box(value: Self::Impl) -> Box<Self>;
-
     /// Get a reference to the backing implementation.
     fn get_impl(&self) -> &Self::Impl;
 
