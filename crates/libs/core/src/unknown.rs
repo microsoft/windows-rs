@@ -135,6 +135,21 @@ pub trait IUnknownImpl {
     {
         <Self as ComObjectInterface<I>>::as_interface_ref(self).to_owned()
     }
+
+    /// Creates a new owned reference to this object.
+    ///
+    /// # Safety
+    ///
+    /// This function can only be safely called by `<Foo>_Impl` objects that are embedded in a
+    /// `ComObject`. Since we only allow safe Rust code to access these objects using a `ComObject`
+    /// or a `&<Foo>_Impl` that points within a `ComObject`, this is safe.
+    fn to_object(&self) -> ComObject<Self::Impl>
+    where
+        Self::Impl: ComObjectInner<Outer = Self>;
+
+    /// The distance from the start of `<Foo>_Impl` to the `this` field within it, measured in
+    /// pointer-sized elements. The `this` field contains the `MyApp` instance.
+    const INNER_OFFSET_IN_POINTERS: usize;
 }
 
 impl IUnknown_Vtbl {
