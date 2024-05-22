@@ -4,6 +4,9 @@ version = "0.0.0"
 edition = "2021"
 publish = false
 
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib)'] }
+
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
