@@ -15,15 +15,21 @@ windows_targets::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : HKEY, lps
 windows_targets::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : HKEY, lpclass : PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut FILETIME) -> WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : HKEY, lpvaluename : PCWSTR, lpreserved : *const u32, lptype : *mut REG_VALUE_TYPE, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
+windows_targets::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
+windows_targets::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HANDLE, dwflags : HEAP_FLAGS, dwbytes : usize) -> *mut core::ffi::c_void);
+windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);
 pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259u32;
+pub const ERROR_OUTOFMEMORY: WIN32_ERROR = 14u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
+pub type HANDLE = isize;
+pub type HEAP_FLAGS = u32;
 pub type HKEY = isize;
 pub const HKEY_CLASSES_ROOT: HKEY = -2147483648i32 as _;
 pub const HKEY_CURRENT_CONFIG: HKEY = -2147483643i32 as _;
