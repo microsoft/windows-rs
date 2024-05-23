@@ -1,0 +1,54 @@
+name: no-default-features
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  check:
+    runs-on: windows-2019
+
+    strategy:
+      matrix:
+        include:
+          - version: nightly
+            target: x86_64-pc-windows-msvc
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment
+      - name: Check windows
+        run:  cargo check -p windows --no-default-features
+      - name: Check windows-bindgen
+        run:  cargo check -p windows-bindgen --no-default-features
+      - name: Check windows-core
+        run:  cargo check -p windows-core --no-default-features
+      - name: Check windows-implement
+        run:  cargo check -p windows-implement --no-default-features
+      - name: Check windows-interface
+        run:  cargo check -p windows-interface --no-default-features
+      - name: Check windows-metadata
+        run:  cargo check -p windows-metadata --no-default-features
+      - name: Check windows-registry
+        run:  cargo check -p windows-registry --no-default-features
+      - name: Check windows-result
+        run:  cargo check -p windows-result --no-default-features
+      - name: Check windows-sys
+        run:  cargo check -p windows-sys --no-default-features
+      - name: Check windows-targets
+        run:  cargo check -p windows-targets --no-default-features
+      - name: Check windows-version
+        run:  cargo check -p windows-version --no-default-features

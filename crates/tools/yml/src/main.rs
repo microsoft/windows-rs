@@ -3,6 +3,7 @@ use std::fmt::Write;
 fn main() {
     test_yml();
     clippy_yml();
+    no_default_features_yml();
 }
 
 fn test_yml() {
@@ -152,4 +153,52 @@ jobs:
     }
 
     std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
+}
+
+fn no_default_features_yml() {
+    let mut yml = r"name: no-default-features
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  check:
+    runs-on: windows-2019
+
+    strategy:
+      matrix:
+        include:
+          - version: nightly
+            target: x86_64-pc-windows-msvc
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment"
+        .to_string();
+
+    for (name, _) in lib::crates("crates/libs") {
+        write!(
+            &mut yml,
+            r"
+      - name: Check {name}
+        run:  cargo check -p {name} --no-default-features"
+        )
+        .unwrap();
+    }
+
+    std::fs::write(".github/workflows/no-default-features.yml", yml.as_bytes()).unwrap();
 }
