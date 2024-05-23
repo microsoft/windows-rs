@@ -5,3 +5,4 @@
 *.winmd -text
 *.lib   -text
 *.a     -text
+*.exe   -text
