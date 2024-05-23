@@ -76,6 +76,8 @@ jobs:
         run:  cargo test -p sample_component_json_validator_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_component_json_validator_winrt_client
         run:  cargo test -p sample_component_json_validator_winrt_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_winrt_client_cpp
+        run:  cargo test -p sample_component_json_validator_winrt_client_cpp --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_consent
         run:  cargo test -p sample_consent --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_core_app
@@ -154,10 +156,10 @@ jobs:
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_arch_feature
-        run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_arch_feature
+        run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
@@ -256,10 +258,10 @@ jobs:
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_structs
-        run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_structs
+        run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_sys
         run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_targets

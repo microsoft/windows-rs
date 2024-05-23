@@ -52,6 +52,8 @@ jobs:
         run:  cargo clippy -p sample_component_json_validator_winrt
       - name: Clippy sample_component_json_validator_winrt_client
         run:  cargo clippy -p sample_component_json_validator_winrt_client
+      - name: Clippy sample_component_json_validator_winrt_client_cpp
+        run:  cargo clippy -p sample_component_json_validator_winrt_client_cpp
       - name: Clippy sample_consent
         run:  cargo clippy -p sample_consent
       - name: Clippy sample_core_app
