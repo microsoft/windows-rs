@@ -18,6 +18,7 @@ fn main() {
     cc::Build::new()
         .cpp(true)
         .std("c++20")
+        .flag("/EHsc")
         .file("src/client.cpp")
         .compile("client");
 }
