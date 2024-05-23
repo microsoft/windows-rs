@@ -56,6 +56,8 @@ jobs:
         uses: ./.github/actions/fix-environment
       - name: Clean
         run:  cargo clean
+      - name: Test cppwinrt
+        run:  cargo test -p cppwinrt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test no_std
         run:  cargo test -p no_std --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test riddle
@@ -154,10 +156,10 @@ jobs:
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_array
-        run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_array
+        run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
         run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bstr
@@ -256,10 +258,10 @@ jobs:
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_sys
-        run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_sys
+        run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_targets
         run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_unions

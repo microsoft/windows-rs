@@ -32,6 +32,8 @@ jobs:
         run: rustup component add clippy
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+      - name: Clippy cppwinrt
+        run:  cargo clippy -p cppwinrt
       - name: Clippy no_std
         run:  cargo clippy -p no_std
       - name: Clippy riddle
