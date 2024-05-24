@@ -50,11 +50,14 @@ runs:
               >> $env:GITHUB_ENV
           }
         }
-    # Workaround to address two issues with windows-2022 runners:
-    # 1. Old mingw-w64-* binutils that prevent deterministic builds.
-    # 2. Missing llvm-dlltool in the native Windows LLVM package.
+    # Workaround to address several issues with windows-2022 runners:
+    # - Old mingw-w64-* binutils that prevent deterministic builds.
+    # - Missing llvm-dlltool in the native Windows LLVM package.
+    # - Missing mingw-w64 compiler packages.
     - name: Update packages
       shell: pwsh
       run: |
         C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-binutils
         C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-llvm
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-i686-gcc
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-gcc
