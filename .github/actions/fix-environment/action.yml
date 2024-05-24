@@ -3,14 +3,6 @@ description: GitHub VMs aren't configured correctly
 runs:
   using: "composite"
   steps:
-    # Workaround to address two issues with windows-2022 runners:
-    # 1. Old mingw-w64-* binutils that prevent deterministic builds.
-    # 2. Missing llvm-dlltool in the native Windows LLVM package.
-    - name: Update packages
-      shell: pwsh
-      run: |
-        pacman -S --noconfirm mingw-w64-x86_64-binutils
-        pacman -S --noconfirm mingw-w64-x86_64-llvm
     - name: Configure Cargo for GNU
       shell: pwsh
       run: |
@@ -58,3 +50,11 @@ runs:
               >> $env:GITHUB_ENV
           }
         }
+    # Workaround to address two issues with windows-2022 runners:
+    # 1. Old mingw-w64-* binutils that prevent deterministic builds.
+    # 2. Missing llvm-dlltool in the native Windows LLVM package.
+    - name: Update packages
+      shell: pwsh
+      run: |
+        pacman -S --noconfirm mingw-w64-x86_64-binutils
+        pacman -S --noconfirm mingw-w64-x86_64-llvm
