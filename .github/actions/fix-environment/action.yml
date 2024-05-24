@@ -54,7 +54,7 @@ runs:
     # 1. Old mingw-w64-* binutils that prevent deterministic builds.
     # 2. Missing llvm-dlltool in the native Windows LLVM package.
     - name: Update packages
-      shell: pwsh
+      shell: bash
       run: |
         pacman -S --noconfirm mingw-w64-x86_64-binutils
         pacman -S --noconfirm mingw-w64-x86_64-llvm
