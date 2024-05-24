@@ -3,7 +3,7 @@
 using namespace winrt::Sample;
 
 extern "C" {
-    void __stdcall client() {
+    void __stdcall client() noexcept {
         auto schema = LR"(
 {
     "properties": {
@@ -17,18 +17,18 @@ extern "C" {
 }
     )";
 
-    auto value = LR"(
+        auto value = LR"(
 {
     "name": "Kenny",
     "age": 21 
 }
     )";
 
-    // Create a validator with the given schema.
-    auto validator = JsonValidator(schema);
+        // Create a validator with the given schema.
+        auto validator = JsonValidator(schema);
 
-    // Validate and check the sanitized return value.
-    auto sanitized = validator.Validate(value);
-    assert(sanitized == LR"({"age":21,"name":"Kenny"})");
+        // Validate and check the sanitized return value.
+        auto sanitized = validator.Validate(value);
+        assert(sanitized == LR"({"age":21,"name":"Kenny"})");
     }
 }
