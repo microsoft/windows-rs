@@ -27,19 +27,19 @@ runs:
           "i686*"
           {
             "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x86" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx86\x86")
+            ((Resolve-Path "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\*\bin\Hostx86\x86")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
           "x86_64*"
           {
             "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+            ((Resolve-Path "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
           "aarch64*"
           {
             "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+            ((Resolve-Path "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
           "*"
