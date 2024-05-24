@@ -33,7 +33,7 @@ jobs:
         run: |
           $path = & 'C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe' `
             -latest -property installationPath -format value
-          Write-Output "install_path=$path" >> $env::GITHUB_OUTPUT
+          "install_path=$path" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
       - name: Build i686_msvc
         shell: cmd
