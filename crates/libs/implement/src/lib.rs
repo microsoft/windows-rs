@@ -46,10 +46,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let original_type2 = original_type.clone();
     let original_type2 = syn::parse_macro_input!(original_type2 as syn::ItemStruct);
     let vis = &original_type2.vis;
-    let original_ident = original_type2.ident;
+    let original_ident = &original_type2.ident;
     let mut constraints = quote! {};
 
-    if let Some(where_clause) = original_type2.generics.where_clause {
+    if let Some(where_clause) = &original_type2.generics.where_clause {
         where_clause.predicates.to_tokens(&mut constraints);
     }
 
@@ -82,6 +82,25 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
     });
+
+    // Dynamic casting requires that the object not contain non-static lifetimes.
+    let enable_dyn_casting = original_type2.generics.lifetimes().count() == 0;
+    let dynamic_cast_query = if enable_dyn_casting {
+        quote! {
+            else if *iid == ::windows_core::DYNAMIC_CAST_IID {
+                // DYNAMIC_CAST_IID is special. We _do not_ increase the reference count for this pseudo-interface.
+                // Also, instead of returning an interface pointer, we simply write the `&dyn Any` directly to the
+                // 'interface' pointer. Since the size of `&dyn Any` is 2 pointers, not one, the caller must be
+                // prepared for this. This is not a normal QueryInterface call.
+                //
+                // See the `Interface::cast_to_any` method, which is the only caller that should use DYNAMIC_CAST_ID.
+                (interface as *mut *const dyn core::any::Any).write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
+                return ::windows_core::HRESULT(0);
+            }
+        }
+    } else {
+        quote!()
+    };
 
     // The distance from the beginning of the generated type to the 'this' field, in units of pointers (not bytes).
     let offset_of_this_in_pointers = 1 + attributes.implement.len();
@@ -201,7 +220,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     || iid == &<::windows_core::IInspectable as ::windows_core::Interface>::IID
                     || iid == &<::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
                         &self.identity as *const _ as *mut _
-                } #(#queries)* else {
+                }
+                #(#queries)*
+                #dynamic_cast_query
+                else {
                     ::core::ptr::null_mut()
                 };
 
@@ -230,7 +252,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             unsafe fn Release(self_: *mut Self) -> u32 {
                 let remaining = (*self_).count.release();
                 if remaining == 0 {
-                    _ = ::windows_core::imp::Box::from_raw(self_ as *const Self as *mut Self);
+                    _ = ::windows_core::imp::Box::from_raw(self_);
                 }
                 remaining
             }
@@ -247,6 +269,17 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 &*((inner as *const Self::Impl as *const *const ::core::ffi::c_void)
                     .sub(#offset_of_this_in_pointers_token) as *const Self)
             }
+
+            fn to_object(&self) -> ::windows_core::ComObject<Self::Impl> {
+                self.count.add_ref();
+                unsafe {
+                    ::windows_core::ComObject::from_raw(
+                        ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self)
+                    )
+                }
+            }
+
+            const INNER_OFFSET_IN_POINTERS: usize = #offset_of_this_in_pointers_token;
         }
 
         impl #generics #original_ident::#generics where #constraints {

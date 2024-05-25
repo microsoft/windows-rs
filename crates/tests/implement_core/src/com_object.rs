@@ -4,7 +4,7 @@ use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
 use windows_core::{
-    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, InterfaceRef,
+    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, Interface, InterfaceRef,
 };
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
@@ -19,8 +19,12 @@ unsafe trait IBar: IUnknown {
     fn say_hello(&self);
 }
 
+const APP_SIGNATURE: [u8; 8] = *b"cafef00d";
+
 #[implement(IFoo, IBar)]
 struct MyApp {
+    // We use signature to verify field offsets for dynamic casts
+    signature: [u8; 8],
     x: u32,
     tombstone: Arc<Tombstone>,
 }
@@ -63,6 +67,7 @@ impl core::fmt::Display for MyApp {
 impl Default for MyApp {
     fn default() -> Self {
         Self {
+            signature: APP_SIGNATURE,
             x: 0,
             tombstone: Arc::new(Tombstone::default()),
         }
@@ -109,6 +114,7 @@ impl MyApp {
     fn new(x: u32) -> ComObject<Self> {
         ComObject::new(Self {
             x,
+            signature: APP_SIGNATURE,
             tombstone: Arc::new(Tombstone::default()),
         })
     }
@@ -331,6 +337,43 @@ fn from_inner_ref() {
     let ifoo: InterfaceRef<IFoo> = app.as_interface();
     let ibar: IBar = unsafe { ifoo.get_self_as_bar() };
     unsafe { ibar.say_hello() };
+}
+
+#[test]
+fn to_object() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+    let app_outer: &MyApp_Impl = &app;
+
+    let second_app = app_outer.to_object();
+    assert!(!tombstone.is_dead());
+    assert_eq!(second_app.signature, APP_SIGNATURE);
+
+    println!("x = {}", unsafe { second_app.get_x() });
+
+    drop(second_app);
+    assert!(!tombstone.is_dead());
+
+    drop(app);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
+fn dynamic_cast() {
+    let app = MyApp::new(42);
+    let unknown = app.to_interface::<IUnknown>();
+
+    assert!(!unknown.is_object::<SendableThing>());
+    assert!(unknown.is_object::<MyApp>());
+
+    let dyn_app_ref: &MyApp_Impl = unknown.cast_object_ref::<MyApp>().unwrap();
+    assert_eq!(dyn_app_ref.signature, APP_SIGNATURE);
+
+    let dyn_app_owned: ComObject<MyApp> = unknown.cast_object().unwrap();
+    assert_eq!(dyn_app_owned.signature, APP_SIGNATURE);
+
+    let dyn_app_owned_2: ComObject<MyApp> = ComObject::cast_from(&unknown).unwrap();
+    assert_eq!(dyn_app_owned_2.signature, APP_SIGNATURE);
 }
 
 // This tests that we can place a type that is not Send in a ComObject.
