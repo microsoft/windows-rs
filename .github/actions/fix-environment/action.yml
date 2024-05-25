@@ -18,6 +18,9 @@ runs:
     - name: Configure environment
       shell: pwsh
       run: |
+        $vs_root = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
+          -latest -property installationPath -format value
+
         switch -Wildcard ("${{ matrix.target }}")
         {
           "*-pc-windows-gnu"
@@ -26,27 +29,38 @@ runs:
           }
           "i686*"
           {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x86" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx86\x86")
+            "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.22000.0\x86" >> $env:GITHUB_PATH
+            ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx86\x86")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
           "x86_64*"
           {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+            "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
+            ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\x64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
           "aarch64*"
           {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+            "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
+            ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\x64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
           "*"
           {
             (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
             (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
-            "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
+            "INCLUDE=${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.22000.0\winrt;${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
               >> $env:GITHUB_ENV
           }
         }
+    # Workaround to address several issues with windows-2022 runners:
+    # - Old mingw-w64-* binutils that prevent deterministic builds.
+    # - Missing llvm-dlltool in the native Windows LLVM package.
+    # - Missing mingw-w64 compiler packages.
+    - name: Update packages
+      shell: pwsh
+      run: |
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-binutils
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-llvm
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-i686-gcc
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-gcc

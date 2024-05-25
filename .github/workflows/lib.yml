@@ -13,7 +13,7 @@ env:
 
 jobs:
   check:
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,22 +27,30 @@ jobs:
           set PATH=C:\msys64\mingw64\bin;%PATH%
           cargo run -p tool_gnu -- all
 
+      - name: Find Visual Studio
+        id: visual-studio
+        shell: pwsh
+        run: |
+          $path = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
+            -latest -property installationPath -format value
+          "install_path=$path" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
       - name: Build i686_msvc
         shell: cmd
         run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
+          call "${{steps.visual-studio.outputs.install_path}}\VC\Auxiliary\Build\vcvars32.bat" x86
           cargo run -p tool_msvc
 
       - name: Build x86_64_msvc
         shell: cmd
         run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64
+          call "${{steps.visual-studio.outputs.install_path}}\VC\Auxiliary\Build\vcvars32.bat" amd64
           cargo run -p tool_msvc
 
       - name: Build aarch64_msvc
         shell: cmd
         run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64_arm64
+          call "${{steps.visual-studio.outputs.install_path}}\VC\Auxiliary\Build\vcvars32.bat" amd64_arm64
           cargo run -p tool_msvc
 
       - name: Upload libs
@@ -60,7 +68,7 @@ jobs:
       - name: Check dumpbin
         shell: pwsh
         run: |
-          $VisualStudioRoot = & vswhere -latest -property installationPath -format value
+          $VisualStudioRoot = "${{steps.visual-studio.outputs.install_path}}"
           $DumpbinPath = Resolve-Path "$VisualStudioRoot\VC\Tools\MSVC\*\bin\*\x86\dumpbin.exe" |
             Select -ExpandProperty Path -First 1
           $Tests = @(
