@@ -6,3 +6,4 @@
 #![doc = include_str!("../../../../crates/libs/targets/readme.md")]
 #![doc = include_str!("../../../../crates/libs/version/readme.md")]
 #![doc = include_str!("../../../../crates/libs/windows/readme.md")]
+#![doc = include_str!("../../../../crates/libs/cppwinrt/readme.md")]
