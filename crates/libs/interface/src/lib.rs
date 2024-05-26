@@ -237,8 +237,11 @@ impl Interface {
                     quote! {
                         unsafe extern "system" fn #name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
                             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-                            let this = (*this).get_impl();
-                            this.#name(#(#params),*).into()
+                            let this_impl: &Impl = (*this).get_impl();
+                            // We use explicit <Impl as IFoo_Impl> so that we can select the correct method
+                            // for situations where IFoo3 derives from IFoo2 and both declare a method with
+                            // the same name.
+                            <Impl as #trait_name>::#name(this_impl, #(#params),*).into()
                         }
                     }
                 } else {
