@@ -3,4 +3,5 @@
 
 #![cfg(test)]
 
+mod com_chain;
 mod com_object;

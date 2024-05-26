@@ -211,6 +211,17 @@ impl Interface {
         let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
         let parent_vtable = self.parent_vtable();
 
+        // or_parent_matches will be `|| parent::matches(iid)` if this interface inherits from another
+        // interface (except for IUnknown) or will be empty if this is not applicable. This is what allows
+        // QueryInterface to work correctly for all interfaces in an inheritance chain, e.g.
+        // IFoo3 derives from IFoo2 derives from IFoo.
+        //
+        // We avoid matching IUnknown because object identity depends on the uniqueness of the IUnknown pointer.
+        let or_parent_matches = match parent_vtable.as_ref() {
+            Some(parent) if !self.parent_is_iunknown() => quote! (|| <#parent>::matches(iid)),
+            _ => quote!(),
+        };
+
         let functions = self
             .methods
             .iter()
@@ -287,8 +298,10 @@ impl Interface {
                         Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                     }
 
-                    pub fn matches(iid: &windows_core::GUID) -> bool {
-                        iid == &<#name as ::windows_core::Interface>::IID
+                    #[inline(always)]
+                    pub fn matches(iid: &::windows_core::GUID) -> bool {
+                        *iid == <#name as ::windows_core::Interface>::IID
+                        #or_parent_matches
                     }
                 }
             }
