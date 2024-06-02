@@ -10,13 +10,13 @@ unsafe trait IBorrowed: IUnknown {
 #[implement(IServiceProvider, IBorrowed, IProfferService)]
 struct Borrowed(u32);
 
-impl IBorrowed_Impl for Borrowed {
+impl IBorrowed_Impl for Borrowed_Impl {
     unsafe fn Call(&self) -> u32 {
         self.0
     }
 }
 
-impl IServiceProvider_Impl for Borrowed {
+impl IServiceProvider_Impl for Borrowed_Impl {
     fn QueryService(
         &self,
         _service: *const GUID,
@@ -30,7 +30,7 @@ impl IServiceProvider_Impl for Borrowed {
     }
 }
 
-impl IProfferService_Impl for Borrowed {
+impl IProfferService_Impl for Borrowed_Impl {
     fn ProfferService(&self, _: *const GUID, provider: Option<&IServiceProvider>) -> Result<u32> {
         unsafe {
             if let Some(provider) = provider {

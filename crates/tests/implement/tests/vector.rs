@@ -31,7 +31,13 @@ where
     fn new(vec: Vec<T::Default>) -> Self {
         Self(RwLock::new(vec))
     }
+}
 
+impl<T> Vector_Impl<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     // Methods common to IVector and IVectorView:
     fn GetAt(&self, index: u32) -> Result<T> {
         let reader = self.0.read().unwrap();
@@ -57,7 +63,7 @@ where
     }
 }
 
-impl<T> IVector_Impl<T> for Vector<T>
+impl<T> IVector_Impl<T> for Vector_Impl<T>
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,
@@ -137,7 +143,7 @@ where
     }
 }
 
-impl<T> IVectorView_Impl<T> for Vector<T>
+impl<T> IVectorView_Impl<T> for Vector_Impl<T>
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,
@@ -156,7 +162,7 @@ where
     }
 }
 
-impl<T> IIterable_Impl<T> for Vector<T>
+impl<T> IIterable_Impl<T> for Vector_Impl<T>
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,

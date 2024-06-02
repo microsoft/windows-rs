@@ -12,13 +12,13 @@ unsafe trait ITestPersistMemory: IPersist {
 #[implement(ITestPersistMemory, IPersist)]
 struct Test;
 
-impl IPersist_Impl for Test {
+impl IPersist_Impl for Test_Impl {
     fn GetClassID(&self) -> Result<GUID> {
         Ok("CEE1D356-0860-4262-90D4-C77423F0E352".into())
     }
 }
 
-impl ITestPersistMemory_Impl for Test {
+impl ITestPersistMemory_Impl for Test_Impl {
     unsafe fn IsDirty(&self) -> HRESULT {
         S_FALSE
     }

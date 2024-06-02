@@ -97,10 +97,16 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
         if has_unknown_base {
             quote! {
-                unsafe extern "system" fn #name<#constraints Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
+                unsafe extern "system" fn #name<
+                    #constraints
+                    Identity: windows_core::IUnknownImpl,
+                    const OFFSET: isize
+                > #vtbl_signature
+                where
+                    Identity: #impl_ident<#generic_names>
+                {
                     // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
-                    let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-                    let this = (*this).get_impl();
+                    let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                     #invoke_upcall
                 }
             }
@@ -123,7 +129,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         Some(metadata::Type::TypeDef(def, generics)) => {
             let name = writer.type_def_name_imp(*def, generics, "_Vtbl");
             if has_unknown_base {
-                methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });
+                methods.combine(&quote! { base__: #name::new::<Identity, OFFSET>(), });
             } else {
                 methods.combine(&quote! { base__: #name::new::<Impl>(), });
             }
@@ -136,7 +142,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     for method in def.methods() {
         let name = method_names.add(method);
         if has_unknown_base {
-            methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
+            methods.combine(&quote! { #name: #name::<#generic_names Identity, OFFSET>, });
         } else {
             methods.combine(&quote! { #name: #name::<Impl>, });
         }
@@ -151,7 +157,13 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             #runtime_name
             #features
             impl<#constraints> #vtbl_ident<#generic_names> {
-                pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
+                pub const fn new<
+                    Identity: windows_core::IUnknownImpl,
+                    const OFFSET: isize
+                >() -> #vtbl_ident<#generic_names>
+                where
+                    Identity : #impl_ident<#generic_names>
+                {
                     #(#method_impls)*
                     Self{
                         #methods

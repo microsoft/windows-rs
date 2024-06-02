@@ -5,13 +5,13 @@ use windows::{core::*, Win32::System::Com::*, Win32::UI::Shell::PropertiesSystem
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]
 struct Object(std::sync::RwLock<PROPVARIANT>);
 
-impl IInitializeWithStream_Impl for Object {
+impl IInitializeWithStream_Impl for Object_Impl {
     fn Initialize(&self, _: Option<&IStream>, _: u32) -> Result<()> {
         Ok(())
     }
 }
 
-impl IPropertyStore_Impl for Object {
+impl IPropertyStore_Impl for Object_Impl {
     fn GetCount(&self) -> Result<u32> {
         Ok(123)
     }
@@ -32,7 +32,7 @@ impl IPropertyStore_Impl for Object {
     }
 }
 
-impl IPropertyStoreCapabilities_Impl for Object {
+impl IPropertyStoreCapabilities_Impl for Object_Impl {
     fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> Result<()> {
         Ok(())
     }

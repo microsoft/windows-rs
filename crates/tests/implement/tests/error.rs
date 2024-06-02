@@ -3,7 +3,7 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*};
 #[implement(IStringable)]
 struct Test;
 
-impl IStringable_Impl for Test {
+impl IStringable_Impl for Test_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Err(Error::new(E_INVALIDARG, "Test message"))
     }

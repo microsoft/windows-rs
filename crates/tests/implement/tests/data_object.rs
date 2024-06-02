@@ -19,7 +19,7 @@ struct TestData {
 #[derive(Default)]
 struct Test(std::cell::UnsafeCell<TestData>);
 
-impl IDataObject_Impl for Test {
+impl IDataObject_Impl for Test_Impl {
     fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         unsafe {
             (*self.0.get()).GetData = true;

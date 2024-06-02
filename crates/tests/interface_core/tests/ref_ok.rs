@@ -11,7 +11,7 @@ unsafe trait ITest: IUnknown {
 #[implement(ITest)]
 struct Test(i32);
 
-impl ITest_Impl for Test {
+impl ITest_Impl for Test_Impl {
     unsafe fn Test(&self, result: &mut i32) -> Result<()> {
         *result = self.0;
         Ok(())

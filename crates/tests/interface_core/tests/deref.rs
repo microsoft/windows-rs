@@ -20,19 +20,19 @@ unsafe trait IThird: ISecond {
 #[implement(IFirst, ISecond, IThird)]
 struct Class;
 
-impl IFirst_Impl for Class {
+impl IFirst_Impl for Class_Impl {
     unsafe fn First(&self) -> i32 {
         1
     }
 }
 
-impl ISecond_Impl for Class {
+impl ISecond_Impl for Class_Impl {
     unsafe fn Second(&self) -> i32 {
         2
     }
 }
 
-impl IThird_Impl for Class {
+impl IThird_Impl for Class_Impl {
     unsafe fn Third(&self) -> i32 {
         3
     }

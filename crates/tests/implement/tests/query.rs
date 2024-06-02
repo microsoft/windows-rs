@@ -3,7 +3,7 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT
 #[implement(IStringable)]
 struct Stringable;
 
-impl IStringable_Impl for Stringable {
+impl IStringable_Impl for Stringable_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         todo!()
     }

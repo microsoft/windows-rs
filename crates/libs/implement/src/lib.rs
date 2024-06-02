@@ -78,7 +78,7 @@ pub fn implement(
         .map(|(enumerate, implement)| {
             let vtbl_ident = implement.to_vtbl_ident();
             let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-            quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
+            quote! { #vtbl_ident::new::<Self, #offset>() }
         });
 
     let offset = attributes
@@ -166,6 +166,7 @@ pub fn implement(
 
     let tokens = quote! {
         #[repr(C)]
+        #[allow(non_camel_case_types)]
         #vis struct #impl_ident #generics where #constraints {
             identity: &'static ::windows_core::IInspectable_Vtbl,
             vtables: (#(&'static #vtbl_idents,)*),

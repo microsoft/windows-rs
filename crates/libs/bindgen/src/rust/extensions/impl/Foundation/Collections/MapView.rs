@@ -9,7 +9,7 @@ where
     map: std::collections::BTreeMap<K::Default, V::Default>,
 }
 
-impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMapView<K, V>
+impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMapView_Impl<K, V>
 where
     K: windows_core::RuntimeType,
     V: windows_core::RuntimeType,
@@ -17,15 +17,17 @@ where
     V::Default: Clone,
 {
     fn First(&self) -> windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
-        unsafe {
-            // TODO: ideally we can do an AddRef rather than a QI here (via cast)...
-            // and then we can get rid of the unsafe as well.
-            Ok(StockMapViewIterator::<K, V> { _owner: self.cast()?, current: std::sync::RwLock::new(self.map.iter()) }.into())
-        }
+        use windows_core::IUnknownImpl;
+
+        Ok(windows_core::ComObject::new(StockMapViewIterator::<K, V> {
+            _owner: self.to_object(),
+            current: std::sync::RwLock::new(self.map.iter()),
+        })
+        .into_interface())
     }
 }
 
-impl<K, V> IMapView_Impl<K, V> for StockMapView<K, V>
+impl<K, V> IMapView_Impl<K, V> for StockMapView_Impl<K, V>
 where
     K: windows_core::RuntimeType,
     V: windows_core::RuntimeType,
@@ -33,7 +35,10 @@ where
     V::Default: Clone,
 {
     fn Lookup(&self, key: &K::Default) -> windows_core::Result<V> {
-        let value = self.map.get(key).ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
+        let value = self
+            .map
+            .get(key)
+            .ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
         V::from_default(value)
     }
     fn Size(&self) -> windows_core::Result<u32> {
@@ -42,7 +47,11 @@ where
     fn HasKey(&self, key: &K::Default) -> windows_core::Result<bool> {
         Ok(self.map.contains_key(key))
     }
-    fn Split(&self, first: &mut Option<IMapView<K, V>>, second: &mut Option<IMapView<K, V>>) -> windows_core::Result<()> {
+    fn Split(
+        &self,
+        first: &mut Option<IMapView<K, V>>,
+        second: &mut Option<IMapView<K, V>>,
+    ) -> windows_core::Result<()> {
         *first = None;
         *second = None;
         Ok(())
@@ -57,11 +66,11 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    _owner: IIterable<IKeyValuePair<K, V>>,
+    _owner: windows_core::ComObject<StockMapView<K, V>>,
     current: std::sync::RwLock<std::collections::btree_map::Iter<'a, K::Default, V::Default>>,
 }
 
-impl<'a, K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapViewIterator<'a, K, V>
+impl<'a, K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapViewIterator_Impl<'a, K, V>
 where
     K: windows_core::RuntimeType,
     V: windows_core::RuntimeType,
@@ -72,7 +81,11 @@ where
         let mut current = self.current.read().unwrap().clone().peekable();
 
         if let Some((key, value)) = current.peek() {
-            Ok(StockKeyValuePair { key: (*key).clone(), value: (*value).clone() }.into())
+            Ok(windows_core::ComObject::new(StockKeyValuePair {
+                key: (*key).clone(),
+                value: (*value).clone(),
+            })
+            .into_interface())
         } else {
             Err(windows_core::Error::from(windows_core::imp::E_BOUNDS))
         }
@@ -97,7 +110,13 @@ where
 
         for pair in pairs {
             if let Some((key, value)) = current.next() {
-                *pair = Some(StockKeyValuePair { key: (*key).clone(), value: (*value).clone() }.into());
+                *pair = Some(
+                    windows_core::ComObject::new(StockKeyValuePair {
+                        key: (*key).clone(),
+                        value: (*value).clone(),
+                    })
+                    .into_interface(),
+                );
                 actual += 1;
             } else {
                 break;
@@ -120,7 +139,7 @@ where
     value: V::Default,
 }
 
-impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair<K, V>
+impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair_Impl<K, V>
 where
     K: windows_core::RuntimeType,
     V: windows_core::RuntimeType,
@@ -143,7 +162,9 @@ where
     V::Default: Clone,
 {
     type Error = windows_core::Error;
-    fn try_from(map: std::collections::BTreeMap<K::Default, V::Default>) -> windows_core::Result<Self> {
+    fn try_from(
+        map: std::collections::BTreeMap<K::Default, V::Default>,
+    ) -> windows_core::Result<Self> {
         // TODO: should provide a fallible try_into or more explicit allocator
         Ok(StockMapView { map }.into())
     }
